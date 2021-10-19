@@ -10,10 +10,10 @@ public class n2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f14271a;
+    public boolean f14294a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14272b;
+    public String f14295b;
 
     public n2() {
         Interceptable interceptable = $ic;

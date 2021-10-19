@@ -17,14 +17,14 @@ public final class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Stack<WeakReference<Activity>> f30328a;
+    public Stack<WeakReference<Activity>> f30375a;
 
     /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f30329a;
+        public static final d f30376a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,7 +40,7 @@ public final class d {
                     return;
                 }
             }
-            f30329a = new d((byte) 0);
+            f30376a = new d((byte) 0);
         }
     }
 
@@ -51,7 +51,7 @@ public final class d {
     public final Stack<WeakReference<Activity>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30328a : (Stack) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30375a : (Stack) invokeV.objValue;
     }
 
     public final String b() {
@@ -59,8 +59,8 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < this.f30328a.size(); i2++) {
-                Activity activity = this.f30328a.get(i2).get();
+            for (int i2 = 0; i2 < this.f30375a.size(); i2++) {
+                Activity activity = this.f30375a.get(i2).get();
                 if (activity != null) {
                     sb.append(activity.getClass().getSimpleName());
                     sb.append("->");
@@ -74,17 +74,17 @@ public final class d {
     public final void c(WeakReference<Activity> weakReference) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, weakReference) == null) {
-            this.f30328a.add(weakReference);
+            this.f30375a.add(weakReference);
         }
     }
 
     public final void d(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (this.f30328a != null) {
-                for (int i2 = 0; i2 < this.f30328a.size(); i2++) {
-                    if (this.f30328a.get(i2).get() == activity) {
-                        Stack<WeakReference<Activity>> stack = this.f30328a;
+            if (this.f30375a != null) {
+                for (int i2 = 0; i2 < this.f30375a.size(); i2++) {
+                    if (this.f30375a.get(i2).get() == activity) {
+                        Stack<WeakReference<Activity>> stack = this.f30375a;
                         stack.remove(stack.get(i2));
                     }
                 }
@@ -106,6 +106,6 @@ public final class d {
                 return;
             }
         }
-        this.f30328a = new Stack<>();
+        this.f30375a = new Stack<>();
     }
 }

@@ -12,34 +12,34 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public m f30008a;
+    public m f30055a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashSet<String> f30009b;
+    public HashSet<String> f30056b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f30010c;
+    public HashSet<String> f30057c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashSet<String> f30011d;
+    public HashSet<String> f30058d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashSet<String> f30012e;
+    public HashSet<String> f30059e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashSet<String> f30013f;
+    public HashSet<String> f30060f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashSet<String> f30014g;
+    public HashSet<String> f30061g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<String, Integer> f30015h;
+    public HashMap<String, Integer> f30062h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HashMap<String, String> f30016i;
+    public HashMap<String, String> f30063i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HashMap<String, l> f30017j;
+    public HashMap<String, l> f30064j;
     public HashSet<String> k;
     public HashSet<String> l;
     public HashMap<String, Integer> m;
@@ -59,16 +59,16 @@ public class f {
                 return;
             }
         }
-        this.f30008a = new m();
-        this.f30009b = new HashSet<>();
-        this.f30010c = new HashSet<>();
-        this.f30011d = new HashSet<>();
-        this.f30012e = new HashSet<>();
-        this.f30013f = new HashSet<>();
-        this.f30014g = new HashSet<>();
-        this.f30015h = new HashMap<>();
-        this.f30016i = new HashMap<>();
-        this.f30017j = new HashMap<>();
+        this.f30055a = new m();
+        this.f30056b = new HashSet<>();
+        this.f30057c = new HashSet<>();
+        this.f30058d = new HashSet<>();
+        this.f30059e = new HashSet<>();
+        this.f30060f = new HashSet<>();
+        this.f30061g = new HashSet<>();
+        this.f30062h = new HashMap<>();
+        this.f30063i = new HashMap<>();
+        this.f30064j = new HashMap<>();
         this.k = new HashSet<>();
         this.l = new HashSet<>();
         this.m = new HashMap<>();

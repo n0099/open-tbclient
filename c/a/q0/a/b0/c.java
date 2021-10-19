@@ -148,8 +148,8 @@ public class c {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.r0.j3.e0.a.h(309637, ActiveConfigSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, c.a.r0.j3.e0.a.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
+            c.a.r0.k3.e0.a.h(309637, ActiveConfigSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, c.a.r0.k3.e0.a.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
             tbHttpMessageTask.setResponsedClass(ActiveConfigHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

@@ -11,11 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.g;
 import c.a.e.e.p.k;
-import c.a.q0.d1.t0;
+import c.a.q0.d1.s0;
 import c.a.q0.j0.i;
 import c.a.q0.o0.e;
-import c.a.r0.w0.l0;
-import c.a.r0.w0.m2.f;
+import c.a.r0.x0.l0;
+import c.a.r0.x0.m2.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -60,7 +60,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.ItemInfo;
 /* loaded from: classes7.dex */
-public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, VoiceManager.j, UserIconBox.c, FrsCommonImageLayout.e, IVideoNeedPreload, l0 {
+public class FrsActivity extends BaseFragmentActivity implements c.a.r0.g.e.b, VoiceManager.j, UserIconBox.c, FrsCommonImageLayout.e, IVideoNeedPreload, l0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean doRefresh;
@@ -84,7 +84,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ FrsActivity f50884g;
+        public final /* synthetic */ FrsActivity f50811g;
 
         public a(FrsActivity frsActivity) {
             Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
                     return;
                 }
             }
-            this.f50884g = frsActivity;
+            this.f50811g = frsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -111,10 +111,10 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tipEvent)) == null) {
-                if (tipEvent.pageId <= 0 || this.f50884g.getPageId() != tipEvent.pageId) {
+                if (tipEvent.pageId <= 0 || this.f50811g.getPageId() != tipEvent.pageId) {
                     return true;
                 }
-                DefaultNavigationBarCoverTip.makeText(this.f50884g.getActivity(), tipEvent.message, tipEvent.linkUrl).show();
+                DefaultNavigationBarCoverTip.makeText(this.f50811g.getActivity(), tipEvent.message, tipEvent.linkUrl).show();
                 return true;
             }
             return invokeL.booleanValue;
@@ -127,7 +127,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ FrsActivity f50885g;
+        public final /* synthetic */ FrsActivity f50812g;
 
         public b(FrsActivity frsActivity) {
             Interceptable interceptable = $ic;
@@ -144,7 +144,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
                     return;
                 }
             }
-            this.f50885g = frsActivity;
+            this.f50812g = frsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -154,7 +154,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, goodsEvent)) == null) {
-                if (goodsEvent == null || this.f50885g.mTabController.O() == null) {
+                if (goodsEvent == null || this.f50812g.mTabController.O() == null) {
                     return false;
                 }
                 if (goodsEvent.getDispose()) {
@@ -163,7 +163,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
                 if (WriteActivityConfig.isAsyncWriting()) {
                     return false;
                 }
-                WriteActivityConfig.newInstance(this.f50885g).setType(9).setForumWriteData(this.f50885g.mTabController.O().getForumWriteData()).setCallFrom("2").setGoodsList(goodsEvent.getGoodsList()).send();
+                WriteActivityConfig.newInstance(this.f50812g).setType(9).setForumWriteData(this.f50812g.mTabController.O().getForumWriteData()).setCallFrom("2").setGoodsList(goodsEvent.getGoodsList()).send();
                 goodsEvent.setDispost(true);
                 return true;
             }
@@ -177,7 +177,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsActivity f50886a;
+        public final /* synthetic */ FrsActivity f50813a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(FrsActivity frsActivity, int i2) {
@@ -197,7 +197,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
                     return;
                 }
             }
-            this.f50886a = frsActivity;
+            this.f50813a = frsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -205,7 +205,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f50886a.showGuideWindow();
+                this.f50813a.showGuideWindow();
             }
         }
     }
@@ -216,7 +216,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsActivity f50887a;
+        public final /* synthetic */ FrsActivity f50814a;
 
         public d(FrsActivity frsActivity) {
             Interceptable interceptable = $ic;
@@ -233,7 +233,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
                     return;
                 }
             }
-            this.f50887a = frsActivity;
+            this.f50814a = frsActivity;
         }
 
         @Override // c.a.q0.o0.b
@@ -322,12 +322,12 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
         }
     }
 
-    @Override // c.a.r0.f.e.b
-    public void dispatchInjectPluginMessage(c.a.r0.f.d dVar) {
+    @Override // c.a.r0.g.e.b
+    public void dispatchInjectPluginMessage(c.a.r0.g.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
             FrsTabController frsTabController = this.mTabController;
-            if (frsTabController instanceof c.a.r0.f.e.b) {
+            if (frsTabController instanceof c.a.r0.g.e.b) {
                 frsTabController.dispatchInjectPluginMessage(dVar);
             }
         }
@@ -396,21 +396,21 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? TbadkCoreApplication.getInst().isGpuOpen() : invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.f.e.b
-    public c.a.r0.f.e.a getInjectPlugin(int i2) {
+    @Override // c.a.r0.g.e.b
+    public c.a.r0.g.e.a getInjectPlugin(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
             FrsTabController frsTabController = this.mTabController;
-            if (frsTabController instanceof c.a.r0.f.e.b) {
+            if (frsTabController instanceof c.a.r0.g.e.b) {
                 return frsTabController.getInjectPlugin(i2);
             }
             return null;
         }
-        return (c.a.r0.f.e.a) invokeI.objValue;
+        return (c.a.r0.g.e.a) invokeI.objValue;
     }
 
-    @Override // c.a.r0.w0.l0
+    @Override // c.a.r0.x0.l0
     public ItemInfo getItemInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -455,10 +455,10 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
             if (pageStayDurationItem != null) {
                 FrsTabController frsTabController = this.mTabController;
                 if (frsTabController != null && frsTabController.O() != null) {
-                    pageStayDurationItem.r(c.a.e.e.m.b.g(this.mTabController.O().forumId, 0L));
+                    pageStayDurationItem.t(c.a.e.e.m.b.g(this.mTabController.O().forumId, 0L));
                 }
                 if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-                    pageStayDurationItem.o(TbadkCoreApplication.getInst().getAdAdSense().q);
+                    pageStayDurationItem.q(TbadkCoreApplication.getInst().getAdAdSense().q);
                 }
             }
             return pageStayDurationItem;
@@ -549,13 +549,13 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
         fVar.h();
     }
 
-    @Override // c.a.r0.w0.l0
+    @Override // c.a.r0.x0.l0
     public boolean isInScoreTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             FrsTabController frsTabController = this.mTabController;
-            return (frsTabController == null || frsTabController.O() == null || this.mTabController.O().getTabController() == null || this.mTabController.O().getTabController().z() == null || this.mTabController.O().getTabController().z().f51757d != 16) ? false : true;
+            return (frsTabController == null || frsTabController.O() == null || this.mTabController.O().getTabController() == null || this.mTabController.O().getTabController().z() == null || this.mTabController.O().getTabController().z().f51684d != 16) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -593,7 +593,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
                 if (bdUniqueId2 != null) {
                     setUniqueId(bdUniqueId2);
                 }
-                if (intent.getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.f().h("MainTabActivity")) {
+                if (intent.getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.g().i("MainTabActivity")) {
                     this.mIsFromSchema = true;
                 }
             } else if (bundle != null && (bdUniqueId = (BdUniqueId) bundle.getSerializable(FrsActivityConfig.FRS_PAGE_ID)) != null) {
@@ -616,14 +616,14 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
             }
             this.mWeakContext = new WeakReference<>(TbadkCoreApplication.getInst());
             registerResponsedEventListener(TipEvent.class, this.mTipsEventListener);
-            c.a.r0.e0.a.a(getIntent(), getPageContext(), 25050);
+            c.a.r0.f0.a.a(getIntent(), getPageContext(), 25050);
             this.frsGuidePopupView = new GuidePopupWindow(this);
             registerListener(this.mGuideWindowListener);
             this.mSwanappReturnProductDateListener.setPriority(10);
             registerResponsedEventListener(GoodsEvent.class, this.mSwanappReturnProductDateListener);
             if (c.a.q0.b.d.p()) {
                 FrsTabController frsTabController2 = this.mTabController;
-                c.a.r0.x0.a.i().C(this, c.a.r0.x0.d.c.e().d("frs_feed"), c.a.r0.x0.a.b("frs", "1"), (frsTabController2 == null || frsTabController2.O() == null) ? "" : this.mTabController.O().getFid());
+                c.a.r0.y0.a.i().C(this, c.a.r0.y0.e.c.e().d("frs_feed"), c.a.r0.y0.a.b("frs", "1"), (frsTabController2 == null || frsTabController2.O() == null) ? "" : this.mTabController.O().getFid());
             }
         }
     }
@@ -642,16 +642,16 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
                 }
                 this.mTabController.h0();
             }
-            c.a.r0.w0.b.f().m();
-            c.a.r0.w0.a.h().n();
-            c.a.r0.w0.a.h().c();
-            c.a.r0.w0.c.c().a();
+            c.a.r0.x0.b.f().m();
+            c.a.r0.x0.a.h().n();
+            c.a.r0.x0.a.h().c();
+            c.a.r0.x0.c.c().a();
             if (!k.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 TbadkCoreApplication.getInst().setTaskId("");
             }
             FrsNetModel frsNetModel = TbadkCoreApplication.getInst().getFrsModeArray().get(getUniqueId().getId());
             if (frsNetModel != null) {
-                frsNetModel.Z(null);
+                frsNetModel.Y(null);
             }
             TbadkCoreApplication.getInst().getFrsModeArray().remove(getUniqueId().getId());
             TbPageExtraHelper.v(getCurrentPageKey());
@@ -700,7 +700,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
             if (j2 >= 0) {
                 long j3 = currentTimeMillis - j2;
                 if (j3 >= 0 && (pageStayDurationItem = getPageStayDurationItem()) != null) {
-                    pageStayDurationItem.w(j3);
+                    pageStayDurationItem.y(j3);
                     e.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
                 }
             }
@@ -723,7 +723,7 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             super.onResume();
             if (this.doRefresh) {
-                t0.g(this.mWeakContext);
+                s0.g(this.mWeakContext);
                 this.doRefresh = false;
             }
             FrsTabController frsTabController = this.mTabController;
@@ -773,18 +773,18 @@ public class FrsActivity extends BaseFragmentActivity implements c.a.r0.f.e.b, V
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048609, this, i2, keyEvent)) == null) ? super.onKeyDown(i2, keyEvent) : invokeIL.booleanValue;
     }
 
-    @Override // c.a.r0.f.e.b
-    public void setInjectPlugin(int i2, c.a.r0.f.e.a aVar) {
+    @Override // c.a.r0.g.e.b
+    public void setInjectPlugin(int i2, c.a.r0.g.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048610, this, i2, aVar) == null) {
             FrsTabController frsTabController = this.mTabController;
-            if (frsTabController instanceof c.a.r0.f.e.b) {
+            if (frsTabController instanceof c.a.r0.g.e.b) {
                 frsTabController.setInjectPlugin(i2, aVar);
             }
         }
     }
 
-    @Override // c.a.r0.w0.l0
+    @Override // c.a.r0.x0.l0
     public void setItemInfo(ItemInfo itemInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, itemInfo) == null) {

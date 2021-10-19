@@ -627,9 +627,9 @@ public final class a {
                 f4118d |= 16;
                 List<d> f3 = f(new Intent("com.baidu.intent.action.GALAXY"), z);
                 if (f3 != null) {
-                    String str = com.baidu.fsg.face.base.b.c.f39841g;
+                    String str = com.baidu.fsg.face.base.b.c.f39845g;
                     File filesDir = this.f4119a.getFilesDir();
-                    if (!com.baidu.fsg.face.base.b.c.f39841g.equals(filesDir.getName())) {
+                    if (!com.baidu.fsg.face.base.b.c.f39845g.equals(filesDir.getName())) {
                         str = filesDir.getName();
                     }
                     for (d dVar : f3) {

@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class DateTimeUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATE_FORMAT = "yyyy-MM-dd";

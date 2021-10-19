@@ -3,9 +3,9 @@ package com.baidu.tieba.write.write;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import c.a.r0.c4.u.j;
-import c.a.r0.c4.u.k;
-import c.a.r0.c4.u.n.b.c;
+import c.a.r0.d4.u.j;
+import c.a.r0.d4.u.k;
+import c.a.r0.d4.u.n.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -37,7 +37,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteMultiImgsActivity f59213a;
+        public final /* synthetic */ WriteMultiImgsActivity f59163a;
 
         public a(WriteMultiImgsActivity writeMultiImgsActivity) {
             Interceptable interceptable = $ic;
@@ -54,39 +54,39 @@ public class WriteMultiImgsActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f59213a = writeMultiImgsActivity;
+            this.f59163a = writeMultiImgsActivity;
         }
 
-        @Override // c.a.r0.c4.u.n.b.c
+        @Override // c.a.r0.d4.u.n.b.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f59213a.mControler.s();
-                this.f59213a.mControler.r(false);
+                this.f59163a.mControler.s();
+                this.f59163a.mControler.r(false);
             }
         }
 
-        @Override // c.a.r0.c4.u.n.b.c
+        @Override // c.a.r0.d4.u.n.b.c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f59213a.mControler.A();
+                this.f59163a.mControler.A();
             }
         }
 
-        @Override // c.a.r0.c4.u.n.b.c
+        @Override // c.a.r0.d4.u.n.b.c
         public boolean c(Bitmap bitmap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) ? this.f59213a.mControler.q(bitmap) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) ? this.f59163a.mControler.q(bitmap) : invokeL.booleanValue;
         }
 
-        @Override // c.a.r0.c4.u.n.b.c
+        @Override // c.a.r0.d4.u.n.b.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f59213a.mControler.n();
-                this.f59213a.mControler.r(true);
+                this.f59163a.mControler.n();
+                this.f59163a.mControler.r(true);
             }
         }
     }
@@ -183,7 +183,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             if (jVar != null) {
                 jVar.h(i2);
             }
-            this.mControler.f16994c.notifyDataSetChanged();
+            this.mControler.f17168c.notifyDataSetChanged();
         }
     }
 
@@ -198,8 +198,8 @@ public class WriteMultiImgsActivity extends BaseActivity {
             setContentView(jVar.k);
             k kVar = new k(getPageContext(), this.mMainView, bundle);
             this.mControler = kVar;
-            if (kVar.f17001j != TbadkCoreApplication.getInst().getSkinType()) {
-                TbadkCoreApplication.getInst().setSkinType(this.mControler.f17001j);
+            if (kVar.f17175j != TbadkCoreApplication.getInst().getSkinType()) {
+                TbadkCoreApplication.getInst().setSkinType(this.mControler.f17175j);
             }
         }
     }
@@ -227,11 +227,11 @@ public class WriteMultiImgsActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             k kVar = this.mControler;
-            if (kVar != null && (multiImagePagerAdapter = kVar.f16994c) != null) {
+            if (kVar != null && (multiImagePagerAdapter = kVar.f17168c) != null) {
                 bundle.putInt(OUTSTATE_KEY_CURRENT_INDEX, multiImagePagerAdapter.j());
                 bundle.putInt(OUTSTATE_KEY_WRITE_ENTRANCE, this.mControler.u());
                 bundle.putSerializable(OUTSTATE_KEY_WRITE_INFO_DATA, this.mControler.v());
-                this.mControler.f16994c.g(true);
+                this.mControler.f17168c.g(true);
                 if (this.mControler.w() != null) {
                     bundle.putString(OUTSTATE_KEY_WRITE_IMG_INFO, this.mControler.w().toJsonString());
                 }

@@ -46,46 +46,46 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f29921c;
+    public static Handler f29968c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final HandlerThread f29922d;
+    public static final HandlerThread f29969d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f29923e;
+    public static volatile boolean f29970e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile Map<Long, Message> f29924f;
+    public static volatile Map<Long, Message> f29971f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile Map<Long, MessageUbc> f29925g;
+    public static volatile Map<Long, MessageUbc> f29972g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile a f29926h;
+    public static volatile a f29973h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Context f29927i;
+    public static Context f29974i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicInteger f29928a;
+    public AtomicInteger f29975a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.u.a.b.d.b f29929b;
+    public c.a.u.a.b.d.b f29976b;
 
     /* renamed from: c.a.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1392a implements Runnable {
+    public class RunnableC1395a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f29930e;
+        public final /* synthetic */ Intent f29977e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f29931f;
+        public final /* synthetic */ a f29978f;
 
-        public RunnableC1392a(a aVar, Intent intent) {
+        public RunnableC1395a(a aVar, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,15 +100,15 @@ public class a {
                     return;
                 }
             }
-            this.f29931f = aVar;
-            this.f29930e = intent;
+            this.f29978f = aVar;
+            this.f29977e = intent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29931f.j(this.f29930e);
+                this.f29978f.j(this.f29977e);
             }
         }
     }
@@ -119,7 +119,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f29932a;
+        public final /* synthetic */ a f29979a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class a {
                     return;
                 }
             }
-            this.f29932a = aVar;
+            this.f29979a = aVar;
         }
 
         @Override // c.a.u.a.b.d.b
@@ -150,10 +150,10 @@ public class a {
                     NotifyMessageHandler.handleRtcReport(ProgressInfo.JSON_KEY_BEGIN, new String(bArr));
                 }
                 if (i2 != 0) {
-                    synchronized (a.f29924f) {
-                        if (a.f29924f != null && a.f29924f.containsKey(Long.valueOf(j4))) {
-                            ((Message) a.f29924f.get(Long.valueOf(j4))).handleMessageResult(a.f29927i, null, i2, str);
-                            a.f29924f.remove(Long.valueOf(j4));
+                    synchronized (a.f29971f) {
+                        if (a.f29971f != null && a.f29971f.containsKey(Long.valueOf(j4))) {
+                            ((Message) a.f29971f.get(Long.valueOf(j4))).handleMessageResult(a.f29974i, null, i2, str);
+                            a.f29971f.remove(Long.valueOf(j4));
                         }
                     }
                     return;
@@ -162,40 +162,40 @@ public class a {
                     JSONObject jSONObject = new JSONObject(new String(bArr));
                     int optInt = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
                     String optString = jSONObject.optString("msg", "");
-                    if (this.f29932a.i((int) j3)) {
-                        synchronized (a.f29924f) {
-                            messageUbc = (MessageUbc) a.f29925g.get(Long.valueOf(j4));
-                            a.f29925g.remove(Long.valueOf(j4));
+                    if (this.f29979a.i((int) j3)) {
+                        synchronized (a.f29971f) {
+                            messageUbc = (MessageUbc) a.f29972g.get(Long.valueOf(j4));
+                            a.f29972g.remove(Long.valueOf(j4));
                         }
                         if (messageUbc != null) {
                             c.a.s.a.a.d().f(messageUbc.generateUBCData(String.valueOf(optInt), optString), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                         }
                     }
                     if (j3 == 96) {
-                        NotifyMessageHandler.handleDeliverMessage(a.f29927i.getApplicationContext(), jSONObject);
+                        NotifyMessageHandler.handleDeliverMessage(a.f29974i.getApplicationContext(), jSONObject);
                     } else if (j3 == 196) {
-                        NotifyMessageHandler.handleMcastMessage(a.f29927i.getApplicationContext(), jSONObject);
+                        NotifyMessageHandler.handleMcastMessage(a.f29974i.getApplicationContext(), jSONObject);
                     } else if (j3 == 197) {
-                        NotifyMessageHandler.handleConfigMessage(a.f29927i.getApplicationContext(), jSONObject);
+                        NotifyMessageHandler.handleConfigMessage(a.f29974i.getApplicationContext(), jSONObject);
                     } else if (j3 == 226) {
-                        NotifyMessageHandler.handleMediaNotifyMessage(a.f29927i.getApplicationContext(), jSONObject);
+                        NotifyMessageHandler.handleMediaNotifyMessage(a.f29974i.getApplicationContext(), jSONObject);
                     } else if (i3 == 0) {
-                        NotifyMessageHandler.handleRtcNotifyMessage(a.f29927i, jSONObject);
+                        NotifyMessageHandler.handleRtcNotifyMessage(a.f29974i, jSONObject);
                     } else {
                         LogUtils.d("IMServiceImpl", "key :" + j4 + "response :" + jSONObject.toString());
-                        synchronized (a.f29924f) {
-                            if (a.f29924f != null && a.f29924f.containsKey(Long.valueOf(j4))) {
-                                ((Message) a.f29924f.get(Long.valueOf(j4))).handleMessageResult(a.f29927i, jSONObject, optInt, optString);
-                                a.f29924f.remove(Long.valueOf(j4));
+                        synchronized (a.f29971f) {
+                            if (a.f29971f != null && a.f29971f.containsKey(Long.valueOf(j4))) {
+                                ((Message) a.f29971f.get(Long.valueOf(j4))).handleMessageResult(a.f29974i, jSONObject, optInt, optString);
+                                a.f29971f.remove(Long.valueOf(j4));
                             }
                         }
                     }
                 } catch (JSONException e2) {
                     LogUtils.e("IMServiceImpl", "handle response e :", e2);
-                    synchronized (a.f29924f) {
-                        if (a.f29924f != null && a.f29924f.containsKey(Long.valueOf(j4))) {
-                            ((Message) a.f29924f.get(Long.valueOf(j4))).handleMessageResult(a.f29927i, null, -1, "");
-                            a.f29924f.remove(Long.valueOf(j4));
+                    synchronized (a.f29971f) {
+                        if (a.f29971f != null && a.f29971f.containsKey(Long.valueOf(j4))) {
+                            ((Message) a.f29971f.get(Long.valueOf(j4))).handleMessageResult(a.f29974i, null, -1, "");
+                            a.f29971f.remove(Long.valueOf(j4));
                         }
                     }
                 }
@@ -217,12 +217,12 @@ public class a {
             }
         }
         HandlerThread handlerThread = new HandlerThread("IMServiceImpl HandlerThread");
-        f29922d = handlerThread;
+        f29969d = handlerThread;
         handlerThread.start();
-        f29921c = new Handler(f29922d.getLooper());
-        f29923e = true;
-        f29924f = new LinkedHashMap();
-        f29925g = new LinkedHashMap();
+        f29968c = new Handler(f29969d.getLooper());
+        f29970e = true;
+        f29971f = new LinkedHashMap();
+        f29972g = new LinkedHashMap();
     }
 
     public a() {
@@ -238,19 +238,19 @@ public class a {
                 return;
             }
         }
-        this.f29928a = new AtomicInteger();
-        this.f29929b = new b(this);
+        this.f29975a = new AtomicInteger();
+        this.f29976b = new b(this);
         h();
     }
 
     public static void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
-            synchronized (f29924f) {
-                if (f29924f == null) {
+            synchronized (f29971f) {
+                if (f29971f == null) {
                     return;
                 }
-                for (Message message : f29924f.values()) {
+                for (Message message : f29971f.values()) {
                     if (message != null) {
                         message.handleMessageResult(context, null, -1, "");
                     }
@@ -263,15 +263,15 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (f29926h == null) {
+            if (f29973h == null) {
                 synchronized (a.class) {
-                    if (f29926h == null) {
-                        f29927i = context.getApplicationContext();
-                        f29926h = new a();
+                    if (f29973h == null) {
+                        f29974i = context.getApplicationContext();
+                        f29973h = new a();
                     }
                 }
             }
-            return f29926h;
+            return f29973h;
         }
         return (a) invokeL.objValue;
     }
@@ -280,7 +280,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             LogUtils.e("IMServiceImpl", "IMServiceImpl.getInstance(context).enqueueWork");
-            TaskManager.getInstance(context).submitForNetWork(new RunnableC1392a(this, intent));
+            TaskManager.getInstance(context).submitForNetWork(new RunnableC1395a(this, intent));
         }
     }
 
@@ -288,13 +288,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                LogUtils.d("IMServiceImpl", "isSmallFlow :" + f29923e);
-                IMManager.init(f29927i.getApplicationContext(), IMConfigInternal.getInstance().getProductLine(f29927i.getApplicationContext()));
-                if (f29923e) {
+                LogUtils.d("IMServiceImpl", "isSmallFlow :" + f29970e);
+                IMManager.init(f29974i.getApplicationContext(), IMConfigInternal.getInstance().getProductLine(f29974i.getApplicationContext()));
+                if (f29970e) {
                     k();
-                } else if (IMSDK.getInstance(f29927i.getApplicationContext()).init()) {
+                } else if (IMSDK.getInstance(f29974i.getApplicationContext()).init()) {
                 } else {
-                    IMConnection.getInstance(f29927i).disconnectedByPeer();
+                    IMConnection.getInstance(f29974i).disconnectedByPeer();
                 }
             } catch (Exception unused) {
             }
@@ -310,12 +310,12 @@ public class a {
     public void j(@NonNull Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent + ", isSmallFlow :" + f29923e);
+            LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent + ", isSmallFlow :" + f29970e);
             if (intent == null) {
                 intent = new Intent();
                 LogUtils.i("IMServiceImpl", "--- onStart by null intent!");
             }
-            if (f29923e) {
+            if (f29970e) {
                 try {
                     int intExtra = intent.getIntExtra("method", -1);
                     int intExtra2 = intent.getIntExtra("service_id", -1);
@@ -323,20 +323,20 @@ public class a {
                         if (intExtra == 50 || intExtra == 201) {
                             k();
                         }
-                        Message createNewMessage = MessageFactory.getInstance().createNewMessage(f29927i, intExtra, intent);
+                        Message createNewMessage = MessageFactory.getInstance().createNewMessage(f29974i, intExtra, intent);
                         if (createNewMessage != null) {
                             if (intExtra == 50) {
                                 boolean z = false;
-                                synchronized (f29924f) {
-                                    LogUtils.d("IMServiceImpl", "cur method :50, cur msgList :" + f29924f.keySet());
-                                    Iterator<Long> it = f29924f.keySet().iterator();
+                                synchronized (f29971f) {
+                                    LogUtils.d("IMServiceImpl", "cur method :50, cur msgList :" + f29971f.keySet());
+                                    Iterator<Long> it = f29971f.keySet().iterator();
                                     while (it.hasNext()) {
                                         if (it.next().longValue() % 100 == 50) {
                                             z = true;
                                         }
                                     }
                                 }
-                                if (z || LoginManager.getInstance(f29927i.getApplicationContext()).isIMLogined()) {
+                                if (z || LoginManager.getInstance(f29974i.getApplicationContext()).isIMLogined()) {
                                     StringBuilder sb = new StringBuilder();
                                     sb.append("cur state is ");
                                     sb.append(z ? "logining" : "loggined");
@@ -347,30 +347,30 @@ public class a {
                             }
                             createNewMessage.isSending(true);
                             BLCPRequest bLCPRequest = new BLCPRequest();
-                            bLCPRequest.f40705a = intExtra2;
+                            bLCPRequest.f40709a = intExtra2;
                             long type = createNewMessage.getType();
-                            bLCPRequest.f40706b = type;
+                            bLCPRequest.f40710b = type;
                             if (intExtra2 == 3 && type == 55) {
-                                bLCPRequest.f40706b = 185L;
+                                bLCPRequest.f40710b = 185L;
                             }
-                            bLCPRequest.f40707c = createNewMessage.getBody().getBytes();
-                            bLCPRequest.f40709e = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
-                            long j2 = (bLCPRequest.f40705a * 1000000000000000L) + bLCPRequest.f40706b;
+                            bLCPRequest.f40711c = createNewMessage.getBody().getBytes();
+                            bLCPRequest.f40713e = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
+                            long j2 = (bLCPRequest.f40709a * 1000000000000000L) + bLCPRequest.f40710b;
                             StringBuilder sb2 = new StringBuilder();
                             sb2.append((System.currentTimeMillis() + "").substring((System.currentTimeMillis() + "").length() - 6));
-                            sb2.append(this.f29928a.incrementAndGet());
-                            bLCPRequest.f40708d = j2 + (Long.valueOf(sb2.toString()).longValue() * 1000);
-                            synchronized (f29924f) {
-                                if (i((int) bLCPRequest.f40706b) && (createNewMessage instanceof IMSendMsg)) {
-                                    f29925g.put(Long.valueOf(bLCPRequest.f40708d), new MessageUbc(f29927i, ((IMSendMsg) createNewMessage).getChatMsg(), UBCConstants.BCSEND_UBCID));
+                            sb2.append(this.f29975a.incrementAndGet());
+                            bLCPRequest.f40712d = j2 + (Long.valueOf(sb2.toString()).longValue() * 1000);
+                            synchronized (f29971f) {
+                                if (i((int) bLCPRequest.f40710b) && (createNewMessage instanceof IMSendMsg)) {
+                                    f29972g.put(Long.valueOf(bLCPRequest.f40712d), new MessageUbc(f29974i, ((IMSendMsg) createNewMessage).getChatMsg(), UBCConstants.BCSEND_UBCID));
                                 }
-                                f29924f.put(Long.valueOf(bLCPRequest.f40708d), createNewMessage);
-                                LogUtils.d("IMServiceImpl", "requestTaskManager msg Id:" + bLCPRequest.f40708d + ". msg :" + f29924f.keySet().toString());
+                                f29971f.put(Long.valueOf(bLCPRequest.f40712d), createNewMessage);
+                                LogUtils.d("IMServiceImpl", "requestTaskManager msg Id:" + bLCPRequest.f40712d + ". msg :" + f29971f.keySet().toString());
                             }
                             if (intExtra == 50) {
-                                new IMTrack.RequestBuilder(f29927i.getApplicationContext()).method("send").requestId("2").errorCode(50L).ext("" + bLCPRequest.f40708d).aliasId(501112L).build();
+                                new IMTrack.RequestBuilder(f29974i.getApplicationContext()).method("send").requestId("2").errorCode(50L).ext("" + bLCPRequest.f40712d).aliasId(501112L).build();
                             }
-                            c.a.u.a.b.a.c(bLCPRequest, this.f29929b);
+                            c.a.u.a.b.a.c(bLCPRequest, this.f29976b);
                             return;
                         }
                         return;
@@ -382,16 +382,16 @@ public class a {
                 }
             }
             try {
-                if (IMSDK.getInstance(f29927i.getApplicationContext()).handleOnStart(intent)) {
+                if (IMSDK.getInstance(f29974i.getApplicationContext()).handleOnStart(intent)) {
                     return;
                 }
-                IMConnection.getInstance(f29927i).disconnectedByPeer();
+                IMConnection.getInstance(f29974i).disconnectedByPeer();
             } catch (Exception e3) {
                 LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
                 if (intent.hasExtra(Constants.EXTRA_LISTENER_ID) && ((intent.hasExtra("method") && intent.getIntExtra("method", -1) == 52) || intent.hasExtra(Constants.EXTRA_DISCONNECT))) {
                     IMListener removeListener = ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
                     if (removeListener instanceof ILoginListener) {
-                        ((ILoginListener) removeListener).onLogoutResult(6, "IMService onStartCommand Exception", BIMManager.getLoginType(f29927i));
+                        ((ILoginListener) removeListener).onLogoutResult(6, "IMService onStartCommand Exception", BIMManager.getLoginType(f29974i));
                     }
                 } else if (intent.hasExtra(Constants.EXTRA_LISTENER_ID)) {
                     ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
@@ -415,9 +415,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
             c.a.u.a.b.d.a aVar = new c.a.u.a.b.d.a();
-            aVar.f40705a = i2;
-            aVar.f40706b = i3;
-            c.a.u.a.b.a.c(aVar, this.f29929b);
+            aVar.f40709a = i2;
+            aVar.f40710b = i3;
+            c.a.u.a.b.a.c(aVar, this.f29976b);
         }
     }
 }

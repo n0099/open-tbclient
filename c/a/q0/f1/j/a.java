@@ -16,7 +16,7 @@ public class a extends f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConstrainImageLayout.c f13227e;
+    public ConstrainImageLayout.c f13232e;
 
     /* renamed from: c.a.q0.f1.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -79,7 +79,7 @@ public class a extends f {
                 return;
             }
         }
-        this.f13227e = new C0659a(this);
+        this.f13232e = new C0659a(this);
     }
 
     @Override // c.a.q0.f1.j.f, c.a.q0.f1.j.c
@@ -87,10 +87,10 @@ public class a extends f {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i2, i3)) == null) {
-            if (list.size() < this.f13229b) {
+            if (list.size() < this.f13234b) {
                 list.size();
             }
-            constrainImageLayout.setTbImageViewConfiguration(this.f13227e);
+            constrainImageLayout.setTbImageViewConfiguration(this.f13232e);
             return super.a(constrainImageLayout, list, i2, i3);
         }
         return invokeLLII.intValue;

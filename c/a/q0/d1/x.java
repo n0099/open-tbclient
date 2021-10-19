@@ -1,118 +1,90 @@
 package c.a.q0.d1;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.text.TextUtils;
-import c.a.q0.s.q.d2;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.VideoClickTabData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.video.VideoItemData;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.searchbox.performance.speed.SpeedRuntime;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes3.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i2, boolean z, Context context, d2 d2Var, int i3, Rect rect, String str, String str2, String str3, String str4, String str5) {
+    public static final boolean a(boolean z) {
+        InterceptResult invokeZ;
+        Object d2;
+        Intent intent;
+        ComponentName component;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), context, d2Var, Integer.valueOf(i3), rect, str, str2, str3, str4, str5}) == null) || d2Var == null) {
-            return;
-        }
-        d2Var.getThreadData();
-        c(true, context, d2Var, i3, rect, str, str2, str3, str4, str5, d2Var.n);
-    }
-
-    public static void b(int i2, Context context, d2 d2Var, int i3, Rect rect, String str, String str2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), context, d2Var, Integer.valueOf(i3), rect, str, str2, str3, str4, str5}) == null) || d2Var == null) {
-            return;
-        }
-        d2Var.getThreadData();
-        c(true, context, d2Var, i3, rect, str, str2, str3, str4, str5, d2Var.n);
-    }
-
-    public static void c(boolean z, Context context, d2 d2Var, int i2, Rect rect, String str, String str2, String str3, String str4, String str5, boolean z2) {
-        BaijiahaoData baijiahaoData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), context, d2Var, Integer.valueOf(i2), rect, str, str2, str3, str4, str5, Boolean.valueOf(z2)}) == null) || d2Var == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        VideoItemData videoItemData = new VideoItemData();
-        if (z) {
-            videoItemData.buildWithOriginThreadData(d2Var.y1);
-        } else {
-            videoItemData.buildWithThreadData(d2Var);
-        }
-        arrayList.add(videoItemData);
-        OriginalThreadInfo originalThreadInfo = d2Var.y1;
-        boolean z3 = true;
-        if (originalThreadInfo != null && originalThreadInfo.r != null) {
-            d2Var.getThreadData();
-            if (d2Var.y1.r.is_vertical.intValue() != 1) {
-                z3 = false;
-            }
-        }
-        String str6 = null;
-        OriginalThreadInfo originalThreadInfo2 = d2Var.y1;
-        if (originalThreadInfo2 != null && (baijiahaoData = originalThreadInfo2.p) != null) {
-            str6 = baijiahaoData.oriUgcNid;
-        }
-        d(context, arrayList, str6, z3, i2, rect, str, str2, str3, str4, str5, false, z2);
-    }
-
-    public static void d(Context context, List<VideoItemData> list, String str, boolean z, int i2, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3) {
-        String str7;
-        String str8;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i2), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(context, list, i2, rect, str2, str3, str4, str5, str6);
-            videoPlayActivityConfig.setParamIsVertail(z);
-            TbSingleton.getInstance().setIsNeedShowPbCommentFloat(z2);
-            if (str != null) {
-                videoPlayActivityConfig.setNid(str);
-            }
-            if (c.a.q0.b.d.Z() && ("index".equals(str5) || "concern_tab".equals(str5))) {
-                VideoClickTabData videoClickTabData = new VideoClickTabData();
-                videoClickTabData.setVideoMiddleBundle(videoPlayActivityConfig.getIntent().getExtras());
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921610, videoClickTabData));
-            } else if (z3) {
-                if (ListUtils.getCount(list) <= 0 || list.get(0) == null || TextUtils.isEmpty(list.get(0).thread_id)) {
-                    str7 = "";
-                } else {
-                    String str9 = list.get(0).thread_id;
-                    str7 = list.get(0).forum_id;
-                    List<VideoItemData> videoTabListByFid = FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str7);
-                    int size = videoTabListByFid.size();
-                    for (int i4 = 0; i4 < size; i4++) {
-                        if (videoTabListByFid.get(i4) != null && str9.equals(videoTabListByFid.get(i4).thread_id)) {
-                            str8 = str7;
-                            i3 = i4;
-                            break;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65536, null, z)) == null) {
+            Object d3 = c.a.e.e.b.a.a.d(Looper.myQueue(), "mMessages");
+            if (d3 != null && (d3 instanceof Message)) {
+                Message message = (Message) d3;
+                int i2 = 0;
+                while (message != null) {
+                    Object obj = message.obj;
+                    if (obj == null || i2 >= 10) {
+                        break;
+                    }
+                    i2++;
+                    if (obj != null && (d2 = c.a.e.e.b.a.a.d(obj, "intent")) != null && (d2 instanceof Intent) && (component = (intent = (Intent) d2).getComponent()) != null) {
+                        try {
+                            Class.forName(component.getClassName());
+                        } catch (Throwable unused) {
+                            StatisticItem statisticItem = new StatisticItem("check_change_intent_tologo");
+                            StringBuilder sb = new StringBuilder();
+                            sb.append(i2 == 1);
+                            sb.append("");
+                            TiebaStatic.log(statisticItem.param("obj_param1", sb.toString()).param(TiebaStatic.Params.OBJ_PARAM2, component.getClassName()));
+                            if (z && i2 == 1) {
+                                intent.setClassName(TbadkCoreApplication.getInst(), SpeedRuntime.SPLASH_ACTIVITY_NAME);
+                            }
+                            return false;
                         }
                     }
+                    Object d4 = c.a.e.e.b.a.a.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+                    message = (d4 == null || !(d4 instanceof Message)) ? null : (Message) d4;
                 }
-                str8 = str7;
-                i3 = 0;
-                FrsVideoTabPlayActivityConfig frsVideoTabPlayActivityConfig = new FrsVideoTabPlayActivityConfig(context, null, i3, rect, str2, str3, str4, str5, str6);
-                frsVideoTabPlayActivityConfig.setIsShowPbCommentFloat(z2);
-                frsVideoTabPlayActivityConfig.setFid(str8);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, frsVideoTabPlayActivityConfig));
-            } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
             }
+            return true;
         }
+        return invokeZ.booleanValue;
+    }
+
+    public static final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            Object d2 = c.a.e.e.b.a.a.d(Looper.myQueue(), "mMessages");
+            boolean z = false;
+            if (d2 != null && (d2 instanceof Message)) {
+                Message message = (Message) d2;
+                int i2 = 0;
+                while (message != null && message.obj != null && !z && i2 < 10) {
+                    i2++;
+                    z = c(message);
+                    Object d3 = c.a.e.e.b.a.a.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+                    message = (d3 == null || !(d3 instanceof Message)) ? null : (Message) d3;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static final boolean c(Message message) {
+        InterceptResult invokeL;
+        Object obj;
+        Object d2;
+        ComponentName component;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, message)) == null) ? (message == null || (obj = message.obj) == null || (d2 = c.a.e.e.b.a.a.d(obj, "intent")) == null || !(d2 instanceof Intent) || (component = ((Intent) d2).getComponent()) == null || !SpeedRuntime.SPLASH_ACTIVITY_NAME.equals(component.getClassName())) ? false : true : invokeL.booleanValue;
     }
 }

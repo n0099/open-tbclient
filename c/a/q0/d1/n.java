@@ -19,14 +19,14 @@ public class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static n f12986c;
+    public static n f12993c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f12987a;
+    public c f12994a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f12988b;
+    public b f12995b;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -45,7 +45,7 @@ public class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n f12989a;
+        public final /* synthetic */ n f12996a;
 
         public c(n nVar) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class n {
                     return;
                 }
             }
-            this.f12989a = nVar;
+            this.f12996a = nVar;
         }
 
         public /* synthetic */ c(n nVar, a aVar) {
@@ -74,17 +74,17 @@ public class n {
         public Boolean doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? Boolean.valueOf(this.f12989a.d()) : (Boolean) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? Boolean.valueOf(this.f12996a.d()) : (Boolean) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) || this.f12989a.f12988b == null || bool == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) || this.f12996a.f12995b == null || bool == null) {
                 return;
             }
-            this.f12989a.f12988b.onResult(bool.booleanValue());
+            this.f12996a.f12995b.onResult(bool.booleanValue());
         }
     }
 
@@ -101,7 +101,7 @@ public class n {
                 return;
             }
         }
-        f12986c = new n();
+        f12993c = new n();
     }
 
     public n() {
@@ -121,21 +121,21 @@ public class n {
     public static n e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f12986c : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f12993c : (n) invokeV.objValue;
     }
 
     public void c(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f12988b = bVar;
-            c cVar = this.f12987a;
+            this.f12995b = bVar;
+            c cVar = this.f12994a;
             if (cVar != null) {
                 cVar.cancel();
             }
             c cVar2 = new c(this, null);
-            this.f12987a = cVar2;
+            this.f12994a = cVar2;
             cVar2.setPriority(4);
-            this.f12987a.execute(new String[0]);
+            this.f12994a.execute(new String[0]);
         }
     }
 

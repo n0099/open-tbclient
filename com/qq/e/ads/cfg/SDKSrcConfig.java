@@ -10,7 +10,7 @@ public class SDKSrcConfig {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f75446a;
+    public static String f75481a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public SDKSrcConfig() {
@@ -30,13 +30,13 @@ public class SDKSrcConfig {
     public static String getSdkSrc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f75446a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f75481a : (String) invokeV.objValue;
     }
 
     public static void setSdkSrc(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            f75446a = str;
+            f75481a = str;
         }
     }
 }

@@ -26,7 +26,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppMenuSlidableGridView f47328e;
+        public final /* synthetic */ SwanAppMenuSlidableGridView f47240e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SwanAppMenuSlidableGridView swanAppMenuSlidableGridView, Context context) {
@@ -46,7 +46,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
                     return;
                 }
             }
-            this.f47328e = swanAppMenuSlidableGridView;
+            this.f47240e = swanAppMenuSlidableGridView;
         }
 
         @Override // androidx.viewpager.widget.ViewPager

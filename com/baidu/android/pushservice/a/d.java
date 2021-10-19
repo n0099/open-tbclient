@@ -14,10 +14,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f36922a;
+    public e f36926a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f36923b;
+    public c f36927b;
 
     public d(c cVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class d {
                 return;
             }
         }
-        this.f36923b = cVar;
+        this.f36927b = cVar;
     }
 
     public static d a(Context context, String str) {
@@ -43,13 +43,13 @@ public class d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             b.a(context).b(context);
             e b2 = b.a(context).b(str);
-            if (b2 != null && !TextUtils.isEmpty(b2.f36913b)) {
-                d dVar = new d(c.f36919a);
-                dVar.f36922a = b2;
+            if (b2 != null && !TextUtils.isEmpty(b2.f36917b)) {
+                d dVar = new d(c.f36923a);
+                dVar.f36926a = b2;
                 return dVar;
             }
             m.a("ClientTypeInfo*BBind* isRegisteredClientByAppid not PushClient! appid=" + str, context);
-            return new d(c.f36920b);
+            return new d(c.f36924b);
         }
         return (d) invokeLL.objValue;
     }
@@ -57,6 +57,6 @@ public class d {
     public c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36923b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36927b : (c) invokeV.objValue;
     }
 }

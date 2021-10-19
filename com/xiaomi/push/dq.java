@@ -23,7 +23,7 @@ public abstract class dq extends ai.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77809a;
+    public int f77844a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f245a;
@@ -43,7 +43,7 @@ public abstract class dq extends ai.a {
                 return;
             }
         }
-        this.f77809a = i2;
+        this.f77844a = i2;
         this.f245a = context;
     }
 
@@ -68,7 +68,7 @@ public abstract class dq extends ai.a {
         if (!(interceptable == null || interceptable.invokeLLL(65538, null, context, hnVar, str) == null) || (b2 = dl.b(str, ip.a(hnVar))) == null || b2.length == 0) {
             return;
         }
-        synchronized (dm.f77804a) {
+        synchronized (dm.f77839a) {
             FileLock fileLock = null;
             try {
                 try {
@@ -182,7 +182,7 @@ public abstract class dq extends ai.a {
     public boolean mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dl.a(this.f245a, String.valueOf(mo187a()), this.f77809a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dl.a(this.f245a, String.valueOf(mo187a()), this.f77844a) : invokeV.booleanValue;
     }
 
     public abstract String b();
@@ -227,7 +227,7 @@ public abstract class dq extends ai.a {
                     if (bm.a(b2).equals(sharedPreferences.getString(d(), null))) {
                         long j2 = sharedPreferences.getLong(c(), 0L);
                         int a3 = com.xiaomi.push.service.aq.a(this.f245a).a(hk.ba.a(), 604800);
-                        if ((System.currentTimeMillis() - j2) / 1000 < this.f77809a) {
+                        if ((System.currentTimeMillis() - j2) / 1000 < this.f77844a) {
                             return;
                         }
                         if ((System.currentTimeMillis() - j2) / 1000 < a3) {

@@ -17,20 +17,20 @@ public class a implements IStepTracker {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f68236a;
+    public static int f68271a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f68237b;
+    public long f68272b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f68238c;
+    public long f68273c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f68239d;
+    public boolean f68274d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68240e;
+    public String f68275e;
 
     static {
         InterceptResult invokeClinit;
@@ -60,9 +60,9 @@ public class a implements IStepTracker {
                 return;
             }
         }
-        this.f68237b = 0L;
-        f68236a++;
-        this.f68240e = "image_request_" + f68236a;
+        this.f68272b = 0L;
+        f68271a++;
+        this.f68275e = "image_request_" + f68271a;
     }
 
     private String a(String str, com.bytedance.sdk.component.image.c.a aVar) {
@@ -97,7 +97,7 @@ public class a implements IStepTracker {
                         }
                         break;
                     case -1281977283:
-                        if (str.equals(f.f36105j)) {
+                        if (str.equals(f.f36109j)) {
                             c2 = '\t';
                             break;
                         }
@@ -167,9 +167,9 @@ public class a implements IStepTracker {
     public void onStepEnd(String str, com.bytedance.sdk.component.image.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.f68237b;
-            this.f68238c += currentTimeMillis;
-            k.b("ImageLoaderStep", this.f68240e + " 结束:" + a(str, aVar) + ",耗时：" + currentTimeMillis + " ms， 总计：" + this.f68238c + " ms. url" + Part.CRLF);
+            long currentTimeMillis = System.currentTimeMillis() - this.f68272b;
+            this.f68273c += currentTimeMillis;
+            k.b("ImageLoaderStep", this.f68275e + " 结束:" + a(str, aVar) + ",耗时：" + currentTimeMillis + " ms， 总计：" + this.f68273c + " ms. url" + Part.CRLF);
         }
     }
 
@@ -177,12 +177,12 @@ public class a implements IStepTracker {
     public void onStepStart(String str, com.bytedance.sdk.component.image.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
-            if (!this.f68239d) {
-                k.b("ImageLoaderStep", "start " + this.f68240e + " request:" + aVar.a() + ", width:" + aVar.h() + ",height:" + aVar.i());
-                this.f68239d = true;
+            if (!this.f68274d) {
+                k.b("ImageLoaderStep", "start " + this.f68275e + " request:" + aVar.a() + ", width:" + aVar.h() + ",height:" + aVar.i());
+                this.f68274d = true;
             }
-            this.f68237b = System.currentTimeMillis();
-            k.b("ImageLoaderStep", this.f68240e + " 开始:" + a(str, aVar));
+            this.f68272b = System.currentTimeMillis();
+            k.b("ImageLoaderStep", this.f68275e + " 开始:" + a(str, aVar));
         }
     }
 }

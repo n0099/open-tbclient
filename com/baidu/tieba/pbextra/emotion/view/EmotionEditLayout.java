@@ -21,19 +21,19 @@ public class EmotionEditLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewDragHelper f55886e;
+    public ViewDragHelper f55820e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f55887f;
+    public float f55821f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f55888g;
+    public float f55822g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f55889h;
+    public float f55823h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f55890i;
+    public long f55824i;
 
     /* loaded from: classes7.dex */
     public class a extends ViewDragHelper.Callback {
@@ -41,10 +41,10 @@ public class EmotionEditLayout extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditText f55891a;
+        public final /* synthetic */ EmotionEditText f55825a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditLayout f55892b;
+        public final /* synthetic */ EmotionEditLayout f55826b;
 
         public a(EmotionEditLayout emotionEditLayout, EmotionEditText emotionEditText) {
             Interceptable interceptable = $ic;
@@ -61,22 +61,22 @@ public class EmotionEditLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f55892b = emotionEditLayout;
-            this.f55891a = emotionEditText;
+            this.f55826b = emotionEditLayout;
+            this.f55825a = emotionEditText;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public int clampViewPositionHorizontal(View view, int i2, int i3) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, view, i2, i3)) == null) ? Math.min(Math.max(i2, this.f55892b.getPaddingLeft()), this.f55892b.getWidth() - this.f55891a.getWidth()) : invokeLII.intValue;
+            return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, view, i2, i3)) == null) ? Math.min(Math.max(i2, this.f55826b.getPaddingLeft()), this.f55826b.getWidth() - this.f55825a.getWidth()) : invokeLII.intValue;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public int clampViewPositionVertical(View view, int i2, int i3) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2, i3)) == null) ? Math.min(Math.max(i2, this.f55892b.getPaddingTop()), this.f55892b.getHeight() - this.f55891a.getHeight()) : invokeLII.intValue;
+            return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2, i3)) == null) ? Math.min(Math.max(i2, this.f55826b.getPaddingTop()), this.f55826b.getHeight() - this.f55825a.getHeight()) : invokeLII.intValue;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
@@ -85,10 +85,10 @@ public class EmotionEditLayout extends FrameLayout {
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) {
                 super.onViewCaptured(view, i2);
                 if (view instanceof EmotionEditText) {
-                    this.f55892b.f55890i = System.currentTimeMillis();
-                    this.f55892b.f55888g = view.getX();
-                    this.f55892b.f55889h = view.getY();
-                    this.f55891a.hideEditText();
+                    this.f55826b.f55824i = System.currentTimeMillis();
+                    this.f55826b.f55822g = view.getX();
+                    this.f55826b.f55823h = view.getY();
+                    this.f55825a.hideEditText();
                 }
             }
         }
@@ -101,14 +101,14 @@ public class EmotionEditLayout extends FrameLayout {
                 if (view instanceof EmotionEditText) {
                     float x = view.getX();
                     float y = view.getY();
-                    float abs = Math.abs(x - this.f55892b.f55888g);
-                    float abs2 = Math.abs(y - this.f55892b.f55889h);
-                    if (abs < this.f55892b.f55887f && abs2 < this.f55892b.f55887f && System.currentTimeMillis() - this.f55892b.f55890i < 300) {
-                        this.f55891a.showEditText();
+                    float abs = Math.abs(x - this.f55826b.f55822g);
+                    float abs2 = Math.abs(y - this.f55826b.f55823h);
+                    if (abs < this.f55826b.f55821f && abs2 < this.f55826b.f55821f && System.currentTimeMillis() - this.f55826b.f55824i < 300) {
+                        this.f55825a.showEditText();
                     }
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                     layoutParams.setMargins(view.getLeft(), view.getTop(), 0, 0);
-                    this.f55891a.setLayoutParams(layoutParams);
+                    this.f55825a.setLayoutParams(layoutParams);
                 }
             }
         }
@@ -118,9 +118,9 @@ public class EmotionEditLayout extends FrameLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, view, i2)) == null) {
-                boolean z = view == this.f55891a;
+                boolean z = view == this.f55825a;
                 if (view instanceof ImageView) {
-                    this.f55891a.hideEditText();
+                    this.f55825a.hideEditText();
                 }
                 return z;
             }
@@ -152,7 +152,7 @@ public class EmotionEditLayout extends FrameLayout {
     public void initDragHelper(EmotionEditText emotionEditText) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, emotionEditText) == null) {
-            this.f55886e = ViewDragHelper.create(this, 1.0f, new a(this, emotionEditText));
+            this.f55820e = ViewDragHelper.create(this, 1.0f, new a(this, emotionEditText));
         }
     }
 
@@ -163,9 +163,9 @@ public class EmotionEditLayout extends FrameLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
             if (actionMasked != 3 && actionMasked != 1) {
-                return this.f55886e.shouldInterceptTouchEvent(motionEvent);
+                return this.f55820e.shouldInterceptTouchEvent(motionEvent);
             }
-            this.f55886e.cancel();
+            this.f55820e.cancel();
             return false;
         }
         return invokeL.booleanValue;
@@ -176,7 +176,7 @@ public class EmotionEditLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            this.f55886e.processTouchEvent(motionEvent);
+            this.f55820e.processTouchEvent(motionEvent);
             return true;
         }
         return invokeL.booleanValue;
@@ -222,6 +222,6 @@ public class EmotionEditLayout extends FrameLayout {
                 return;
             }
         }
-        this.f55887f = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.f55821f = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 }

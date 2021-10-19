@@ -134,6 +134,7 @@ public class ResNameTransform {
         platformImageNameMap.put("icon_mask_Crown24", "svg_icon_mask_crown24");
         platformImageNameMap.put("icon_pure_arrow12_right", "icon_pure_arrow12_right_svg");
         platformImageNameMap.put("icon_pure_evaluation_star_collect12@3x", "icon_pure_evaluation_star24_n");
+        platformImageNameMap.put("icon_pure_topic_post16", "icon_pure_topic_post48");
     }
 
     public ResNameTransform() {

@@ -14,22 +14,22 @@ public final class LogUtil {
     public static final boolean DEBUG = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f61113a = "LogUtil";
+    public static final String f61148a = "LogUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f61114b = false;
+    public static final boolean f61149b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f61115c = false;
+    public static final boolean f61150c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f61116d = false;
+    public static final boolean f61151d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f61117e = false;
+    public static final boolean f61152e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f61118f = false;
+    public static final boolean f61153f = false;
     public transient /* synthetic */ FieldHolder $fh;
 
     public LogUtil() {
@@ -49,7 +49,7 @@ public final class LogUtil {
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            d(f61113a, str);
+            d(f61148a, str);
         }
     }
 

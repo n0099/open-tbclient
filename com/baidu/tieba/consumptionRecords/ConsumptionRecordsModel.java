@@ -22,22 +22,22 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50140e;
+    public int f50067e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50141f;
+    public int f50068f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50142g;
+    public int f50069g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<c.a.r0.d0.a> f50143h;
+    public ArrayList<c.a.r0.e0.a> f50070h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.d0.b f50144i;
+    public c.a.r0.e0.b f50071i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f50145j;
+    public boolean f50072j;
     public b k;
     public HttpMessageListener l;
 
@@ -47,7 +47,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ConsumptionRecordsModel f50146a;
+        public final /* synthetic */ ConsumptionRecordsModel f50073a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ConsumptionRecordsModel consumptionRecordsModel, int i2) {
@@ -67,7 +67,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                     return;
                 }
             }
-            this.f50146a = consumptionRecordsModel;
+            this.f50073a = consumptionRecordsModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -79,17 +79,17 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                 if (httpResponsedMessage.getError() == 0) {
                     if (z) {
                         GetUserOrderHttpResponseMessage getUserOrderHttpResponseMessage = (GetUserOrderHttpResponseMessage) httpResponsedMessage;
-                        this.f50146a.E(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
+                        this.f50073a.E(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
                     }
-                    if (this.f50146a.k != null) {
-                        this.f50146a.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f50146a.f50143h, this.f50146a.f50144i, this.f50146a.f50145j);
+                    if (this.f50073a.k != null) {
+                        this.f50073a.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f50073a.f50070h, this.f50073a.f50071i, this.f50073a.f50072j);
                         return;
                     }
                     return;
                 }
-                ConsumptionRecordsModel.w(this.f50146a);
-                if (this.f50146a.k != null) {
-                    this.f50146a.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f50146a.f50143h, this.f50146a.f50144i, this.f50146a.f50145j);
+                ConsumptionRecordsModel.w(this.f50073a);
+                if (this.f50073a.k != null) {
+                    this.f50073a.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f50073a.f50070h, this.f50073a.f50071i, this.f50073a.f50072j);
                 }
             }
         }
@@ -97,7 +97,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(int i2, String str, ArrayList<c.a.r0.d0.a> arrayList, c.a.r0.d0.b bVar, boolean z);
+        void a(int i2, String str, ArrayList<c.a.r0.e0.a> arrayList, c.a.r0.e0.b bVar, boolean z);
 
         void b();
     }
@@ -117,10 +117,10 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                 return;
             }
         }
-        this.f50140e = 0;
-        this.f50141f = 1;
-        this.f50142g = 1;
-        this.f50145j = false;
+        this.f50067e = 0;
+        this.f50068f = 1;
+        this.f50069g = 1;
+        this.f50072j = false;
         this.l = new a(this, CmdConfigHttp.CMD_GET_USER_ORDER);
         this.unique_id = bdUniqueId;
         registerTask();
@@ -129,8 +129,8 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     }
 
     public static /* synthetic */ int w(ConsumptionRecordsModel consumptionRecordsModel) {
-        int i2 = consumptionRecordsModel.f50140e;
-        consumptionRecordsModel.f50140e = i2 - 1;
+        int i2 = consumptionRecordsModel.f50067e;
+        consumptionRecordsModel.f50067e = i2 - 1;
         return i2;
     }
 
@@ -138,11 +138,11 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-            this.f50140e = 1;
+            this.f50067e = 1;
             newGetUserOrderRequestMessage.setPn(1);
             newGetUserOrderRequestMessage.setRn(10);
-            newGetUserOrderRequestMessage.setOrderType(this.f50141f);
-            newGetUserOrderRequestMessage.setShowMember(this.f50142g);
+            newGetUserOrderRequestMessage.setOrderType(this.f50068f);
+            newGetUserOrderRequestMessage.setShowMember(this.f50069g);
             sendMessage(newGetUserOrderRequestMessage);
         }
     }
@@ -150,7 +150,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.f50145j) {
+            if (!this.f50072j) {
                 b bVar = this.k;
                 if (bVar != null) {
                     bVar.b();
@@ -158,33 +158,33 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                 }
                 return;
             }
-            this.f50140e++;
+            this.f50067e++;
             NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-            newGetUserOrderRequestMessage.setPn(this.f50140e);
+            newGetUserOrderRequestMessage.setPn(this.f50067e);
             newGetUserOrderRequestMessage.setRn(10);
-            newGetUserOrderRequestMessage.setOrderType(this.f50141f);
-            newGetUserOrderRequestMessage.setShowMember(this.f50142g);
+            newGetUserOrderRequestMessage.setOrderType(this.f50068f);
+            newGetUserOrderRequestMessage.setShowMember(this.f50069g);
             sendMessage(newGetUserOrderRequestMessage);
         }
     }
 
-    public final void E(ArrayList<c.a.r0.d0.a> arrayList, c.a.r0.d0.b bVar, boolean z) {
+    public final void E(ArrayList<c.a.r0.e0.a> arrayList, c.a.r0.e0.b bVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, bVar, z) == null) {
             if (bVar != null) {
-                this.f50144i = bVar;
+                this.f50071i = bVar;
             }
-            this.f50145j = z;
+            this.f50072j = z;
             if (arrayList == null) {
                 return;
             }
-            if (this.f50143h == null) {
-                this.f50143h = new ArrayList<>();
+            if (this.f50070h == null) {
+                this.f50070h = new ArrayList<>();
             }
-            if (this.f50140e == 1) {
-                this.f50143h.clear();
+            if (this.f50067e == 1) {
+                this.f50070h.clear();
             }
-            this.f50143h.addAll(arrayList);
+            this.f50070h.addAll(arrayList);
         }
     }
 
@@ -196,7 +196,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -205,22 +205,22 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             cancelMessage();
             MessageManager.getInstance().unRegisterListener(this.l);
         }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void registerTask() {
@@ -238,14 +238,14 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public void setShowMember(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f50142g = i2;
+            this.f50069g = i2;
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f50141f = i2;
+            this.f50068f = i2;
         }
     }
 }

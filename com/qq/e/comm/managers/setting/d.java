@@ -51,14 +51,14 @@ public class d extends e {
     public final Object a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f75685a.opt(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f75720a.opt(str) : invokeL.objValue;
     }
 
     public final void a(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
             try {
-                this.f75685a.putOpt(str, obj);
+                this.f75720a.putOpt(str, obj);
             } catch (JSONException unused) {
                 GDTLogger.d("Exception while update setting");
             }
@@ -69,7 +69,7 @@ public class d extends e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "GDTSDKSetting[" + this.f75685a.toString() + PreferencesUtil.RIGHT_MOUNT;
+            return "GDTSDKSetting[" + this.f75720a.toString() + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

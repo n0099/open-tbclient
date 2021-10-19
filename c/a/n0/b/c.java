@@ -226,7 +226,7 @@ public class c {
                         String optString5 = optJSONObject4.optString("app_id");
                         String optString6 = optJSONObject4.optString("app_key");
                         if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
-                            i.j(k.f39576b, optString5, optString6);
+                            i.j(k.f39580b, optString5, optString6);
                         }
                         int optInt4 = optJSONObject4.optInt("status", -1);
                         if (optInt4 == 1) {
@@ -307,7 +307,7 @@ public class c {
                 if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
                     return true;
                 }
-                i.j(k.f39576b, optString, optString2);
+                i.j(k.f39580b, optString, optString2);
                 return true;
             } catch (Throwable th) {
                 c.a.n0.l.c.d(th);

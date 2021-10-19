@@ -13,16 +13,16 @@ public class PoiParaOption {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42088a;
+    public String f42092a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42089b;
+    public String f42093b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f42090c;
+    public LatLng f42094c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42091d;
+    public int f42095d;
 
     public PoiParaOption() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class PoiParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, latLng)) == null) {
-            this.f42090c = latLng;
+            this.f42094c = latLng;
             return this;
         }
         return (PoiParaOption) invokeL.objValue;
@@ -51,32 +51,32 @@ public class PoiParaOption {
     public LatLng getCenter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42090c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42094c : (LatLng) invokeV.objValue;
     }
 
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42089b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42093b : (String) invokeV.objValue;
     }
 
     public int getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42091d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42095d : invokeV.intValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42088a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42092a : (String) invokeV.objValue;
     }
 
     public PoiParaOption key(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.f42089b = str;
+            this.f42093b = str;
             return this;
         }
         return (PoiParaOption) invokeL.objValue;
@@ -86,7 +86,7 @@ public class PoiParaOption {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.f42091d = i2;
+            this.f42095d = i2;
             return this;
         }
         return (PoiParaOption) invokeI.objValue;
@@ -96,7 +96,7 @@ public class PoiParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            this.f42088a = str;
+            this.f42092a = str;
             return this;
         }
         return (PoiParaOption) invokeL.objValue;

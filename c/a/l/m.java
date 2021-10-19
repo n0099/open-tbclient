@@ -74,8 +74,8 @@ public class m extends c.a.l.a<c.a.q0.s.q.a> {
                 return;
             }
         }
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14235f instanceof CardForumHeadLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14235f.getParent() == null) {
-            this.f3834j = (CardForumHeadLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14235f;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14258f instanceof CardForumHeadLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14258f.getParent() == null) {
+            this.f3834j = (CardForumHeadLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14258f;
         } else {
             this.f3834j = new CardForumHeadLayout(context);
         }

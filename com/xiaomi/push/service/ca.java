@@ -13,7 +13,7 @@ public class ca extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f78513a;
+    public final /* synthetic */ XMPushService f78548a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ca(XMPushService xMPushService, int i2) {
@@ -33,7 +33,7 @@ public class ca extends XMPushService.i {
                 return;
             }
         }
-        this.f78513a = xMPushService;
+        this.f78548a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -47,9 +47,9 @@ public class ca extends XMPushService.i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            y.a(this.f78513a);
-            if (com.xiaomi.push.bg.b(this.f78513a)) {
-                this.f78513a.a(true);
+            y.a(this.f78548a);
+            if (com.xiaomi.push.bg.b(this.f78548a)) {
+                this.f78548a.a(true);
             }
         }
     }

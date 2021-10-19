@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.chosen.net.zan;
 
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -49,7 +49,7 @@ public class ChosenZanNetMessage extends NetMessage {
             builder.excid = Long.valueOf(this.excId);
             builder.thread_id = Long.valueOf(this.threadId);
             builder.post_id = Long.valueOf(this.postId);
-            a0.a(builder, true);
+            z.a(builder, true);
             ExcZanReqIdl.Builder builder2 = new ExcZanReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

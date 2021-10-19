@@ -120,7 +120,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            b.f63739a = null;
+            b.f63774a = null;
             EventBus.getInstance().unregister(this);
         }
     }
@@ -170,10 +170,10 @@ public class MyCouponListActivity extends CouponBaseActivity {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ CouponListResponse.CodeCoupon f63786a;
+                        public final /* synthetic */ CouponListResponse.CodeCoupon f63821a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ MyCouponListActivity f63787b;
+                        public final /* synthetic */ MyCouponListActivity f63822b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -190,15 +190,15 @@ public class MyCouponListActivity extends CouponBaseActivity {
                                     return;
                                 }
                             }
-                            this.f63787b = this;
-                            this.f63786a = codeCoupon;
+                            this.f63822b = this;
+                            this.f63821a = codeCoupon;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                BaiduWalletDelegate.getInstance().openH5Module(this.f63787b.getActivity(), this.f63786a.url);
+                                BaiduWalletDelegate.getInstance().openH5Module(this.f63822b.getActivity(), this.f63821a.url);
                             }
                         }
                     });

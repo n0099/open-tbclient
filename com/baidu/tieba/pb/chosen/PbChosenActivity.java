@@ -14,10 +14,10 @@ import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.t.c.k0;
-import c.a.r0.j2.g.d.c;
-import c.a.r0.j2.g.d.d;
-import c.a.r0.j2.g.d.e;
+import c.a.q0.t.c.l0;
+import c.a.r0.k2.g.d.c;
+import c.a.r0.k2.g.d.d;
+import c.a.r0.k2.g.d.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -70,45 +70,45 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     public static final String FROM_FRS = "from_frs";
     public static final String ST_TYPE = "pb_chosen";
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.j2.g.d.a adapter;
+    public c.a.r0.k2.g.d.a adapter;
     public CustomMessageListener attentionListener;
     public LikeModel attentionModel;
     public CustomMessageListener cacheReadListener;
-    public c.a.r0.j2.g.c.a chosenData;
+    public c.a.r0.k2.g.c.a chosenData;
     public c.a commentCallback;
-    public c.a.r0.j2.g.d.c commentView;
-    public c.a.r0.j2.g.a dialog;
+    public c.a.r0.k2.g.d.c commentView;
+    public c.a.r0.k2.g.a dialog;
     public int from;
     public boolean hasData;
     public boolean isDataLoaded;
     public boolean isShowLoading;
     public BdListView listView;
     public DataModel<PbChosenActivity> mDataModel;
-    public c.a.q0.x.w.e mEditor;
+    public c.a.q0.x.x.e mEditor;
     public final NewWriteModel.g mOnPostWriteCallback;
-    public c.a.q0.x.w.c mPrePostCallBack;
+    public c.a.q0.x.x.c mPrePostCallBack;
     public final AbsListView.OnScrollListener mScrollListener;
     public VoiceManager mVoiceManager;
     public NavigationBar navigationBar;
     public c.a.e.c.g.a netListener;
-    public c.a.r0.j2.g.c.b pbModel;
+    public c.a.r0.k2.g.c.b pbModel;
     public CustomMessageListener pbNativeZanListener;
     public d.e personInfoCallback;
-    public c.a.r0.j2.g.d.d personInfoView;
+    public c.a.r0.k2.g.d.d personInfoView;
     public e.c postCallback;
-    public c.a.r0.j2.g.d.e postInfoView;
+    public c.a.r0.k2.g.d.e postInfoView;
     public int praiseData;
     public View.OnClickListener replyClickListener;
     public View replyNumberRoot;
     public TextView replyNumberView;
-    public c.a.r0.j2.g.d.f replyView;
+    public c.a.r0.k2.g.d.f replyView;
     public RelativeLayout rootView;
     public View.OnClickListener shareListener;
     public String shareUrl;
     public long startTime;
     public CustomMessageListener unAttentionListener;
     public c.a.e.c.g.a zanListener;
-    public c.a.r0.j2.g.c.c.a zanModel;
+    public c.a.r0.k2.g.c.c.a zanModel;
 
     /* loaded from: classes7.dex */
     public class a implements d.e {
@@ -116,18 +116,18 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55011a;
+        public final /* synthetic */ PbChosenActivity f54942a;
 
         /* renamed from: com.baidu.tieba.pb.chosen.PbChosenActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1789a extends c.a.e.a.e {
+        public class C1791a extends c.a.e.a.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f55012a;
+            public final /* synthetic */ a f54943a;
 
-            public C1789a(a aVar) {
+            public C1791a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,14 +142,14 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                         return;
                     }
                 }
-                this.f55012a = aVar;
+                this.f54943a = aVar;
             }
 
             @Override // c.a.e.a.e
             public void c(Object obj) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && AntiHelper.m(this.f55012a.f55011a.attentionModel.getErrorCode(), this.f55012a.f55011a.attentionModel.getErrorString())) {
-                    AntiHelper.u(this.f55012a.f55011a.getActivity(), this.f55012a.f55011a.attentionModel.getErrorString());
+                if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && AntiHelper.m(this.f54943a.f54942a.attentionModel.getErrorCode(), this.f54943a.f54942a.attentionModel.getErrorString())) {
+                    AntiHelper.u(this.f54943a.f54942a.getActivity(), this.f54943a.f54942a.attentionModel.getErrorString());
                 }
             }
         }
@@ -169,51 +169,51 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55011a = pbChosenActivity;
+            this.f54942a = pbChosenActivity;
         }
 
-        @Override // c.a.r0.j2.g.d.d.e
+        @Override // c.a.r0.k2.g.d.d.e
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || StringUtils.isNull(str)) {
                 return;
             }
-            this.f55011a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f55011a.getPageContext().getPageActivity()).createNormalCfg(str, PbChosenActivity.FROM_CHOSEN_PB)));
-            if (this.f55011a.chosenData == null || this.f55011a.chosenData.getThreadInfo() == null || this.f55011a.chosenData.getThreadInfo().excid == null) {
+            this.f54942a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f54942a.getPageContext().getPageActivity()).createNormalCfg(str, PbChosenActivity.FROM_CHOSEN_PB)));
+            if (this.f54942a.chosenData == null || this.f54942a.chosenData.getThreadInfo() == null || this.f54942a.chosenData.getThreadInfo().excid == null) {
                 return;
             }
-            TiebaStatic.log(new StatisticItem("pb_new_sourcefid").param("obj_source", this.f55011a.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f55011a.chosenData.getThreadInfo().abtest));
+            TiebaStatic.log(new StatisticItem("pb_new_sourcefid").param("obj_source", this.f54942a.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f54942a.chosenData.getThreadInfo().abtest));
         }
 
-        @Override // c.a.r0.j2.g.d.d.e
+        @Override // c.a.r0.k2.g.d.d.e
         public void b(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-                this.f55011a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f55011a.getPageContext().getPageActivity(), str, str2)));
+                this.f54942a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f54942a.getPageContext().getPageActivity(), str, str2)));
             }
         }
 
-        @Override // c.a.r0.j2.g.d.d.e
+        @Override // c.a.r0.k2.g.d.d.e
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (!c.a.e.e.p.j.z()) {
-                    BdToast.c(this.f55011a.getPageContext().getPageActivity(), this.f55011a.getResources().getString(R.string.neterror)).q();
-                } else if (!this.f55011a.checkUpIsLogin() || this.f55011a.chosenData == null || this.f55011a.chosenData.getThreadInfo() == null || this.f55011a.chosenData.getThreadInfo().forum.forum_id == null) {
+                    BdToast.c(this.f54942a.getPageContext().getPageActivity(), this.f54942a.getResources().getString(R.string.neterror)).q();
+                } else if (!this.f54942a.checkUpIsLogin() || this.f54942a.chosenData == null || this.f54942a.chosenData.getThreadInfo() == null || this.f54942a.chosenData.getThreadInfo().forum.forum_id == null) {
                 } else {
-                    if (this.f55011a.attentionModel == null) {
-                        PbChosenActivity pbChosenActivity = this.f55011a;
+                    if (this.f54942a.attentionModel == null) {
+                        PbChosenActivity pbChosenActivity = this.f54942a;
                         pbChosenActivity.attentionModel = new LikeModel(pbChosenActivity.getPageContext());
                     }
-                    this.f55011a.attentionModel.setFrom("from_frs");
-                    this.f55011a.attentionModel.setLoadDataCallBack(new C1789a(this));
-                    this.f55011a.attentionModel.L(this.f55011a.chosenData.getThreadInfo().forum.forum_name, String.valueOf(this.f55011a.chosenData.getThreadInfo().forum.forum_id));
-                    if (this.f55011a.chosenData == null || this.f55011a.chosenData.getThreadInfo() == null) {
+                    this.f54942a.attentionModel.setFrom("from_frs");
+                    this.f54942a.attentionModel.setLoadDataCallBack(new C1791a(this));
+                    this.f54942a.attentionModel.L(this.f54942a.chosenData.getThreadInfo().forum.forum_name, String.valueOf(this.f54942a.chosenData.getThreadInfo().forum.forum_id));
+                    if (this.f54942a.chosenData == null || this.f54942a.chosenData.getThreadInfo() == null) {
                         return;
                     }
                     StatisticItem statisticItem = new StatisticItem("c10322");
-                    StatisticItem param = statisticItem.param("fid", this.f55011a.chosenData.getThreadInfo().forum.forum_id + "");
-                    TiebaStatic.log(param.param("tid", this.f55011a.chosenData.getThreadInfo().thread_id + "").param("obj_source", this.f55011a.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f55011a.chosenData.getThreadInfo().abtest));
+                    StatisticItem param = statisticItem.param("fid", this.f54942a.chosenData.getThreadInfo().forum.forum_id + "");
+                    TiebaStatic.log(param.param("tid", this.f54942a.chosenData.getThreadInfo().thread_id + "").param("obj_source", this.f54942a.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f54942a.chosenData.getThreadInfo().abtest));
                 }
             }
         }
@@ -225,7 +225,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55013a;
+        public final /* synthetic */ PbChosenActivity f54944a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PbChosenActivity pbChosenActivity, int i2, int i3) {
@@ -246,31 +246,31 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55013a = pbChosenActivity;
+            this.f54944a = pbChosenActivity;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && (responsedMessage instanceof c.a.r0.j2.g.c.a)) {
-                c.a.r0.j2.g.c.a aVar = (c.a.r0.j2.g.c.a) responsedMessage;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && (responsedMessage instanceof c.a.r0.k2.g.c.a)) {
+                c.a.r0.k2.g.c.a aVar = (c.a.r0.k2.g.c.a) responsedMessage;
                 int erroCode = aVar.getErroCode();
-                this.f55013a.isDataLoaded = true;
+                this.f54944a.isDataLoaded = true;
                 if (erroCode == 0) {
-                    this.f55013a.updateViews(aVar);
+                    this.f54944a.updateViews(aVar);
                 } else {
-                    PbChosenActivity pbChosenActivity = this.f55013a;
+                    PbChosenActivity pbChosenActivity = this.f54944a;
                     pbChosenActivity.hideLoadingView(pbChosenActivity.rootView);
-                    this.f55013a.showToast(StringUtils.isNull(aVar.getErrorText()) ? this.f55013a.getResources().getString(R.string.neterror) : aVar.getErrorText());
+                    this.f54944a.showToast(StringUtils.isNull(aVar.getErrorText()) ? this.f54944a.getResources().getString(R.string.neterror) : aVar.getErrorText());
                 }
-                if (this.f55013a.hasData) {
+                if (this.f54944a.hasData) {
                     return;
                 }
-                String string = this.f55013a.getResources().getString(R.string.error_unkown_try_again);
-                PbChosenActivity pbChosenActivity2 = this.f55013a;
+                String string = this.f54944a.getResources().getString(R.string.error_unkown_try_again);
+                PbChosenActivity pbChosenActivity2 = this.f54944a;
                 pbChosenActivity2.showNetRefreshView(pbChosenActivity2.rootView, string, true);
-                this.f55013a.setNetRefreshLayoutMarginTop(false);
-                this.f55013a.replyView.e(false);
+                this.f54944a.setNetRefreshLayoutMarginTop(false);
+                this.f54944a.replyView.e(false);
             }
         }
     }
@@ -281,7 +281,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55014a;
+        public final /* synthetic */ PbChosenActivity f54945a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PbChosenActivity pbChosenActivity, int i2) {
@@ -301,7 +301,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55014a = pbChosenActivity;
+            this.f54945a = pbChosenActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -309,13 +309,13 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f55014a.postInfoView.n();
-                this.f55014a.postInfoView.f19600h = !this.f55014a.postInfoView.f19600h;
-                this.f55014a.postInfoView.m(this.f55014a.postInfoView.f19600h);
-                if (this.f55014a.postInfoView.f19600h) {
-                    this.f55014a.praiseData = 1;
+                this.f54945a.postInfoView.n();
+                this.f54945a.postInfoView.f19777h = !this.f54945a.postInfoView.f19777h;
+                this.f54945a.postInfoView.m(this.f54945a.postInfoView.f19777h);
+                if (this.f54945a.postInfoView.f19777h) {
+                    this.f54945a.praiseData = 1;
                 } else {
-                    this.f55014a.praiseData = 0;
+                    this.f54945a.praiseData = 0;
                 }
             }
         }
@@ -327,7 +327,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55015a;
+        public final /* synthetic */ PbChosenActivity f54946a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(PbChosenActivity pbChosenActivity, int i2, int i3) {
@@ -348,7 +348,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55015a = pbChosenActivity;
+            this.f54946a = pbChosenActivity;
         }
 
         @Override // c.a.e.c.g.a
@@ -358,24 +358,24 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            this.f55015a.postInfoView.n();
+            this.f54946a.postInfoView.n();
             if (responsedMessage.hasError()) {
                 if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    errorString = this.f55015a.getResources().getString(R.string.neterror);
+                    errorString = this.f54946a.getResources().getString(R.string.neterror);
                 } else {
                     errorString = responsedMessage.getErrorString();
                 }
-                BdToast.c(this.f55015a.getPageContext().getPageActivity(), errorString).q();
+                BdToast.c(this.f54946a.getPageContext().getPageActivity(), errorString).q();
                 return;
             }
             Object extra = responsedMessage.getOrginalMessage().getExtra();
             if (extra instanceof ChosenZanNetMessage) {
                 ChosenZanNetMessage chosenZanNetMessage = (ChosenZanNetMessage) extra;
-                this.f55015a.postInfoView.m(chosenZanNetMessage.isPraise());
+                this.f54946a.postInfoView.m(chosenZanNetMessage.isPraise());
                 if (chosenZanNetMessage.isPraise()) {
-                    this.f55015a.praiseData = 1;
+                    this.f54946a.praiseData = 1;
                 } else {
-                    this.f55015a.praiseData = 0;
+                    this.f54946a.praiseData = 0;
                 }
             }
         }
@@ -387,7 +387,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55016a;
+        public final /* synthetic */ PbChosenActivity f54947a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(PbChosenActivity pbChosenActivity, int i2) {
@@ -407,26 +407,26 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55016a = pbChosenActivity;
+            this.f54947a = pbChosenActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ReadChosenPbCacheResponse) && this.f55016a.getIntent() != null) {
-                long longExtra = this.f55016a.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TID, 0L);
-                long longExtra2 = this.f55016a.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TAG_CODE, 0L);
-                long longExtra3 = this.f55016a.getIntent().getLongExtra("thread_id", 0L);
-                c.a.r0.j2.g.c.a chosenData = ((ReadChosenPbCacheResponse) customResponsedMessage).getChosenData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ReadChosenPbCacheResponse) && this.f54947a.getIntent() != null) {
+                long longExtra = this.f54947a.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TID, 0L);
+                long longExtra2 = this.f54947a.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TAG_CODE, 0L);
+                long longExtra3 = this.f54947a.getIntent().getLongExtra("thread_id", 0L);
+                c.a.r0.k2.g.c.a chosenData = ((ReadChosenPbCacheResponse) customResponsedMessage).getChosenData();
                 if (chosenData != null && chosenData.getThreadInfo() != null && chosenData.getThreadInfo().excid != null && longExtra == chosenData.getThreadInfo().excid.longValue()) {
-                    this.f55016a.isDataLoaded = true;
-                    this.f55016a.updateViews(chosenData);
+                    this.f54947a.isDataLoaded = true;
+                    this.f54947a.updateViews(chosenData);
                 }
-                if (this.f55016a.pbModel == null) {
-                    this.f55016a.pbModel = new c.a.r0.j2.g.c.b();
+                if (this.f54947a.pbModel == null) {
+                    this.f54947a.pbModel = new c.a.r0.k2.g.c.b();
                 }
-                this.f55016a.pbModel.c(this.f55016a, longExtra, longExtra2, longExtra3);
+                this.f54947a.pbModel.c(this.f54947a, longExtra, longExtra2, longExtra3);
             }
         }
     }
@@ -437,7 +437,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55017e;
+        public final /* synthetic */ PbChosenActivity f54948e;
 
         public f(PbChosenActivity pbChosenActivity) {
             Interceptable interceptable = $ic;
@@ -454,7 +454,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55017e = pbChosenActivity;
+            this.f54948e = pbChosenActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -462,11 +462,11 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                c.a.e.e.p.l.x(this.f55017e.getActivity(), this.f55017e.getCurrentFocus());
-                if (this.f55017e.mEditor != null && this.f55017e.mEditor.a() != null) {
-                    this.f55017e.mEditor.a().hide();
+                c.a.e.e.p.l.x(this.f54948e.getActivity(), this.f54948e.getCurrentFocus());
+                if (this.f54948e.mEditor != null && this.f54948e.mEditor.a() != null) {
+                    this.f54948e.mEditor.a().hide();
                 }
-                this.f55017e.replyView.e(true);
+                this.f54948e.replyView.e(true);
                 return false;
             }
             return invokeLL.booleanValue;
@@ -479,7 +479,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55018e;
+        public final /* synthetic */ PbChosenActivity f54949e;
 
         public g(PbChosenActivity pbChosenActivity) {
             Interceptable interceptable = $ic;
@@ -496,14 +496,14 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55018e = pbChosenActivity;
+            this.f54949e = pbChosenActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f55018e.finish();
+                this.f54949e.finish();
             }
         }
     }
@@ -514,7 +514,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55019e;
+        public final /* synthetic */ PbChosenActivity f54950e;
 
         public h(PbChosenActivity pbChosenActivity) {
             Interceptable interceptable = $ic;
@@ -531,19 +531,19 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55019e = pbChosenActivity;
+            this.f54950e = pbChosenActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f55019e.chosenData == null || this.f55019e.chosenData.getThreadInfo() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f54950e.chosenData == null || this.f54950e.chosenData.getThreadInfo() == null) {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem("c10091");
-            TiebaStatic.log(statisticItem.param("tid", this.f55019e.chosenData.getThreadInfo().thread_id + "").param("obj_name", this.f55019e.chosenData.getThreadInfo().tag_name).param("obj_source", this.f55019e.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f55019e.chosenData.getThreadInfo().abtest));
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f55019e.getPageContext().getPageActivity());
-            this.f55019e.sendMessage(new CustomMessage(2004001, pbActivityConfig.createCfgForPbChosen(this.f55019e.chosenData.getThreadInfo().thread_id + "", this.f55019e.praiseData)));
+            TiebaStatic.log(statisticItem.param("tid", this.f54950e.chosenData.getThreadInfo().thread_id + "").param("obj_name", this.f54950e.chosenData.getThreadInfo().tag_name).param("obj_source", this.f54950e.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f54950e.chosenData.getThreadInfo().abtest));
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f54950e.getPageContext().getPageActivity());
+            this.f54950e.sendMessage(new CustomMessage(2004001, pbActivityConfig.createCfgForPbChosen(this.f54950e.chosenData.getThreadInfo().thread_id + "", this.f54950e.praiseData)));
         }
     }
 
@@ -553,7 +553,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55020e;
+        public final /* synthetic */ PbChosenActivity f54951e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(PbChosenActivity pbChosenActivity, c.a.e.a.f fVar) {
@@ -573,7 +573,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55020e = pbChosenActivity;
+            this.f54951e = pbChosenActivity;
         }
 
         @Override // com.baidu.tbadk.editortools.pb.DataModel
@@ -611,13 +611,13 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (this.f55020e.chosenData == null || this.f55020e.chosenData.getThreadInfo() == null) {
+                if (this.f54951e.chosenData == null || this.f54951e.chosenData.getThreadInfo() == null) {
                     return null;
                 }
                 WriteData writeData = new WriteData();
-                writeData.setForumId(String.valueOf(this.f55020e.chosenData.getThreadInfo().forum.forum_id));
-                writeData.setForumName(this.f55020e.chosenData.getThreadInfo().forum.forum_name);
-                writeData.setThreadId(String.valueOf(this.f55020e.chosenData.getThreadInfo().thread_id));
+                writeData.setForumId(String.valueOf(this.f54951e.chosenData.getThreadInfo().forum.forum_id));
+                writeData.setForumName(this.f54951e.chosenData.getThreadInfo().forum.forum_name);
+                writeData.setThreadId(String.valueOf(this.f54951e.chosenData.getThreadInfo().thread_id));
                 writeData.setIsAd(false);
                 writeData.setType(1);
                 return writeData;
@@ -656,20 +656,10 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
 
         @Override // com.baidu.adp.base.BdBaseModel
-        public boolean LoadData() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.adp.base.BdBaseModel
         public boolean cancelLoadData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 return false;
             }
             return invokeV.booleanValue;
@@ -679,11 +669,11 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public String getForumId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                if (this.f55020e.chosenData == null || this.f55020e.chosenData.getThreadInfo() == null || this.f55020e.chosenData.getThreadInfo().forum == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                if (this.f54951e.chosenData == null || this.f54951e.chosenData.getThreadInfo() == null || this.f54951e.chosenData.getThreadInfo().forum == null) {
                     return null;
                 }
-                return String.valueOf(this.f55020e.chosenData.getThreadInfo().forum.forum_id);
+                return String.valueOf(this.f54951e.chosenData.getThreadInfo().forum.forum_id);
             }
             return (String) invokeV.objValue;
         }
@@ -692,10 +682,20 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public String getFromForumId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
                 return null;
             }
             return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.adp.base.BdBaseModel
+        public boolean loadData() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.baidu.tbadk.editortools.pb.DataModel
@@ -713,10 +713,10 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                if (this.f55020e.chosenData == null || this.f55020e.chosenData.getThreadInfo() == null) {
+                if (this.f54951e.chosenData == null || this.f54951e.chosenData.getThreadInfo() == null) {
                     return null;
                 }
-                return String.valueOf(this.f55020e.chosenData.getThreadInfo().thread_id);
+                return String.valueOf(this.f54951e.chosenData.getThreadInfo().thread_id);
             }
             return (String) invokeV.objValue;
         }
@@ -728,7 +728,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55021e;
+        public final /* synthetic */ PbChosenActivity f54952e;
 
         public j(PbChosenActivity pbChosenActivity) {
             Interceptable interceptable = $ic;
@@ -745,7 +745,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55021e = pbChosenActivity;
+            this.f54952e = pbChosenActivity;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -758,21 +758,21 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) || i2 == 0 || this.f55021e.mEditor == null || this.f55021e.mEditor.a() == null) {
+            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) || i2 == 0 || this.f54952e.mEditor == null || this.f54952e.mEditor.a() == null) {
                 return;
             }
-            this.f55021e.mEditor.a().hide();
-            this.f55021e.replyView.e(true);
+            this.f54952e.mEditor.a().hide();
+            this.f54952e.replyView.e(true);
         }
     }
 
     /* loaded from: classes7.dex */
-    public class k implements c.a.q0.x.w.c {
+    public class k implements c.a.q0.x.x.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55022a;
+        public final /* synthetic */ PbChosenActivity f54953a;
 
         public k(PbChosenActivity pbChosenActivity) {
             Interceptable interceptable = $ic;
@@ -789,14 +789,14 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55022a = pbChosenActivity;
+            this.f54953a = pbChosenActivity;
         }
 
-        @Override // c.a.q0.x.w.c
+        @Override // c.a.q0.x.x.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f55022a.showProgressBar();
+                this.f54953a.showProgressBar();
             }
         }
     }
@@ -807,7 +807,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55023e;
+        public final /* synthetic */ PbChosenActivity f54954e;
 
         public l(PbChosenActivity pbChosenActivity) {
             Interceptable interceptable = $ic;
@@ -824,17 +824,17 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55023e = pbChosenActivity;
+            this.f54954e = pbChosenActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || !this.f55023e.checkUpIsLogin() || this.f55023e.mEditor == null || this.f55023e.mEditor.a() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || !this.f54954e.checkUpIsLogin() || this.f54954e.mEditor == null || this.f54954e.mEditor.a() == null) {
                 return;
             }
-            this.f55023e.mEditor.a().display();
-            this.f55023e.replyView.e(false);
+            this.f54954e.mEditor.a().display();
+            this.f54954e.replyView.e(false);
         }
     }
 
@@ -844,7 +844,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55024a;
+        public final /* synthetic */ PbChosenActivity f54955a;
 
         public m(PbChosenActivity pbChosenActivity) {
             Interceptable interceptable = $ic;
@@ -861,26 +861,26 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55024a = pbChosenActivity;
+            this.f54955a = pbChosenActivity;
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, k0 k0Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, l0 l0Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, k0Var, writeData, antiData}) == null) {
-                this.f55024a.hideProgressBar();
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, l0Var, writeData, antiData}) == null) {
+                this.f54955a.hideProgressBar();
                 if (z) {
-                    this.f55024a.mEditor.a().hide();
-                    this.f55024a.replyView.e(true);
+                    this.f54955a.mEditor.a().hide();
+                    this.f54955a.replyView.e(true);
                     if (postWriteCallBackData != null) {
-                        c.a.r0.j3.r0.m.b(this.f55024a.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                        c.a.r0.k3.r0.m.b(this.f54955a.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
                     }
-                } else if (postWriteCallBackData == null || k0Var != null || postWriteCallBackData.getErrorCode() == 227001 || c.a.r0.t3.a.c(postWriteCallBackData.getErrorCode())) {
+                } else if (postWriteCallBackData == null || l0Var != null || postWriteCallBackData.getErrorCode() == 227001 || c.a.r0.u3.a.c(postWriteCallBackData.getErrorCode())) {
                 } else {
                     if (AntiHelper.m(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString())) {
-                        AntiHelper.u(this.f55024a.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
+                        AntiHelper.u(this.f54955a.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
                     } else {
-                        BdToast.c(this.f55024a.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString()).q();
+                        BdToast.c(this.f54955a.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString()).q();
                     }
                 }
             }
@@ -893,7 +893,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55025a;
+        public final /* synthetic */ PbChosenActivity f54956a;
 
         public n(PbChosenActivity pbChosenActivity) {
             Interceptable interceptable = $ic;
@@ -910,20 +910,20 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55025a = pbChosenActivity;
+            this.f54956a = pbChosenActivity;
         }
 
-        @Override // c.a.r0.j2.g.d.c.a
+        @Override // c.a.r0.k2.g.d.c.a
         public void a(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !this.f55025a.checkUpIsLogin() || this.f55025a.chosenData == null || this.f55025a.chosenData.getThreadInfo() == null || StringUtils.isNull(str)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !this.f54956a.checkUpIsLogin() || this.f54956a.chosenData == null || this.f54956a.chosenData.getThreadInfo() == null || StringUtils.isNull(str)) {
                 return;
             }
-            if (this.f55025a.chosenData != null && this.f55025a.chosenData.getThreadInfo() != null) {
+            if (this.f54956a.chosenData != null && this.f54956a.chosenData.getThreadInfo() != null) {
                 StatisticItem statisticItem = new StatisticItem("c10093");
-                TiebaStatic.log(statisticItem.param("tid", this.f55025a.chosenData.getThreadInfo().thread_id + "").param("obj_name", this.f55025a.chosenData.getThreadInfo().tag_name).param("obj_source", this.f55025a.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f55025a.chosenData.getThreadInfo().abtest));
+                TiebaStatic.log(statisticItem.param("tid", this.f54956a.chosenData.getThreadInfo().thread_id + "").param("obj_name", this.f54956a.chosenData.getThreadInfo().tag_name).param("obj_source", this.f54956a.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f54956a.chosenData.getThreadInfo().abtest));
             }
-            this.f55025a.sendMessage(new CustomMessage(2002001, new SubPbActivityConfig(this.f55025a.getPageContext().getPageActivity()).createSubPbActivityConfig(this.f55025a.chosenData.getThreadInfo().thread_id + "", str, PbChosenActivity.ST_TYPE, true, null, true)));
+            this.f54956a.sendMessage(new CustomMessage(2002001, new SubPbActivityConfig(this.f54956a.getPageContext().getPageActivity()).createSubPbActivityConfig(this.f54956a.chosenData.getThreadInfo().thread_id + "", str, PbChosenActivity.ST_TYPE, true, null, true)));
         }
     }
 
@@ -933,7 +933,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55026e;
+        public final /* synthetic */ PbChosenActivity f54957e;
 
         public o(PbChosenActivity pbChosenActivity) {
             Interceptable interceptable = $ic;
@@ -950,25 +950,25 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55026e = pbChosenActivity;
+            this.f54957e = pbChosenActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f55026e.chosenData != null && this.f55026e.chosenData.getThreadInfo() != null) {
-                    TiebaStatic.log(new StatisticItem("pb_new_share").param("obj_source", this.f55026e.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f55026e.chosenData.getThreadInfo().abtest));
+                if (this.f54957e.chosenData != null && this.f54957e.chosenData.getThreadInfo() != null) {
+                    TiebaStatic.log(new StatisticItem("pb_new_share").param("obj_source", this.f54957e.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f54957e.chosenData.getThreadInfo().abtest));
                 }
-                if (this.f55026e.checkUpIsLogin()) {
-                    if (this.f55026e.from == 2) {
+                if (this.f54957e.checkUpIsLogin()) {
+                    if (this.f54957e.from == 2) {
                         TiebaStatic.log("c10148");
                     }
-                    if (this.f55026e.dialog == null) {
-                        PbChosenActivity pbChosenActivity = this.f55026e;
-                        pbChosenActivity.dialog = new c.a.r0.j2.g.a(pbChosenActivity);
+                    if (this.f54957e.dialog == null) {
+                        PbChosenActivity pbChosenActivity = this.f54957e;
+                        pbChosenActivity.dialog = new c.a.r0.k2.g.a(pbChosenActivity);
                     }
-                    this.f55026e.dialog.f(this.f55026e.chosenData, this.f55026e.shareUrl);
+                    this.f54957e.dialog.f(this.f54957e.chosenData, this.f54957e.shareUrl);
                 }
             }
         }
@@ -980,7 +980,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55027a;
+        public final /* synthetic */ PbChosenActivity f54958a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public p(PbChosenActivity pbChosenActivity, int i2) {
@@ -1000,7 +1000,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55027a = pbChosenActivity;
+            this.f54958a = pbChosenActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1008,7 +1008,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f55027a.handleAttentionResponse(true, customResponsedMessage);
+                this.f54958a.handleAttentionResponse(true, customResponsedMessage);
             }
         }
     }
@@ -1019,7 +1019,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55028a;
+        public final /* synthetic */ PbChosenActivity f54959a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public q(PbChosenActivity pbChosenActivity, int i2) {
@@ -1039,7 +1039,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55028a = pbChosenActivity;
+            this.f54959a = pbChosenActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1047,7 +1047,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f55028a.handleAttentionResponse(false, customResponsedMessage);
+                this.f54959a.handleAttentionResponse(false, customResponsedMessage);
             }
         }
     }
@@ -1058,7 +1058,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f55029a;
+        public final /* synthetic */ PbChosenActivity f54960a;
 
         public r(PbChosenActivity pbChosenActivity) {
             Interceptable interceptable = $ic;
@@ -1075,41 +1075,41 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     return;
                 }
             }
-            this.f55029a = pbChosenActivity;
+            this.f54960a = pbChosenActivity;
         }
 
-        @Override // c.a.r0.j2.g.d.e.c
+        @Override // c.a.r0.k2.g.d.e.c
         public void a(long j2, String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeJL(1048576, this, j2, str) == null) || StringUtils.isNull(str)) {
                 return;
             }
-            this.f55029a.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f55029a.getPageContext().getPageActivity()).createCfgForPbChosen(str, this.f55029a.praiseData)));
-            if (this.f55029a.chosenData == null || this.f55029a.chosenData.getThreadInfo() == null || this.f55029a.chosenData.getThreadInfo().excid == null) {
+            this.f54960a.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f54960a.getPageContext().getPageActivity()).createCfgForPbChosen(str, this.f54960a.praiseData)));
+            if (this.f54960a.chosenData == null || this.f54960a.chosenData.getThreadInfo() == null || this.f54960a.chosenData.getThreadInfo().excid == null) {
                 return;
             }
-            TiebaStatic.log(new StatisticItem("pb_new_detail_btn").param("obj_source", this.f55029a.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f55029a.chosenData.getThreadInfo().abtest));
+            TiebaStatic.log(new StatisticItem("pb_new_detail_btn").param("obj_source", this.f54960a.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f54960a.chosenData.getThreadInfo().abtest));
         }
 
-        @Override // c.a.r0.j2.g.d.e.c
+        @Override // c.a.r0.k2.g.d.e.c
         public void b(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f55029a.chosenData == null || this.f55029a.chosenData.getThreadInfo() == null || this.f55029a.chosenData.getThreadInfo().excid == null) {
+            if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f54960a.chosenData == null || this.f54960a.chosenData.getThreadInfo() == null || this.f54960a.chosenData.getThreadInfo().excid == null) {
                 return;
             }
-            if (this.f55029a.zanModel == null) {
-                this.f55029a.zanModel = new c.a.r0.j2.g.c.c.a();
+            if (this.f54960a.zanModel == null) {
+                this.f54960a.zanModel = new c.a.r0.k2.g.c.c.a();
             }
             if (z) {
-                c.a.r0.j2.g.c.c.a aVar = this.f55029a.zanModel;
-                PbChosenActivity pbChosenActivity = this.f55029a;
-                aVar.c(pbChosenActivity, pbChosenActivity.chosenData.getThreadInfo().excid.longValue(), this.f55029a.chosenData.getThreadInfo().thread_id.longValue(), this.f55029a.chosenData.getThreadInfo().post_id.longValue(), 2);
+                c.a.r0.k2.g.c.c.a aVar = this.f54960a.zanModel;
+                PbChosenActivity pbChosenActivity = this.f54960a;
+                aVar.c(pbChosenActivity, pbChosenActivity.chosenData.getThreadInfo().excid.longValue(), this.f54960a.chosenData.getThreadInfo().thread_id.longValue(), this.f54960a.chosenData.getThreadInfo().post_id.longValue(), 2);
             } else {
-                c.a.r0.j2.g.c.c.a aVar2 = this.f55029a.zanModel;
-                PbChosenActivity pbChosenActivity2 = this.f55029a;
-                aVar2.c(pbChosenActivity2, pbChosenActivity2.chosenData.getThreadInfo().excid.longValue(), this.f55029a.chosenData.getThreadInfo().thread_id.longValue(), this.f55029a.chosenData.getThreadInfo().post_id.longValue(), 1);
+                c.a.r0.k2.g.c.c.a aVar2 = this.f54960a.zanModel;
+                PbChosenActivity pbChosenActivity2 = this.f54960a;
+                aVar2.c(pbChosenActivity2, pbChosenActivity2.chosenData.getThreadInfo().excid.longValue(), this.f54960a.chosenData.getThreadInfo().thread_id.longValue(), this.f54960a.chosenData.getThreadInfo().post_id.longValue(), 1);
             }
-            TiebaStatic.log(new StatisticItem("pb_new_like").param("obj_source", this.f55029a.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f55029a.chosenData.getThreadInfo().abtest));
+            TiebaStatic.log(new StatisticItem("pb_new_like").param("obj_source", this.f54960a.chosenData.getThreadInfo().source.intValue()).param("abtest", this.f54960a.chosenData.getThreadInfo().abtest));
         }
     }
 
@@ -1161,7 +1161,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleAttentionResponse(boolean z, CustomResponsedMessage<?> customResponsedMessage) {
-        c.a.r0.j2.g.c.a aVar;
+        c.a.r0.k2.g.c.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZL(65560, this, z, customResponsedMessage) == null) || customResponsedMessage == null || (aVar = this.chosenData) == null || aVar.getThreadInfo() == null || this.chosenData.getThreadInfo().forum.forum_id == null) {
             return;
@@ -1175,9 +1175,9 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     private void initEditor(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65561, this, bundle) == null) {
-            c.a.q0.x.w.g gVar = new c.a.q0.x.w.g();
+            c.a.q0.x.x.g gVar = new c.a.q0.x.x.g();
             gVar.r(getPbEditorModel());
-            c.a.q0.x.w.e eVar = (c.a.q0.x.w.e) gVar.a(getActivity());
+            c.a.q0.x.x.e eVar = (c.a.q0.x.x.e) gVar.a(getActivity());
             this.mEditor = eVar;
             eVar.g0(getPageContext());
             this.mEditor.p0(this.mOnPostWriteCallback);
@@ -1208,14 +1208,14 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     private void sendReadCacheMessage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65563, this) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001314, new c.a.r0.j2.g.b.b());
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001314, new c.a.r0.k2.g.b.b());
             CustomMessage customMessage = new CustomMessage(2001314);
             customMessage.setTag(getUniqueId());
             MessageManager.getInstance().sendMessage(customMessage, customMessageTask);
         }
     }
 
-    private void setEditor(c.a.q0.x.w.e eVar) {
+    private void setEditor(c.a.q0.x.x.e eVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65564, this, eVar) == null) || eVar.a() == null) {
             return;
@@ -1227,7 +1227,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateViews(c.a.r0.j2.g.c.a aVar) {
+    public void updateViews(c.a.r0.k2.g.c.a aVar) {
         Long l2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65565, this, aVar) == null) {
@@ -1240,7 +1240,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                 if (userInfo != null) {
                     this.personInfoView.j(userInfo);
                 }
-                c.a.r0.j2.g.d.c cVar = this.commentView;
+                c.a.r0.k2.g.d.c cVar = this.commentView;
                 if (cVar != null) {
                     cVar.d(getPageContext().getPageActivity(), aVar.getPostList(), aVar.getUserList());
                 }
@@ -1253,7 +1253,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     }
                     this.postInfoView.o(threadInfo);
                     this.personInfoView.k(getPageContext().getPageActivity(), threadInfo);
-                    c.a.r0.j2.l.a aVar2 = new c.a.r0.j2.l.a();
+                    c.a.r0.k2.l.a aVar2 = new c.a.r0.k2.l.a();
                     aVar2.c(getPageContext(), aVar.getThreadInfo().content);
                     this.adapter.d(aVar2.a());
                     this.adapter.notifyDataSetChanged();
@@ -1277,13 +1277,13 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public c.a.q0.o0.d getPageStayDurationItem() {
         InterceptResult invokeV;
-        c.a.r0.j2.g.c.a aVar;
+        c.a.r0.k2.g.c.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             c.a.q0.o0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null && (aVar = this.chosenData) != null && aVar.getThreadInfo() != null && this.chosenData.getThreadInfo().forum != null) {
-                pageStayDurationItem.r(this.chosenData.getThreadInfo().forum.forum_id.longValue());
-                pageStayDurationItem.A(this.chosenData.getThreadInfo().thread_id.longValue());
+                pageStayDurationItem.t(this.chosenData.getThreadInfo().forum.forum_id.longValue());
+                pageStayDurationItem.C(this.chosenData.getThreadInfo().thread_id.longValue());
             }
             return pageStayDurationItem;
         }
@@ -1311,18 +1311,18 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     public void onActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, intent) == null) && i3 == -1) {
-            c.a.q0.x.w.e eVar = this.mEditor;
+            c.a.q0.x.x.e eVar = this.mEditor;
             if (eVar != null) {
                 eVar.J(i2, i3, intent);
             }
             if (i2 == 23003) {
-                c.a.r0.j2.g.a.d(this, this.chosenData, intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L), this.shareUrl);
+                c.a.r0.k2.g.a.d(this, this.chosenData, intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L), this.shareUrl);
             } else if (i2 != 23007) {
             } else {
                 long longExtra = intent.getLongExtra(PersonalChatActivityConfig.KEY_USER_ID, -1L);
                 String stringExtra = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_NAME);
                 String stringExtra2 = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT);
-                c.a.r0.j2.g.a.e(this, this.chosenData, longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2, this.shareUrl);
+                c.a.r0.k2.g.a.e(this, this.chosenData, longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2, this.shareUrl);
             }
         }
     }
@@ -1341,7 +1341,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(getPageContext(), i2);
             }
-            c.a.q0.x.w.e eVar = this.mEditor;
+            c.a.q0.x.x.e eVar = this.mEditor;
             if (eVar != null && eVar.a() != null) {
                 this.mEditor.a().onChangeSkinType(i2);
             }
@@ -1363,16 +1363,16 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             this.listView = bdListView;
             bdListView.setOnTouchListener(new f(this));
             this.listView.setOnScrollListener(this.mScrollListener);
-            c.a.r0.j2.g.d.a aVar = new c.a.r0.j2.g.d.a(getPageContext().getPageActivity());
+            c.a.r0.k2.g.d.a aVar = new c.a.r0.k2.g.d.a(getPageContext().getPageActivity());
             this.adapter = aVar;
             this.listView.setAdapter((ListAdapter) aVar);
-            c.a.r0.j2.g.d.f fVar = new c.a.r0.j2.g.d.f(findViewById(R.id.chosen_pb_reply));
+            c.a.r0.k2.g.d.f fVar = new c.a.r0.k2.g.d.f(findViewById(R.id.chosen_pb_reply));
             this.replyView = fVar;
             fVar.b(this.replyClickListener);
             this.replyView.d(this.shareListener);
-            this.personInfoView = new c.a.r0.j2.g.d.d(getPageContext().getPageActivity());
-            this.postInfoView = new c.a.r0.j2.g.d.e(getPageContext().getPageActivity());
-            this.commentView = new c.a.r0.j2.g.d.c(getPageContext().getPageActivity(), this.commentCallback);
+            this.personInfoView = new c.a.r0.k2.g.d.d(getPageContext().getPageActivity());
+            this.postInfoView = new c.a.r0.k2.g.d.e(getPageContext().getPageActivity());
+            this.commentView = new c.a.r0.k2.g.d.c(getPageContext().getPageActivity(), this.commentCallback);
             this.personInfoView.g(this.personInfoCallback);
             this.postInfoView.i(this.postCallback);
             this.listView.addHeaderView(this.personInfoView.c());
@@ -1411,7 +1411,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            c.a.q0.x.w.e eVar = this.mEditor;
+            c.a.q0.x.x.e eVar = this.mEditor;
             if (eVar != null) {
                 eVar.K();
             }
@@ -1439,7 +1439,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
-        c.a.q0.x.w.e eVar;
+        c.a.q0.x.x.e eVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i2, keyEvent)) == null) {
             if (i2 == 4 && (eVar = this.mEditor) != null && eVar.a() != null && this.mEditor.a().isToolVisible()) {
@@ -1461,7 +1461,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         long longExtra2 = getIntent().getLongExtra(PbChosenActivityConfig.KEY_TAG_CODE, 0L);
         long longExtra3 = getIntent().getLongExtra("thread_id", 0L);
         if (this.pbModel == null) {
-            this.pbModel = new c.a.r0.j2.g.c.b();
+            this.pbModel = new c.a.r0.k2.g.c.b();
         }
         this.pbModel.c(this, longExtra, longExtra2, longExtra3);
         hideNetRefreshView(this.rootView);
@@ -1497,7 +1497,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            c.a.q0.x.w.e eVar = this.mEditor;
+            c.a.q0.x.x.e eVar = this.mEditor;
             if (eVar != null) {
                 eVar.M(bundle);
             }
@@ -1525,7 +1525,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onStop();
-            c.a.r0.j2.g.c.a aVar = this.chosenData;
+            c.a.r0.k2.g.c.a aVar = this.chosenData;
             if (aVar != null && aVar.getThreadInfo() != null && this.chosenData.getThreadInfo().excid != null) {
                 long elapsedRealtime = SystemClock.elapsedRealtime() - this.startTime;
                 Activity pageActivity = getPageContext().getPageActivity();

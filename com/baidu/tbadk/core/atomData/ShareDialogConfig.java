@@ -76,6 +76,7 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean showQRCode;
     public ShareItem[] specialShareItems;
     public ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> textViewList;
+    public String topicId;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
@@ -349,9 +350,16 @@ public class ShareDialogConfig extends IntentConfig {
         }
     }
 
+    public void setTopicId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            this.topicId = str;
+        }
+    }
+
     public void setTransmitForumList(ArrayList<TransmitForumData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, arrayList) == null) {
             this.mForumList = arrayList;
         }
     }

@@ -69,7 +69,7 @@ public final class CompletableDelay extends Completable {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final Throwable f79268e;
+            public final Throwable f79303e;
             public final /* synthetic */ Delay this$1;
 
             public OnError(Delay delay, Throwable th) {
@@ -88,14 +88,14 @@ public final class CompletableDelay extends Completable {
                     }
                 }
                 this.this$1 = delay;
-                this.f79268e = th;
+                this.f79303e = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$1.s.onError(this.f79268e);
+                    this.this$1.s.onError(this.f79303e);
                 }
             }
         }

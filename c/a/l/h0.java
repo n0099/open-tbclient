@@ -81,9 +81,9 @@ public class h0 extends h {
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             if (!s(aVar) && aVar != null && aVar.getThreadData() != null && !r(aVar) && ((!ListUtils.isEmpty(aVar.getThreadData().A0()) || ListUtils.getCount(aVar.getThreadData().c0()) == 1) && ((!ListUtils.isEmpty(aVar.getThreadData().c0()) || ListUtils.getCount(aVar.getThreadData().A0()) == 1) && ListUtils.getCount(aVar.getThreadData().A0()) + ListUtils.getCount(aVar.getThreadData().c0()) == 1))) {
                 if (aVar.getThreadData().A0().size() >= 1) {
-                    this.l.bindData((c.a.r0.a0.d0.c) ListUtils.getItem(aVar.getThreadData().A0(), 0));
+                    this.l.bindData((c.a.r0.b0.e0.c) ListUtils.getItem(aVar.getThreadData().A0(), 0));
                 } else if (aVar.getThreadData().c0().size() >= 1) {
-                    this.l.bindData((c.a.r0.a0.d0.c) ListUtils.getItem(aVar.getThreadData().c0(), 0));
+                    this.l.bindData((c.a.r0.b0.e0.c) ListUtils.getItem(aVar.getThreadData().c0(), 0));
                 }
                 this.l.setVisibility(0);
                 return;

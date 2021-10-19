@@ -59,24 +59,24 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
     public final int DIALOG_CAN_AMOUNT_NO_PWD;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayRequestCache.BindCategory f63120a;
+    public PayRequestCache.BindCategory f63155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f63121b;
+    public LayoutInflater f63156b;
     public BdActionBar bdActionBar;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f63122c;
+    public final int f63157c;
     public g checkCardInfoBean;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f63123d;
+    public boolean f63158d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f63124e;
+    public int f63159e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f63125f;
+    public int f63160f;
     public boolean isAutoFillPhone;
     public boolean isFromRestore;
     public j mBindCardController;
@@ -107,12 +107,12 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
         this.mBindReq = null;
         this.mPayReq = null;
         this.DIALOG_CAN_AMOUNT_NO_PWD = 629128;
-        this.f63122c = 629129;
+        this.f63157c = 629129;
         this.DIALOG_ABANDON_AUTHORIZE = 629130;
         this.isFromRestore = false;
-        this.f63123d = false;
-        this.f63124e = 0;
-        this.f63125f = 0;
+        this.f63158d = false;
+        this.f63159e = 0;
+        this.f63160f = 0;
     }
 
     private void a() {
@@ -134,10 +134,10 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
     public void addContentView(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (this.f63121b == null) {
-                this.f63121b = LayoutInflater.from(getActivity());
+            if (this.f63156b == null) {
+                this.f63156b = LayoutInflater.from(getActivity());
             }
-            a(this.f63121b.inflate(i2, (ViewGroup) null));
+            a(this.f63156b.inflate(i2, (ViewGroup) null));
         }
     }
 
@@ -157,7 +157,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
             initActionBarWithActualTitleValue(str);
-            this.f63124e = i2;
+            this.f63159e = i2;
         }
     }
 
@@ -194,13 +194,13 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
     public PayRequestCache.BindCategory getCategory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f63120a : (PayRequestCache.BindCategory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f63155a : (PayRequestCache.BindCategory) invokeV.objValue;
     }
 
     public int getCurrentStep() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f63124e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f63159e : invokeV.intValue;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.dxmpay.wallet.core.beans.BeanActivity
@@ -291,7 +291,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                         }
                     }
                     if (i3 == 15500 && (this.mBindReq.getmBindFrom() == 2 || this.mBindReq.getmBindFrom() == 7 || this.mBindReq.getmBindFrom() == 9)) {
-                        this.f63123d = i2 == 13;
+                        this.f63158d = i2 == 13;
                         this.mCardInfoUpdateContent = (ErrorContentResponse) obj;
                         this.mDialogMsg = str;
                         this.mPayErrorCode = i3;
@@ -333,12 +333,12 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
         if (interceptable == null || interceptable.invokeL(1048592, this, view) == null) {
             int id = view.getId();
             if (id == ResUtils.id(getActivity(), "date_tip_img")) {
-                this.f63125f = 1;
+                this.f63160f = 1;
                 this.mDialogMsg = ResUtils.getString(getActivity(), "ebpay_date_tip");
                 StatisticManager.onEvent("clickHelpDate");
                 WalletGlobalUtils.safeShowDialog(this, 2, "");
             } else if (id == ResUtils.id(getActivity(), "cvv_tip_img")) {
-                this.f63125f = 0;
+                this.f63160f = 0;
                 this.mDialogMsg = ResUtils.getString(getActivity(), "ebpay_cvv2_tip");
                 StatisticManager.onEvent("clickHelpCVV");
                 WalletGlobalUtils.safeShowDialog(this, 2, "");
@@ -363,9 +363,9 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
             setIsShowMultiWindowTips(true);
             if (bundle == null) {
                 this.mPayReq = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
-                this.f63120a = PayRequestCache.getInstance().getBindCategoryByIntent(getIntent());
-                this.mBindReq = (BindFastRequest) PayRequestCache.getInstance().getRequest(this.f63120a);
-                PayDataCache.getInstance().setCurrentPayRequest(this.f63120a);
+                this.f63155a = PayRequestCache.getInstance().getBindCategoryByIntent(getIntent());
+                this.mBindReq = (BindFastRequest) PayRequestCache.getInstance().getRequest(this.f63155a);
+                PayDataCache.getInstance().setCurrentPayRequest(this.f63155a);
                 a(getIntent());
                 this.isFromRestore = false;
             } else {
@@ -446,9 +446,9 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, intent) == null) {
             super.onNewIntent(intent);
-            this.f63120a = PayRequestCache.getInstance().getBindCategoryByIntent(getIntent());
-            this.mBindReq = (BindFastRequest) PayRequestCache.getInstance().getRequest(this.f63120a);
-            PayDataCache.getInstance().setCurrentPayRequest(this.f63120a);
+            this.f63155a = PayRequestCache.getInstance().getBindCategoryByIntent(getIntent());
+            this.mBindReq = (BindFastRequest) PayRequestCache.getInstance().getRequest(this.f63155a);
+            PayDataCache.getInstance().setCurrentPayRequest(this.f63155a);
             if (this.mBindReq == null) {
                 BindFastRequest bindFastRequest = new BindFastRequest();
                 this.mBindReq = bindFastRequest;
@@ -486,7 +486,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
             if (i2 == 2) {
                 PromptImageDialog promptImageDialog = (PromptImageDialog) dialog;
                 promptImageDialog.setMessage(this.mDialogMsg);
-                if (this.f63125f == 0) {
+                if (this.f63160f == 0) {
                     promptImageDialog.setTitleMessage(ResUtils.getString(getActivity(), "ebpay_cvv2_tip_title"));
                     promptImageDialog.setImage(ResUtils.drawable(getActivity(), "wallet_base_help_cvv"));
                     return;
@@ -503,7 +503,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BindCardBaseActivity f63128a;
+                    public final /* synthetic */ BindCardBaseActivity f63163a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -520,14 +520,14 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                                 return;
                             }
                         }
-                        this.f63128a = this;
+                        this.f63163a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f63128a, 3);
+                            WalletGlobalUtils.safeDismissDialog(this.f63163a, 3);
                         }
                     }
                 });
@@ -550,7 +550,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BindCardBaseActivity f63129a;
+                    public final /* synthetic */ BindCardBaseActivity f63164a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -567,20 +567,20 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                                 return;
                             }
                         }
-                        this.f63129a = this;
+                        this.f63164a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            BindCardBaseActivity bindCardBaseActivity = this.f63129a;
+                            BindCardBaseActivity bindCardBaseActivity = this.f63164a;
                             bindCardBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(bindCardBaseActivity.getActivity(), "dxm_ebpay_cancel"));
-                            WalletGlobalUtils.safeDismissDialog(this.f63129a, 34);
+                            WalletGlobalUtils.safeDismissDialog(this.f63164a, 34);
                         }
                     }
                 });
-                if (this.f63123d) {
+                if (this.f63158d) {
                     promptDialog2.hideNegativeButton();
                 }
                 promptDialog2.setPositiveBtn(ResUtils.string(this, "ebpay_wallet_continue_pay"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.BindCardBaseActivity.4
@@ -588,7 +588,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BindCardBaseActivity f63130a;
+                    public final /* synthetic */ BindCardBaseActivity f63165a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -605,19 +605,19 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                                 return;
                             }
                         }
-                        this.f63130a = this;
+                        this.f63165a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            BindCardBaseActivity bindCardBaseActivity = this.f63130a;
+                            BindCardBaseActivity bindCardBaseActivity = this.f63165a;
                             bindCardBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(bindCardBaseActivity.getActivity(), "ebpay_wallet_continue_pay"));
                             StatisticManager.onEvent("continueFromCardOverdue");
-                            WalletGlobalUtils.safeDismissDialog(this.f63130a, 34);
+                            WalletGlobalUtils.safeDismissDialog(this.f63165a, 34);
                             PayController payController = PayController.getInstance();
-                            BindCardBaseActivity bindCardBaseActivity2 = this.f63130a;
+                            BindCardBaseActivity bindCardBaseActivity2 = this.f63165a;
                             payController.updateCardInfoPay(bindCardBaseActivity2, bindCardBaseActivity2.mCardInfoUpdateContent);
                         }
                     }
@@ -631,7 +631,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BindCardBaseActivity f63131a;
+                    public final /* synthetic */ BindCardBaseActivity f63166a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -648,7 +648,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                                 return;
                             }
                         }
-                        this.f63131a = this;
+                        this.f63166a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -656,28 +656,28 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             StatisticManager.onEvent("origPriceFromAlert");
-                            BindCardBaseActivity bindCardBaseActivity = this.f63131a;
+                            BindCardBaseActivity bindCardBaseActivity = this.f63166a;
                             bindCardBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(bindCardBaseActivity.getActivity(), "bd_wallet_pay_by_order_price"));
-                            ErrorContentResponse errorContentResponse = this.f63131a.mCardInfoUpdateContent;
+                            ErrorContentResponse errorContentResponse = this.f63166a.mCardInfoUpdateContent;
                             if (errorContentResponse == null || errorContentResponse.mkt_solution == null) {
                                 return;
                             }
-                            ((PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)).setMktSolution(this.f63131a.mCardInfoUpdateContent.mkt_solution);
-                            if (this.f63131a.mBindReq.getmBindFrom() == 9) {
-                                this.f63131a.mBindCardController.c(new String[0]);
+                            ((PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)).setMktSolution(this.f63166a.mCardInfoUpdateContent.mkt_solution);
+                            if (this.f63166a.mBindReq.getmBindFrom() == 9) {
+                                this.f63166a.mBindCardController.c(new String[0]);
                             } else {
-                                BindCardBaseActivity bindCardBaseActivity2 = this.f63131a;
+                                BindCardBaseActivity bindCardBaseActivity2 = this.f63166a;
                                 if (bindCardBaseActivity2.checkCardInfoBean == null) {
-                                    bindCardBaseActivity2.checkCardInfoBean = (g) PayBeanFactory.getInstance().getBean((Context) this.f63131a.getActivity(), 5, BindCardBaseActivity.BEAN_TAG);
+                                    bindCardBaseActivity2.checkCardInfoBean = (g) PayBeanFactory.getInstance().getBean((Context) this.f63166a.getActivity(), 5, BindCardBaseActivity.BEAN_TAG);
                                 }
-                                BindCardBaseActivity bindCardBaseActivity3 = this.f63131a;
+                                BindCardBaseActivity bindCardBaseActivity3 = this.f63166a;
                                 bindCardBaseActivity3.checkCardInfoBean.a(bindCardBaseActivity3.mBindReq);
-                                BindCardBaseActivity bindCardBaseActivity4 = this.f63131a;
+                                BindCardBaseActivity bindCardBaseActivity4 = this.f63166a;
                                 bindCardBaseActivity4.checkCardInfoBean.setResponseCallback(bindCardBaseActivity4);
-                                this.f63131a.checkCardInfoBean.execBean();
+                                this.f63166a.checkCardInfoBean.execBean();
                             }
-                            WalletGlobalUtils.safeShowDialog(this.f63131a, -2, "");
-                            WalletGlobalUtils.safeDismissDialog(this.f63131a, 35);
+                            WalletGlobalUtils.safeShowDialog(this.f63166a, -2, "");
+                            WalletGlobalUtils.safeDismissDialog(this.f63166a, 35);
                         }
                     }
                 });
@@ -686,7 +686,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BindCardBaseActivity f63132a;
+                    public final /* synthetic */ BindCardBaseActivity f63167a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -703,17 +703,17 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                                 return;
                             }
                         }
-                        this.f63132a = this;
+                        this.f63167a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            BindCardBaseActivity bindCardBaseActivity = this.f63132a;
+                            BindCardBaseActivity bindCardBaseActivity = this.f63167a;
                             bindCardBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(bindCardBaseActivity.getActivity(), "bd_wallet_modify_card_no"));
-                            WalletGlobalUtils.safeDismissDialog(this.f63132a, 35);
-                            this.f63132a.updateChangeCard();
+                            WalletGlobalUtils.safeDismissDialog(this.f63167a, 35);
+                            this.f63167a.updateChangeCard();
                         }
                     }
                 });
@@ -722,7 +722,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BindCardBaseActivity f63133a;
+                    public final /* synthetic */ BindCardBaseActivity f63168a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -739,16 +739,16 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                                 return;
                             }
                         }
-                        this.f63133a = this;
+                        this.f63168a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            BindCardBaseActivity bindCardBaseActivity = this.f63133a;
+                            BindCardBaseActivity bindCardBaseActivity = this.f63168a;
                             bindCardBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(bindCardBaseActivity.getActivity(), "dxm_ebpay_cancel"));
-                            WalletGlobalUtils.safeDismissDialog(this.f63133a, 35);
+                            WalletGlobalUtils.safeDismissDialog(this.f63168a, 35);
                         }
                     }
                 });
@@ -761,10 +761,10 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PromptDialog f63126a;
+                    public final /* synthetic */ PromptDialog f63161a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BindCardBaseActivity f63127b;
+                    public final /* synthetic */ BindCardBaseActivity f63162b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -781,8 +781,8 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                                 return;
                             }
                         }
-                        this.f63127b = this;
-                        this.f63126a = promptDialog3;
+                        this.f63162b = this;
+                        this.f63161a = promptDialog3;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -790,9 +790,9 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             PayController payController = PayController.getInstance();
-                            BindCardBaseActivity bindCardBaseActivity = this.f63127b;
+                            BindCardBaseActivity bindCardBaseActivity = this.f63162b;
                             payController.updateCardInfoPay(bindCardBaseActivity, bindCardBaseActivity.mCardInfoUpdateContent);
-                            this.f63126a.dismiss();
+                            this.f63161a.dismiss();
                         }
                     }
                 });
@@ -809,7 +809,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BindCardBaseActivity f63134a;
+                    public final /* synthetic */ BindCardBaseActivity f63169a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -826,16 +826,16 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                                 return;
                             }
                         }
-                        this.f63134a = this;
+                        this.f63169a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            BindCardBaseActivity bindCardBaseActivity = this.f63134a;
+                            BindCardBaseActivity bindCardBaseActivity = this.f63169a;
                             bindCardBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(bindCardBaseActivity.getActivity(), "dxm_ebpay_cancel"));
-                            WalletGlobalUtils.safeDismissDialog(this.f63134a, 629129);
+                            WalletGlobalUtils.safeDismissDialog(this.f63169a, 629129);
                         }
                     }
                 });
@@ -844,7 +844,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BindCardBaseActivity f63135a;
+                    public final /* synthetic */ BindCardBaseActivity f63170a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -861,7 +861,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                                 return;
                             }
                         }
-                        this.f63135a = this;
+                        this.f63170a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -869,28 +869,28 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             StatisticManager.onEvent("origPriceFromAlert");
-                            BindCardBaseActivity bindCardBaseActivity = this.f63135a;
+                            BindCardBaseActivity bindCardBaseActivity = this.f63170a;
                             bindCardBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(bindCardBaseActivity.getActivity(), "bd_wallet_pay_by_order_price"));
-                            ErrorContentResponse errorContentResponse = this.f63135a.mCardInfoUpdateContent;
+                            ErrorContentResponse errorContentResponse = this.f63170a.mCardInfoUpdateContent;
                             if (errorContentResponse == null || errorContentResponse.mkt_solution == null) {
                                 return;
                             }
-                            ((PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)).setMktSolution(this.f63135a.mCardInfoUpdateContent.mkt_solution);
-                            if (this.f63135a.mBindReq.getmBindFrom() == 9) {
-                                this.f63135a.mBindCardController.c(new String[0]);
+                            ((PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)).setMktSolution(this.f63170a.mCardInfoUpdateContent.mkt_solution);
+                            if (this.f63170a.mBindReq.getmBindFrom() == 9) {
+                                this.f63170a.mBindCardController.c(new String[0]);
                             } else {
-                                BindCardBaseActivity bindCardBaseActivity2 = this.f63135a;
+                                BindCardBaseActivity bindCardBaseActivity2 = this.f63170a;
                                 if (bindCardBaseActivity2.checkCardInfoBean == null) {
-                                    bindCardBaseActivity2.checkCardInfoBean = (g) PayBeanFactory.getInstance().getBean((Context) this.f63135a.getActivity(), 5, BindCardBaseActivity.BEAN_TAG);
+                                    bindCardBaseActivity2.checkCardInfoBean = (g) PayBeanFactory.getInstance().getBean((Context) this.f63170a.getActivity(), 5, BindCardBaseActivity.BEAN_TAG);
                                 }
-                                BindCardBaseActivity bindCardBaseActivity3 = this.f63135a;
+                                BindCardBaseActivity bindCardBaseActivity3 = this.f63170a;
                                 bindCardBaseActivity3.checkCardInfoBean.a(bindCardBaseActivity3.mBindReq);
-                                BindCardBaseActivity bindCardBaseActivity4 = this.f63135a;
+                                BindCardBaseActivity bindCardBaseActivity4 = this.f63170a;
                                 bindCardBaseActivity4.checkCardInfoBean.setResponseCallback(bindCardBaseActivity4);
-                                this.f63135a.checkCardInfoBean.execBean();
+                                this.f63170a.checkCardInfoBean.execBean();
                             }
-                            WalletGlobalUtils.safeShowDialog(this.f63135a, -2, "");
-                            WalletGlobalUtils.safeDismissDialog(this.f63135a, 629129);
+                            WalletGlobalUtils.safeShowDialog(this.f63170a, -2, "");
+                            WalletGlobalUtils.safeDismissDialog(this.f63170a, 629129);
                         }
                     }
                 });
@@ -950,7 +950,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
             }
             bundle.putSerializable("PayResponse", PayDataCache.getInstance().getPayResponse());
             bundle.putBoolean("isautofillphone", this.isAutoFillPhone);
-            bundle.putInt("currentStep", this.f63124e);
+            bundle.putInt("currentStep", this.f63159e);
             bundle.putInt("halfScreen", this.mUpdateItemCount);
             bundle.putInt("reasonForChangeCardItem", this.mBindReason);
             super.onSaveInstanceState(bundle);
@@ -1033,7 +1033,7 @@ public abstract class BindCardBaseActivity extends PayBaseActivity implements Vi
             this.mCardInfoUpdateContent = (ErrorContentResponse) serializable4;
         }
         this.isAutoFillPhone = bundle.getBoolean("isautofillphone");
-        this.f63124e = bundle.getInt("currentStep");
+        this.f63159e = bundle.getInt("currentStep");
         this.mUpdateItemCount = bundle.getInt("halfScreen", 0);
         this.mBindReason = bundle.getInt("reasonForChangeCardItem", 0);
     }

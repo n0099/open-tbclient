@@ -23,7 +23,7 @@ public final class b implements t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f31852a;
+    public final boolean f31856a;
 
     /* loaded from: classes4.dex */
     public static final class a extends ForwardingSink {
@@ -31,7 +31,7 @@ public final class b implements t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f31853e;
+        public long f31857e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Sink sink) {
@@ -58,7 +58,7 @@ public final class b implements t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, buffer, j2) == null) {
                 super.write(buffer, j2);
-                this.f31853e += j2;
+                this.f31857e += j2;
             }
         }
     }
@@ -78,7 +78,7 @@ public final class b implements t {
                 return;
             }
         }
-        this.f31852a = z;
+        this.f31856a = z;
     }
 
     @Override // c.d.b.t
@@ -109,7 +109,7 @@ public final class b implements t {
                     BufferedSink buffer = Okio.buffer(aVar3);
                     request.a().e(buffer);
                     buffer.close();
-                    gVar.c().requestBodyEnd(gVar.b(), aVar3.f31853e);
+                    gVar.c().requestBodyEnd(gVar.b(), aVar3.f31857e);
                 } else if (!cVar.m()) {
                     f2.o();
                 }
@@ -135,9 +135,9 @@ public final class b implements t {
                 code = c3.code();
             }
             gVar.c().responseHeadersEnd(gVar.b(), c3);
-            if (this.f31852a && code == 101) {
+            if (this.f31856a && code == 101) {
                 b0.a z = c3.z();
-                z.b(c.d.b.e0.e.f31784c);
+                z.b(c.d.b.e0.e.f31788c);
                 c2 = z.c();
             } else {
                 b0.a z2 = c3.z();

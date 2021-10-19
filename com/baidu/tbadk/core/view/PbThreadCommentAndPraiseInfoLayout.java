@@ -35,6 +35,8 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout A;
     public LinearLayout B;
+    public String C;
+    public String D;
     public View.OnClickListener v;
     public TextView w;
     public TextView x;
@@ -68,9 +70,9 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             return;
         }
         f fVar = new f();
-        fVar.f14167b = 4;
-        fVar.f14169d = 2;
-        fVar.f14175j = str2;
+        fVar.f14190b = 4;
+        fVar.f14192d = 2;
+        fVar.f14198j = str2;
         this.mAgreeView.setStatisticData(fVar);
         this.mAgreeView.onAgreeClick();
     }
@@ -148,8 +150,8 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             EMTextView eMTextView = this.mCommentGrabSofa;
             if (eMTextView != null) {
                 c d2 = c.d(eMTextView);
-                d2.B(R.string.F_X02);
-                d2.w(R.color.CAM_X0107);
+                d2.A(R.string.F_X02);
+                d2.v(R.color.CAM_X0107);
                 EMTextView eMTextView2 = this.mCommentGrabSofa;
                 int g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
                 int i2 = R.color.CAM_X0207;
@@ -250,10 +252,24 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         }
     }
 
+    public void setTopicId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.C = str;
+        }
+    }
+
+    public void setTopicSubjectName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.D = str;
+        }
+    }
+
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updateLayout() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             setVisibility(0);
             v();
             onChangeSkinType();
@@ -263,7 +279,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updateReplyNum(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, d2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, d2Var) == null) {
             super.updateReplyNum(d2Var);
             if (d2Var == null || this.mCommentGrabSofa == null || !d2Var.F2()) {
                 return;
@@ -279,14 +295,14 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updateReplyStateUI() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updateShareNum(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, d2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, d2Var) == null) {
             super.updateShareNum(d2Var);
             View view = this.mShareContainer;
             if (view == null || this.mShareNum == null || d2Var == null) {
@@ -301,13 +317,13 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updateShareStateUI(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, d2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, d2Var) == null) {
         }
     }
 
     public final void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             View findViewById = findViewById(R.id.thread_comment_layout_root);
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             layoutParams.height = -1;
@@ -394,6 +410,8 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             layoutParams2.weight = isVideoPbWorks() ? 0.2f : 0.25f;
             agreeView.setLayoutParams(layoutParams13);
             agreeView.adjustLayoutForPbFirstFloor();
+            agreeView.setTopicId(this.C);
+            agreeView.setTopicSubjectName(this.D);
         }
     }
 

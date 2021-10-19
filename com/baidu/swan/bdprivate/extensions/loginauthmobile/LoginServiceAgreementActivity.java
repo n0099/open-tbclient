@@ -27,7 +27,7 @@ public class LoginServiceAgreementActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoginServiceAgreementActivity f46837e;
+        public final /* synthetic */ LoginServiceAgreementActivity f46749e;
 
         public a(LoginServiceAgreementActivity loginServiceAgreementActivity) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class LoginServiceAgreementActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f46837e = loginServiceAgreementActivity;
+            this.f46749e = loginServiceAgreementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46837e.finish();
+                this.f46749e.finish();
             }
         }
     }

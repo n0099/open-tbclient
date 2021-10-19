@@ -14,10 +14,10 @@ public class m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f34159a;
+    public boolean f34163a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f34160b;
+    public final /* synthetic */ InstallActivity f34164b;
 
     public m(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
@@ -34,29 +34,29 @@ public class m {
                 return;
             }
         }
-        this.f34160b = installActivity;
-        this.f34159a = false;
+        this.f34164b = installActivity;
+        this.f34163a = false;
     }
 
     public void a(com.google.ar.core.p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-            synchronized (this.f34160b) {
-                if (this.f34159a) {
+            synchronized (this.f34164b) {
+                if (this.f34163a) {
                     return;
                 }
-                InstallActivity.access$402(this.f34160b, pVar);
+                InstallActivity.access$402(this.f34164b, pVar);
                 int ordinal = pVar.ordinal();
                 if (ordinal != 0) {
                     if (ordinal == 1) {
-                        InstallActivity.access$000(this.f34160b, new UnavailableUserDeclinedInstallationException());
+                        InstallActivity.access$000(this.f34164b, new UnavailableUserDeclinedInstallationException());
                     } else if (ordinal == 2) {
-                        if (!InstallActivity.access$500(this.f34160b)) {
-                            InstallActivity.access$600(this.f34160b);
+                        if (!InstallActivity.access$500(this.f34164b)) {
+                            InstallActivity.access$600(this.f34164b);
                         }
-                        InstallActivity.access$000(this.f34160b, null);
+                        InstallActivity.access$000(this.f34164b, null);
                     }
-                    this.f34159a = true;
+                    this.f34163a = true;
                 }
             }
         }
@@ -65,14 +65,14 @@ public class m {
     public void b(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            synchronized (this.f34160b) {
-                if (this.f34159a) {
+            synchronized (this.f34164b) {
+                if (this.f34163a) {
                     return;
                 }
-                this.f34159a = true;
-                InstallActivity.access$402(this.f34160b, com.google.ar.core.p.f70583b);
+                this.f34163a = true;
+                InstallActivity.access$402(this.f34164b, com.google.ar.core.p.f70618b);
                 boolean z = exc instanceof UnavailableException;
-                InstallActivity.access$000(this.f34160b, exc);
+                InstallActivity.access$000(this.f34164b, exc);
             }
         }
     }

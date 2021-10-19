@@ -18,20 +18,20 @@ public class v1 extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f14328i;
+    public static final BdUniqueId f14348i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14329e;
+    public String f14349e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14330f;
+    public int f14350f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<MetaData> f14331g;
+    public List<MetaData> f14351g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14332h;
+    public boolean f14352h;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class v1 extends a {
                 return;
             }
         }
-        f14328i = BdUniqueId.gen();
+        f14348i = BdUniqueId.gen();
     }
 
     public v1() {
@@ -62,14 +62,14 @@ public class v1 extends a {
                 return;
             }
         }
-        this.f14332h = true;
-        this.f14331g = new ArrayList();
+        this.f14352h = true;
+        this.f14351g = new ArrayList();
     }
 
     public List<MetaData> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14331g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14351g : (List) invokeV.objValue;
     }
 
     @Override // c.a.q0.s.q.a
@@ -93,7 +93,7 @@ public class v1 extends a {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f14328i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f14348i : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(List<User> list) {
@@ -101,11 +101,11 @@ public class v1 extends a {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || list == null) {
             return;
         }
-        int min = Math.min(list.size(), this.f14332h ? 10 : list.size());
+        int min = Math.min(list.size(), this.f14352h ? 10 : list.size());
         for (int i2 = 0; i2 < min; i2++) {
             MetaData metaData = new MetaData();
             metaData.parserProtobuf(list.get(i2));
-            this.f14331g.add(metaData);
+            this.f14351g.add(metaData);
         }
     }
 }

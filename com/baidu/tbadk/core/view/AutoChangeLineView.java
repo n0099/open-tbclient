@@ -42,22 +42,22 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public f G;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47706e;
+    public Context f47626e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ColorStateList f47707f;
+    public ColorStateList f47627f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f47708g;
+    public float f47628g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Drawable f47709h;
+    public Drawable f47629h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47710i;
+    public int f47630i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f47711j;
+    public int f47631j;
     public int k;
     public int l;
     public int m;
@@ -169,7 +169,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AutoChangeLineView f47712a;
+        public final /* synthetic */ AutoChangeLineView f47632a;
 
         public a(AutoChangeLineView autoChangeLineView) {
             Interceptable interceptable = $ic;
@@ -186,7 +186,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                     return;
                 }
             }
-            this.f47712a = autoChangeLineView;
+            this.f47632a = autoChangeLineView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -259,32 +259,32 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 return;
             }
         }
-        this.f47710i = -2;
-        this.f47711j = -2;
+        this.f47630i = -2;
+        this.f47631j = -2;
         this.k = 0;
         this.w = false;
         this.x = false;
         this.z = new ArrayList<>();
         this.A = new ArrayList<>();
         this.B = new ArrayList<>();
-        this.f47706e = context;
+        this.f47626e = context;
     }
 
     public final <T> void a(T t, int i2, b<T> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, t, i2, bVar) == null) {
-            EMTextView eMTextView = new EMTextView(this.f47706e);
+            EMTextView eMTextView = new EMTextView(this.f47626e);
             eMTextView.setPadding(this.l, this.m, this.n, this.o);
-            eMTextView.setTextSize(0, this.f47708g);
+            eMTextView.setTextSize(0, this.f47628g);
             eMTextView.setGravity(this.k);
-            eMTextView.setTextColor(this.f47707f);
-            eMTextView.setBackgroundDrawable(this.f47709h.getConstantState().newDrawable());
+            eMTextView.setTextColor(this.f47627f);
+            eMTextView.setBackgroundDrawable(this.f47629h.getConstantState().newDrawable());
             eMTextView.setTag(H, t);
             eMTextView.setTag(I, Integer.valueOf(i2));
             eMTextView.setOnClickListener(this);
             eMTextView.setOnLongClickListener(this);
             eMTextView.getPaint().setFakeBoldText(this.x);
-            addView(eMTextView, this.f47710i, this.f47711j);
+            addView(eMTextView, this.f47630i, this.f47631j);
             eMTextView.setText(bVar.a(eMTextView, i2, t));
         }
     }
@@ -355,14 +355,14 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         this.v = obtainStyledAttributes.getInteger(R$styleable.AutoChangeLineView_maxColumns, 0);
         this.y = obtainStyledAttributes.getBoolean(R$styleable.AutoChangeLineView_isIndicator, false);
         this.k = obtainStyledAttributes.getInt(R$styleable.AutoChangeLineView_labelGravity, this.k);
-        this.f47710i = obtainStyledAttributes.getLayoutDimension(R$styleable.AutoChangeLineView_labelTextWidth, this.f47710i);
-        this.f47711j = obtainStyledAttributes.getLayoutDimension(R$styleable.AutoChangeLineView_labelTextHeight, this.f47711j);
+        this.f47630i = obtainStyledAttributes.getLayoutDimension(R$styleable.AutoChangeLineView_labelTextWidth, this.f47630i);
+        this.f47631j = obtainStyledAttributes.getLayoutDimension(R$styleable.AutoChangeLineView_labelTextHeight, this.f47631j);
         if (obtainStyledAttributes.hasValue(R$styleable.AutoChangeLineView_labelTextColor)) {
-            this.f47707f = obtainStyledAttributes.getColorStateList(R$styleable.AutoChangeLineView_labelTextColor);
+            this.f47627f = obtainStyledAttributes.getColorStateList(R$styleable.AutoChangeLineView_labelTextColor);
         } else {
-            this.f47707f = ColorStateList.valueOf(-16777216);
+            this.f47627f = ColorStateList.valueOf(-16777216);
         }
-        this.f47708g = obtainStyledAttributes.getDimension(R$styleable.AutoChangeLineView_labelTextSize, l(14.0f));
+        this.f47628g = obtainStyledAttributes.getDimension(R$styleable.AutoChangeLineView_labelTextSize, l(14.0f));
         if (obtainStyledAttributes.hasValue(R$styleable.AutoChangeLineView_labelTextPadding)) {
             int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.AutoChangeLineView_labelTextPadding, 0);
             this.o = dimensionPixelOffset;
@@ -380,12 +380,12 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         if (obtainStyledAttributes.hasValue(R$styleable.AutoChangeLineView_labelBackground)) {
             int resourceId = obtainStyledAttributes.getResourceId(R$styleable.AutoChangeLineView_labelBackground, 0);
             if (resourceId != 0) {
-                this.f47709h = getResources().getDrawable(resourceId);
+                this.f47629h = getResources().getDrawable(resourceId);
             } else {
-                this.f47709h = new ColorDrawable(obtainStyledAttributes.getColor(R$styleable.AutoChangeLineView_labelBackground, 0));
+                this.f47629h = new ColorDrawable(obtainStyledAttributes.getColor(R$styleable.AutoChangeLineView_labelBackground, 0));
             }
         } else {
-            this.f47709h = getResources().getDrawable(R.drawable.bg_default_tag);
+            this.f47629h = getResources().getDrawable(R.drawable.bg_default_tag);
         }
         this.w = obtainStyledAttributes.getBoolean(R$styleable.AutoChangeLineView_singleLine, false);
         this.x = obtainStyledAttributes.getBoolean(R$styleable.AutoChangeLineView_isTextBold, false);
@@ -473,13 +473,13 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public ColorStateList getLabelTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f47707f : (ColorStateList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f47627f : (ColorStateList) invokeV.objValue;
     }
 
     public float getLabelTextSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f47708g : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f47628g : invokeV.floatValue;
     }
 
     public <T> List<T> getLabels() {
@@ -791,9 +791,9 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 if (colorStateList != null) {
                     setLabelTextColor(colorStateList);
                 }
-                setLabelTextSize(bundle.getFloat("key_text_size_state", this.f47708g));
-                this.f47710i = bundle.getInt("key_label_width_state", this.f47710i);
-                this.f47711j = bundle.getInt("key_label_height_state", this.f47711j);
+                setLabelTextSize(bundle.getFloat("key_text_size_state", this.f47628g));
+                this.f47630i = bundle.getInt("key_label_width_state", this.f47630i);
+                this.f47631j = bundle.getInt("key_label_height_state", this.f47631j);
                 setLabelGravity(bundle.getInt("key_label_gravity_state", this.k));
                 int[] intArray = bundle.getIntArray("key_padding_state");
                 if (intArray != null && intArray.length == 4) {
@@ -836,13 +836,13 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
             Bundle bundle = new Bundle();
             bundle.putParcelable("key_super_state", super.onSaveInstanceState());
-            ColorStateList colorStateList = this.f47707f;
+            ColorStateList colorStateList = this.f47627f;
             if (colorStateList != null) {
                 bundle.putParcelable("key_text_color_state", colorStateList);
             }
-            bundle.putFloat("key_text_size_state", this.f47708g);
-            bundle.putInt("key_label_width_state", this.f47710i);
-            bundle.putInt("key_label_height_state", this.f47711j);
+            bundle.putFloat("key_text_size_state", this.f47628g);
+            bundle.putInt("key_label_width_state", this.f47630i);
+            bundle.putInt("key_label_height_state", this.f47631j);
             bundle.putInt("key_label_gravity_state", this.k);
             bundle.putIntArray("key_padding_state", new int[]{this.l, this.m, this.n, this.o});
             bundle.putInt("key_word_margin_state", this.p);
@@ -893,10 +893,10 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public void setLabelBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, drawable) == null) {
-            this.f47709h = drawable;
+            this.f47629h = drawable;
             int childCount = getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
-                ((TextView) getChildAt(i2)).setBackgroundDrawable(this.f47709h.getConstantState().newDrawable());
+                ((TextView) getChildAt(i2)).setBackgroundDrawable(this.f47629h.getConstantState().newDrawable());
             }
         }
     }
@@ -946,10 +946,10 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
 
     public void setLabelTextSize(float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048628, this, f2) == null) || this.f47708g == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048628, this, f2) == null) || this.f47628g == f2) {
             return;
         }
-        this.f47708g = f2;
+        this.f47628g = f2;
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             ((TextView) getChildAt(i2)).setTextSize(0, f2);
@@ -1125,10 +1125,10 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public void setLabelTextColor(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048626, this, colorStateList) == null) {
-            this.f47707f = colorStateList;
+            this.f47627f = colorStateList;
             int childCount = getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
-                ((TextView) getChildAt(i2)).setTextColor(this.f47707f);
+                ((TextView) getChildAt(i2)).setTextColor(this.f47627f);
             }
         }
     }
@@ -1206,15 +1206,15 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 return;
             }
         }
-        this.f47710i = -2;
-        this.f47711j = -2;
+        this.f47630i = -2;
+        this.f47631j = -2;
         this.k = 0;
         this.w = false;
         this.x = false;
         this.z = new ArrayList<>();
         this.A = new ArrayList<>();
         this.B = new ArrayList<>();
-        this.f47706e = context;
+        this.f47626e = context;
         e(context, attributeSet);
     }
 
@@ -1237,15 +1237,15 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 return;
             }
         }
-        this.f47710i = -2;
-        this.f47711j = -2;
+        this.f47630i = -2;
+        this.f47631j = -2;
         this.k = 0;
         this.w = false;
         this.x = false;
         this.z = new ArrayList<>();
         this.A = new ArrayList<>();
         this.B = new ArrayList<>();
-        this.f47706e = context;
+        this.f47626e = context;
         e(context, attributeSet);
     }
 }

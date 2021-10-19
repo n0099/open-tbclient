@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
-import c.a.r0.k1.f.i.a;
-import c.a.r0.k1.f.i.b;
-import c.a.r0.k1.h.e;
+import c.a.r0.l1.f.i.a;
+import c.a.r0.l1.f.i.b;
+import c.a.r0.l1.h.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -110,20 +110,10 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         return (ImMessageCenterShowItemData) invokeL.objValue;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void asyncDeleteItem(ImMessageCenterShowItemData imMessageCenterShowItemData, b bVar) {
         LinkedList<ImMessageCenterShowItemData> linkedList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imMessageCenterShowItemData, bVar) == null) || imMessageCenterShowItemData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, imMessageCenterShowItemData, bVar) == null) || imMessageCenterShowItemData == null) {
             return;
         }
         String friendId = imMessageCenterShowItemData.getFriendId();
@@ -171,14 +161,14 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                         if (this.this$0.isEmpty()) {
                             this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
                         } else {
-                            c.a.r0.k1.k.b.o().Q();
+                            c.a.r0.l1.k.b.o().Q();
                         }
                         return true;
                     } else if (i2 == -8) {
                         if (this.this$0.isEmpty()) {
                             this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
                         } else {
-                            c.a.r0.k1.k.b.o().N();
+                            c.a.r0.l1.k.b.o().N();
                         }
                         return true;
                     } else {
@@ -200,7 +190,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
             }
 
-            @Override // c.a.r0.k1.f.i.b
+            @Override // c.a.r0.l1.f.i.b
             public void onCanceled() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -213,7 +203,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
             }
 
-            @Override // c.a.r0.k1.f.i.b
+            @Override // c.a.r0.l1.f.i.b
             public void onPostExecute() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -229,7 +219,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
             }
 
-            @Override // c.a.r0.k1.f.i.b
+            @Override // c.a.r0.l1.f.i.b
             public void onPreExecute() {
                 b bVar2;
                 Interceptable interceptable2 = $ic;
@@ -239,7 +229,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 bVar2.onPreExecute();
             }
 
-            @Override // c.a.r0.k1.f.i.b
+            @Override // c.a.r0.l1.f.i.b
             public void onProgressUpdate(int i2, String str, int i3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
@@ -259,7 +249,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
 
     public void asyncDeleteMsgList(List<ImMessageCenterShowItemData> list, int i2, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, list, i2, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, i2, bVar) == null) {
             e.m().b(list, i2, new b(this, bVar, i2) { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -298,13 +288,13 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                             if (this.this$0.isEmpty()) {
                                 this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
                             } else {
-                                c.a.r0.k1.k.b.o().Q();
+                                c.a.r0.l1.k.b.o().Q();
                             }
                         } else if (i3 == 4) {
                             if (this.this$0.isEmpty()) {
                                 this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
                             } else {
-                                c.a.r0.k1.k.b.o().N();
+                                c.a.r0.l1.k.b.o().N();
                             }
                         }
                     }
@@ -323,7 +313,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                 }
 
-                @Override // c.a.r0.k1.f.i.b
+                @Override // c.a.r0.l1.f.i.b
                 public void onCanceled() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -336,7 +326,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                 }
 
-                @Override // c.a.r0.k1.f.i.b
+                @Override // c.a.r0.l1.f.i.b
                 public void onPostExecute() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -349,7 +339,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                 }
 
-                @Override // c.a.r0.k1.f.i.b
+                @Override // c.a.r0.l1.f.i.b
                 public void onPreExecute() {
                     b bVar2;
                     Interceptable interceptable2 = $ic;
@@ -359,7 +349,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     bVar2.onPreExecute();
                 }
 
-                @Override // c.a.r0.k1.f.i.b
+                @Override // c.a.r0.l1.f.i.b
                 public void onProgressUpdate(int i3, String str, int i4) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i3), str, Integer.valueOf(i4)}) == null) {
@@ -381,7 +371,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     public ImMessageCenterShowItemData buildNormalItem(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, imMessageCenterPojo, imMessageCenterShowItemData)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterPojo, imMessageCenterShowItemData)) == null) {
             if (imMessageCenterPojo == null || imMessageCenterPojo.getIs_hidden() == 1 || ((TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) || imMessageCenterPojo.getLast_content_time() == 0)) {
                 return null;
             }
@@ -411,7 +401,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -420,7 +410,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     public void clearData() {
         LinkedList<ImMessageCenterShowItemData> linkedList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (linkedList = this.mList) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (linkedList = this.mList) == null) {
             return;
         }
         linkedList.clear();
@@ -431,12 +421,12 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     public List<ImMessageCenterShowItemData> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mList : (List) invokeV.objValue;
     }
 
     public void insertOrUpdate(ImMessageCenterPojo imMessageCenterPojo, a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imMessageCenterPojo, aVar) == null) || imMessageCenterPojo == null || TextUtils.isEmpty(imMessageCenterPojo.getGid()) || !isAccept(imMessageCenterPojo)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, imMessageCenterPojo, aVar) == null) || imMessageCenterPojo == null || TextUtils.isEmpty(imMessageCenterPojo.getGid()) || !isAccept(imMessageCenterPojo)) {
             return;
         }
         ImMessageCenterShowItemData removeItem = removeItem(imMessageCenterPojo);
@@ -450,7 +440,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
 
     public void insertShowData(ImMessageCenterShowItemData imMessageCenterShowItemData, List<ImMessageCenterShowItemData> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, imMessageCenterShowItemData, list) == null) || imMessageCenterShowItemData == null || list == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imMessageCenterShowItemData, list) == null) || imMessageCenterShowItemData == null || list == null) {
             return;
         }
         list.add(imMessageCenterShowItemData);
@@ -461,10 +451,20 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? ListUtils.isEmpty(this.mList) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ListUtils.isEmpty(this.mList) : invokeV.booleanValue;
     }
 
     public abstract boolean isToShow(ImMessageCenterPojo imMessageCenterPojo);
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     public abstract void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData);
 

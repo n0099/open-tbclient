@@ -13,7 +13,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f14615a;
+    public boolean f14635a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -28,13 +28,13 @@ public class a {
                 return;
             }
         }
-        this.f14615a = false;
+        this.f14635a = false;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14615a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14635a : invokeV.booleanValue;
     }
 
     public void b(JSONObject jSONObject) {
@@ -56,7 +56,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f14615a = true;
+        this.f14635a = true;
     }
 
     public void d(JSONObject jSONObject) {

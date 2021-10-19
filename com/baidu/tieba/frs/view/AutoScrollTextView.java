@@ -27,24 +27,24 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f51829e;
+    public float f51756e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f51830f;
+    public float f51757f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f51831g;
+    public float f51758g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f51832h;
+    public float f51759h;
     public boolean hasDraw;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f51833i;
+    public float f51760i;
     public boolean isStarting;
 
     /* renamed from: j  reason: collision with root package name */
-    public Paint f51834j;
+    public Paint f51761j;
     public String k;
     public View.OnClickListener l;
     public float m;
@@ -196,14 +196,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
                 return;
             }
         }
-        this.f51829e = 0.0f;
-        this.f51830f = 0.0f;
-        this.f51831g = 0.0f;
-        this.f51832h = 0.0f;
-        this.f51833i = 0.0f;
+        this.f51756e = 0.0f;
+        this.f51757f = 0.0f;
+        this.f51758g = 0.0f;
+        this.f51759h = 0.0f;
+        this.f51760i = 0.0f;
         this.isStarting = false;
         this.hasDraw = false;
-        this.f51834j = null;
+        this.f51761j = null;
         this.k = "";
         a();
     }
@@ -219,20 +219,20 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, windowManager) == null) {
             TextPaint paint = getPaint();
-            this.f51834j = paint;
+            this.f51761j = paint;
             paint.setColor(-1);
             String charSequence = getText().toString();
             this.k = charSequence;
-            this.f51829e = this.f51834j.measureText(charSequence);
+            this.f51756e = this.f51761j.measureText(charSequence);
             float width = getWidth();
-            this.f51830f = width;
+            this.f51757f = width;
             if (width == 0.0f && windowManager != null) {
-                this.f51830f = windowManager.getDefaultDisplay().getWidth();
+                this.f51757f = windowManager.getDefaultDisplay().getWidth();
             }
-            float f2 = this.f51829e;
-            this.f51831g = f2;
-            this.f51832h = f2;
-            this.f51833i = f2 * 2.0f;
+            float f2 = this.f51756e;
+            this.f51758g = f2;
+            this.f51759h = f2;
+            this.f51760i = f2 * 2.0f;
             getTextSize();
         }
     }
@@ -255,16 +255,16 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
                 float f2 = this.m;
                 if (f2 > 0.5f) {
                     setWidth((int) ((f2 - 0.5f) * 3000.0f));
-                    canvas.drawText(this.k, this.f51832h - this.f51831g, getTextSize() + 2.7f, this.f51834j);
+                    canvas.drawText(this.k, this.f51759h - this.f51758g, getTextSize() + 2.7f, this.f51761j);
                     return;
                 }
                 return;
             }
-            canvas.drawText(this.k, this.f51832h - this.f51831g, getTextSize() + 2.7f, this.f51834j);
-            float dimensionPixelOffset = this.f51831g + TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3);
-            this.f51831g = dimensionPixelOffset;
-            if (dimensionPixelOffset > this.f51833i) {
-                this.f51831g = this.f51829e;
+            canvas.drawText(this.k, this.f51759h - this.f51758g, getTextSize() + 2.7f, this.f51761j);
+            float dimensionPixelOffset = this.f51758g + TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3);
+            this.f51758g = dimensionPixelOffset;
+            if (dimensionPixelOffset > this.f51760i) {
+                this.f51758g = this.f51756e;
             }
             invalidate();
         }
@@ -280,7 +280,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
             }
             SavedState savedState = (SavedState) parcelable;
             super.onRestoreInstanceState(savedState.getSuperState());
-            this.f51831g = savedState.step;
+            this.f51758g = savedState.step;
             this.isStarting = savedState.isStarting;
         }
     }
@@ -291,7 +291,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             SavedState savedState = new SavedState(super.onSaveInstanceState());
-            savedState.step = this.f51831g;
+            savedState.step = this.f51758g;
             savedState.isStarting = this.isStarting;
             return savedState;
         }
@@ -348,14 +348,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
                 return;
             }
         }
-        this.f51829e = 0.0f;
-        this.f51830f = 0.0f;
-        this.f51831g = 0.0f;
-        this.f51832h = 0.0f;
-        this.f51833i = 0.0f;
+        this.f51756e = 0.0f;
+        this.f51757f = 0.0f;
+        this.f51758g = 0.0f;
+        this.f51759h = 0.0f;
+        this.f51760i = 0.0f;
         this.isStarting = false;
         this.hasDraw = false;
-        this.f51834j = null;
+        this.f51761j = null;
         this.k = "";
         a();
     }

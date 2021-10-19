@@ -22,22 +22,22 @@ public class b implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.model.b f35264e;
+    public com.ss.android.socialbase.downloader.model.b f35268e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.model.b f35265f;
+    public com.ss.android.socialbase.downloader.model.b f35269f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.p.a.e.b.g.g f35266g;
+    public c.p.a.e.b.g.g f35270g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DownloadInfo f35267h;
+    public DownloadInfo f35271h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final f f35268i;
+    public final f f35272i;
 
     /* renamed from: j  reason: collision with root package name */
-    public k f35269j;
+    public k f35273j;
     public c.p.a.e.b.g.k k;
     public volatile boolean l;
     public volatile boolean m;
@@ -73,20 +73,20 @@ public class b implements Runnable {
             }
         }
         this.n = false;
-        this.f35265f = bVar;
+        this.f35269f = bVar;
         if (aVar != null) {
-            this.f35267h = aVar.J();
+            this.f35271h = aVar.J();
         }
-        this.f35268i = fVar;
+        this.f35272i = fVar;
         this.k = c.p.a.e.b.g.e.M0();
-        this.f35265f.a(this);
+        this.f35269f.a(this);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.l = true;
-            c.p.a.e.b.g.g gVar = this.f35266g;
+            c.p.a.e.b.g.g gVar = this.f35270g;
             if (gVar != null) {
                 gVar.h();
             }
@@ -96,7 +96,7 @@ public class b implements Runnable {
     public void b(long j2, long j3) {
         c.p.a.e.b.g.g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (gVar = this.f35266g) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (gVar = this.f35270g) == null) {
             return;
         }
         gVar.d(j2, j3);
@@ -167,7 +167,7 @@ public class b implements Runnable {
                         return false;
                     }
                     String f2 = f();
-                    boolean z3 = this.f35269j != null;
+                    boolean z3 = this.f35273j != null;
                     this.n = z3;
                     bVar.b(z3);
                     try {
@@ -175,19 +175,19 @@ public class b implements Runnable {
                             try {
                                 try {
                                     if (!this.n) {
-                                        List<com.ss.android.socialbase.downloader.model.c> s = c.p.a.e.b.l.f.s(this.f35267h.getExtraHeaders(), this.f35267h.geteTag(), j5, j6);
+                                        List<com.ss.android.socialbase.downloader.model.c> s = c.p.a.e.b.l.f.s(this.f35271h.getExtraHeaders(), this.f35271h.geteTag(), j5, j6);
                                         s.add(new com.ss.android.socialbase.downloader.model.c("Chunk-Index", String.valueOf(bVar.s())));
-                                        c.p.a.e.b.l.f.C(s, this.f35267h);
-                                        c.p.a.e.b.l.f.d0(s, this.f35267h);
-                                        this.f35269j = c.p.a.e.b.g.e.B(this.f35267h.isNeedDefaultHttpServiceBackUp(), this.f35267h.getMaxBytes(), f2, s);
+                                        c.p.a.e.b.l.f.C(s, this.f35271h);
+                                        c.p.a.e.b.l.f.d0(s, this.f35271h);
+                                        this.f35273j = c.p.a.e.b.g.e.B(this.f35271h.isNeedDefaultHttpServiceBackUp(), this.f35271h.getMaxBytes(), f2, s);
                                     }
-                                    if (this.f35269j != null) {
+                                    if (this.f35273j != null) {
                                         try {
-                                            if (this.f35268i != null) {
+                                            if (this.f35272i != null) {
                                                 try {
-                                                    int b2 = this.f35269j.b();
+                                                    int b2 = this.f35273j.b();
                                                     if (b2 < 200 || b2 >= 300) {
-                                                        this.f35268i.e(this.f35269j);
+                                                        this.f35272i.e(this.f35273j);
                                                     }
                                                 } catch (Throwable th) {
                                                     th.printStackTrace();
@@ -201,7 +201,7 @@ public class b implements Runnable {
                                                 if (h()) {
                                                 }
                                             } catch (BaseException e4) {
-                                                this.f35268i.g(e4);
+                                                this.f35272i.g(e4);
                                                 return z;
                                             } finally {
                                                 g();
@@ -211,10 +211,10 @@ public class b implements Runnable {
                                     if (h()) {
                                         return false;
                                     }
-                                    if (this.f35269j != null) {
+                                    if (this.f35273j != null) {
                                         if (!this.n) {
                                             try {
-                                                int b3 = this.f35269j.b();
+                                                int b3 = this.f35273j.b();
                                                 if (!c.p.a.e.b.l.f.C0(b3)) {
                                                     break;
                                                 }
@@ -227,16 +227,16 @@ public class b implements Runnable {
                                         }
                                         z = false;
                                         j2 = n2;
-                                        this.f35266g = new c.p.a.e.b.g.g(this.f35267h, f2, this.f35269j, bVar, this.f35268i);
+                                        this.f35270g = new c.p.a.e.b.g.g(this.f35271h, f2, this.f35273j, bVar, this.f35272i);
                                         if (bVar2 != null) {
                                             long c2 = bVar2.c(false);
                                             if (j6 != 0 && j6 >= j5) {
                                                 c2 = (j6 - j5) + 1;
                                             }
-                                            this.f35266g.e(bVar2.n(), bVar2.p(), c2);
+                                            this.f35270g.e(bVar2.n(), bVar2.p(), c2);
                                         }
                                         try {
-                                            this.f35266g.k();
+                                            this.f35270g.k();
                                             return true;
                                         } catch (BaseException e6) {
                                             e = e6;
@@ -256,11 +256,11 @@ public class b implements Runnable {
                                     throw null;
                                 }
                             } catch (Throwable th4) {
-                                if (this.f35269j != null && this.f35268i != null) {
+                                if (this.f35273j != null && this.f35272i != null) {
                                     try {
-                                        int b4 = this.f35269j.b();
+                                        int b4 = this.f35273j.b();
                                         if (b4 < 200 || b4 >= 300) {
-                                            this.f35268i.e(this.f35269j);
+                                            this.f35272i.e(this.f35273j);
                                         }
                                     } catch (Throwable th5) {
                                         th5.printStackTrace();
@@ -282,52 +282,52 @@ public class b implements Runnable {
                             return true;
                         }
                         if (c.p.a.e.b.l.f.h0(e)) {
-                            this.f35268i.i(e, z);
+                            this.f35272i.i(e, z);
                             return z;
-                        } else if (this.f35268i.a(e)) {
+                        } else if (this.f35272i.a(e)) {
                             if (c.p.a.e.b.l.f.K(e)) {
-                                this.f35268i.i(e, true);
+                                this.f35272i.i(e, true);
                                 return z;
                             }
                             if (z2) {
-                                if (this.f35266g != null) {
+                                if (this.f35270g != null) {
                                     if (c.p.a.e.b.l.a.a(32)) {
-                                        j3 = this.f35266g.a() - this.f35266g.l();
+                                        j3 = this.f35270g.a() - this.f35270g.l();
                                         int i2 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
                                         if (i2 > 0) {
-                                            c(bVar, this.f35266g.l());
+                                            c(bVar, this.f35270g.l());
                                         } else if (i2 < 0) {
                                         }
                                         if (!c.p.a.e.b.l.a.a(16)) {
-                                            h2 = this.f35268i.b(bVar, e, j3);
+                                            h2 = this.f35272i.b(bVar, e, j3);
                                         } else {
-                                            h2 = this.f35268i.h(e, j3);
+                                            h2 = this.f35272i.h(e, j3);
                                         }
-                                        if (h2 != com.ss.android.socialbase.downloader.exception.h.f76224a) {
+                                        if (h2 != com.ss.android.socialbase.downloader.exception.h.f76259a) {
                                             return z;
                                         }
                                         bVar.b(z);
                                         g();
                                     } else {
                                         long j8 = j2;
-                                        j7 = this.f35266g.a() - j8;
+                                        j7 = this.f35270g.a() - j8;
                                         c(bVar, j8);
                                     }
                                 } else {
-                                    this.f35268i.g(e);
+                                    this.f35272i.g(e);
                                     return z;
                                 }
                             }
                             j3 = j7;
                             if (!c.p.a.e.b.l.a.a(16)) {
                             }
-                            if (h2 != com.ss.android.socialbase.downloader.exception.h.f76224a) {
+                            if (h2 != com.ss.android.socialbase.downloader.exception.h.f76259a) {
                             }
-                        } else if (this.f35267h.isNeedChunkDowngradeRetry() && !this.f35267h.isChunkDowngradeRetryUsed() && this.f35267h.getChunkCount() > 1 && c.p.a.e.b.l.f.L(e, this.f35267h)) {
-                            this.f35268i.f(e);
+                        } else if (this.f35271h.isNeedChunkDowngradeRetry() && !this.f35271h.isChunkDowngradeRetryUsed() && this.f35271h.getChunkCount() > 1 && c.p.a.e.b.l.f.L(e, this.f35271h)) {
+                            this.f35272i.f(e);
                             return z;
                         } else {
-                            this.f35268i.g(e);
+                            this.f35272i.g(e);
                             return z;
                         }
                     }
@@ -347,7 +347,7 @@ public class b implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.m = true;
-            c.p.a.e.b.g.g gVar = this.f35266g;
+            c.p.a.e.b.g.g gVar = this.f35270g;
             if (gVar != null) {
                 gVar.j();
             }
@@ -357,17 +357,17 @@ public class b implements Runnable {
     public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35267h.getConnectionUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35271h.getConnectionUrl() : (String) invokeV.objValue;
     }
 
     public final void g() {
         k kVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (kVar = this.f35269j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (kVar = this.f35273j) == null) {
             return;
         }
         kVar.d();
-        this.f35269j = null;
+        this.f35273j = null;
     }
 
     public final boolean h() {
@@ -377,7 +377,7 @@ public class b implements Runnable {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x001b, code lost:
-        r4.f35264e.a(false);
+        r4.f35268e.a(false);
      */
     @Override // java.lang.Runnable
     @SuppressLint({"DefaultLocale"})
@@ -388,17 +388,17 @@ public class b implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             Process.setThreadPriority(10);
-            this.f35264e = this.f35265f;
+            this.f35268e = this.f35269f;
             while (true) {
                 try {
-                    this.f35264e.a(this);
-                    if (!d(this.f35264e)) {
+                    this.f35268e.a(this);
+                    if (!d(this.f35268e)) {
                         break;
                     }
-                    this.f35264e.a(false);
+                    this.f35268e.a(false);
                     if (!h()) {
-                        this.f35264e = this.f35268i.a(this.f35264e.s());
-                        if (h() || this.f35264e == null) {
+                        this.f35268e = this.f35272i.a(this.f35268e.s());
+                        if (h() || this.f35268e == null) {
                             break;
                         }
                         Thread.sleep(50L);
@@ -406,12 +406,12 @@ public class b implements Runnable {
                         break;
                     }
                 } finally {
-                    com.ss.android.socialbase.downloader.model.b bVar = this.f35264e;
+                    com.ss.android.socialbase.downloader.model.b bVar = this.f35268e;
                     if (bVar != null) {
                         bVar.a(false);
                     }
                     g();
-                    this.f35268i.c(this);
+                    this.f35272i.c(this);
                 }
             }
         }
@@ -436,6 +436,6 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f35269j = kVar;
+        this.f35273j = kVar;
     }
 }

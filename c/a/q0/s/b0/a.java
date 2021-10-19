@@ -6,7 +6,7 @@ import c.a.q0.j0.h;
 import c.a.q0.n0.c;
 import c.a.q0.s.q.d2;
 import c.a.q0.s.q.f;
-import c.a.r0.j3.i0.e;
+import c.a.r0.k3.i0.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -60,7 +60,7 @@ public class a {
             return;
         }
         BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
-        StatisticItem param = new StatisticItem("c13271").param("obj_type", fVar.f14172g).param("obj_locate", fVar.f14173h).param("obj_id", fVar.f14174i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
+        StatisticItem param = new StatisticItem("c13271").param("obj_type", fVar.f14195g).param("obj_locate", fVar.f14196h).param("obj_id", fVar.f14197i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
         if (d2Var != null) {
             param.param("tid", d2Var.f0()).param("nid", d2Var.F0()).param("fid", d2Var.T()).param("ab_tag", d2Var.Z0).param("recom_source", d2Var.X0).param("weight", d2Var.Y0).param("extra", d2Var.a1);
             if (d2Var.L() != null) {
@@ -147,7 +147,7 @@ public class a {
     public void d(AgreeData agreeData, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, eVar) == null) {
-            eVar.f20853b = agreeData;
+            eVar.f21031b = agreeData;
             if (agreeData.isInThread) {
                 BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
                 if (baijiahaoData != null) {

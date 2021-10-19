@@ -19,13 +19,13 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AudioManager f74284a;
+    public AudioManager f74319a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AudioManager.OnAudioFocusChangeListener f74285b;
+    public AudioManager.OnAudioFocusChangeListener f74320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f74286c;
+    public a f74321c;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -49,13 +49,13 @@ public class h {
                 return;
             }
         }
-        this.f74284a = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-        this.f74285b = new AudioManager.OnAudioFocusChangeListener(this) { // from class: com.kwad.sdk.utils.h.1
+        this.f74319a = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        this.f74320b = new AudioManager.OnAudioFocusChangeListener(this) { // from class: com.kwad.sdk.utils.h.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ h f74287a;
+            public final /* synthetic */ h f74322a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -72,19 +72,19 @@ public class h {
                         return;
                     }
                 }
-                this.f74287a = this;
+                this.f74322a = this;
             }
 
             @Override // android.media.AudioManager.OnAudioFocusChangeListener
             public void onAudioFocusChange(int i4) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i4) == null) || this.f74287a.f74286c == null) {
+                if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i4) == null) || this.f74322a.f74321c == null) {
                     return;
                 }
                 if (i4 < 0) {
-                    this.f74287a.f74286c.a();
+                    this.f74322a.f74321c.a();
                 } else {
-                    this.f74287a.f74286c.b();
+                    this.f74322a.f74321c.b();
                 }
             }
         };
@@ -94,13 +94,13 @@ public class h {
     private AudioFocusRequest b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.f74285b).build() : (AudioFocusRequest) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.f74320b).build() : (AudioFocusRequest) invokeV.objValue;
     }
 
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f74286c = aVar;
+            this.f74321c = aVar;
         }
     }
 
@@ -109,8 +109,8 @@ public class h {
         AudioManager audioManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = this.f74285b;
-            if (onAudioFocusChangeListener == null || (audioManager = this.f74284a) == null) {
+            AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = this.f74320b;
+            if (onAudioFocusChangeListener == null || (audioManager = this.f74319a) == null) {
                 return false;
             }
             return Build.VERSION.SDK_INT >= 26 ? 1 == audioManager.requestAudioFocus(b()) : 1 == audioManager.requestAudioFocus(onAudioFocusChangeListener, 3, 2);

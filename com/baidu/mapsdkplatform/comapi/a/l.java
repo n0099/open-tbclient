@@ -22,25 +22,25 @@ public class l extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Animator f42169a;
+    public Animator f42173a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f42170b;
+    public long f42174b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Interpolator f42171c;
+    public Interpolator f42175c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Animation.AnimationListener f42172d;
+    public Animation.AnimationListener f42176d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42173e;
+    public int f42177e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42174f;
+    public int f42178f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Object[] f42175g;
+    public Object[] f42179g;
 
     @TargetApi(11)
     /* loaded from: classes5.dex */
@@ -49,7 +49,7 @@ public class l extends c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f42176a;
+        public final /* synthetic */ l f42180a;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class l extends c {
                     return;
                 }
             }
-            this.f42176a = lVar;
+            this.f42180a = lVar;
         }
 
         @Override // android.animation.TypeEvaluator
@@ -93,7 +93,7 @@ public class l extends c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f42177a;
+        public final /* synthetic */ l f42181a;
 
         public b(l lVar) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class l extends c {
                     return;
                 }
             }
-            this.f42177a = lVar;
+            this.f42181a = lVar;
         }
 
         @Override // android.animation.TypeEvaluator
@@ -144,13 +144,13 @@ public class l extends c {
                 return;
             }
         }
-        this.f42169a = null;
-        this.f42170b = 0L;
-        this.f42171c = null;
-        this.f42172d = null;
-        this.f42173e = 1;
-        this.f42174f = 0;
-        this.f42175g = pointArr;
+        this.f42173a = null;
+        this.f42174b = 0L;
+        this.f42175c = null;
+        this.f42176d = null;
+        this.f42177e = 1;
+        this.f42178f = 0;
+        this.f42179g = pointArr;
     }
 
     public l(LatLng... latLngArr) {
@@ -168,13 +168,13 @@ public class l extends c {
                 return;
             }
         }
-        this.f42169a = null;
-        this.f42170b = 0L;
-        this.f42171c = null;
-        this.f42172d = null;
-        this.f42173e = 1;
-        this.f42174f = 0;
-        this.f42175g = latLngArr;
+        this.f42173a = null;
+        this.f42174b = 0L;
+        this.f42175c = null;
+        this.f42176d = null;
+        this.f42177e = 1;
+        this.f42178f = 0;
+        this.f42179g = latLngArr;
     }
 
     @TargetApi(11)
@@ -184,20 +184,20 @@ public class l extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, marker)) == null) {
             if (marker.isFixed()) {
-                if (!(this.f42175g[0] instanceof Point)) {
+                if (!(this.f42179g[0] instanceof Point)) {
                     throw new ClassCastException("BDMapSDKException: if the marker is fixed on screen, the parameters of Transformation must be android.graphics.Point");
                 }
-                ofObject = ObjectAnimator.ofObject(marker, "fixedScreenPosition", new b(this), this.f42175g);
-            } else if (!(this.f42175g[0] instanceof LatLng)) {
+                ofObject = ObjectAnimator.ofObject(marker, "fixedScreenPosition", new b(this), this.f42179g);
+            } else if (!(this.f42179g[0] instanceof LatLng)) {
                 throw new ClassCastException("BDMapSDKException: if the marker isn't fixed on screen, the parameters of Transformation must be Latlng");
             } else {
-                ofObject = ObjectAnimator.ofObject(marker, "position", new a(this), this.f42175g);
+                ofObject = ObjectAnimator.ofObject(marker, "position", new a(this), this.f42179g);
             }
             if (ofObject != null) {
-                ofObject.setRepeatCount(this.f42174f);
+                ofObject.setRepeatCount(this.f42178f);
                 ofObject.setRepeatMode(c());
-                ofObject.setDuration(this.f42170b);
-                Interpolator interpolator = this.f42171c;
+                ofObject.setDuration(this.f42174b);
+                Interpolator interpolator = this.f42175c;
                 if (interpolator != null) {
                     ofObject.setInterpolator(interpolator);
                 }
@@ -212,7 +212,7 @@ public class l extends c {
     public void a() {
         Animator animator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (animator = this.f42169a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (animator = this.f42173a) == null) {
             return;
         }
         animator.start();
@@ -222,7 +222,7 @@ public class l extends c {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f42173e = i2;
+            this.f42177e = i2;
         }
     }
 
@@ -233,7 +233,7 @@ public class l extends c {
             if (j2 < 0) {
                 j2 = 0;
             }
-            this.f42170b = j2;
+            this.f42174b = j2;
         }
     }
 
@@ -251,7 +251,7 @@ public class l extends c {
     public void a(Interpolator interpolator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, interpolator) == null) {
-            this.f42171c = interpolator;
+            this.f42175c = interpolator;
         }
     }
 
@@ -259,7 +259,7 @@ public class l extends c {
     public void a(Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, animationListener) == null) {
-            this.f42172d = animationListener;
+            this.f42176d = animationListener;
         }
     }
 
@@ -269,7 +269,7 @@ public class l extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, marker, animation) == null) {
             ObjectAnimator a2 = a(marker);
-            this.f42169a = a2;
+            this.f42173a = a2;
             a(a2);
         }
     }
@@ -279,11 +279,11 @@ public class l extends c {
     public void b() {
         Animator animator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (animator = this.f42169a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (animator = this.f42173a) == null) {
             return;
         }
         animator.cancel();
-        this.f42169a = null;
+        this.f42173a = null;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -291,7 +291,7 @@ public class l extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             if (i2 > 0 || i2 == -1) {
-                this.f42174f = i2;
+                this.f42178f = i2;
             }
         }
     }
@@ -299,7 +299,7 @@ public class l extends c {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f42173e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f42177e : invokeV.intValue;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c

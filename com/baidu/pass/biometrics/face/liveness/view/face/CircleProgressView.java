@@ -30,34 +30,34 @@ public class CircleProgressView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f44246a;
+    public Paint f44158a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f44247b;
+    public float f44159b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f44248c;
+    public int f44160c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f44249d;
+    public int f44161d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f44250e;
+    public float f44162e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f44251f;
+    public float f44163f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44252g;
+    public int f44164g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f44253h;
+    public int f44165h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f44254i;
+    public boolean f44166i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Shader f44255j;
+    public Shader f44167j;
     public int[] k;
     public float l;
     public float m;
@@ -79,7 +79,7 @@ public class CircleProgressView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CircleProgressView f44256a;
+        public final /* synthetic */ CircleProgressView f44168a;
 
         public a(CircleProgressView circleProgressView) {
             Interceptable interceptable = $ic;
@@ -96,14 +96,14 @@ public class CircleProgressView extends View {
                     return;
                 }
             }
-            this.f44256a = circleProgressView;
+            this.f44168a = circleProgressView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f44256a.setProgress(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                this.f44168a.setProgress(((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         }
     }
@@ -140,22 +140,22 @@ public class CircleProgressView extends View {
         if (interceptable == null || interceptable.invokeLL(65539, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.pass_liveness_CircleProgressView);
             DisplayMetrics displayMetrics = getDisplayMetrics();
-            this.f44247b = TypedValue.applyDimension(1, 6.0f, displayMetrics);
+            this.f44159b = TypedValue.applyDimension(1, 6.0f, displayMetrics);
             this.m = TypedValue.applyDimension(1, 5.0f, displayMetrics);
             int indexCount = obtainStyledAttributes.getIndexCount();
             for (int i2 = 0; i2 < indexCount; i2++) {
                 int index = obtainStyledAttributes.getIndex(i2);
                 if (index == R.styleable.pass_liveness_CircleProgressView_pass_liveness_cpvStrokeWidth) {
-                    this.f44247b = obtainStyledAttributes.getDimension(index, TypedValue.applyDimension(1, 12.0f, displayMetrics));
+                    this.f44159b = obtainStyledAttributes.getDimension(index, TypedValue.applyDimension(1, 12.0f, displayMetrics));
                 } else if (index == R.styleable.pass_liveness_CircleProgressView_pass_liveness_cpvNormalColor) {
-                    this.f44252g = obtainStyledAttributes.getColor(index, -3618616);
+                    this.f44164g = obtainStyledAttributes.getColor(index, -3618616);
                 } else if (index == R.styleable.pass_liveness_CircleProgressView_pass_liveness_cpvProgressColor) {
-                    this.f44253h = obtainStyledAttributes.getColor(index, -11539796);
-                    this.f44254i = false;
+                    this.f44165h = obtainStyledAttributes.getColor(index, -11539796);
+                    this.f44166i = false;
                 } else if (index == R.styleable.pass_liveness_CircleProgressView_pass_liveness_cpvStartAngle) {
-                    this.f44248c = obtainStyledAttributes.getInt(index, 270);
+                    this.f44160c = obtainStyledAttributes.getInt(index, 270);
                 } else if (index == R.styleable.pass_liveness_CircleProgressView_pass_liveness_cpvSweepAngle) {
-                    this.f44249d = obtainStyledAttributes.getInt(index, 360);
+                    this.f44161d = obtainStyledAttributes.getInt(index, 360);
                 } else if (index == R.styleable.pass_liveness_CircleProgressView_pass_liveness_cpvMax) {
                     this.q = obtainStyledAttributes.getInt(index, 100);
                 } else if (index == R.styleable.pass_liveness_CircleProgressView_pass_liveness_cpvProgress) {
@@ -178,8 +178,8 @@ public class CircleProgressView extends View {
             }
             obtainStyledAttributes.recycle();
             this.t = (int) ((this.r * 100.0f) / this.q);
-            this.f44246a = new Paint();
-            this.p = (int) ((this.f44249d * 1.0f) / (this.n + this.o));
+            this.f44158a = new Paint();
+            this.p = (int) ((this.f44161d * 1.0f) / (this.n + this.o));
         }
     }
 
@@ -209,13 +209,13 @@ public class CircleProgressView extends View {
     public float getCircleCenterX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f44250e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f44162e : invokeV.floatValue;
     }
 
     public float getCircleCenterY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f44251f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f44163f : invokeV.floatValue;
     }
 
     public int getMax() {
@@ -245,13 +245,13 @@ public class CircleProgressView extends View {
     public int getStartAngle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f44248c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f44160c : invokeV.intValue;
     }
 
     public int getSweepAngle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f44249d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f44161d : invokeV.intValue;
     }
 
     @Override // android.view.View
@@ -272,11 +272,11 @@ public class CircleProgressView extends View {
             int applyDimension = (int) TypedValue.applyDimension(1, 200.0f, getDisplayMetrics());
             int b2 = b(i2, applyDimension);
             int b3 = b(i3, applyDimension);
-            this.f44250e = ((getPaddingLeft() + b2) - getPaddingRight()) / 2.0f;
-            this.f44251f = ((getPaddingTop() + b3) - getPaddingBottom()) / 2.0f;
-            this.l = (((b2 - Math.max(getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom())) - this.f44247b) / 2.0f) - this.m;
-            float f2 = this.f44250e;
-            this.f44255j = new SweepGradient(f2, f2, this.k, (float[]) null);
+            this.f44162e = ((getPaddingLeft() + b2) - getPaddingRight()) / 2.0f;
+            this.f44163f = ((getPaddingTop() + b3) - getPaddingBottom()) / 2.0f;
+            this.l = (((b2 - Math.max(getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom())) - this.f44159b) / 2.0f) - this.m;
+            float f2 = this.f44162e;
+            this.f44167j = new SweepGradient(f2, f2, this.k, (float[]) null);
             setMeasuredDimension(b2, b3);
         }
     }
@@ -292,8 +292,8 @@ public class CircleProgressView extends View {
     public void setIsShader(Shader shader) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, shader) == null) {
-            this.f44254i = true;
-            this.f44255j = shader;
+            this.f44166i = true;
+            this.f44167j = shader;
             invalidate();
         }
     }
@@ -309,7 +309,7 @@ public class CircleProgressView extends View {
     public void setNormalColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f44252g = i2;
+            this.f44164g = i2;
             invalidate();
         }
     }
@@ -337,7 +337,7 @@ public class CircleProgressView extends View {
     public void setProgressColor(int... iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, iArr) == null) {
-            float f2 = this.f44250e;
+            float f2 = this.f44162e;
             setIsShader(new SweepGradient(f2, f2, iArr, (float[]) null));
         }
     }
@@ -405,11 +405,11 @@ public class CircleProgressView extends View {
                 return;
             }
         }
-        this.f44248c = 270;
-        this.f44249d = 360;
-        this.f44252g = -2039584;
-        this.f44253h = -11637006;
-        this.f44254i = true;
+        this.f44160c = 270;
+        this.f44161d = 360;
+        this.f44164g = -2039584;
+        this.f44165h = -11637006;
+        this.f44166i = true;
         this.k = new int[]{-6311429, -8941322, -8941322, -11637006, -3615745, -6311429};
         this.n = 2;
         this.o = 0.5f;
@@ -425,8 +425,8 @@ public class CircleProgressView extends View {
     public void setProgressColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f44254i = false;
-            this.f44253h = i2;
+            this.f44166i = false;
+            this.f44165h = i2;
             invalidate();
         }
     }
@@ -444,78 +444,78 @@ public class CircleProgressView extends View {
         Shader shader3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
-            this.f44246a.reset();
-            this.f44246a.setAntiAlias(true);
-            this.f44246a.setStyle(Paint.Style.STROKE);
-            this.f44246a.setStrokeWidth(this.f44247b);
+            this.f44158a.reset();
+            this.f44158a.setAntiAlias(true);
+            this.f44158a.setStyle(Paint.Style.STROKE);
+            this.f44158a.setStrokeWidth(this.f44159b);
             if (this.u) {
                 float f2 = this.l;
                 float f3 = f2 * 2.0f;
-                float f4 = this.f44250e - f2;
-                float f5 = this.f44251f - f2;
+                float f4 = this.f44162e - f2;
+                float f5 = this.f44163f - f2;
                 RectF rectF = new RectF(f4, f5, f4 + f3, f3 + f5);
                 int i2 = (int) ((this.t / 100.0f) * this.p);
                 int i3 = 0;
                 if (this.v) {
                     while (i3 < this.p) {
-                        this.f44246a.setShader(null);
-                        this.f44246a.setColor(this.f44252g);
+                        this.f44158a.setShader(null);
+                        this.f44158a.setColor(this.f44164g);
                         float f6 = this.o;
-                        canvas.drawArc(rectF, (i3 * (this.n + f6)) + this.f44248c, f6, false, this.f44246a);
+                        canvas.drawArc(rectF, (i3 * (this.n + f6)) + this.f44160c, f6, false, this.f44158a);
                         i3++;
                     }
                     for (int i4 = i2; i4 < i2 + i2; i4++) {
-                        if (this.f44254i && (shader3 = this.f44255j) != null) {
-                            this.f44246a.setShader(shader3);
+                        if (this.f44166i && (shader3 = this.f44167j) != null) {
+                            this.f44158a.setShader(shader3);
                         } else {
-                            this.f44246a.setColor(this.f44253h);
+                            this.f44158a.setColor(this.f44165h);
                         }
                         float f7 = this.o;
-                        canvas.drawArc(rectF, (i4 * (this.n + f7)) + this.f44248c, f7, false, this.f44246a);
+                        canvas.drawArc(rectF, (i4 * (this.n + f7)) + this.f44160c, f7, false, this.f44158a);
                     }
                 } else {
                     while (i3 < this.p) {
                         if (i3 < i2) {
-                            if (this.f44254i && (shader2 = this.f44255j) != null) {
-                                this.f44246a.setShader(shader2);
+                            if (this.f44166i && (shader2 = this.f44167j) != null) {
+                                this.f44158a.setShader(shader2);
                             } else {
-                                this.f44246a.setColor(this.f44253h);
+                                this.f44158a.setColor(this.f44165h);
                             }
                             float f8 = this.o;
-                            canvas.drawArc(rectF, (i3 * (this.n + f8)) + this.f44248c, f8, false, this.f44246a);
-                        } else if (this.f44252g != 0) {
-                            this.f44246a.setShader(null);
-                            this.f44246a.setColor(this.f44252g);
+                            canvas.drawArc(rectF, (i3 * (this.n + f8)) + this.f44160c, f8, false, this.f44158a);
+                        } else if (this.f44164g != 0) {
+                            this.f44158a.setShader(null);
+                            this.f44158a.setColor(this.f44164g);
                             float f9 = this.o;
-                            canvas.drawArc(rectF, (i3 * (this.n + f9)) + this.f44248c, f9, false, this.f44246a);
+                            canvas.drawArc(rectF, (i3 * (this.n + f9)) + this.f44160c, f9, false, this.f44158a);
                         }
                         i3++;
                     }
                 }
             }
-            this.f44246a.setShader(null);
+            this.f44158a.setShader(null);
             if (this.w) {
-                this.f44246a.setStrokeCap(Paint.Cap.ROUND);
+                this.f44158a.setStrokeCap(Paint.Cap.ROUND);
             }
-            float f10 = (this.l - this.m) - this.f44247b;
+            float f10 = (this.l - this.m) - this.f44159b;
             float f11 = 2.0f * f10;
-            float f12 = this.f44250e - f10;
-            float f13 = this.f44251f - f10;
+            float f12 = this.f44162e - f10;
+            float f13 = this.f44163f - f10;
             RectF rectF2 = new RectF(f12, f13, f12 + f11, f11 + f13);
-            int i5 = this.f44252g;
+            int i5 = this.f44164g;
             if (i5 != 0) {
-                this.f44246a.setColor(i5);
-                canvas.drawArc(rectF2, this.f44248c, this.f44249d, false, this.f44246a);
+                this.f44158a.setColor(i5);
+                canvas.drawArc(rectF2, this.f44160c, this.f44161d, false, this.f44158a);
             }
-            if (this.f44254i && (shader = this.f44255j) != null) {
-                this.f44246a.setShader(shader);
+            if (this.f44166i && (shader = this.f44167j) != null) {
+                this.f44158a.setShader(shader);
             } else {
-                this.f44246a.setColor(this.f44253h);
+                this.f44158a.setColor(this.f44165h);
             }
             if (this.v) {
-                canvas.drawArc(rectF2, this.f44248c + (this.f44249d * getRatio()), this.f44249d * getRatio(), false, this.f44246a);
+                canvas.drawArc(rectF2, this.f44160c + (this.f44161d * getRatio()), this.f44161d * getRatio(), false, this.f44158a);
             } else {
-                canvas.drawArc(rectF2, this.f44248c, this.f44249d * getRatio(), false, this.f44246a);
+                canvas.drawArc(rectF2, this.f44160c, this.f44161d * getRatio(), false, this.f44158a);
             }
         }
     }

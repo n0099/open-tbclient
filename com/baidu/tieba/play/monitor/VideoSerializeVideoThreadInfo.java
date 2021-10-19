@@ -412,8 +412,8 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.forumId = originalForumInfo.id;
         }
         if (originalThreadInfo != null) {
-            this.threadId = originalThreadInfo.f47524f;
-            this.title = originalThreadInfo.f47520b;
+            this.threadId = originalThreadInfo.f47437f;
+            this.title = originalThreadInfo.f47433b;
             this.postNum = originalThreadInfo.z.intValue();
         }
         if (originalThreadInfo != null && (agree = originalThreadInfo.y) != null) {

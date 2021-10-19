@@ -15,7 +15,7 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37738a;
+    public Context f37742a;
 
     /* renamed from: com.baidu.android.pushservice.message.a.k$1  reason: invalid class name */
     /* loaded from: classes4.dex */
@@ -23,7 +23,7 @@ public class k {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f37739a;
+        public static final /* synthetic */ int[] f37743a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,41 +40,41 @@ public class k {
                 }
             }
             int[] iArr = new int[l.a().length];
-            f37739a = iArr;
+            f37743a = iArr;
             try {
-                iArr[l.f37741b.ordinal()] = 1;
+                iArr[l.f37745b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f37739a[l.f37742c.ordinal()] = 2;
+                f37743a[l.f37746c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f37739a[l.f37746g.ordinal()] = 3;
+                f37743a[l.f37750g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f37739a[l.f37743d.ordinal()] = 4;
+                f37743a[l.f37747d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f37739a[l.f37744e.ordinal()] = 5;
+                f37743a[l.f37748e.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f37739a[l.f37745f.ordinal()] = 6;
+                f37743a[l.f37749f.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f37739a[l.f37747h.ordinal()] = 7;
+                f37743a[l.f37751h.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f37739a[l.f37748i.ordinal()] = 8;
+                f37743a[l.f37752i.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f37739a[l.f37749j.ordinal()] = 9;
+                f37743a[l.f37753j.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
         }
@@ -95,32 +95,32 @@ public class k {
                 return;
             }
         }
-        this.f37738a = context;
+        this.f37742a = context;
     }
 
     public d a(l lVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lVar)) == null) {
-            switch (AnonymousClass1.f37739a[lVar.ordinal()]) {
+            switch (AnonymousClass1.f37743a[lVar.ordinal()]) {
                 case 1:
                 case 2:
-                    return new g(this.f37738a);
+                    return new g(this.f37742a);
                 case 3:
-                    return new h(this.f37738a);
+                    return new h(this.f37742a);
                 case 4:
                 case 5:
-                    return new i(this.f37738a);
+                    return new i(this.f37742a);
                 case 6:
-                    return new e(this.f37738a);
+                    return new e(this.f37742a);
                 case 7:
-                    return new b(this.f37738a);
+                    return new b(this.f37742a);
                 case 8:
-                    return new c(this.f37738a);
+                    return new c(this.f37742a);
                 case 9:
-                    return new a(this.f37738a);
+                    return new a(this.f37742a);
                 default:
-                    m.a(">>> Unknown msg_type : " + lVar, this.f37738a);
+                    m.a(">>> Unknown msg_type : " + lVar, this.f37742a);
                     return null;
             }
         }

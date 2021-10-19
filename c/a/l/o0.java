@@ -112,13 +112,13 @@ public class o0 extends h {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.r0.a0.b0<c.a.q0.s.q.a> b0Var) {
+    public void k(c.a.r0.b0.c0<c.a.q0.s.q.a> c0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b0Var) == null) {
-            super.k(b0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0Var) == null) {
+            super.k(c0Var);
             BjhArticleLayout bjhArticleLayout = this.m;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.setSubClickListener(b0Var);
+                bjhArticleLayout.setSubClickListener(c0Var);
             }
         }
     }

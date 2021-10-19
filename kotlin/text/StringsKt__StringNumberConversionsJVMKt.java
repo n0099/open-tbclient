@@ -1,6 +1,5 @@
 package kotlin.text;
 
-import com.baidu.media.duplayer.LibsInfoDef;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
@@ -24,13 +23,13 @@ public class StringsKt__StringNumberConversionsJVMKt extends StringsKt__StringBu
         }
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @InlineOnly
     public static final BigDecimal toBigDecimal(String str) {
         return new BigDecimal(str);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final BigDecimal toBigDecimalOrNull(String toBigDecimalOrNull) {
         Intrinsics.checkNotNullParameter(toBigDecimalOrNull, "$this$toBigDecimalOrNull");
         try {
@@ -43,13 +42,13 @@ public class StringsKt__StringNumberConversionsJVMKt extends StringsKt__StringBu
         }
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @InlineOnly
     public static final BigInteger toBigInteger(String str) {
         return new BigInteger(str);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final BigInteger toBigIntegerOrNull(String toBigIntegerOrNull) {
         Intrinsics.checkNotNullParameter(toBigIntegerOrNull, "$this$toBigIntegerOrNull");
         return toBigIntegerOrNull(toBigIntegerOrNull, 10);
@@ -126,19 +125,19 @@ public class StringsKt__StringNumberConversionsJVMKt extends StringsKt__StringBu
         return num;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @InlineOnly
     public static final BigDecimal toBigDecimal(String str, MathContext mathContext) {
         return new BigDecimal(str, mathContext);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @InlineOnly
     public static final BigInteger toBigInteger(String str, int i2) {
         return new BigInteger(str, CharsKt__CharJVMKt.checkRadix(i2));
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final BigInteger toBigIntegerOrNull(String toBigIntegerOrNull, int i2) {
         Intrinsics.checkNotNullParameter(toBigIntegerOrNull, "$this$toBigIntegerOrNull");
         CharsKt__CharJVMKt.checkRadix(i2);
@@ -190,7 +189,7 @@ public class StringsKt__StringNumberConversionsJVMKt extends StringsKt__StringBu
         return num;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final BigDecimal toBigDecimalOrNull(String toBigDecimalOrNull, MathContext mathContext) {
         Intrinsics.checkNotNullParameter(toBigDecimalOrNull, "$this$toBigDecimalOrNull");
         Intrinsics.checkNotNullParameter(mathContext, "mathContext");

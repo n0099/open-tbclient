@@ -15,7 +15,7 @@ public final class d implements w {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.c f68674a;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.c f68709a;
 
     public d(com.bytedance.sdk.openadsdk.preload.a.b.c cVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class d implements w {
                 return;
             }
         }
-        this.f68674a = cVar;
+        this.f68709a = cVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.w
@@ -44,7 +44,7 @@ public final class d implements w {
             if (bVar == null) {
                 return null;
             }
-            return (v<T>) a(this.f68674a, fVar, aVar, bVar);
+            return (v<T>) a(this.f68709a, fVar, aVar, bVar);
         }
         return (v) invokeLL.objValue;
     }

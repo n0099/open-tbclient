@@ -34,22 +34,22 @@ public class ItemTableRowView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51909e;
+    public int f51836e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51910f;
+    public int f51837f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f51911g;
+    public float f51838g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51912h;
+    public int f51839h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f51913i;
+    public int f51840i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f51914j;
+    public int f51841j;
     public int k;
     public int l;
     public int m;
@@ -110,8 +110,8 @@ public class ItemTableRowView extends View {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f51913i = x;
-            this.f51912h = y;
+            this.f51840i = x;
+            this.f51839h = y;
             this.r = z;
             this.s = A;
             this.t = B;
@@ -125,7 +125,7 @@ public class ItemTableRowView extends View {
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f51911g = 0.0f;
+            this.f51838g = 0.0f;
         }
     }
 
@@ -149,28 +149,28 @@ public class ItemTableRowView extends View {
             int paddingLeft = getPaddingLeft();
             int i3 = 0;
             while (true) {
-                i2 = this.f51909e;
+                i2 = this.f51836e;
                 if (i3 >= i2) {
                     break;
                 }
                 Drawable drawable = this.n;
                 int paddingTop = getPaddingTop();
-                int i4 = this.f51913i;
+                int i4 = this.f51840i;
                 drawable.setBounds(paddingLeft, paddingTop, paddingLeft + i4, i4 + getPaddingTop());
                 this.n.draw(canvas);
-                paddingLeft += this.f51912h + this.f51913i;
+                paddingLeft += this.f51839h + this.f51840i;
                 i3++;
             }
-            while (i2 < this.f51910f) {
+            while (i2 < this.f51837f) {
                 Drawable drawable2 = this.o;
                 int paddingTop2 = getPaddingTop();
-                int i5 = this.f51913i;
+                int i5 = this.f51840i;
                 drawable2.setBounds(paddingLeft, paddingTop2, paddingLeft + i5, i5 + getPaddingTop());
                 this.o.draw(canvas);
-                paddingLeft += this.f51912h + this.f51913i;
+                paddingLeft += this.f51839h + this.f51840i;
                 i2++;
             }
-            int i6 = (paddingLeft - this.f51912h) + this.w;
+            int i6 = (paddingLeft - this.f51839h) + this.w;
             float measuredHeight = (((getMeasuredHeight() - getPaddingBottom()) - getPaddingTop()) - this.s) / 2;
             float f2 = i6;
             this.p.set(f2, measuredHeight, getMeasuredWidth(), this.s + measuredHeight);
@@ -179,7 +179,7 @@ public class ItemTableRowView extends View {
             int i7 = this.t;
             canvas.drawRoundRect(rectF, i7, i7, this.q);
             this.q.setColor(SkinManager.getColor(this.v));
-            this.p.set(f2, measuredHeight, ((getMeasuredWidth() - i6) * this.f51911g) + f2, this.s + measuredHeight);
+            this.p.set(f2, measuredHeight, ((getMeasuredWidth() - i6) * this.f51838g) + f2, this.s + measuredHeight);
             RectF rectF2 = this.p;
             int i8 = this.t;
             canvas.drawRoundRect(rectF2, i8, i8, this.q);
@@ -197,19 +197,19 @@ public class ItemTableRowView extends View {
             int size2 = View.MeasureSpec.getSize(i3);
             if (mode2 == 1073741824) {
                 int paddingBottom = (size2 - getPaddingBottom()) - getPaddingTop();
-                this.f51913i = paddingBottom;
+                this.f51840i = paddingBottom;
                 this.s = Math.max(0, paddingBottom - D);
             } else {
-                size2 = this.f51913i + getPaddingBottom() + getPaddingTop();
+                size2 = this.f51840i + getPaddingBottom() + getPaddingTop();
             }
-            int i4 = this.f51913i;
-            int i5 = this.f51910f;
-            int i6 = (i4 * i5) + (this.f51912h * (i5 - 1));
-            this.f51914j = i6;
+            int i4 = this.f51840i;
+            int i5 = this.f51837f;
+            int i6 = (i4 * i5) + (this.f51839h * (i5 - 1));
+            this.f51841j = i6;
             if (mode != 1073741824) {
                 size = this.w + i6 + getPaddingLeft() + getPaddingRight() + this.r;
             } else if (size < i6) {
-                this.r = Math.max(0, (((size - getPaddingLeft()) - getPaddingRight()) - this.f51914j) - this.w);
+                this.r = Math.max(0, (((size - getPaddingLeft()) - getPaddingRight()) - this.f51841j) - this.w);
             }
             setMeasuredDimension(size, size2);
         }
@@ -218,14 +218,14 @@ public class ItemTableRowView extends View {
     public void setData(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.f51911g = f2;
+            this.f51838g = f2;
         }
     }
 
     public void setEmptyStartCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f51909e = i2;
+            this.f51836e = i2;
         }
     }
 
@@ -277,7 +277,7 @@ public class ItemTableRowView extends View {
                 return;
             }
         }
-        this.f51910f = 5;
+        this.f51837f = 5;
         this.k = R.drawable.icon_pure_evaluation_star24_n;
         this.l = 17170445;
         this.m = R.color.CAM_X0109;

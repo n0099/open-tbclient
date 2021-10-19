@@ -18,13 +18,13 @@ public class LoadHistoryResponsedMessage extends CustomResponsedMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53302a;
+        public String f53233a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<ChatMessage> f53303b;
+        public List<ChatMessage> f53234b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f53304c;
+        public boolean f53235c;
 
         public a() {
             Interceptable interceptable = $ic;

@@ -17,7 +17,7 @@ public class CustomStrategyImpl implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f46020a;
+    public final List<String> f45932a;
 
     public CustomStrategyImpl() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class CustomStrategyImpl implements a {
                 return;
             }
         }
-        this.f46020a = new ArrayList<String>(this) { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.CustomStrategyImpl.1
+        this.f45932a = new ArrayList<String>(this) { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.CustomStrategyImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomStrategyImpl this$0;
@@ -65,7 +65,7 @@ public class CustomStrategyImpl implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             String d2 = gVar.d();
-            for (String str : this.f46020a) {
+            for (String str : this.f45932a) {
                 if (d2.startsWith(str)) {
                     return true;
                 }

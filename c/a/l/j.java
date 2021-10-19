@@ -57,7 +57,7 @@ public class j extends c implements p<d2>, q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, aVar, z) == null) {
             this.f3812j = z;
-            r(0);
+            s(0);
             n(true);
         }
     }
@@ -94,7 +94,7 @@ public class j extends c implements p<d2>, q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, d2Var) == null) {
             if (d2Var != null && d2Var.J() != null) {
-                o(k(this.f3812j ? R.dimen.tbds120 : R.dimen.tbds44));
+                p(k(this.f3812j ? R.dimen.tbds120 : R.dimen.tbds44));
                 this.f3811i.setVisibility(0);
                 this.f3811i.setData(d2Var);
                 this.f3811i.setTag(d2Var);
@@ -111,13 +111,10 @@ public class j extends c implements p<d2>, q {
         }
     }
 
-    public void o(int i2) {
+    public void o(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            if (c() != null) {
-                c().rightMargin = i2;
-            }
-            this.f3811i.setLayoutParams(c());
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f3811i.setIsShowIcon(z);
         }
     }
 
@@ -129,23 +126,33 @@ public class j extends c implements p<d2>, q {
         }
     }
 
-    public void p(FollowUserButton.a aVar) {
+    public void p(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            if (c() != null) {
+                c().rightMargin = i2;
+            }
+            this.f3811i.setLayoutParams(c());
+        }
+    }
+
+    public void q(FollowUserButton.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
             this.f3811i.setOnClickEvent(aVar);
         }
     }
 
-    public void q(BdUniqueId bdUniqueId) {
+    public void r(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
             this.f3811i.setPageUniqueId(bdUniqueId);
         }
     }
 
-    public void r(int i2) {
+    public void s(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             this.f3811i.setSvgIconResId(i2);
         }
     }

@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.j;
-import c.a.q0.d1.r;
+import c.a.q0.d1.q;
 import c.a.q0.s.s.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -44,8 +44,8 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.q0.s.s.b deleteItemDialog;
-    public r<LinkedList<GroupNewsPojo>> getDataCallBack;
-    public r<Integer> getDataCountCallBack;
+    public q<LinkedList<GroupNewsPojo>> getDataCallBack;
+    public q<Integer> getDataCountCallBack;
     public boolean isLoading;
     public boolean isWaitNetResponse;
     public CustomMessageListener mCustomListener;
@@ -54,16 +54,16 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     public ValidateItemData pendingToDel;
     public int perCount;
     public int totalCount;
-    public r<Boolean> updateDataCallBack;
-    public c.a.r0.k1.x.c valiateView;
+    public q<Boolean> updateDataCallBack;
+    public c.a.r0.l1.x.c valiateView;
 
     /* loaded from: classes7.dex */
-    public class a implements r<Boolean> {
+    public class a implements q<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ValidateActivity f53371a;
+        public final /* synthetic */ ValidateActivity f53302a;
 
         public a(ValidateActivity validateActivity) {
             Interceptable interceptable = $ic;
@@ -80,28 +80,28 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                     return;
                 }
             }
-            this.f53371a = validateActivity;
+            this.f53302a = validateActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.r
+        @Override // c.a.q0.d1.q
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bool) == null) || this.f53371a.isWaitNetResponse) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bool) == null) || this.f53302a.isWaitNetResponse) {
                 return;
             }
-            this.f53371a.valiateView.h(false);
+            this.f53302a.valiateView.h(false);
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements r<LinkedList<GroupNewsPojo>> {
+    public class b implements q<LinkedList<GroupNewsPojo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ValidateActivity f53372a;
+        public final /* synthetic */ ValidateActivity f53303a;
 
         public b(ValidateActivity validateActivity) {
             Interceptable interceptable = $ic;
@@ -118,34 +118,34 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                     return;
                 }
             }
-            this.f53372a = validateActivity;
+            this.f53303a = validateActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.r
+        @Override // c.a.q0.d1.q
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, linkedList) == null) {
-                this.f53372a.valiateView.g(ValidateModel.convertToValidateItemDataList(linkedList));
+                this.f53303a.valiateView.g(ValidateModel.convertToValidateItemDataList(linkedList));
                 if (linkedList != null) {
-                    this.f53372a.offset += linkedList.size();
+                    this.f53303a.offset += linkedList.size();
                 }
-                if (!this.f53372a.isWaitNetResponse) {
-                    this.f53372a.valiateView.h(false);
+                if (!this.f53303a.isWaitNetResponse) {
+                    this.f53303a.valiateView.h(false);
                 }
-                this.f53372a.isLoading = false;
+                this.f53303a.isLoading = false;
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements r<Integer> {
+    public class c implements q<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ValidateActivity f53373a;
+        public final /* synthetic */ ValidateActivity f53304a;
 
         public c(ValidateActivity validateActivity) {
             Interceptable interceptable = $ic;
@@ -162,19 +162,19 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                     return;
                 }
             }
-            this.f53373a = validateActivity;
+            this.f53304a = validateActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.r
+        @Override // c.a.q0.d1.q
         /* renamed from: a */
         public void onReturnDataInUI(Integer num) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, num) == null) {
-                this.f53373a.totalCount = num.intValue();
-                if (this.f53373a.totalCount > 0) {
-                    this.f53373a.isLoading = true;
-                    ValidateModel.requestValidateDataFromDB(this.f53373a.perCount, this.f53373a.offset, this.f53373a.getDataCallBack);
+                this.f53304a.totalCount = num.intValue();
+                if (this.f53304a.totalCount > 0) {
+                    this.f53304a.isLoading = true;
+                    ValidateModel.requestValidateDataFromDB(this.f53304a.perCount, this.f53304a.offset, this.f53304a.getDataCallBack);
                 }
             }
         }
@@ -186,7 +186,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ValidateActivity f53374a;
+        public final /* synthetic */ ValidateActivity f53305a;
 
         public d(ValidateActivity validateActivity) {
             Interceptable interceptable = $ic;
@@ -203,7 +203,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                     return;
                 }
             }
-            this.f53374a = validateActivity;
+            this.f53305a = validateActivity;
         }
 
         @Override // c.a.q0.s.s.b.c
@@ -214,8 +214,8 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 if (i2 != 0) {
                     return;
                 }
-                this.f53374a.valiateView.h(true);
-                ValidateActivity validateActivity = this.f53374a;
+                this.f53305a.valiateView.h(true);
+                ValidateActivity validateActivity = this.f53305a;
                 validateActivity.processDel(validateActivity.pendingToDel);
             }
         }
@@ -227,7 +227,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ValidateActivity f53375a;
+        public final /* synthetic */ ValidateActivity f53306a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(ValidateActivity validateActivity, int i2) {
@@ -247,7 +247,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                     return;
                 }
             }
-            this.f53375a = validateActivity;
+            this.f53306a = validateActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -255,39 +255,39 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.f53375a.valiateView.h(false);
-                this.f53375a.isWaitNetResponse = false;
+                this.f53306a.valiateView.h(false);
+                this.f53306a.isWaitNetResponse = false;
                 if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage)) {
                     int cmd = socketResponsedMessage.getCmd();
                     if (cmd == 103111) {
                         RequestAddGroupUserMessage requestAddGroupUserMessage = (RequestAddGroupUserMessage) socketResponsedMessage.getOrginalMessage();
                         if (socketResponsedMessage.getError() == 0) {
-                            ValidateItemData byNoticeId = this.f53375a.getByNoticeId(requestAddGroupUserMessage.getNotice_id());
+                            ValidateItemData byNoticeId = this.f53306a.getByNoticeId(requestAddGroupUserMessage.getNotice_id());
                             if (byNoticeId != null) {
                                 byNoticeId.setPass(true);
                                 byNoticeId.setShown(true);
-                                ValidateModel.updateValidateData(this.f53375a.updateDataCallBack, byNoticeId);
+                                ValidateModel.updateValidateData(this.f53306a.updateDataCallBack, byNoticeId);
                                 if (TextUtils.isEmpty(socketResponsedMessage.getErrorString())) {
-                                    this.f53375a.showToast(R.string.validate_succ);
+                                    this.f53306a.showToast(R.string.validate_succ);
                                 } else {
-                                    this.f53375a.showToast(socketResponsedMessage.getErrorString());
+                                    this.f53306a.showToast(socketResponsedMessage.getErrorString());
                                 }
-                                this.f53375a.valiateView.e().notifyDataSetChanged();
+                                this.f53306a.valiateView.e().notifyDataSetChanged();
                             }
                         } else if (requestAddGroupUserMessage != null) {
                             socketResponsedMessage.getError();
                             String errorString = socketResponsedMessage.getErrorString();
                             if (TextUtils.isEmpty(errorString)) {
-                                this.f53375a.showToast(R.string.validate_fail);
+                                this.f53306a.showToast(R.string.validate_fail);
                             } else {
-                                this.f53375a.showToast(errorString);
+                                this.f53306a.showToast(errorString);
                             }
-                            ValidateItemData byNoticeId2 = this.f53375a.getByNoticeId(requestAddGroupUserMessage.getNotice_id());
+                            ValidateItemData byNoticeId2 = this.f53306a.getByNoticeId(requestAddGroupUserMessage.getNotice_id());
                             if (byNoticeId2 != null) {
                                 byNoticeId2.setPass(false);
                                 byNoticeId2.setShown(true);
-                                ValidateModel.updateValidateData(this.f53375a.updateDataCallBack, byNoticeId2);
-                                this.f53375a.valiateView.e().notifyDataSetChanged();
+                                ValidateModel.updateValidateData(this.f53306a.updateDataCallBack, byNoticeId2);
+                                this.f53306a.valiateView.e().notifyDataSetChanged();
                             }
                         }
                     } else if (202004 == cmd) {
@@ -296,11 +296,11 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                         if (responseDelSystemMessage.getError() != 0) {
                             return;
                         }
-                        ValidateModel.deleteValidateData(this.f53375a.pendingToDel, this.f53375a.updateDataCallBack);
-                        this.f53375a.offset--;
-                        this.f53375a.totalCount--;
-                        c.a.r0.k1.x.a e2 = this.f53375a.valiateView.e();
-                        e2.b().remove(this.f53375a.pendingToDel);
+                        ValidateModel.deleteValidateData(this.f53306a.pendingToDel, this.f53306a.updateDataCallBack);
+                        this.f53306a.offset--;
+                        this.f53306a.totalCount--;
+                        c.a.r0.l1.x.a e2 = this.f53306a.valiateView.e();
+                        e2.b().remove(this.f53306a.pendingToDel);
                         ImMessageCenterPojo imMessageCenterPojo = null;
                         if (e2.b().size() > 0) {
                             imMessageCenterPojo = new ImMessageCenterPojo();
@@ -312,7 +312,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                         if (e2 == null || e2.b() == null || e2.b().size() != 0) {
                             return;
                         }
-                        this.f53375a.finish();
+                        this.f53306a.finish();
                     }
                 }
             }
@@ -325,7 +325,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ValidateActivity f53376a;
+        public final /* synthetic */ ValidateActivity f53307a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(ValidateActivity validateActivity, int i2) {
@@ -345,7 +345,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                     return;
                 }
             }
-            this.f53376a = validateActivity;
+            this.f53307a = validateActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -354,10 +354,10 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof PushMessage)) {
                 GroupNewsPojo p = ((PushMessage) customResponsedMessage).getP();
-                this.f53376a.offset++;
-                this.f53376a.totalCount++;
-                this.f53376a.valiateView.e().b().add(0, ValidateModel.convertToValidateItemData(p));
-                this.f53376a.valiateView.e().notifyDataSetChanged();
+                this.f53307a.offset++;
+                this.f53307a.totalCount++;
+                this.f53307a.valiateView.e().b().add(0, ValidateModel.convertToValidateItemData(p));
+                this.f53307a.valiateView.e().notifyDataSetChanged();
             }
         }
     }
@@ -451,7 +451,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                     requestAddGroupUserMessage.setGroupId(c.a.e.e.m.b.g(validateItemData.getGroupId(), 0L));
                     requestAddGroupUserMessage.setNotice_id(validateItemData.getNotice_id());
                     String notice_id = validateItemData.getNotice_id();
-                    String c2 = c.a.r0.k1.p.b.b().c();
+                    String c2 = c.a.r0.l1.p.b.b().c();
                     if (!TextUtils.isEmpty(notice_id) && !TextUtils.isEmpty(c2) && TextUtils.isDigitsOnly(notice_id) && TextUtils.isDigitsOnly(c2)) {
                         requestAddGroupUserMessage.setSysGroupId(c.a.e.e.m.b.e(c2, 0));
                         requestAddGroupUserMessage.setSysMsgId(String.valueOf(c.a.e.e.m.b.g(notice_id, 0L) / 100));
@@ -474,7 +474,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 showToast(R.string.neterror);
             } else if (validateItemData == null) {
             } else {
-                long g2 = c.a.e.e.m.b.g(c.a.r0.k1.p.b.b().c(), 0L);
+                long g2 = c.a.e.e.m.b.g(c.a.r0.l1.p.b.b().c(), 0L);
                 if (g2 == 0) {
                     return;
                 }
@@ -502,7 +502,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.r0.k1.x.c cVar = this.valiateView;
+            c.a.r0.l1.x.c cVar = this.valiateView;
             if (cVar != null) {
                 cVar.onChangeSkinType(i2);
             }
@@ -511,7 +511,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        c.a.r0.k1.x.c cVar;
+        c.a.r0.l1.x.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null || (cVar = this.valiateView) == null || !view.equals(cVar.d())) {
             return;
@@ -524,7 +524,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.valiateView = new c.a.r0.k1.x.c(this);
+            this.valiateView = new c.a.r0.l1.x.c(this);
             initDataCallBack();
         }
     }
@@ -534,7 +534,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            c.a.r0.k1.x.c cVar = this.valiateView;
+            c.a.r0.l1.x.c cVar = this.valiateView;
             if (cVar != null) {
                 cVar.destroy();
             }
@@ -615,12 +615,12 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
-        c.a.r0.k1.x.a e2;
+        c.a.r0.l1.x.a e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onStop();
             ChatStatusManager.getInst().setIsOpen(7, false);
-            c.a.r0.k1.x.c cVar = this.valiateView;
+            c.a.r0.l1.x.c cVar = this.valiateView;
             if (cVar == null || (e2 = cVar.e()) == null) {
                 return;
             }

@@ -15,20 +15,20 @@ public interface a extends IInterface {
 
     /* renamed from: com.asus.msa.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static abstract class AbstractBinderC1572a extends Binder implements a {
+    public static abstract class AbstractBinderC1574a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.asus.msa.a.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C1573a implements a {
+        public static class C1575a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f36258a;
+            public IBinder f36262a;
 
-            public C1573a(IBinder iBinder) {
+            public C1575a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +43,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f36258a = iBinder;
+                this.f36262a = iBinder;
             }
 
             @Override // com.asus.msa.a.a
@@ -55,7 +55,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                        this.f36258a.transact(1, obtain, obtain2, 0);
+                        this.f36262a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -70,7 +70,7 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36258a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36262a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.asus.msa.a.a
@@ -82,7 +82,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                        this.f36258a.transact(2, obtain, obtain2, 0);
+                        this.f36262a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -102,7 +102,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                        this.f36258a.transact(3, obtain, obtain2, 0);
+                        this.f36262a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -122,7 +122,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                        this.f36258a.transact(4, obtain, obtain2, 0);
+                        this.f36262a.transact(4, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -142,7 +142,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                        this.f36258a.transact(5, obtain, obtain2, 0);
+                        this.f36262a.transact(5, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -162,7 +162,7 @@ public interface a extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1573a(iBinder) : (a) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1575a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }

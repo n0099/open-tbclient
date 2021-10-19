@@ -17,19 +17,19 @@ public class h1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<UserData> f14202a;
+    public ArrayList<UserData> f14225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<UserData> f14203b;
+    public ArrayList<UserData> f14226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b1 f14204c;
+    public b1 f14227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14205d;
+    public int f14228d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14206e;
+    public int f14229e;
 
     public h1() {
         Interceptable interceptable = $ic;
@@ -44,41 +44,41 @@ public class h1 {
                 return;
             }
         }
-        this.f14202a = new ArrayList<>();
-        this.f14203b = new ArrayList<>();
-        this.f14204c = new b1();
-        this.f14205d = 0;
-        this.f14206e = 0;
+        this.f14225a = new ArrayList<>();
+        this.f14226b = new ArrayList<>();
+        this.f14227c = new b1();
+        this.f14228d = 0;
+        this.f14229e = 0;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14206e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14229e : invokeV.intValue;
     }
 
     public ArrayList<UserData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14203b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14226b : (ArrayList) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14205d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14228d : invokeV.intValue;
     }
 
     public b1 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14204c : (b1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14227c : (b1) invokeV.objValue;
     }
 
     public ArrayList<UserData> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14202a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14225a : (ArrayList) invokeV.objValue;
     }
 
     public void f(String str) {
@@ -105,7 +105,7 @@ public class h1 {
                     UserData userData = new UserData();
                     userData.parserJson(optJSONArray.getJSONObject(i2));
                     userData.mAttentionType = 2;
-                    this.f14202a.add(userData);
+                    this.f14225a.add(userData);
                 }
             }
             if (optJSONArray2 != null) {
@@ -113,12 +113,12 @@ public class h1 {
                     UserData userData2 = new UserData();
                     userData2.parserJson(optJSONArray2.getJSONObject(i3));
                     userData2.mAttentionType = 1;
-                    this.f14203b.add(userData2);
+                    this.f14226b.add(userData2);
                 }
             }
-            this.f14204c.i(jSONObject.optJSONObject("page"));
-            this.f14205d = jSONObject.optInt("tafriendnum", 0);
-            this.f14206e = jSONObject.optInt("commonfriendnum", 0);
+            this.f14227c.i(jSONObject.optJSONObject("page"));
+            this.f14228d = jSONObject.optInt("tafriendnum", 0);
+            this.f14229e = jSONObject.optInt("commonfriendnum", 0);
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }
@@ -127,7 +127,7 @@ public class h1 {
     public void h(b1 b1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, b1Var) == null) {
-            this.f14204c = b1Var;
+            this.f14227c = b1Var;
         }
     }
 }

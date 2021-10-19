@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.dynamic;
 
-import c.a.r0.w0.m1.a;
+import c.a.r0.x0.m1.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +54,7 @@ public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<
                 Integer num = error.errorno;
                 if (num != null) {
                     setError(num.intValue());
-                    this.responseData.f27071h = a2.error.errorno.intValue();
+                    this.responseData.f27246h = a2.error.errorno.intValue();
                 }
                 setErrorString(a2.error.usermsg);
             }

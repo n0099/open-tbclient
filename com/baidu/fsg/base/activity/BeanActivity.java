@@ -19,11 +19,11 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39388i = "BaseActivity";
+    public static final String f39392i = "BaseActivity";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Handler f39389j;
+    public Handler f39393j;
     public BeanActivity mAct;
 
     public BeanActivity() {
@@ -39,17 +39,17 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                 return;
             }
         }
-        this.f39389j = null;
+        this.f39393j = null;
     }
 
     private Handler b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f39389j == null) {
-                this.f39389j = new Handler(getMainLooper());
+            if (this.f39393j == null) {
+                this.f39393j = new Handler(getMainLooper());
             }
-            return this.f39389j;
+            return this.f39393j;
         }
         return (Handler) invokeV.objValue;
     }

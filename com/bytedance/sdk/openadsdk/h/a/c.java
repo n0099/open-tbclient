@@ -18,7 +18,7 @@ public class c extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<w> f68213a;
+    public WeakReference<w> f68248a;
 
     public c(w wVar) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class c extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                 return;
             }
         }
-        this.f68213a = new WeakReference<>(wVar);
+        this.f68248a = new WeakReference<>(wVar);
     }
 
     @Override // com.bytedance.sdk.component.a.d
@@ -53,7 +53,7 @@ public class c extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ w f68214a;
+                public final /* synthetic */ w f68249a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -70,14 +70,14 @@ public class c extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                             return;
                         }
                     }
-                    this.f68214a = wVar;
+                    this.f68249a = wVar;
                 }
 
                 @Override // com.bytedance.sdk.component.a.d.b
                 public com.bytedance.sdk.component.a.d a() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new c(this.f68214a) : (com.bytedance.sdk.component.a.d) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new c(this.f68249a) : (com.bytedance.sdk.component.a.d) invokeV.objValue;
                 }
             });
         }
@@ -95,7 +95,7 @@ public class c extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                 c.p.a.e.b.c.a.g("DoInterstitialWebViewCloseMethod", sb.toString());
             }
             c.p.a.e.b.c.a.k("DoInterstitialWebViewCloseMethod", "DoInterstitialWebViewCloseMethod invoke ");
-            w wVar = this.f68213a.get();
+            w wVar = this.f68248a.get();
             if (wVar == null) {
                 c.p.a.e.b.c.a.k("DoInterstitialWebViewCloseMethod", "invoke error");
                 c();

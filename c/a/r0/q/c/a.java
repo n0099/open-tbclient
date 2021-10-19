@@ -1,54 +1,114 @@
 package c.a.r0.q.c;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import c.a.r0.y2.e;
-import c.a.r0.y2.l0.d;
+import android.view.View;
+import c.a.e.e.p.j;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.ad.asyncpv.AdAsyncRequestModel;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.account.safeManage.AccountSafeModel;
+import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
+import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes3.dex */
-public class a implements AdAsyncRequestModel.b {
+public class a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public PlaceId f24090a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f24091b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f24092c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f24093d;
-
     /* renamed from: e  reason: collision with root package name */
-    public AdAsyncRequestModel f24094e;
+    public final BaseActivity f23580e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f24095f;
+    public b f23581f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final WeakReference<IAdBaseAsyncController.a> f24096g;
+    public AccountSafeModel f23582g;
 
-    public a(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
+    /* renamed from: h  reason: collision with root package name */
+    public c.a.e.c.g.a f23583h;
+
+    /* renamed from: c.a.r0.q.c.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class C1098a extends c.a.e.c.g.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f23584a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public C1098a(a aVar, int i2, int i3) {
+            super(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f23584a = aVar;
+        }
+
+        @Override // c.a.e.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            String errorString;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (this.f23584a.f23582g != null) {
+                    this.f23584a.f23582g.E(false);
+                }
+                this.f23584a.f23580e.closeLoadingDialog();
+                if (responsedMessage == null) {
+                    return;
+                }
+                if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
+                    c.a.r0.c3.b.a.a privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
+                    if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
+                        privacyData = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
+                    }
+                    if (this.f23584a.f23582g != null) {
+                        this.f23584a.f23582g.D(privacyData);
+                    }
+                    if (this.f23584a.f23581f == null || this.f23584a.f23582g == null || this.f23584a.f23582g.x() == null) {
+                        return;
+                    }
+                    this.f23584a.f23581f.d(this.f23584a.f23582g.x().f());
+                    return;
+                }
+                if (StringUtils.isNull(responsedMessage.getErrorString())) {
+                    errorString = this.f23584a.f23580e.getString(R.string.neterror);
+                } else {
+                    errorString = responsedMessage.getErrorString();
+                }
+                this.f23584a.f23580e.showToast(errorString);
+            }
+        }
+    }
+
+    public a(BaseActivity baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {placeId, str, aVar};
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -58,86 +118,72 @@ public class a implements AdAsyncRequestModel.b {
                 return;
             }
         }
-        this.f24093d = false;
-        this.f24095f = 0L;
-        this.f24090a = placeId;
-        this.f24091b = str;
-        this.f24096g = new WeakReference<>(aVar);
-        this.f24094e = new AdAsyncRequestModel(this, this.f24090a);
-    }
-
-    @Override // com.baidu.tieba.ad.asyncpv.AdAsyncRequestModel.b
-    public final void a(boolean z, List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
-            IAdBaseAsyncController.a aVar = this.f24096g.get();
-            if (!z || c.a.r0.p1.o.k.a.e(list)) {
-                if (aVar != null) {
-                    aVar.b(null);
-                    return;
-                }
-                return;
-            }
-            g(list);
-            c(list);
-            if (aVar != null) {
-                aVar.b(list);
-            }
+        C1098a c1098a = new C1098a(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
+        this.f23583h = c1098a;
+        this.f23580e = baseActivity;
+        baseActivity.registerListener(c1098a);
+        this.f23581f = new b(this.f23580e, this);
+        this.f23582g = new AccountSafeModel(this.f23580e);
+        if (j.z()) {
+            g();
+        } else {
+            this.f23580e.showToast(R.string.neterror);
         }
     }
 
-    public void b() {
+    public View d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f24094e.c();
-        }
-    }
-
-    public void c(List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-        }
-    }
-
-    public void d(int i2, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, map) == null) || System.currentTimeMillis() - this.f24095f < this.f24092c * e.f29343c) {
-            return;
-        }
-        this.f24094e.d(map, i2);
-        this.f24095f = System.currentTimeMillis();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23581f.a() : (View) invokeV.objValue;
     }
 
     public void e(int i2) {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f24092c = i2;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (bVar = this.f23581f) == null) {
+            return;
+        }
+        bVar.e(i2);
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f23580e.closeLoadingDialog();
+            AccountSafeModel accountSafeModel = this.f23582g;
+            if (accountSafeModel != null) {
+                accountSafeModel.cancelLoadData();
+            }
+            b bVar = this.f23581f;
+            if (bVar != null) {
+                bVar.c();
+            }
         }
     }
 
-    public void f(boolean z) {
+    public final void g() {
+        AccountSafeModel accountSafeModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f24093d = z;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (accountSafeModel = this.f23582g) == null || accountSafeModel.A()) {
+            return;
         }
+        this.f23582g.C();
     }
 
-    public void g(List<AdvertAppInfo> list) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            Iterator<AdvertAppInfo> it = list.iterator();
-            while (it.hasNext()) {
-                AdvertAppInfo next = it.next();
-                next.h4 = this.f24091b;
-                if (c.a.r0.y2.a.n(next) && this.f24093d) {
-                    it.remove();
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+            if (view.getId() == R.id.bar_record) {
+                TiebaStatic.log("c10013");
+                if (!j.z()) {
+                    this.f23580e.showToast(R.string.neterror);
                 } else {
-                    int S4 = next.S4();
-                    if (S4 != 0) {
-                        d.h(next, 0, S4);
-                        it.remove();
-                    }
+                    UrlManager.getInstance().dealOneLink(this.f23580e.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
                 }
+            } else if (view.getId() == R.id.account_status) {
+                AccountSafeModel accountSafeModel = this.f23582g;
+                AntiHelper.p(this.f23580e, accountSafeModel != null ? accountSafeModel.y() : "");
             }
         }
     }

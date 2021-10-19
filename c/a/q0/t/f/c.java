@@ -12,7 +12,7 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f14897a;
+    public static final String[] f14921a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public final class c {
                 return;
             }
         }
-        f14897a = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"};
+        f14921a = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"};
     }
 
     public static boolean a(String str) {
@@ -38,7 +38,7 @@ public final class c {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return Arrays.asList(f14897a).contains(str);
+            return Arrays.asList(f14921a).contains(str);
         }
         return invokeL.booleanValue;
     }

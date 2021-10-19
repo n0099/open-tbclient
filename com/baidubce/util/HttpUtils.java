@@ -137,9 +137,9 @@ public class HttpUtils {
                     CheckUtils.isNotNull(key, "parameter key should not be null");
                     String value = entry.getValue();
                     if (value != null) {
-                        arrayList.add(normalize(key) + a.f36022h + normalize(value));
+                        arrayList.add(normalize(key) + a.f36026h + normalize(value));
                     } else if (z) {
-                        arrayList.add(normalize(key) + a.f36022h);
+                        arrayList.add(normalize(key) + a.f36026h);
                     } else {
                         arrayList.add(normalize(key));
                     }

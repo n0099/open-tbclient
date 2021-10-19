@@ -310,11 +310,11 @@ public class v extends c.a.l.a<c.a.q0.s.q.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
                 if (this.f3879a.k != null && this.f3879a.k.getThreadData() != null) {
-                    c.a.r0.a0.m.a(this.f3879a.k.getThreadData().f0());
+                    c.a.r0.b0.m.a(this.f3879a.k.getThreadData().f0());
                     TextView textView = this.f3879a.f3876j.mTitle;
                     TextView textView2 = this.f3879a.f3876j.mAbstract;
-                    c.a.r0.a0.m.l(textView, this.f3879a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.r0.a0.m.l(textView2, this.f3879a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.b0.m.l(textView, this.f3879a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.b0.m.l(textView2, this.f3879a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -344,8 +344,8 @@ public class v extends c.a.l.a<c.a.q0.s.q.a> {
         new c.a.e.e.k.b(new a(this), 12, 0);
         new c.a.e.e.k.b(new b(this), 20, 0);
         this.n = context;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14239j instanceof MutiImgMutiPicLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14239j.getParent() == null) {
-            this.f3876j = (MutiImgMutiPicLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14239j;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14262j instanceof MutiImgMutiPicLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14262j.getParent() == null) {
+            this.f3876j = (MutiImgMutiPicLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14262j;
         } else {
             this.f3876j = new MutiImgMutiPicLayout(context);
         }
@@ -367,10 +367,10 @@ public class v extends c.a.l.a<c.a.q0.s.q.a> {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.r0.a0.b0<c.a.q0.s.q.a> b0Var) {
+    public void k(c.a.r0.b0.c0<c.a.q0.s.q.a> c0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
-            this.f3876j.setSubClickListener(b0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0Var) == null) {
+            this.f3876j.setSubClickListener(c0Var);
         }
     }
 

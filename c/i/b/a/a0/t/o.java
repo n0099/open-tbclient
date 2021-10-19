@@ -13,19 +13,19 @@ public final class o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f32908a;
+    public final int f32912a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f32909b;
+    public boolean f32913b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f32910c;
+    public boolean f32914c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f32911d;
+    public byte[] f32915d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f32912e;
+    public int f32916e;
 
     public o(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -42,24 +42,24 @@ public final class o {
                 return;
             }
         }
-        this.f32908a = i2;
+        this.f32912a = i2;
         byte[] bArr = new byte[i3 + 3];
-        this.f32911d = bArr;
+        this.f32915d = bArr;
         bArr[2] = 1;
     }
 
     public void a(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048576, this, bArr, i2, i3) == null) && this.f32909b) {
+        if ((interceptable == null || interceptable.invokeLII(1048576, this, bArr, i2, i3) == null) && this.f32913b) {
             int i4 = i3 - i2;
-            byte[] bArr2 = this.f32911d;
+            byte[] bArr2 = this.f32915d;
             int length = bArr2.length;
-            int i5 = this.f32912e;
+            int i5 = this.f32916e;
             if (length < i5 + i4) {
-                this.f32911d = Arrays.copyOf(bArr2, (i5 + i4) * 2);
+                this.f32915d = Arrays.copyOf(bArr2, (i5 + i4) * 2);
             }
-            System.arraycopy(bArr, i2, this.f32911d, this.f32912e, i4);
-            this.f32912e += i4;
+            System.arraycopy(bArr, i2, this.f32915d, this.f32916e, i4);
+            this.f32916e += i4;
         }
     }
 
@@ -67,10 +67,10 @@ public final class o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f32909b) {
-                this.f32912e -= i2;
-                this.f32909b = false;
-                this.f32910c = true;
+            if (this.f32913b) {
+                this.f32916e -= i2;
+                this.f32913b = false;
+                this.f32914c = true;
                 return true;
             }
             return false;
@@ -81,26 +81,26 @@ public final class o {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32910c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32914c : invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f32909b = false;
-            this.f32910c = false;
+            this.f32913b = false;
+            this.f32914c = false;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            c.i.b.a.i0.a.f(!this.f32909b);
-            boolean z = i2 == this.f32908a;
-            this.f32909b = z;
+            c.i.b.a.i0.a.f(!this.f32913b);
+            boolean z = i2 == this.f32912a;
+            this.f32913b = z;
             if (z) {
-                this.f32912e = 3;
-                this.f32910c = false;
+                this.f32916e = 3;
+                this.f32914c = false;
             }
         }
     }

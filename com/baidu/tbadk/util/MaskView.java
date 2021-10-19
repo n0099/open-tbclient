@@ -31,7 +31,7 @@ public class MaskView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MaskView f48614e;
+        public final /* synthetic */ MaskView f48543e;
 
         public a(MaskView maskView) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class MaskView extends View {
                     return;
                 }
             }
-            this.f48614e = maskView;
+            this.f48543e = maskView;
         }
 
         @Override // android.view.View.OnClickListener

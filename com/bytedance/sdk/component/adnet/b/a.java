@@ -31,22 +31,22 @@ public class a extends Request<File> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f64534c;
+    public File f64569c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f64535d;
+    public File f64570d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f64536e;
+    public final Object f64571e;
     @Nullable
     @GuardedBy("mLock")
 
     /* renamed from: f  reason: collision with root package name */
-    public m.a<File> f64537f;
+    public m.a<File> f64572f;
 
     /* renamed from: com.bytedance.sdk.component.adnet.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC1883a extends m.a<File> {
+    public interface InterfaceC1885a extends m.a<File> {
         void a(long j2, long j3);
     }
 
@@ -73,11 +73,11 @@ public class a extends Request<File> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             try {
-                this.f64534c.delete();
+                this.f64569c.delete();
             } catch (Throwable unused) {
             }
             try {
-                this.f64535d.delete();
+                this.f64570d.delete();
             } catch (Throwable unused2) {
             }
         }
@@ -89,8 +89,8 @@ public class a extends Request<File> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iVar)) == null) {
             if (!isCanceled()) {
-                if (this.f64535d.canRead() && this.f64535d.length() > 0) {
-                    if (this.f64535d.renameTo(this.f64534c)) {
+                if (this.f64570d.canRead() && this.f64570d.length() > 0) {
+                    if (this.f64570d.renameTo(this.f64569c)) {
                         return m.a((Object) null, com.bytedance.sdk.component.adnet.d.b.a(iVar));
                     }
                     h();
@@ -110,8 +110,8 @@ public class a extends Request<File> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.cancel();
-            synchronized (this.f64536e) {
-                this.f64537f = null;
+            synchronized (this.f64571e) {
+                this.f64572f = null;
             }
         }
     }
@@ -119,13 +119,13 @@ public class a extends Request<File> {
     public File f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64534c : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64569c : (File) invokeV.objValue;
     }
 
     public File g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f64535d : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f64570d : (File) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.adnet.core.Request
@@ -134,7 +134,7 @@ public class a extends Request<File> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("Range", "bytes=" + this.f64535d.length() + "-");
+            hashMap.put("Range", "bytes=" + this.f64570d.length() + "-");
             hashMap.put("Accept-Encoding", "identity");
             return hashMap;
         }
@@ -145,7 +145,7 @@ public class a extends Request<File> {
     public Request.b getPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? Request.b.f64589a : (Request.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? Request.b.f64624a : (Request.b) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:116:0x0178 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -322,11 +322,11 @@ public class a extends Request<File> {
         m.a<File> aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) {
-            synchronized (this.f64536e) {
-                aVar = this.f64537f;
+            synchronized (this.f64571e) {
+                aVar = this.f64572f;
             }
             if (aVar != null) {
-                aVar.a(m.a(this.f64534c, mVar.f64664b));
+                aVar.a(m.a(this.f64569c, mVar.f64699b));
             }
         }
     }
@@ -336,11 +336,11 @@ public class a extends Request<File> {
         m.a<File> aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            synchronized (this.f64536e) {
-                aVar = this.f64537f;
+            synchronized (this.f64571e) {
+                aVar = this.f64572f;
             }
-            if (aVar instanceof InterfaceC1883a) {
-                ((InterfaceC1883a) aVar).a(j2, j3);
+            if (aVar instanceof InterfaceC1885a) {
+                ((InterfaceC1885a) aVar).a(j2, j3);
             }
         }
     }

@@ -28,10 +28,10 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
     public GestureDetector.OnGestureListener I;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13148i;
+    public int f13153i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f13149j;
+    public boolean f13154j;
     public int k;
     public boolean l;
     public boolean m;
@@ -55,7 +55,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f13150e;
+        public final /* synthetic */ b f13155e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
                     return;
                 }
             }
-            this.f13150e = bVar;
+            this.f13155e = bVar;
         }
 
         @Override // android.view.GestureDetector.OnGestureListener
@@ -80,12 +80,12 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                if (!this.f13150e.G.g0() || this.f13150e.G.h0()) {
+                if (!this.f13155e.G.g0() || this.f13155e.G.h0()) {
                     return false;
                 }
-                this.f13150e.onDown(motionEvent);
-                this.f13150e.x = (int) motionEvent.getX();
-                this.f13150e.y = (int) motionEvent.getY();
+                this.f13155e.onDown(motionEvent);
+                this.f13155e.x = (int) motionEvent.getX();
+                this.f13155e.y = (int) motionEvent.getY();
                 return true;
             }
             return invokeL.booleanValue;
@@ -105,7 +105,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
         public void onLongPress(MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent) == null) {
-                this.f13150e.onLongPress(motionEvent);
+                this.f13155e.onLongPress(motionEvent);
             }
         }
 
@@ -144,7 +144,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f13151e;
+        public final /* synthetic */ b f13156e;
 
         public C0654b(b bVar) {
             Interceptable interceptable = $ic;
@@ -161,7 +161,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
                     return;
                 }
             }
-            this.f13151e = bVar;
+            this.f13156e = bVar;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -169,16 +169,16 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                if (this.f13151e.l && this.f13151e.m) {
-                    int width = this.f13151e.F.getWidth() / 5;
-                    if (f2 > this.f13151e.A) {
-                        if (this.f13151e.H > (-width)) {
-                            this.f13151e.G.A0(true, f2);
+                if (this.f13156e.l && this.f13156e.m) {
+                    int width = this.f13156e.F.getWidth() / 5;
+                    if (f2 > this.f13156e.A) {
+                        if (this.f13156e.H > (-width)) {
+                            this.f13156e.G.A0(true, f2);
                         }
-                    } else if (f2 < (-this.f13151e.A) && this.f13151e.H < width) {
-                        this.f13151e.G.A0(true, f2);
+                    } else if (f2 < (-this.f13156e.A) && this.f13156e.H < width) {
+                        this.f13156e.G.A0(true, f2);
                     }
-                    this.f13151e.m = false;
+                    this.f13156e.m = false;
                 }
                 return false;
             }
@@ -237,7 +237,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
             }
             int v = v(motionEvent);
             this.r = v;
-            if (v != -1 && this.f13148i == 0) {
+            if (v != -1 && this.f13153i == 0) {
                 u(v, ((int) motionEvent.getX()) - this.v, ((int) motionEvent.getY()) - this.w);
             }
             this.m = false;
@@ -262,7 +262,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
     @Override // android.view.GestureDetector.OnGestureListener
     public void onLongPress(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, motionEvent) == null) && this.r != -1 && this.f13148i == 2) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, motionEvent) == null) && this.r != -1 && this.f13153i == 2) {
             this.F.performHapticFeedback(0);
             u(this.r, this.x - this.v, this.y - this.w);
         }
@@ -282,9 +282,9 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
                 int i3 = y2 - this.w;
                 if (this.E && !this.z && (this.r != -1 || this.s != -1)) {
                     if (this.r != -1) {
-                        if (this.f13148i == 1 && Math.abs(y2 - y) > this.q && this.f13149j) {
+                        if (this.f13153i == 1 && Math.abs(y2 - y) > this.q && this.f13154j) {
                             u(this.r, i2, i3);
-                        } else if (this.f13148i != 0 && Math.abs(x2 - x) > this.q && this.l) {
+                        } else if (this.f13153i != 0 && Math.abs(x2 - x) > this.q && this.l) {
                             this.m = true;
                             u(this.s, i2, i3);
                         }
@@ -325,13 +325,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
         return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0038, code lost:
-        if (r5 != 3) goto L31;
-     */
     @Override // android.view.View.OnTouchListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public boolean onTouch(View view, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -342,23 +336,24 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
                     this.p.onTouchEvent(motionEvent);
                 }
                 int action = motionEvent.getAction() & 255;
-                if (action != 0) {
-                    if (action == 1) {
-                        if (this.l && this.m) {
-                            int i2 = this.H;
-                            if (i2 < 0) {
-                                i2 = -i2;
-                            }
-                            if (i2 > this.F.getWidth() / 2) {
-                                this.G.A0(true, 0.0f);
-                            }
+                if (action == 0) {
+                    this.x = (int) motionEvent.getX();
+                    this.y = (int) motionEvent.getY();
+                } else if (action == 1) {
+                    if (this.l && this.m) {
+                        int i2 = this.H;
+                        if (i2 < 0) {
+                            i2 = -i2;
+                        }
+                        if (i2 > this.F.getWidth() / 2) {
+                            this.G.A0(true, 0.0f);
                         }
                     }
                     this.m = false;
                     this.z = false;
-                } else {
-                    this.x = (int) motionEvent.getX();
-                    this.y = (int) motionEvent.getY();
+                } else if (action == 3) {
+                    this.m = false;
+                    this.z = false;
                 }
             }
             return false;
@@ -375,7 +370,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
     public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f13148i = i2;
+            this.f13153i = i2;
         }
     }
 
@@ -396,7 +391,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f13149j = z;
+            this.f13154j = z;
         }
     }
 
@@ -404,7 +399,7 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(1048591, this, i2, i3, i4)) == null) {
-            int i5 = (!this.f13149j || this.m) ? 0 : 12;
+            int i5 = (!this.f13154j || this.m) ? 0 : 12;
             if (this.l && this.m) {
                 i5 = i5 | 1 | 2;
             }
@@ -501,8 +496,8 @@ public class b extends e implements View.OnTouchListener, GestureDetector.OnGest
                 return;
             }
         }
-        this.f13148i = 0;
-        this.f13149j = true;
+        this.f13153i = 0;
+        this.f13154j = true;
         this.l = false;
         this.m = false;
         this.r = -1;

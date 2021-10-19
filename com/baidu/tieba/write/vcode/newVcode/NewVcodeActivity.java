@@ -2,10 +2,10 @@ package com.baidu.tieba.write.vcode.newVcode;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.q0.t.c.k0;
-import c.a.r0.c4.s.a.a.a;
-import c.a.r0.c4.s.a.a.b;
-import c.a.r0.c4.s.a.a.c;
+import c.a.q0.t.c.l0;
+import c.a.r0.d4.s.a.a.a;
+import c.a.r0.d4.s.a.a.b;
+import c.a.r0.d4.s.a.a.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
@@ -51,7 +51,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NewVcodeActivity f58948a;
+            public final /* synthetic */ NewVcodeActivity f58892a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -68,13 +68,13 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                         return;
                     }
                 }
-                this.f58948a = this;
+                this.f58892a = this;
             }
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
-            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, k0 k0Var, WriteData writeData, AntiData antiData) {
+            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, l0 l0Var, WriteData writeData, AntiData antiData) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, k0Var, writeData, antiData}) == null) || postWriteCallBackData == null || z) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, l0Var, writeData, antiData}) == null) || postWriteCallBackData == null || z) {
                     return;
                 }
                 if (postWriteCallBackData.getErrorCode() == 220015) {
@@ -82,31 +82,31 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent.putExtras(bundle);
-                    this.f58948a.setResult(0, intent);
-                    this.f58948a.finish();
+                    this.f58892a.setResult(0, intent);
+                    this.f58892a.finish();
                 } else if (postWriteCallBackData.getErrorCode() == 220034) {
-                    this.f58948a.showToast(postWriteCallBackData.getErrorString());
+                    this.f58892a.showToast(postWriteCallBackData.getErrorString());
                     Intent intent2 = new Intent();
                     Bundle bundle2 = new Bundle();
                     bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent2.putExtras(bundle2);
-                    this.f58948a.setResult(0, intent2);
-                    this.f58948a.finish();
-                } else if (k0Var == null || writeData == null) {
+                    this.f58892a.setResult(0, intent2);
+                    this.f58892a.finish();
+                } else if (l0Var == null || writeData == null) {
                 } else {
-                    this.f58948a.mPageType = c.a.e.e.m.b.e("4", 0);
-                    this.f58948a.mPresenter.d();
-                    this.f58948a.mPresenter.onDestroy();
-                    this.f58948a.mWriteData = writeData;
-                    this.f58948a.mWriteData.setVcodeMD5(k0Var.b());
-                    this.f58948a.mWriteData.setVcodeUrl(k0Var.c());
-                    this.f58948a.mWriteData.setVcodeExtra(k0Var.a());
-                    this.f58948a.mWriteModel.setWriteData(this.f58948a.mWriteData);
-                    NewVcodeActivity newVcodeActivity = this.f58948a;
+                    this.f58892a.mPageType = c.a.e.e.m.b.e("4", 0);
+                    this.f58892a.mPresenter.d();
+                    this.f58892a.mPresenter.onDestroy();
+                    this.f58892a.mWriteData = writeData;
+                    this.f58892a.mWriteData.setVcodeMD5(l0Var.b());
+                    this.f58892a.mWriteData.setVcodeUrl(l0Var.c());
+                    this.f58892a.mWriteData.setVcodeExtra(l0Var.a());
+                    this.f58892a.mWriteModel.setWriteData(this.f58892a.mWriteData);
+                    NewVcodeActivity newVcodeActivity = this.f58892a;
                     newVcodeActivity.mPresenter = newVcodeActivity.getVcodePresenterFromType();
-                    this.f58948a.mPresenter.e(true, postWriteCallBackData.getErrorString());
-                    this.f58948a.mNewVcodeView.setPresenter(this.f58948a.mPresenter);
-                    this.f58948a.mPresenter.a(this.f58948a.mNeedFeedBackButton);
+                    this.f58892a.mPresenter.e(true, postWriteCallBackData.getErrorString());
+                    this.f58892a.mNewVcodeView.setPresenter(this.f58892a.mPresenter);
+                    this.f58892a.mPresenter.a(this.f58892a.mNeedFeedBackButton);
                 }
             }
         };

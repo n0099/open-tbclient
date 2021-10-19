@@ -10,7 +10,7 @@ public class z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f77545a;
+    public final /* synthetic */ PBSplash f77580a;
 
     public z(PBSplash pBSplash) {
         Interceptable interceptable = $ic;
@@ -27,32 +27,32 @@ public class z {
                 return;
             }
         }
-        this.f77545a = pBSplash;
+        this.f77580a = pBSplash;
     }
 
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) && i2 == 1 && i3 == 0) {
-            PBSplash pBSplash = this.f77545a;
-            PBSplashListener pBSplashListener = pBSplash.f77176e;
-            if (pBSplashListener != null && !pBSplash.f77177f && !pBSplash.k && !PBSplash.isdpl) {
+            PBSplash pBSplash = this.f77580a;
+            PBSplashListener pBSplashListener = pBSplash.f77211e;
+            if (pBSplashListener != null && !pBSplash.f77212f && !pBSplash.k && !PBSplash.isdpl) {
                 if (pBSplashListener != null) {
                     pBSplashListener.onTimeOver();
                     return;
                 }
                 return;
             }
-            PBSplash pBSplash2 = this.f77545a;
-            if (pBSplash2.f77176e == null || pBSplash2.f77177f || !pBSplash2.k || PBSplash.isdpl) {
+            PBSplash pBSplash2 = this.f77580a;
+            if (pBSplash2.f77211e == null || pBSplash2.f77212f || !pBSplash2.k || PBSplash.isdpl) {
                 return;
             }
-            A1 a1 = pBSplash2.f77173b.f77098a;
-            if (((a1 == null || !a1.b()) ? -1 : a1.f77075c.getOpent()) == 1) {
-                PBSplash pBSplash3 = this.f77545a;
-                if (pBSplash3.f77176e == null || !pBSplash3.r.isShown()) {
+            A1 a1 = pBSplash2.f77208b.f77133a;
+            if (((a1 == null || !a1.b()) ? -1 : a1.f77110c.getOpent()) == 1) {
+                PBSplash pBSplash3 = this.f77580a;
+                if (pBSplash3.f77211e == null || !pBSplash3.r.isShown()) {
                     return;
                 }
-                this.f77545a.f77176e.onTimeOver();
+                this.f77580a.f77211e.onTimeOver();
             }
         }
     }

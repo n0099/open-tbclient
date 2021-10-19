@@ -30,11 +30,11 @@ public class DrivingRoutePlanOption {
         public static final DrivingPolicy ECAR_TIME_FIRST;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ DrivingPolicy[] f41926b;
+        public static final /* synthetic */ DrivingPolicy[] f41930b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41927a;
+        public int f41931a;
 
         static {
             InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public class DrivingRoutePlanOption {
             ECAR_DIS_FIRST = new DrivingPolicy("ECAR_DIS_FIRST", 2, 1);
             DrivingPolicy drivingPolicy = new DrivingPolicy("ECAR_FEE_FIRST", 3, 2);
             ECAR_FEE_FIRST = drivingPolicy;
-            f41926b = new DrivingPolicy[]{ECAR_AVOID_JAM, ECAR_TIME_FIRST, ECAR_DIS_FIRST, drivingPolicy};
+            f41930b = new DrivingPolicy[]{ECAR_AVOID_JAM, ECAR_TIME_FIRST, ECAR_DIS_FIRST, drivingPolicy};
         }
 
         public DrivingPolicy(String str, int i2, int i3) {
@@ -75,7 +75,7 @@ public class DrivingRoutePlanOption {
                     return;
                 }
             }
-            this.f41927a = i3;
+            this.f41931a = i3;
         }
 
         public static DrivingPolicy valueOf(String str) {
@@ -87,13 +87,13 @@ public class DrivingRoutePlanOption {
         public static DrivingPolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DrivingPolicy[]) f41926b.clone() : (DrivingPolicy[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DrivingPolicy[]) f41930b.clone() : (DrivingPolicy[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41927a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41931a : invokeV.intValue;
         }
     }
 
@@ -105,11 +105,11 @@ public class DrivingRoutePlanOption {
         public static final DrivingTrafficPolicy ROUTE_PATH_AND_TRAFFIC;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ DrivingTrafficPolicy[] f41928b;
+        public static final /* synthetic */ DrivingTrafficPolicy[] f41932b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41929a;
+        public int f41933a;
 
         static {
             InterceptResult invokeClinit;
@@ -127,7 +127,7 @@ public class DrivingRoutePlanOption {
             ROUTE_PATH = new DrivingTrafficPolicy("ROUTE_PATH", 0, 0);
             DrivingTrafficPolicy drivingTrafficPolicy = new DrivingTrafficPolicy("ROUTE_PATH_AND_TRAFFIC", 1, 1);
             ROUTE_PATH_AND_TRAFFIC = drivingTrafficPolicy;
-            f41928b = new DrivingTrafficPolicy[]{ROUTE_PATH, drivingTrafficPolicy};
+            f41932b = new DrivingTrafficPolicy[]{ROUTE_PATH, drivingTrafficPolicy};
         }
 
         public DrivingTrafficPolicy(String str, int i2, int i3) {
@@ -148,7 +148,7 @@ public class DrivingRoutePlanOption {
                     return;
                 }
             }
-            this.f41929a = i3;
+            this.f41933a = i3;
         }
 
         public static DrivingTrafficPolicy valueOf(String str) {
@@ -160,13 +160,13 @@ public class DrivingRoutePlanOption {
         public static DrivingTrafficPolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DrivingTrafficPolicy[]) f41928b.clone() : (DrivingTrafficPolicy[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DrivingTrafficPolicy[]) f41932b.clone() : (DrivingTrafficPolicy[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41929a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41933a : invokeV.intValue;
         }
     }
 

@@ -23,22 +23,22 @@ public class PassHttpClient implements com.baidu.pass.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f44287a;
+    public static final int f44199a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f44288b;
+    public static final int f44200b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final AtomicInteger f44289c;
+    public static final AtomicInteger f44201c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ThreadFactory f44290d;
+    public static final ThreadFactory f44202d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ThreadPoolExecutor f44291e;
+    public static final ThreadPoolExecutor f44203e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final PassHttpClient f44292f;
+    public static final PassHttpClient f44204f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,15 +55,15 @@ public class PassHttpClient implements com.baidu.pass.a {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f44287a = availableProcessors;
-        f44288b = availableProcessors > 4 ? availableProcessors / 2 : 2;
-        f44289c = new AtomicInteger();
-        f44290d = new c();
-        f44292f = new PassHttpClient();
-        int i2 = f44288b;
-        f44291e = new ThreadPoolExecutor(i2, i2, 60L, TimeUnit.SECONDS, new PriorityBlockingQueue(), f44290d);
+        f44199a = availableProcessors;
+        f44200b = availableProcessors > 4 ? availableProcessors / 2 : 2;
+        f44201c = new AtomicInteger();
+        f44202d = new c();
+        f44204f = new PassHttpClient();
+        int i2 = f44200b;
+        f44203e = new ThreadPoolExecutor(i2, i2, 60L, TimeUnit.SECONDS, new PriorityBlockingQueue(), f44202d);
         if (Build.VERSION.SDK_INT >= 9) {
-            f44291e.allowCoreThreadTimeOut(true);
+            f44203e.allowCoreThreadTimeOut(true);
         }
     }
 
@@ -97,7 +97,7 @@ public class PassHttpClient implements com.baidu.pass.a {
     public static PassHttpClient getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f44292f : (PassHttpClient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f44204f : (PassHttpClient) invokeV.objValue;
     }
 
     public PassHttpClientRequest get(Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
@@ -141,8 +141,8 @@ public class PassHttpClient implements com.baidu.pass.a {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, this, method, context, passHttpParamDTO, httpResponseHandler)) == null) {
-            PassHttpClientRequest passHttpClientRequest = new PassHttpClientRequest(method, context, passHttpParamDTO, f44289c.incrementAndGet(), httpResponseHandler);
-            f44291e.execute(passHttpClientRequest);
+            PassHttpClientRequest passHttpClientRequest = new PassHttpClientRequest(method, context, passHttpParamDTO, f44201c.incrementAndGet(), httpResponseHandler);
+            f44203e.execute(passHttpClientRequest);
             return passHttpClientRequest;
         }
         return (PassHttpClientRequest) invokeLLLL.objValue;

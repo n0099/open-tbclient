@@ -43,16 +43,16 @@ public class BdWebkitManager implements INoProGuard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f38612a;
+        public static final a f38616a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f38613b;
+        public static final a f38617b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f38614c;
+        public static final a f38618c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ a[] f38615d;
+        public static final /* synthetic */ a[] f38619d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -68,11 +68,11 @@ public class BdWebkitManager implements INoProGuard {
                     return;
                 }
             }
-            f38612a = new a("SYSTEM", 0);
-            f38613b = new a("T5", 1);
+            f38616a = new a("SYSTEM", 0);
+            f38617b = new a("T5", 1);
             a aVar = new a("T7", 2);
-            f38614c = aVar;
-            f38615d = new a[]{f38612a, f38613b, aVar};
+            f38618c = aVar;
+            f38619d = new a[]{f38616a, f38617b, aVar};
         }
 
         public a(String str, int i2) {
@@ -103,7 +103,7 @@ public class BdWebkitManager implements INoProGuard {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f38615d.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f38619d.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -183,7 +183,7 @@ public class BdWebkitManager implements INoProGuard {
     public void disableBdWebkit() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            mWebkitType = a.f38612a;
+            mWebkitType = a.f38616a;
         }
     }
 
@@ -210,7 +210,7 @@ public class BdWebkitManager implements INoProGuard {
             c.a.k.b.d.b.a aVar = this.mLoader;
             Context appContext = BdSailorPlatform.getInstance().getAppContext();
             a aVar2 = mWebkitType;
-            if (z && (a.f38613b == aVar2 || a.f38614c == aVar2)) {
+            if (z && (a.f38617b == aVar2 || a.f38618c == aVar2)) {
                 if (cls != null) {
                     WebKitFactory.setCrashCallback(appContext, cls);
                 }
@@ -218,7 +218,7 @@ public class BdWebkitManager implements INoProGuard {
                 WebKitFactory.setApkLibLoadType(z);
                 WebKitFactory.setEmulator(BdZeusUtil.checkEmulator());
                 if (WebKitFactory.isZeusSupported()) {
-                    if (a.f38614c == aVar2) {
+                    if (a.f38618c == aVar2) {
                         c.a.k.b.b.b.a aVar3 = BdSailorPlatform.getStatic();
                         aVar3.b("emulator-check", "emulator:" + BdZeusUtil.checkEmulator());
                         z2 = WebKitFactory.setEngine(1);
@@ -250,7 +250,7 @@ public class BdWebkitManager implements INoProGuard {
             } else {
                 WebKitFactory.init(appContext, appContext.getPackageName(), BdSailorPlatform.getInstance().getCuid());
                 WebKitFactory.setApkLibLoadType(z);
-                if (a.f38614c == aVar2 || a.f38613b == aVar2) {
+                if (a.f38618c == aVar2 || a.f38617b == aVar2) {
                     WebKitFactory.setEngine(1);
                     str2 = c.a.k.b.d.b.a.f3739c;
                     sb = new StringBuilder("zeus version =");
@@ -383,7 +383,7 @@ public class BdWebkitManager implements INoProGuard {
             boolean init = WebKitFactory.init(context, context.getPackageName(), BdSailorPlatform.getInstance().getCuid());
             WebKitFactory.setApkLibLoadType(z);
             WebKitFactory.destroy();
-            boolean engine = (a.f38613b == mWebkitType || a.f38614c == mWebkitType) ? WebKitFactory.setEngine(1) : false;
+            boolean engine = (a.f38617b == mWebkitType || a.f38618c == mWebkitType) ? WebKitFactory.setEngine(1) : false;
             Log.d(" initResult " + init + " " + engine);
         }
     }

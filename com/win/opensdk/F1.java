@@ -19,10 +19,10 @@ public class F1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AlgorithmParameterSpec f77112a;
+    public AlgorithmParameterSpec f77147a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Key f77113b;
+    public Key f77148b;
 
     static {
         InterceptResult invokeClinit;
@@ -55,8 +55,8 @@ public class F1 {
             }
         }
         try {
-            this.f77112a = new IvParameterSpec(str2.getBytes("utf-8"));
-            this.f77113b = SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(str.getBytes()));
+            this.f77147a = new IvParameterSpec(str2.getBytes("utf-8"));
+            this.f77148b = SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(str.getBytes()));
         } catch (Exception e2) {
             throw new RuntimeException("Error in getKey(String secretKey), Cause: " + e2);
         }

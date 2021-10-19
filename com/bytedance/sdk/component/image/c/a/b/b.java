@@ -17,16 +17,16 @@ public class b implements IMemoryCache {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f65501a;
+    public int f65536a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65502b;
+    public int f65537b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f65503c;
+    public int f65538c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LruCache<String, Bitmap> f65504d;
+    public LruCache<String, Bitmap> f65539d;
 
     public b(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public class b implements IMemoryCache {
                 return;
             }
         }
-        this.f65503c = i2;
-        this.f65501a = i3;
-        this.f65504d = new LruCache<String, Bitmap>(this, i2) { // from class: com.bytedance.sdk.component.image.c.a.b.b.1
+        this.f65538c = i2;
+        this.f65536a = i3;
+        this.f65539d = new LruCache<String, Bitmap>(this, i2) { // from class: com.bytedance.sdk.component.image.c.a.b.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f65505a;
+            public final /* synthetic */ b f65540a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -70,7 +70,7 @@ public class b implements IMemoryCache {
                         return;
                     }
                 }
-                this.f65505a = this;
+                this.f65540a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -94,7 +94,7 @@ public class b implements IMemoryCache {
             if (str == null || bitmap == null) {
                 return false;
             }
-            this.f65504d.put(str, bitmap);
+            this.f65539d.put(str, bitmap);
             return true;
         }
         return invokeLL.booleanValue;
@@ -106,7 +106,7 @@ public class b implements IMemoryCache {
     public Bitmap a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f65504d.get(str) : (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f65539d.get(str) : (Bitmap) invokeL.objValue;
     }
 
     @Override // com.bytedance.sdk.component.image.c.a.a
@@ -114,9 +114,9 @@ public class b implements IMemoryCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d2)}) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                this.f65504d.trimToSize((int) (this.f65503c * d2));
+                this.f65539d.trimToSize((int) (this.f65538c * d2));
             } else {
-                this.f65504d.evictAll();
+                this.f65539d.evictAll();
             }
         }
     }

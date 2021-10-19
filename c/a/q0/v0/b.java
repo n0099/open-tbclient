@@ -1,7 +1,7 @@
 package c.a.q0.v0;
 
 import c.a.e.c.f.j;
-import c.a.q0.d1.t;
+import c.a.q0.d1.s;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public class b extends j {
                 return null;
             }
             if (socketResponsedMessage.getError() == 2260104) {
-                t.a();
+                s.a();
             }
             return socketResponsedMessage;
         }

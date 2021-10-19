@@ -24,34 +24,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f66270a;
+    public LinearLayout f66305a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTRoundRectImageView f66271b;
+    public TTRoundRectImageView f66306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f66272c;
+    public TextView f66307c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTRatingBar f66273d;
+    public TTRatingBar f66308d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f66274e;
+    public TextView f66309e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f66275f;
+    public TextView f66310f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f66276g;
+    public TextView f66311g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Activity f66277h;
+    public final Activity f66312h;
 
     /* renamed from: i  reason: collision with root package name */
-    public m f66278i;
+    public m f66313i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f66279j;
+    public int f66314j;
     public boolean k;
 
     public a(Activity activity) {
@@ -69,34 +69,34 @@ public class a {
                 return;
             }
         }
-        this.f66277h = activity;
+        this.f66312h = activity;
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            Activity activity = this.f66277h;
-            this.f66270a = (LinearLayout) activity.findViewById(t.e(activity, "tt_reward_full_endcard_backup"));
-            Activity activity2 = this.f66277h;
-            this.f66271b = (TTRoundRectImageView) activity2.findViewById(t.e(activity2, "tt_reward_ad_icon_backup"));
-            Activity activity3 = this.f66277h;
-            this.f66272c = (TextView) activity3.findViewById(t.e(activity3, "tt_reward_ad_appname_backup"));
-            Activity activity4 = this.f66277h;
-            this.f66273d = (TTRatingBar) activity4.findViewById(t.e(activity4, "tt_rb_score_backup"));
-            Activity activity5 = this.f66277h;
-            this.f66274e = (TextView) activity5.findViewById(t.e(activity5, "tt_comment_backup"));
-            Activity activity6 = this.f66277h;
-            this.f66275f = (TextView) activity6.findViewById(t.e(activity6, "tt_reward_ad_download_backup"));
-            Activity activity7 = this.f66277h;
-            this.f66276g = (TextView) activity7.findViewById(t.e(activity7, "tt_endcard_ad_logo"));
-            TTRatingBar tTRatingBar = this.f66273d;
+            Activity activity = this.f66312h;
+            this.f66305a = (LinearLayout) activity.findViewById(t.e(activity, "tt_reward_full_endcard_backup"));
+            Activity activity2 = this.f66312h;
+            this.f66306b = (TTRoundRectImageView) activity2.findViewById(t.e(activity2, "tt_reward_ad_icon_backup"));
+            Activity activity3 = this.f66312h;
+            this.f66307c = (TextView) activity3.findViewById(t.e(activity3, "tt_reward_ad_appname_backup"));
+            Activity activity4 = this.f66312h;
+            this.f66308d = (TTRatingBar) activity4.findViewById(t.e(activity4, "tt_rb_score_backup"));
+            Activity activity5 = this.f66312h;
+            this.f66309e = (TextView) activity5.findViewById(t.e(activity5, "tt_comment_backup"));
+            Activity activity6 = this.f66312h;
+            this.f66310f = (TextView) activity6.findViewById(t.e(activity6, "tt_reward_ad_download_backup"));
+            Activity activity7 = this.f66312h;
+            this.f66311g = (TextView) activity7.findViewById(t.e(activity7, "tt_endcard_ad_logo"));
+            TTRatingBar tTRatingBar = this.f66308d;
             if (tTRatingBar != null) {
                 tTRatingBar.setStarEmptyNum(1);
-                this.f66273d.setStarFillNum(4);
-                this.f66273d.setStarImageWidth(s.d(this.f66277h, 16.0f));
-                this.f66273d.setStarImageHeight(s.d(this.f66277h, 16.0f));
-                this.f66273d.setStarImagePadding(s.d(this.f66277h, 4.0f));
-                this.f66273d.a();
+                this.f66308d.setStarFillNum(4);
+                this.f66308d.setStarImageWidth(s.d(this.f66312h, 16.0f));
+                this.f66308d.setStarImageHeight(s.d(this.f66312h, 16.0f));
+                this.f66308d.setStarImagePadding(s.d(this.f66312h, 4.0f));
+                this.f66308d.a();
             }
         }
     }
@@ -104,10 +104,10 @@ public class a {
     private void d() {
         TTRoundRectImageView tTRoundRectImageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.f66279j == 1 && (tTRoundRectImageView = this.f66271b) != null) {
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.f66314j == 1 && (tTRoundRectImageView = this.f66306b) != null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tTRoundRectImageView.getLayoutParams();
-            layoutParams.setMargins(0, (int) s.b(this.f66277h, 50.0f), 0, 0);
-            this.f66271b.setLayoutParams(layoutParams);
+            layoutParams.setMargins(0, (int) s.b(this.f66312h, 50.0f), 0, 0);
+            this.f66306b.setLayoutParams(layoutParams);
         }
     }
 
@@ -117,8 +117,8 @@ public class a {
             return;
         }
         this.k = true;
-        this.f66278i = mVar;
-        this.f66279j = i2;
+        this.f66313i = mVar;
+        this.f66314j = i2;
         c();
         b();
         a(str);
@@ -129,34 +129,34 @@ public class a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f66271b != null) {
-                l Y = this.f66278i.Y();
+            if (this.f66306b != null) {
+                l Y = this.f66313i.Y();
                 if (Y != null && !TextUtils.isEmpty(Y.a())) {
-                    ImageLoaderWrapper.from(Y).to(this.f66271b);
+                    ImageLoaderWrapper.from(Y).to(this.f66306b);
                 } else {
-                    this.f66271b.setImageResource(t.d(this.f66277h, "tt_ad_logo_small"));
+                    this.f66306b.setImageResource(t.d(this.f66312h, "tt_ad_logo_small"));
                 }
             }
-            if (this.f66272c != null) {
-                if (this.f66278i.al() != null && !TextUtils.isEmpty(this.f66278i.al().c())) {
-                    this.f66272c.setText(this.f66278i.al().c());
+            if (this.f66307c != null) {
+                if (this.f66313i.al() != null && !TextUtils.isEmpty(this.f66313i.al().c())) {
+                    this.f66307c.setText(this.f66313i.al().c());
                 } else {
-                    this.f66272c.setText(this.f66278i.ah());
+                    this.f66307c.setText(this.f66313i.ah());
                 }
             }
-            if (this.f66274e != null) {
-                int f2 = this.f66278i.al() != null ? this.f66278i.al().f() : 6870;
-                String a2 = t.a(this.f66277h, "tt_comment_num_backup");
+            if (this.f66309e != null) {
+                int f2 = this.f66313i.al() != null ? this.f66313i.al().f() : 6870;
+                String a2 = t.a(this.f66312h, "tt_comment_num_backup");
                 if (f2 > 10000) {
                     str = (f2 / 10000) + "万";
                 } else {
                     str = f2 + "";
                 }
-                this.f66274e.setText(String.format(a2, str));
+                this.f66309e.setText(String.format(a2, str));
             }
-            TextView textView = this.f66276g;
+            TextView textView = this.f66311g;
             if (textView != null) {
-                s.a(textView, this.f66278i);
+                s.a(textView, this.f66313i);
             }
         }
     }
@@ -164,12 +164,12 @@ public class a {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            s.a(this.f66270a, new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.a.1
+            s.a(this.f66305a, new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f66280a;
+                public final /* synthetic */ a f66315a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -186,7 +186,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f66280a = this;
+                    this.f66315a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -196,22 +196,22 @@ public class a {
                     }
                 }
             }, "TTBaseVideoActivity#mLLEndCardBackup");
-            this.f66275f.setOnClickListener(eVar);
-            this.f66275f.setOnTouchListener(eVar);
+            this.f66310f.setOnClickListener(eVar);
+            this.f66310f.setOnTouchListener(eVar);
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            s.a((View) this.f66270a, 0);
+            s.a((View) this.f66305a, 0);
         }
     }
 
     public void a(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str) || (textView = this.f66275f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str) || (textView = this.f66310f) == null) {
             return;
         }
         textView.setText(str);

@@ -13,34 +13,34 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f72304a;
+    public static f f72339a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f72305b;
+    public static f f72340b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f72306c;
+    public static f f72341c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f72307d;
+    public static f f72342d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static f f72308e;
+    public static f f72343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static f f72309f;
+    public static f f72344f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static f f72310g;
+    public static f f72345g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static f f72311h;
+    public static f f72346h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static f f72312i;
+    public static f f72347i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static f f72313j;
+    public static f f72348j;
     public static f k;
     public static f l;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,16 +60,16 @@ public class f {
                 return;
             }
         }
-        f72304a = new f(-1, "请求超事件");
-        f72305b = new f(-2, "请求异常");
-        f72306c = new f(40001, "网络错误");
-        f72307d = new f(40002, "数据解析错误");
-        f72308e = new f(40003, "广告数据为空");
-        f72309f = new f(40004, "视频资源缓存失败");
-        f72310g = new f(40005, "网络超时");
-        f72311h = new f(40007, "图片下载失败");
-        f72312i = new f(CustomerServiceMenu.WITHDRAW_SERVICE, "更多视频请前往快手App查看");
-        f72313j = new f(100007, "复制链接失败，请稍后重试");
+        f72339a = new f(-1, "请求超事件");
+        f72340b = new f(-2, "请求异常");
+        f72341c = new f(40001, "网络错误");
+        f72342d = new f(40002, "数据解析错误");
+        f72343e = new f(40003, "广告数据为空");
+        f72344f = new f(40004, "视频资源缓存失败");
+        f72345g = new f(40005, "网络超时");
+        f72346h = new f(40007, "图片下载失败");
+        f72347i = new f(CustomerServiceMenu.WITHDRAW_SERVICE, "更多视频请前往快手App查看");
+        f72348j = new f(100007, "复制链接失败，请稍后重试");
         k = new f(100008, "内容有点敏感，不可以发送哦");
         l = new f(130001, "数据不存在");
     }

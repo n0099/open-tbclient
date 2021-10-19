@@ -27,16 +27,16 @@ public class ApkCacheManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Future f71844a;
+    public Future f71879a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f71845b;
+    public File f71880b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ExecutorService f71846c;
+    public final ExecutorService f71881c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Callable<Void> f71847d;
+    public final Callable<Void> f71882d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -118,13 +118,13 @@ public class ApkCacheManager {
                 return;
             }
         }
-        this.f71846c = b.j();
-        this.f71847d = new Callable<Void>(this) { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
+        this.f71881c = b.j();
+        this.f71882d = new Callable<Void>(this) { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ApkCacheManager f71848a;
+            public final /* synthetic */ ApkCacheManager f71883a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -141,7 +141,7 @@ public class ApkCacheManager {
                         return;
                     }
                 }
-                this.f71848a = this;
+                this.f71883a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -152,11 +152,11 @@ public class ApkCacheManager {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     synchronized (ApkCacheManager.class) {
-                        if (this.f71848a.f71845b != null && this.f71848a.f71845b.exists() && !this.f71848a.c()) {
-                            for (File file : this.f71848a.d(this.f71848a.f71845b)) {
+                        if (this.f71883a.f71880b != null && this.f71883a.f71880b.exists() && !this.f71883a.c()) {
+                            for (File file : this.f71883a.d(this.f71883a.f71880b)) {
                                 if (file.getName().endsWith(".apk")) {
-                                    this.f71848a.c(file);
-                                    if (this.f71848a.c()) {
+                                    this.f71883a.c(file);
+                                    if (this.f71883a.c()) {
                                         return null;
                                     }
                                 }
@@ -173,7 +173,7 @@ public class ApkCacheManager {
             return;
         }
         try {
-            this.f71845b = al.c(KsAdSDKImpl.get().getContext());
+            this.f71880b = al.c(KsAdSDKImpl.get().getContext());
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.a(th);
         }
@@ -199,7 +199,7 @@ public class ApkCacheManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ApkCacheManager f71849a;
+                public final /* synthetic */ ApkCacheManager f71884a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -216,7 +216,7 @@ public class ApkCacheManager {
                             return;
                         }
                     }
-                    this.f71849a = this;
+                    this.f71884a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -278,12 +278,12 @@ public class ApkCacheManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            File file = this.f71845b;
+            File file = this.f71880b;
             if (file == null || !file.exists()) {
                 return false;
             }
-            File[] listFiles = this.f71845b.listFiles();
-            return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.f71845b) <= 400);
+            File[] listFiles = this.f71880b.listFiles();
+            return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.f71880b) <= 400);
         }
         return invokeV.booleanValue;
     }
@@ -308,10 +308,10 @@ public class ApkCacheManager {
     public void b() {
         File file;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (file = this.f71845b) != null && file.exists()) {
-            Future future = this.f71844a;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (file = this.f71880b) != null && file.exists()) {
+            Future future = this.f71879a;
             if (future == null || future.isDone()) {
-                this.f71844a = this.f71846c.submit(this.f71847d);
+                this.f71879a = this.f71881c.submit(this.f71882d);
             }
         }
     }

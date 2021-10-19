@@ -22,7 +22,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f14533a;
+    public b f14553a;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -36,34 +36,34 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<?> f14534a;
+        public final Class<?> f14554a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Object f14535b;
+        public final Object f14555b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Class<?> f14536c;
+        public final Class<?> f14556c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Method f14537d;
+        public final Method f14557d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Object f14538e;
+        public final Object f14558e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Method f14539f;
+        public final Method f14559f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final c f14540g;
+        public final c f14560g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f14541h;
+        public final int f14561h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final j f14542i;
+        public final j f14562i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f14543j;
+        public int f14563j;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
@@ -71,7 +71,7 @@ public class g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f14544e;
+            public final /* synthetic */ b f14564e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -88,16 +88,16 @@ public class g {
                         return;
                     }
                 }
-                this.f14544e = bVar;
+                this.f14564e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f14544e.f14542i.a(this.f14544e.f());
-                    this.f14544e.f14540g.c();
-                    this.f14544e.g();
+                    this.f14564e.f14562i.a(this.f14564e.f());
+                    this.f14564e.f14560g.c();
+                    this.f14564e.g();
                 }
             }
         }
@@ -127,32 +127,32 @@ public class g {
         public final void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f14540g.c();
+                this.f14560g.c();
             }
         }
 
         public final List<Long> h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14540g.f14545e : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14560g.f14565e : (List) invokeV.objValue;
         }
 
         public final void i() throws InvocationTargetException, IllegalAccessException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f14539f.invoke(this.f14538e, this.f14535b);
+                this.f14559f.invoke(this.f14558e, this.f14555b);
             }
         }
 
         public final void j() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                int i2 = this.f14543j;
-                if (i2 >= this.f14541h) {
+                int i2 = this.f14563j;
+                if (i2 >= this.f14561h) {
                     c.a.e.e.m.e.a().post(new a(this));
                     return;
                 }
-                this.f14543j = i2 + 1;
+                this.f14563j = i2 + 1;
                 try {
                     i();
                 } catch (Throwable th) {
@@ -176,17 +176,17 @@ public class g {
                     return;
                 }
             }
-            this.f14543j = 0;
-            this.f14536c = Class.forName("android.view.Choreographer");
-            this.f14534a = Class.forName("android.view.Choreographer$FrameCallback");
-            this.f14540g = new c(this);
-            this.f14535b = Proxy.newProxyInstance(this.f14534a.getClassLoader(), new Class[]{this.f14534a}, this.f14540g);
-            Method method = this.f14536c.getMethod("getInstance", new Class[0]);
-            this.f14537d = method;
-            this.f14538e = method.invoke(null, new Object[0]);
-            this.f14539f = this.f14536c.getMethod("postFrameCallback", this.f14534a);
-            this.f14541h = i2 <= 0 ? 16 : i2;
-            this.f14542i = jVar;
+            this.f14563j = 0;
+            this.f14556c = Class.forName("android.view.Choreographer");
+            this.f14554a = Class.forName("android.view.Choreographer$FrameCallback");
+            this.f14560g = new c(this);
+            this.f14555b = Proxy.newProxyInstance(this.f14554a.getClassLoader(), new Class[]{this.f14554a}, this.f14560g);
+            Method method = this.f14556c.getMethod("getInstance", new Class[0]);
+            this.f14557d = method;
+            this.f14558e = method.invoke(null, new Object[0]);
+            this.f14559f = this.f14556c.getMethod("postFrameCallback", this.f14554a);
+            this.f14561h = i2 <= 0 ? 16 : i2;
+            this.f14562i = jVar;
         }
     }
 
@@ -196,13 +196,13 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final List<Long> f14545e;
+        public final List<Long> f14565e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final List<Integer> f14546f;
+        public final List<Integer> f14566f;
 
         /* renamed from: g  reason: collision with root package name */
-        public b f14547g;
+        public b f14567g;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -219,25 +219,25 @@ public class g {
                     return;
                 }
             }
-            this.f14547g = bVar;
-            this.f14545e = new ArrayList(240);
-            this.f14546f = new ArrayList(15);
+            this.f14567g = bVar;
+            this.f14565e = new ArrayList(240);
+            this.f14566f = new ArrayList(15);
         }
 
         public final void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f14547g = null;
-                this.f14545e.clear();
-                this.f14546f.clear();
+                this.f14567g = null;
+                this.f14565e.clear();
+                this.f14566f.clear();
             }
         }
 
         public final void d(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                this.f14545e.add(Long.valueOf(j2));
-                this.f14547g.j();
+                this.f14565e.add(Long.valueOf(j2));
+                this.f14567g.j();
             }
         }
 
@@ -263,7 +263,7 @@ public class g {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final g f14548a;
+        public static final g f14568a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -279,7 +279,7 @@ public class g {
                     return;
                 }
             }
-            f14548a = new g();
+            f14568a = new g();
         }
     }
 
@@ -296,13 +296,13 @@ public class g {
                 return;
             }
         }
-        this.f14533a = null;
+        this.f14553a = null;
     }
 
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? d.f14548a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? d.f14568a : (g) invokeV.objValue;
     }
 
     public void b(int i2, j jVar) {
@@ -312,7 +312,7 @@ public class g {
         }
         try {
             b bVar = new b(i2, jVar, null);
-            this.f14533a = bVar;
+            this.f14553a = bVar;
             bVar.j();
         } catch (Throwable th) {
             BdLog.e(th);

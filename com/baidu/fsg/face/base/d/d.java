@@ -15,13 +15,13 @@ public final class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39894a = "SAPI_BIOMETRIC";
+    public static final String f39898a = "SAPI_BIOMETRIC";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39895b = "%1$s\n%2$s";
+    public static final String f39899b = "%1$s\n%2$s";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f39896c;
+    public static boolean f39900c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,7 +56,7 @@ public final class d {
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
-            f39896c = z;
+            f39900c = z;
         }
     }
 
@@ -104,7 +104,7 @@ public final class d {
 
     public static void a(int i2, Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), th, str, objArr}) == null) && f39896c) {
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), th, str, objArr}) == null) && f39900c) {
             if (objArr.length > 0) {
                 str = String.format(str, objArr);
             }

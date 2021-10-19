@@ -39,7 +39,7 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
     public String aL;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.ar.lua.b f38439f;
+    public com.baidu.ar.lua.b f38443f;
     public com.baidu.ar.arplay.a.c hA;
     public com.baidu.ar.arplay.d.b hB;
     public boolean hC;
@@ -94,12 +94,12 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         com.baidu.ar.libloader.a.require("opencv_java3");
         com.baidu.ar.libloader.a.require("EglCore");
         this.mContext = context;
-        this.f38439f = bVar;
+        this.f38443f = bVar;
         this.hG = eGLContext;
         this.hA = new com.baidu.ar.arplay.a.c(context);
         this.hB = com.baidu.ar.arplay.d.b.bm();
         this.hz = new a(context);
-        com.baidu.ar.statistic.p.b(this.f38439f);
+        com.baidu.ar.statistic.p.b(this.f38443f);
         this.aL = str;
         ARPEngine aRPEngine = ARPEngine.getInstance();
         this.hx = aRPEngine;
@@ -630,7 +630,7 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             com.baidu.ar.h.b.c("AbstractRenderer", "stopARPEngine()");
             if (this.hx == null || !this.hy) {
-                com.baidu.ar.lua.b bVar = this.f38439f;
+                com.baidu.ar.lua.b bVar = this.f38443f;
                 if (bVar != null) {
                     bVar.handleMessage(7, 0, null);
                 }
@@ -855,7 +855,7 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
                 bVar.release();
                 this.hB = null;
             }
-            com.baidu.ar.statistic.p.c(this.f38439f);
+            com.baidu.ar.statistic.p.c(this.f38443f);
             bD();
             this.hH = null;
             bM();

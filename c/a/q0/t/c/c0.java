@@ -1,18 +1,24 @@
 package c.a.q0.t.c;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14630a;
+    public int f14651a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f14652b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f14653c;
 
     public c0() {
         Interceptable interceptable = $ic;
@@ -28,18 +34,49 @@ public class c0 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null || jSONObject == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14652b : invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14653c : invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i2 = this.f14651a;
+            if (i2 == 0) {
+                return Integer.MAX_VALUE;
+            }
+            return i2;
         }
-        jSONObject.optInt("offline");
-        jSONObject.optString("title");
-        String optString = jSONObject.optString("link");
-        this.f14630a = optString;
-        if (TextUtils.isEmpty(optString)) {
-            return;
+        return invokeV.intValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f14652b = c.a.e.e.m.b.e(str, 0);
         }
-        this.f14630a = this.f14630a.replaceFirst("webview:", "http://");
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f14653c = c.a.e.e.m.b.e(str, 0);
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.f14651a = c.a.e.e.m.b.e(str, 0);
+        }
     }
 }

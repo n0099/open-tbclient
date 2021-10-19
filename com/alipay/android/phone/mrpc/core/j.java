@@ -19,7 +19,7 @@ public final class j extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f35749g;
+    public g f35753g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(g gVar, Method method, int i2, String str, byte[] bArr, boolean z) {
@@ -40,7 +40,7 @@ public final class j extends a {
                 return;
             }
         }
-        this.f35749g = gVar;
+        this.f35753g = gVar;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.v
@@ -48,15 +48,15 @@ public final class j extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            o oVar = new o(this.f35749g.a());
-            oVar.a(this.f35718b);
-            oVar.a(this.f35721e);
-            oVar.a(this.f35722f);
-            oVar.a("id", String.valueOf(this.f35720d));
-            oVar.a("operationType", this.f35719c);
-            oVar.a(AsyncHttpClient.ENCODING_GZIP, String.valueOf(this.f35749g.d()));
+            o oVar = new o(this.f35753g.a());
+            oVar.a(this.f35722b);
+            oVar.a(this.f35725e);
+            oVar.a(this.f35726f);
+            oVar.a("id", String.valueOf(this.f35724d));
+            oVar.a("operationType", this.f35723c);
+            oVar.a(AsyncHttpClient.ENCODING_GZIP, String.valueOf(this.f35753g.d()));
             oVar.a(new BasicHeader("uuid", UUID.randomUUID().toString()));
-            List<Header> b2 = this.f35749g.c().b();
+            List<Header> b2 = this.f35753g.c().b();
             if (b2 != null && !b2.isEmpty()) {
                 for (Header header : b2) {
                     oVar.a(header);
@@ -67,7 +67,7 @@ public final class j extends a {
             sb.append("; ");
             sb.append(oVar.toString());
             try {
-                u uVar = this.f35749g.b().a(oVar).get();
+                u uVar = this.f35753g.b().a(oVar).get();
                 if (uVar != null) {
                     return uVar.b();
                 }

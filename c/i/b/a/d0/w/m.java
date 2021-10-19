@@ -14,7 +14,7 @@ public final class m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<s> f33358a;
+    public final SparseArray<s> f33362a;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -29,17 +29,17 @@ public final class m {
                 return;
             }
         }
-        this.f33358a = new SparseArray<>();
+        this.f33362a = new SparseArray<>();
     }
 
     public s a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            s sVar = this.f33358a.get(i2);
+            s sVar = this.f33362a.get(i2);
             if (sVar == null) {
                 s sVar2 = new s(Long.MAX_VALUE);
-                this.f33358a.put(i2, sVar2);
+                this.f33362a.put(i2, sVar2);
                 return sVar2;
             }
             return sVar;
@@ -50,7 +50,7 @@ public final class m {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f33358a.clear();
+            this.f33362a.clear();
         }
     }
 }

@@ -12,7 +12,7 @@ public class ao {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f74216a;
+    public static Class f74251a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static Object a(String str, Class<?>[] clsArr, Object[] objArr) {
@@ -20,10 +20,10 @@ public class ao {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, clsArr, objArr)) == null) {
             try {
-                if (f74216a == null) {
-                    f74216a = Class.forName("android.os.SystemProperties");
+                if (f74251a == null) {
+                    f74251a = Class.forName("android.os.SystemProperties");
                 }
-                Method declaredMethod = f74216a.getDeclaredMethod(str, clsArr);
+                Method declaredMethod = f74251a.getDeclaredMethod(str, clsArr);
                 declaredMethod.setAccessible(true);
                 return declaredMethod.invoke(null, objArr);
             } catch (Throwable th) {

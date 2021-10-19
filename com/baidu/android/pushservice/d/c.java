@@ -38,11 +38,11 @@ public abstract class c extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = com.baidu.android.pushservice.k.a(((a) this).f37199a).a();
+            String a2 = com.baidu.android.pushservice.k.a(((a) this).f37203a).a();
             if (TextUtils.isEmpty(a2)) {
                 a2 = "channel";
             }
-            this.f37201c += a2;
+            this.f37205c += a2;
             return super.c();
         }
         return invokeV.booleanValue;

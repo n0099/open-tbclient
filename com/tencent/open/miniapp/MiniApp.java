@@ -106,14 +106,14 @@ public class MiniApp extends BaseApi {
                     return -7;
                 } else if (l.e(activity)) {
                     Intent intent = new Intent("android.intent.action.VIEW");
-                    intent.setData(Uri.parse(String.format("mqqapi://connect_miniapp/launch?app_type=%1$s&mini_app_id=%2$s&version=1&src_type=app&app_name=%3$s&app_id=%4$s&src_id=%5$s&mini_app_path=%6$s&mini_app_type=%7$s&open_id=%8$s", str, str2, l.l(i.a((Context) activity)), l.l(this.f76527c.getAppId()), str3, l.l(str4), l.l(str5), l.l(this.f76527c.getOpenId()))));
+                    intent.setData(Uri.parse(String.format("mqqapi://connect_miniapp/launch?app_type=%1$s&mini_app_id=%2$s&version=1&src_type=app&app_name=%3$s&app_id=%4$s&src_id=%5$s&mini_app_path=%6$s&mini_app_type=%7$s&open_id=%8$s", str, str2, l.l(i.a((Context) activity)), l.l(this.f76562c.getAppId()), str3, l.l(str4), l.l(str5), l.l(this.f76562c.getOpenId()))));
                     intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
                     activity.startActivity(intent);
                     SLog.i("openSDK_LOG.MiniApp", "Result is MINIAPP_SUCCESS : 0");
                     return 0;
                 } else {
                     try {
-                        new TDialog(activity, "", a(""), null, this.f76527c).show();
+                        new TDialog(activity, "", a(""), null, this.f76562c).show();
                     } catch (RuntimeException e2) {
                         SLog.e("openSDK_LOG.MiniApp", "Show download dialog exception:" + e2.getMessage());
                     }

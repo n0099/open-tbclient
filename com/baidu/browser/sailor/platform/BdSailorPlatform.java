@@ -78,7 +78,7 @@ public final class BdSailorPlatform implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdSailorPlatform f38610a;
+        public final /* synthetic */ BdSailorPlatform f38614a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdSailorPlatform bdSailorPlatform, Looper looper) {
@@ -98,21 +98,21 @@ public final class BdSailorPlatform implements INoProGuard {
                     return;
                 }
             }
-            this.f38610a = bdSailorPlatform;
+            this.f38614a = bdSailorPlatform;
         }
 
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && this.f38610a.mContext != null) {
-                BdSailorPlatform bdSailorPlatform = this.f38610a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && this.f38614a.mContext != null) {
+                BdSailorPlatform bdSailorPlatform = this.f38614a;
                 if (bdSailorPlatform.isAppOnForeground(bdSailorPlatform.mContext)) {
                     return;
                 }
                 try {
                     Log.d(BdSailorPlatform.TAG, "do pause");
-                    this.f38610a.mWebkitTimerPaused = c.a.k.b.d.a.a().c();
-                    CookieSyncManager createInstance = CookieSyncManager.createInstance(this.f38610a.mContext);
+                    this.f38614a.mWebkitTimerPaused = c.a.k.b.d.a.a().c();
+                    CookieSyncManager createInstance = CookieSyncManager.createInstance(this.f38614a.mContext);
                     if (createInstance != null) {
                         createInstance.stopSync();
                     }
@@ -129,7 +129,7 @@ public final class BdSailorPlatform implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdSailorPlatform f38611a;
+        public final /* synthetic */ BdSailorPlatform f38615a;
 
         public b(BdSailorPlatform bdSailorPlatform) {
             Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public final class BdSailorPlatform implements INoProGuard {
                     return;
                 }
             }
-            this.f38611a = bdSailorPlatform;
+            this.f38615a = bdSailorPlatform;
         }
 
         public /* synthetic */ b(BdSailorPlatform bdSailorPlatform, byte b2) {

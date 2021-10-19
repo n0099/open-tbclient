@@ -19,7 +19,7 @@ public class k extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<w> f68222a;
+    public WeakReference<w> f68257a;
 
     public k(w wVar) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class k extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                 return;
             }
         }
-        this.f68222a = new WeakReference<>(wVar);
+        this.f68257a = new WeakReference<>(wVar);
     }
 
     @Override // com.bytedance.sdk.component.a.d
@@ -54,7 +54,7 @@ public class k extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ w f68223a;
+                public final /* synthetic */ w f68258a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -71,14 +71,14 @@ public class k extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                             return;
                         }
                     }
-                    this.f68223a = wVar;
+                    this.f68258a = wVar;
                 }
 
                 @Override // com.bytedance.sdk.component.a.d.b
                 public com.bytedance.sdk.component.a.d a() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new k(this.f68223a) : (com.bytedance.sdk.component.a.d) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new k(this.f68258a) : (com.bytedance.sdk.component.a.d) invokeV.objValue;
                 }
             });
         }
@@ -96,7 +96,7 @@ public class k extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                 sb.append(jSONObject != null ? jSONObject.toString() : "");
                 com.bytedance.sdk.component.utils.k.b("ShowAdInfoDialogMethod", sb.toString());
             }
-            w wVar = this.f68222a.get();
+            w wVar = this.f68257a.get();
             if (wVar == null || (d2 = wVar.d()) == null) {
                 return;
             }

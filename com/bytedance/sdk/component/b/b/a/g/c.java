@@ -21,19 +21,19 @@ public class c extends e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Method f65095a;
+    public final Method f65130a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Method f65096b;
+    public final Method f65131b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Method f65097c;
+    public final Method f65132c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Class<?> f65098d;
+    public final Class<?> f65133d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Class<?> f65099e;
+    public final Class<?> f65134e;
 
     /* loaded from: classes9.dex */
     public static class a implements InvocationHandler {
@@ -41,13 +41,13 @@ public class c extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f65100a;
+        public boolean f65135a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f65101b;
+        public String f65136b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<String> f65102c;
+        public final List<String> f65137c;
 
         public a(List<String> list) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class c extends e {
                     return;
                 }
             }
-            this.f65102c = list;
+            this.f65137c = list;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -75,32 +75,32 @@ public class c extends e {
                 String name = method.getName();
                 Class<?> returnType = method.getReturnType();
                 if (objArr == null) {
-                    objArr = com.bytedance.sdk.component.b.b.a.c.f64855b;
+                    objArr = com.bytedance.sdk.component.b.b.a.c.f64890b;
                 }
                 if (name.equals("supports") && Boolean.TYPE == returnType) {
                     return Boolean.TRUE;
                 }
                 if (name.equals("unsupported") && Void.TYPE == returnType) {
-                    this.f65100a = true;
+                    this.f65135a = true;
                     return null;
                 } else if (name.equals(WebSocketRequest.PARAM_KEY_PROTOCOLS) && objArr.length == 0) {
-                    return this.f65102c;
+                    return this.f65137c;
                 } else {
                     if ((name.equals("selectProtocol") || name.equals(InvoiceBuildActivity.EXTRA_PARAMS_TYPE)) && String.class == returnType && objArr.length == 1 && (objArr[0] instanceof List)) {
                         List list = (List) objArr[0];
                         int size = list.size();
                         for (int i2 = 0; i2 < size; i2++) {
-                            if (this.f65102c.contains(list.get(i2))) {
+                            if (this.f65137c.contains(list.get(i2))) {
                                 String str = (String) list.get(i2);
-                                this.f65101b = str;
+                                this.f65136b = str;
                                 return str;
                             }
                         }
-                        String str2 = this.f65102c.get(0);
-                        this.f65101b = str2;
+                        String str2 = this.f65137c.get(0);
+                        this.f65136b = str2;
                         return str2;
                     } else if ((name.equals("protocolSelected") || name.equals("selected")) && objArr.length == 1) {
-                        this.f65101b = (String) objArr[0];
+                        this.f65136b = (String) objArr[0];
                         return null;
                     } else {
                         return method.invoke(this, objArr);
@@ -126,11 +126,11 @@ public class c extends e {
                 return;
             }
         }
-        this.f65095a = method;
-        this.f65096b = method2;
-        this.f65097c = method3;
-        this.f65098d = cls;
-        this.f65099e = cls2;
+        this.f65130a = method;
+        this.f65131b = method2;
+        this.f65132c = method3;
+        this.f65133d = cls;
+        this.f65134e = cls2;
     }
 
     @Override // com.bytedance.sdk.component.b.b.a.g.e
@@ -138,7 +138,7 @@ public class c extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sSLSocket, str, list) == null) {
             try {
-                this.f65095a.invoke(null, sSLSocket, Proxy.newProxyInstance(e.class.getClassLoader(), new Class[]{this.f65098d, this.f65099e}, new a(e.a(list))));
+                this.f65130a.invoke(null, sSLSocket, Proxy.newProxyInstance(e.class.getClassLoader(), new Class[]{this.f65133d, this.f65134e}, new a(e.a(list))));
             } catch (IllegalAccessException | InvocationTargetException e2) {
                 throw com.bytedance.sdk.component.b.b.a.c.a("unable to set alpn", (Exception) e2);
             }
@@ -150,7 +150,7 @@ public class c extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sSLSocket) == null) {
             try {
-                this.f65097c.invoke(null, sSLSocket);
+                this.f65132c.invoke(null, sSLSocket);
             } catch (IllegalAccessException | InvocationTargetException e2) {
                 throw com.bytedance.sdk.component.b.b.a.c.a("unable to remove alpn", (Exception) e2);
             }
@@ -163,14 +163,14 @@ public class c extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sSLSocket)) == null) {
             try {
-                a aVar = (a) Proxy.getInvocationHandler(this.f65096b.invoke(null, sSLSocket));
-                if (!aVar.f65100a && aVar.f65101b == null) {
+                a aVar = (a) Proxy.getInvocationHandler(this.f65131b.invoke(null, sSLSocket));
+                if (!aVar.f65135a && aVar.f65136b == null) {
                     e.b().a(4, "ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?", (Throwable) null);
                     return null;
-                } else if (aVar.f65100a) {
+                } else if (aVar.f65135a) {
                     return null;
                 } else {
-                    return aVar.f65101b;
+                    return aVar.f65136b;
                 }
             } catch (IllegalAccessException | InvocationTargetException e2) {
                 throw com.bytedance.sdk.component.b.b.a.c.a("unable to get selected protocol", (Exception) e2);

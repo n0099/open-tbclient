@@ -21,17 +21,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f67833a;
+    public static b f67868a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f67834b;
+    public static c f67869b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            if (f67834b == null) {
-                f67834b = new c() { // from class: com.bytedance.sdk.openadsdk.dislike.a.1
+            if (f67869b == null) {
+                f67869b = new c() { // from class: com.bytedance.sdk.openadsdk.dislike.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,8 +74,8 @@ public class a {
                     }
                 };
             }
-            if (f67833a == null) {
-                f67833a = new b() { // from class: com.bytedance.sdk.openadsdk.dislike.a.2
+            if (f67868a == null) {
+                f67868a = new b() { // from class: com.bytedance.sdk.openadsdk.dislike.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -110,7 +110,7 @@ public class a {
                     }
                 };
             }
-            com.bytedance.sdk.openadsdk.dislike.a.a.a(f67833a, f67834b);
+            com.bytedance.sdk.openadsdk.dislike.a.a.a(f67868a, f67869b);
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.flutter.plugin.audioPlay;
 import android.app.Activity;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s0.a.a.i;
+import c.a.r0.t0.a.a.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;

@@ -58,9 +58,9 @@ public class z extends c.a.l.a<c.a.q0.s.q.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
                 if (this.f3889a.k != null && this.f3889a.k.getThreadData() != null) {
-                    c.a.r0.a0.m.a(this.f3889a.k.getThreadData().f0());
-                    c.a.r0.a0.m.l(this.f3889a.f3888j.mTitle, this.f3889a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.r0.a0.m.l(this.f3889a.f3888j.mAbstract, this.f3889a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.b0.m.a(this.f3889a.k.getThreadData().f0());
+                    c.a.r0.b0.m.l(this.f3889a.f3888j.mTitle, this.f3889a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.b0.m.l(this.f3889a.f3888j.mAbstract, this.f3889a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -87,8 +87,8 @@ public class z extends c.a.l.a<c.a.q0.s.q.a> {
             }
         }
         this.l = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14237h instanceof MutiImgTextLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14237h.getParent() == null) {
-            this.f3888j = (MutiImgTextLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14237h;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14260h instanceof MutiImgTextLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14260h.getParent() == null) {
+            this.f3888j = (MutiImgTextLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14260h;
         } else {
             this.f3888j = new MutiImgTextLayout(context);
         }
@@ -111,10 +111,10 @@ public class z extends c.a.l.a<c.a.q0.s.q.a> {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.r0.a0.b0<c.a.q0.s.q.a> b0Var) {
+    public void k(c.a.r0.b0.c0<c.a.q0.s.q.a> c0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
-            this.f3888j.setSubClickListener(b0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0Var) == null) {
+            this.f3888j.setSubClickListener(c0Var);
         }
     }
 

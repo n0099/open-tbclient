@@ -40,34 +40,34 @@ public final class j {
     public byte[] Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f78761a;
+    public int f78796a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f78762b;
+    public int f78797b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f78763c;
+    public final a f78798c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f78764d;
+    public byte[] f78799d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int[] f78765e;
+    public final int[] f78800e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f78766f;
+    public final int[] f78801f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f78767g;
+    public int f78802g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f78768h;
+    public boolean f78803h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f78769i;
+    public boolean f78804i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f78770j;
+    public boolean f78805j;
     public final g k;
     public final g l;
     public final g m;
@@ -98,10 +98,10 @@ public final class j {
                 return;
             }
         }
-        this.f78761a = 0;
-        this.f78763c = new a();
-        this.f78765e = new int[3240];
-        this.f78766f = new int[3240];
+        this.f78796a = 0;
+        this.f78798c = new a();
+        this.f78800e = new int[3240];
+        this.f78801f = new int[3240];
         this.k = new g();
         this.l = new g();
         this.m = new g();
@@ -123,15 +123,15 @@ public final class j {
     public static void a(j jVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, jVar) == null) {
-            int i2 = jVar.f78761a;
+            int i2 = jVar.f78796a;
             if (i2 == 0) {
                 throw new IllegalStateException("State MUST be initialized");
             }
             if (i2 == 11) {
                 return;
             }
-            jVar.f78761a = 11;
-            a.b(jVar.f78763c);
+            jVar.f78796a = 11;
+            a.b(jVar.f78798c);
         }
     }
 
@@ -158,14 +158,14 @@ public final class j {
     public static void c(j jVar, InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, jVar, inputStream) == null) {
-            if (jVar.f78761a == 0) {
-                a.e(jVar.f78763c, inputStream);
-                int b2 = b(jVar.f78763c);
+            if (jVar.f78796a == 0) {
+                a.e(jVar.f78798c, inputStream);
+                int b2 = b(jVar.f78798c);
                 if (b2 != 9) {
                     int i2 = 1 << b2;
                     jVar.P = i2;
                     jVar.O = i2 - 16;
-                    jVar.f78761a = 1;
+                    jVar.f78796a = 1;
                     return;
                 }
                 throw new BrotliRuntimeException("Invalid 'windowBits' code");

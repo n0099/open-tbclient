@@ -24,17 +24,17 @@ public class ak {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f43256a = true;
+    public static volatile boolean f43168a = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f43257b;
+    public a f43169b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f43258c;
+    public Activity f43170c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f43259d;
+    public Handler f43171d;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -71,12 +71,12 @@ public class ak {
                 return;
             }
         }
-        this.f43259d = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
+        this.f43171d = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ak f43260a;
+            public final /* synthetic */ ak f43172a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -96,18 +96,18 @@ public class ak {
                         return;
                     }
                 }
-                this.f43260a = this;
+                this.f43172a = this;
             }
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 100 && this.f43260a.f43257b != null) {
-                    this.f43260a.f43257b.a();
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 100 && this.f43172a.f43169b != null) {
+                    this.f43172a.f43169b.a();
                 }
             }
         };
-        this.f43257b = aVar;
+        this.f43169b = aVar;
     }
 
     private void c(Activity activity) {
@@ -131,7 +131,7 @@ public class ak {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ak f43261a;
+            public final /* synthetic */ ak f43173a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -148,7 +148,7 @@ public class ak {
                         return;
                     }
                 }
-                this.f43261a = this;
+                this.f43173a = this;
             }
 
             @Override // com.baidu.mobstat.al.a
@@ -166,16 +166,16 @@ public class ak {
                     int actionMasked = motionEvent.getActionMasked();
                     if (actionMasked != 5) {
                         if (actionMasked == 6 && motionEvent.getEventTime() - motionEvent.getDownTime() < TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS) {
-                            this.f43261a.f43259d.removeMessages(100);
+                            this.f43173a.f43171d.removeMessages(100);
                             return;
                         }
                         return;
                     }
                     int pointerCount = motionEvent.getPointerCount();
                     if (pointerCount == 3 && motionEvent.getEventTime() - motionEvent.getDownTime() <= 50) {
-                        this.f43261a.f43259d.sendEmptyMessageDelayed(100, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+                        this.f43173a.f43171d.sendEmptyMessageDelayed(100, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
                     } else if (pointerCount > 3) {
-                        this.f43261a.f43259d.removeMessages(100);
+                        this.f43173a.f43171d.removeMessages(100);
                     }
                 }
             }
@@ -188,22 +188,22 @@ public class ak {
             if (z) {
                 an.a();
             }
-            f43256a = z;
+            f43168a = z;
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c(this.f43258c);
-            this.f43258c = null;
+            c(this.f43170c);
+            this.f43170c = null;
         }
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f43256a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f43168a : invokeV.booleanValue;
     }
 
     private void b(Activity activity) {
@@ -218,7 +218,7 @@ public class ak {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || activity == null) {
             return;
         }
-        this.f43258c = activity;
+        this.f43170c = activity;
         b(activity);
     }
 

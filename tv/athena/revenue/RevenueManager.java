@@ -34,7 +34,7 @@ public class RevenueManager implements j.a.a.b.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final RevenueManager f80239a;
+        public static final RevenueManager f80276a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public class RevenueManager implements j.a.a.b.a {
                     return;
                 }
             }
-            f80239a = new RevenueManager(null);
+            f80276a = new RevenueManager(null);
         }
     }
 
@@ -61,7 +61,7 @@ public class RevenueManager implements j.a.a.b.a {
     public static RevenueManager instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f80239a : (RevenueManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f80276a : (RevenueManager) invokeV.objValue;
     }
 
     @Override // j.a.a.b.a

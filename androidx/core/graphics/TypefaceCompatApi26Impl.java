@@ -229,7 +229,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
             if (!isFontFamilyPrivateAPIAvailable()) {
                 FontsContractCompat.FontInfo findBestInfo = findBestInfo(fontInfoArr, i2);
                 try {
-                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), r.f42342a, cancellationSignal);
+                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), r.f42346a, cancellationSignal);
                     if (openFileDescriptor == null) {
                         if (openFileDescriptor != null) {
                             openFileDescriptor.close();

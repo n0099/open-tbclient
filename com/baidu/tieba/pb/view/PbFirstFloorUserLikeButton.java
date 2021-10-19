@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.q0.s.f0.t.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,6 +24,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
     public c.a.q0.s.f0.n.b r;
     public c.a.q0.s.f0.n.b s;
     public View.OnClickListener t;
+    public boolean u;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorUserLikeButton(Context context) {
@@ -54,10 +56,10 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
             setText(this.mStrFollow);
             c.a.q0.s.f0.n.b bVar = new c.a.q0.s.f0.n.b();
             this.r = bVar;
-            bVar.q(R.color.CAM_X0304);
+            bVar.r(R.color.CAM_X0304);
             c.a.q0.s.f0.n.b bVar2 = new c.a.q0.s.f0.n.b();
             this.s = bVar2;
-            bVar2.r(R.color.CAM_X0109);
+            bVar2.s(R.color.CAM_X0109);
             setConfig(this.r);
         }
     }
@@ -100,10 +102,17 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
         }
     }
 
+    public void setIsShowIcon(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.u = z;
+        }
+    }
+
     @Override // android.view.View
     public void setVisibility(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             super.setVisibility(i2);
         }
     }
@@ -111,13 +120,13 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
     @Override // c.a.q0.s.f0.t.b
     public void updateFansNum(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
         }
     }
 
     public void updateLikeStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             Object obj = this.btnState;
             if ((obj instanceof Boolean) && ((Boolean) obj).booleanValue() == z) {
                 return;
@@ -132,6 +141,9 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
                 setVisibility(0);
                 setClickable(true);
                 setText(this.mStrFollow);
+                if (this.u) {
+                    UtilHelper.addFollowUserIconStyle(this.r);
+                }
                 setConfig(this.r);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -186,7 +198,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
     public void updateLikeStatus(boolean z, int i2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             updateLikeStatus(z);
             if (!z || (onClickListener = this.t) == null) {
                 return;
@@ -199,7 +211,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
     public void updateLikeStatus(boolean z, int i2, boolean z2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
             updateLikeStatus(z);
             setVisibility(0);
             if (!z || (onClickListener = this.t) == null) {

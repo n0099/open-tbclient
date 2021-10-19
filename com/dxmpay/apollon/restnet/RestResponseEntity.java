@@ -16,16 +16,16 @@ public class RestResponseEntity<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HttpStatus f69678a;
+    public final HttpStatus f69713a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f69679b;
+    public a f69714b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f69680c;
+    public T f69715c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f69681d;
+    public String f69716d;
 
     public RestResponseEntity(a aVar, HttpStatus httpStatus) {
         Interceptable interceptable = $ic;
@@ -42,21 +42,21 @@ public class RestResponseEntity<T> {
                 return;
             }
         }
-        this.f69679b = aVar;
-        this.f69678a = httpStatus;
+        this.f69714b = aVar;
+        this.f69713a = httpStatus;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69681d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69716d : (String) invokeV.objValue;
     }
 
     public String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            a aVar = this.f69679b;
+            a aVar = this.f69714b;
             return aVar != null ? aVar.g(str) : "";
         }
         return (String) invokeL.objValue;
@@ -65,21 +65,21 @@ public class RestResponseEntity<T> {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f69681d = str;
+            this.f69716d = str;
         }
     }
 
     public T getBody() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f69680c : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f69715c : (T) invokeV.objValue;
     }
 
     public List<String> getHeaderValue(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            a aVar = this.f69679b;
+            a aVar = this.f69714b;
             if (aVar != null) {
                 return aVar.get(str);
             }
@@ -93,12 +93,12 @@ public class RestResponseEntity<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             StringBuilder sb = new StringBuilder("<");
-            sb.append(this.f69678a.toString());
+            sb.append(this.f69713a.toString());
             sb.append(' ');
-            sb.append(this.f69678a.getReasonPhrase());
+            sb.append(this.f69713a.getReasonPhrase());
             sb.append(',');
             T body = getBody();
-            a aVar = this.f69679b;
+            a aVar = this.f69714b;
             if (body != null) {
                 sb.append(body);
                 if (aVar != null) {
@@ -129,8 +129,8 @@ public class RestResponseEntity<T> {
                 return;
             }
         }
-        this.f69679b = aVar;
-        this.f69680c = t;
-        this.f69678a = httpStatus;
+        this.f69714b = aVar;
+        this.f69715c = t;
+        this.f69713a = httpStatus;
     }
 }

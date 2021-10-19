@@ -26,10 +26,10 @@ public class LoadingLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f46747e;
+    public ImageView f46659e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f46748f;
+    public TextView f46660f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingLayout(Context context) {
@@ -56,8 +56,8 @@ public class LoadingLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(g.swanapp_album_loadding_layout, (ViewGroup) null);
             inflate.setBackgroundColor(-1);
-            this.f46747e = (ImageView) inflate.findViewById(f.album_loadding_img);
-            this.f46748f = (TextView) inflate.findViewById(f.album_loadding_tv);
+            this.f46659e = (ImageView) inflate.findViewById(f.album_loadding_img);
+            this.f46660f = (TextView) inflate.findViewById(f.album_loadding_tv);
             addView(inflate);
         }
     }
@@ -75,12 +75,12 @@ public class LoadingLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             setVisibility(0);
-            this.f46747e.clearAnimation();
-            this.f46747e.setImageResource(e.swanapp_album_empty_icon);
+            this.f46659e.clearAnimation();
+            this.f46659e.setImageResource(e.swanapp_album_empty_icon);
             if (i2 == 0) {
-                this.f46748f.setText(h.swanapp_album_empty_photo);
+                this.f46660f.setText(h.swanapp_album_empty_photo);
             } else {
-                this.f46748f.setText(h.swanapp_album_empty_video);
+                this.f46660f.setText(h.swanapp_album_empty_video);
             }
         }
     }
@@ -91,8 +91,8 @@ public class LoadingLayout extends LinearLayout {
             if (z) {
                 setVisibility(0);
                 Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.swanapp_album_rotate_loading);
-                this.f46747e.setImageResource(e.swanapp_album_progress_icon);
-                this.f46747e.startAnimation(loadAnimation);
+                this.f46659e.setImageResource(e.swanapp_album_progress_icon);
+                this.f46659e.startAnimation(loadAnimation);
                 return;
             }
             setVisibility(8);

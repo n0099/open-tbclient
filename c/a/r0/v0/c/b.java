@@ -1,9 +1,6 @@
 package c.a.r0.v0.c;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,33 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.FrsTabInfo;
-import tbclient.SearchPostForum.SearchForum;
-/* loaded from: classes4.dex */
-public class b extends BaseCardInfo {
+/* loaded from: classes3.dex */
+public class b implements c.a.e.l.e.n {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId l;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final BdUniqueId f25427g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f26321e;
+    public int f25428e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f26322f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f26323g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f26324h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f26325i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f26326j;
-    public List<FrsTabInfo> k;
+    public String f25429f;
 
     static {
         InterceptResult invokeClinit;
@@ -52,89 +35,27 @@ public class b extends BaseCardInfo {
                 return;
             }
         }
-        l = BdUniqueId.gen();
+        f25427g = BdUniqueId.gen();
     }
 
-    public b(String str) {
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.f26326j = str;
     }
 
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26323g : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
+    @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? l : (BdUniqueId) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26325i : (String) invokeV.objValue;
-    }
-
-    public long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26321e : invokeV.longValue;
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26322f : (String) invokeV.objValue;
-    }
-
-    public List<FrsTabInfo> p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : (List) invokeV.objValue;
-    }
-
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26324h : (String) invokeV.objValue;
-    }
-
-    public String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26326j : (String) invokeV.objValue;
-    }
-
-    public void w(SearchForum searchForum) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, searchForum) == null) || searchForum == null) {
-            return;
-        }
-        this.f26321e = searchForum.forum_id.longValue();
-        this.f26322f = searchForum.forum_name;
-        this.f26323g = searchForum.avatar;
-        this.f26324h = searchForum.post_num;
-        this.f26325i = searchForum.concern_num;
-        String str = searchForum.slogan;
-        String str2 = searchForum.intro;
-        searchForum.has_concerned.intValue();
-        this.k = searchForum.tab_info;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f25427g : (BdUniqueId) invokeV.objValue;
     }
 }

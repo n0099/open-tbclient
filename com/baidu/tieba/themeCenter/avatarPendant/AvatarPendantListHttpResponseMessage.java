@@ -1,7 +1,7 @@
 package com.baidu.tieba.themeCenter.avatarPendant;
 
-import c.a.r0.p3.d.a;
-import c.a.r0.p3.h.e;
+import c.a.r0.q3.d.a;
+import c.a.r0.q3.h.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;

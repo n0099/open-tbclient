@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import c.a.e.e.p.l;
-import c.a.r0.y2.i0.b.g;
+import c.a.r0.z2.i0.b.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -52,7 +52,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdWebVideoActivity f56439a;
+        public final /* synthetic */ AdWebVideoActivity f56373a;
 
         public a(AdWebVideoActivity adWebVideoActivity) {
             Interceptable interceptable = $ic;
@@ -69,20 +69,20 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                     return;
                 }
             }
-            this.f56439a = adWebVideoActivity;
+            this.f56373a = adWebVideoActivity;
         }
 
         @Override // com.baidu.tieba.recapp.view.WebViewContainer.OnScrollChangedCallback
         public void onScroll(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                this.f56439a.mWebViewTopMargin -= i3;
-                if (this.f56439a.mWebViewTopMargin < this.f56439a.mPausePos) {
-                    this.f56439a.mVideoView.stopPlay(this.f56439a.mVideoView.getPlayStatus() != 2);
-                } else if (this.f56439a.mVideoView.getPlayStatus() == 2) {
-                    this.f56439a.mVideoView.autoContinue();
-                } else if (this.f56439a.mVideoView.getPlayStatus() == -1) {
-                    this.f56439a.mVideoView.autoPlay(0);
+                this.f56373a.mWebViewTopMargin -= i3;
+                if (this.f56373a.mWebViewTopMargin < this.f56373a.mPausePos) {
+                    this.f56373a.mVideoView.stopPlay(this.f56373a.mVideoView.getPlayStatus() != 2);
+                } else if (this.f56373a.mVideoView.getPlayStatus() == 2) {
+                    this.f56373a.mVideoView.autoContinue();
+                } else if (this.f56373a.mVideoView.getPlayStatus() == -1) {
+                    this.f56373a.mVideoView.autoPlay(0);
                 }
             }
         }
@@ -94,13 +94,13 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AdvertAppInfo f56440a;
+        public AdvertAppInfo f56374a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f56441b;
+        public int f56375b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f56442c;
+        public String f56376c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -162,9 +162,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         if (interceptable == null || interceptable.invokeLIL(65544, null, advertAppInfo, i2, str) == null) {
             b bVar = new b();
             STATISTIC_DATA = bVar;
-            bVar.f56440a = advertAppInfo;
-            bVar.f56442c = str;
-            bVar.f56441b = i2;
+            bVar.f56374a = advertAppInfo;
+            bVar.f56376c = str;
+            bVar.f56375b = i2;
         }
     }
 
@@ -186,7 +186,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 if (this.mGoodsStyle == 14) {
                     Integer valueOf = Integer.valueOf(l.k(getActivity()));
                     builder.video_height = valueOf;
-                    builder.video_width = Integer.valueOf(c.a.r0.y2.i0.c.a.c(valueOf.intValue()));
+                    builder.video_width = Integer.valueOf(c.a.r0.z2.i0.c.a.c(valueOf.intValue()));
                 } else {
                     Integer valueOf2 = Integer.valueOf(l.k(getActivity()));
                     builder.video_width = valueOf2;
@@ -215,10 +215,10 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 this.mVideoView.initVideoViewLayout(this.mGoodsStyle == 14);
                 b bVar = STATISTIC_DATA;
                 if (bVar != null) {
-                    this.mVideoView.updateTailFrameView(bVar.f56440a);
+                    this.mVideoView.updateTailFrameView(bVar.f56374a);
                     DistributeVideoView distributeVideoView = this.mVideoView;
                     b bVar2 = STATISTIC_DATA;
-                    distributeVideoView.setStatisticInfo(bVar2.f56440a, bVar2.f56441b, bVar2.f56442c);
+                    distributeVideoView.setStatisticInfo(bVar2.f56374a, bVar2.f56375b, bVar2.f56376c);
                 } else {
                     this.mVideoView.updateTailFrameView(null);
                 }

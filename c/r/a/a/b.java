@@ -24,26 +24,26 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f35551g = "KWE_NS";
+    public static String f35555g = "KWE_NS";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f35552a;
+    public Context f35556a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35553b;
+    public String f35557b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35554c;
+    public String f35558c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35555d;
+    public String f35559d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f35556e;
+    public boolean f35560e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f35557f;
+    public d f35561f;
 
     static {
         InterceptResult invokeClinit;
@@ -73,10 +73,10 @@ public class b {
                 return;
             }
         }
-        this.f35553b = "";
-        this.f35554c = "";
-        this.f35555d = "";
-        this.f35556e = false;
+        this.f35557b = "";
+        this.f35558c = "";
+        this.f35559d = "";
+        this.f35560e = false;
     }
 
     public /* synthetic */ b(e eVar) {
@@ -99,10 +99,10 @@ public class b {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, context, str, z)) == null) {
-            if (TextUtils.isEmpty(this.f35554c)) {
+            if (TextUtils.isEmpty(this.f35558c)) {
                 return null;
             }
-            return this.f35554c;
+            return this.f35558c;
         }
         return (String) invokeLLZ.objValue;
     }
@@ -122,9 +122,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Boolean.valueOf(z), dVar}) == null) {
             try {
-                this.f35557f = dVar;
-                this.f35552a = context;
-                this.f35556e = z;
+                this.f35561f = dVar;
+                this.f35556a = context;
+                this.f35560e = z;
                 Thread thread = new Thread(new e(this));
                 thread.setName("adsence-dfp");
                 thread.start();
@@ -141,21 +141,21 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
             try {
-                boolean b2 = new c.r.a.a.c.a.e(this.f35552a).b();
-                f(this.f35552a);
+                boolean b2 = new c.r.a.a.c.a.e(this.f35556a).b();
+                f(this.f35556a);
                 j(b2);
-                this.f35555d = a.a().c(this.f35552a, dVar, this.f35556e, TextUtils.isEmpty(this.f35554c));
+                this.f35559d = a.a().c(this.f35556a, dVar, this.f35560e, TextUtils.isEmpty(this.f35558c));
                 if (dVar == null) {
                     return;
                 }
-                if (TextUtils.isEmpty(this.f35554c) && (TextUtils.isEmpty(this.f35555d) || this.f35555d.startsWith("KWE"))) {
-                    if (this.f35555d.equals("KWE_PE")) {
+                if (TextUtils.isEmpty(this.f35558c) && (TextUtils.isEmpty(this.f35559d) || this.f35559d.startsWith("KWE"))) {
+                    if (this.f35559d.equals("KWE_PE")) {
                         return;
                     }
                     dVar.a(-2, "need check");
                     return;
                 }
-                dVar.a(this.f35554c, this.f35555d);
+                dVar.a(this.f35558c, this.f35559d);
             } catch (Throwable th) {
                 if (dVar != null) {
                     try {
@@ -172,28 +172,28 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             try {
-                Pair a2 = c.r.a.a.c.a.c.b(this.f35552a).a();
+                Pair a2 = c.r.a.a.c.a.c.b(this.f35556a).a();
                 if (a2 != null && a2.second != null) {
                     String str = (String) ((ConcurrentHashMap) a2.second).get("cache_e");
                     if (!TextUtils.isEmpty(str)) {
-                        this.f35554c = str;
+                        this.f35558c = str;
                     }
                 }
-                if (TextUtils.isEmpty(this.f35554c)) {
-                    String c2 = Build.VERSION.SDK_INT < 29 ? c.r.a.a.c.a.d.c(this.f35552a, "k_w_o_d_out_dtt") : null;
+                if (TextUtils.isEmpty(this.f35558c)) {
+                    String c2 = Build.VERSION.SDK_INT < 29 ? c.r.a.a.c.a.d.c(this.f35556a, "k_w_o_d_out_dtt") : null;
                     String str2 = "";
                     if (TextUtils.isEmpty(c2)) {
                         c.r.a.a.c.b.b.b();
-                        if (c.r.a.a.c.b.f.g(this.f35552a, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
-                            str2 = c.r.a.a.c.a.c.b(this.f35552a).g("Lm91a2R0ZnQ=");
+                        if (c.r.a.a.c.b.f.g(this.f35556a, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                            str2 = c.r.a.a.c.a.c.b(this.f35556a).g("Lm91a2R0ZnQ=");
                         }
                     }
                     if (TextUtils.isEmpty(c2) && TextUtils.isEmpty(str2)) {
                         return;
                     }
-                    LinkedHashMap d2 = c.r.a.a.c.a.c.b(this.f35552a).d(c2);
+                    LinkedHashMap d2 = c.r.a.a.c.a.c.b(this.f35556a).d(c2);
                     if (d2 == null || d2.size() == 0) {
-                        d2 = c.r.a.a.c.a.c.b(this.f35552a).d(str2);
+                        d2 = c.r.a.a.c.a.c.b(this.f35556a).d(str2);
                     }
                     if (d2 == null || d2.size() <= 0) {
                         return;
@@ -202,7 +202,7 @@ public class b {
                     if (TextUtils.isEmpty(str3)) {
                         return;
                     }
-                    this.f35554c = str3;
+                    this.f35558c = str3;
                 }
             } catch (Throwable th) {
                 c.c(th);

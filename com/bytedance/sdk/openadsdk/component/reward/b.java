@@ -50,7 +50,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.b.a {
     @Override // com.bytedance.sdk.openadsdk.core.video.b.a
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || this.f67382b == null) {
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || this.f67417b == null) {
             return;
         }
         o.a aVar = new o.a();
@@ -59,7 +59,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.b.a {
         aVar.a(n());
         aVar.a(i2);
         aVar.b(i3);
-        com.bytedance.sdk.openadsdk.e.a.a.d(this.f67382b.get(), w(), aVar);
+        com.bytedance.sdk.openadsdk.e.a.a.d(this.f67417b.get(), w(), aVar);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.b.a
@@ -71,7 +71,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.b.a {
             aVar.c(q());
             aVar.b(o());
             aVar.f(p());
-            com.bytedance.sdk.openadsdk.e.a.a.g(this.f67382b.get(), this.f67381a, aVar);
+            com.bytedance.sdk.openadsdk.e.a.a.g(this.f67417b.get(), this.f67416a, aVar);
         }
     }
 
@@ -83,7 +83,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.b.a {
             aVar.a(n());
             aVar.c(q());
             aVar.b(o());
-            com.bytedance.sdk.openadsdk.e.a.a.b(this.f67382b.get(), this.f67381a, aVar);
+            com.bytedance.sdk.openadsdk.e.a.a.b(this.f67417b.get(), this.f67416a, aVar);
         }
     }
 
@@ -95,7 +95,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.b.a {
             aVar.a(n());
             aVar.c(q());
             aVar.b(o());
-            com.bytedance.sdk.openadsdk.e.a.a.c(this.f67382b.get(), w(), aVar);
+            com.bytedance.sdk.openadsdk.e.a.a.c(this.f67417b.get(), w(), aVar);
         }
     }
 
@@ -105,7 +105,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.b.a {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             o.a aVar = new o.a();
             aVar.b(true);
-            com.bytedance.sdk.openadsdk.e.a.a.a(this.f67382b.get(), this.f67381a, aVar);
+            com.bytedance.sdk.openadsdk.e.a.a.a(this.f67417b.get(), this.f67416a, aVar);
         }
     }
 
@@ -113,7 +113,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.b.a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            com.bytedance.sdk.openadsdk.e.a.a.a(this.f67382b.get(), this.f67383c, this.f67381a, this.f67390j);
+            com.bytedance.sdk.openadsdk.e.a.a.a(this.f67417b.get(), this.f67418c, this.f67416a, this.f67425j);
         }
     }
 
@@ -123,7 +123,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.b.a {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             o.a aVar = new o.a();
             aVar.b(true);
-            com.bytedance.sdk.openadsdk.e.a.a.a(this.f67382b.get(), this.f67381a, aVar);
+            com.bytedance.sdk.openadsdk.e.a.a.a(this.f67417b.get(), this.f67416a, aVar);
         }
     }
 }

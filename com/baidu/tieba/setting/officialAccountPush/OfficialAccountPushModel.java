@@ -23,10 +23,10 @@ public class OfficialAccountPushModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f56878e;
+    public b f56812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.e.c.g.a f56879f;
+    public c.a.e.c.g.a f56813f;
     public ArrayList<OfficialAccountPushInfo> list;
     public List<OfficialList> official_list;
 
@@ -36,7 +36,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialAccountPushModel f56880a;
+        public final /* synthetic */ OfficialAccountPushModel f56814a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(OfficialAccountPushModel officialAccountPushModel, int i2, int i3) {
@@ -57,7 +57,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f56880a = officialAccountPushModel;
+            this.f56814a = officialAccountPushModel;
         }
 
         @Override // c.a.e.c.g.a
@@ -70,12 +70,12 @@ public class OfficialAccountPushModel extends BdBaseModel {
                     if (officialAccountPushSocketResponseMessage == null || officialAccountPushSocketResponseMessage.getList() == null) {
                         return;
                     }
-                    this.f56880a.f56878e.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
+                    this.f56814a.f56812e.a(officialAccountPushSocketResponseMessage.getList(), officialAccountPushSocketResponseMessage.getError(), officialAccountPushSocketResponseMessage.getErrorString());
                 }
                 if (!(responsedMessage instanceof OfficialAccountPushHttpResponseMessage) || (officialAccountPushHttpResponseMessage = (OfficialAccountPushHttpResponseMessage) responsedMessage) == null) {
                     return;
                 }
-                this.f56880a.f56878e.a(officialAccountPushHttpResponseMessage.getList(), officialAccountPushHttpResponseMessage.getError(), officialAccountPushHttpResponseMessage.getErrorString());
+                this.f56814a.f56812e.a(officialAccountPushHttpResponseMessage.getList(), officialAccountPushHttpResponseMessage.getError(), officialAccountPushHttpResponseMessage.getErrorString());
             }
         }
     }
@@ -117,29 +117,29 @@ public class OfficialAccountPushModel extends BdBaseModel {
         }
         this.list = new ArrayList<>();
         a aVar = new a(this, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, 309620);
-        this.f56879f = aVar;
-        this.f56878e = bVar;
+        this.f56813f = aVar;
+        this.f56812e = bVar;
         registerListener(aVar);
-        c.a.r0.j3.e0.a.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
-        c.a.r0.j3.e0.a.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        c.a.r0.k3.e0.a.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
+        c.a.r0.k3.e0.a.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.cancelMessage();
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -148,7 +148,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f56879f);
+            MessageManager.getInstance().unRegisterListener(this.f56813f);
         }
     }
 

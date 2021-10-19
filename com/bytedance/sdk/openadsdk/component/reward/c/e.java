@@ -57,15 +57,15 @@ public class e extends a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             cVar.a(8);
             cVar.b(8);
-            this.f66159i.c(false);
-            this.f66159i.d(false);
-            if (this.f66152b.d() == 2) {
-                this.f66159i.a(false);
-                this.f66159i.e(false);
+            this.f66194i.c(false);
+            this.f66194i.d(false);
+            if (this.f66187b.d() == 2) {
+                this.f66194i.a(false);
+                this.f66194i.e(false);
                 return;
             }
-            this.f66159i.a(this.f66152b.aM());
-            this.f66159i.e(true);
+            this.f66194i.a(this.f66187b.aM());
+            this.f66194i.e(true);
         }
     }
 

@@ -27,18 +27,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f32381c;
+    public static final String[] f32385c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f32382a;
+    public Context f32386a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32383b;
+    public String f32387b;
 
     /* renamed from: c.f.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1471a {
+    public static /* synthetic */ class C1473a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -48,7 +48,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f32384a;
+        public static final a f32388a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -64,7 +64,7 @@ public class a {
                     return;
                 }
             }
-            f32384a = new a(null);
+            f32388a = new a(null);
         }
     }
 
@@ -81,17 +81,17 @@ public class a {
                 return;
             }
         }
-        f32381c = new String[]{Domains.DU_XIAO_MAN_PAY, Domains.DU_XIAO_MAN, Domains.BAIFUBAO, ".8.baidu.com", ".wallet.baidu.com", ".umoney.baidu.com", ".icash.baidu.com", ".yqh.baidu.com", ".ibeauty.baidu.com", ".front.baidu.com", ".activity8.baidu.com", ".qianbao.baidu.com", ".dxmbaoxian.com", ".oneicash.baidu.com", ".twoicash.baidu.com", ".threeicash.baidu.com", ".onejin.baidu.com", ".twojin.baidu.com", ".threejin.baidu.com", ".dxmcash.baidu.com", ".dxmoney.baidu.com", ".fincash.baidu.com", ".www.baiyingfund.com", ".www.duxiaomanfund.com"};
+        f32385c = new String[]{Domains.DU_XIAO_MAN_PAY, Domains.DU_XIAO_MAN, Domains.BAIFUBAO, ".8.baidu.com", ".wallet.baidu.com", ".umoney.baidu.com", ".icash.baidu.com", ".yqh.baidu.com", ".ibeauty.baidu.com", ".front.baidu.com", ".activity8.baidu.com", ".qianbao.baidu.com", ".dxmbaoxian.com", ".oneicash.baidu.com", ".twoicash.baidu.com", ".threeicash.baidu.com", ".onejin.baidu.com", ".twojin.baidu.com", ".threejin.baidu.com", ".dxmcash.baidu.com", ".dxmoney.baidu.com", ".fincash.baidu.com", ".www.baiyingfund.com", ".www.duxiaomanfund.com"};
     }
 
-    public /* synthetic */ a(C1471a c1471a) {
+    public /* synthetic */ a(C1473a c1473a) {
         this();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f32384a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f32388a : (a) invokeV.objValue;
     }
 
     public final void b(int i2) {
@@ -103,8 +103,8 @@ public class a {
             Date time = calendar.getTime();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-            this.f32383b = simpleDateFormat.format(time);
-            String str = "--DxmCookieManager---cookie----expires--->" + this.f32383b;
+            this.f32387b = simpleDateFormat.format(time);
+            String str = "--DxmCookieManager---cookie----expires--->" + this.f32387b;
         }
     }
 
@@ -113,15 +113,15 @@ public class a {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
             try {
                 b(i2);
-                String[] f2 = f(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f32382a));
+                String[] f2 = f(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f32386a));
                 if (f2 == null) {
-                    f2 = f32381c;
+                    f2 = f32385c;
                 }
-                CookieSyncManager.createInstance(this.f32382a);
+                CookieSyncManager.createInstance(this.f32386a);
                 CookieManager cookieManager = CookieManager.getInstance();
                 cookieManager.setAcceptCookie(true);
                 String str2 = "OPENBDUSS=" + str;
-                String str3 = ";expires=" + this.f32383b;
+                String str3 = ";expires=" + this.f32387b;
                 for (String str4 : f2) {
                     if (!str4.startsWith(".")) {
                         str4 = "." + str4;
@@ -188,6 +188,6 @@ public class a {
                 return;
             }
         }
-        this.f32382a = BaiduWalletDelegate.getInstance().getAppContext();
+        this.f32386a = BaiduWalletDelegate.getInstance().getAppContext();
     }
 }

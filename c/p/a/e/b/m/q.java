@@ -34,22 +34,22 @@ public class q implements Handler.Callback, a.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f35365e;
+    public final Context f35369e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Handler f35366f;
+    public final Handler f35370f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseArray<d> f35367g;
+    public final SparseArray<d> f35371g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f35368h;
+    public final boolean f35372h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f35369i;
+    public long f35373i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f35370j;
+    public int f35374j;
     public ConnectivityManager k;
 
     /* loaded from: classes4.dex */
@@ -58,18 +58,18 @@ public class q implements Handler.Callback, a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ q f35371e;
+        public final /* synthetic */ q f35375e;
 
         /* renamed from: c.p.a.e.b.m.q$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1551a extends ConnectivityManager.NetworkCallback {
+        public class C1553a extends ConnectivityManager.NetworkCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f35372a;
+            public final /* synthetic */ a f35376a;
 
-            public C1551a(a aVar) {
+            public C1553a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class q implements Handler.Callback, a.b {
                         return;
                     }
                 }
-                this.f35372a = aVar;
+                this.f35376a = aVar;
             }
 
             @Override // android.net.ConnectivityManager.NetworkCallback
@@ -92,7 +92,7 @@ public class q implements Handler.Callback, a.b {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, network) == null) {
                     c.p.a.e.b.c.a.g("RetryScheduler", "network onAvailable: ");
-                    this.f35372a.f35371e.g(1, true);
+                    this.f35376a.f35375e.g(1, true);
                 }
             }
         }
@@ -112,7 +112,7 @@ public class q implements Handler.Callback, a.b {
                     return;
                 }
             }
-            this.f35371e = qVar;
+            this.f35375e = qVar;
         }
 
         @Override // java.lang.Runnable
@@ -120,11 +120,11 @@ public class q implements Handler.Callback, a.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f35371e.f35365e == null || Build.VERSION.SDK_INT < 21) {
+                    if (this.f35375e.f35369e == null || Build.VERSION.SDK_INT < 21) {
                         return;
                     }
-                    this.f35371e.k = (ConnectivityManager) this.f35371e.f35365e.getApplicationContext().getSystemService("connectivity");
-                    this.f35371e.k.registerNetworkCallback(new NetworkRequest.Builder().build(), new C1551a(this));
+                    this.f35375e.k = (ConnectivityManager) this.f35375e.f35369e.getApplicationContext().getSystemService("connectivity");
+                    this.f35375e.k.registerNetworkCallback(new NetworkRequest.Builder().build(), new C1553a(this));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -138,13 +138,13 @@ public class q implements Handler.Callback, a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f35373e;
+        public final /* synthetic */ int f35377e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f35374f;
+        public final /* synthetic */ boolean f35378f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ q f35375g;
+        public final /* synthetic */ q f35379g;
 
         public b(q qVar, int i2, boolean z) {
             Interceptable interceptable = $ic;
@@ -161,9 +161,9 @@ public class q implements Handler.Callback, a.b {
                     return;
                 }
             }
-            this.f35375g = qVar;
-            this.f35373e = i2;
-            this.f35374f = z;
+            this.f35379g = qVar;
+            this.f35377e = i2;
+            this.f35378f = z;
         }
 
         @Override // java.lang.Runnable
@@ -172,15 +172,15 @@ public class q implements Handler.Callback, a.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f35375g.f35370j > 0 && (A = this.f35375g.A()) != 0) {
-                        c.p.a.e.b.c.a.i("RetryScheduler", "doScheduleAllTaskRetry: mWaitingRetryTasksCount = " + this.f35375g.f35370j);
+                    if (this.f35379g.f35374j > 0 && (A = this.f35379g.A()) != 0) {
+                        c.p.a.e.b.c.a.i("RetryScheduler", "doScheduleAllTaskRetry: mWaitingRetryTasksCount = " + this.f35379g.f35374j);
                         long currentTimeMillis = System.currentTimeMillis();
                         ArrayList<d> arrayList = new ArrayList();
-                        synchronized (this.f35375g.f35367g) {
-                            for (int i2 = 0; i2 < this.f35375g.f35367g.size(); i2++) {
-                                d dVar = (d) this.f35375g.f35367g.valueAt(i2);
-                                if (dVar != null && dVar.d(currentTimeMillis, this.f35373e, A, this.f35374f)) {
-                                    if (this.f35374f) {
+                        synchronized (this.f35379g.f35371g) {
+                            for (int i2 = 0; i2 < this.f35379g.f35371g.size(); i2++) {
+                                d dVar = (d) this.f35379g.f35371g.valueAt(i2);
+                                if (dVar != null && dVar.d(currentTimeMillis, this.f35377e, A, this.f35378f)) {
+                                    if (this.f35378f) {
                                         dVar.i();
                                     }
                                     arrayList.add(dVar);
@@ -189,7 +189,7 @@ public class q implements Handler.Callback, a.b {
                         }
                         if (arrayList.size() > 0) {
                             for (d dVar2 : arrayList) {
-                                this.f35375g.f(dVar2.f35378a, A, false);
+                                this.f35379g.f(dVar2.f35382a, A, false);
                             }
                         }
                     }
@@ -205,10 +205,10 @@ public class q implements Handler.Callback, a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f35376e;
+        public final /* synthetic */ int f35380e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ q f35377f;
+        public final /* synthetic */ q f35381f;
 
         public c(q qVar, int i2) {
             Interceptable interceptable = $ic;
@@ -225,8 +225,8 @@ public class q implements Handler.Callback, a.b {
                     return;
                 }
             }
-            this.f35377f = qVar;
-            this.f35376e = i2;
+            this.f35381f = qVar;
+            this.f35380e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -234,7 +234,7 @@ public class q implements Handler.Callback, a.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f35377f.f(this.f35376e, this.f35377f.A(), true);
+                    this.f35381f.f(this.f35380e, this.f35381f.A(), true);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -248,34 +248,34 @@ public class q implements Handler.Callback, a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f35378a;
+        public final int f35382a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f35379b;
+        public final int f35383b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f35380c;
+        public final int f35384c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f35381d;
+        public final int f35385d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f35382e;
+        public final int f35386e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f35383f;
+        public final boolean f35387f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int[] f35384g;
+        public final int[] f35388g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f35385h;
+        public int f35389h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f35386i;
+        public int f35390i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f35387j;
+        public boolean f35391j;
         public long k;
         public boolean l;
 
@@ -296,21 +296,21 @@ public class q implements Handler.Callback, a.b {
             }
             i5 = i5 < 3000 ? 3000 : i5;
             i6 = i6 < 5000 ? 5000 : i6;
-            this.f35378a = i2;
-            this.f35379b = i3;
-            this.f35380c = i4;
-            this.f35381d = i5;
-            this.f35382e = i6;
-            this.f35383f = z;
-            this.f35384g = iArr;
-            this.f35385h = i5;
+            this.f35382a = i2;
+            this.f35383b = i3;
+            this.f35384c = i4;
+            this.f35385d = i5;
+            this.f35386e = i6;
+            this.f35387f = z;
+            this.f35388g = iArr;
+            this.f35389h = i5;
         }
 
         public synchronized void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
-                    this.f35385h += this.f35382e;
+                    this.f35389h += this.f35386e;
                 }
             }
         }
@@ -331,9 +331,9 @@ public class q implements Handler.Callback, a.b {
                 if (!this.l) {
                     c.p.a.e.b.c.a.i("RetryScheduler", "canRetry: mIsWaitingRetry is false, return false!!!");
                     return false;
-                } else if (this.f35379b >= i2 && this.f35386i < this.f35380c) {
-                    if (!this.f35387j || i3 == 2) {
-                        return z || j2 - this.k >= ((long) this.f35381d);
+                } else if (this.f35383b >= i2 && this.f35390i < this.f35384c) {
+                    if (!this.f35391j || i3 == 2) {
+                        return z || j2 - this.k >= ((long) this.f35385d);
                     }
                     return false;
                 } else {
@@ -347,7 +347,7 @@ public class q implements Handler.Callback, a.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 synchronized (this) {
-                    this.f35386i++;
+                    this.f35390i++;
                 }
             }
         }
@@ -355,14 +355,14 @@ public class q implements Handler.Callback, a.b {
         public void i() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f35385h = this.f35381d;
+                this.f35389h = this.f35385d;
             }
         }
 
         public int j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35385h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35389h : invokeV.intValue;
         }
     }
 
@@ -384,12 +384,12 @@ public class q implements Handler.Callback, a.b {
                 return;
             }
         }
-        this.f35366f = new Handler(Looper.getMainLooper(), this);
-        this.f35367g = new SparseArray<>();
-        this.f35370j = 0;
-        this.f35365e = c.p.a.e.b.g.e.n();
+        this.f35370f = new Handler(Looper.getMainLooper(), this);
+        this.f35371g = new SparseArray<>();
+        this.f35374j = 0;
+        this.f35369e = c.p.a.e.b.g.e.n();
         z();
-        this.f35368h = c.p.a.e.b.l.f.p0();
+        this.f35372h = c.p.a.e.b.l.f.p0();
         c.p.a.e.b.a.a.c().f(this);
     }
 
@@ -422,7 +422,7 @@ public class q implements Handler.Callback, a.b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 if (this.k == null) {
-                    this.k = (ConnectivityManager) this.f35365e.getApplicationContext().getSystemService("connectivity");
+                    this.k = (ConnectivityManager) this.f35369e.getApplicationContext().getSystemService("connectivity");
                 }
                 NetworkInfo activeNetworkInfo = this.k.getActiveNetworkInfo();
                 if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
@@ -455,24 +455,24 @@ public class q implements Handler.Callback, a.b {
         r n;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) || (context = this.f35365e) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) || (context = this.f35369e) == null) {
             return;
         }
-        synchronized (this.f35367g) {
-            d dVar = this.f35367g.get(i2);
+        synchronized (this.f35371g) {
+            d dVar = this.f35371g.get(i2);
             if (dVar == null) {
                 return;
             }
             boolean z3 = true;
             if (dVar.l) {
                 dVar.l = false;
-                int i4 = this.f35370j - 1;
-                this.f35370j = i4;
+                int i4 = this.f35374j - 1;
+                this.f35374j = i4;
                 if (i4 < 0) {
-                    this.f35370j = 0;
+                    this.f35374j = 0;
                 }
             }
-            c.p.a.e.b.c.a.i("RetryScheduler", "doSchedulerRetryInSubThread: downloadId = " + i2 + ", retryCount = " + dVar.f35386i + ", mWaitingRetryTasksCount = " + this.f35370j);
+            c.p.a.e.b.c.a.i("RetryScheduler", "doSchedulerRetryInSubThread: downloadId = " + i2 + ", retryCount = " + dVar.f35390i + ", mWaitingRetryTasksCount = " + this.f35374j);
             DownloadInfo f2 = c.p.a.e.b.g.a.H(context).f(i2);
             if (f2 == null) {
                 t(i2);
@@ -496,7 +496,7 @@ public class q implements Handler.Callback, a.b {
                 } else {
                     if (i3 != 0) {
                         z2 = true;
-                    } else if (!dVar.f35383f) {
+                    } else if (!dVar.f35387f) {
                         return;
                     } else {
                         z2 = false;
@@ -507,12 +507,12 @@ public class q implements Handler.Callback, a.b {
                     }
                     dVar.f();
                     if (z2) {
-                        c.p.a.e.b.c.a.i("RetryScheduler", "doSchedulerRetry: restart task, ****** id = " + dVar.f35378a);
+                        c.p.a.e.b.c.a.i("RetryScheduler", "doSchedulerRetry: restart task, ****** id = " + dVar.f35382a);
                         dVar.c(System.currentTimeMillis());
                         if (z) {
                             dVar.b();
                         }
-                        f2.setRetryScheduleCount(dVar.f35386i);
+                        f2.setRetryScheduleCount(dVar.f35390i);
                         if (f2.getStatus() == -1) {
                             c.p.a.e.b.g.a.H(context).y(f2.getId());
                             return;
@@ -535,26 +535,26 @@ public class q implements Handler.Callback, a.b {
 
     public final void g(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f35370j <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f35374j <= 0) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         synchronized (this) {
             if (!z) {
-                if (currentTimeMillis - this.f35369i < 10000) {
+                if (currentTimeMillis - this.f35373i < 10000) {
                     return;
                 }
             }
-            this.f35369i = currentTimeMillis;
+            this.f35373i = currentTimeMillis;
             c.p.a.e.b.c.a.i("RetryScheduler", "scheduleAllTaskRetry, level = [" + i2 + "], force = [" + z + PreferencesUtil.RIGHT_MOUNT);
             if (z) {
-                this.f35366f.removeMessages(0);
+                this.f35370f.removeMessages(0);
             }
             Message obtain = Message.obtain();
             obtain.what = 0;
             obtain.arg1 = i2;
             obtain.arg2 = z ? 1 : 0;
-            this.f35366f.sendMessageDelayed(obtain, 2000L);
+            this.f35370f.sendMessageDelayed(obtain, 2000L);
         }
     }
 
@@ -576,7 +576,7 @@ public class q implements Handler.Callback, a.b {
 
     public void k(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, downloadInfo) == null) || downloadInfo == null || TextUtils.isEmpty(c.p.a.e.b.d.c.f35102a) || !c.p.a.e.b.d.c.f35102a.equals(downloadInfo.getMimeType())) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, downloadInfo) == null) || downloadInfo == null || TextUtils.isEmpty(c.p.a.e.b.d.c.f35106a) || !c.p.a.e.b.d.c.f35106a.equals(downloadInfo.getMimeType())) {
             return;
         }
         l(downloadInfo, downloadInfo.isOnlyWifi() || downloadInfo.isPauseReserveOnWifi(), A());
@@ -589,8 +589,8 @@ public class q implements Handler.Callback, a.b {
             return;
         }
         d q = q(downloadInfo.getId());
-        if (q.f35386i > q.f35380c) {
-            c.p.a.e.b.c.a.j("RetryScheduler", "tryStartScheduleRetry, id = " + q.f35378a + ", mRetryCount = " + q.f35386i + ", maxCount = " + q.f35380c);
+        if (q.f35390i > q.f35384c) {
+            c.p.a.e.b.c.a.j("RetryScheduler", "tryStartScheduleRetry, id = " + q.f35382a + ", mRetryCount = " + q.f35390i + ", maxCount = " + q.f35384c);
             return;
         }
         int errorCode = failedException.getErrorCode();
@@ -598,23 +598,23 @@ public class q implements Handler.Callback, a.b {
             if (!m(q, errorCode)) {
                 return;
             }
-            c.p.a.e.b.c.a.i("RetryScheduler", "allow error code, id = " + q.f35378a + ", error code = " + errorCode);
+            c.p.a.e.b.c.a.i("RetryScheduler", "allow error code, id = " + q.f35382a + ", error code = " + errorCode);
         }
-        q.f35387j = z;
-        synchronized (this.f35367g) {
+        q.f35391j = z;
+        synchronized (this.f35371g) {
             if (!q.l) {
                 q.l = true;
-                this.f35370j++;
+                this.f35374j++;
             }
         }
         int j2 = q.j();
-        c.p.a.e.b.c.a.i("RetryScheduler", "tryStartScheduleRetry: id = " + q.f35378a + ", delayTimeMills = " + j2 + ", mWaitingRetryTasks = " + this.f35370j);
-        if (!q.f35383f) {
+        c.p.a.e.b.c.a.i("RetryScheduler", "tryStartScheduleRetry: id = " + q.f35382a + ", delayTimeMills = " + j2 + ", mWaitingRetryTasks = " + this.f35374j);
+        if (!q.f35387f) {
             if (z) {
                 return;
             }
-            this.f35366f.removeMessages(downloadInfo.getId());
-            this.f35366f.sendEmptyMessageDelayed(downloadInfo.getId(), j2);
+            this.f35370f.removeMessages(downloadInfo.getId());
+            this.f35370f.sendEmptyMessageDelayed(downloadInfo.getId(), j2);
             return;
         }
         if (i2 == 0) {
@@ -624,7 +624,7 @@ public class q implements Handler.Callback, a.b {
         if (eVar != null) {
             eVar.a(downloadInfo, j2, z, i2);
         }
-        if (this.f35368h) {
+        if (this.f35372h) {
             q.c(System.currentTimeMillis());
             q.f();
             q.b();
@@ -635,7 +635,7 @@ public class q implements Handler.Callback, a.b {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, dVar, i2)) == null) {
-            int[] iArr = dVar.f35384g;
+            int[] iArr = dVar.f35388g;
             if (iArr != null && iArr.length != 0) {
                 for (int i3 : iArr) {
                     if (i3 == i2) {
@@ -716,14 +716,14 @@ public class q implements Handler.Callback, a.b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            d dVar = this.f35367g.get(i2);
+            d dVar = this.f35371g.get(i2);
             if (dVar == null) {
-                synchronized (this.f35367g) {
-                    dVar = this.f35367g.get(i2);
+                synchronized (this.f35371g) {
+                    dVar = this.f35371g.get(i2);
                     if (dVar == null) {
                         dVar = v(i2);
                     }
-                    this.f35367g.put(i2, dVar);
+                    this.f35371g.put(i2, dVar);
                 }
             }
             return dVar;
@@ -741,8 +741,8 @@ public class q implements Handler.Callback, a.b {
     public final void t(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            synchronized (this.f35367g) {
-                this.f35367g.remove(i2);
+            synchronized (this.f35371g) {
+                this.f35371g.remove(i2);
             }
         }
     }

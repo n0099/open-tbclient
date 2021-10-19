@@ -16,7 +16,7 @@ public abstract class a extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ByteBuffer f34283a;
+    public final ByteBuffer f34287a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public abstract class a extends c {
                 return;
             }
         }
-        this.f34283a = ByteBuffer.allocate(8).order(ByteOrder.LITTLE_ENDIAN);
+        this.f34287a = ByteBuffer.allocate(8).order(ByteOrder.LITTLE_ENDIAN);
     }
 
     @Override // c.i.d.d.f, c.i.d.d.j
@@ -92,7 +92,7 @@ public abstract class a extends c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Character.valueOf(c2)})) == null) {
-            this.f34283a.putChar(c2);
+            this.f34287a.putChar(c2);
             l(2);
             return this;
         }
@@ -104,10 +104,10 @@ public abstract class a extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
             try {
-                p(this.f34283a.array(), 0, i2);
+                p(this.f34287a.array(), 0, i2);
                 return this;
             } finally {
-                this.f34283a.clear();
+                this.f34287a.clear();
             }
         }
         return (f) invokeI.objValue;
@@ -143,7 +143,7 @@ public abstract class a extends c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            this.f34283a.putInt(i2);
+            this.f34287a.putInt(i2);
             l(4);
             return this;
         }
@@ -155,7 +155,7 @@ public abstract class a extends c {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-            this.f34283a.putLong(j2);
+            this.f34287a.putLong(j2);
             l(8);
             return this;
         }

@@ -1,91 +1,146 @@
 package c.a.r0.x1.e;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.net.http.SslError;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.j;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskHttpResMessage;
-import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskReqMessage;
-import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskSocketMessage;
+import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.medialive.browser.HkWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class a {
+public class a implements IBrowserView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f28600a;
+    public HkWebView f28255a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28601b;
+    public FrameLayout f28256b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28602c;
+    public View f28257c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f28603d;
+    public View f28258d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.e.c.g.a f28604e;
+    public View f28259e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public IBrowserView.OnBrowserStatusChangeCallBack f28260f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f28261g;
 
     /* renamed from: c.a.r0.x1.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1337a extends c.a.e.c.g.a {
+    public class C1327a extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28605a;
+        public final /* synthetic */ a f28262a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1337a(a aVar, int i2, int i3) {
-            super(i2, i3);
+        public C1327a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f28605a = aVar;
+            this.f28262a = aVar;
         }
 
-        @Override // c.a.e.c.g.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // android.webkit.WebViewClient
+        public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof FinishMemberTaskHttpResMessage;
-            if (z || (responsedMessage instanceof FinishMemberTaskSocketMessage)) {
-                if (z) {
-                    this.f28605a.f28601b = ((FinishMemberTaskHttpResMessage) responsedMessage).getStatus();
-                } else if (responsedMessage instanceof FinishMemberTaskSocketMessage) {
-                    this.f28605a.f28601b = ((FinishMemberTaskSocketMessage) responsedMessage).getStatus();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+                super.onPageFinished(webView, str);
+                this.f28262a.i();
+                if (this.f28262a.f28260f != null) {
+                    this.f28262a.f28260f.onHideLoading();
                 }
-                if (this.f28605a.f28600a != null) {
-                    this.f28605a.f28600a.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f28605a.f28601b, this.f28605a.f28602c, this.f28605a.f28603d);
+                if (this.f28262a.f28261g) {
+                    this.f28262a.j();
+                    if (this.f28262a.f28260f != null) {
+                        this.f28262a.f28260f.onLoadFailure();
+                    }
+                } else if (this.f28262a.f28260f != null) {
+                    this.f28262a.f28260f.onLoadSuccess();
                 }
             }
         }
-    }
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(int i2, String str, int i3, int i4, long j2);
+        @Override // android.webkit.WebViewClient
+        public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
+                super.onPageStarted(webView, str, bitmap);
+                this.f28262a.f28261g = false;
+                this.f28262a.k();
+                this.f28262a.h();
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest, webResourceError) == null) {
+                super.onReceivedError(webView, webResourceRequest, webResourceError);
+                this.f28262a.f28261g = true;
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, sslErrorHandler, sslError) == null) {
+                super.onReceivedSslError(webView, sslErrorHandler, sslError);
+                this.f28262a.f28261g = true;
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            InterceptResult invokeLL;
+            Activity b2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
+                if (TextUtils.isEmpty(str) || (b2 = c.a.e.a.b.g().b()) == null) {
+                    return false;
+                }
+                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(b2), new String[]{str}, true);
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
     }
 
     public a() {
@@ -101,35 +156,210 @@ public class a {
                 return;
             }
         }
-        this.f28600a = null;
-        this.f28604e = new C1337a(this, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, 309429);
-        c.a.r0.j3.e0.a.h(309429, FinishMemberTaskSocketMessage.class, false, false);
-        c.a.r0.j3.e0.a.c(309429, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, TbConfig.FINISH_MEMBER_TASK, FinishMemberTaskHttpResMessage.class, false, false, false, false);
-        MessageManager.getInstance().registerListener(this.f28604e);
+        this.f28261g = false;
     }
 
-    public void f(long j2, int i2) {
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public boolean canGoBack() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            this.f28603d = j2;
-            this.f28602c = i2;
-            FinishMemberTaskReqMessage finishMemberTaskReqMessage = new FinishMemberTaskReqMessage();
-            finishMemberTaskReqMessage.setTaskId(j2);
-            MessageManager.getInstance().sendMessage(finishMemberTaskReqMessage);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HkWebView hkWebView = this.f28255a;
+            return hkWebView != null && hkWebView.canGoBack();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public boolean canScrollVertically(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            HkWebView hkWebView = this.f28255a;
+            if (hkWebView != null) {
+                return hkWebView.canScrollVertically(i2);
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public View getView(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (this.f28256b == null) {
+                this.f28256b = new FrameLayout(context);
+            }
+            if (this.f28259e == null) {
+                View view = new View(context);
+                this.f28259e = view;
+                view.setBackgroundColor(context.getResources().getColor(17170443));
+            }
+            if (this.f28255a == null) {
+                HkWebView hkWebView = new HkWebView(context);
+                this.f28255a = hkWebView;
+                hkWebView.setWebViewClient(new C1327a(this));
+            }
+            this.f28256b.addView(this.f28255a);
+            return this.f28256b;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void goBack() {
+        HkWebView hkWebView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (hkWebView = this.f28255a) == null) {
+            return;
+        }
+        hkWebView.goBack();
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.f28258d != null && this.f28259e.getParent() != null) {
+                ((ViewGroup) this.f28259e.getParent()).removeView(this.f28259e);
+            }
+            View view = this.f28257c;
+            if (view == null || view.getParent() == null) {
+                return;
+            }
+            ((ViewGroup) this.f28257c.getParent()).removeView(this.f28257c);
         }
     }
 
-    public void g() {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f28604e);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.f28258d != null && this.f28259e.getParent() != null) {
+                ((ViewGroup) this.f28259e.getParent()).removeView(this.f28259e);
+            }
+            View view = this.f28258d;
+            if (view == null || view.getParent() == null) {
+                return;
+            }
+            ((ViewGroup) this.f28258d.getParent()).removeView(this.f28258d);
         }
     }
 
-    public void h(b bVar) {
+    public final void j() {
+        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f28600a = bVar;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.f28256b != null && (view2 = this.f28259e) != null && view2.getParent() == null) {
+                this.f28256b.addView(this.f28259e, new FrameLayout.LayoutParams(-1, -1));
+            }
+            if (this.f28256b == null || (view = this.f28257c) == null || view.getParent() != null) {
+                return;
+            }
+            this.f28256b.addView(this.f28257c, new FrameLayout.LayoutParams(-1, -1));
+        }
+    }
+
+    public final void k() {
+        View view;
+        View view2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.f28256b != null && (view2 = this.f28259e) != null && view2.getParent() == null) {
+                this.f28256b.addView(this.f28259e, new FrameLayout.LayoutParams(-1, -1));
+            }
+            if (this.f28256b == null || (view = this.f28258d) == null || view.getParent() != null) {
+                return;
+            }
+            this.f28256b.addView(this.f28258d, new FrameLayout.LayoutParams(-1, -1));
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void loadUrl(String str) {
+        HkWebView hkWebView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (hkWebView = this.f28255a) == null) {
+            return;
+        }
+        hkWebView.loadUrl(str);
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.f28255a = null;
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void refresh() {
+        HkWebView hkWebView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (hkWebView = this.f28255a) == null) {
+            return;
+        }
+        hkWebView.reload();
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setDisallowInterceptTouchEvent(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setDynamicDispatcherEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setErrorView(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, view) == null) {
+            this.f28257c = view;
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setLoadingView(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, view) == null) {
+            this.f28258d = view;
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setOnBrowserStatusChangeCallBack(IBrowserView.OnBrowserStatusChangeCallBack onBrowserStatusChangeCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, onBrowserStatusChangeCallBack) == null) {
+            this.f28260f = onBrowserStatusChangeCallBack;
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setOnLongPressListener(IBrowserView.OnLongPressListener onLongPressListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, onLongPressListener) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setStateViewVisible(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
+    public void setUpSelect(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
         }
     }
 }

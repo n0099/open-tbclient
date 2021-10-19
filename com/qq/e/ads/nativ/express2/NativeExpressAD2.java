@@ -22,19 +22,19 @@ public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f75539b;
+    public int f75574b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f75540c;
+    public int f75575c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VideoOption2 f75541d;
+    public VideoOption2 f75576d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdLoadListener f75542e;
+    public AdLoadListener f75577e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<Integer> f75543f;
+    public List<Integer> f75578f;
 
     /* loaded from: classes10.dex */
     public interface AdLoadListener extends NativeAbstractAD.BasicADListener {
@@ -47,7 +47,7 @@ public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AdLoadListener f75544a;
+        public AdLoadListener f75579a;
 
         public AdLoadListenerAdapter(AdLoadListener adLoadListener) {
             Interceptable interceptable = $ic;
@@ -64,13 +64,13 @@ public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
                     return;
                 }
             }
-            this.f75544a = adLoadListener;
+            this.f75579a = adLoadListener;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
         public void onADEvent(ADEvent aDEvent) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aDEvent) == null) || this.f75544a == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aDEvent) == null) || this.f75579a == null) {
                 return;
             }
             int type = aDEvent.getType();
@@ -79,13 +79,13 @@ public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
                     return;
                 }
                 if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
-                    this.f75544a.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
+                    this.f75579a.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
                 } else {
                     AbstractAD.a(NativeExpressAD2.class, aDEvent);
                 }
             }
             if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof List)) {
-                this.f75544a.onLoadSuccess((List) aDEvent.getParas()[0]);
+                this.f75579a.onLoadSuccess((List) aDEvent.getParas()[0]);
             } else {
                 AbstractAD.a(NativeExpressAD2.class, aDEvent);
             }
@@ -107,8 +107,8 @@ public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
                 return;
             }
         }
-        this.f75543f = Collections.synchronizedList(new ArrayList());
-        this.f75542e = adLoadListener;
+        this.f75578f = Collections.synchronizedList(new ArrayList());
+        this.f75577e = adLoadListener;
         a(context, str);
     }
 
@@ -119,10 +119,10 @@ public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, neiadi) == null) {
             super.a((NativeExpressAD2) neiadi);
-            neiadi.setAdSize(this.f75539b, this.f75540c);
-            neiadi.setVideoOption(this.f75541d);
-            synchronized (this.f75543f) {
-                for (Integer num : this.f75543f) {
+            neiadi.setAdSize(this.f75574b, this.f75575c);
+            neiadi.setVideoOption(this.f75576d);
+            synchronized (this.f75578f) {
+                for (Integer num : this.f75578f) {
                     loadAd(num.intValue());
                 }
             }
@@ -131,14 +131,14 @@ public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
 
     @Override // com.qq.e.ads.AbstractAD
     public final /* synthetic */ Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
-        return pOFactory.getNativeExpressADDelegate2(context, str, str2, new AdLoadListenerAdapter(this.f75542e));
+        return pOFactory.getNativeExpressADDelegate2(context, str, str2, new AdLoadListenerAdapter(this.f75577e));
     }
 
     @Override // com.qq.e.ads.AbstractAD
     public final void b(int i2) {
         AdLoadListener adLoadListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (adLoadListener = this.f75542e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (adLoadListener = this.f75577e) == null) {
             return;
         }
         adLoadListener.onNoAD(AdErrorConvertor.formatErrorCode(i2));
@@ -148,10 +148,10 @@ public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i2) == null) && b()) {
             if (!a()) {
-                this.f75543f.add(Integer.valueOf(i2));
+                this.f75578f.add(Integer.valueOf(i2));
                 return;
             }
-            T t = this.f75411a;
+            T t = this.f75446a;
             if (t != 0) {
                 ((NEIADI) t).loadAd(i2);
             } else {
@@ -163,9 +163,9 @@ public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
     public void setAdSize(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            this.f75539b = i2;
-            this.f75540c = i3;
-            T t = this.f75411a;
+            this.f75574b = i2;
+            this.f75575c = i3;
+            T t = this.f75446a;
             if (t != 0) {
                 ((NEIADI) t).setAdSize(i2, i3);
             }
@@ -175,8 +175,8 @@ public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
     public void setVideoOption2(VideoOption2 videoOption2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, videoOption2) == null) {
-            this.f75541d = videoOption2;
-            T t = this.f75411a;
+            this.f75576d = videoOption2;
+            T t = this.f75446a;
             if (t != 0) {
                 ((NEIADI) t).setVideoOption(videoOption2);
             }

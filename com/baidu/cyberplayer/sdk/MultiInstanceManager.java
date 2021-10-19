@@ -13,7 +13,7 @@ public class MultiInstanceManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static MediaInstanceManagerProvider f39044a;
+    public static MediaInstanceManagerProvider f39048a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,10 +49,10 @@ public class MultiInstanceManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f39044a == null) {
-                f39044a = d.c();
+            if (f39048a == null) {
+                f39048a = d.c();
             }
-            return f39044a;
+            return f39048a;
         }
         return (MediaInstanceManagerProvider) invokeV.objValue;
     }

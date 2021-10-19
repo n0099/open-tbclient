@@ -1,6 +1,5 @@
 package kotlin;
 
-import com.baidu.media.duplayer.LibsInfoDef;
 import kotlin.internal.AccessibleLateinitPropertyLiteral;
 import kotlin.internal.InlineOnly;
 import kotlin.jvm.JvmName;
@@ -13,7 +12,7 @@ public final class LateinitKt {
         throw new NotImplementedError("Implementation is intrinsic");
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @InlineOnly
     public static /* synthetic */ void isInitialized$annotations(KProperty0 kProperty0) {
     }

@@ -16,10 +16,10 @@ public class g2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14200a;
+    public String f14223a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14201b;
+    public String f14224b;
 
     public g2() {
         Interceptable interceptable = $ic;
@@ -34,28 +34,28 @@ public class g2 {
                 return;
             }
         }
-        this.f14200a = null;
-        this.f14201b = null;
+        this.f14223a = null;
+        this.f14224b = null;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14200a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14223a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14201b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14224b : (String) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             try {
-                this.f14200a = jSONObject.getString("title");
-                this.f14201b = jSONObject.getString("title_link");
+                this.f14223a = jSONObject.getString("title");
+                this.f14224b = jSONObject.getString("title_link");
                 jSONObject.getString(NotificationCompat.CarExtender.KEY_AUTHOR);
                 jSONObject.getInt("id");
             } catch (JSONException e2) {
@@ -69,8 +69,8 @@ public class g2 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, topNotice) == null) || topNotice == null) {
             return;
         }
-        this.f14200a = topNotice.title;
-        this.f14201b = topNotice.title_link;
+        this.f14223a = topNotice.title;
+        this.f14224b = topNotice.title_link;
         String str = topNotice.author;
         topNotice.id.intValue();
     }

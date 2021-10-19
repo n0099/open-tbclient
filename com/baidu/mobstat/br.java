@@ -14,7 +14,7 @@ public final class br {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f43496a;
+    public static final String[] f43408a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public final class br {
                 return;
             }
         }
-        f43496a = new String[]{"h9YLQoINGWyOBYYk", "30212102dicudiab", "dm1VEmW651QTz4MD"};
+        f43408a = new String[]{"h9YLQoINGWyOBYYk", "30212102dicudiab", "dm1VEmW651QTz4MD"};
     }
 
     public static byte[] a() {

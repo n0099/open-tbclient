@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements c.a.r0.e2.h.c.a<Boolean> {
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements c.a.r0.f2.h.c.a<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragment createEmotionFragment;
@@ -58,7 +58,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NativeEmotionManagerActivity f54696a;
+        public final /* synthetic */ NativeEmotionManagerActivity f54627a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(NativeEmotionManagerActivity nativeEmotionManagerActivity, FragmentManager fragmentManager) {
@@ -78,7 +78,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
                     return;
                 }
             }
-            this.f54696a = nativeEmotionManagerActivity;
+            this.f54627a = nativeEmotionManagerActivity;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -86,10 +86,10 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (ListUtils.isEmpty(this.f54696a.fragments)) {
+                if (ListUtils.isEmpty(this.f54627a.fragments)) {
                     return 0;
                 }
-                return this.f54696a.fragments.size();
+                return this.f54627a.fragments.size();
             }
             return invokeV.intValue;
         }
@@ -99,10 +99,10 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (ListUtils.isEmpty(this.f54696a.fragments) || this.f54696a.fragments.size() <= i2) {
+                if (ListUtils.isEmpty(this.f54627a.fragments) || this.f54627a.fragments.size() <= i2) {
                     return null;
                 }
-                return (Fragment) this.f54696a.fragments.get(i2);
+                return (Fragment) this.f54627a.fragments.get(i2);
             }
             return (Fragment) invokeI.objValue;
         }
@@ -111,7 +111,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         public CharSequence getPageTitle(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.f54696a.mTitles) ? "" : (CharSequence) this.f54696a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.f54627a.mTitles) ? "" : (CharSequence) this.f54627a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
         }
     }
 
@@ -121,7 +121,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NativeEmotionManagerActivity f54697e;
+        public final /* synthetic */ NativeEmotionManagerActivity f54628e;
 
         public b(NativeEmotionManagerActivity nativeEmotionManagerActivity) {
             Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
                     return;
                 }
             }
-            this.f54697e = nativeEmotionManagerActivity;
+            this.f54628e = nativeEmotionManagerActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -146,11 +146,11 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 super.onPageSelected(i2);
-                if (this.f54697e.mManager == null) {
+                if (this.f54628e.mManager == null) {
                     return;
                 }
-                this.f54697e.fragmentPostion = i2;
-                this.f54697e.ctrlIfShowEditButton();
+                this.f54628e.fragmentPostion = i2;
+                this.f54628e.ctrlIfShowEditButton();
             }
         }
     }
@@ -263,8 +263,8 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             super.onClick(view);
             if (view == this.mManager) {
-                boolean z = !c.a.r0.e2.h.a.b().a();
-                c.a.r0.e2.h.a.b().d(z);
+                boolean z = !c.a.r0.f2.h.a.b().a();
+                c.a.r0.f2.h.a.b().d(z);
                 if (z) {
                     this.mManager.setText(R.string.emotion_manage_finish);
                 } else {
@@ -287,7 +287,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.e2.h.c.a
+    @Override // c.a.r0.f2.h.c.a
     public void onUpdate(Boolean bool) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bool) == null) || bool == null) {

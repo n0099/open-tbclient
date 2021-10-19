@@ -1,6 +1,6 @@
 package com.baidu.tbadk.newFriends;
 
-import c.a.r0.k1.g.a;
+import c.a.r0.l1.g.a;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

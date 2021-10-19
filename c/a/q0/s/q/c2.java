@@ -16,22 +16,22 @@ public class c2 extends a implements c.a.e.l.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14119e;
+    public boolean f14140e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14120f;
+    public boolean f14141f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14121g;
+    public boolean f14142g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14122h;
+    public boolean f14143h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f14123i;
+    public boolean f14144i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f14124j;
+    public boolean f14145j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -61,12 +61,12 @@ public class c2 extends a implements c.a.e.l.e.n {
                 return;
             }
         }
-        this.f14119e = false;
-        this.f14120f = false;
-        this.f14121g = false;
-        this.f14122h = false;
-        this.f14123i = false;
-        this.f14124j = false;
+        this.f14140e = false;
+        this.f14141f = false;
+        this.f14142g = false;
+        this.f14143h = false;
+        this.f14144i = false;
+        this.f14145j = false;
         this.k = false;
         this.l = false;
         this.m = false;
@@ -99,7 +99,7 @@ public class c2 extends a implements c.a.e.l.e.n {
             x0Var.o(getThreadData().F0());
             x0Var.k(this.w.k1);
             d2 d2Var2 = this.w;
-            x0Var.f14351g = d2Var2.l1;
+            x0Var.f14371g = d2Var2.l1;
             x0Var.p = d2Var2.Z0;
             x0Var.k = d2Var2.Y0;
             x0Var.m = d2Var2.a1;
@@ -193,28 +193,28 @@ public class c2 extends a implements c.a.e.l.e.n {
                     if (this.w.B2()) {
                         return this.w.e0() != null ? d2.I3 : d2.H3;
                     }
-                    c.a.r0.j3.i0.o oVar = this.w.K2;
+                    c.a.r0.k3.i0.o oVar = this.w.K2;
                     if (oVar != null && oVar.f()) {
                         return this.w.K2.g() ? AdvertAppInfo.B4 : AdvertAppInfo.C4;
                     } else if (this.v) {
                         return d2.f3;
                     } else {
-                        if (this.f14119e) {
+                        if (this.f14140e) {
                             return d2.g3;
                         }
-                        if (this.f14120f) {
+                        if (this.f14141f) {
                             return d2.h3;
                         }
-                        if (this.f14121g) {
+                        if (this.f14142g) {
                             return d2.i3;
                         }
-                        if (this.f14122h) {
+                        if (this.f14143h) {
                             return d2.j3;
                         }
-                        if (this.f14123i) {
+                        if (this.f14144i) {
                             return d2.k3;
                         }
-                        if (this.f14124j) {
+                        if (this.f14145j) {
                             return d2.l3;
                         }
                         if (this.k) {

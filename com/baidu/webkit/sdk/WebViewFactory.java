@@ -138,8 +138,8 @@ public final class WebViewFactory {
         long j2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65543, null) == null) && Build.VERSION.SDK_INT == 19) {
-            if (c.a(mContext).f64091a.a()) {
-                String str = aVar.f64099d + "libzeuswebviewchromium.so";
+            if (c.a(mContext).f64126a.a()) {
+                String str = aVar.f64134d + "libzeuswebviewchromium.so";
                 try {
                     j2 = new File(str).length();
                 } catch (Throwable th) {
@@ -170,7 +170,7 @@ public final class WebViewFactory {
                 if (isVersionMatched(str, zeusNativeLibraryVersion, true) && isVersionMatched(str, zeusJarVersion, true) && isVersionMatched(sdkVersionCode, str, false)) {
                     return;
                 }
-                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).f64091a.f64099d);
+                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).f64126a.f64134d);
                 throw new Exception("sdk and native library dismatch " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusJarVersion + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusNativeLibraryVersion);
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -562,7 +562,7 @@ public final class WebViewFactory {
             try {
                 ApplicationInfo applicationInfo2 = context.getApplicationInfo();
                 c a2 = c.a(context);
-                c.a aVar = a2.f64091a;
+                c.a aVar = a2.f64126a;
                 mIsInstallUpdate = false;
                 String str2 = applicationInfo2.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
                 String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
@@ -573,7 +573,7 @@ public final class WebViewFactory {
                         str2 = str3;
                     }
                 }
-                if (!a2.f64091a.a() && !EngineManager.getInstance().isInstalled()) {
+                if (!a2.f64126a.a() && !EngineManager.getInstance().isInstalled()) {
                     LoadErrorCode.getInstance().trace(513);
                 }
                 packageInfo = context.getPackageManager().getPackageArchiveInfo(str2, 132);
@@ -587,7 +587,7 @@ public final class WebViewFactory {
                             applicationInfo.nativeLibraryDir = str;
                         }
                         applicationInfo = packageInfo.applicationInfo;
-                        str = aVar.f64099d + ":" + applicationInfo2.nativeLibraryDir;
+                        str = aVar.f64134d + ":" + applicationInfo2.nativeLibraryDir;
                         applicationInfo.nativeLibraryDir = str;
                     } catch (Throwable th2) {
                         th = th2;
@@ -1438,7 +1438,7 @@ public final class WebViewFactory {
             try {
                 ApplicationInfo applicationInfo = context.getApplicationInfo();
                 c a2 = c.a(context);
-                c.a aVar = a2.f64091a;
+                c.a aVar = a2.f64126a;
                 mIsInstallUpdate = false;
                 String str2 = applicationInfo.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
                 String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
@@ -1449,7 +1449,7 @@ public final class WebViewFactory {
                         str2 = str3;
                     }
                 }
-                if (!a2.f64091a.a() && !EngineManager.getInstance().isInstalled()) {
+                if (!a2.f64126a.a() && !EngineManager.getInstance().isInstalled()) {
                     LoadErrorCode.getInstance().trace(513);
                 }
                 if (str2 != null && new File(str2).exists()) {
@@ -1460,7 +1460,7 @@ public final class WebViewFactory {
                         sPackageInfoType = 1;
                         z = true;
                     }
-                    str = aVar.f64099d + ":" + applicationInfo.nativeLibraryDir;
+                    str = aVar.f64134d + ":" + applicationInfo.nativeLibraryDir;
                     sZeusNativeLibraryDir = str;
                     sPackageInfoType = 1;
                     z = true;
@@ -1720,29 +1720,29 @@ public final class WebViewFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65603, null, new Object[]{context, Boolean.valueOf(z), webKitUnzipCallback}) == null) {
             final c a2 = c.a(context);
-            a2.f64091a.a(z);
+            a2.f64126a.a(z);
             if (!z || isRendererProcess()) {
                 return;
             }
-            synchronized (c.f64088e) {
+            synchronized (c.f64123e) {
                 if (context != null) {
-                    if (a2.f64091a != null && a2.f64092b == null) {
-                        a2.f64092b = new c.b(a2, context);
+                    if (a2.f64126a != null && a2.f64127b == null) {
+                        a2.f64127b = new c.b(a2, context);
                     }
                 }
             }
-            synchronized (c.f64088e) {
-                if (a2.f64093c != webKitUnzipCallback) {
-                    a2.f64093c = webKitUnzipCallback;
-                    if (a2.f64094d == null) {
-                        a2.f64094d = new Handler(Looper.getMainLooper());
+            synchronized (c.f64123e) {
+                if (a2.f64128c != webKitUnzipCallback) {
+                    a2.f64128c = webKitUnzipCallback;
+                    if (a2.f64129d == null) {
+                        a2.f64129d = new Handler(Looper.getMainLooper());
                     }
-                    a2.f64094d.postDelayed(new Runnable(a2) { // from class: com.baidu.webkit.internal.blink.c.1
+                    a2.f64129d.postDelayed(new Runnable(a2) { // from class: com.baidu.webkit.internal.blink.c.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c f64095a;
+                        public final /* synthetic */ c f64130a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1759,17 +1759,17 @@ public final class WebViewFactory {
                                     return;
                                 }
                             }
-                            this.f64095a = a2;
+                            this.f64130a = a2;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                synchronized (c.f64090g) {
-                                    if (this.f64095a.f64093c != null) {
-                                        this.f64095a.f64093c.unzipFinished();
-                                        this.f64095a.f64093c = null;
+                                synchronized (c.f64125g) {
+                                    if (this.f64130a.f64128c != null) {
+                                        this.f64130a.f64128c.unzipFinished();
+                                        this.f64130a.f64128c = null;
                                     }
                                 }
                             }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.index;
 
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -46,7 +46,7 @@ public class GetTaskScoresRequestMessage extends NetMessage {
             builder.task_id = Integer.valueOf(this.taskId);
             builder.user_id = Long.valueOf(this.userId);
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             AddTaskScoresReqIdl.Builder builder2 = new AddTaskScoresReqIdl.Builder();
             builder2.data = builder.build(false);

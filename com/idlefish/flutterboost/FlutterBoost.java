@@ -8,7 +8,7 @@ import android.os.Bundle;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.h.j.g.d;
-import c.a.r0.o3.a;
+import c.a.r0.p3.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -77,7 +77,6 @@ public class FlutterBoost {
         public boolean isDebug;
         public BoostLifecycleListener lifecycleListener;
         public Application mApp;
-        public FlutterView.RenderMode renderMode;
         public INativeRouter router;
         public int whenEngineStart;
 
@@ -115,7 +114,7 @@ public class FlutterBoost {
             this.initialRoute = "/";
             this.whenEngineStart = ANY_ACTIVITY_CREATED;
             this.isDebug = false;
-            this.renderMode = FlutterView.RenderMode.texture;
+            FlutterView.RenderMode renderMode = FlutterView.RenderMode.texture;
             this.router = null;
             this.router = iNativeRouter;
             this.mApp = application;
@@ -185,17 +184,10 @@ public class FlutterBoost {
                     }
 
                     @Override // com.idlefish.flutterboost.Platform
-                    public FlutterView.RenderMode renderMode() {
-                        InterceptResult invokeV2;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048581, this)) == null) ? this.this$0.renderMode : (FlutterView.RenderMode) invokeV2.objValue;
-                    }
-
-                    @Override // com.idlefish.flutterboost.Platform
                     public int whenEngineStart() {
                         InterceptResult invokeV2;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048582, this)) == null) ? this.this$0.whenEngineStart : invokeV2.intValue;
+                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048581, this)) == null) ? this.this$0.whenEngineStart : invokeV2.intValue;
                     }
                 };
                 platform.lifecycleListener = this.lifecycleListener;
@@ -227,11 +219,7 @@ public class FlutterBoost {
         public ConfigBuilder renderMode(FlutterView.RenderMode renderMode) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, renderMode)) == null) {
-                this.renderMode = renderMode;
-                return this;
-            }
-            return (ConfigBuilder) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, renderMode)) == null) ? this : (ConfigBuilder) invokeL.objValue;
         }
 
         public ConfigBuilder whenEngineStart(int i2) {

@@ -11,7 +11,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f15255a;
+    public a f15278a;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -33,12 +33,12 @@ public class b {
                 return;
             }
         }
-        this.f15255a = aVar;
+        this.f15278a = aVar;
     }
 
     public c.a.r.d.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15255a.a() : (c.a.r.d.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15278a.a() : (c.a.r.d.a) invokeV.objValue;
     }
 }

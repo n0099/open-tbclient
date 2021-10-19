@@ -78,7 +78,7 @@ public class HttpDNSProtocolMgr {
                     resInfo.setUserIp(jSONObject.getString("u"));
                     resInfo.setUserView(jSONObject.getString("v"));
                     LinkedHashMap<String, DnsInfo> linkedHashMap = new LinkedHashMap<>();
-                    JSONArray jSONArray = jSONObject.getJSONArray(b.c.f38129b);
+                    JSONArray jSONArray = jSONObject.getJSONArray(b.c.f38133b);
                     int i3 = 0;
                     while (i3 < jSONArray.length()) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i3);

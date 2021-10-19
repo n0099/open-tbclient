@@ -10,12 +10,12 @@ import c.a.e.e.p.l;
 import c.a.e.l.e.n;
 import c.a.q0.o0.d;
 import c.a.q0.s.q.d2;
-import c.a.r0.a0.d0.j;
-import c.a.r0.a0.t;
-import c.a.r0.g1.j.e;
-import c.a.r0.g1.j.f;
-import c.a.r0.g1.j.h.c;
-import c.a.r0.w0.n0;
+import c.a.r0.b0.e0.j;
+import c.a.r0.b0.u;
+import c.a.r0.h1.j.e;
+import c.a.r0.h1.j.f;
+import c.a.r0.h1.j.h.c;
+import c.a.r0.x0.n0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -48,22 +48,22 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52510e;
+    public String f52441e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52511f;
+    public String f52442f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52512g;
+    public int f52443g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f52513h;
+    public f f52444h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HomePageTabFeedView f52514i;
+    public HomePageTabFeedView f52445i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ViewGroup f52515j;
+    public ViewGroup f52446j;
     public CustomMessageListener k;
 
     /* loaded from: classes7.dex */
@@ -72,7 +72,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedFragment f52516a;
+        public final /* synthetic */ HomePageTabFeedFragment f52447a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HomePageTabFeedFragment homePageTabFeedFragment, int i2) {
@@ -92,29 +92,29 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
                     return;
                 }
             }
-            this.f52516a = homePageTabFeedFragment;
+            this.f52447a = homePageTabFeedFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f52516a.f52513h == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || this.f52516a.f52513h.i() == null || ListUtils.getCount(this.f52516a.f52513h.i()) == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f52447a.f52444h == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || this.f52447a.f52444h.i() == null || ListUtils.getCount(this.f52447a.f52444h.i()) == 0) {
                 return;
             }
             JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
             String optString = jSONObject.optString("tid");
             if (StringUtils.isNull(optString)) {
                 String optString2 = jSONObject.optString("liveid");
-                if (this.f52516a.f52514i == null || this.f52516a.f52514i.getRecycleView() == null || TextUtils.isEmpty(optString2)) {
+                if (this.f52447a.f52445i == null || this.f52447a.f52445i.getRecycleView() == null || TextUtils.isEmpty(optString2)) {
                     return;
                 }
                 int i2 = 0;
                 while (true) {
-                    if (i2 >= this.f52516a.f52514i.getRecycleView().getCount()) {
+                    if (i2 >= this.f52447a.f52445i.getRecycleView().getCount()) {
                         break;
                     }
-                    n item = this.f52516a.f52514i.getRecycleView().getItem(i2);
+                    n item = this.f52447a.f52445i.getRecycleView().getItem(i2);
                     if (item instanceof j) {
                         j jVar = (j) item;
                         if (jVar.getThreadData() != null && jVar.getThreadData().l1() != null && optString2.equals(String.valueOf(jVar.getThreadData().l1().live_id))) {
@@ -130,10 +130,10 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
             }
             int i3 = 0;
             while (true) {
-                if (i3 < this.f52516a.f52513h.i().size()) {
-                    d2 d2Var = this.f52516a.f52513h.i().get(i3);
+                if (i3 < this.f52447a.f52444h.i().size()) {
+                    d2 d2Var = this.f52447a.f52444h.i().get(i3);
                     if (d2Var != null && optString.equals(d2Var.E)) {
-                        this.f52516a.f52513h.i().remove(i3);
+                        this.f52447a.f52444h.i().remove(i3);
                         break;
                     }
                     i3++;
@@ -141,14 +141,14 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
                     break;
                 }
             }
-            if (this.f52516a.f52514i.getRecycleView() != null) {
-                List<Integer> b2 = c.a.r0.g1.j.a.b(optString, this.f52516a.f52514i.getRecycleView());
+            if (this.f52447a.f52445i.getRecycleView() != null) {
+                List<Integer> b2 = c.a.r0.h1.j.a.b(optString, this.f52447a.f52445i.getRecycleView());
                 int intValue = b2.get(0).intValue();
                 int intValue2 = b2.get(1).intValue();
                 if (intValue == -1 || intValue2 == -1) {
                     return;
                 }
-                this.f52516a.f52514i.getRecycleView().removeItemList(intValue, intValue2);
+                this.f52447a.f52445i.getRecycleView().removeItemList(intValue, intValue2);
             }
         }
     }
@@ -169,11 +169,11 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         this.k = new a(this, 2016488);
     }
 
-    @Override // c.a.r0.g1.j.e
+    @Override // c.a.r0.h1.j.e
     public void callLoadMore() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f52513h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f52444h) == null) {
             return;
         }
         fVar.loadMore();
@@ -182,26 +182,26 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
     public void callRefresh(boolean z) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (fVar = this.f52513h) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (fVar = this.f52444h) == null) {
             return;
         }
-        if (this.f52514i != null && z) {
+        if (this.f52445i != null && z) {
             if (fVar.d()) {
-                this.f52514i.toListTop();
-                this.f52514i.setIsRefresh(true);
+                this.f52445i.toListTop();
+                this.f52445i.setIsRefresh(true);
             } else {
-                hideNetRefreshView(this.f52515j);
-                showLoadingView(this.f52515j);
+                hideNetRefreshView(this.f52446j);
+                showLoadingView(this.f52446j);
             }
         }
-        this.f52513h.refresh();
+        this.f52444h.refresh();
     }
 
-    @Override // c.a.r0.w0.n0
+    @Override // c.a.r0.x0.n0
     public void changeSkinType() {
         HomePageTabFeedView homePageTabFeedView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (homePageTabFeedView = this.f52514i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (homePageTabFeedView = this.f52445i) == null) {
             return;
         }
         homePageTabFeedView.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -218,7 +218,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f52512g == 201) {
+            if (this.f52443g == 201) {
                 return "a075";
             }
             return null;
@@ -239,7 +239,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.q = this.f52510e;
+                pageStayDurationItem.s = this.f52441e;
             }
             return pageStayDurationItem;
         }
@@ -249,7 +249,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
     public String getTabName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f52510e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f52441e : (String) invokeV.objValue;
     }
 
     public final void h() {
@@ -257,8 +257,8 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && isPrimary()) {
             StatisticItem statisticItem = new StatisticItem("c13749");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f52510e);
-            statisticItem.param("obj_type", this.f52511f);
+            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f52441e);
+            statisticItem.param("obj_type", this.f52442f);
             TiebaStatic.log(statisticItem);
         }
     }
@@ -268,7 +268,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
             super.hideLoadingView(view);
-            HomePageTabFeedView homePageTabFeedView = this.f52514i;
+            HomePageTabFeedView homePageTabFeedView = this.f52445i;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.setListContentVisible(true);
             }
@@ -280,7 +280,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
             super.hideNetRefreshView(view);
-            HomePageTabFeedView homePageTabFeedView = this.f52514i;
+            HomePageTabFeedView homePageTabFeedView = this.f52445i;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.setListContentVisible(true);
             }
@@ -291,7 +291,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            HomePageTabFeedView homePageTabFeedView = this.f52514i;
+            HomePageTabFeedView homePageTabFeedView = this.f52445i;
             if (homePageTabFeedView != null) {
                 return homePageTabFeedView.isListAtTop();
             }
@@ -313,7 +313,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             super.onChangeSkinType(i2);
-            HomePageTabFeedView homePageTabFeedView = this.f52514i;
+            HomePageTabFeedView homePageTabFeedView = this.f52445i;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.onChangeSkinType(i2);
             }
@@ -329,9 +329,9 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
                 bundle = getArguments();
             }
             if (bundle != null) {
-                this.f52510e = bundle.getString("tab_name");
-                this.f52511f = bundle.getString("tab_code");
-                this.f52512g = bundle.getInt("tab_type");
+                this.f52441e = bundle.getString("tab_name");
+                this.f52442f = bundle.getString("tab_code");
+                this.f52443g = bundle.getInt("tab_type");
             }
         }
     }
@@ -341,27 +341,27 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, layoutInflater, viewGroup, bundle)) == null) {
-            ViewGroup viewGroup2 = this.f52515j;
+            ViewGroup viewGroup2 = this.f52446j;
             if (viewGroup2 != null && (viewGroup2.getParent() instanceof ViewGroup)) {
-                ((ViewGroup) this.f52515j.getParent()).removeView(this.f52515j);
+                ((ViewGroup) this.f52446j.getParent()).removeView(this.f52446j);
             }
-            if (this.f52515j == null) {
+            if (this.f52446j == null) {
                 ViewGroup viewGroup3 = (ViewGroup) getLayoutInflater().inflate(getLayoutR(), (ViewGroup) null);
-                this.f52515j = viewGroup3;
-                this.f52514i = new HomePageTabFeedView(this, this, viewGroup3, this.f52511f);
-                getLifecycle().addObserver(this.f52514i);
+                this.f52446j = viewGroup3;
+                this.f52445i = new HomePageTabFeedView(this, this, viewGroup3, this.f52442f);
+                getLifecycle().addObserver(this.f52445i);
             }
-            if (this.f52513h == null) {
-                if (this.f52512g == 201) {
-                    this.f52513h = new ChannelTabNetFeedModel(getPageContext(), this);
+            if (this.f52444h == null) {
+                if (this.f52443g == 201) {
+                    this.f52444h = new ChannelTabNetFeedModel(getPageContext(), this);
                 } else {
-                    this.f52513h = new TabFeedNetFeedModel(getPageContext(), this);
+                    this.f52444h = new TabFeedNetFeedModel(getPageContext(), this);
                 }
-                this.f52513h.o(this.f52511f, this.f52510e, this.f52512g);
+                this.f52444h.o(this.f52442f, this.f52441e, this.f52443g);
             }
-            this.f52513h.registerListener(getUniqueId());
+            this.f52444h.registerListener(getUniqueId());
             registerListener(this.k);
-            return this.f52515j;
+            return this.f52446j;
         }
         return (View) invokeLLL.objValue;
     }
@@ -371,13 +371,13 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onDestroy();
-            t.b().e(false);
-            f fVar = this.f52513h;
+            u.b().e(false);
+            f fVar = this.f52444h;
             if (fVar != null) {
                 fVar.destory();
             }
-            if (this.f52514i != null) {
-                getLifecycle().removeObserver(this.f52514i);
+            if (this.f52445i != null) {
+                getLifecycle().removeObserver(this.f52445i);
             }
             MessageManager.getInstance().unRegisterListener(this.k);
             TbadkCoreApplication.getInst().getPersonalizeViewData().a();
@@ -390,8 +390,8 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onLazyLoad();
             if (c.a.e.e.p.j.z()) {
-                showLoadingView(this.f52515j);
-                f fVar = this.f52513h;
+                showLoadingView(this.f52446j);
+                f fVar = this.f52444h;
                 if (fVar != null) {
                     try {
                         fVar.refresh();
@@ -402,7 +402,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
                 }
                 return;
             }
-            showNetRefreshView(this.f52515j, null, true);
+            showNetRefreshView(this.f52446j, null, true);
         }
     }
 
@@ -414,17 +414,17 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         }
     }
 
-    @Override // c.a.r0.g1.j.e
+    @Override // c.a.r0.h1.j.e
     public void onNetCallback(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, cVar) == null) {
-            hideLoadingView(this.f52515j);
-            f fVar = this.f52513h;
+            hideLoadingView(this.f52446j);
+            f fVar = this.f52444h;
             if (fVar != null && !fVar.d()) {
-                showNoDataRefreshView(this.f52515j, false);
+                showNoDataRefreshView(this.f52446j, false);
                 return;
             }
-            HomePageTabFeedView homePageTabFeedView = this.f52514i;
+            HomePageTabFeedView homePageTabFeedView = this.f52445i;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.onNetDataUpdate(cVar);
             }
@@ -435,20 +435,20 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && c.a.e.e.p.j.z()) {
-            hideNetRefreshView(this.f52515j);
-            showLoadingView(this.f52515j);
+            hideNetRefreshView(this.f52446j);
+            showLoadingView(this.f52446j);
             callRefresh(false);
         }
     }
 
-    @Override // c.a.r0.w0.n0
+    @Override // c.a.r0.x0.n0
     public void onPageOutEnd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
         }
     }
 
-    @Override // c.a.r0.w0.n0
+    @Override // c.a.r0.x0.n0
     public void onPageStartIn() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
@@ -460,11 +460,11 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onPause();
-            HomePageTabFeedView homePageTabFeedView = this.f52514i;
+            HomePageTabFeedView homePageTabFeedView = this.f52445i;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.pause();
             }
-            t.b().e(false);
+            u.b().e(false);
         }
     }
 
@@ -474,14 +474,14 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onPrimary();
             if (isAdded() && isPrimary()) {
-                HomePageTabFeedView homePageTabFeedView = this.f52514i;
+                HomePageTabFeedView homePageTabFeedView = this.f52445i;
                 if (homePageTabFeedView != null) {
                     homePageTabFeedView.resume();
                 }
                 h();
                 return;
             }
-            HomePageTabFeedView homePageTabFeedView2 = this.f52514i;
+            HomePageTabFeedView homePageTabFeedView2 = this.f52445i;
             if (homePageTabFeedView2 != null) {
                 homePageTabFeedView2.pause();
             }
@@ -494,18 +494,18 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
         if (interceptable == null || interceptable.invokeL(1048601, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             if (bundle != null) {
-                bundle.putString("tab_name", this.f52510e);
-                bundle.putString("tab_code", this.f52511f);
-                bundle.putInt("tab_type", this.f52512g);
+                bundle.putString("tab_name", this.f52441e);
+                bundle.putString("tab_code", this.f52442f);
+                bundle.putInt("tab_type", this.f52443g);
             }
         }
     }
 
-    @Override // c.a.r0.g1.j.e
+    @Override // c.a.r0.h1.j.e
     public void onServerError(ErrorData errorData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, errorData) == null) {
-            hideLoadingView(this.f52515j);
+            hideLoadingView(this.f52446j);
             if (errorData != null) {
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
@@ -513,18 +513,18 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
                     showToast(R.string.im_error_default);
                 }
             }
-            f fVar = this.f52513h;
+            f fVar = this.f52444h;
             if (fVar != null && !fVar.d()) {
-                showNetRefreshView(this.f52515j, errorData != null ? getString(R.string.net_error_text, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
+                showNetRefreshView(this.f52446j, errorData != null ? getString(R.string.net_error_text, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
             }
-            HomePageTabFeedView homePageTabFeedView = this.f52514i;
+            HomePageTabFeedView homePageTabFeedView = this.f52445i;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.setIsRefresh(false);
             }
         }
     }
 
-    @Override // c.a.r0.w0.n0
+    @Override // c.a.r0.x0.n0
     public void refreshPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
@@ -535,12 +535,12 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
     public void removeListItems(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048604, this, i2, i3) == null) {
-            f fVar = this.f52513h;
+            f fVar = this.f52444h;
             if (fVar != null && !fVar.d()) {
-                showNoDataRefreshView(this.f52515j, false);
+                showNoDataRefreshView(this.f52446j, false);
                 return;
             }
-            HomePageTabFeedView homePageTabFeedView = this.f52514i;
+            HomePageTabFeedView homePageTabFeedView = this.f52445i;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.removeListItems(i2, i3);
             }
@@ -557,7 +557,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
     public void showLoadingView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, view) == null) {
-            HomePageTabFeedView homePageTabFeedView = this.f52514i;
+            HomePageTabFeedView homePageTabFeedView = this.f52445i;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.setListContentVisible(false);
             }
@@ -569,7 +569,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
     public void showNetRefreshView(View view, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048607, this, view, str, z) == null) {
-            HomePageTabFeedView homePageTabFeedView = this.f52514i;
+            HomePageTabFeedView homePageTabFeedView = this.f52445i;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.setListContentVisible(false);
             }
@@ -582,7 +582,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements e, n0 {
     public void showNoDataRefreshView(View view, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048608, this, view, z) == null) {
-            HomePageTabFeedView homePageTabFeedView = this.f52514i;
+            HomePageTabFeedView homePageTabFeedView = this.f52445i;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.setListContentVisible(false);
             }

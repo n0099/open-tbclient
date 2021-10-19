@@ -22,7 +22,7 @@ public abstract class CollectFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CustomMessageListener f47465e;
+    public final CustomMessageListener f47378e;
     public boolean mIsEnableEdit;
 
     /* loaded from: classes6.dex */
@@ -31,7 +31,7 @@ public abstract class CollectFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CollectFragment f47466a;
+        public final /* synthetic */ CollectFragment f47379a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CollectFragment collectFragment, int i2) {
@@ -51,7 +51,7 @@ public abstract class CollectFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f47466a = collectFragment;
+            this.f47379a = collectFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,9 +59,9 @@ public abstract class CollectFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment collectFragment = this.f47466a;
+                CollectFragment collectFragment = this.f47379a;
                 collectFragment.sendEditEnableMessage(collectFragment.getType());
-                CollectFragment collectFragment2 = this.f47466a;
+                CollectFragment collectFragment2 = this.f47379a;
                 if (collectFragment2.mIsEnableEdit) {
                     return;
                 }
@@ -84,7 +84,7 @@ public abstract class CollectFragment extends BaseFragment {
             }
         }
         this.mIsEnableEdit = false;
-        this.f47465e = new a(this, 2000994);
+        this.f47378e = new a(this, 2000994);
     }
 
     public abstract int getType();
@@ -102,7 +102,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onStart();
-            registerListener(this.f47465e);
+            registerListener(this.f47378e);
         }
     }
 
@@ -111,7 +111,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onStop();
-            MessageManager.getInstance().unRegisterListener(this.f47465e);
+            MessageManager.getInstance().unRegisterListener(this.f47378e);
         }
     }
 

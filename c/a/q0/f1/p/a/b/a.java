@@ -18,7 +18,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.q0.f1.p.a.c.a f13306a;
+    public c.a.q0.f1.p.a.c.a f13314a;
 
     public a(Context context, f fVar) {
         Interceptable interceptable = $ic;
@@ -36,22 +36,22 @@ public class a {
             }
         }
         c.a.q0.f1.p.a.c.a aVar = new c.a.q0.f1.p.a.c.a(2);
-        this.f13306a = aVar;
+        this.f13314a = aVar;
         aVar.A = context;
-        aVar.f13307a = fVar;
+        aVar.f13315a = fVar;
     }
 
     public b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.f13306a) : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.f13314a) : (b) invokeV.objValue;
     }
 
     public a b(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.f13306a.T = z;
+            this.f13314a.T = z;
             return this;
         }
         return (a) invokeZ.objValue;
@@ -61,7 +61,7 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.f13306a.R = z;
+            this.f13314a.R = z;
             return this;
         }
         return (a) invokeZ.objValue;
@@ -71,7 +71,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            this.f13306a.P = i2;
+            this.f13314a.P = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -81,7 +81,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            this.f13306a.H = i2;
+            this.f13314a.H = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -91,7 +91,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.f13306a.L = i2;
+            this.f13314a.L = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -101,7 +101,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
-            this.f13306a.f13311e = calendar;
+            this.f13314a.f13319e = calendar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -111,7 +111,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            this.f13306a.y = viewGroup;
+            this.f13314a.y = viewGroup;
             return this;
         }
         return (a) invokeL.objValue;
@@ -121,7 +121,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            this.f13306a.O = i2;
+            this.f13314a.O = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -131,7 +131,7 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            c.a.q0.f1.p.a.c.a aVar = this.f13306a;
+            c.a.q0.f1.p.a.c.a aVar = this.f13314a;
             aVar.l = str;
             aVar.m = str2;
             aVar.n = str3;
@@ -147,9 +147,9 @@ public class a {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, aVar)) == null) {
-            c.a.q0.f1.p.a.c.a aVar2 = this.f13306a;
+            c.a.q0.f1.p.a.c.a aVar2 = this.f13314a;
             aVar2.x = i2;
-            aVar2.f13309c = aVar;
+            aVar2.f13317c = aVar;
             return this;
         }
         return (a) invokeIL.objValue;
@@ -159,7 +159,7 @@ public class a {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f2)) == null) {
-            this.f13306a.Q = f2;
+            this.f13314a.Q = f2;
             return this;
         }
         return (a) invokeF.objValue;
@@ -169,7 +169,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            this.f13306a.N = i2;
+            this.f13314a.N = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -179,7 +179,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            this.f13306a.M = i2;
+            this.f13314a.M = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -189,7 +189,7 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) {
-            c.a.q0.f1.p.a.c.a aVar = this.f13306a;
+            c.a.q0.f1.p.a.c.a aVar = this.f13314a;
             aVar.r = i2;
             aVar.s = i3;
             aVar.t = i4;
@@ -205,7 +205,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
-            this.f13306a.f13310d = zArr;
+            this.f13314a.f13318d = zArr;
             return this;
         }
         return (a) invokeL.objValue;

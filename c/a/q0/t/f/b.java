@@ -12,13 +12,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14894a;
+    public String f14918a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f14895b;
+    public long f14919b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14896c;
+    public int f14920c;
 
     public b(String str, long j2, int i2) {
         Interceptable interceptable = $ic;
@@ -35,26 +35,26 @@ public class b {
                 return;
             }
         }
-        this.f14894a = str;
-        this.f14895b = j2;
-        this.f14896c = i2;
+        this.f14918a = str;
+        this.f14919b = j2;
+        this.f14920c = i2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14894a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14918a : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14896c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14920c : invokeV.intValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14895b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14919b : invokeV.longValue;
     }
 }

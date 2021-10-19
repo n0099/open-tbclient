@@ -19,11 +19,11 @@ import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
 import c.a.q0.d0.a;
-import c.a.q0.d1.j0;
-import c.a.q0.d1.m0;
-import c.a.q0.d1.r;
-import c.a.q0.d1.x0;
-import c.a.q0.f1.m.e;
+import c.a.q0.d1.i0;
+import c.a.q0.d1.l0;
+import c.a.q0.d1.q;
+import c.a.q0.d1.w0;
+import c.a.q0.f1.m.f;
 import c.a.q0.s.s.a;
 import c.a.q0.s.s.i;
 import c.a.q0.t.c.v;
@@ -61,6 +61,7 @@ import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
@@ -84,7 +85,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class TalkableActivity<T> extends BaseActivity<T> implements VoiceManager.j, c.a.q0.f1.m.g, View.OnTouchListener, BdListView.s, BdListView.p, c.a.e.e.h.b, c.a.e.e.h.a, i.e, ActivityCompat.OnRequestPermissionsResultCallback {
+public abstract class TalkableActivity<T> extends BaseActivity<T> implements VoiceManager.j, c.a.q0.f1.m.i, View.OnTouchListener, BdListView.s, BdListView.p, c.a.e.e.h.b, c.a.e.e.h.a, i.e, ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int RECORD_MOVE_OUTSIDE_RANGE = 5;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +102,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public c.a.e.a.e mMsgCallback;
     public PermissionJudgePolicy mPermissionJudgement;
     public boolean mRecording;
-    public c.a.r0.k1.f.g mSaveImageTask;
+    public c.a.r0.l1.f.g mSaveImageTask;
     public a.b<ChatMessage> mUploadProgressCallback;
     public VoiceManager mVoiceManager;
     public long preTime;
@@ -114,7 +115,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f52998a;
+        public final /* synthetic */ TalkableActivity f52929a;
 
         public a(TalkableActivity talkableActivity) {
             Interceptable interceptable = $ic;
@@ -131,7 +132,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f52998a = talkableActivity;
+            this.f52929a = talkableActivity;
         }
 
         @Override // c.a.e.a.e
@@ -140,14 +141,14 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
                     LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
-                    MsglistModel msglistModel = this.f52998a.mListModel;
+                    MsglistModel msglistModel = this.f52929a.mListModel;
                     if (msglistModel != null) {
                         msglistModel.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
                         return;
                     }
                     return;
                 }
-                this.f52998a.showToast(TbadkCoreApplication.getInst().getString(R.string.pic_parser_error));
+                this.f52929a.showToast(TbadkCoreApplication.getInst().getString(R.string.pic_parser_error));
             }
         }
     }
@@ -158,7 +159,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f52999a;
+        public final /* synthetic */ TalkableActivity f52930a;
 
         public b(TalkableActivity talkableActivity) {
             Interceptable interceptable = $ic;
@@ -175,7 +176,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f52999a = talkableActivity;
+            this.f52930a = talkableActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -184,18 +185,18 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public void a(int i2, ChatMessage chatMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, chatMessage) == null) {
-                this.f52999a.mListView.updateAdapter(i2, chatMessage);
+                this.f52930a.mListView.updateAdapter(i2, chatMessage);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c extends j0<Object> {
+    public class c extends i0<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f53000a;
+        public final /* synthetic */ TalkableActivity f52931a;
 
         public c(TalkableActivity talkableActivity) {
             Interceptable interceptable = $ic;
@@ -212,19 +213,19 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f53000a = talkableActivity;
+            this.f52931a = talkableActivity;
         }
 
-        @Override // c.a.q0.d1.j0
+        @Override // c.a.q0.d1.i0
         public Object doInBackground() {
             InterceptResult invokeV;
             Bitmap resizeBitmap;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    Bitmap c2 = x0.c(0, this.f53000a.getPageContext().getContext(), null, this.f53000a.writeImagesInfo.getChosedFiles().get(0).getFilePath(), TbImageHelper.getInstance().getPostImageSize());
-                    if (c2 != null && FileHelper.SaveFile(null, TbConfig.IMAGE_RESIZED_FILE, c2, 85) != null && (resizeBitmap = BitmapHelper.resizeBitmap(c2, 100)) != null) {
-                        FileHelper.SaveFile(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85);
+                    Bitmap c2 = w0.c(0, this.f52931a.getPageContext().getContext(), null, this.f52931a.writeImagesInfo.getChosedFiles().get(0).getFilePath(), TbImageHelper.getInstance().getPostImageSize());
+                    if (c2 != null && FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE, c2, 85) != null && (resizeBitmap = BitmapHelper.resizeBitmap(c2, 100)) != null) {
+                        FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85);
                     }
                 } catch (Exception unused) {
                 }
@@ -235,18 +236,18 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     }
 
     /* loaded from: classes7.dex */
-    public class d implements r<Object> {
+    public class d implements q<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f53001a;
+        public final /* synthetic */ String f52932a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f53002b;
+        public final /* synthetic */ String f52933b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f53003c;
+        public final /* synthetic */ TalkableActivity f52934c;
 
         public d(TalkableActivity talkableActivity, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -263,21 +264,21 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f53003c = talkableActivity;
-            this.f53001a = str;
-            this.f53002b = str2;
+            this.f52934c = talkableActivity;
+            this.f52932a = str;
+            this.f52933b = str2;
         }
 
-        @Override // c.a.q0.d1.r
+        @Override // c.a.q0.d1.q
         public void onReturnDataInUI(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.f53003c.mLocalPicModel = new LocalPicModel(this.f53001a, this.f53002b, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
-                TalkableActivity talkableActivity = this.f53003c;
+                this.f52934c.mLocalPicModel = new LocalPicModel(this.f52932a, this.f52933b, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
+                TalkableActivity talkableActivity = this.f52934c;
                 talkableActivity.mLocalPicModel.setLoadDataCallBack(talkableActivity.mLocalPicModelCallback);
-                this.f53003c.mLocalPicModel.getData();
-                this.f53003c.mListView.hideMore();
-                this.f53003c.writeImagesInfo.clear();
+                this.f52934c.mLocalPicModel.getData();
+                this.f52934c.mListView.hideMore();
+                this.f52934c.writeImagesInfo.clear();
             }
         }
     }
@@ -288,7 +289,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f53004a;
+        public final /* synthetic */ TalkableActivity f52935a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(TalkableActivity talkableActivity, int i2) {
@@ -308,16 +309,16 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f53004a = talkableActivity;
+            this.f52935a = talkableActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof e.a)) {
-                e.a aVar = (e.a) customResponsedMessage.getData();
-                c.a.q0.f1.m.e.b(this.f53004a.getPageContext(), aVar.f13280a, aVar.f13281b, aVar.f13282c);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof f.a)) {
+                f.a aVar = (f.a) customResponsedMessage.getData();
+                c.a.q0.f1.m.f.b(this.f52935a.getPageContext(), aVar.f13288a, aVar.f13289b, aVar.f13290c);
             }
         }
     }
@@ -328,10 +329,10 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f53005e;
+        public final /* synthetic */ String f52936e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f53006f;
+        public final /* synthetic */ TalkableActivity f52937f;
 
         public f(TalkableActivity talkableActivity, String str) {
             Interceptable interceptable = $ic;
@@ -348,15 +349,15 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f53006f = talkableActivity;
-            this.f53005e = str;
+            this.f52937f = talkableActivity;
+            this.f52936e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53006f.mListModel.sendTextMessage(this.f53005e);
+                this.f52937f.mListModel.sendTextMessage(this.f52936e);
             }
         }
     }
@@ -367,7 +368,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f53007a;
+        public final /* synthetic */ TalkableActivity f52938a;
 
         public g(TalkableActivity talkableActivity) {
             Interceptable interceptable = $ic;
@@ -384,40 +385,39 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f53007a = talkableActivity;
+            this.f52938a = talkableActivity;
         }
 
-        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (!c.a.e.e.p.j.z()) {
-                    AbsMsglistView absMsglistView = this.f53007a.mListView;
+                    AbsMsglistView absMsglistView = this.f52938a.mListView;
                     if (absMsglistView != null) {
                         absMsglistView.displayNoNetwork();
                     }
                 } else {
-                    AbsMsglistView absMsglistView2 = this.f53007a.mListView;
+                    AbsMsglistView absMsglistView2 = this.f52938a.mListView;
                     if (absMsglistView2 != null) {
                         absMsglistView2.hideNoNetwork();
                     }
                 }
-                switch (this.f53007a.mListModel.getLoadDataMode()) {
+                switch (this.f52938a.mListModel.getLoadDataMode()) {
                     case 1:
-                        if (this.f53007a.preTime > -1) {
-                            this.f53007a.preTime = -1L;
+                        if (this.f52938a.preTime > -1) {
+                            this.f52938a.preTime = -1L;
                         }
-                        AbsMsglistView absMsglistView3 = this.f53007a.mListView;
+                        AbsMsglistView absMsglistView3 = this.f52938a.mListView;
                         if (absMsglistView3 != null) {
                             absMsglistView3.closeProgress();
-                            TalkableActivity talkableActivity = this.f53007a;
+                            TalkableActivity talkableActivity = this.f52938a;
                             talkableActivity.mListView.refreshGo2New(talkableActivity.mListModel.getData());
                             return;
                         }
                         return;
                     case 2:
-                        TalkableActivity talkableActivity2 = this.f53007a;
+                        TalkableActivity talkableActivity2 = this.f52938a;
                         AbsMsglistView absMsglistView4 = talkableActivity2.mListView;
                         if (absMsglistView4 != null) {
                             absMsglistView4.refreshPrepage(talkableActivity2.mListModel.getData());
@@ -425,7 +425,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                         }
                         return;
                     case 3:
-                        TalkableActivity talkableActivity3 = this.f53007a;
+                        TalkableActivity talkableActivity3 = this.f52938a;
                         AbsMsglistView absMsglistView5 = talkableActivity3.mListView;
                         if (absMsglistView5 != null) {
                             absMsglistView5.refreshCheckNew(talkableActivity3.mListModel.getData());
@@ -434,7 +434,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                         return;
                     case 4:
                     case 12:
-                        TalkableActivity talkableActivity4 = this.f53007a;
+                        TalkableActivity talkableActivity4 = this.f52938a;
                         AbsMsglistView absMsglistView6 = talkableActivity4.mListView;
                         if (absMsglistView6 != null) {
                             absMsglistView6.refreshGo2New(talkableActivity4.mListModel.getData());
@@ -444,7 +444,9 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     case 5:
                     case 6:
                     case 7:
-                        TalkableActivity talkableActivity5 = this.f53007a;
+                    case 13:
+                    case 14:
+                        TalkableActivity talkableActivity5 = this.f52938a;
                         AbsMsglistView absMsglistView7 = talkableActivity5.mListView;
                         if (absMsglistView7 != null) {
                             absMsglistView7.refreshNormal(talkableActivity5.mListModel.getData());
@@ -452,47 +454,32 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                         }
                         return;
                     case 8:
-                        AbsMsglistView absMsglistView8 = this.f53007a.mListView;
+                        AbsMsglistView absMsglistView8 = this.f52938a.mListView;
                         if (absMsglistView8 == null || !(obj instanceof String)) {
                             return;
                         }
                         String str = (String) obj;
                         absMsglistView8.setDraft(str);
-                        this.f53007a.mListModel.setDraft(str);
+                        this.f52938a.mListModel.setDraft(str);
                         return;
                     case 9:
-                        this.f53007a.isNeedSaveDraft = false;
-                        this.f53007a.finish();
+                        this.f52938a.isNeedSaveDraft = false;
+                        this.f52938a.finish();
                         return;
                     case 10:
-                        AbsMsglistView absMsglistView9 = this.f53007a.mListView;
+                        AbsMsglistView absMsglistView9 = this.f52938a.mListView;
                         if (absMsglistView9 == null || !(obj instanceof String)) {
                             return;
                         }
                         absMsglistView9.refreshHeaderFooter((String) obj, true);
                         return;
                     case 11:
-                        TbadkCoreApplication.getInst().login(this.f53007a.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f53007a.getPageContext().getContext())));
-                        this.f53007a.isNeedSaveDraft = false;
-                        this.f53007a.finish();
+                        TbadkCoreApplication.getInst().login(this.f52938a.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f52938a.getPageContext().getContext())));
+                        this.f52938a.isNeedSaveDraft = false;
+                        this.f52938a.finish();
                         return;
-                    case 13:
-                        TalkableActivity talkableActivity6 = this.f53007a;
-                        AbsMsglistView absMsglistView10 = talkableActivity6.mListView;
-                        if (absMsglistView10 != null) {
-                            absMsglistView10.refreshNormal(talkableActivity6.mListModel.getData());
-                            break;
-                        }
-                        break;
-                    case 14:
-                        break;
                     default:
                         return;
-                }
-                TalkableActivity talkableActivity7 = this.f53007a;
-                AbsMsglistView absMsglistView11 = talkableActivity7.mListView;
-                if (absMsglistView11 != null) {
-                    absMsglistView11.refreshNormal(talkableActivity7.mListModel.getData());
                 }
             }
         }
@@ -504,10 +491,10 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f53008e;
+        public final /* synthetic */ int f52939e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f53009f;
+        public final /* synthetic */ TalkableActivity f52940f;
 
         public h(TalkableActivity talkableActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -524,8 +511,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f53009f = talkableActivity;
-            this.f53008e = i2;
+            this.f52940f = talkableActivity;
+            this.f52939e = i2;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -533,7 +520,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f53009f.reSendMsg(this.f53008e);
+                this.f52940f.reSendMsg(this.f52939e);
             }
         }
     }
@@ -544,10 +531,10 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f53010e;
+        public final /* synthetic */ int f52941e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TalkableActivity f53011f;
+        public final /* synthetic */ TalkableActivity f52942f;
 
         public i(TalkableActivity talkableActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -564,8 +551,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     return;
                 }
             }
-            this.f53011f = talkableActivity;
-            this.f53010e = i2;
+            this.f52942f = talkableActivity;
+            this.f52941e = i2;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -573,7 +560,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f53011f.deleteMsg(this.f53010e);
+                this.f52942f.deleteMsg(this.f52941e);
             }
         }
     }
@@ -784,7 +771,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         return (String[]) invokeCommon.objValue;
     }
 
-    @Override // c.a.q0.f1.m.g
+    @Override // c.a.q0.f1.m.i
     public c.a.e.e.k.b<GifView> getGifViewPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -794,7 +781,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         return (c.a.e.e.k.b) invokeV.objValue;
     }
 
-    @Override // c.a.q0.f1.m.g
+    @Override // c.a.q0.f1.m.i
     public c.a.e.e.k.b<ImageView> getImageViewPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -804,11 +791,21 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         return (c.a.e.e.k.b) invokeV.objValue;
     }
 
-    @Override // c.a.q0.f1.m.g
-    public ListView getListView() {
+    @Override // c.a.q0.f1.m.i
+    public c.a.e.e.k.b<ItemCardView> getItemCardViewPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (c.a.e.e.k.b) invokeV.objValue;
+    }
+
+    @Override // c.a.q0.f1.m.i
+    public ListView getListView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             AbsMsglistView absMsglistView = this.mListView;
             if (absMsglistView == null) {
                 return null;
@@ -823,7 +820,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         InterceptResult invokeL;
         View findViewWithTag;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, voiceData$VoiceModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, voiceData$VoiceModel)) == null) {
             AbsMsglistView absMsglistView = this.mListView;
             if (absMsglistView == null || absMsglistView.getMsgListView() == null || (findViewWithTag = this.mListView.getMsgListView().findViewWithTag(voiceData$VoiceModel)) == null || !(findViewWithTag instanceof VoiceManager.i)) {
                 return null;
@@ -833,51 +830,41 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    public c.a.r0.j3.q0.a getRecorderManager() {
+    public c.a.r0.k3.q0.a getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             VoiceManager voiceManager = this.mVoiceManager;
             if (voiceManager == null || voiceManager.getRecorderManager() == null) {
                 return null;
             }
             return this.mVoiceManager.getRecorderManager();
         }
-        return (c.a.r0.j3.q0.a) invokeV.objValue;
+        return (c.a.r0.k3.q0.a) invokeV.objValue;
     }
 
-    @Override // c.a.q0.f1.m.g
+    @Override // c.a.q0.f1.m.i
     public c.a.e.e.k.b<RelativeLayout> getRelativeLayoutPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return null;
         }
         return (c.a.e.e.k.b) invokeV.objValue;
     }
 
-    @Override // c.a.q0.f1.m.g
+    @Override // c.a.q0.f1.m.i
     public int getRichTextViewId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // c.a.q0.f1.m.g
+    @Override // c.a.q0.f1.m.i
     public c.a.e.e.k.b<TextView> getTextViewPool() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return null;
-        }
-        return (c.a.e.e.k.b) invokeV.objValue;
-    }
-
-    @Override // c.a.q0.f1.m.g
-    public c.a.e.e.k.b<LinearLayout> getTextVoiceViewPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -886,11 +873,21 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         return (c.a.e.e.k.b) invokeV.objValue;
     }
 
-    @Override // c.a.q0.f1.m.g
-    public c.a.e.e.k.b<TiebaPlusRecommendCard> getTiejiaRecommendPool() {
+    @Override // c.a.q0.f1.m.i
+    public c.a.e.e.k.b<LinearLayout> getTextVoiceViewPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return null;
+        }
+        return (c.a.e.e.k.b) invokeV.objValue;
+    }
+
+    @Override // c.a.q0.f1.m.i
+    public c.a.e.e.k.b<TiebaPlusRecommendCard> getTiejiaRecommendPool() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return null;
         }
         return (c.a.e.e.k.b) invokeV.objValue;
@@ -900,14 +897,14 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public VoiceManager getVoiceManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mVoiceManager : (VoiceManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mVoiceManager : (VoiceManager) invokeV.objValue;
     }
 
-    @Override // c.a.q0.f1.m.g
+    @Override // c.a.q0.f1.m.i
     public c.a.e.e.k.b<View> getVoiceViewPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return null;
         }
         return (c.a.e.e.k.b) invokeV.objValue;
@@ -915,7 +912,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
 
     public void initCallback() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             this.mLocalPicModelCallback = new a(this);
         }
     }
@@ -923,7 +920,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public boolean isExStorageOk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             if (FileHelper.checkSD()) {
                 return true;
             }
@@ -937,7 +934,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public void onActivityResult(int i2, int i3, Intent intent) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048593, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048594, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             if (i3 != -1) {
                 if (i3 == 0) {
@@ -989,7 +986,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                     this.writeImagesInfo.parseJson(stringExtra2);
                     WriteImagesInfo writeImagesInfo = this.writeImagesInfo;
                     if (writeImagesInfo != null && !ListUtils.isEmpty(writeImagesInfo.getChosedFiles()) && this.writeImagesInfo.getChosedFiles().get(0) != null && this.writeImagesInfo.getChosedFiles().get(0).getFilePath() != null) {
-                        m0.b(new c(this), new d(this, str, stringExtra));
+                        l0.b(new c(this), new d(this, str, stringExtra));
                         return;
                     }
                     LocalPicModel localPicModel2 = new LocalPicModel(str, stringExtra, null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
@@ -1008,17 +1005,17 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         }
     }
 
-    @Override // c.a.q0.f1.m.g
+    @Override // c.a.q0.f1.m.i
     public void onAtClicked(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048595, this, context, str) == null) {
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, view) == null) || view == null || this.mListView == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, view) == null) || view == null || this.mListView == null) {
             return;
         }
         stopVoice();
@@ -1034,7 +1031,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackIsSupportNight(false);
             Intent intent = getIntent();
@@ -1054,7 +1051,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             MsglistModel msglistModel = this.mListModel;
             if (msglistModel != null) {
                 msglistModel.onDestroy();
@@ -1082,7 +1079,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     @Override // c.a.q0.s.s.i.e
     public void onItemClick(c.a.q0.s.s.i iVar, int i2, View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048598, this, iVar, i2, view) == null) && this.mListView.getMsgItemOperationDialog() != null && iVar.f() == this.mListView.getMsgItemOperationDialog().getContentView()) {
+        if ((interceptable == null || interceptable.invokeLIL(1048599, this, iVar, i2, view) == null) && this.mListView.getMsgItemOperationDialog() != null && iVar.f() == this.mListView.getMsgItemOperationDialog().getContentView()) {
             int intValue = ((Integer) iVar.f().getTag()).intValue();
             if (view instanceof TextView) {
                 String charSequence = ((TextView) view).getText().toString();
@@ -1101,7 +1098,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         ChatMessage msg2;
         String content2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
             if (i2 == 1) {
                 c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(getPageContext().getPageActivity());
                 aVar.setMessage(TbadkCoreApplication.getInst().getString(R.string.sure_to_resend_this_message));
@@ -1110,7 +1107,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                 aVar.create(getPageContext()).show();
             } else if (i2 == 8) {
                 ChatMessage msg3 = this.mListModel.getMsg(i3);
-                if (msg3 == null || !c.a.r0.k1.w.c.r(msg3) || (msg = this.mListModel.getMsg(i3)) == null || (content = msg.getContent()) == null) {
+                if (msg3 == null || !c.a.r0.l1.w.c.r(msg3) || (msg = this.mListModel.getMsg(i3)) == null || (content = msg.getContent()) == null) {
                     return;
                 }
                 try {
@@ -1126,14 +1123,14 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                 if (msg4 == null || msg4.getContent() == null) {
                     return;
                 }
-                c.a.r0.k1.y.a aVar2 = new c.a.r0.k1.y.a();
+                c.a.r0.l1.y.a aVar2 = new c.a.r0.l1.y.a();
                 aVar2.c(msg4.getContent(), getClass().getName());
                 if (aVar2.b() != 4 || aVar2.a() == null || StringUtils.isNull(((ShareFromFrsMsgData) aVar2.a()).getName())) {
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromFrsMsgData) aVar2.a()).getName(), null)));
             } else if (i2 == 5) {
-                if (isExStorageOk() && (msg2 = this.mListModel.getMsg(i3)) != null && c.a.r0.k1.w.c.t(msg2)) {
+                if (isExStorageOk() && (msg2 = this.mListModel.getMsg(i3)) != null && c.a.r0.l1.w.c.t(msg2)) {
                 }
             } else if (i2 != 6) {
                 switch (i2) {
@@ -1151,7 +1148,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                         } catch (Exception e3) {
                             BdLog.e(e3.toString());
                         }
-                        c.a.r0.k1.y.a aVar3 = new c.a.r0.k1.y.a();
+                        c.a.r0.l1.y.a aVar3 = new c.a.r0.l1.y.a();
                         aVar3.c(msg5.getContent(), getClass().getName());
                         if (aVar3.b() == 1 && aVar3.a() != null) {
                             String theNewThemeId = ((ShareFromPBMsgData) aVar3.a()).getTheNewThemeId();
@@ -1179,7 +1176,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                         if (msg6 == null || msg6.getContent() == null) {
                             return;
                         }
-                        c.a.r0.k1.y.a aVar4 = new c.a.r0.k1.y.a();
+                        c.a.r0.l1.y.a aVar4 = new c.a.r0.l1.y.a();
                         aVar4.c(msg6.getContent(), getClass().getName());
                         if (aVar4.b() == 1 && aVar4.a() != null) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001255, aVar4));
@@ -1195,7 +1192,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                         if (msg7 == null || msg7.getContent() == null) {
                             return;
                         }
-                        c.a.r0.k1.y.a aVar5 = new c.a.r0.k1.y.a();
+                        c.a.r0.l1.y.a aVar5 = new c.a.r0.l1.y.a();
                         aVar5.c(msg7.getContent(), getClass().getName());
                         if (aVar5.b() == 1 && aVar5.a() != null) {
                             UrlManager.getInstance().dealOneLink((TbPageContext<?>) getPageContext(), new String[]{((ShareFromGameCenterMsgData) aVar5.a()).getShareSourceUrl()}, true);
@@ -1229,7 +1226,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
 
     public void onItemViewLongClick(View view, int i2, int i3, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
             this.mLastLongClickItem = view;
             ChatMessage msg = this.mListModel.getMsg(i3);
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
@@ -1252,7 +1249,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048601, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048602, this, i2, keyEvent)) == null) {
             if (4 == i2) {
                 AbsMsglistView absMsglistView = this.mListView;
                 if (absMsglistView != null && absMsglistView.isMoreVisible()) {
@@ -1269,14 +1266,14 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
 
     public void onLinkButtonClicked(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048602, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048603, this, context, str) == null) {
         }
     }
 
-    @Override // c.a.q0.f1.m.g
+    @Override // c.a.q0.f1.m.i
     public void onLinkClicked(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048603, this, context, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048604, this, context, str, z) == null) {
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str});
         }
     }
@@ -1284,7 +1281,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, intent) == null) {
             super.onNewIntent(intent);
             if (intent != null) {
                 this.preTime = intent.getLongExtra("TibaStatic.StartTime", -1L);
@@ -1299,7 +1296,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
             super.onPause();
             this.isForeground = false;
             VoiceManager voiceManager = this.mVoiceManager;
@@ -1310,17 +1307,17 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         }
     }
 
-    @Override // c.a.q0.f1.m.g
+    @Override // c.a.q0.f1.m.i
     public void onPhoneClicked(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048606, this, context, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048607, this, context, str, str2) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(1048607, this, i2, strArr, iArr) == null) && i2 == 1) {
+        if ((interceptable == null || interceptable.invokeILL(1048608, this, i2, strArr, iArr) == null) && i2 == 1) {
             if (PermissionUtil.checkCamera(getApplicationContext())) {
                 SelectImageHelper.takePhoto(getPageContext());
             } else {
@@ -1337,7 +1334,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRestart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             super.onRestart();
         }
     }
@@ -1345,7 +1342,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
             super.onResume();
             this.isForeground = true;
             VoiceManager voiceManager = this.mVoiceManager;
@@ -1361,7 +1358,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public void onSaveInstanceState(Bundle bundle) {
         VoiceManager voiceManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048610, this, bundle) == null) || (voiceManager = this.mVoiceManager) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048611, this, bundle) == null) || (voiceManager = this.mVoiceManager) == null) {
             return;
         }
         voiceManager.onSaveInstanceState(getPageContext().getPageActivity());
@@ -1370,7 +1367,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
             this.mListView.closeNewMsg();
         }
     }
@@ -1378,22 +1375,22 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     @Override // com.baidu.adp.widget.ListView.BdListView.s
     public void onScrollToTop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             prepage();
         }
     }
 
-    @Override // c.a.q0.f1.m.g
+    @Override // c.a.q0.f1.m.i
     public void onSongClicked(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048613, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048614, this, context, str) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
             super.onStart();
             VoiceManager voiceManager = this.mVoiceManager;
             if (voiceManager != null) {
@@ -1405,7 +1402,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
             super.onStop();
             VoiceManager voiceManager = this.mVoiceManager;
             if (voiceManager != null) {
@@ -1418,7 +1415,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public boolean onTouch(View view, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048616, this, view, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048617, this, view, motionEvent)) == null) {
             if (view == this.mListView.getBtnSendVoice()) {
                 Activity pageActivity = getPageContext().getPageActivity();
                 if (this.mPermissionJudgement == null) {
@@ -1430,7 +1427,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                 if (this.mPermissionJudgement.startRequestPermission(pageActivity)) {
                     return false;
                 }
-                c.a.r0.j3.q0.a recorderManager = getRecorderManager();
+                c.a.r0.k3.q0.a recorderManager = getRecorderManager();
                 if (motionEvent.getAction() == 0) {
                     if (this.mVoiceManager == null || !recorderManager.e()) {
                         return true;
@@ -1478,23 +1475,23 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
         return invokeLL.booleanValue;
     }
 
-    @Override // c.a.q0.f1.m.g
+    @Override // c.a.q0.f1.m.i
     public void onVideoClicked(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048617, this, context, str) == null) {
-        }
-    }
-
-    @Override // c.a.q0.f1.m.g
-    public void onVideoP2PClicked(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048618, this, context, str) == null) {
         }
     }
 
+    @Override // c.a.q0.f1.m.i
+    public void onVideoP2PClicked(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048619, this, context, str) == null) {
+        }
+    }
+
     public void openImageView() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048619, this) == null) && isExStorageOk()) {
+        if ((interceptable == null || interceptable.invokeV(1048620, this) == null) && isExStorageOk()) {
             this.writeImagesInfo.mIsFromIm = true;
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) getPageContext().getPageActivity(), this.writeImagesInfo.toJsonString(), true, false);
             albumActivityConfig.setRequestCode(12002);
@@ -1506,7 +1503,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public void operateMsgItem(int i2, String str) {
         VoiceManager voiceManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048620, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048621, this, i2, str) == null) {
             ChatMessage msg = this.mListModel.getMsg(i2);
             if (str.equals(TbadkCoreApplication.getInst().getString(R.string.copy))) {
                 if (msg == null || msg.getCacheData() == null) {
@@ -1527,7 +1524,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                 this.mListModel.markDeleteMsg(i2);
                 showToast(R.string.delete_success);
             } else if (str.equals(TbadkCoreApplication.getInst().getString(R.string.save))) {
-                String f2 = c.a.r0.k1.w.c.f(msg.getContent(), true);
+                String f2 = c.a.r0.l1.w.c.f(msg.getContent(), true);
                 if (f2 == null) {
                     return;
                 }
@@ -1540,7 +1537,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
                 if (this.mPermissionJudgement.startRequestPermission(pageActivity)) {
                     return;
                 }
-                c.a.r0.k1.f.g gVar = new c.a.r0.k1.f.g(f2, this);
+                c.a.r0.l1.f.g gVar = new c.a.r0.l1.f.g(f2, this);
                 this.mSaveImageTask = gVar;
                 gVar.c();
             } else if (str.equals(TbadkCoreApplication.getInst().getString(R.string.group_open_receiver)) || str.equals(TbadkCoreApplication.getInst().getString(R.string.group_close_receiver))) {
@@ -1560,19 +1557,19 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
     public boolean saveDraft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.mListModel.saveDraft(this.mListView.getDraft()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.mListModel.saveDraft(this.mListView.getDraft()) : invokeV.booleanValue;
     }
 
     public void sendBigEmotionMsg(v vVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, vVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048623, this, vVar) == null) {
             this.mListModel.sendBigEmotionMessage(vVar);
         }
     }
 
     public void sendTextMsg() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
             String beforeSendMsgText = this.mListView.beforeSendMsgText();
             if (TextUtils.isEmpty(beforeSendMsgText)) {
                 return;
@@ -1584,21 +1581,21 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
 
     public void setImageSendAuthInIM(j jVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, jVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048625, this, jVar) == null) {
             this.mImageSendAuthInIM = jVar;
         }
     }
 
     public void setListModel(MsglistModel msglistModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, msglistModel) == null) {
+        if (interceptable == null || interceptable.invokeL(1048626, this, msglistModel) == null) {
             this.mListModel = msglistModel;
         }
     }
 
     public void setMsgListView(AbsMsglistView absMsglistView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, absMsglistView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048627, this, absMsglistView) == null) {
             this.mListView = absMsglistView;
         }
     }

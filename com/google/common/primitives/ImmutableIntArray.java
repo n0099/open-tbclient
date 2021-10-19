@@ -166,10 +166,10 @@ public final class ImmutableIntArray implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int[] f71149a;
+        public int[] f71184a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f71150b;
+        public int f71185b;
 
         public b(int i2) {
             Interceptable interceptable = $ic;
@@ -186,8 +186,8 @@ public final class ImmutableIntArray implements Serializable {
                     return;
                 }
             }
-            this.f71150b = 0;
-            this.f71149a = new int[i2];
+            this.f71185b = 0;
+            this.f71184a = new int[i2];
         }
 
         public static int f(int i2, int i3) {
@@ -214,10 +214,10 @@ public final class ImmutableIntArray implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
                 e(1);
-                int[] iArr = this.f71149a;
-                int i3 = this.f71150b;
+                int[] iArr = this.f71184a;
+                int i3 = this.f71185b;
                 iArr[i3] = i2;
-                this.f71150b = i3 + 1;
+                this.f71185b = i3 + 1;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -245,9 +245,9 @@ public final class ImmutableIntArray implements Serializable {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
                 e(collection.size());
                 for (Integer num : collection) {
-                    int[] iArr = this.f71149a;
-                    int i2 = this.f71150b;
-                    this.f71150b = i2 + 1;
+                    int[] iArr = this.f71184a;
+                    int i2 = this.f71185b;
+                    this.f71185b = i2 + 1;
                     iArr[i2] = num.intValue();
                 }
                 return this;
@@ -258,18 +258,18 @@ public final class ImmutableIntArray implements Serializable {
         public ImmutableIntArray d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71150b == 0 ? ImmutableIntArray.EMPTY : new ImmutableIntArray(this.f71149a, 0, this.f71150b, null) : (ImmutableIntArray) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71185b == 0 ? ImmutableIntArray.EMPTY : new ImmutableIntArray(this.f71184a, 0, this.f71185b, null) : (ImmutableIntArray) invokeV.objValue;
         }
 
         public final void e(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                int i3 = this.f71150b + i2;
-                int[] iArr = this.f71149a;
+                int i3 = this.f71185b + i2;
+                int[] iArr = this.f71184a;
                 if (i3 > iArr.length) {
                     int[] iArr2 = new int[f(iArr.length, i3)];
-                    System.arraycopy(this.f71149a, 0, iArr2, 0, this.f71150b);
-                    this.f71149a = iArr2;
+                    System.arraycopy(this.f71184a, 0, iArr2, 0, this.f71185b);
+                    this.f71184a = iArr2;
                 }
             }
         }

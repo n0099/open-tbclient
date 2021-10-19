@@ -19,7 +19,7 @@ public class ap {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f78442a;
+    public static String f78477a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final String[] f901a;
@@ -103,7 +103,7 @@ public class ap {
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, intent) == null) {
             int i2 = -1;
             while (true) {
-                str = i2 < 0 ? f78442a : f901a[i2];
+                str = i2 < 0 ? f78477a : f901a[i2];
                 if (!TextUtils.isEmpty(str)) {
                     intent.setPackage(str);
                     try {
@@ -121,7 +121,7 @@ public class ap {
                 }
             }
             intent.setPackage(str);
-            f78442a = str;
+            f78477a = str;
         }
     }
 

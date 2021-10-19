@@ -161,9 +161,17 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         }
     }
 
-    public void setTransmitOriginThreadComment(String str) {
+    public void setTopicId(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || getIntent() == null) {
+            return;
+        }
+        getIntent().putExtra("topic_id", str);
+    }
+
+    public void setTransmitOriginThreadComment(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TRANSMIT_ORIGIN_THREAD_CONTENT, str);
@@ -171,7 +179,7 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
 
     public void setTransmitThreadAuthorNameShow(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);

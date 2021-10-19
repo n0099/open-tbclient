@@ -10,7 +10,7 @@ public class s extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64475a;
+    public int f64510a;
 
     public s(int i2) {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class s extends Exception {
                 return;
             }
         }
-        this.f64475a = i2;
+        this.f64510a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,6 +48,6 @@ public class s extends Exception {
                 return;
             }
         }
-        this.f64475a = i2;
+        this.f64510a = i2;
     }
 }

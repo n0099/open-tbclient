@@ -35,11 +35,11 @@ public class BaiduWalletServiceController {
     public static final String H5CHECKPWDCB = "H5CheckPwd";
 
     /* renamed from: b  reason: collision with root package name */
-    public static LoginBackListenerProxy f69811b;
+    public static LoginBackListenerProxy f69846b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f69812a;
+    public long f69847a;
 
     /* loaded from: classes9.dex */
     public class a implements RouterCallback {
@@ -134,13 +134,13 @@ public class BaiduWalletServiceController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f69813e;
+        public final /* synthetic */ Intent f69848e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f69814f;
+        public final /* synthetic */ boolean f69849f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f69815g;
+        public final /* synthetic */ Context f69850g;
 
         public d(Intent intent, boolean z, Context context) {
             Interceptable interceptable = $ic;
@@ -157,32 +157,32 @@ public class BaiduWalletServiceController {
                     return;
                 }
             }
-            this.f69813e = intent;
-            this.f69814f = z;
-            this.f69815g = context;
+            this.f69848e = intent;
+            this.f69849f = z;
+            this.f69850g = context;
         }
 
         @Override // com.baidu.wallet.api.ILoginBackListener
         public void onFail(int i2, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) && i2 == 603) {
-                WalletLoginHelper.getInstance().onlyLogin(BaiduWalletServiceController.f69811b);
+                WalletLoginHelper.getInstance().onlyLogin(BaiduWalletServiceController.f69846b);
             }
         }
 
         @Override // com.baidu.wallet.api.ILoginBackListener
         public void onSuccess(int i2, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || BaiduWalletServiceController.f69811b.getContext() == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || BaiduWalletServiceController.f69846b.getContext() == null) {
                 return;
             }
-            this.f69813e.putExtra("with_anim", this.f69814f);
-            BaiduWalletServiceController.f69811b.getContext().startActivity(this.f69813e);
-            if (BaiduWalletServiceController.f69811b.getContext() instanceof Activity) {
-                if (this.f69814f) {
-                    BaiduWalletUtils.startActivityAnim(this.f69815g);
+            this.f69848e.putExtra("with_anim", this.f69849f);
+            BaiduWalletServiceController.f69846b.getContext().startActivity(this.f69848e);
+            if (BaiduWalletServiceController.f69846b.getContext() instanceof Activity) {
+                if (this.f69849f) {
+                    BaiduWalletUtils.startActivityAnim(this.f69850g);
                 } else {
-                    BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) this.f69815g);
+                    BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) this.f69850g);
                 }
             }
         }
@@ -281,13 +281,13 @@ public class BaiduWalletServiceController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f69816e;
+        public final /* synthetic */ Context f69851e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Intent f69817f;
+        public final /* synthetic */ Intent f69852f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f69818g;
+        public final /* synthetic */ boolean f69853g;
 
         public h(Context context, Intent intent, boolean z) {
             Interceptable interceptable = $ic;
@@ -304,19 +304,19 @@ public class BaiduWalletServiceController {
                     return;
                 }
             }
-            this.f69816e = context;
-            this.f69817f = intent;
-            this.f69818g = z;
+            this.f69851e = context;
+            this.f69852f = intent;
+            this.f69853g = z;
         }
 
         @Override // com.baidu.wallet.api.ILoginBackListener
         public void onFail(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                this.f69816e.startActivity(this.f69817f);
-                Context context = this.f69816e;
+                this.f69851e.startActivity(this.f69852f);
+                Context context = this.f69851e;
                 if (context instanceof Activity) {
-                    if (this.f69818g) {
+                    if (this.f69853g) {
                         BaiduWalletUtils.startActivityAnim(context);
                     } else {
                         BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context);
@@ -329,10 +329,10 @@ public class BaiduWalletServiceController {
         public void onSuccess(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f69816e.startActivity(this.f69817f);
-                Context context = this.f69816e;
+                this.f69851e.startActivity(this.f69852f);
+                Context context = this.f69851e;
                 if (context instanceof Activity) {
-                    if (this.f69818g) {
+                    if (this.f69853g) {
                         BaiduWalletUtils.startActivityAnim(context);
                     } else {
                         BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context);
@@ -463,7 +463,7 @@ public class BaiduWalletServiceController {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduWalletServiceController f69819a;
+        public static BaiduWalletServiceController f69854a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -479,7 +479,7 @@ public class BaiduWalletServiceController {
                     return;
                 }
             }
-            f69819a = new BaiduWalletServiceController(null);
+            f69854a = new BaiduWalletServiceController(null);
         }
     }
 
@@ -505,7 +505,7 @@ public class BaiduWalletServiceController {
     public static BaiduWalletServiceController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? m.f69819a : (BaiduWalletServiceController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? m.f69854a : (BaiduWalletServiceController) invokeV.objValue;
     }
 
     public static void getOpenBdussFirst(Context context, Intent intent, boolean z, boolean z2) {
@@ -521,8 +521,8 @@ public class BaiduWalletServiceController {
             if (!(context instanceof Activity)) {
                 intent.setFlags(268435456);
             }
-            f69811b = new LoginBackListenerProxy(context, new d(intent, z, context));
-            WalletLoginHelper.getInstance().login(f69811b);
+            f69846b = new LoginBackListenerProxy(context, new d(intent, z, context));
+            WalletLoginHelper.getInstance().login(f69846b);
         }
     }
 
@@ -555,10 +555,10 @@ public class BaiduWalletServiceController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = currentTimeMillis - this.f69812a;
+            long j2 = currentTimeMillis - this.f69847a;
             LogUtil.logd("timeD=" + j2);
             if (0 >= j2 || j2 >= 800) {
-                this.f69812a = currentTimeMillis;
+                this.f69847a = currentTimeMillis;
                 return false;
             }
             return true;

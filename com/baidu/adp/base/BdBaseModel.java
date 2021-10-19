@@ -53,13 +53,11 @@ public abstract class BdBaseModel<T> extends OrmObject {
         }
     }
 
-    public abstract boolean LoadData();
-
     public abstract boolean cancelLoadData();
 
     public void cancelMessage() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             check();
             MessageManager.getInstance().removeMessage(this.unique_id);
         }
@@ -68,26 +66,28 @@ public abstract class BdBaseModel<T> extends OrmObject {
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mErrorCode : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mErrorCode : invokeV.intValue;
     }
 
     public String getErrorString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mErrorString : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mErrorString : (String) invokeV.objValue;
     }
 
     public int getLoadDataMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mLoadDataMode : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mLoadDataMode : invokeV.intValue;
     }
 
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.unique_id : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.unique_id : (BdUniqueId) invokeV.objValue;
     }
+
+    public abstract boolean loadData();
 
     public void registerListener(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;

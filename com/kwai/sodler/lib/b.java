@@ -11,7 +11,7 @@ public class b implements com.kwai.sodler.lib.a.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a f74694a;
+    public b.a f74729a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class b implements com.kwai.sodler.lib.a.b {
     public void a(com.kwai.sodler.lib.a.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            b.a aVar = this.f74694a;
+            b.a aVar = this.f74729a;
             if (aVar != null) {
                 fVar.a(aVar.a(fVar.i()));
             } else {

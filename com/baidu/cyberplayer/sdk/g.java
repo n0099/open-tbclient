@@ -21,13 +21,13 @@ public class g extends SurfaceView implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public i.a f39140a;
+    public i.a f39144a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f39141b;
+    public a f39145b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Surface f39142c;
+    public Surface f39146c;
 
     /* renamed from: com.baidu.cyberplayer.sdk.g$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -42,7 +42,7 @@ public class g extends SurfaceView implements i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f39143a;
+        public final /* synthetic */ g f39147a;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class g extends SurfaceView implements i {
                     return;
                 }
             }
-            this.f39143a = gVar;
+            this.f39147a = gVar;
         }
 
         public /* synthetic */ a(g gVar, AnonymousClass1 anonymousClass1) {
@@ -77,9 +77,9 @@ public class g extends SurfaceView implements i {
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceHolder) == null) {
-                CyberLog.d("SurfaceCallback", "BVideoView surfaceCreated mCyberSurfaceListener:" + this.f39143a.f39140a);
-                if (this.f39143a.f39140a != null) {
-                    this.f39143a.f39140a.a(2);
+                CyberLog.d("SurfaceCallback", "BVideoView surfaceCreated mCyberSurfaceListener:" + this.f39147a.f39144a);
+                if (this.f39147a.f39144a != null) {
+                    this.f39147a.f39144a.a(2);
                 }
             }
         }
@@ -88,7 +88,7 @@ public class g extends SurfaceView implements i {
         public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, surfaceHolder) == null) {
-                CyberLog.d("SurfaceCallback", "surfaceDestroyed mCyberSurfaceListener:" + this.f39143a.f39140a);
+                CyberLog.d("SurfaceCallback", "surfaceDestroyed mCyberSurfaceListener:" + this.f39147a.f39144a);
             }
         }
     }
@@ -113,8 +113,8 @@ public class g extends SurfaceView implements i {
         }
         CyberLog.d("CyberSurfaceView", "CyberSurfaceView constructor called");
         getHolder().setType(0);
-        this.f39141b = new a(this, null);
-        getHolder().addCallback(this.f39141b);
+        this.f39145b = new a(this, null);
+        getHolder().addCallback(this.f39145b);
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -131,12 +131,12 @@ public class g extends SurfaceView implements i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Surface surface = this.f39142c;
+            Surface surface = this.f39146c;
             if (surface != null) {
                 surface.release();
             }
-            this.f39142c = null;
-            CyberLog.d("BVideoView", "release mSurface:" + this.f39142c);
+            this.f39146c = null;
+            CyberLog.d("BVideoView", "release mSurface:" + this.f39146c);
         }
     }
 
@@ -168,7 +168,7 @@ public class g extends SurfaceView implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             Surface surface = getHolder().getSurface();
-            this.f39142c = surface;
+            this.f39146c = surface;
             return surface;
         }
         return (Surface) invokeV.objValue;
@@ -188,12 +188,12 @@ public class g extends SurfaceView implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.finalize();
-            CyberLog.d("CyberSurfaceView", "CyberSurfaceView finalize called mSurface:" + this.f39142c);
-            Surface surface = this.f39142c;
+            CyberLog.d("CyberSurfaceView", "CyberSurfaceView finalize called mSurface:" + this.f39146c);
+            Surface surface = this.f39146c;
             if (surface != null) {
                 surface.release();
-                this.f39142c = null;
-                getHolder().removeCallback(this.f39141b);
+                this.f39146c = null;
+                getHolder().removeCallback(this.f39145b);
             }
         }
     }
@@ -225,7 +225,7 @@ public class g extends SurfaceView implements i {
     public void setCyberSurfaceListener(i.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            this.f39140a = aVar;
+            this.f39144a = aVar;
         }
     }
 

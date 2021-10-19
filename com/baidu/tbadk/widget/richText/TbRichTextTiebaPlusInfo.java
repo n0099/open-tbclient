@@ -17,19 +17,19 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TiebaPlusInfo f48988e;
+    public final TiebaPlusInfo f48914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f48989f;
+    public final int f48915f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48990g;
+    public String f48916g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f48991h;
+    public String f48917h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d2 f48992i;
+    public d2 f48918i;
 
     public TbRichTextTiebaPlusInfo(int i2, TiebaPlusInfo tiebaPlusInfo) {
         Interceptable interceptable = $ic;
@@ -46,40 +46,40 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
                 return;
             }
         }
-        this.f48988e = tiebaPlusInfo;
-        this.f48989f = i2;
+        this.f48914e = tiebaPlusInfo;
+        this.f48915f = i2;
     }
 
     public void A(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, d2Var) == null) {
-            this.f48992i = d2Var;
+            this.f48918i = d2Var;
         }
     }
 
     public String getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48991h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48917h : (String) invokeV.objValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48989f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48915f : invokeV.intValue;
     }
 
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f48991h = str;
+            this.f48917h = str;
         }
     }
 
     public void setTid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f48990g = str;
+            this.f48916g = str;
         }
     }
 
@@ -87,7 +87,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            d2 d2Var = this.f48992i;
+            d2 d2Var = this.f48918i;
             return d2Var == null ? "0" : String.valueOf(d2Var.R());
         }
         return (String) invokeV.objValue;
@@ -96,19 +96,19 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
     public d2 x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f48992i : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f48918i : (d2) invokeV.objValue;
     }
 
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f48990g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f48916g : (String) invokeV.objValue;
     }
 
     public TiebaPlusInfo z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f48988e : (TiebaPlusInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f48914e : (TiebaPlusInfo) invokeV.objValue;
     }
 
     public TbRichTextTiebaPlusInfo(int i2, JSONObject jSONObject) {
@@ -126,7 +126,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
                 return;
             }
         }
-        this.f48989f = i2;
+        this.f48915f = i2;
         TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
         builder.app_company = jSONObject.optString("app_company");
         builder.title = jSONObject.optString("title");
@@ -140,6 +140,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         builder.app_privacy = jSONObject.optString("app_privacy");
         builder.app_power = jSONObject.optString("app_power");
         builder.h5_jump_type = Integer.valueOf(jSONObject.optInt("h5_jump_type"));
-        this.f48988e = builder.build(true);
+        builder.jump_type = Integer.valueOf(jSONObject.optInt("jump_type"));
+        this.f48914e = builder.build(true);
     }
 }

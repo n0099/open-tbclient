@@ -1,140 +1,48 @@
 package c.a.q0.f1.m;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PbContent;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
 /* loaded from: classes3.dex */
-public class i {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface i {
+    c.a.e.e.k.b<GifView> getGifViewPool();
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f13284a;
+    c.a.e.e.k.b<ImageView> getImageViewPool();
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f13285b;
+    c.a.e.e.k.b<ItemCardView> getItemCardViewPool();
 
-    /* renamed from: c  reason: collision with root package name */
-    public int f13286c;
+    ListView getListView();
 
-    /* renamed from: d  reason: collision with root package name */
-    public int f13287d;
+    c.a.e.e.k.b<RelativeLayout> getRelativeLayoutPool();
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f13288e;
+    int getRichTextViewId();
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f13289f;
+    c.a.e.e.k.b<TextView> getTextViewPool();
 
-    /* renamed from: g  reason: collision with root package name */
-    public int f13290g;
+    c.a.e.e.k.b<LinearLayout> getTextVoiceViewPool();
 
-    /* renamed from: h  reason: collision with root package name */
-    public int f13291h;
+    c.a.e.e.k.b<TiebaPlusRecommendCard> getTiejiaRecommendPool();
 
-    /* renamed from: i  reason: collision with root package name */
-    public int f13292i;
+    c.a.e.e.k.b<View> getVoiceViewPool();
 
-    public i() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void onAtClicked(Context context, String str);
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13289f : (String) invokeV.objValue;
-    }
+    void onLinkButtonClicked(Context context, String str);
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13290g : invokeV.intValue;
-    }
+    void onLinkClicked(Context context, String str, boolean z);
 
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13292i : invokeV.intValue;
-    }
+    void onPhoneClicked(Context context, String str, String str2);
 
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13287d : invokeV.intValue;
-    }
+    void onSongClicked(Context context, String str);
 
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13291h : invokeV.intValue;
-    }
+    void onVideoClicked(Context context, String str);
 
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13285b : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13284a : (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13286c : invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? !StringUtils.isNull(this.f13284a) && this.f13286c > 0 && this.f13287d > 0 : invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f13288e == 15 : invokeV.booleanValue;
-    }
-
-    public void k(PbContent pbContent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, pbContent) == null) || pbContent == null) {
-            return;
-        }
-        this.f13284a = pbContent.link;
-        this.f13285b = pbContent.src;
-        this.f13286c = pbContent.width.intValue();
-        this.f13287d = pbContent.height.intValue();
-        this.f13288e = pbContent.e_type.intValue();
-        this.f13289f = pbContent.text;
-        this.f13290g = pbContent.during_time.intValue();
-        this.f13291h = pbContent.count.intValue();
-        this.f13292i = pbContent.origin_size.intValue();
-    }
-
-    public void l(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f13291h = i2;
-        }
-    }
+    void onVideoP2PClicked(Context context, String str);
 }

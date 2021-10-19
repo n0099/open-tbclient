@@ -10,13 +10,13 @@ import org.apache.commons.lang3.StringUtils;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f74875a;
+    public final String[] f74910a;
 
     /* loaded from: classes10.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<String> f74876a = new ArrayList(20);
+        public final List<String> f74911a = new ArrayList(20);
 
         private void c(String str, String str2) {
             if (str == null) {
@@ -54,18 +54,18 @@ public final class c {
         }
 
         public a b(String str, String str2) {
-            this.f74876a.add(str);
-            this.f74876a.add(str2.trim());
+            this.f74911a.add(str);
+            this.f74911a.add(str2.trim());
             return this;
         }
     }
 
     public c(a aVar) {
-        this.f74875a = (String[]) aVar.f74876a.toArray(new String[aVar.f74876a.size()]);
+        this.f74910a = (String[]) aVar.f74911a.toArray(new String[aVar.f74911a.size()]);
     }
 
     public c(String[] strArr) {
-        this.f74875a = strArr;
+        this.f74910a = strArr;
     }
 
     public static c a(String... strArr) {
@@ -99,19 +99,19 @@ public final class c {
     }
 
     public int a() {
-        return this.f74875a.length / 2;
+        return this.f74910a.length / 2;
     }
 
     public String a(int i2) {
-        return this.f74875a[i2 * 2];
+        return this.f74910a[i2 * 2];
     }
 
     public String a(String str) {
-        return a(this.f74875a, str);
+        return a(this.f74910a, str);
     }
 
     public String b(int i2) {
-        return this.f74875a[(i2 * 2) + 1];
+        return this.f74910a[(i2 * 2) + 1];
     }
 
     public Set<String> b() {
@@ -125,7 +125,7 @@ public final class c {
 
     public a c() {
         a aVar = new a();
-        Collections.addAll(aVar.f74876a, this.f74875a);
+        Collections.addAll(aVar.f74911a, this.f74910a);
         return aVar;
     }
 

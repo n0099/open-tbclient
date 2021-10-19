@@ -2,10 +2,10 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.a0;
 import c.a.q0.d1.g;
-import c.a.r0.y2.j0.a;
-import c.a.r0.y2.l0.b;
+import c.a.q0.d1.z;
+import c.a.r0.z2.j0.a;
+import c.a.r0.z2.l0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -194,7 +194,7 @@ public class PbPageRequestMessage extends NetMessage {
                 b2.h(this.updateType);
                 builder.ad_ext_params = b2.a();
                 builder.source_type = Integer.valueOf(this.sourceType);
-                a0.c(builder, true, false, true);
+                z.c(builder, true, false, true);
                 builder.immersion_video_comment_source = Integer.valueOf(this.immersionVideoCommentSource);
                 builder.app_transmit_data = g.b();
                 PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();

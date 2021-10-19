@@ -17,13 +17,13 @@ public class a extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<View> f66670a;
+    public WeakReference<View> f66705a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<View> f66671b;
+    public WeakReference<View> f66706b;
 
     /* renamed from: c  reason: collision with root package name */
-    public o f66672c;
+    public o f66707c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,21 +42,21 @@ public class a extends c {
     public void a(o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oVar) == null) {
-            this.f66672c = oVar;
+            this.f66707c = oVar;
         }
     }
 
     public void b(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.f66671b = new WeakReference<>(view);
+            this.f66706b = new WeakReference<>(view);
         }
     }
 
     public void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f66670a = new WeakReference<>(view);
+            this.f66705a = new WeakReference<>(view);
         }
     }
 
@@ -70,16 +70,16 @@ public class a extends c {
 
     private void a(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65537, this, i2) == null) || this.f66672c == null) {
+        if (!(interceptable == null || interceptable.invokeI(65537, this, i2) == null) || this.f66707c == null) {
             return;
         }
         int[] iArr = new int[2];
         int[] iArr2 = new int[2];
-        WeakReference<View> weakReference = this.f66671b;
+        WeakReference<View> weakReference = this.f66706b;
         if (weakReference != null) {
             iArr = s.a(weakReference.get());
-            iArr2 = s.c(this.f66671b.get());
+            iArr2 = s.c(this.f66706b.get());
         }
-        this.f66672c.a(i2, new k.a().d(this.t).c(this.u).b(this.v).a(this.w).b(this.x).a(this.y).e(iArr[0]).f(iArr[1]).g(iArr2[0]).h(iArr2[1]).a());
+        this.f66707c.a(i2, new k.a().d(this.t).c(this.u).b(this.v).a(this.w).b(this.x).a(this.y).e(iArr[0]).f(iArr[1]).g(iArr2[0]).h(iArr2[1]).a());
     }
 }

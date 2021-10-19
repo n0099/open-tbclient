@@ -120,18 +120,18 @@ public final class CardLinkageManager {
                         if (baseCardInfo.position == baseCardInfo2.position && (findViewByPosition = layoutManager.findViewByPosition(i3)) != null) {
                             if (baseCardInfo2.isSupportFull()) {
                                 c d2 = c.d(findViewByPosition);
-                                d2.n(0);
-                                d2.o(R.string.J_X06);
+                                d2.m(0);
+                                d2.n(R.string.J_X06);
                                 d2.f(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                             } else if (baseCardInfo2.isSupportTop()) {
                                 c d3 = c.d(findViewByPosition);
-                                d3.n(1);
-                                d3.o(R.string.J_X06);
+                                d3.m(1);
+                                d3.n(R.string.J_X06);
                                 d3.f(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                             } else if (baseCardInfo2.isSupportBottom()) {
                                 c d4 = c.d(findViewByPosition);
-                                d4.n(2);
-                                d4.o(R.string.J_X06);
+                                d4.m(2);
+                                d4.n(R.string.J_X06);
                                 d4.f(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                             } else if (baseCardInfo2.isSupportContent() || baseCardInfo2.isSupportExtend()) {
                                 SkinManager.setBackgroundColor(findViewByPosition, z ? R.color.CAM_X0206 : R.color.CAM_X0205);

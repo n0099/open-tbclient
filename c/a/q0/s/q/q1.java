@@ -15,13 +15,13 @@ public class q1 extends x implements c.a.q0.k0.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f14286h;
+    public long f14308h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f14287i;
+    public String f14309i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f14288j;
+    public String f14310j;
     public boolean k;
     public int l;
     public int m;
@@ -60,21 +60,21 @@ public class q1 extends x implements c.a.q0.k0.b.a {
     public void C(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f14287i = str;
+            this.f14309i = str;
         }
     }
 
     public void D(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f14286h = j2;
+            this.f14308h = j2;
         }
     }
 
     public void E(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f14288j = str;
+            this.f14310j = str;
         }
     }
 
@@ -88,19 +88,19 @@ public class q1 extends x implements c.a.q0.k0.b.a {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14287i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14309i : (String) invokeV.objValue;
     }
 
     public long o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14286h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14308h : invokeV.longValue;
     }
 
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f14288j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f14310j : (String) invokeV.objValue;
     }
 
     public int q() {
@@ -127,9 +127,9 @@ public class q1 extends x implements c.a.q0.k0.b.a {
             return;
         }
         try {
-            this.f14286h = recommendForumInfo.forum_id.longValue();
-            this.f14287i = recommendForumInfo.avatar;
-            this.f14288j = recommendForumInfo.forum_name;
+            this.f14308h = recommendForumInfo.forum_id.longValue();
+            this.f14309i = recommendForumInfo.avatar;
+            this.f14310j = recommendForumInfo.forum_name;
             boolean z = true;
             if (recommendForumInfo.is_like.intValue() != 1) {
                 z = false;

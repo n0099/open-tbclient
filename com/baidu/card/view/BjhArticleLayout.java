@@ -15,8 +15,8 @@ import c.a.q0.b.g.b;
 import c.a.q0.s.q.a;
 import c.a.q0.s.q.d2;
 import c.a.q0.s.u.c;
-import c.a.r0.a0.b0;
-import c.a.r0.a0.m;
+import c.a.r0.b0.c0;
+import c.a.r0.b0.m;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -36,25 +36,25 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f38674e;
+    public TextView f38678e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f38675f;
+    public TextView f38679f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f38676g;
+    public TbImageView f38680g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f38677h;
+    public View f38681h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f38678i;
+    public a f38682i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f38679j;
+    public float f38683j;
     public float k;
     public float l;
-    public b0<a> m;
+    public c0<a> m;
     public View.OnClickListener n;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -85,55 +85,55 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             setId(R.id.bjh_content);
             TextView textView = (TextView) findViewById(R.id.title);
-            this.f38674e = textView;
+            this.f38678e = textView;
             c d2 = c.d(textView);
-            d2.B(R.string.F_X01);
-            d2.A(R.dimen.T_X06);
-            this.f38674e.setOnClickListener(this);
+            d2.A(R.string.F_X01);
+            d2.z(R.dimen.T_X06);
+            this.f38678e.setOnClickListener(this);
             TextView textView2 = (TextView) findViewById(R.id.icon);
-            this.f38675f = textView2;
+            this.f38679f = textView2;
             textView2.setOnClickListener(this);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.cover_img);
-            this.f38676g = tbImageView;
+            this.f38680g = tbImageView;
             tbImageView.setPlaceHolder(3);
-            this.f38676g.setOnClickListener(this);
+            this.f38680g.setOnClickListener(this);
             View findViewById = findViewById(R.id.bottom_mask);
-            this.f38677h = findViewById;
+            this.f38681h = findViewById;
             findViewById.setOnClickListener(this);
-            if (this.f38676g.getLayoutParams() != null) {
-                this.f38676g.getLayoutParams().height = (int) (((l.k(getContext()) - (this.l * 2.0f)) / 16.0f) * 9.0f);
+            if (this.f38680g.getLayoutParams() != null) {
+                this.f38680g.getLayoutParams().height = (int) (((l.k(getContext()) - (this.l * 2.0f)) / 16.0f) * 9.0f);
             }
-            this.f38675f.setTranslationY(-this.k);
-            this.f38676g.setDrawCorner(true);
-            this.f38676g.setConrers(15);
-            this.f38676g.setRadiusById(R.string.J_X05);
-            b.m(this.f38674e, R.dimen.tbds7, R.dimen.tbds10);
+            this.f38679f.setTranslationY(-this.k);
+            this.f38680g.setDrawCorner(true);
+            this.f38680g.setConrers(15);
+            this.f38680g.setRadiusById(R.string.J_X05);
+            b.m(this.f38678e, R.dimen.tbds7, R.dimen.tbds10);
         }
     }
 
     public TextView getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38675f : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38679f : (TextView) invokeV.objValue;
     }
 
     public TextView getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38674e : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38678e : (TextView) invokeV.objValue;
     }
 
     @Override // c.a.l.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i2) == null) {
-            a aVar = this.f38678i;
+            a aVar = this.f38682i;
             if (aVar != null && aVar.getThreadData() != null) {
-                m.l(this.f38674e, this.f38678i.getThreadData().f0(), this.f38676g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+                m.l(this.f38678e, this.f38682i.getThreadData().f0(), this.f38680g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
             }
-            SkinManager.setViewTextColor(this.f38675f, R.color.CAM_X0101);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.f38679j).into(this.f38675f);
-            TBSelector.makeDrawableSelector().setShape(0).gradientLinearNotAutoChangeSkinType(R.color.CAM_X0611, R.color.CAM_X0605).tlRadius(l.g(getContext(), R.dimen.tbds21)).trRadius(l.g(getContext(), R.dimen.tbds21)).blRadius(l.g(getContext(), R.dimen.tbds21)).brRadius(l.g(getContext(), R.dimen.tbds21)).setAlpha(128).into(this.f38677h);
+            SkinManager.setViewTextColor(this.f38679f, R.color.CAM_X0101);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.f38683j).into(this.f38679f);
+            TBSelector.makeDrawableSelector().setShape(0).gradientLinearNotAutoChangeSkinType(R.color.CAM_X0611, R.color.CAM_X0605).tlRadius(l.g(getContext(), R.dimen.tbds21)).trRadius(l.g(getContext(), R.dimen.tbds21)).blRadius(l.g(getContext(), R.dimen.tbds21)).brRadius(l.g(getContext(), R.dimen.tbds21)).setAlpha(128).into(this.f38681h);
         }
     }
 
@@ -145,9 +145,9 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
             if (onClickListener != null) {
                 onClickListener.onClick(view);
             }
-            b0<a> b0Var = this.m;
-            if (b0Var != null) {
-                b0Var.a(view, this.f38678i);
+            c0<a> c0Var = this.m;
+            if (c0Var != null) {
+                c0Var.a(view, this.f38682i);
             }
         }
     }
@@ -159,10 +159,10 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
         }
     }
 
-    public void setSubClickListener(b0<a> b0Var) {
+    public void setSubClickListener(c0<a> c0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, b0Var) == null) {
-            this.m = b0Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, c0Var) == null) {
+            this.m = c0Var;
         }
     }
 
@@ -185,7 +185,7 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
                 return;
             }
         }
-        this.f38679j = l.g(context, R.dimen.tbds10);
+        this.f38683j = l.g(context, R.dimen.tbds10);
         l.g(context, R.dimen.tbds21);
         this.k = l.g(context, R.dimen.tbds16);
         l.g(context, R.dimen.tbds30);
@@ -199,7 +199,7 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
         OriginalThreadInfo originalThreadInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f38678i = aVar;
+            this.f38682i = aVar;
             d2 threadData = aVar.getThreadData();
             if (threadData.z1 && (originalThreadInfo = threadData.y1) != null) {
                 if (originalThreadInfo.m) {
@@ -208,18 +208,18 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
                 }
                 threadData = originalThreadInfo.a();
             }
-            this.f38674e.setText(threadData.getTitle());
+            this.f38678e.setText(threadData.getTitle());
             if (StringUtils.isNull(threadData.H())) {
-                this.f38675f.setVisibility(8);
-                this.f38676g.setVisibility(8);
-                this.f38677h.setVisibility(8);
+                this.f38679f.setVisibility(8);
+                this.f38680g.setVisibility(8);
+                this.f38681h.setVisibility(8);
             } else {
-                this.f38675f.setVisibility(0);
-                this.f38676g.setVisibility(0);
-                this.f38677h.setVisibility(0);
-                this.f38676g.startLoad(threadData.H(), 10, false);
+                this.f38679f.setVisibility(0);
+                this.f38680g.setVisibility(0);
+                this.f38681h.setVisibility(0);
+                this.f38680g.startLoad(threadData.H(), 10, false);
             }
-            m.l(this.f38674e, threadData.f0(), this.f38676g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(this.f38678e, threadData.f0(), this.f38680g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 }

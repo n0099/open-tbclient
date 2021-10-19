@@ -11,10 +11,10 @@ public abstract class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Type f35723a;
+    public Type f35727a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f35724b;
+    public byte[] f35728b;
 
     public a(Type type, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public abstract class a implements c {
                 return;
             }
         }
-        this.f35723a = type;
-        this.f35724b = bArr;
+        this.f35727a = type;
+        this.f35728b = bArr;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.quickWebView;
 import android.content.Context;
 import android.webkit.JsPromptResult;
 import c.a.g.a.a;
-import c.a.r0.j3.m0.d.c;
+import c.a.r0.k3.m0.d.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
@@ -22,10 +22,10 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public c.a.r0.w2.a mProxy;
+    public c.a.r0.x2.a mProxy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleQuickWebViewBridge(Context context, c.a.r0.w2.a aVar) {
+    public SingleQuickWebViewBridge(Context context, c.a.r0.x2.a aVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,7 +46,7 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         this.mProxy = aVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, c.a.r0.j3.m0.b
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, c.a.r0.k3.m0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -88,11 +88,11 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
                 quickWebViewBridgeData.data = hashMap;
             }
             quickWebViewBridgeData.begin = System.currentTimeMillis();
-            c.a.r0.w2.a aVar = this.mProxy;
+            c.a.r0.x2.a aVar = this.mProxy;
             if (aVar != null) {
                 aVar.j(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
-            cVar.u(str);
+            cVar.w(str);
             return cVar;
         }
         return (c) invokeLLLL.objValue;
@@ -104,8 +104,8 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap)) == null) {
             c cVar = new c();
             if (hashMap != null && hashMap.get("result") != null) {
-                cVar.m(hashMap.get("result"));
-                cVar.u(hashMap.get("NotificationKey"));
+                cVar.o(hashMap.get("result"));
+                cVar.w(hashMap.get("NotificationKey"));
             }
             return cVar;
         }

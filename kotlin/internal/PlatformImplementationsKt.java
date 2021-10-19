@@ -1,7 +1,6 @@
 package kotlin.internal;
 
 import androidx.transition.Transition;
-import com.baidu.media.duplayer.LibsInfoDef;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import kotlin.KotlinVersion;
@@ -97,7 +96,7 @@ public final class PlatformImplementationsKt {
         IMPLEMENTATIONS = platformImplementations;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @PublishedApi
     public static final boolean apiVersionIsAtLeast(int i2, int i3, int i4) {
         return KotlinVersion.CURRENT.isAtLeast(i2, i3, i4);

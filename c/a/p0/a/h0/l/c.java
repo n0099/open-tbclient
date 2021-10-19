@@ -66,7 +66,7 @@ public class c extends SwanAppWebViewManager implements Object<NgWebView>, a {
         if (B) {
             String str = "pathList item: " + aVar.f6467b;
         }
-        this.f45977f.getSettings().setCodeCacheSetting(c.a.p0.a.h0.d.b.a("appjs", aVar.f6467b));
+        this.f45889f.getSettings().setCodeCacheSetting(c.a.p0.a.h0.d.b.a("appjs", aVar.f6467b));
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager

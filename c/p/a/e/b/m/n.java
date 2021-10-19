@@ -22,17 +22,17 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35356d = "n";
+    public static final String f35360d = "n";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile com.ss.android.socialbase.downloader.downloader.i f35357a;
+    public volatile com.ss.android.socialbase.downloader.downloader.i f35361a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.p.a.e.b.g.p<IndependentProcessDownloadService> f35358b;
+    public c.p.a.e.b.g.p<IndependentProcessDownloadService> f35362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.p.a.e.b.g.n f35359c;
+    public c.p.a.e.b.g.n f35363c;
 
     /* loaded from: classes4.dex */
     public class a implements c.p.a.e.b.f.m {
@@ -103,20 +103,20 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
                 return;
             }
         }
-        this.f35359c = new o();
+        this.f35363c = new o();
         c.p.a.e.b.g.p<IndependentProcessDownloadService> O0 = c.p.a.e.b.g.e.O0();
-        this.f35358b = O0;
+        this.f35362b = O0;
         O0.d(this);
     }
 
     @Override // c.p.a.e.b.g.n
     public void a(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.a(i2);
+            this.f35361a.a(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -134,11 +134,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
-            if (this.f35357a == null) {
+            if (this.f35361a == null) {
                 return false;
             }
             try {
-                return this.f35357a.b(i2);
+                return this.f35361a.b(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -150,11 +150,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     @Override // c.p.a.e.b.g.n
     public void c(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048603, this, i2) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048603, this, i2) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.c(i2);
+            this.f35361a.c(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -163,11 +163,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     @Override // c.p.a.e.b.g.n
     public void d(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048610, this, i2) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048610, this, i2) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.d(i2);
+            this.f35361a.d(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -178,11 +178,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i2)) == null) {
-            if (this.f35357a == null) {
+            if (this.f35361a == null) {
                 return 0L;
             }
             try {
-                return this.f35357a.e(i2);
+                return this.f35361a.e(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return 0L;
@@ -196,11 +196,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i2)) == null) {
-            if (this.f35357a == null) {
+            if (this.f35361a == null) {
                 return 0;
             }
             try {
-                return this.f35357a.f(i2);
+                return this.f35361a.f(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return 0;
@@ -214,11 +214,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048621, this, i2)) == null) {
-            if (this.f35357a == null) {
+            if (this.f35361a == null) {
                 return false;
             }
             try {
-                return this.f35357a.g(i2);
+                return this.f35361a.g(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -232,11 +232,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i2)) == null) {
-            if (this.f35357a == null) {
-                return this.f35359c.h(i2);
+            if (this.f35361a == null) {
+                return this.f35363c.h(i2);
             }
             try {
-                return this.f35357a.h(i2);
+                return this.f35361a.h(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -250,11 +250,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i2)) == null) {
-            if (this.f35357a == null) {
-                return this.f35359c.i(i2);
+            if (this.f35361a == null) {
+                return this.f35363c.i(i2);
             }
             try {
-                return this.f35357a.i(i2);
+                return this.f35361a.i(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -267,12 +267,12 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048627, this, i2) == null) {
-            if (this.f35357a == null) {
-                this.f35359c.j(i2);
+            if (this.f35361a == null) {
+                this.f35363c.j(i2);
                 return;
             }
             try {
-                this.f35357a.j(i2);
+                this.f35361a.j(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -283,7 +283,7 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void k(int i2) {
         c.p.a.e.b.g.p<IndependentProcessDownloadService> pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048628, this, i2) == null) || (pVar = this.f35358b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048628, this, i2) == null) || (pVar = this.f35362b) == null) {
             return;
         }
         pVar.a(i2);
@@ -294,11 +294,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048629, this, i2)) == null) {
-            if (this.f35357a == null) {
+            if (this.f35361a == null) {
                 return false;
             }
             try {
-                return this.f35357a.k(i2);
+                return this.f35361a.k(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -312,11 +312,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i2)) == null) {
-            if (this.f35357a == null) {
+            if (this.f35361a == null) {
                 return c.p.a.e.b.g.f.c().m(i2);
             }
             try {
-                return this.f35357a.m(i2);
+                return this.f35361a.m(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return -1;
@@ -330,11 +330,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048631, this, i2)) == null) {
-            if (this.f35357a == null) {
-                return this.f35359c.n(i2);
+            if (this.f35361a == null) {
+                return this.f35363c.n(i2);
             }
             try {
-                return this.f35357a.n(i2);
+                return this.f35361a.n(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -347,12 +347,12 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
-            if (this.f35357a == null) {
-                this.f35359c.o(i2);
+            if (this.f35361a == null) {
+                this.f35363c.o(i2);
                 return;
             }
             try {
-                this.f35357a.o(i2);
+                this.f35361a.o(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -364,11 +364,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048633, this, i2)) == null) {
-            if (this.f35357a == null) {
-                return this.f35359c.p(i2);
+            if (this.f35361a == null) {
+                return this.f35363c.p(i2);
             }
             try {
-                return this.f35357a.p(i2);
+                return this.f35361a.p(i2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -382,9 +382,9 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048634, this, i2)) == null) {
-            if (this.f35357a != null) {
+            if (this.f35361a != null) {
                 try {
-                    return com.ss.android.socialbase.downloader.i.g.d(this.f35357a.q(i2));
+                    return com.ss.android.socialbase.downloader.i.g.d(this.f35361a.q(i2));
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return null;
@@ -400,9 +400,9 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048635, this, i2)) == null) {
-            if (this.f35357a != null) {
+            if (this.f35361a != null) {
                 try {
-                    return com.ss.android.socialbase.downloader.i.g.f(this.f35357a.r(i2));
+                    return com.ss.android.socialbase.downloader.i.g.f(this.f35361a.r(i2));
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return null;
@@ -418,9 +418,9 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048636, this, i2)) == null) {
-            if (this.f35357a != null) {
+            if (this.f35361a != null) {
                 try {
-                    return com.ss.android.socialbase.downloader.i.g.w(this.f35357a.s(i2));
+                    return com.ss.android.socialbase.downloader.i.g.w(this.f35361a.s(i2));
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return null;
@@ -434,11 +434,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     @Override // c.p.a.e.b.g.n
     public void a(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.a(i2, z);
+            this.f35361a.a(i2, z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -456,11 +456,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
-            if (this.f35357a == null) {
-                return this.f35359c.c(str);
+            if (this.f35361a == null) {
+                return this.f35363c.c(str);
             }
             try {
-                return this.f35357a.c(str);
+                return this.f35361a.c(str);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -474,11 +474,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            if (this.f35357a == null) {
-                return this.f35359c.d();
+            if (this.f35361a == null) {
+                return this.f35363c.d();
             }
             try {
-                return this.f35357a.b();
+                return this.f35361a.b();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -490,11 +490,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     @Override // c.p.a.e.b.g.n
     public void e(int i2, int i3, c.p.a.e.b.f.c cVar, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), cVar, fVar, Boolean.valueOf(z)}) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), cVar, fVar, Boolean.valueOf(z)}) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.a(i2, i3, com.ss.android.socialbase.downloader.i.g.n(cVar, fVar != com.ss.android.socialbase.downloader.constants.f.f76160b), fVar.ordinal(), z);
+            this.f35361a.a(i2, i3, com.ss.android.socialbase.downloader.i.g.n(cVar, fVar != com.ss.android.socialbase.downloader.constants.f.f76195b), fVar.ordinal(), z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -503,11 +503,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     @Override // c.p.a.e.b.g.n
     public void f(int i2, int i3, c.p.a.e.b.f.c cVar, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), cVar, fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), cVar, fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.a(i2, i3, com.ss.android.socialbase.downloader.i.g.n(cVar, fVar != com.ss.android.socialbase.downloader.constants.f.f76160b), fVar.ordinal(), z, z2);
+            this.f35361a.a(i2, i3, com.ss.android.socialbase.downloader.i.g.n(cVar, fVar != com.ss.android.socialbase.downloader.constants.f.f76195b), fVar.ordinal(), z, z2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -517,12 +517,12 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            if (this.f35357a == null) {
-                this.f35359c.g();
+            if (this.f35361a == null) {
+                this.f35363c.g();
                 return;
             }
             try {
-                this.f35357a.e();
+                this.f35361a.e();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -533,14 +533,14 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.f35357a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.f35361a != null : invokeV.booleanValue;
     }
 
     @Override // c.p.a.e.b.g.o
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
-            this.f35357a = null;
+            this.f35361a = null;
         }
     }
 
@@ -549,11 +549,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            if (this.f35357a == null) {
-                return this.f35359c.b(str);
+            if (this.f35361a == null) {
+                return this.f35363c.b(str);
             }
             try {
-                return this.f35357a.b(str);
+                return this.f35361a.b(str);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -565,11 +565,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     @Override // c.p.a.e.b.g.n
     public void h(c.p.a.e.b.f.m mVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048623, this, mVar) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048623, this, mVar) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.a(com.ss.android.socialbase.downloader.i.g.h(mVar));
+            this.f35361a.a(com.ss.android.socialbase.downloader.i.g.h(mVar));
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -578,11 +578,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     @Override // c.p.a.e.b.g.n
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.a();
+            this.f35361a.a();
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -593,9 +593,9 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, str)) == null) {
-            if (this.f35357a != null) {
+            if (this.f35361a != null) {
                 try {
-                    return this.f35357a.d(str);
+                    return this.f35361a.d(str);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return null;
@@ -611,11 +611,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            if (this.f35357a == null) {
-                return this.f35359c.f();
+            if (this.f35361a == null) {
+                return this.f35363c.f();
             }
             try {
-                return this.f35357a.d();
+                return this.f35361a.d();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -628,13 +628,13 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void c(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (this.f35357a == null) {
-                c.p.a.e.b.c.a.j(f35356d, "stopForeground, aidlService is null");
+            if (this.f35361a == null) {
+                c.p.a.e.b.c.a.j(f35360d, "stopForeground, aidlService is null");
                 return;
             }
-            c.p.a.e.b.c.a.i(f35356d, "aidlService.stopForeground");
+            c.p.a.e.b.c.a.i(f35360d, "aidlService.stopForeground");
             try {
-                this.f35357a.a(z2);
+                this.f35361a.a(z2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -644,11 +644,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     @Override // c.p.a.e.b.g.n
     public void d(int i2, int i3, c.p.a.e.b.f.c cVar, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), cVar, fVar, Boolean.valueOf(z)}) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), cVar, fVar, Boolean.valueOf(z)}) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.b(i2, i3, com.ss.android.socialbase.downloader.i.g.n(cVar, fVar != com.ss.android.socialbase.downloader.constants.f.f76160b), fVar.ordinal(), z);
+            this.f35361a.b(i2, i3, com.ss.android.socialbase.downloader.i.g.n(cVar, fVar != com.ss.android.socialbase.downloader.constants.f.f76195b), fVar.ordinal(), z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -657,11 +657,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     @Override // c.p.a.e.b.g.n
     public void g(int i2, c.p.a.e.b.f.e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048620, this, i2, eVar) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048620, this, i2, eVar) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.a(i2, com.ss.android.socialbase.downloader.i.g.C(eVar));
+            this.f35361a.a(i2, com.ss.android.socialbase.downloader.i.g.C(eVar));
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -672,11 +672,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.f35357a == null) {
-                return this.f35359c.a(str);
+            if (this.f35361a == null) {
+                return this.f35363c.a(str);
             }
             try {
-                return this.f35357a.a(str);
+                return this.f35361a.a(str);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -689,12 +689,12 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void b(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, list) == null) {
-            if (this.f35357a == null) {
-                this.f35359c.b(list);
+            if (this.f35361a == null) {
+                this.f35363c.b(list);
                 return;
             }
             try {
-                this.f35357a.b(list);
+                this.f35361a.b(list);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -705,7 +705,7 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void e() {
         c.p.a.e.b.g.p<IndependentProcessDownloadService> pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048614, this) == null) || (pVar = this.f35358b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048614, this) == null) || (pVar = this.f35362b) == null) {
             return;
         }
         pVar.f();
@@ -716,11 +716,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) {
-            if (this.f35357a == null) {
-                return this.f35359c.d(str);
+            if (this.f35361a == null) {
+                return this.f35363c.d(str);
             }
             try {
-                return this.f35357a.e(str);
+                return this.f35361a.e(str);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -747,12 +747,12 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void b(int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            if (this.f35357a == null) {
-                this.f35359c.b(i2, z);
+            if (this.f35361a == null) {
+                this.f35363c.b(i2, z);
                 return;
             }
             try {
-                this.f35357a.b(i2, z);
+                this.f35361a.b(i2, z);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -762,11 +762,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     @Override // c.p.a.e.b.g.n
     public void c(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.d(i2, z);
+            this.f35361a.d(i2, z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -776,12 +776,12 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void a(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
-            if (this.f35357a == null) {
-                this.f35359c.a(list);
+            if (this.f35361a == null) {
+                this.f35363c.a(list);
                 return;
             }
             try {
-                this.f35357a.a(list);
+                this.f35361a.a(list);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -793,11 +793,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, downloadInfo)) == null) {
-            if (this.f35357a == null) {
-                return this.f35359c.c(downloadInfo);
+            if (this.f35361a == null) {
+                return this.f35363c.c(downloadInfo);
             }
             try {
-                return this.f35357a.b(downloadInfo);
+                return this.f35361a.b(downloadInfo);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -811,13 +811,13 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            if (this.f35357a == null) {
-                c.p.a.e.b.c.a.j(f35356d, "isServiceForeground, aidlService is null");
+            if (this.f35361a == null) {
+                c.p.a.e.b.c.a.j(f35360d, "isServiceForeground, aidlService is null");
                 return false;
             }
-            c.p.a.e.b.c.a.i(f35356d, "aidlService.isServiceForeground");
+            c.p.a.e.b.c.a.i(f35360d, "aidlService.isServiceForeground");
             try {
-                return this.f35357a.f();
+                return this.f35361a.f();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return false;
@@ -831,11 +831,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, downloadInfo)) == null) {
-            if (this.f35357a == null) {
-                return this.f35359c.a(downloadInfo);
+            if (this.f35361a == null) {
+                return this.f35363c.a(downloadInfo);
             }
             try {
-                this.f35357a.a(downloadInfo);
+                this.f35361a.a(downloadInfo);
                 return false;
             } catch (RemoteException e2) {
                 e2.printStackTrace();
@@ -849,14 +849,14 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void a(int i2, Notification notification) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048585, this, i2, notification) == null) {
-            if (this.f35357a == null) {
-                c.p.a.e.b.c.a.j(f35356d, "startForeground, aidlService is null");
+            if (this.f35361a == null) {
+                c.p.a.e.b.c.a.j(f35360d, "startForeground, aidlService is null");
                 return;
             }
-            String str = f35356d;
+            String str = f35360d;
             c.p.a.e.b.c.a.i(str, "aidlService.startForeground, id = " + i2);
             try {
-                this.f35357a.a(i2, notification);
+                this.f35361a.a(i2, notification);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -867,7 +867,7 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void b(c.p.a.e.b.n.a aVar) {
         c.p.a.e.b.g.p<IndependentProcessDownloadService> pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, aVar) == null) || aVar == null || (pVar = this.f35358b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, aVar) == null) || aVar == null || (pVar = this.f35362b) == null) {
             return;
         }
         pVar.a(aVar);
@@ -877,12 +877,12 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void b(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048595, this, i2, list) == null) {
-            if (this.f35357a == null) {
-                this.f35359c.b(i2, list);
+            if (this.f35361a == null) {
+                this.f35363c.b(i2, list);
                 return;
             }
             try {
-                this.f35357a.a(i2, list);
+                this.f35361a.a(i2, list);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -893,7 +893,7 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void a(c.p.a.e.b.n.a aVar) {
         c.p.a.e.b.g.p<IndependentProcessDownloadService> pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) || aVar == null || (pVar = this.f35358b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) || aVar == null || (pVar = this.f35362b) == null) {
             return;
         }
         pVar.b(aVar);
@@ -902,11 +902,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     @Override // c.p.a.e.b.g.n
     public void a(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048586, this, i2, list) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048586, this, i2, list) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.b(i2, list);
+            this.f35361a.b(i2, list);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -916,12 +916,12 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void a(com.ss.android.socialbase.downloader.model.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bVar) == null) {
-            if (this.f35357a == null) {
-                this.f35359c.a(bVar);
+            if (this.f35361a == null) {
+                this.f35363c.a(bVar);
                 return;
             }
             try {
-                this.f35357a.a(bVar);
+                this.f35361a.a(bVar);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -932,12 +932,12 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void a(int i2, int i3, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
-            if (this.f35357a == null) {
-                this.f35359c.a(i2, i3, j2);
+            if (this.f35361a == null) {
+                this.f35363c.a(i2, i3, j2);
                 return;
             }
             try {
-                this.f35357a.a(i2, i3, j2);
+                this.f35361a.a(i2, i3, j2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -948,12 +948,12 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void a(int i2, int i3, int i4, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
-            if (this.f35357a == null) {
-                this.f35359c.a(i2, i3, i4, j2);
+            if (this.f35361a == null) {
+                this.f35363c.a(i2, i3, i4, j2);
                 return;
             }
             try {
-                this.f35357a.a(i2, i3, i4, j2);
+                this.f35361a.a(i2, i3, i4, j2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -964,12 +964,12 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void a(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
-            if (this.f35357a == null) {
-                this.f35359c.a(i2, i3, i4, i5);
+            if (this.f35361a == null) {
+                this.f35363c.a(i2, i3, i4, i5);
                 return;
             }
             try {
-                this.f35357a.a(i2, i3, i4, i5);
+                this.f35361a.a(i2, i3, i4, i5);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -979,11 +979,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     @Override // c.p.a.e.b.g.n
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.a(i2, i3);
+            this.f35361a.a(i2, i3);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -993,7 +993,7 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     public void a(IBinder iBinder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, iBinder) == null) {
-            this.f35357a = i.a.a(iBinder);
+            this.f35361a = i.a.a(iBinder);
             if (c.p.a.e.b.l.f.F()) {
                 h(new a(this));
             }
@@ -1003,11 +1003,11 @@ public class n implements c.p.a.e.b.g.n, c.p.a.e.b.g.o {
     @Override // c.p.a.e.b.g.n
     public void a(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f35357a == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f35361a == null) {
             return;
         }
         try {
-            this.f35357a.a(i2, j2);
+            this.f35361a.a(i2, j2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }

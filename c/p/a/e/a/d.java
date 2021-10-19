@@ -45,10 +45,10 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f34961a;
+    public static int f34965a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f34962b;
+    public static NotificationChannel f34966b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -57,13 +57,13 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f34963a;
+        public final /* synthetic */ Context f34967a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f34964b;
+        public final /* synthetic */ int f34968b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f34965c;
+        public final /* synthetic */ boolean f34969c;
 
         public a(Context context, int i2, boolean z) {
             Interceptable interceptable = $ic;
@@ -80,16 +80,16 @@ public class d {
                     return;
                 }
             }
-            this.f34963a = context;
-            this.f34964b = i2;
-            this.f34965c = z;
+            this.f34967a = context;
+            this.f34968b = i2;
+            this.f34969c = z;
         }
 
         @Override // c.p.a.e.a.d.k
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int unused = d.f34961a = d.P(this.f34963a, this.f34964b, this.f34965c);
+                int unused = d.f34965a = d.P(this.f34967a, this.f34968b, this.f34969c);
             }
         }
     }
@@ -100,19 +100,19 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f34966e;
+        public final /* synthetic */ Context f34970e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f34967f;
+        public final /* synthetic */ int f34971f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f34968g;
+        public final /* synthetic */ boolean f34972g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f34969h;
+        public final /* synthetic */ DownloadInfo f34973h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ File f34970i;
+        public final /* synthetic */ File f34974i;
 
         public b(Context context, int i2, boolean z, DownloadInfo downloadInfo, File file) {
             Interceptable interceptable = $ic;
@@ -129,22 +129,22 @@ public class d {
                     return;
                 }
             }
-            this.f34966e = context;
-            this.f34967f = i2;
-            this.f34968g = z;
-            this.f34969h = downloadInfo;
-            this.f34970i = file;
+            this.f34970e = context;
+            this.f34971f = i2;
+            this.f34972g = z;
+            this.f34973h = downloadInfo;
+            this.f34974i = file;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int e2 = d.e(this.f34966e, this.f34967f, this.f34968g, this.f34969h, this.f34970i);
+                int e2 = d.e(this.f34970e, this.f34971f, this.f34972g, this.f34973h, this.f34974i);
                 if (e2 == 1 && c.p.a.e.a.e.G().L() != null) {
-                    c.p.a.e.a.e.G().L().a(this.f34969h, null);
+                    c.p.a.e.a.e.G().L().a(this.f34973h, null);
                 }
-                d.I(this.f34969h, this.f34968g, e2);
+                d.I(this.f34973h, this.f34972g, e2);
             }
         }
     }
@@ -200,11 +200,11 @@ public class d {
 
     /* renamed from: c.p.a.e.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public abstract class AbstractC1542d implements n {
+    public abstract class AbstractC1544d implements n {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public AbstractC1542d() {
+        public AbstractC1544d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -449,12 +449,12 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
-                if (f34962b == null) {
+                if (f34966b == null) {
                     NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                    f34962b = notificationChannel;
+                    f34966b = notificationChannel;
                     notificationChannel.setSound(null, null);
-                    f34962b.setShowBadge(false);
-                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f34962b);
+                    f34966b.setShowBadge(false);
+                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f34966b);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -613,9 +613,9 @@ public class d {
                 return P(context, i2, z);
             }
             DownloadInfo f2 = c.p.a.e.b.g.a.H(context).f(i2);
-            f34961a = 1;
+            f34965a = 1;
             D.a(f2, new a(context, i2, z));
-            return f34961a;
+            return f34965a;
         }
         return invokeCommon.intValue;
     }

@@ -14,17 +14,17 @@ public final class MapBaseIndoorMapInfo {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f41524d = "MapBaseIndoorMapInfo";
+    public static final String f41528d = "MapBaseIndoorMapInfo";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41525a;
+    public String f41529a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41526b;
+    public String f41530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f41527c;
+    public ArrayList<String> f41531c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -37,7 +37,7 @@ public final class MapBaseIndoorMapInfo {
         public static final SwitchFloorError SWITCH_OK;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ SwitchFloorError[] f41528a;
+        public static final /* synthetic */ SwitchFloorError[] f41532a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -59,7 +59,7 @@ public final class MapBaseIndoorMapInfo {
             FOCUSED_ID_ERROR = new SwitchFloorError("FOCUSED_ID_ERROR", 3);
             SwitchFloorError switchFloorError = new SwitchFloorError("SWITCH_ERROR", 4);
             SWITCH_ERROR = switchFloorError;
-            f41528a = new SwitchFloorError[]{SWITCH_OK, FLOOR_INFO_ERROR, FLOOR_OVERLFLOW, FOCUSED_ID_ERROR, switchFloorError};
+            f41532a = new SwitchFloorError[]{SWITCH_OK, FLOOR_INFO_ERROR, FLOOR_OVERLFLOW, FOCUSED_ID_ERROR, switchFloorError};
         }
 
         public SwitchFloorError(String str, int i2) {
@@ -90,7 +90,7 @@ public final class MapBaseIndoorMapInfo {
         public static SwitchFloorError[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SwitchFloorError[]) f41528a.clone() : (SwitchFloorError[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SwitchFloorError[]) f41532a.clone() : (SwitchFloorError[]) invokeV.objValue;
         }
     }
 
@@ -138,9 +138,9 @@ public final class MapBaseIndoorMapInfo {
                 return;
             }
         }
-        this.f41525a = mapBaseIndoorMapInfo.f41525a;
-        this.f41526b = mapBaseIndoorMapInfo.f41526b;
-        this.f41527c = mapBaseIndoorMapInfo.f41527c;
+        this.f41529a = mapBaseIndoorMapInfo.f41529a;
+        this.f41530b = mapBaseIndoorMapInfo.f41530b;
+        this.f41531c = mapBaseIndoorMapInfo.f41531c;
     }
 
     public MapBaseIndoorMapInfo(String str, String str2, ArrayList<String> arrayList) {
@@ -158,26 +158,26 @@ public final class MapBaseIndoorMapInfo {
                 return;
             }
         }
-        this.f41525a = str;
-        this.f41526b = str2;
-        this.f41527c = arrayList;
+        this.f41529a = str;
+        this.f41530b = str2;
+        this.f41531c = arrayList;
     }
 
     public String getCurFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41526b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41530b : (String) invokeV.objValue;
     }
 
     public ArrayList<String> getFloors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41527c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41531c : (ArrayList) invokeV.objValue;
     }
 
     public String getID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41525a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41529a : (String) invokeV.objValue;
     }
 }

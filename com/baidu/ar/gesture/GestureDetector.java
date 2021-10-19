@@ -152,7 +152,7 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
                     float f2 = this.qr.getFloat("det_thresh", 0.25f);
                     float f3 = this.qr.getFloat("first_cls_thresh", 0.75f);
                     float f4 = this.qr.getFloat("second_cls_thresh", 0.5f);
-                    return aVar.f38464tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i2, f2, f3, f4, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i2, f2, f3, f4, 1);
+                    return aVar.f38468tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i2, f2, f3, f4, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i2, f2, f3, f4, 1);
                 }
                 return invokeL2.intValue;
             }

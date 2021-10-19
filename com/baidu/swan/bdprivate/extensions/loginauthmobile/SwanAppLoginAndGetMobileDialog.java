@@ -37,7 +37,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f46838e;
+    public boolean f46750e;
     public FragmentActivity mActivity;
     public String mAppId;
     public String mAuthTip;
@@ -53,7 +53,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppLoginAndGetMobileDialog f46839e;
+        public final /* synthetic */ SwanAppLoginAndGetMobileDialog f46751e;
 
         public a(SwanAppLoginAndGetMobileDialog swanAppLoginAndGetMobileDialog) {
             Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
                     return;
                 }
             }
-            this.f46839e = swanAppLoginAndGetMobileDialog;
+            this.f46751e = swanAppLoginAndGetMobileDialog;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -79,8 +79,8 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 4) {
-                    this.f46839e.setFinishActivity(true);
-                    this.f46839e.finishDialog();
+                    this.f46751e.setFinishActivity(true);
+                    this.f46751e.finishDialog();
                 }
                 return true;
             }
@@ -101,10 +101,10 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<Activity> f46840e;
+        public WeakReference<Activity> f46752e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f46841f;
+        public String f46753f;
 
         public c(String str, Activity activity) {
             Interceptable interceptable = $ic;
@@ -121,19 +121,19 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
                     return;
                 }
             }
-            this.f46841f = str;
-            this.f46840e = new WeakReference<>(activity);
+            this.f46753f = str;
+            this.f46752e = new WeakReference<>(activity);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Activity activity;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (activity = this.f46840e.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (activity = this.f46752e.get()) == null) {
                 return;
             }
             Intent intent = new Intent(activity, LoginServiceAgreementActivity.class);
-            intent.putExtra("url", this.f46841f);
+            intent.putExtra("url", this.f46753f);
             activity.startActivity(intent);
         }
 
@@ -162,7 +162,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         }
         this.mIsNightMode = false;
         this.mAuthTip = "";
-        this.f46838e = true;
+        this.f46750e = true;
     }
 
     public void addClickableText(SpannableStringBuilder spannableStringBuilder, int i2, String str, String str2) {
@@ -178,7 +178,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             b bVar = this.mDialogCallback;
             if (bVar != null) {
-                bVar.onDialogDismiss(this.f46838e);
+                bVar.onDialogDismiss(this.f46750e);
             }
             dismissAllowingStateLoss();
         }
@@ -262,7 +262,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             b bVar = this.mDialogCallback;
             if (bVar != null) {
-                bVar.onDialogDismiss(this.f46838e);
+                bVar.onDialogDismiss(this.f46750e);
             }
             super.onDestroyView();
         }
@@ -274,7 +274,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         if (interceptable == null || interceptable.invokeL(1048586, this, dialogInterface) == null) {
             b bVar = this.mDialogCallback;
             if (bVar != null) {
-                bVar.onDialogDismiss(this.f46838e);
+                bVar.onDialogDismiss(this.f46750e);
             }
             super.onDismiss(dialogInterface);
         }
@@ -314,7 +314,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     public void setFinishActivity(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f46838e = z;
+            this.f46750e = z;
         }
     }
 

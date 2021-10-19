@@ -1,8 +1,9 @@
 package c.a.q0.s.m;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.c4.i;
-import c.a.r0.j3.r0.g;
+import c.a.r0.d4.i;
+import c.a.r0.k3.r0.g;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +14,13 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f14015a;
+    public static String f14036a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f14015a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f14036a : (String) invokeV.objValue;
     }
 
     public static boolean b() {
@@ -31,40 +32,46 @@ public class b {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "5".equals(f14015a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "5".equals(f14036a) : invokeV.booleanValue;
     }
 
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "6".equals(f14015a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "6".equals(f14036a) : invokeV.booleanValue;
     }
 
-    public static void e(String str, String str2) {
+    public static void e(String str, String str2, String str3, String str4) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || WriteActivityConfig.isAsyncWriting()) {
+        if (!(interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, str4) == null) || WriteActivityConfig.isAsyncWriting()) {
             return;
         }
-        f14015a = str;
-        if (str == null || !str.equals("7")) {
-            i2 = 6;
-        } else {
-            g.i().v(true);
-            g.i().A(str2);
+        f14036a = str;
+        if (str != null && str.equals("7")) {
+            g.j().y(true);
+            g.j().w(str2);
             i2 = 7;
+        } else if (TextUtils.equals(str, "8")) {
+            g.j().x(8);
+            g.j().w(str2);
+            i2 = 8;
+        } else {
+            i2 = 6;
         }
         if (i.c()) {
-            i.h(null, null, null, null, i2, Boolean.TRUE);
-            return;
+            i.j(null, null, null, null, i2, Boolean.TRUE, str3, str4);
+        } else if (!i.c() && str3 != null) {
+            i.n(false, false, null, null, null, null, i2, Boolean.TRUE, str3, str4);
+        } else {
+            i.m(false, false, null, null, null, null, i2, Boolean.TRUE);
         }
-        i.k(false, false, null, null, null, null, i2, Boolean.TRUE);
     }
 
     public static void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            f14015a = str;
+            f14036a = str;
         }
     }
 }

@@ -31,7 +31,7 @@ public class SwanAppNetworkUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f46259a;
+    public static final boolean f46171a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -113,7 +113,7 @@ public class SwanAppNetworkUtils {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f46260c;
+        public final /* synthetic */ b f46172c;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class SwanAppNetworkUtils {
                     return;
                 }
             }
-            this.f46260c = bVar;
+            this.f46172c = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -139,7 +139,7 @@ public class SwanAppNetworkUtils {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 int i2 = bVar.a() != null ? bVar.a().getInt("net_quality") : -1;
-                b bVar2 = this.f46260c;
+                b bVar2 = this.f46172c;
                 if (bVar2 != null) {
                     bVar2.onResult(i2);
                 }
@@ -165,7 +165,7 @@ public class SwanAppNetworkUtils {
                 return;
             }
         }
-        f46259a = k.f7085a;
+        f46171a = k.f7085a;
     }
 
     public static boolean a(OkHttpClient okHttpClient, String str) {
@@ -217,7 +217,7 @@ public class SwanAppNetworkUtils {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, str)) == null) {
-            if (f46259a) {
+            if (f46171a) {
                 String str2 = "——> getNetworkType: netType " + i2 + " subTypeName " + str;
             }
             switch (i2) {
@@ -378,15 +378,15 @@ public class SwanAppNetworkUtils {
                 e2 = "none";
             }
             jSONObject.put("networkType", e2);
-            if (f46259a) {
+            if (f46171a) {
                 String str2 = "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType");
             }
         } catch (JSONException e3) {
-            if (f46259a) {
+            if (f46171a) {
                 e3.printStackTrace();
             }
         }
         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-        boolean z = f46259a;
+        boolean z = f46171a;
     }
 }

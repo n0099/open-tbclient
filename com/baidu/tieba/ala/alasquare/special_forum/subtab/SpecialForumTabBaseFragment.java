@@ -17,13 +17,13 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f49688e;
+    public Handler f49615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f49689f;
+    public Runnable f49616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f49690g;
+    public CustomMessageListener f49617g;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -31,7 +31,7 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SpecialForumTabBaseFragment f49691e;
+        public final /* synthetic */ SpecialForumTabBaseFragment f49618e;
 
         public a(SpecialForumTabBaseFragment specialForumTabBaseFragment) {
             Interceptable interceptable = $ic;
@@ -48,14 +48,14 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f49691e = specialForumTabBaseFragment;
+            this.f49618e = specialForumTabBaseFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49691e.notifyDataSetChanged();
+                this.f49618e.notifyDataSetChanged();
             }
         }
     }
@@ -66,7 +66,7 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SpecialForumTabBaseFragment f49692a;
+        public final /* synthetic */ SpecialForumTabBaseFragment f49619a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SpecialForumTabBaseFragment specialForumTabBaseFragment, int i2) {
@@ -86,7 +86,7 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f49692a = specialForumTabBaseFragment;
+            this.f49619a = specialForumTabBaseFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -94,8 +94,8 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f49692a.f49688e.removeCallbacks(this.f49692a.f49689f);
-                this.f49692a.f49688e.postDelayed(this.f49692a.f49689f, 500L);
+                this.f49619a.f49615e.removeCallbacks(this.f49619a.f49616f);
+                this.f49619a.f49615e.postDelayed(this.f49619a.f49616f, 500L);
             }
         }
     }
@@ -113,9 +113,9 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
                 return;
             }
         }
-        this.f49688e = new Handler();
-        this.f49689f = new a(this);
-        this.f49690g = new b(this, 2921414);
+        this.f49615e = new Handler();
+        this.f49616f = new a(this);
+        this.f49617g = new b(this, 2921414);
     }
 
     public void forceRefresh() {
@@ -131,7 +131,7 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            MessageManager.getInstance().registerListener(this.f49690g);
+            MessageManager.getInstance().registerListener(this.f49617g);
         }
     }
 
@@ -140,7 +140,7 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            MessageManager.getInstance().unRegisterListener(this.f49690g);
+            MessageManager.getInstance().unRegisterListener(this.f49617g);
         }
     }
 }

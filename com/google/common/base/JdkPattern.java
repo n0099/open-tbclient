@@ -25,7 +25,7 @@ public final class JdkPattern extends e implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Matcher f70598a;
+        public final Matcher f70633a;
 
         public a(Matcher matcher) {
             Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public final class JdkPattern extends e implements Serializable {
                 }
             }
             n.p(matcher);
-            this.f70598a = matcher;
+            this.f70633a = matcher;
         }
 
         @Override // c.i.d.a.d
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70598a.find() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70633a.find() : invokeV.booleanValue;
         }
     }
 

@@ -17,13 +17,13 @@ public class DomainConfig implements c.f.b.b.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.f.b.b.b.a f70121a;
+    public c.f.b.b.b.a f70156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.f.b.b.b.a f70122b;
+    public c.f.b.b.b.a f70157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.f.b.b.b.a f70123c;
+    public c.f.b.b.b.a f70158c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -90,7 +90,7 @@ public class DomainConfig implements c.f.b.b.b.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f70124a;
+        public static final /* synthetic */ int[] f70159a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -107,13 +107,13 @@ public class DomainConfig implements c.f.b.b.b.a {
                 }
             }
             int[] iArr = new int[DomainStrategyType.values().length];
-            f70124a = iArr;
+            f70159a = iArr;
             try {
                 iArr[DomainStrategyType.QA.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f70124a[DomainStrategyType.ONLINE.ordinal()] = 2;
+                f70159a[DomainStrategyType.ONLINE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -124,7 +124,7 @@ public class DomainConfig implements c.f.b.b.b.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final DomainConfig f70125a;
+        public static final DomainConfig f70160a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -140,7 +140,7 @@ public class DomainConfig implements c.f.b.b.b.a {
                     return;
                 }
             }
-            f70125a = new DomainConfig(null);
+            f70160a = new DomainConfig(null);
         }
     }
 
@@ -151,56 +151,56 @@ public class DomainConfig implements c.f.b.b.b.a {
     public static DomainConfig getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f70125a : (DomainConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f70160a : (DomainConfig) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
     public String getAIHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70121a.getAIHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70156a.getAIHost() : (String) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
     public String getAppHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70121a.getAppHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70156a.getAppHost() : (String) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
     public String getAppPayHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70121a.getAppPayHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70156a.getAppPayHost() : (String) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
     public String getInitHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70121a.getInitHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70156a.getInitHost() : (String) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
     public String getSpareInitHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70121a.getSpareInitHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70156a.getSpareInitHost() : (String) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
     public String getZhiFuHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f70121a.getZhiFuHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f70156a.getZhiFuHost() : (String) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
     public void setDomainConfig(String str) {
         c.f.b.b.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (aVar = this.f70121a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (aVar = this.f70156a) == null) {
             return;
         }
         aVar.setDomainConfig(str);
@@ -210,7 +210,7 @@ public class DomainConfig implements c.f.b.b.b.a {
     public void setDxmPayContext(Context context) {
         c.f.b.b.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, context) == null) || (aVar = this.f70121a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, context) == null) || (aVar = this.f70156a) == null) {
             return;
         }
         aVar.setDxmPayContext(context);
@@ -219,12 +219,12 @@ public class DomainConfig implements c.f.b.b.b.a {
     public void setStrategy(DomainStrategyType domainStrategyType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, domainStrategyType) == null) {
-            int i2 = a.f70124a[domainStrategyType.ordinal()];
+            int i2 = a.f70159a[domainStrategyType.ordinal()];
             if (i2 == 1) {
-                this.f70121a = this.f70123c;
+                this.f70156a = this.f70158c;
             } else if (i2 != 2) {
             } else {
-                this.f70121a = this.f70122b;
+                this.f70156a = this.f70157b;
             }
         }
     }
@@ -242,21 +242,21 @@ public class DomainConfig implements c.f.b.b.b.a {
                 return;
             }
         }
-        this.f70122b = new c.f.b.b.b.b();
-        this.f70123c = c.a();
-        this.f70121a = this.f70122b;
+        this.f70157b = new c.f.b.b.b.b();
+        this.f70158c = c.a();
+        this.f70156a = this.f70157b;
     }
 
     public void setStrategy(DomainStrategyType domainStrategyType, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, domainStrategyType, str) == null) {
-            int i2 = a.f70124a[domainStrategyType.ordinal()];
+            int i2 = a.f70159a[domainStrategyType.ordinal()];
             if (i2 == 1) {
-                this.f70121a = this.f70123c;
+                this.f70156a = this.f70158c;
             } else if (i2 == 2) {
-                this.f70121a = this.f70122b;
+                this.f70156a = this.f70157b;
             }
-            this.f70121a.setDomainConfig(str);
+            this.f70156a.setDomainConfig(str);
         }
     }
 }

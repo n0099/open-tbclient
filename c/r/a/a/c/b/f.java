@@ -24,7 +24,7 @@ public class f implements c.r.a.a.a.b.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f35575e;
+    public Context f35579e;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class f implements c.r.a.a.a.b.b {
                 return;
             }
         }
-        this.f35575e = context;
+        this.f35579e = context;
     }
 
     public static String a(int i2) {
@@ -91,7 +91,7 @@ public class f implements c.r.a.a.a.b.b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
                 e a2 = d.a(new String[]{str}, false, true);
-                return !TextUtils.isEmpty(a2.f35573b) ? a2.f35573b : (TextUtils.isEmpty(a2.f35574c) || !a2.f35574c.contains("denied")) ? TextUtils.isEmpty(a2.f35573b) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
+                return !TextUtils.isEmpty(a2.f35577b) ? a2.f35577b : (TextUtils.isEmpty(a2.f35578c) || !a2.f35578c.contains("denied")) ? TextUtils.isEmpty(a2.f35577b) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
             } catch (Throwable th) {
                 c.c(th);
                 return "KWE_PE";
@@ -237,7 +237,7 @@ public class f implements c.r.a.a.a.b.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c.r.a.a.a.b.e.a a2 = c.r.a.a.a.b.e.a.a(this.f35575e);
+            c.r.a.a.a.b.e.a a2 = c.r.a.a.a.b.e.a.a(this.f35579e);
             String c2 = !a2.d() ? null : a2.c("oaid");
             return TextUtils.isEmpty(c2) ? "" : c2;
         }
@@ -248,7 +248,7 @@ public class f implements c.r.a.a.a.b.b {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c.r.a.a.a.b.e.a.a(this.f35575e).d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c.r.a.a.a.b.e.a.a(this.f35579e).d() : invokeV.booleanValue;
     }
 
     @Override // c.r.a.a.a.b.b

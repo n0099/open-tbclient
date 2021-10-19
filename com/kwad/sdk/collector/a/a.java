@@ -14,10 +14,10 @@ public abstract class a implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f71611a;
+    public boolean f71646a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f71612b;
+    public List<b> f71647b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public abstract class a implements b {
                 return;
             }
         }
-        this.f71611a = true;
+        this.f71646a = true;
     }
 
     public a(boolean z) {
@@ -50,13 +50,13 @@ public abstract class a implements b {
                 return;
             }
         }
-        this.f71611a = z;
+        this.f71646a = z;
     }
 
     public List<b> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71612b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71647b : (List) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.collector.a.b
@@ -64,7 +64,7 @@ public abstract class a implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (this.f71611a) {
+            if (this.f71646a) {
                 List<b> a2 = a();
                 if (a2 == null || a2.size() <= 0) {
                     try {

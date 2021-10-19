@@ -13,29 +13,29 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f68292a;
+    public static final c f68327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f68293b;
+    public static final c f68328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f68294c;
+    public static final c f68329c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c f68295d;
+    public static final c f68330d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f68296e;
+    public static final c f68331e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c f68297f;
+    public static final c f68332f;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ c[] f68298h;
+    public static final /* synthetic */ c[] f68333h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f68299g;
+    public String f68334g;
 
     static {
         InterceptResult invokeClinit;
@@ -50,14 +50,14 @@ public final class c {
                 return;
             }
         }
-        f68292a = new c("TYPE_2G", 0, "2g");
-        f68293b = new c("TYPE_3G", 1, "3g");
-        f68294c = new c("TYPE_4G", 2, "4g");
-        f68295d = new c("TYPE_5G", 3, "5g");
-        f68296e = new c("TYPE_WIFI", 4, "wifi");
+        f68327a = new c("TYPE_2G", 0, "2g");
+        f68328b = new c("TYPE_3G", 1, "3g");
+        f68329c = new c("TYPE_4G", 2, "4g");
+        f68330d = new c("TYPE_5G", 3, "5g");
+        f68331e = new c("TYPE_WIFI", 4, "wifi");
         c cVar = new c("TYPE_UNKNOWN", 5, "mobile");
-        f68297f = cVar;
-        f68298h = new c[]{f68292a, f68293b, f68294c, f68295d, f68296e, cVar};
+        f68332f = cVar;
+        f68333h = new c[]{f68327a, f68328b, f68329c, f68330d, f68331e, cVar};
     }
 
     public c(String str, int i2, String str2) {
@@ -78,7 +78,7 @@ public final class c {
                 return;
             }
         }
-        this.f68299g = str2;
+        this.f68334g = str2;
     }
 
     public static c valueOf(String str) {
@@ -90,13 +90,13 @@ public final class c {
     public static c[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (c[]) f68298h.clone() : (c[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (c[]) f68333h.clone() : (c[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68299g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68334g : (String) invokeV.objValue;
     }
 }

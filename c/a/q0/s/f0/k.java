@@ -15,13 +15,13 @@ public class k extends i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13845e;
+    public int f13865e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13846f;
+    public int f13866f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13847g;
+    public int f13867g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(Drawable drawable, int i2, int i3, int i4) {
@@ -42,11 +42,11 @@ public class k extends i {
                 return;
             }
         }
-        this.f13845e = 0;
-        this.f13846f = 0;
-        this.f13847g = 0;
-        this.f13845e = i3;
-        this.f13846f = i4;
+        this.f13865e = 0;
+        this.f13866f = 0;
+        this.f13867g = 0;
+        this.f13865e = i3;
+        this.f13866f = i4;
     }
 
     @Override // c.a.q0.s.f0.i, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -54,8 +54,8 @@ public class k extends i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) {
             canvas.save();
-            canvas.translate(0.0f, this.f13847g);
-            super.draw(canvas, charSequence, i2, i3, f2 + this.f13845e, i4, i5, i6, paint);
+            canvas.translate(0.0f, this.f13867g);
+            super.draw(canvas, charSequence, i2, i3, f2 + this.f13865e, i4, i5, i6, paint);
             canvas.restore();
         }
     }
@@ -65,10 +65,10 @@ public class k extends i {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) {
-            if (this.f13845e == 0 && this.f13846f == 0) {
+            if (this.f13865e == 0 && this.f13866f == 0) {
                 return super.getSize(paint, charSequence, i2, i3, fontMetricsInt);
             }
-            return getDrawable().getBounds().width() + this.f13845e + this.f13846f;
+            return getDrawable().getBounds().width() + this.f13865e + this.f13866f;
         }
         return invokeCommon.intValue;
     }

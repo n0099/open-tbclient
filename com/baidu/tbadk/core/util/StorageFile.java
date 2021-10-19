@@ -115,7 +115,7 @@ public class StorageFile {
             if (str.equals(str5)) {
                 return false;
             }
-            return FileHelper.CopyFile(str, str5, true);
+            return FileHelper.copyFileByRelativelyPath(str, str5, true);
         }
         return invokeLL.booleanValue;
     }
@@ -177,7 +177,7 @@ public class StorageFile {
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, str, bArr) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        FileHelper.SaveFile(getDirectoryName(str), str, bArr);
+        FileHelper.saveFileByBytes(getDirectoryName(str), str, bArr);
     }
 
     public void saveNineImage(String str, byte[] bArr) {
@@ -185,6 +185,6 @@ public class StorageFile {
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, bArr) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        FileHelper.SaveFile(FileHelper.getPrefixByType(3), str, bArr);
+        FileHelper.saveFileByBytes(FileHelper.getPrefixByType(3), str, bArr);
     }
 }

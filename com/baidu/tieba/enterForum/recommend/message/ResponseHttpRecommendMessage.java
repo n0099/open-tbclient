@@ -1,6 +1,6 @@
 package com.baidu.tieba.enterForum.recommend.message;
 
-import c.a.r0.n0.k.c.a;
+import c.a.r0.o0.k.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;

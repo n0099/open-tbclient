@@ -24,10 +24,10 @@ public class SearchMajorModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f54231e;
+    public b f54162e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f54232f;
+    public HttpMessageListener f54163f;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -35,7 +35,7 @@ public class SearchMajorModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SearchMajorModel f54233a;
+        public final /* synthetic */ SearchMajorModel f54164a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SearchMajorModel searchMajorModel, int i2) {
@@ -55,7 +55,7 @@ public class SearchMajorModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54233a = searchMajorModel;
+            this.f54164a = searchMajorModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,21 +66,21 @@ public class SearchMajorModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
                 return;
             }
-            this.f54233a.mErrorCode = httpResponsedMessage.getError();
-            this.f54233a.mErrorString = httpResponsedMessage.getErrorString();
-            if (!StringUtils.isNull(this.f54233a.mErrorString)) {
-                str = this.f54233a.mErrorString;
+            this.f54164a.mErrorCode = httpResponsedMessage.getError();
+            this.f54164a.mErrorString = httpResponsedMessage.getErrorString();
+            if (!StringUtils.isNull(this.f54164a.mErrorString)) {
+                str = this.f54164a.mErrorString;
             } else {
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.neterror);
             }
             ErrorData errorData = new ErrorData();
-            errorData.setError_code(this.f54233a.mErrorCode);
+            errorData.setError_code(this.f54164a.mErrorCode);
             errorData.setError_msg(str);
             SearchMajorHttpResponsedMessage searchMajorHttpResponsedMessage = httpResponsedMessage instanceof SearchMajorHttpResponsedMessage ? (SearchMajorHttpResponsedMessage) httpResponsedMessage : null;
-            if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().f26359a)) {
-                this.f54233a.f54231e.onSuccess(searchMajorHttpResponsedMessage.getData().f26359a);
+            if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().f26534a)) {
+                this.f54164a.f54162e.onSuccess(searchMajorHttpResponsedMessage.getData().f26534a);
             } else {
-                this.f54233a.f54231e.onError(errorData);
+                this.f54164a.f54162e.onError(errorData);
             }
         }
     }
@@ -111,28 +111,28 @@ public class SearchMajorModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_MAJOR);
-        this.f54232f = aVar;
+        this.f54163f = aVar;
         aVar.setSelfListener(true);
-        registerListener(this.f54232f);
-        this.f54231e = bVar;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        registerListener(this.f54163f);
+        this.f54162e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             cancelMessage();
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;

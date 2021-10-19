@@ -24,18 +24,18 @@ import java.util.List;
 public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.n1.c.a mCallback;
+    public c.a.r0.o1.c.a mCallback;
     public int mFrom;
     public LabelSettingModel mModel;
-    public c.a.r0.n1.d.b mView;
+    public c.a.r0.o1.d.b mView;
 
     /* loaded from: classes7.dex */
-    public class a implements c.a.r0.n1.c.a {
+    public class a implements c.a.r0.o1.c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LabelRecommendActivity f53802e;
+        public final /* synthetic */ LabelRecommendActivity f53733e;
 
         public a(LabelRecommendActivity labelRecommendActivity) {
             Interceptable interceptable = $ic;
@@ -52,44 +52,44 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                     return;
                 }
             }
-            this.f53802e = labelRecommendActivity;
+            this.f53733e = labelRecommendActivity;
         }
 
-        @Override // c.a.r0.n1.c.a
-        public void callback(LabelRequestEnum labelRequestEnum, c.a.r0.n1.b.b bVar, int i2) {
+        @Override // c.a.r0.o1.c.a
+        public void callback(LabelRequestEnum labelRequestEnum, c.a.r0.o1.b.b bVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, bVar, i2) == null) {
-                int i3 = b.f53803a[labelRequestEnum.ordinal()];
+                int i3 = b.f53734a[labelRequestEnum.ordinal()];
                 if (i3 != 1) {
                     if (i3 == 2 && i2 == 0) {
                         c.a.q0.s.d0.b.j().t("set_recommend_label", true);
-                        this.f53802e.statisticSubSuccess();
-                        this.f53802e.finish();
+                        this.f53733e.statisticSubSuccess();
+                        this.f53733e.finish();
                         return;
                     }
                     return;
                 }
-                LabelRecommendActivity labelRecommendActivity = this.f53802e;
+                LabelRecommendActivity labelRecommendActivity = this.f53733e;
                 labelRecommendActivity.hideLoadingView(labelRecommendActivity.mView.c());
                 if (bVar != null && !ListUtils.isEmpty(bVar.c()) && !ListUtils.isEmpty(bVar.b())) {
-                    LabelRecommendActivity labelRecommendActivity2 = this.f53802e;
+                    LabelRecommendActivity labelRecommendActivity2 = this.f53733e;
                     labelRecommendActivity2.hideNetRefreshView(labelRecommendActivity2.mView.c());
-                    this.f53802e.mView.j(bVar);
+                    this.f53733e.mView.j(bVar);
                     return;
                 }
-                LabelRecommendActivity labelRecommendActivity3 = this.f53802e;
+                LabelRecommendActivity labelRecommendActivity3 = this.f53733e;
                 labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.mView.c(), TbadkCoreApplication.getInst().getString(R.string.neterror), true);
             }
         }
 
-        @Override // c.a.r0.n1.c.a
+        @Override // c.a.r0.o1.c.a
         public void getLabel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
 
-        @Override // c.a.r0.n1.c.a
+        @Override // c.a.r0.o1.c.a
         public void subLabel(List<Integer> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
@@ -102,7 +102,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f53803a;
+        public static final /* synthetic */ int[] f53734a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -119,13 +119,13 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 }
             }
             int[] iArr = new int[LabelRequestEnum.values().length];
-            f53803a = iArr;
+            f53734a = iArr;
             try {
                 iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f53803a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                f53734a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -196,7 +196,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            c.a.r0.n1.d.b bVar = new c.a.r0.n1.d.b(this);
+            c.a.r0.o1.d.b bVar = new c.a.r0.o1.d.b(this);
             this.mView = bVar;
             bVar.k(this);
             LabelSettingModel labelSettingModel = new LabelSettingModel(getPageContext());

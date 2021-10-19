@@ -1,61 +1,104 @@
 package c.a.q0.d1;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class o0 {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static long f12992a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1214556034, "Lc/a/q0/d1/o0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1214556034, "Lc/a/q0/d1/o0;");
-        }
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f12999a;
 
-    public static long a(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
-            double d2 = 0.0d;
-            for (int i2 = 0; i2 < charSequence.length(); i2++) {
-                char charAt = charSequence.charAt(i2);
-                if (charAt > ' ') {
-                    d2 += (charAt <= 0 || charAt >= 127) ? 1.0d : 0.5d;
+    /* renamed from: b  reason: collision with root package name */
+    public List<c.a.r0.b0.e0.c> f13000b;
+
+    /* loaded from: classes3.dex */
+    public class a implements Comparator<c.a.r0.b0.e0.c> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(o0 o0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return Math.round(d2);
         }
-        return invokeL.longValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(c.a.r0.b0.e0.c cVar, c.a.r0.b0.e0.c cVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, cVar2)) == null) ? cVar.sort() - cVar2.sort() : invokeLL.intValue;
+        }
     }
 
-    public static boolean b() {
+    public o0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f13000b = new LinkedList();
+    }
+
+    public List<c.a.r0.b0.e0.c> a(List<PbLinkData> list, List<PbGoodsData> list2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                for (int i2 = 0; i2 < list.size(); i2++) {
+                    PbLinkData pbLinkData = list.get(i2);
+                    if (pbLinkData.urlType == 2 && !this.f12999a) {
+                        this.f12999a = true;
+                    }
+                    this.f13000b.add(pbLinkData);
+                }
+            }
+            if (!ListUtils.isEmpty(list2)) {
+                this.f12999a = true;
+                for (int i3 = 0; i3 < list2.size(); i3++) {
+                    this.f13000b.add(list2.get(i3));
+                }
+            }
+            Collections.sort(this.f13000b, new a(this));
+            return this.f13000b;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long j2 = currentTimeMillis - f12992a;
-            if (0 >= j2 || j2 >= 1000) {
-                f12992a = currentTimeMillis;
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12999a : invokeV.booleanValue;
     }
 }

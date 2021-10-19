@@ -4,8 +4,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.r0.j2.k.g.f.a;
-import c.a.r0.j2.k.g.g.b;
+import c.a.r0.k2.k.g.f.a;
+import c.a.r0.k2.k.g.g.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,13 +28,13 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f55554a;
+        public TextView f55488a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f55555b;
+        public View f55489b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f55556c;
+        public int f55490c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SubPbReplyViewHolder(View view) {
@@ -54,26 +54,26 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
                     return;
                 }
             }
-            this.f55556c = 3;
-            this.f55554a = (TextView) view.findViewById(R.id.floor_reply_text);
-            this.f55555b = view.findViewById(R.id.floor_reply_top_line);
+            this.f55490c = 3;
+            this.f55488a = (TextView) view.findViewById(R.id.floor_reply_text);
+            this.f55489b = view.findViewById(R.id.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f55556c != TbadkApplication.getInst().getSkinType()) {
-                    SkinManager.setViewTextColor(this.f55554a, R.color.CAM_X0105);
-                    SkinManager.setBackgroundColor(this.f55555b, R.color.CAM_X0204);
-                    SkinManager.setBackgroundColor(this.f55554a, R.color.CAM_X0201);
+                if (this.f55490c != TbadkApplication.getInst().getSkinType()) {
+                    SkinManager.setViewTextColor(this.f55488a, R.color.CAM_X0105);
+                    SkinManager.setBackgroundColor(this.f55489b, R.color.CAM_X0204);
+                    SkinManager.setBackgroundColor(this.f55488a, R.color.CAM_X0201);
                 }
-                this.f55556c = TbadkApplication.getInst().getSkinType();
+                this.f55490c = TbadkApplication.getInst().getSkinType();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SubPbReplyAdapter(c.a.r0.j2.k.a aVar, BdUniqueId bdUniqueId) {
+    public SubPbReplyAdapter(c.a.r0.k2.k.a aVar, BdUniqueId bdUniqueId) {
         super(aVar, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -85,7 +85,7 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((c.a.r0.j2.k.a) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((c.a.r0.k2.k.a) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -109,7 +109,7 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, subPbReplyViewHolder})) == null) {
-            ((SubPbReplyViewHolder) this.k).f55554a.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.b())));
+            ((SubPbReplyViewHolder) this.k).f55488a.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.b())));
             ((SubPbReplyViewHolder) this.k).onChangeSkinType();
             return subPbReplyViewHolder.getView();
         }

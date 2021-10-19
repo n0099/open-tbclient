@@ -30,10 +30,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75895a = "com.sdk.base.framework.f.d.a";
+    public static final String f75930a = "com.sdk.base.framework.f.d.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f75896b;
+    public static final Boolean f75931b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +49,7 @@ public class a {
                 return;
             }
         }
-        f75896b = Boolean.valueOf(f.f75869b);
+        f75931b = Boolean.valueOf(f.f75904b);
     }
 
     public a() {
@@ -201,7 +201,7 @@ public class a {
                         }
                     }
                 } catch (Throwable th) {
-                    c.b(f75895a, th.getMessage(), f75896b);
+                    c.b(f75930a, th.getMessage(), f75931b);
                 }
             }
             return null;

@@ -21,22 +21,22 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public o f14834a;
+    public o f14858a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC0702b f14835b;
+    public InterfaceC0704b f14859b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14836c;
+    public int f14860c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14837d;
+    public int f14861d;
 
     /* renamed from: e  reason: collision with root package name */
-    public n f14838e;
+    public n f14862e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f14839f;
+    public HttpMessageListener f14863f;
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -44,7 +44,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f14840a;
+        public final /* synthetic */ b f14864a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -64,7 +64,7 @@ public class b {
                     return;
                 }
             }
-            this.f14840a = bVar;
+            this.f14864a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,9 +73,9 @@ public class b {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ChannelConfigResponseMessage)) {
                 ChannelConfigResponseMessage channelConfigResponseMessage = (ChannelConfigResponseMessage) httpResponsedMessage;
-                this.f14840a.f14834a = channelConfigResponseMessage.getData();
-                if (this.f14840a.f14835b != null) {
-                    this.f14840a.f14835b.a(channelConfigResponseMessage.isSuccess(), channelConfigResponseMessage.getData());
+                this.f14864a.f14858a = channelConfigResponseMessage.getData();
+                if (this.f14864a.f14859b != null) {
+                    this.f14864a.f14859b.a(channelConfigResponseMessage.isSuccess(), channelConfigResponseMessage.getData());
                 }
                 if (channelConfigResponseMessage.isSuccess()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921493, null));
@@ -86,7 +86,7 @@ public class b {
 
     /* renamed from: c.a.q0.t.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0702b {
+    public interface InterfaceC0704b {
         void a(boolean z, o oVar);
     }
 
@@ -103,40 +103,40 @@ public class b {
                 return;
             }
         }
-        this.f14839f = new a(this, CmdConfigHttp.CMD_GET_CHANNEL_CONFIG);
-        MessageManager.getInstance().registerListener(this.f14839f);
-        this.f14836c = c.a.q0.s.d0.b.j().k("key_common_category_version", 0);
-        this.f14837d = c.a.q0.s.d0.b.j().k("key_special_category_version", 0);
+        this.f14863f = new a(this, CmdConfigHttp.CMD_GET_CHANNEL_CONFIG);
+        MessageManager.getInstance().registerListener(this.f14863f);
+        this.f14860c = c.a.q0.s.d0.b.j().k("key_common_category_version", 0);
+        this.f14861d = c.a.q0.s.d0.b.j().k("key_special_category_version", 0);
     }
 
     public n c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n nVar = this.f14838e;
+            n nVar = this.f14862e;
             if (nVar != null) {
                 return nVar;
             }
-            if (this.f14834a == null) {
+            if (this.f14858a == null) {
                 return null;
             }
             n nVar2 = new n();
-            o oVar = this.f14834a;
-            if (oVar != null && oVar.b() != null && this.f14837d < this.f14834a.b().e()) {
-                nVar2.g(this.f14834a.b().a());
-                nVar2.h(this.f14834a.b().b());
-                nVar2.i(this.f14834a.b().c());
-                nVar2.j(this.f14834a.b().d());
-                nVar2.f(n.f14716h);
+            o oVar = this.f14858a;
+            if (oVar != null && oVar.b() != null && this.f14861d < this.f14858a.b().e()) {
+                nVar2.g(this.f14858a.b().a());
+                nVar2.h(this.f14858a.b().b());
+                nVar2.i(this.f14858a.b().c());
+                nVar2.j(this.f14858a.b().d());
+                nVar2.f(n.f14730h);
             } else {
-                o oVar2 = this.f14834a;
-                if (oVar2 != null && oVar2.a() > 0 && this.f14836c < this.f14834a.a()) {
-                    nVar2.f(n.f14715g);
+                o oVar2 = this.f14858a;
+                if (oVar2 != null && oVar2.a() > 0 && this.f14860c < this.f14858a.a()) {
+                    nVar2.f(n.f14729g);
                 } else {
-                    nVar2.f(n.f14714f);
+                    nVar2.f(n.f14728f);
                 }
             }
-            this.f14838e = nVar2;
+            this.f14862e = nVar2;
             return nVar2;
         }
         return (n) invokeV.objValue;
@@ -145,12 +145,12 @@ public class b {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (i2 == n.f14716h) {
-                if (this.f14834a.b() != null) {
-                    c.a.q0.s.d0.b.j().v("key_special_category_version", this.f14834a.b().e());
+            if (i2 == n.f14730h) {
+                if (this.f14858a.b() != null) {
+                    c.a.q0.s.d0.b.j().v("key_special_category_version", this.f14858a.b().e());
                 }
-            } else if (i2 == n.f14715g) {
-                c.a.q0.s.d0.b.j().v("key_common_category_version", this.f14834a.a());
+            } else if (i2 == n.f14729g) {
+                c.a.q0.s.d0.b.j().v("key_common_category_version", this.f14858a.a());
             }
         }
     }

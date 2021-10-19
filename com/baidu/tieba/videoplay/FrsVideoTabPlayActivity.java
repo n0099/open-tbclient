@@ -56,7 +56,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     public String mFrom;
     public String mFromPage;
     public boolean mIsFromSchema;
-    public c.a.r0.i.a mNEGFeedBackManager;
+    public c.a.r0.j.a mNEGFeedBackManager;
     public NavigationBar mNavigationBar;
     public String mNid;
     public String mSourceFrom;
@@ -71,7 +71,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsVideoTabPlayActivity f57917a;
+        public final /* synthetic */ FrsVideoTabPlayActivity f57851a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FrsVideoTabPlayActivity frsVideoTabPlayActivity, int i2) {
@@ -91,7 +91,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f57917a = frsVideoTabPlayActivity;
+            this.f57851a = frsVideoTabPlayActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -99,14 +99,14 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             BdUniqueId tag;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || (tag = customResponsedMessage.getOrginalMessage().getTag()) == null || this.f57917a.getUniqueId().getId() != tag.getId() || !(customResponsedMessage.getData() instanceof Float)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || (tag = customResponsedMessage.getOrginalMessage().getTag()) == null || this.f57851a.getUniqueId().getId() != tag.getId() || !(customResponsedMessage.getData() instanceof Float)) {
                 return;
             }
             float floatValue = ((Float) customResponsedMessage.getData()).floatValue();
             if (floatValue < 0.0f || floatValue > 1.0f) {
                 return;
             }
-            this.f57917a.mNavigationBar.setAlpha(floatValue);
+            this.f57851a.mNavigationBar.setAlpha(floatValue);
         }
     }
 
@@ -116,7 +116,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsVideoTabPlayActivity f57918e;
+        public final /* synthetic */ FrsVideoTabPlayActivity f57852e;
 
         public b(FrsVideoTabPlayActivity frsVideoTabPlayActivity) {
             Interceptable interceptable = $ic;
@@ -133,14 +133,14 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f57918e = frsVideoTabPlayActivity;
+            this.f57852e = frsVideoTabPlayActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f57918e.finish();
+                this.f57852e.finish();
             }
         }
     }
@@ -285,9 +285,9 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             if (navigationBar != null && this.mTitleView != null) {
                 navigationBar.setBackgroundResource(R.drawable.transparent_bg);
                 c d2 = c.d(this.mTitleView);
-                d2.B(R.string.F_X01);
-                d2.w(R.color.CAM_X0101);
-                d2.A(R.dimen.T_X05);
+                d2.A(R.string.F_X01);
+                d2.v(R.color.CAM_X0101);
+                d2.z(R.dimen.T_X05);
                 if (this.mNavigationBar.getBackImageView() != null) {
                     WebPManager.setPureDrawable(this.mNavigationBar.getBackImageView(), R.drawable.icon_pure_topbar_return40, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
                 }
@@ -316,7 +316,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.f().h("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.g().i("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -325,7 +325,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             this.mStartTime = System.currentTimeMillis();
             setContentView(R.layout.video_play_activity);
-            this.mNEGFeedBackManager = new c.a.r0.i.a(getPageContext(), "client_videomiddle");
+            this.mNEGFeedBackManager = new c.a.r0.j.a(getPageContext(), "client_videomiddle");
             initData();
             initFragment();
             addGlobalLayoutListener();
@@ -340,7 +340,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            c.a.r0.i.a aVar = this.mNEGFeedBackManager;
+            c.a.r0.j.a aVar = this.mNEGFeedBackManager;
             if (aVar != null) {
                 aVar.h();
             }

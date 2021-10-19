@@ -16,7 +16,7 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f75758a;
+    public static final Boolean f75793a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public final class d {
                 return;
             }
         }
-        f75758a = Boolean.valueOf(f.f75869b);
+        f75793a = Boolean.valueOf(f.f75904b);
     }
 
     public d() {
@@ -87,7 +87,7 @@ public final class d {
                         }
                     } catch (Exception e2) {
                         e = e2;
-                        com.sdk.base.framework.a.a.c.b("StringDownloadHandler", e.getMessage(), f75758a);
+                        com.sdk.base.framework.a.a.c.b("StringDownloadHandler", e.getMessage(), f75793a);
                         if (sb != null) {
                         }
                     }

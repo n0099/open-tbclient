@@ -36,28 +36,28 @@ public class q extends l implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final f f14561c;
+    public final f f14581c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.q0.s.y.c f14562d;
+    public final c.a.q0.s.y.c f14582d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d f14563e;
+    public final d f14583e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HashMap<String, h> f14564f;
+    public final HashMap<String, h> f14584f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HashMap<String, m> f14565g;
+    public final HashMap<String, m> f14585g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14566h;
+    public String f14586h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14567i;
+    public int f14587i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f14568j;
+    public int f14588j;
 
     /* loaded from: classes3.dex */
     public class a implements k {
@@ -65,10 +65,10 @@ public class q extends l implements i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f14569a;
+        public final /* synthetic */ int f14589a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ q f14570b;
+        public final /* synthetic */ q f14590b;
 
         public a(q qVar, int i2) {
             Interceptable interceptable = $ic;
@@ -85,15 +85,15 @@ public class q extends l implements i {
                     return;
                 }
             }
-            this.f14570b = qVar;
-            this.f14569a = i2;
+            this.f14590b = qVar;
+            this.f14589a = i2;
         }
 
         @Override // c.a.q0.s.y.k
         public void a(m mVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, mVar, jSONObject) == null) {
-                this.f14570b.u(mVar, this.f14569a);
+                this.f14590b.u(mVar, this.f14589a);
             }
         }
 
@@ -101,17 +101,17 @@ public class q extends l implements i {
         public void b(int i2, Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, th) == null) && i2 == 1) {
-                if (this.f14569a < q.m.length) {
-                    this.f14570b.v();
+                if (this.f14589a < q.m.length) {
+                    this.f14590b.v();
                 }
-                int i3 = this.f14569a;
+                int i3 = this.f14589a;
                 if (i3 >= 0 && i3 < q.m.length) {
-                    this.f14570b.y(String.valueOf(q.m[this.f14569a]), "");
+                    this.f14590b.y(String.valueOf(q.m[this.f14589a]), "");
                     return;
                 }
-                BdLog.e("pingIndex " + this.f14569a + " out of bounds.");
-                String t = this.f14570b.t();
-                e.b(t, "103", "ping timeout for index " + this.f14569a);
+                BdLog.e("pingIndex " + this.f14589a + " out of bounds.");
+                String t = this.f14590b.t();
+                e.b(t, "103", "ping timeout for index " + this.f14589a);
             }
         }
     }
@@ -168,10 +168,10 @@ public class q extends l implements i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final l f14571a;
+        public final l f14591a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f14572b;
+        public final String f14592b;
 
         public c(l lVar, String str) {
             Interceptable interceptable = $ic;
@@ -188,8 +188,8 @@ public class q extends l implements i {
                     return;
                 }
             }
-            this.f14571a = lVar;
-            this.f14572b = str;
+            this.f14591a = lVar;
+            this.f14592b = str;
         }
 
         @Override // c.a.q0.s.y.h
@@ -198,13 +198,13 @@ public class q extends l implements i {
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
                 String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
                 if (TextUtils.isEmpty(optString)) {
-                    e.a("scope " + this.f14572b + " not found!");
+                    e.a("scope " + this.f14592b + " not found!");
                     return;
                 }
                 HashMap hashMap = new HashMap(4);
                 hashMap.put("errNo", TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP);
-                hashMap.put("errMsg", "cmd " + this.f14572b + " not found");
-                this.f14571a.c(m.k(optString, hashMap));
+                hashMap.put("errMsg", "cmd " + this.f14592b + " not found");
+                this.f14591a.c(m.k(optString, hashMap));
             }
         }
     }
@@ -215,7 +215,7 @@ public class q extends l implements i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<i> f14573a;
+        public final WeakReference<i> f14593a;
 
         public d(i iVar) {
             Interceptable interceptable = $ic;
@@ -232,14 +232,14 @@ public class q extends l implements i {
                     return;
                 }
             }
-            this.f14573a = new WeakReference<>(iVar);
+            this.f14593a = new WeakReference<>(iVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                i iVar = this.f14573a.get();
+                i iVar = this.f14593a.get();
                 if (iVar == null) {
                     e.a("TimeHandler got null bridge reference.");
                     return;
@@ -303,8 +303,8 @@ public class q extends l implements i {
                 return new b(webView, null);
             }
             q qVar = new q(webView, bVar);
-            qVar.f14561c.b(webViewClient);
-            qVar.f14562d.d(webChromeClient);
+            qVar.f14581c.b(webViewClient);
+            qVar.f14582d.d(webChromeClient);
             return qVar;
         }
         return (l) invokeCommon.objValue;
@@ -320,8 +320,8 @@ public class q extends l implements i {
             WebViewClient webViewClient = bridgeWebView.webViewClient;
             WebChromeClient webChromeClient = bridgeWebView.chromeClient;
             q qVar = new q(bridgeWebView, bVar);
-            qVar.f14561c.b(webViewClient);
-            qVar.f14562d.d(webChromeClient);
+            qVar.f14581c.b(webViewClient);
+            qVar.f14582d.d(webChromeClient);
             return qVar;
         }
         return (l) invokeCommon.objValue;
@@ -335,9 +335,9 @@ public class q extends l implements i {
                 e.a("invalid callbackId.");
                 return;
             }
-            m remove = this.f14565g.remove(str);
+            m remove = this.f14585g.remove(str);
             if (remove != null) {
-                e.a("(" + remove.f14552a + StringUtil.ARRAY_ELEMENT_SEPARATOR + remove.f14553b + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + ") timeout.");
+                e.a("(" + remove.f14572a + StringUtil.ARRAY_ELEMENT_SEPARATOR + remove.f14573b + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + ") timeout.");
                 remove.g(1, null);
             }
         }
@@ -347,14 +347,14 @@ public class q extends l implements i {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i2 = this.f14568j + 1;
-            this.f14568j = i2;
+            int i2 = this.f14588j + 1;
+            this.f14588j = i2;
             HashMap hashMap = new HashMap();
             hashMap.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "android");
             hashMap.put("version", "1.0");
             hashMap.put("logid", t());
             int[] iArr = k;
-            m(m.i(hashMap, iArr[this.f14568j % iArr.length], new a(this, i2)), true);
+            m(m.i(hashMap, iArr[this.f14588j % iArr.length], new a(this, i2)), true);
             y("100", "");
         }
     }
@@ -363,14 +363,14 @@ public class q extends l implements i {
     public void c(m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) {
-            m(mVar, mVar.f14556e == 3);
+            m(mVar, mVar.f14576e == 3);
         }
     }
 
     @Override // c.a.q0.s.y.l
     public void e(String str, c.a.q0.s.y.d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, dVar) == null) || this.f14564f.put(str, dVar) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, dVar) == null) || this.f14584f.put(str, dVar) == null) {
             return;
         }
         throw new IllegalArgumentException("handler " + str + " exists.");
@@ -396,35 +396,35 @@ public class q extends l implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, mVar, z) == null) {
             if (!z) {
-                if (this.f14567i != 0) {
+                if (this.f14587i != 0) {
                     String t = t();
-                    e.b(t, "101", "(" + mVar.f14552a + StringUtil.ARRAY_ELEMENT_SEPARATOR + mVar.f14553b + ") is called before bridge ready");
+                    e.b(t, "101", "(" + mVar.f14572a + StringUtil.ARRAY_ELEMENT_SEPARATOR + mVar.f14573b + ") is called before bridge ready");
                 }
-                if (TextUtils.isEmpty(mVar.f14552a) || TextUtils.isEmpty(mVar.f14553b)) {
+                if (TextUtils.isEmpty(mVar.f14572a) || TextUtils.isEmpty(mVar.f14573b)) {
                     e.b(t(), "102", "the alias class or method is empty");
                     mVar.g(3, new IllegalArgumentException("cmd or method is illegal."));
                     return;
                 }
             }
-            if (!TextUtils.isEmpty(mVar.f14557f)) {
-                if (mVar.f14556e != 3) {
-                    this.f14565g.put(mVar.f14557f, mVar);
-                    if (mVar.f14558g > 0) {
-                        d dVar = this.f14563e;
-                        dVar.sendMessageDelayed(Message.obtain(dVar, 2, mVar.f14557f), mVar.f14558g);
-                    } else if (mVar.f14552a != null || mVar.f14553b != null) {
-                        e.a("ignore timeout check for method call (" + mVar.f14552a + StringUtil.ARRAY_ELEMENT_SEPARATOR + mVar.f14553b + ").");
+            if (!TextUtils.isEmpty(mVar.f14577f)) {
+                if (mVar.f14576e != 3) {
+                    this.f14585g.put(mVar.f14577f, mVar);
+                    if (mVar.f14578g > 0) {
+                        d dVar = this.f14583e;
+                        dVar.sendMessageDelayed(Message.obtain(dVar, 2, mVar.f14577f), mVar.f14578g);
+                    } else if (mVar.f14572a != null || mVar.f14573b != null) {
+                        e.a("ignore timeout check for method call (" + mVar.f14572a + StringUtil.ARRAY_ELEMENT_SEPARATOR + mVar.f14573b + ").");
                     }
                 } else {
-                    e.a("ignore timeout check for response method, callbackId " + mVar.f14557f);
+                    e.a("ignore timeout check for response method, callbackId " + mVar.f14577f);
                 }
             }
             try {
                 String b2 = mVar.b();
                 if (Build.VERSION.SDK_INT >= 19) {
-                    this.f14549a.evaluateJavascript(b2, null);
+                    this.f14569a.evaluateJavascript(b2, null);
                 } else {
-                    this.f14549a.loadUrl(b2);
+                    this.f14569a.loadUrl(b2);
                 }
                 e.a(b2);
             } catch (NullPointerException e2) {
@@ -470,20 +470,20 @@ public class q extends l implements i {
     public void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f14568j = -1;
-            int i2 = this.f14567i;
+            this.f14588j = -1;
+            int i2 = this.f14587i;
             if (i2 != 2 && i2 != 1) {
-                e.a("current status " + this.f14567i + ", broken because url changed to " + str);
-                this.f14567i = 2;
+                e.a("current status " + this.f14587i + ", broken because url changed to " + str);
+                this.f14587i = 2;
             }
             if (p.b(str) && p.a(str)) {
-                e.a("current status " + this.f14567i + ", constructing bridge for " + str);
-                c.a.q0.s.y.b bVar = this.f14550b;
+                e.a("current status " + this.f14587i + ", constructing bridge for " + str);
+                c.a.q0.s.y.b bVar = this.f14570b;
                 if (bVar != null) {
                     bVar.b();
                 }
-                s(this.f14549a);
-                c.a.q0.s.y.b bVar2 = this.f14550b;
+                s(this.f14569a);
+                c.a.q0.s.y.b bVar2 = this.f14570b;
                 if (bVar2 != null) {
                     bVar2.a();
                 }
@@ -495,12 +495,12 @@ public class q extends l implements i {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.f14567i == -1) {
-                this.f14549a.getSettings().setJavaScriptEnabled(true);
-                this.f14549a.setWebViewClient(this.f14561c);
-                this.f14549a.setWebChromeClient(this.f14562d);
-                this.f14549a.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f14567i = 1;
+            if (this.f14587i == -1) {
+                this.f14569a.getSettings().setJavaScriptEnabled(true);
+                this.f14569a.setWebViewClient(this.f14581c);
+                this.f14569a.setWebChromeClient(this.f14582d);
+                this.f14569a.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f14587i = 1;
                 return;
             }
             throw new IllegalStateException("Can't init bridge more than once.");
@@ -510,7 +510,7 @@ public class q extends l implements i {
     public final void s(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, webView) == null) {
-            this.f14566h = String.valueOf(System.currentTimeMillis());
+            this.f14586h = String.valueOf(System.currentTimeMillis());
             try {
                 InputStream open = webView.getContext().getAssets().open("bridge.dist.min.js");
                 byte[] bArr = new byte[open.available()];
@@ -519,7 +519,7 @@ public class q extends l implements i {
                 StringBuilder l2 = l();
                 l2.append(new String(bArr));
                 webView.loadUrl("javascript:" + l2.toString());
-                this.f14563e.sendEmptyMessageDelayed(1, 0L);
+                this.f14583e.sendEmptyMessageDelayed(1, 0L);
             } catch (Throwable th) {
                 y("102", th.getMessage());
                 e.a(th.toString());
@@ -530,18 +530,18 @@ public class q extends l implements i {
     public final String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f14566h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f14586h : (String) invokeV.objValue;
     }
 
     public final void u(m mVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, mVar, i2) == null) {
-            this.f14567i = 0;
+            this.f14587i = 0;
             long currentTimeMillis = System.currentTimeMillis();
             if (i2 >= 0) {
                 int[] iArr = l;
                 if (i2 < iArr.length) {
-                    y(String.valueOf(iArr[i2]), String.valueOf(currentTimeMillis - mVar.f14559h));
+                    y(String.valueOf(iArr[i2]), String.valueOf(currentTimeMillis - mVar.f14579h));
                     return;
                 }
             }
@@ -552,8 +552,8 @@ public class q extends l implements i {
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            e.a("reInject for pingIndex " + this.f14568j);
-            s(this.f14549a);
+            e.a("reInject for pingIndex " + this.f14588j);
+            s(this.f14569a);
         }
     }
 
@@ -564,8 +564,8 @@ public class q extends l implements i {
                 e.a("invalid callbackId.");
                 return;
             }
-            this.f14563e.removeMessages(2, str);
-            m remove = this.f14565g.remove(str);
+            this.f14583e.removeMessages(2, str);
+            m remove = this.f14585g.remove(str);
             if (remove != null) {
                 remove.h(jSONObject);
             }
@@ -575,10 +575,10 @@ public class q extends l implements i {
     public final void x(String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, str2, jSONObject, jSONObject2) == null) {
-            if (this.f14567i != 0) {
+            if (this.f14587i != 0) {
                 e.b(t(), TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT, "bridge is not ready");
             }
-            h hVar = this.f14564f.get(str);
+            h hVar = this.f14584f.get(str);
             if (hVar == null) {
                 hVar = new c(this, str);
                 String t = t();
@@ -614,16 +614,16 @@ public class q extends l implements i {
                 return;
             }
         }
-        this.f14566h = String.valueOf(System.currentTimeMillis());
-        this.f14567i = -1;
-        this.f14568j = -1;
-        this.f14561c = fVar;
-        this.f14562d = cVar;
+        this.f14586h = String.valueOf(System.currentTimeMillis());
+        this.f14587i = -1;
+        this.f14588j = -1;
+        this.f14581c = fVar;
+        this.f14582d = cVar;
         cVar.c(this);
-        this.f14561c.a(this);
-        this.f14563e = new d(this);
-        this.f14564f = new HashMap<>(16);
-        this.f14565g = new HashMap<>(8);
+        this.f14581c.a(this);
+        this.f14583e = new d(this);
+        this.f14584f = new HashMap<>(16);
+        this.f14585g = new HashMap<>(8);
         r();
     }
 }

@@ -20,7 +20,7 @@ public class b implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public t f34442a;
+    public t f34446a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class b implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, strArr, tVar) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                this.f34442a = tVar;
+                this.f34446a = tVar;
                 activity.requestPermissions(strArr, 1);
             } else if (tVar != null) {
                 tVar.a();
@@ -60,7 +60,7 @@ public class b implements h {
     public void a(@NonNull Activity activity, int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         t tVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048576, this, activity, i2, strArr, iArr) == null) || iArr.length <= 0 || (tVar = this.f34442a) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(1048576, this, activity, i2, strArr, iArr) == null) || iArr.length <= 0 || (tVar = this.f34446a) == null) {
             return;
         }
         if (iArr[0] == -1) {

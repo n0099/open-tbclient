@@ -19,36 +19,36 @@ public class c implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Pattern f32366j;
+    public static final Pattern f32370j;
     public static c k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f32367a;
+    public String f32371a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32368b;
+    public String f32372b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32369c;
+    public String f32373c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32370d;
+    public String f32374d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f32371e;
+    public String f32375e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32372f;
+    public String f32376f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32373g;
+    public String f32377g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f32374h;
+    public String f32378h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f32375i;
+    public String f32379i;
 
     static {
         InterceptResult invokeClinit;
@@ -63,7 +63,7 @@ public class c implements a {
                 return;
             }
         }
-        f32366j = Pattern.compile("^https://.*\\.com");
+        f32370j = Pattern.compile("^https://.*\\.com");
     }
 
     public c() {
@@ -79,10 +79,10 @@ public class c implements a {
                 return;
             }
         }
-        this.f32367a = "https://www.baifubao.com";
-        this.f32368b = "https://www.dxmpay.com";
-        this.f32369c = com.baidu.wallet.core.domain.b.p;
-        this.f32370d = "wss://ai.dxmpay.com";
+        this.f32371a = "https://www.baifubao.com";
+        this.f32372b = "https://www.dxmpay.com";
+        this.f32373c = com.baidu.wallet.core.domain.b.p;
+        this.f32374d = "wss://ai.dxmpay.com";
     }
 
     public static c a() {
@@ -100,35 +100,35 @@ public class c implements a {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f32371e = str;
+            this.f32375e = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f32372f = str;
+            this.f32376f = str;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f32373g = str;
+            this.f32377g = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f32374h = str;
+            this.f32378h = str;
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f32375i = str;
+            this.f32379i = str;
         }
     }
 
@@ -137,10 +137,10 @@ public class c implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!TextUtils.isEmpty(this.f32374h)) {
-                return this.f32374h;
+            if (!TextUtils.isEmpty(this.f32378h)) {
+                return this.f32378h;
             }
-            return this.f32370d;
+            return this.f32374d;
         }
         return (String) invokeV.objValue;
     }
@@ -150,10 +150,10 @@ public class c implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!TextUtils.isEmpty(this.f32371e)) {
-                return this.f32371e;
+            if (!TextUtils.isEmpty(this.f32375e)) {
+                return this.f32375e;
             }
-            return this.f32367a;
+            return this.f32371a;
         }
         return (String) invokeV.objValue;
     }
@@ -163,10 +163,10 @@ public class c implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!TextUtils.isEmpty(this.f32372f)) {
-                return this.f32372f;
+            if (!TextUtils.isEmpty(this.f32376f)) {
+                return this.f32376f;
             }
-            return this.f32368b;
+            return this.f32372b;
         }
         return (String) invokeV.objValue;
     }
@@ -183,10 +183,10 @@ public class c implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (!TextUtils.isEmpty(this.f32375i)) {
-                return this.f32375i;
+            if (!TextUtils.isEmpty(this.f32379i)) {
+                return this.f32379i;
             }
-            return this.f32368b;
+            return this.f32372b;
         }
         return (String) invokeV.objValue;
     }
@@ -196,10 +196,10 @@ public class c implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (!TextUtils.isEmpty(this.f32373g)) {
-                return this.f32373g;
+            if (!TextUtils.isEmpty(this.f32377g)) {
+                return this.f32377g;
             }
-            return this.f32369c;
+            return this.f32373c;
         }
         return (String) invokeV.objValue;
     }
@@ -213,18 +213,18 @@ public class c implements a {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("app_host");
-            if (!TextUtils.isEmpty(optString) && f32366j.matcher(optString).matches()) {
-                this.f32367a = optString;
-                c.f.a.d.a.i().g(this.f32371e);
+            if (!TextUtils.isEmpty(optString) && f32370j.matcher(optString).matches()) {
+                this.f32371a = optString;
+                c.f.a.d.a.i().g(this.f32375e);
             } else {
-                this.f32367a = "https://www.baifubao.com";
-                c.f.a.d.a.i().g(this.f32367a);
+                this.f32371a = "https://www.baifubao.com";
+                c.f.a.d.a.i().g(this.f32371a);
             }
             String optString2 = jSONObject.optString("ai_host");
-            if (!TextUtils.isEmpty(optString2) && f32366j.matcher(optString2).matches()) {
-                this.f32370d = optString2;
+            if (!TextUtils.isEmpty(optString2) && f32370j.matcher(optString2).matches()) {
+                this.f32374d = optString2;
             } else {
-                this.f32370d = "wss://ai.dxmpay.com";
+                this.f32374d = "wss://ai.dxmpay.com";
             }
         } catch (JSONException e2) {
             e2.printStackTrace();

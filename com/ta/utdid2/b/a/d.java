@@ -27,11 +27,11 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f76374b;
+    public static final Object f76409b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public File f76375a;
+    public File f76410a;
 
     /* renamed from: a  reason: collision with other field name */
     public final Object f19a;
@@ -44,17 +44,17 @@ public class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final Object f76376c;
+        public static final Object f76411c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Map f76377a;
+        public Map f76412a;
 
         /* renamed from: a  reason: collision with other field name */
-        public WeakHashMap<b.InterfaceC2084b, Object> f21a;
+        public WeakHashMap<b.InterfaceC2086b, Object> f21a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final File f76378b;
+        public final File f76413b;
 
         /* renamed from: c  reason: collision with other field name */
         public final int f22c;
@@ -63,7 +63,7 @@ public class d {
         public final File f23c;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f76379j;
+        public boolean f76414j;
 
         static {
             InterceptResult invokeClinit;
@@ -78,7 +78,7 @@ public class d {
                     return;
                 }
             }
-            f76376c = new Object();
+            f76411c = new Object();
         }
 
         public a(File file, int i2, Map map) {
@@ -96,11 +96,11 @@ public class d {
                     return;
                 }
             }
-            this.f76379j = false;
-            this.f76378b = file;
+            this.f76414j = false;
+            this.f76413b = file;
             this.f23c = d.a(file);
             this.f22c = i2;
-            this.f76377a = map == null ? new HashMap() : map;
+            this.f76412a = map == null ? new HashMap() : map;
             this.f21a = new WeakHashMap<>();
         }
 
@@ -109,27 +109,27 @@ public class d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-                if (this.f76378b.exists()) {
+                if (this.f76413b.exists()) {
                     if (!this.f23c.exists()) {
-                        if (!this.f76378b.renameTo(this.f23c)) {
+                        if (!this.f76413b.renameTo(this.f23c)) {
                             return false;
                         }
                     } else {
-                        this.f76378b.delete();
+                        this.f76413b.delete();
                     }
                 }
                 try {
-                    FileOutputStream a2 = a(this.f76378b);
+                    FileOutputStream a2 = a(this.f76413b);
                     if (a2 == null) {
                         return false;
                     }
-                    e.a(this.f76377a, a2);
+                    e.a(this.f76412a, a2);
                     a2.close();
                     this.f23c.delete();
                     return true;
                 } catch (Exception unused) {
-                    if (this.f76378b.exists()) {
-                        this.f76378b.delete();
+                    if (this.f76413b.exists()) {
+                        this.f76413b.delete();
                     }
                     return false;
                 }
@@ -141,7 +141,7 @@ public class d {
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76378b != null && new File(this.f76378b.getAbsolutePath()).exists() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76413b != null && new File(this.f76413b.getAbsolutePath()).exists() : invokeV.booleanValue;
         }
 
         public boolean d() {
@@ -150,7 +150,7 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 synchronized (this) {
-                    z = this.f76379j;
+                    z = this.f76414j;
                 }
                 return z;
             }
@@ -164,7 +164,7 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 synchronized (this) {
-                    hashMap = new HashMap(this.f76377a);
+                    hashMap = new HashMap(this.f76412a);
                 }
                 return hashMap;
             }
@@ -177,7 +177,7 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
                 synchronized (this) {
-                    Long l = (Long) this.f76377a.get(str);
+                    Long l = (Long) this.f76412a.get(str);
                     if (l != null) {
                         j2 = l.longValue();
                     }
@@ -193,7 +193,7 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
                 synchronized (this) {
-                    String str3 = (String) this.f76377a.get(str);
+                    String str3 = (String) this.f76412a.get(str);
                     if (str3 != null) {
                         str2 = str3;
                     }
@@ -205,18 +205,18 @@ public class d {
 
         /* renamed from: com.ta.utdid2.b.a.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public final class C2085a implements b.a {
+        public final class C2087a implements b.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f76380a;
+            public final /* synthetic */ a f76415a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final Map<String, Object> f76381b;
+            public final Map<String, Object> f76416b;
             public boolean k;
 
-            public C2085a(a aVar) {
+            public C2087a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -231,8 +231,8 @@ public class d {
                         return;
                     }
                 }
-                this.f76380a = aVar;
-                this.f76381b = new HashMap();
+                this.f76415a = aVar;
+                this.f76416b = new HashMap();
                 this.k = false;
             }
 
@@ -242,7 +242,7 @@ public class d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
                     synchronized (this) {
-                        this.f76381b.put(str, str2);
+                        this.f76416b.put(str, str2);
                     }
                     return this;
                 }
@@ -267,49 +267,49 @@ public class d {
                 InterceptResult invokeV;
                 boolean z;
                 ArrayList arrayList;
-                HashSet<b.InterfaceC2084b> hashSet;
+                HashSet<b.InterfaceC2086b> hashSet;
                 boolean e2;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                    synchronized (d.f76374b) {
-                        z = this.f76380a.f21a.size() > 0;
+                    synchronized (d.f76409b) {
+                        z = this.f76415a.f21a.size() > 0;
                         arrayList = null;
                         if (z) {
                             arrayList = new ArrayList();
-                            hashSet = new HashSet(this.f76380a.f21a.keySet());
+                            hashSet = new HashSet(this.f76415a.f21a.keySet());
                         } else {
                             hashSet = null;
                         }
                         synchronized (this) {
                             if (this.k) {
-                                this.f76380a.f76377a.clear();
+                                this.f76415a.f76412a.clear();
                                 this.k = false;
                             }
-                            for (Map.Entry<String, Object> entry : this.f76381b.entrySet()) {
+                            for (Map.Entry<String, Object> entry : this.f76416b.entrySet()) {
                                 String key = entry.getKey();
                                 Object value = entry.getValue();
                                 if (value == this) {
-                                    this.f76380a.f76377a.remove(key);
+                                    this.f76415a.f76412a.remove(key);
                                 } else {
-                                    this.f76380a.f76377a.put(key, value);
+                                    this.f76415a.f76412a.put(key, value);
                                 }
                                 if (z) {
                                     arrayList.add(key);
                                 }
                             }
-                            this.f76381b.clear();
+                            this.f76416b.clear();
                         }
-                        e2 = this.f76380a.e();
+                        e2 = this.f76415a.e();
                         if (e2) {
-                            this.f76380a.a(true);
+                            this.f76415a.a(true);
                         }
                     }
                     if (z) {
                         for (int size = arrayList.size() - 1; size >= 0; size--) {
                             String str = (String) arrayList.get(size);
-                            for (b.InterfaceC2084b interfaceC2084b : hashSet) {
-                                if (interfaceC2084b != null) {
-                                    interfaceC2084b.a(this.f76380a, str);
+                            for (b.InterfaceC2086b interfaceC2086b : hashSet) {
+                                if (interfaceC2086b != null) {
+                                    interfaceC2086b.a(this.f76415a, str);
                                 }
                             }
                         }
@@ -325,7 +325,7 @@ public class d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) {
                     synchronized (this) {
-                        this.f76381b.put(str, Integer.valueOf(i2));
+                        this.f76416b.put(str, Integer.valueOf(i2));
                     }
                     return this;
                 }
@@ -338,7 +338,7 @@ public class d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j2)) == null) {
                     synchronized (this) {
-                        this.f76381b.put(str, Long.valueOf(j2));
+                        this.f76416b.put(str, Long.valueOf(j2));
                     }
                     return this;
                 }
@@ -351,7 +351,7 @@ public class d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f2)) == null) {
                     synchronized (this) {
-                        this.f76381b.put(str, Float.valueOf(f2));
+                        this.f76416b.put(str, Float.valueOf(f2));
                     }
                     return this;
                 }
@@ -364,7 +364,7 @@ public class d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, str, z)) == null) {
                     synchronized (this) {
-                        this.f76381b.put(str, Boolean.valueOf(z));
+                        this.f76416b.put(str, Boolean.valueOf(z));
                     }
                     return this;
                 }
@@ -377,7 +377,7 @@ public class d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                     synchronized (this) {
-                        this.f76381b.put(str, this);
+                        this.f76416b.put(str, this);
                     }
                     return this;
                 }
@@ -389,7 +389,7 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                 synchronized (this) {
-                    this.f76379j = z;
+                    this.f76414j = z;
                 }
             }
         }
@@ -400,7 +400,7 @@ public class d {
                 return;
             }
             synchronized (this) {
-                this.f76377a = map;
+                this.f76412a = map;
             }
         }
 
@@ -408,7 +408,7 @@ public class d {
         public b.a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2085a(this) : (b.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2087a(this) : (b.a) invokeV.objValue;
         }
 
         private FileOutputStream a(File file) {
@@ -447,7 +447,7 @@ public class d {
                 return;
             }
         }
-        f76374b = new Object();
+        f76409b = new Object();
     }
 
     public d(String str) {
@@ -468,7 +468,7 @@ public class d {
         this.f19a = new Object();
         this.f20a = new HashMap<>();
         if (str != null && str.length() > 0) {
-            this.f76375a = new File(str);
+            this.f76410a = new File(str);
             return;
         }
         throw new RuntimeException("Directory can not be empty");
@@ -502,7 +502,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             synchronized (this.f19a) {
-                file = this.f76375a;
+                file = this.f76410a;
             }
             return file;
         }
@@ -533,7 +533,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
             File b2 = b(str);
-            synchronized (f76374b) {
+            synchronized (f76409b) {
                 a aVar = this.f20a.get(b2);
                 if (aVar == null || aVar.d()) {
                     File a2 = a(b2);
@@ -589,7 +589,7 @@ public class d {
                                                 if (fileInputStream2 != null) {
                                                 }
                                                 hashMap = canRead;
-                                                synchronized (f76374b) {
+                                                synchronized (f76409b) {
                                                 }
                                             } catch (Throwable th2) {
                                                 th = th2;
@@ -607,7 +607,7 @@ public class d {
                                                 canRead = canRead;
                                             }
                                             hashMap = canRead;
-                                            synchronized (f76374b) {
+                                            synchronized (f76409b) {
                                             }
                                         } catch (Exception unused8) {
                                             HashMap hashMap3 = hashMap;
@@ -618,7 +618,7 @@ public class d {
                                                 canRead = canRead;
                                             }
                                             hashMap = canRead;
-                                            synchronized (f76374b) {
+                                            synchronized (f76409b) {
                                             }
                                         } catch (Throwable th3) {
                                             th = th3;
@@ -643,7 +643,7 @@ public class d {
                             fileInputStream = null;
                         }
                     }
-                    synchronized (f76374b) {
+                    synchronized (f76409b) {
                         if (aVar != null) {
                             aVar.a(hashMap);
                         } else {

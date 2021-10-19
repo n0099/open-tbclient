@@ -29,7 +29,7 @@ public class SimpleDragSortListView extends BdListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SimpleDragSortListView f48746a;
+        public final /* synthetic */ SimpleDragSortListView f48675a;
 
         public a(SimpleDragSortListView simpleDragSortListView) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class SimpleDragSortListView extends BdListView {
                     return;
                 }
             }
-            this.f48746a = simpleDragSortListView;
+            this.f48675a = simpleDragSortListView;
         }
 
         @Override // c.a.q0.f1.e.d

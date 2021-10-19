@@ -228,7 +228,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             s.a(motionEvent, getPageId(), 0L);
-            c.a.r0.o3.a.getInstance().behaviorRecordEvent(motionEvent, this);
+            c.a.r0.p3.a.getInstance().behaviorRecordEvent(motionEvent, this);
             try {
                 return super.dispatchTouchEvent(motionEvent);
             } catch (Exception e2) {
@@ -497,7 +497,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             TbadkCoreApplication.setIsAppRunning(true);
             TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
             TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
-            c.a.e.a.b.f().n(getPageContext().getPageActivity());
+            c.a.e.a.b.g().o(getPageContext().getPageActivity());
             if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
                 z = false;
             }
@@ -525,7 +525,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
             super.onDestroy();
-            c.a.e.a.b.f().l(getPageContext().getPageActivity());
+            c.a.e.a.b.g().m(getPageContext().getPageActivity());
         }
     }
 
@@ -533,7 +533,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            c.a.r0.o3.a.getInstance().onPause(this);
+            c.a.r0.p3.a.getInstance().onPause(this);
             super.onPause();
             if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 hideFloatingWindow();
@@ -541,7 +541,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             if (this.lastResumeTime != 0) {
                 long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
                 d pageStayDurationItem = getPageStayDurationItem();
-                pageStayDurationItem.w(currentTimeMillis);
+                pageStayDurationItem.y(currentTimeMillis);
                 e.b().k(getPageContext().getPageActivity(), pageStayDurationItem, null);
             }
             TbadkCoreApplication.getInst().DelResumeNum();
@@ -599,7 +599,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             this.flutterStartTime = System.currentTimeMillis();
             TbadkCoreApplication.getInst().AddResumeNum();
             super.onResume();
-            c.a.r0.o3.a.getInstance().onResume(this);
+            c.a.r0.p3.a.getInstance().onResume(this);
             this.lastResumeTime = System.currentTimeMillis();
             TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
             TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());

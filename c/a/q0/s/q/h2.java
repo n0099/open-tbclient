@@ -2,6 +2,7 @@ package c.a.q0.s.q;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,10 +16,10 @@ public class h2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f14207a;
+    public int f14230a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14208b;
+    public String f14231b;
 
     public h2() {
         Interceptable interceptable = $ic;
@@ -33,20 +34,20 @@ public class h2 {
                 return;
             }
         }
-        this.f14207a = 0;
-        this.f14208b = "";
+        this.f14230a = 0;
+        this.f14231b = "";
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14207a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14230a : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14208b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14231b : (String) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -55,9 +56,9 @@ public class h2 {
             return;
         }
         try {
-            this.f14207a = jSONObject.optInt("is_lpost", 0);
-            jSONObject.optInt("topic_type", 0);
-            this.f14208b = jSONObject.optString("link", "");
+            this.f14230a = jSONObject.optInt("is_lpost", 0);
+            jSONObject.optInt(TiebaStatic.Params.TOPIC_TYPE, 0);
+            this.f14231b = jSONObject.optString("link", "");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -68,8 +69,8 @@ public class h2 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, topic) == null) || topic == null) {
             return;
         }
-        this.f14207a = topic.is_lpost.intValue();
+        this.f14230a = topic.is_lpost.intValue();
         topic.topic_type.intValue();
-        this.f14208b = topic.link;
+        this.f14231b = topic.link;
     }
 }

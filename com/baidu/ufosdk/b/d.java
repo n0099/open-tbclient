@@ -15,10 +15,10 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static TelephonyManager f59690a;
+    public static TelephonyManager f59725a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ConnectivityManager f59691b;
+    public static ConnectivityManager f59726b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(Context context) {
@@ -29,10 +29,10 @@ public final class d {
             String str = StringUtils.LF;
             StringBuilder sb = new StringBuilder();
             try {
-                if (f59691b == null) {
-                    f59691b = (ConnectivityManager) context.getSystemService("connectivity");
+                if (f59726b == null) {
+                    f59726b = (ConnectivityManager) context.getSystemService("connectivity");
                 }
-                activeNetworkInfo = f59691b.getActiveNetworkInfo();
+                activeNetworkInfo = f59726b.getActiveNetworkInfo();
             } catch (Exception e2) {
                 com.baidu.ufosdk.f.c.a("NetworkCollector: Couldn't get NetworkInfo : " + context.getPackageName(), e2);
             }
@@ -48,11 +48,11 @@ public final class d {
                     sb.append(" subType: ");
                     sb.append(activeNetworkInfo.getSubtypeName());
                     sb.append(StringUtils.LF);
-                    if (f59690a == null) {
-                        f59690a = (TelephonyManager) context.getSystemService("phone");
+                    if (f59725a == null) {
+                        f59725a = (TelephonyManager) context.getSystemService("phone");
                     }
                     sb.append(" isRoaming: ");
-                    sb.append(f59690a.isNetworkRoaming() ? "yes" : "no");
+                    sb.append(f59725a.isNetworkRoaming() ? "yes" : "no");
                 }
                 return sb.toString();
             }
@@ -69,10 +69,10 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                if (f59691b == null) {
-                    f59691b = (ConnectivityManager) context.getSystemService("connectivity");
+                if (f59726b == null) {
+                    f59726b = (ConnectivityManager) context.getSystemService("connectivity");
                 }
-                NetworkInfo activeNetworkInfo = f59691b.getActiveNetworkInfo();
+                NetworkInfo activeNetworkInfo = f59726b.getActiveNetworkInfo();
                 if (activeNetworkInfo != null) {
                     return !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
                 }

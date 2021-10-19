@@ -20,10 +20,10 @@ public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GridLayout f61443a;
+    public GridLayout f61478a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<BaseItemView> f61444b;
+    public List<BaseItemView> f61479b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LifeSingleLineLayoutForType6(Context context) {
@@ -43,7 +43,7 @@ public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
                 return;
             }
         }
-        this.f61444b = new ArrayList();
+        this.f61479b = new ArrayList();
     }
 
     private void a(GridLayout gridLayout) {
@@ -57,7 +57,7 @@ public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61444b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61479b : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -66,7 +66,7 @@ public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_life_layout"), this);
             GridLayout gridLayout = (GridLayout) findViewById(ResUtils.id(getContext(), "grid_layout"));
-            this.f61443a = gridLayout;
+            this.f61478a = gridLayout;
             gridLayout.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_font_text6Color"));
         }
     }
@@ -88,13 +88,13 @@ public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-            this.f61443a.setColumnCount(dataItemArr.length);
-            a(this.f61443a);
+            this.f61478a.setColumnCount(dataItemArr.length);
+            a(this.f61478a);
             for (HomeCfgResponse.DataItem dataItem : dataItemArr) {
                 LifeItemViewForType6 lifeItemViewForType6 = new LifeItemViewForType6(getContext());
                 lifeItemViewForType6.setData(dataItem, getWalletInterface());
-                this.f61443a.addView(lifeItemViewForType6);
-                this.f61444b.add(lifeItemViewForType6);
+                this.f61478a.addView(lifeItemViewForType6);
+                this.f61479b.add(lifeItemViewForType6);
             }
         }
     }
@@ -118,6 +118,6 @@ public class LifeSingleLineLayoutForType6 extends BaseItemLayout {
                 return;
             }
         }
-        this.f61444b = new ArrayList();
+        this.f61479b = new ArrayList();
     }
 }

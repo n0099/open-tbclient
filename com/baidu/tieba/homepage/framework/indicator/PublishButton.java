@@ -48,7 +48,7 @@ public class PublishButton extends TBSpecificationBtn {
             b bVar = new b();
             bVar.i(R.drawable.icon_pure_issue16, 0, TBSpecificationButtonConfig.IconType.WEBP);
             bVar.g(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-            bVar.o(R.color.CAM_X0302, R.color.CAM_X0101);
+            bVar.p(R.color.CAM_X0302, R.color.CAM_X0101);
             setConfig(bVar);
             setTextSize(R.dimen.T_X08);
             setText(TbadkCoreApplication.getInst().getResources().getString(R.string.home_write_thread_publish));

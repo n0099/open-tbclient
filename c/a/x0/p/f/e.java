@@ -25,31 +25,31 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Surface f31143a;
+    public Surface f31190a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f31144b;
+    public d f31191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MediaCodec f31145c;
+    public MediaCodec f31192c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaCodec.BufferInfo f31146d;
+    public MediaCodec.BufferInfo f31193d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f31147e;
+    public int f31194e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f31148f;
+    public boolean f31195f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bundle f31149g;
+    public Bundle f31196g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f31150h;
+    public long f31197h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f31151i;
+    public int f31198i;
 
     @TargetApi(18)
     public e(int i2, int i3, int i4, boolean z, d dVar) throws IOException {
@@ -67,41 +67,41 @@ public class e {
                 return;
             }
         }
-        this.f31149g = new Bundle();
-        this.f31150h = 0L;
-        this.f31151i = 10000;
+        this.f31196g = new Bundle();
+        this.f31197h = 0L;
+        this.f31198i = 10000;
         String str = "video/hevc";
         str = (!z || m.m("video/hevc") == null) ? "video/avc" : "video/avc";
-        this.f31146d = new MediaCodec.BufferInfo();
+        this.f31193d = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i2, i3);
         createVideoFormat.setInteger("color-format", 2130708361);
         createVideoFormat.setInteger("bitrate", i4);
         createVideoFormat.setInteger("frame-rate", 30);
         createVideoFormat.setInteger("i-frame-interval", 5);
         MediaCodec createEncoderByType = MediaCodec.createEncoderByType(str);
-        this.f31145c = createEncoderByType;
+        this.f31192c = createEncoderByType;
         createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.f31143a = this.f31145c.createInputSurface();
-        this.f31145c.start();
-        this.f31149g.putInt("request-sync", 0);
+        this.f31190a = this.f31192c.createInputSurface();
+        this.f31192c.start();
+        this.f31196g.putInt("request-sync", 0);
         if (Build.VERSION.SDK_INT >= 19) {
-            this.f31145c.setParameters(this.f31149g);
+            this.f31192c.setParameters(this.f31196g);
         }
-        this.f31147e = -1;
-        this.f31148f = false;
-        this.f31144b = dVar;
+        this.f31194e = -1;
+        this.f31195f = false;
+        this.f31191b = dVar;
     }
 
     public Surface a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31143a : (Surface) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31190a : (Surface) invokeV.objValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f31151i = i2;
+            this.f31198i = i2;
         }
     }
 
@@ -112,12 +112,12 @@ public class e {
             return;
         }
         if (z) {
-            this.f31145c.signalEndOfInputStream();
+            this.f31192c.signalEndOfInputStream();
         }
         while (true) {
-            ByteBuffer[] outputBuffers = this.f31145c.getOutputBuffers();
+            ByteBuffer[] outputBuffers = this.f31192c.getOutputBuffers();
             while (true) {
-                int dequeueOutputBuffer = this.f31145c.dequeueOutputBuffer(this.f31146d, this.f31151i);
+                int dequeueOutputBuffer = this.f31192c.dequeueOutputBuffer(this.f31193d, this.f31198i);
                 if (dequeueOutputBuffer == -1) {
                     if (!z) {
                         return;
@@ -125,24 +125,24 @@ public class e {
                 } else if (dequeueOutputBuffer == -3) {
                     break;
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.f31148f) {
+                    if (this.f31195f) {
                         throw new RuntimeException("format changed twice");
                     }
-                    MediaFormat outputFormat = this.f31145c.getOutputFormat();
+                    MediaFormat outputFormat = this.f31192c.getOutputFormat();
                     c.a.x0.t.c.c(VideoEncoderCore.TAG, "encoder output format changed: " + outputFormat);
-                    this.f31147e = this.f31144b.a(outputFormat);
-                    if (!this.f31144b.c()) {
-                        synchronized (this.f31144b) {
-                            while (!this.f31144b.e()) {
+                    this.f31194e = this.f31191b.a(outputFormat);
+                    if (!this.f31191b.c()) {
+                        synchronized (this.f31191b) {
+                            while (!this.f31191b.e()) {
                                 try {
-                                    this.f31144b.wait(100L);
+                                    this.f31191b.wait(100L);
                                 } catch (InterruptedException e2) {
                                     e2.printStackTrace();
                                 }
                             }
                         }
                     }
-                    this.f31148f = true;
+                    this.f31195f = true;
                 } else if (dequeueOutputBuffer < 0) {
                     c.a.x0.t.c.l(VideoEncoderCore.TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
@@ -150,26 +150,26 @@ public class e {
                     if (byteBuffer == null) {
                         throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
                     }
-                    MediaCodec.BufferInfo bufferInfo = this.f31146d;
+                    MediaCodec.BufferInfo bufferInfo = this.f31193d;
                     if ((bufferInfo.flags & 2) != 0) {
                         bufferInfo.size = 0;
                     }
-                    MediaCodec.BufferInfo bufferInfo2 = this.f31146d;
+                    MediaCodec.BufferInfo bufferInfo2 = this.f31193d;
                     if (bufferInfo2.size != 0) {
-                        if (!this.f31148f) {
+                        if (!this.f31195f) {
                             throw new RuntimeException("muxer hasn't started");
                         }
                         byteBuffer.position(bufferInfo2.offset);
-                        MediaCodec.BufferInfo bufferInfo3 = this.f31146d;
+                        MediaCodec.BufferInfo bufferInfo3 = this.f31193d;
                         byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
-                        this.f31144b.b(this.f31147e, byteBuffer, this.f31146d);
+                        this.f31191b.b(this.f31194e, byteBuffer, this.f31193d);
                     }
-                    this.f31145c.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.f31150h >= 500) {
-                        this.f31145c.setParameters(this.f31149g);
-                        this.f31150h = System.currentTimeMillis();
+                    this.f31192c.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.f31197h >= 500) {
+                        this.f31192c.setParameters(this.f31196g);
+                        this.f31197h = System.currentTimeMillis();
                     }
-                    if ((this.f31146d.flags & 4) != 0) {
+                    if ((this.f31193d.flags & 4) != 0) {
                         if (z) {
                             return;
                         }
@@ -184,20 +184,20 @@ public class e {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MediaCodec mediaCodec = this.f31145c;
+            MediaCodec mediaCodec = this.f31192c;
             if (mediaCodec != null) {
                 mediaCodec.stop();
-                this.f31145c.release();
-                this.f31145c = null;
+                this.f31192c.release();
+                this.f31192c = null;
             }
-            d dVar = this.f31144b;
+            d dVar = this.f31191b;
             if (dVar != null) {
                 try {
                     dVar.d();
                 } catch (IllegalStateException e2) {
                     c.a.x0.t.c.g(e2);
                 }
-                this.f31144b = null;
+                this.f31191b = null;
             }
         }
     }

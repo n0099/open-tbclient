@@ -5,8 +5,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.x.v.a;
-import c.a.q0.x.v.b;
+import c.a.q0.x.w.a;
+import c.a.q0.x.w.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +19,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.x.v.c.b f48424e;
+    public c.a.q0.x.w.c.b f48348e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchPanelFrameLayout(Context context) {
@@ -45,19 +45,19 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
     public final void a(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
-            this.f48424e = new c.a.q0.x.v.c.b(this, attributeSet);
+            this.f48348e = new c.a.q0.x.w.c.b(this, attributeSet);
         }
     }
 
-    @Override // c.a.q0.x.v.a
+    @Override // c.a.q0.x.w.a
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48424e.handleHide();
+            this.f48348e.handleHide();
         }
     }
 
-    @Override // c.a.q0.x.v.a
+    @Override // c.a.q0.x.w.a
     public void handleShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -65,25 +65,25 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
         }
     }
 
-    @Override // c.a.q0.x.v.a
+    @Override // c.a.q0.x.w.a
     public boolean isKeyboardShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48424e.isKeyboardShowing() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48348e.isKeyboardShowing() : invokeV.booleanValue;
     }
 
-    @Override // c.a.q0.x.v.a
+    @Override // c.a.q0.x.w.a
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48424e.isVisible() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48348e.isVisible() : invokeV.booleanValue;
     }
 
-    @Override // c.a.q0.x.v.b
+    @Override // c.a.q0.x.w.b
     public void onKeyboardShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f48424e.e(z);
+            this.f48348e.e(z);
         }
     }
 
@@ -91,30 +91,30 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            int[] b2 = this.f48424e.b(i2, i3);
+            int[] b2 = this.f48348e.b(i2, i3);
             super.onMeasure(b2[0], b2[1]);
         }
     }
 
-    @Override // c.a.q0.x.v.b
+    @Override // c.a.q0.x.w.b
     public void refreshHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f48424e.c(i2);
+            this.f48348e.c(i2);
         }
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f48424e.d(z);
+            this.f48348e.d(z);
         }
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.f48424e.a(i2)) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.f48348e.a(i2)) {
             return;
         }
         super.setVisibility(i2);

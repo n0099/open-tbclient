@@ -18,13 +18,13 @@ public class y {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b0> f14359a;
+    public ArrayList<b0> f14379a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14360b;
+    public String f14380b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f14361c;
+    public d f14381c;
 
     public y() {
         Interceptable interceptable = $ic;
@@ -39,25 +39,25 @@ public class y {
                 return;
             }
         }
-        this.f14359a = new ArrayList<>();
+        this.f14379a = new ArrayList<>();
     }
 
     public d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14361c : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14381c : (d) invokeV.objValue;
     }
 
     public ArrayList<b0> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14359a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14379a : (ArrayList) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14360b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14380b : (String) invokeV.objValue;
     }
 
     public void d(ActivityHead activityHead, long j2) {
@@ -75,18 +75,20 @@ public class y {
         if (size2 != null) {
             size2.height.intValue();
         }
-        this.f14360b = activityHead.obj_id;
+        this.f14380b = activityHead.obj_id;
         f(activityHead.head_imgs);
         d dVar = new d();
-        dVar.f14125a = activityHead.pull_down_pic_android;
-        dVar.f14126b = activityHead.pull_down_url;
-        dVar.f14127c = activityHead.pull_down_interval.intValue();
-        dVar.f14128d = activityHead.pull_down_exposure_url;
-        dVar.f14129e = activityHead.pull_down_click_url;
-        dVar.f14130f = activityHead.is_ad.booleanValue();
-        dVar.f14131g = activityHead.obj_id;
-        dVar.f14132h = j2;
-        this.f14361c = dVar;
+        dVar.f14146a = activityHead.pull_down_pic_android;
+        dVar.f14147b = activityHead.pull_down_url;
+        dVar.f14148c = activityHead.pull_down_interval.intValue();
+        dVar.f14149d = activityHead.pull_down_exposure_url;
+        dVar.f14150e = activityHead.pull_down_click_url;
+        dVar.f14151f = activityHead.pull_down_schema;
+        dVar.f14152g = activityHead.pull_down_package_name;
+        dVar.f14153h = activityHead.is_ad.booleanValue();
+        dVar.f14154i = activityHead.obj_id;
+        dVar.f14155j = j2;
+        this.f14381c = dVar;
     }
 
     public void e(HeadImgs headImgs) {
@@ -95,8 +97,8 @@ public class y {
             return;
         }
         b0 b0Var = new b0();
-        b0Var.k(headImgs);
-        this.f14359a.add(b0Var);
+        b0Var.l(headImgs);
+        this.f14379a.add(b0Var);
     }
 
     public void f(List<HeadImgs> list) {
@@ -112,7 +114,7 @@ public class y {
     public void g(ArrayList<b0> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
-            this.f14359a = arrayList;
+            this.f14379a = arrayList;
         }
     }
 }

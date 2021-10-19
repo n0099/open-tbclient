@@ -231,7 +231,7 @@ public class e extends c.a.p0.a.u.c.d {
                                     String str3 = "userAgent: " + Y;
                                 }
                                 if (!TextUtils.isEmpty(Y)) {
-                                    jSONObject2.put(com.alipay.sdk.cons.b.f35968b, Y);
+                                    jSONObject2.put(com.alipay.sdk.cons.b.f35972b, Y);
                                 }
                                 jSONArray.put(jSONObject2);
                             }
@@ -354,7 +354,7 @@ public class e extends c.a.p0.a.u.c.d {
                             String str = "userAgent: " + Y;
                         }
                         if (!TextUtils.isEmpty(Y)) {
-                            optJSONObject.put(com.alipay.sdk.cons.b.f35968b, Y);
+                            optJSONObject.put(com.alipay.sdk.cons.b.f35972b, Y);
                         }
                     }
                 } catch (JSONException e2) {

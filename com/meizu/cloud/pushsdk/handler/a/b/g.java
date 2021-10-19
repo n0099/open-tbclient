@@ -28,65 +28,65 @@ public class g implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f75239a;
+    public int f75274a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f75240b;
+    public boolean f75275b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f75241c;
+    public List<String> f75276c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f75242d;
+    public b f75277d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f75243e;
+    public String f75278e;
 
     public g(Parcel parcel) {
-        this.f75239a = parcel.readInt();
-        this.f75240b = parcel.readByte() != 0;
-        this.f75241c = parcel.createStringArrayList();
-        this.f75242d = (b) parcel.readParcelable(b.class.getClassLoader());
-        this.f75243e = parcel.readString();
+        this.f75274a = parcel.readInt();
+        this.f75275b = parcel.readByte() != 0;
+        this.f75276c = parcel.createStringArrayList();
+        this.f75277d = (b) parcel.readParcelable(b.class.getClassLoader());
+        this.f75278e = parcel.readString();
     }
 
     public g(String str, String str2, String str3, String str4) {
-        this.f75243e = str;
+        this.f75278e = str;
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (!jSONObject.isNull(TiebaPrepareImageService.MAX_SIZE)) {
-                this.f75239a = jSONObject.getInt(TiebaPrepareImageService.MAX_SIZE);
+                this.f75274a = jSONObject.getInt(TiebaPrepareImageService.MAX_SIZE);
             }
             if (!jSONObject.isNull("wifi_upload")) {
-                this.f75240b = jSONObject.getBoolean("wifi_upload");
+                this.f75275b = jSONObject.getBoolean("wifi_upload");
             }
             if (!jSONObject.isNull("upload_files")) {
                 JSONArray jSONArray = jSONObject.getJSONArray("upload_files");
-                this.f75241c = new ArrayList();
+                this.f75276c = new ArrayList();
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    this.f75241c.add(jSONArray.getString(i2));
+                    this.f75276c.add(jSONArray.getString(i2));
                 }
             }
         } catch (JSONException e2) {
             c.l.a.a.a.b("UploadLogMessage", "parse upload message error " + e2.getMessage());
         }
-        this.f75242d = new b(str2, str3, str4);
+        this.f75277d = new b(str2, str3, str4);
     }
 
     public int a() {
-        return this.f75239a;
+        return this.f75274a;
     }
 
     public boolean b() {
-        return this.f75240b;
+        return this.f75275b;
     }
 
     public List<String> c() {
-        return this.f75241c;
+        return this.f75276c;
     }
 
     public b d() {
-        return this.f75242d;
+        return this.f75277d;
     }
 
     @Override // android.os.Parcelable
@@ -95,15 +95,15 @@ public class g implements Parcelable {
     }
 
     public String toString() {
-        return "UploadLogMessage{maxSize=" + this.f75239a + ", wifiUpload=" + this.f75240b + ", fileList=" + this.f75241c + ", controlMessage=" + this.f75242d + ", uploadMessage='" + this.f75243e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "UploadLogMessage{maxSize=" + this.f75274a + ", wifiUpload=" + this.f75275b + ", fileList=" + this.f75276c + ", controlMessage=" + this.f75277d + ", uploadMessage='" + this.f75278e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f75239a);
-        parcel.writeByte(this.f75240b ? (byte) 1 : (byte) 0);
-        parcel.writeStringList(this.f75241c);
-        parcel.writeParcelable(this.f75242d, i2);
-        parcel.writeString(this.f75243e);
+        parcel.writeInt(this.f75274a);
+        parcel.writeByte(this.f75275b ? (byte) 1 : (byte) 0);
+        parcel.writeStringList(this.f75276c);
+        parcel.writeParcelable(this.f75277d, i2);
+        parcel.writeString(this.f75278e);
     }
 }

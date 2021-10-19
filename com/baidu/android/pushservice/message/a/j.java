@@ -92,43 +92,43 @@ public final class j {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("msgContent");
                     if (!jSONObject2.isNull("adContent")) {
                         JSONObject jSONObject3 = jSONObject2.getJSONObject("adContent");
-                        iVar.f37774e = jSONObject3.getString("notifyTitle");
-                        iVar.f37775f = jSONObject3.getString("content");
+                        iVar.f37778e = jSONObject3.getString("notifyTitle");
+                        iVar.f37779f = jSONObject3.getString("content");
                         if (!jSONObject3.isNull("param")) {
                             JSONObject jSONObject4 = jSONObject3.getJSONObject("param");
                             if (!jSONObject4.isNull("url")) {
-                                iVar.f37770a = jSONObject4.getString("url");
+                                iVar.f37774a = jSONObject4.getString("url");
                             }
                             if (!jSONObject4.isNull("intentUri")) {
                                 string2 = jSONObject4.getString("intentUri");
                             } else if (!jSONObject4.isNull("acn")) {
                                 string2 = jSONObject4.getString("acn");
                             }
-                            iVar.f37772c = string2;
+                            iVar.f37776c = string2;
                         }
                     }
                     if (!jSONObject2.isNull("psContent")) {
                         JSONObject jSONObject5 = jSONObject2.getJSONObject("psContent");
-                        iVar.f37776g = jSONObject5.getString("notifyTitle");
-                        iVar.f37777h = jSONObject5.getString("content");
+                        iVar.f37780g = jSONObject5.getString("notifyTitle");
+                        iVar.f37781h = jSONObject5.getString("content");
                         if (!jSONObject5.isNull("param")) {
                             JSONObject jSONObject6 = jSONObject5.getJSONObject("param");
                             if (!jSONObject6.isNull("url")) {
-                                iVar.f37771b = jSONObject6.getString("url");
+                                iVar.f37775b = jSONObject6.getString("url");
                             }
                             if (!jSONObject6.isNull("intentUri")) {
                                 string = jSONObject6.getString("intentUri");
                             } else if (!jSONObject6.isNull("acn")) {
                                 string = jSONObject6.getString("acn");
                             }
-                            iVar.f37773d = string;
+                            iVar.f37777d = string;
                         }
                     }
                     if (!jSONObject2.isNull("extras")) {
                         iVar.a(context, jSONObject2.getJSONArray("extras"));
                     }
-                    if (TextUtils.isEmpty(iVar.f37779j)) {
-                        iVar.f37779j = com.baidu.android.pushservice.j.f.a(str.getBytes(), false);
+                    if (TextUtils.isEmpty(iVar.f37783j)) {
+                        iVar.f37783j = com.baidu.android.pushservice.j.f.a(str.getBytes(), false);
                     }
                 }
             } catch (Exception e2) {
@@ -167,10 +167,10 @@ public final class j {
                     crossPushMessage.mPkgContent = jSONObject.getString("pkg_content");
                 }
                 if (!jSONObject.isNull("dest_pkg")) {
-                    crossPushMessage.f37716a = jSONObject.getString("dest_pkg");
+                    crossPushMessage.f37720a = jSONObject.getString("dest_pkg");
                 }
                 if (!jSONObject.isNull("dest_icon")) {
-                    crossPushMessage.f37717b = jSONObject.getString("dest_icon");
+                    crossPushMessage.f37721b = jSONObject.getString("dest_icon");
                 }
             } catch (Exception e2) {
                 new b.c(context).a(Log.getStackTraceString(e2)).a();

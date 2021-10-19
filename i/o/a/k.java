@@ -14,10 +14,10 @@ public final class k<T> implements d.b<Boolean, T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.n.f<? super T, Boolean> f78976e;
+    public final i.n.f<? super T, Boolean> f79011e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f78977f;
+    public final boolean f79012f;
 
     /* loaded from: classes10.dex */
     public class a extends i.j<T> {
@@ -25,19 +25,19 @@ public final class k<T> implements d.b<Boolean, T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f78978e;
+        public boolean f79013e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f78979f;
+        public boolean f79014f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SingleDelayedProducer f78980g;
+        public final /* synthetic */ SingleDelayedProducer f79015g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ i.j f78981h;
+        public final /* synthetic */ i.j f79016h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ k f78982i;
+        public final /* synthetic */ k f79017i;
 
         public a(k kVar, SingleDelayedProducer singleDelayedProducer, i.j jVar) {
             Interceptable interceptable = $ic;
@@ -54,22 +54,22 @@ public final class k<T> implements d.b<Boolean, T> {
                     return;
                 }
             }
-            this.f78982i = kVar;
-            this.f78980g = singleDelayedProducer;
-            this.f78981h = jVar;
+            this.f79017i = kVar;
+            this.f79015g = singleDelayedProducer;
+            this.f79016h = jVar;
         }
 
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f78979f) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f79014f) {
                 return;
             }
-            this.f78979f = true;
-            if (this.f78978e) {
-                this.f78980g.setValue(Boolean.FALSE);
+            this.f79014f = true;
+            if (this.f79013e) {
+                this.f79015g.setValue(Boolean.FALSE);
             } else {
-                this.f78980g.setValue(Boolean.valueOf(this.f78982i.f78977f));
+                this.f79015g.setValue(Boolean.valueOf(this.f79017i.f79012f));
             }
         }
 
@@ -77,9 +77,9 @@ public final class k<T> implements d.b<Boolean, T> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (!this.f78979f) {
-                    this.f78979f = true;
-                    this.f78981h.onError(th);
+                if (!this.f79014f) {
+                    this.f79014f = true;
+                    this.f79016h.onError(th);
                     return;
                 }
                 i.r.c.j(th);
@@ -89,14 +89,14 @@ public final class k<T> implements d.b<Boolean, T> {
         @Override // i.e
         public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f78979f) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f79014f) {
                 return;
             }
-            this.f78978e = true;
+            this.f79013e = true;
             try {
-                if (this.f78982i.f78976e.call(t).booleanValue()) {
-                    this.f78979f = true;
-                    this.f78980g.setValue(Boolean.valueOf(true ^ this.f78982i.f78977f));
+                if (this.f79017i.f79011e.call(t).booleanValue()) {
+                    this.f79014f = true;
+                    this.f79015g.setValue(Boolean.valueOf(true ^ this.f79017i.f79012f));
                     unsubscribe();
                 }
             } catch (Throwable th) {
@@ -120,8 +120,8 @@ public final class k<T> implements d.b<Boolean, T> {
                 return;
             }
         }
-        this.f78976e = fVar;
-        this.f78977f = z;
+        this.f79011e = fVar;
+        this.f79012f = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

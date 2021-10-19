@@ -12,7 +12,7 @@ public final class e extends Tracer {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f76726a;
+    public static final e f76761a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public final class e extends Tracer {
                 return;
             }
         }
-        f76726a = new e();
+        f76761a = new e();
     }
 
     public e() {

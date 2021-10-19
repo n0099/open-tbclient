@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import c.a.e.e.p.l;
 import c.a.e.j.c;
 import c.a.e.j.d;
-import c.a.r0.w3.f;
+import c.a.r0.x3.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -49,28 +49,28 @@ public class CaptureStatic {
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C1748a implements f {
+        public class C1750a implements f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f49146a;
+            public final /* synthetic */ CustomResponsedMessage f49073a;
 
             /* renamed from: com.baidu.tieba.CaptureStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C1749a extends DefaultDownloadCallback {
+            public class C1751a extends DefaultDownloadCallback {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ C1748a f49147a;
+                public final /* synthetic */ C1750a f49074a;
 
-                public C1749a(C1748a c1748a) {
+                public C1751a(C1750a c1750a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c1748a};
+                        Object[] objArr = {c1750a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -80,7 +80,7 @@ public class CaptureStatic {
                             return;
                         }
                     }
-                    this.f49147a = c1748a;
+                    this.f49074a = c1750a;
                 }
 
                 @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -109,12 +109,12 @@ public class CaptureStatic {
                         if (packageInfo == null || !"libcbffmpeg.so".equals(packageInfo.name)) {
                             return;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f49147a.f49146a.getData()));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f49074a.f49073a.getData()));
                     }
                 }
             }
 
-            public C1748a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public C1750a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,27 +129,27 @@ public class CaptureStatic {
                         return;
                     }
                 }
-                this.f49146a = customResponsedMessage;
+                this.f49073a = customResponsedMessage;
             }
 
-            @Override // c.a.r0.w3.f
+            @Override // c.a.r0.x3.f
             public void a() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f49146a.getData() instanceof IntentConfig)) {
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f49073a.getData() instanceof IntentConfig)) {
                     if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libcbffmpeg.so"))) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f49146a.getData()));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f49073a.getData()));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
                         return;
                     }
                     RequestParams requestParams = new RequestParams();
                     requestParams.setRunType(d.f2895a);
                     requestParams.setRunNode("aps");
-                    requestParams.addChannel(new c("com.baidu.tieba.soloader.libcbffmpeg", new C1749a(this)));
+                    requestParams.addChannel(new c("com.baidu.tieba.soloader.libcbffmpeg", new C1751a(this)));
                     PmsManager.getInstance().execute(requestParams);
                 }
             }
 
-            @Override // c.a.r0.w3.f
+            @Override // c.a.r0.x3.f
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -183,7 +183,7 @@ public class CaptureStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
-                c.a.r0.w3.a.b(TbadkCoreApplication.getInst(), new C1748a(this, customResponsedMessage));
+                c.a.r0.x3.a.b(TbadkCoreApplication.getInst(), new C1750a(this, customResponsedMessage));
             }
         }
     }

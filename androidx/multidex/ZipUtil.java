@@ -111,7 +111,7 @@ public final class ZipUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42342a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42346a);
             try {
                 return computeCrcOfCentralDir(randomAccessFile, findCentralDirectory(randomAccessFile));
             } finally {

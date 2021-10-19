@@ -8,7 +8,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f68324a;
+    public static a f68359a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -21,20 +21,20 @@ public class e {
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, aVar) == null) {
-            f68324a = aVar;
+            f68359a = aVar;
         }
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f68324a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f68359a != null : invokeV.booleanValue;
     }
 
     public static void a(String str, String str2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || (aVar = f68324a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || (aVar = f68359a) == null) {
             return;
         }
         aVar.a(str, str2);
@@ -42,12 +42,12 @@ public class e {
 
     public static void a(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || f68324a == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || f68359a == null) {
             return;
         }
         if (th == null) {
             th = new Throwable();
         }
-        f68324a.a(str, str2, th);
+        f68359a.a(str, str2, th);
     }
 }

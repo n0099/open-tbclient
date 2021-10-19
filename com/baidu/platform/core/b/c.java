@@ -32,11 +32,11 @@ public class c extends com.baidu.platform.base.e {
     private void a(GeoCodeOption geoCodeOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, geoCodeOption) == null) {
-            this.f44367a.a("city", geoCodeOption.mCity);
-            this.f44367a.a("address", geoCodeOption.mAddress);
-            this.f44367a.a("output", "json");
-            this.f44367a.a("ret_coordtype", "bd09ll");
-            this.f44367a.a("from", "android_map_sdk");
+            this.f44279a.a("city", geoCodeOption.mCity);
+            this.f44279a.a("address", geoCodeOption.mAddress);
+            this.f44279a.a("output", "json");
+            this.f44279a.a("ret_coordtype", "bd09ll");
+            this.f44279a.a("from", "android_map_sdk");
         }
     }
 

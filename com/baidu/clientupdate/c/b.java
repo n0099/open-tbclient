@@ -16,7 +16,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public StringBuilder f38938a;
+    public StringBuilder f38942a;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class b {
                 return;
             }
         }
-        this.f38938a = new StringBuilder(str);
+        this.f38942a = new StringBuilder(str);
     }
 
     public void a(String str, String str2) {
@@ -41,10 +41,10 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        StringBuilder sb = this.f38938a;
+        StringBuilder sb = this.f38942a;
         sb.append("&" + str + "=");
         byte[] b64Encode = Base64Encoder.b64Encode(URLEncoder.encode(str2).getBytes());
-        this.f38938a.append(new String(b64Encode));
+        this.f38942a.append(new String(b64Encode));
         LogUtil.logD("ClientUpdateUriHelper", "key: " + str + ", value: " + str2);
         LogUtil.logD("ClientUpdateUriHelper", "b64encode key: " + str + ", value: " + new String(b64Encode));
     }
@@ -54,9 +54,9 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        StringBuilder sb = this.f38938a;
+        StringBuilder sb = this.f38942a;
         sb.append("&" + str + "=");
-        this.f38938a.append(URLEncoder.encode(str2));
+        this.f38942a.append(URLEncoder.encode(str2));
         LogUtil.logD("ClientUpdateUriHelper", "key: " + str + ", value: " + str2);
         LogUtil.logD("ClientUpdateUriHelper", "b64encode key: " + str + ", value: " + str2);
     }
@@ -64,6 +64,6 @@ public class b {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38938a.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38942a.toString() : (String) invokeV.objValue;
     }
 }

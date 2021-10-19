@@ -230,7 +230,7 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                 iChannelPay2.payCancel();
             }
         } else {
-            string.equalsIgnoreCase(f.f36105j);
+            string.equalsIgnoreCase(f.f36109j);
         }
     }
 
@@ -246,16 +246,16 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f36857a;
+            public final /* synthetic */ int f36861a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f36858b;
+            public final /* synthetic */ int f36862b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f36859c;
+            public final /* synthetic */ String f36863c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ PayChannelController f36860d;
+            public final /* synthetic */ PayChannelController f36864d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -272,17 +272,17 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                         return;
                     }
                 }
-                this.f36860d = this;
-                this.f36857a = i2;
-                this.f36858b = i3;
-                this.f36859c = str;
+                this.f36864d = this;
+                this.f36861a = i2;
+                this.f36862b = i3;
+                this.f36863c = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f36860d.handleFailure(this.f36857a, this.f36858b, this.f36859c);
+                    this.f36864d.handleFailure(this.f36861a, this.f36862b, this.f36863c);
                 }
             }
         });
@@ -300,16 +300,16 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f36853a;
+            public final /* synthetic */ int f36857a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Object f36854b;
+            public final /* synthetic */ Object f36858b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f36855c;
+            public final /* synthetic */ String f36859c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ PayChannelController f36856d;
+            public final /* synthetic */ PayChannelController f36860d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -326,17 +326,17 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                         return;
                     }
                 }
-                this.f36856d = this;
-                this.f36853a = i2;
-                this.f36854b = obj;
-                this.f36855c = str;
+                this.f36860d = this;
+                this.f36857a = i2;
+                this.f36858b = obj;
+                this.f36859c = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f36856d.handlerResponse(this.f36853a, this.f36854b, this.f36855c);
+                    this.f36860d.handlerResponse(this.f36857a, this.f36858b, this.f36859c);
                 }
             }
         });

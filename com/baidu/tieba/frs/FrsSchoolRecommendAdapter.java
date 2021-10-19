@@ -4,10 +4,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import c.a.q0.s.q.t1;
 import c.a.q0.s.q.u1;
-import c.a.r0.w0.k;
-import c.a.r0.w0.r2.d;
-import c.a.r0.w0.x;
-import c.a.r0.w0.z0;
+import c.a.r0.x0.k;
+import c.a.r0.x0.r2.d;
+import c.a.r0.x0.x;
+import c.a.r0.x0.z0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -87,7 +87,7 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.w0.k, c.a.e.l.e.a
+    @Override // c.a.r0.x0.k, c.a.e.l.e.a
     /* renamed from: v0 */
     public View a0(int i2, View view, ViewGroup viewGroup, t1 t1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         InterceptResult invokeCommon;
@@ -106,11 +106,11 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
                 u1 u1Var = N4.get(i3);
                 if (u1Var != null) {
                     z0 z0Var = new z0();
-                    z0Var.f28067a.setUserId(u1Var.d());
-                    z0Var.f28067a.setUserName(u1Var.e());
-                    z0Var.f28067a.setPortrait(u1Var.c());
-                    z0Var.f28067a.getGodUserData().setIsLike(u1Var.b() == 1);
-                    z0Var.f28067a.getGodUserData().setIntro(u1Var.a());
+                    z0Var.f28243a.setUserId(u1Var.d());
+                    z0Var.f28243a.setUserName(u1Var.e());
+                    z0Var.f28243a.setPortrait(u1Var.c());
+                    z0Var.f28243a.getGodUserData().setIsLike(u1Var.b() == 1);
+                    z0Var.f28243a.getGodUserData().setIntro(u1Var.a());
                     xVar.g(z0Var);
                 }
             }

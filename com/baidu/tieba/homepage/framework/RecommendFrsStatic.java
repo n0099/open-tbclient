@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.framework;
 
-import c.a.r0.g1.h.k.f;
+import c.a.r0.h1.h.k.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -49,7 +49,7 @@ public class RecommendFrsStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                f.h().k();
+                g.h().k();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;

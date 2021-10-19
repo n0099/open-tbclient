@@ -33,11 +33,11 @@ public class MassTransitRoutePlanOption {
         public static final TacticsIncity ETRANS_SUGGEST;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TacticsIncity[] f41962b;
+        public static final /* synthetic */ TacticsIncity[] f41966b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41963a;
+        public int f41967a;
 
         static {
             InterceptResult invokeClinit;
@@ -59,162 +59,10 @@ public class MassTransitRoutePlanOption {
             ETRANS_LEAST_TIME = new TacticsIncity("ETRANS_LEAST_TIME", 4, 4);
             TacticsIncity tacticsIncity = new TacticsIncity("ETRANS_SUBWAY_FIRST", 5, 5);
             ETRANS_SUBWAY_FIRST = tacticsIncity;
-            f41962b = new TacticsIncity[]{ETRANS_SUGGEST, ETRANS_LEAST_TRANSFER, ETRANS_LEAST_WALK, ETRANS_NO_SUBWAY, ETRANS_LEAST_TIME, tacticsIncity};
+            f41966b = new TacticsIncity[]{ETRANS_SUGGEST, ETRANS_LEAST_TRANSFER, ETRANS_LEAST_WALK, ETRANS_NO_SUBWAY, ETRANS_LEAST_TIME, tacticsIncity};
         }
 
         public TacticsIncity(String str, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.f41963a = 0;
-            this.f41963a = i3;
-        }
-
-        public static TacticsIncity valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TacticsIncity) Enum.valueOf(TacticsIncity.class, str) : (TacticsIncity) invokeL.objValue;
-        }
-
-        public static TacticsIncity[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIncity[]) f41962b.clone() : (TacticsIncity[]) invokeV.objValue;
-        }
-
-        public int getInt() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41963a : invokeV.intValue;
-        }
-    }
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
-    public static final class TacticsIntercity {
-        public static /* synthetic */ Interceptable $ic;
-        public static final TacticsIntercity ETRANS_LEAST_PRICE;
-        public static final TacticsIntercity ETRANS_LEAST_TIME;
-        public static final TacticsIntercity ETRANS_START_EARLY;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TacticsIntercity[] f41964b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f41965a;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2078698755, "Lcom/baidu/mapapi/search/route/MassTransitRoutePlanOption$TacticsIntercity;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-2078698755, "Lcom/baidu/mapapi/search/route/MassTransitRoutePlanOption$TacticsIntercity;");
-                    return;
-                }
-            }
-            ETRANS_LEAST_TIME = new TacticsIntercity("ETRANS_LEAST_TIME", 0, 0);
-            ETRANS_START_EARLY = new TacticsIntercity("ETRANS_START_EARLY", 1, 1);
-            TacticsIntercity tacticsIntercity = new TacticsIntercity("ETRANS_LEAST_PRICE", 2, 2);
-            ETRANS_LEAST_PRICE = tacticsIntercity;
-            f41964b = new TacticsIntercity[]{ETRANS_LEAST_TIME, ETRANS_START_EARLY, tacticsIntercity};
-        }
-
-        public TacticsIntercity(String str, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.f41965a = 0;
-            this.f41965a = i3;
-        }
-
-        public static TacticsIntercity valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TacticsIntercity) Enum.valueOf(TacticsIntercity.class, str) : (TacticsIntercity) invokeL.objValue;
-        }
-
-        public static TacticsIntercity[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIntercity[]) f41964b.clone() : (TacticsIntercity[]) invokeV.objValue;
-        }
-
-        public int getInt() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41965a : invokeV.intValue;
-        }
-    }
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
-    public static final class TransTypeIntercity {
-        public static /* synthetic */ Interceptable $ic;
-        public static final TransTypeIntercity ETRANS_COACH_FIRST;
-        public static final TransTypeIntercity ETRANS_PLANE_FIRST;
-        public static final TransTypeIntercity ETRANS_TRAIN_FIRST;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TransTypeIntercity[] f41966b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f41967a;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1252238980, "Lcom/baidu/mapapi/search/route/MassTransitRoutePlanOption$TransTypeIntercity;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1252238980, "Lcom/baidu/mapapi/search/route/MassTransitRoutePlanOption$TransTypeIntercity;");
-                    return;
-                }
-            }
-            ETRANS_TRAIN_FIRST = new TransTypeIntercity("ETRANS_TRAIN_FIRST", 0, 0);
-            ETRANS_PLANE_FIRST = new TransTypeIntercity("ETRANS_PLANE_FIRST", 1, 1);
-            TransTypeIntercity transTypeIntercity = new TransTypeIntercity("ETRANS_COACH_FIRST", 2, 2);
-            ETRANS_COACH_FIRST = transTypeIntercity;
-            f41966b = new TransTypeIntercity[]{ETRANS_TRAIN_FIRST, ETRANS_PLANE_FIRST, transTypeIntercity};
-        }
-
-        public TransTypeIntercity(String str, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -236,6 +84,158 @@ public class MassTransitRoutePlanOption {
             this.f41967a = i3;
         }
 
+        public static TacticsIncity valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TacticsIncity) Enum.valueOf(TacticsIncity.class, str) : (TacticsIncity) invokeL.objValue;
+        }
+
+        public static TacticsIncity[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIncity[]) f41966b.clone() : (TacticsIncity[]) invokeV.objValue;
+        }
+
+        public int getInt() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41967a : invokeV.intValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes5.dex */
+    public static final class TacticsIntercity {
+        public static /* synthetic */ Interceptable $ic;
+        public static final TacticsIntercity ETRANS_LEAST_PRICE;
+        public static final TacticsIntercity ETRANS_LEAST_TIME;
+        public static final TacticsIntercity ETRANS_START_EARLY;
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final /* synthetic */ TacticsIntercity[] f41968b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f41969a;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2078698755, "Lcom/baidu/mapapi/search/route/MassTransitRoutePlanOption$TacticsIntercity;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-2078698755, "Lcom/baidu/mapapi/search/route/MassTransitRoutePlanOption$TacticsIntercity;");
+                    return;
+                }
+            }
+            ETRANS_LEAST_TIME = new TacticsIntercity("ETRANS_LEAST_TIME", 0, 0);
+            ETRANS_START_EARLY = new TacticsIntercity("ETRANS_START_EARLY", 1, 1);
+            TacticsIntercity tacticsIntercity = new TacticsIntercity("ETRANS_LEAST_PRICE", 2, 2);
+            ETRANS_LEAST_PRICE = tacticsIntercity;
+            f41968b = new TacticsIntercity[]{ETRANS_LEAST_TIME, ETRANS_START_EARLY, tacticsIntercity};
+        }
+
+        public TacticsIntercity(String str, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f41969a = 0;
+            this.f41969a = i3;
+        }
+
+        public static TacticsIntercity valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TacticsIntercity) Enum.valueOf(TacticsIntercity.class, str) : (TacticsIntercity) invokeL.objValue;
+        }
+
+        public static TacticsIntercity[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIntercity[]) f41968b.clone() : (TacticsIntercity[]) invokeV.objValue;
+        }
+
+        public int getInt() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41969a : invokeV.intValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes5.dex */
+    public static final class TransTypeIntercity {
+        public static /* synthetic */ Interceptable $ic;
+        public static final TransTypeIntercity ETRANS_COACH_FIRST;
+        public static final TransTypeIntercity ETRANS_PLANE_FIRST;
+        public static final TransTypeIntercity ETRANS_TRAIN_FIRST;
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final /* synthetic */ TransTypeIntercity[] f41970b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f41971a;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1252238980, "Lcom/baidu/mapapi/search/route/MassTransitRoutePlanOption$TransTypeIntercity;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1252238980, "Lcom/baidu/mapapi/search/route/MassTransitRoutePlanOption$TransTypeIntercity;");
+                    return;
+                }
+            }
+            ETRANS_TRAIN_FIRST = new TransTypeIntercity("ETRANS_TRAIN_FIRST", 0, 0);
+            ETRANS_PLANE_FIRST = new TransTypeIntercity("ETRANS_PLANE_FIRST", 1, 1);
+            TransTypeIntercity transTypeIntercity = new TransTypeIntercity("ETRANS_COACH_FIRST", 2, 2);
+            ETRANS_COACH_FIRST = transTypeIntercity;
+            f41970b = new TransTypeIntercity[]{ETRANS_TRAIN_FIRST, ETRANS_PLANE_FIRST, transTypeIntercity};
+        }
+
+        public TransTypeIntercity(String str, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f41971a = 0;
+            this.f41971a = i3;
+        }
+
         public static TransTypeIntercity valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -245,13 +245,13 @@ public class MassTransitRoutePlanOption {
         public static TransTypeIntercity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransTypeIntercity[]) f41966b.clone() : (TransTypeIntercity[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransTypeIntercity[]) f41970b.clone() : (TransTypeIntercity[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41967a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41971a : invokeV.intValue;
         }
     }
 

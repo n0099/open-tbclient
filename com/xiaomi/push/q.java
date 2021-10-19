@@ -12,16 +12,16 @@ public class q implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p f78387a;
+    public final /* synthetic */ p f78422a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f78388b;
+    public final /* synthetic */ String f78423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f78389c;
+    public final /* synthetic */ String f78424c;
 
     public q(p pVar, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public class q implements Runnable {
                 return;
             }
         }
-        this.f78387a = pVar;
+        this.f78422a = pVar;
         this.f832a = str;
-        this.f78388b = str2;
-        this.f78389c = str3;
+        this.f78423b = str2;
+        this.f78424c = str3;
     }
 
     @Override // java.lang.Runnable
@@ -49,9 +49,9 @@ public class q implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            context = this.f78387a.f825a;
+            context = this.f78422a.f825a;
             SharedPreferences.Editor edit = context.getSharedPreferences(this.f832a, 4).edit();
-            edit.putString(this.f78388b, this.f78389c);
+            edit.putString(this.f78423b, this.f78424c);
             edit.commit();
         }
     }

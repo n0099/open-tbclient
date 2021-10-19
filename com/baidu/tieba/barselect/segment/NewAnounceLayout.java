@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.e.e.p.l;
-import c.a.r0.x.b.d;
-import c.a.r0.x.b.f;
+import c.a.r0.y.b.d;
+import c.a.r0.y.b.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -31,22 +31,22 @@ public class NewAnounceLayout extends CardBasicLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f49997e;
+    public float f49924e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f49998f;
+    public Context f49925f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f49999g;
+    public View f49926g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50000h;
+    public TextView f49927h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f50001i;
+    public View f49928i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f50002j;
+    public TextView f49929j;
     public TextView k;
     public View.OnClickListener l;
 
@@ -56,7 +56,7 @@ public class NewAnounceLayout extends CardBasicLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewAnounceLayout f50003e;
+        public final /* synthetic */ NewAnounceLayout f49930e;
 
         public a(NewAnounceLayout newAnounceLayout) {
             Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class NewAnounceLayout extends CardBasicLayout {
                     return;
                 }
             }
-            this.f50003e = newAnounceLayout;
+            this.f49930e = newAnounceLayout;
         }
 
         @Override // android.view.View.OnClickListener
@@ -81,12 +81,12 @@ public class NewAnounceLayout extends CardBasicLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 new StatisticItem(TbadkCoreStatisticKey.KEY_ANNOUNCE_AREA).eventStat();
-                d dVar = this.f50003e.mElectionData;
-                if (dVar == null || dVar.k() == 0 || TextUtils.isEmpty(this.f50003e.mElectionData.b()) || this.f50003e.mElectionData.f() == 2) {
+                d dVar = this.f49930e.mElectionData;
+                if (dVar == null || dVar.k() == 0 || TextUtils.isEmpty(this.f49930e.mElectionData.b()) || this.f49930e.mElectionData.f() == 2) {
                     return;
                 }
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f50003e.f49998f);
-                pbActivityConfig.createNormalCfg(this.f50003e.mElectionData.k() + "", (String) null, (String) null, true);
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f49930e.f49925f);
+                pbActivityConfig.createNormalCfg(this.f49930e.mElectionData.k() + "", (String) null, (String) null, true);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
             }
         }
@@ -117,11 +117,11 @@ public class NewAnounceLayout extends CardBasicLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View findViewById = findViewById(R.id.announce_content);
-            this.f49999g = findViewById;
+            this.f49926g = findViewById;
             findViewById.setOnClickListener(this.l);
-            this.f50000h = (TextView) findViewById(R.id.first_line_tv);
-            this.f50001i = findViewById(R.id.second_content);
-            this.f50002j = (TextView) findViewById(R.id.second_line_tv);
+            this.f49927h = (TextView) findViewById(R.id.first_line_tv);
+            this.f49928i = findViewById(R.id.second_content);
+            this.f49929j = (TextView) findViewById(R.id.second_line_tv);
             this.k = (TextView) findViewById(R.id.announce_tail);
         }
     }
@@ -130,34 +130,34 @@ public class NewAnounceLayout extends CardBasicLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             if (str != null && !TextUtils.isEmpty(str)) {
-                this.f50001i.setVisibility(0);
-                int lineEnd = new StaticLayout(str, this.f50000h.getPaint(), (int) this.f49997e, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
+                this.f49928i.setVisibility(0);
+                int lineEnd = new StaticLayout(str, this.f49927h.getPaint(), (int) this.f49924e, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
                 String substring = str.substring(0, lineEnd);
                 if (lineEnd >= str.length()) {
-                    this.f50001i.setVisibility(8);
-                    this.f50000h.setText(substring);
+                    this.f49928i.setVisibility(8);
+                    this.f49927h.setText(substring);
                     return;
                 }
                 String substring2 = str.substring(lineEnd, str.length());
-                if (new StaticLayout(substring2, this.f50002j.getPaint(), (int) this.f49997e, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
+                if (new StaticLayout(substring2, this.f49929j.getPaint(), (int) this.f49924e, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
                     this.k.setVisibility(8);
                 } else {
                     this.k.setVisibility(0);
                 }
-                this.f50001i.setVisibility(0);
-                this.f50000h.setText(substring);
-                this.f50002j.setText(substring2);
+                this.f49928i.setVisibility(0);
+                this.f49927h.setText(substring);
+                this.f49929j.setText(substring2);
                 return;
             }
-            this.f50001i.setVisibility(8);
-            this.f50000h.setText(getResources().getString(R.string.empty_announce));
+            this.f49928i.setVisibility(8);
+            this.f49927h.setText(getResources().getString(R.string.empty_announce));
         }
     }
 
     public void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f49998f = getContext();
+            this.f49925f = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(1);
@@ -174,20 +174,20 @@ public class NewAnounceLayout extends CardBasicLayout {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.mElectionData == null) {
             return;
         }
-        if (this.status != c.a.r0.x.e.a.f28316c) {
-            SkinManager.setBackgroundColor(this.f49999g, R.color.CAM_X0205, i2);
+        if (this.status != c.a.r0.y.e.a.f28492c) {
+            SkinManager.setBackgroundColor(this.f49926g, R.color.CAM_X0205, i2);
         } else {
-            View view = this.f49999g;
+            View view = this.f49926g;
             if (view != null) {
                 view.setBackgroundColor(0);
             }
         }
         if (TextUtils.isEmpty(this.mElectionData.b())) {
-            SkinManager.setViewTextColor(this.f50000h, R.color.CAM_X0109, 1, i2);
+            SkinManager.setViewTextColor(this.f49927h, R.color.CAM_X0109, 1, i2);
         } else {
-            SkinManager.setViewTextColor(this.f50000h, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f49927h, R.color.CAM_X0105, 1, i2);
         }
-        SkinManager.setViewTextColor(this.f50002j, R.color.CAM_X0105, 1, i2);
+        SkinManager.setViewTextColor(this.f49929j, R.color.CAM_X0105, 1, i2);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0304, 1, i2);
     }
 
@@ -197,18 +197,18 @@ public class NewAnounceLayout extends CardBasicLayout {
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, fVar) == null) {
             super.setData(i2, fVar);
             if (this.mData != null && this.mElectionData != null && this.status >= 0) {
-                this.f49997e = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds70) * 2);
-                if (this.status == c.a.r0.x.e.a.f28315b) {
-                    this.f49997e = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds116) * 2);
+                this.f49924e = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds70) * 2);
+                if (this.status == c.a.r0.y.e.a.f28491b) {
+                    this.f49924e = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds116) * 2);
                 }
-                if (this.status == c.a.r0.x.e.a.f28317d) {
-                    this.f49997e = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
+                if (this.status == c.a.r0.y.e.a.f28493d) {
+                    this.f49924e = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
                 }
-                if (this.status == c.a.r0.x.e.a.f28316c) {
-                    this.f49997e = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds86) * 2);
-                    this.f49999g.setPadding(0, 0, 0, 0);
-                    this.f50000h.setPadding(0, 0, 0, 0);
-                    this.f50002j.setPadding(0, 0, 0, 0);
+                if (this.status == c.a.r0.y.e.a.f28492c) {
+                    this.f49924e = l.q((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds86) * 2);
+                    this.f49926g.setPadding(0, 0, 0, 0);
+                    this.f49927h.setPadding(0, 0, 0, 0);
+                    this.f49929j.setPadding(0, 0, 0, 0);
                     this.k.setPadding(0, 0, 0, 0);
                 }
                 c(this.mElectionData.b());

@@ -26,19 +26,19 @@ public final class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f34401a;
+    public double f34405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.n.a.h.c f34402b;
+    public c.n.a.h.c f34406b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Matrix f34403c;
+    public Matrix f34407c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f34404d;
+    public b f34408d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<SVGAVideoShapeEntity> f34405e;
+    public List<SVGAVideoShapeEntity> f34409e;
 
     public g(JSONObject jSONObject) {
         boolean z;
@@ -57,13 +57,13 @@ public final class g {
             }
         }
         g gVar = this;
-        gVar.f34402b = new c.n.a.h.c(0.0d, 0.0d, 0.0d, 0.0d);
-        gVar.f34403c = new Matrix();
-        gVar.f34405e = CollectionsKt__CollectionsKt.emptyList();
-        gVar.f34401a = jSONObject.optDouble("alpha", 0.0d);
+        gVar.f34406b = new c.n.a.h.c(0.0d, 0.0d, 0.0d, 0.0d);
+        gVar.f34407c = new Matrix();
+        gVar.f34409e = CollectionsKt__CollectionsKt.emptyList();
+        gVar.f34405a = jSONObject.optDouble("alpha", 0.0d);
         JSONObject optJSONObject = jSONObject.optJSONObject("layout");
         if (optJSONObject != null) {
-            gVar.f34402b = new c.n.a.h.c(optJSONObject.optDouble("x", 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
+            gVar.f34406b = new c.n.a.h.c(optJSONObject.optDouble("x", 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("transform");
         if (optJSONObject2 != null) {
@@ -78,14 +78,14 @@ public final class g {
             float f3 = (float) 0.0d;
             float[] fArr = {(float) optDouble, f2, (float) optDouble5, (float) optDouble2, (float) optDouble4, (float) optDouble6, f3, f3, (float) 1.0d};
             gVar = this;
-            gVar.f34403c.setValues(fArr);
+            gVar.f34407c.setValues(fArr);
         } else {
             z = true;
         }
         String optString = jSONObject.optString("clipPath");
         if (optString != null) {
             if (optString.length() <= 0 ? false : z) {
-                gVar.f34404d = new b(optString);
+                gVar.f34408d = new b(optString);
             }
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("shapes");
@@ -98,44 +98,44 @@ public final class g {
                     arrayList.add(new SVGAVideoShapeEntity(optJSONObject3));
                 }
             }
-            gVar.f34405e = CollectionsKt___CollectionsKt.toList(arrayList);
+            gVar.f34409e = CollectionsKt___CollectionsKt.toList(arrayList);
         }
     }
 
     public final double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34401a : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34405a : invokeV.doubleValue;
     }
 
     public final c.n.a.h.c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34402b : (c.n.a.h.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34406b : (c.n.a.h.c) invokeV.objValue;
     }
 
     public final b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34404d : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34408d : (b) invokeV.objValue;
     }
 
     public final List<SVGAVideoShapeEntity> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34405e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34409e : (List) invokeV.objValue;
     }
 
     public final Matrix e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34403c : (Matrix) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34407c : (Matrix) invokeV.objValue;
     }
 
     public final void f(List<SVGAVideoShapeEntity> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f34405e = list;
+            this.f34409e = list;
         }
     }
 
@@ -156,10 +156,10 @@ public final class g {
                 return;
             }
         }
-        this.f34402b = new c.n.a.h.c(0.0d, 0.0d, 0.0d, 0.0d);
-        this.f34403c = new Matrix();
-        this.f34405e = CollectionsKt__CollectionsKt.emptyList();
-        this.f34401a = frameEntity.alpha != null ? f2.floatValue() : 0.0f;
+        this.f34406b = new c.n.a.h.c(0.0d, 0.0d, 0.0d, 0.0d);
+        this.f34407c = new Matrix();
+        this.f34409e = CollectionsKt__CollectionsKt.emptyList();
+        this.f34405a = frameEntity.alpha != null ? f2.floatValue() : 0.0f;
         Layout layout = frameEntity.layout;
         if (layout != null) {
             Float f4 = layout.x;
@@ -167,18 +167,18 @@ public final class g {
             Float f5 = layout.y;
             double floatValue2 = f5 != null ? f5.floatValue() : 0.0f;
             Float f6 = layout.width;
-            this.f34402b = new c.n.a.h.c(floatValue, floatValue2, f6 != null ? f6.floatValue() : 0.0f, layout.height != null ? f3.floatValue() : 0.0f);
+            this.f34406b = new c.n.a.h.c(floatValue, floatValue2, f6 != null ? f6.floatValue() : 0.0f, layout.height != null ? f3.floatValue() : 0.0f);
         }
         Transform transform = frameEntity.transform;
         if (transform != null) {
             float[] fArr = new float[9];
-            Float f7 = transform.f75402a;
+            Float f7 = transform.f75437a;
             float floatValue3 = f7 != null ? f7.floatValue() : 1.0f;
-            Float f8 = transform.f75403b;
+            Float f8 = transform.f75438b;
             float floatValue4 = f8 != null ? f8.floatValue() : 0.0f;
-            Float f9 = transform.f75404c;
+            Float f9 = transform.f75439c;
             float floatValue5 = f9 != null ? f9.floatValue() : 0.0f;
-            Float f10 = transform.f75405d;
+            Float f10 = transform.f75440d;
             float floatValue6 = f10 != null ? f10.floatValue() : 1.0f;
             Float f11 = transform.tx;
             float floatValue7 = f11 != null ? f11.floatValue() : 0.0f;
@@ -193,13 +193,13 @@ public final class g {
             fArr[6] = 0.0f;
             fArr[7] = 0.0f;
             fArr[8] = 1.0f;
-            this.f34403c.setValues(fArr);
+            this.f34407c.setValues(fArr);
         }
         String str = frameEntity.clipPath;
         if (str != null) {
             str = str.length() > 0 ? str : null;
             if (str != null) {
-                this.f34404d = new b(str);
+                this.f34408d = new b(str);
             }
         }
         List<ShapeEntity> list = frameEntity.shapes;
@@ -209,6 +209,6 @@ public final class g {
             Intrinsics.checkExpressionValueIsNotNull(it, "it");
             arrayList.add(new SVGAVideoShapeEntity(it));
         }
-        this.f34405e = arrayList;
+        this.f34409e = arrayList;
     }
 }

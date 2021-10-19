@@ -44,7 +44,7 @@ public class CommonUtils {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ float f61082a;
+            public final /* synthetic */ float f61117a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -61,7 +61,7 @@ public class CommonUtils {
                         return;
                     }
                 }
-                this.f61082a = f2;
+                this.f61117a = f2;
             }
 
             @Override // android.view.View.OnTouchListener
@@ -74,7 +74,7 @@ public class CommonUtils {
                         view2.setAlpha(1.0f);
                         return false;
                     }
-                    view2.setAlpha(this.f61082a);
+                    view2.setAlpha(this.f61117a);
                     return false;
                 }
                 return invokeLL.booleanValue;

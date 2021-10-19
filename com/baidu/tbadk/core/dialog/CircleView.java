@@ -23,22 +23,22 @@ public class CircleView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47555e;
+    public int f47475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47556f;
+    public int f47476f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47557g;
+    public int f47477g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f47558h;
+    public Paint f47478h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f47559i;
+    public Paint f47479i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RectF f47560j;
+    public RectF f47480j;
     public int k;
 
     static {
@@ -82,24 +82,24 @@ public class CircleView extends View {
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f47555e = getResources().getDimensionPixelSize(R.dimen.ds100);
-            this.f47556f = getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f47557g = getResources().getDimensionPixelSize(R.dimen.ds2);
+            this.f47475e = getResources().getDimensionPixelSize(R.dimen.ds100);
+            this.f47476f = getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f47477g = getResources().getDimensionPixelSize(R.dimen.ds2);
             Paint paint = new Paint();
-            this.f47558h = paint;
-            paint.setStrokeWidth(this.f47556f);
-            this.f47558h.setColor(getResources().getColor(R.color.CAM_X0111));
-            this.f47558h.setStyle(Paint.Style.STROKE);
-            this.f47558h.setAntiAlias(true);
+            this.f47478h = paint;
+            paint.setStrokeWidth(this.f47476f);
+            this.f47478h.setColor(getResources().getColor(R.color.CAM_X0111));
+            this.f47478h.setStyle(Paint.Style.STROKE);
+            this.f47478h.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f47559i = paint2;
-            paint2.setStrokeWidth(this.f47557g);
-            this.f47559i.setColor(getResources().getColor(R.color.common_color_10042));
-            this.f47559i.setStyle(Paint.Style.STROKE);
-            this.f47559i.setAntiAlias(true);
-            int i2 = this.f47556f;
-            int i3 = this.f47555e;
-            this.f47560j = new RectF(i2, i2, i3 + i2, i3 + i2);
+            this.f47479i = paint2;
+            paint2.setStrokeWidth(this.f47477g);
+            this.f47479i.setColor(getResources().getColor(R.color.common_color_10042));
+            this.f47479i.setStyle(Paint.Style.STROKE);
+            this.f47479i.setAntiAlias(true);
+            int i2 = this.f47476f;
+            int i3 = this.f47475e;
+            this.f47480j = new RectF(i2, i2, i3 + i2, i3 + i2);
         }
     }
 
@@ -107,8 +107,8 @@ public class CircleView extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.f47560j, 0.0f, l, false, this.f47559i);
-            canvas.drawArc(this.f47560j, 270.0f, (l * this.k) / m, false, this.f47558h);
+            canvas.drawArc(this.f47480j, 0.0f, l, false, this.f47479i);
+            canvas.drawArc(this.f47480j, 270.0f, (l * this.k) / m, false, this.f47478h);
         }
     }
 

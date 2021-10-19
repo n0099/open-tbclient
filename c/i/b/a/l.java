@@ -11,7 +11,7 @@ public final class l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Format f33945a;
+    public Format f33949a;
 
     public l() {
         Interceptable interceptable = $ic;

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class d extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean t;
+    public boolean u;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -33,10 +33,10 @@ public class d extends TBSpecificationButtonConfig {
                 return;
             }
         }
-        this.f48054i = true;
-        this.f48047b = R.color.CAM_X0101;
-        this.f48049d = R.color.CAM_X0302;
-        this.t = false;
+        this.f47974i = true;
+        this.f47967b = R.color.CAM_X0101;
+        this.f47969d = R.color.CAM_X0302;
+        this.u = false;
         this.n = this.o;
         this.m = this.l;
     }
@@ -45,7 +45,7 @@ public class d extends TBSpecificationButtonConfig {
     public Drawable a(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? p(f2) : (Drawable) invokeF.objValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? q(f2) : (Drawable) invokeF.objValue;
     }
 
     @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
@@ -53,48 +53,48 @@ public class d extends TBSpecificationButtonConfig {
     public void i(int i2, int i3, TBSpecificationButtonConfig.IconType iconType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, iconType) == null) {
-            s(i2, iconType);
+            t(i2, iconType);
         }
     }
 
-    public void o(@ColorRes int i2) {
+    public void p(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f48047b = i2;
-            this.f48049d = R.color.CAM_X0904;
-            this.t = false;
-            TBSpecificationButtonConfig.a aVar = this.s;
+            this.f47967b = i2;
+            this.f47969d = R.color.CAM_X0904;
+            this.u = false;
+            TBSpecificationButtonConfig.a aVar = this.t;
             if (aVar != null) {
                 aVar.c();
             }
         }
     }
 
-    public final Drawable p(float f2) {
+    public final Drawable q(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f2)) == null) {
-            if (this.t) {
-                return q(f2);
+            if (this.u) {
+                return r(f2);
             }
-            return r(f2);
+            return s(f2);
         }
         return (Drawable) invokeF.objValue;
     }
 
-    public final Drawable q(float f2) {
+    public final Drawable r(float f2) {
         InterceptResult invokeF;
         GradientDrawable gradientDrawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f2)) == null) {
-            int color = SkinManager.getColor(this.q, this.f48049d);
-            int[] iArr = {c.a.r0.j3.c.b(color), color};
+            int color = SkinManager.getColor(this.r, this.f47969d);
+            int[] iArr = {c.a.r0.k3.c.b(color), color};
             if (Build.VERSION.SDK_INT >= 16) {
                 gradientDrawable = new GradientDrawable();
-                gradientDrawable.setOrientation(this.r);
+                gradientDrawable.setOrientation(this.s);
                 gradientDrawable.setColors(iArr);
             } else {
-                gradientDrawable = new GradientDrawable(this.r, iArr);
+                gradientDrawable = new GradientDrawable(this.s, iArr);
             }
             gradientDrawable.setGradientType(0);
             gradientDrawable.setShape(0);
@@ -104,12 +104,12 @@ public class d extends TBSpecificationButtonConfig {
         return (Drawable) invokeF.objValue;
     }
 
-    public final Drawable r(float f2) {
+    public final Drawable s(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f2)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(SkinManager.getColor(this.q, this.f48049d));
+            gradientDrawable.setColor(SkinManager.getColor(this.r, this.f47969d));
             gradientDrawable.setShape(0);
             gradientDrawable.setCornerRadius(f2);
             return gradientDrawable;
@@ -117,11 +117,11 @@ public class d extends TBSpecificationButtonConfig {
         return (Drawable) invokeF.objValue;
     }
 
-    public void s(@DrawableRes int i2, TBSpecificationButtonConfig.IconType iconType) {
+    public void t(@DrawableRes int i2, TBSpecificationButtonConfig.IconType iconType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, iconType) == null) {
-            this.f48050e[0] = i2;
-            this.f48051f = iconType;
+            this.f47970e[0] = i2;
+            this.f47971f = iconType;
         }
     }
 }

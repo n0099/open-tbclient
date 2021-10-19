@@ -22,17 +22,17 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f36915b;
+    public static volatile b f36919b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<e> f36916a;
+    public ArrayList<e> f36920a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f36917c;
+    public Context f36921c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, f> f36918d;
+    public HashMap<String, f> f36922d;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public final class b {
                 return;
             }
         }
-        this.f36916a = new ArrayList<>();
-        this.f36918d = new HashMap<>();
-        this.f36917c = context.getApplicationContext();
+        this.f36920a = new ArrayList<>();
+        this.f36922d = new HashMap<>();
+        this.f36921c = context.getApplicationContext();
         String d2 = com.baidu.android.pushservice.c.c.d(context);
         if (TextUtils.isEmpty(d2)) {
             return;
@@ -59,10 +59,10 @@ public final class b {
         try {
             ArrayList<e> c2 = c(m.b(d2));
             if (c2 != null) {
-                this.f36916a.addAll(c2);
+                this.f36920a.addAll(c2);
             }
         } catch (Throwable th) {
-            new b.c(this.f36917c).a(Log.getStackTraceString(th)).a();
+            new b.c(this.f36921c).a(Log.getStackTraceString(th)).a();
         }
     }
 
@@ -72,10 +72,10 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (b.class) {
-                if (f36915b == null) {
-                    f36915b = new b(context);
+                if (f36919b == null) {
+                    f36919b = new b(context);
                 }
-                bVar = f36915b;
+                bVar = f36919b;
             }
             return bVar;
         }
@@ -99,13 +99,13 @@ public final class b {
                         try {
                             e eVar = list.get(i2);
                             if (eVar != null) {
-                                stringBuffer.append(eVar.f36913b);
+                                stringBuffer.append(eVar.f36917b);
                                 stringBuffer.append(",");
-                                stringBuffer.append(eVar.f36912a);
+                                stringBuffer.append(eVar.f36916a);
                                 stringBuffer.append(",");
-                                stringBuffer.append(eVar.f36924d);
+                                stringBuffer.append(eVar.f36928d);
                                 stringBuffer.append(",");
-                                stringBuffer.append(eVar.f36914c);
+                                stringBuffer.append(eVar.f36918c);
                                 if (i2 != list.size() - 1) {
                                     stringBuffer.append(";");
                                 }
@@ -113,7 +113,7 @@ public final class b {
                         } catch (Exception e2) {
                             e = e2;
                             stringBuffer2 = stringBuffer;
-                            new b.c(this.f36917c).a(Log.getStackTraceString(e)).a();
+                            new b.c(this.f36921c).a(Log.getStackTraceString(e)).a();
                             stringBuffer = stringBuffer2;
                             if (stringBuffer != null) {
                             }
@@ -136,13 +136,13 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f36916a == null || TextUtils.isEmpty(str)) {
+            if (this.f36920a == null || TextUtils.isEmpty(str)) {
                 return null;
             }
-            Iterator<e> it = this.f36916a.iterator();
+            Iterator<e> it = this.f36920a.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (str.equals(next.f36913b)) {
+                if (str.equals(next.f36917b)) {
                     return next;
                 }
             }
@@ -154,7 +154,7 @@ public final class b {
     public String a(e eVar, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, z)) == null) ? a(eVar, z, this.f36916a) : (String) invokeLZ.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, z)) == null) ? a(eVar, z, this.f36920a) : (String) invokeLZ.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:9:0x0010 A[Catch: all -> 0x0049, TryCatch #0 {, blocks: (B:6:0x0006, B:7:0x000a, B:9:0x0010, B:11:0x0020, B:13:0x002a, B:15:0x002f, B:19:0x0037, B:20:0x003a), top: B:30:0x0006 }] */
@@ -171,7 +171,7 @@ public final class b {
                 Iterator<e> it = arrayList.iterator();
                 while (it.hasNext()) {
                     e next = it.next();
-                    if (next.f36913b.equals(eVar.f36913b) || next.f36912a.equals(eVar.f36912a)) {
+                    if (next.f36917b.equals(eVar.f36917b) || next.f36916a.equals(eVar.f36916a)) {
                         arrayList.remove(next);
                         if (z) {
                             arrayList.add(eVar);
@@ -181,7 +181,7 @@ public final class b {
                             arrayList.add(eVar);
                         }
                         c2 = m.c(a(arrayList));
-                        com.baidu.android.pushservice.c.c.b(this.f36917c, c2);
+                        com.baidu.android.pushservice.c.c.b(this.f36921c, c2);
                     }
                     while (it.hasNext()) {
                     }
@@ -190,7 +190,7 @@ public final class b {
                     arrayList.add(eVar);
                 }
                 c2 = m.c(a(arrayList));
-                com.baidu.android.pushservice.c.c.b(this.f36917c, c2);
+                com.baidu.android.pushservice.c.c.b(this.f36921c, c2);
             }
             return c2;
         }
@@ -200,7 +200,7 @@ public final class b {
     public void a(String str, f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, fVar) == null) {
-            this.f36918d.put(str, fVar);
+            this.f36922d.put(str, fVar);
         }
     }
 
@@ -213,28 +213,28 @@ public final class b {
                 }
                 ArrayList<e> c2 = c(m.b(str2));
                 String str3 = "";
-                if (f36915b != null && c2 != null) {
+                if (f36919b != null && c2 != null) {
                     try {
                         if (str.equals("r_v2")) {
                             ArrayList arrayList = new ArrayList();
                             Iterator<e> it = c2.iterator();
                             while (it.hasNext()) {
-                                arrayList.add(it.next().f36913b);
+                                arrayList.add(it.next().f36917b);
                             }
                             int i2 = 0;
-                            while (i2 < f36915b.f36916a.size()) {
-                                if (arrayList.contains(f36915b.f36916a.get(i2).f36913b)) {
-                                    f36915b.f36916a.remove(i2);
+                            while (i2 < f36919b.f36920a.size()) {
+                                if (arrayList.contains(f36919b.f36920a.get(i2).f36917b)) {
+                                    f36919b.f36920a.remove(i2);
                                     i2--;
                                 }
                                 i2++;
                             }
-                            f36915b.f36916a.addAll(c2);
-                            str3 = a(f36915b.f36916a);
+                            f36919b.f36920a.addAll(c2);
+                            str3 = a(f36919b.f36920a);
                         }
-                        com.baidu.android.pushservice.c.c.b(this.f36917c, m.c(str3));
+                        com.baidu.android.pushservice.c.c.b(this.f36921c, m.c(str3));
                     } catch (Exception e2) {
-                        new b.c(this.f36917c).a(Log.getStackTraceString(e2)).a();
+                        new b.c(this.f36921c).a(Log.getStackTraceString(e2)).a();
                     }
                 }
             }
@@ -246,15 +246,15 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                Iterator<e> it = this.f36916a.iterator();
+                Iterator<e> it = this.f36920a.iterator();
                 while (it.hasNext()) {
                     e next = it.next();
-                    if (!TextUtils.isEmpty(next.f36912a) && next.f36912a.equals(str)) {
+                    if (!TextUtils.isEmpty(next.f36916a) && next.f36916a.equals(str)) {
                         return next;
                     }
                 }
             }
-            m.a("ClientManager*BBind* isRegisteredClientByAppid return null!", this.f36917c);
+            m.a("ClientManager*BBind* isRegisteredClientByAppid return null!", this.f36921c);
             return null;
         }
         return (e) invokeL.objValue;
@@ -271,22 +271,22 @@ public final class b {
                     m.a("ClientManager*BBind* clients=" + b2, context);
                     arrayList = c(b2);
                 }
-                if (f36915b != null && arrayList != null) {
+                if (f36919b != null && arrayList != null) {
                     ArrayList arrayList2 = new ArrayList();
                     Iterator<e> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        arrayList2.add(it.next().f36913b);
+                        arrayList2.add(it.next().f36917b);
                     }
                     int i2 = 0;
-                    while (i2 < f36915b.f36916a.size()) {
-                        if (arrayList2.contains(f36915b.f36916a.get(i2).f36913b)) {
-                            f36915b.f36916a.remove(i2);
+                    while (i2 < f36919b.f36920a.size()) {
+                        if (arrayList2.contains(f36919b.f36920a.get(i2).f36917b)) {
+                            f36919b.f36920a.remove(i2);
                             i2--;
                         }
                         i2++;
                     }
-                    f36915b.f36916a.addAll(arrayList);
-                    m.a("ClientManager*BBind* sInstance.mClientsV2.size=" + f36915b.f36916a.size(), context);
+                    f36919b.f36920a.addAll(arrayList);
+                    m.a("ClientManager*BBind* sInstance.mClientsV2.size=" + f36919b.f36920a.size(), context);
                 }
             }
         }
@@ -295,7 +295,7 @@ public final class b {
     public boolean b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) ? !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && this.f36918d.containsKey(str) && str2.equals(this.f36918d.get(str).a()) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) ? !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && this.f36922d.containsKey(str) && str2.equals(this.f36922d.get(str).a()) : invokeLL.booleanValue;
     }
 
     public ArrayList<e> c(String str) {
@@ -311,17 +311,17 @@ public final class b {
                     String[] split = str2.trim().split(",");
                     if (split.length >= 3) {
                         e eVar = new e();
-                        eVar.f36913b = split[0].trim();
-                        eVar.f36912a = split[1].trim();
-                        eVar.f36924d = split[2].trim();
+                        eVar.f36917b = split[0].trim();
+                        eVar.f36916a = split[1].trim();
+                        eVar.f36928d = split[2].trim();
                         if (split.length > 3) {
-                            eVar.f36914c = Integer.parseInt(split[split.length - 1].trim());
+                            eVar.f36918c = Integer.parseInt(split[split.length - 1].trim());
                         }
                         arrayList.add(eVar);
                     }
                 }
             } catch (Exception e2) {
-                new b.c(this.f36917c).a(Log.getStackTraceString(e2)).a();
+                new b.c(this.f36921c).a(Log.getStackTraceString(e2)).a();
             }
             return arrayList;
         }
@@ -331,13 +331,13 @@ public final class b {
     public String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.f36918d.get(str) != null ? this.f36918d.get(str).b() : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.f36922d.get(str) != null ? this.f36922d.get(str).b() : "" : (String) invokeL.objValue;
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f36918d.remove(str);
+            this.f36922d.remove(str);
         }
     }
 }

@@ -712,7 +712,7 @@ public class r {
             return;
         }
         this.f12654a = activeCenterData;
-        Activity b2 = c.a.e.a.b.f().b();
+        Activity b2 = c.a.e.a.b.g().b();
         if (b2 == null || !"MainTabActivity".equals(b2.getClass().getSimpleName())) {
             return;
         }

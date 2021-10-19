@@ -59,22 +59,22 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f36164e;
+    public boolean f36168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f36165f;
+    public String f36169f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36166g;
+    public boolean f36170g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final com.alipay.sdk.sys.a f36167h;
+    public final com.alipay.sdk.sys.a f36171h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f36168i;
+    public boolean f36172i;
 
     /* renamed from: j  reason: collision with root package name */
-    public com.alipay.sdk.widget.e f36169j;
+    public com.alipay.sdk.widget.e f36173j;
     public com.alipay.sdk.widget.f k;
 
     /* loaded from: classes4.dex */
@@ -83,7 +83,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f36170a;
+        public final /* synthetic */ d f36174a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -100,14 +100,14 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     return;
                 }
             }
-            this.f36170a = dVar;
+            this.f36174a = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f36170a.f36162a.finish();
+                this.f36174a.f36166a.finish();
             }
         }
     }
@@ -118,10 +118,10 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.alipay.sdk.widget.e f36171a;
+        public final /* synthetic */ com.alipay.sdk.widget.e f36175a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f36172b;
+        public final /* synthetic */ d f36176b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(d dVar, com.alipay.sdk.widget.e eVar) {
@@ -141,16 +141,16 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     return;
                 }
             }
-            this.f36172b = dVar;
-            this.f36171a = eVar;
+            this.f36176b = dVar;
+            this.f36175a = eVar;
         }
 
         @Override // com.alipay.sdk.widget.d.e, android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f36171a.a();
-                this.f36172b.f36166g = false;
+                this.f36175a.a();
+                this.f36176b.f36170g = false;
             }
         }
     }
@@ -161,13 +161,13 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.alipay.sdk.widget.e f36173a;
+        public final /* synthetic */ com.alipay.sdk.widget.e f36177a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f36174b;
+        public final /* synthetic */ String f36178b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f36175c;
+        public final /* synthetic */ d f36179c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(d dVar, com.alipay.sdk.widget.e eVar, String str) {
@@ -187,36 +187,36 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     return;
                 }
             }
-            this.f36175c = dVar;
-            this.f36173a = eVar;
-            this.f36174b = str;
+            this.f36179c = dVar;
+            this.f36177a = eVar;
+            this.f36178b = str;
         }
 
         @Override // com.alipay.sdk.widget.d.e, android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f36175c.removeView(this.f36173a);
-                this.f36175c.f36169j.a(this.f36174b);
-                this.f36175c.f36166g = false;
+                this.f36179c.removeView(this.f36177a);
+                this.f36179c.f36173j.a(this.f36178b);
+                this.f36179c.f36170g = false;
             }
         }
     }
 
     /* renamed from: com.alipay.sdk.widget.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1569d implements Runnable {
+    public class RunnableC1571d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f36176a;
+        public final /* synthetic */ Activity f36180a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SslErrorHandler f36177b;
+        public final /* synthetic */ SslErrorHandler f36181b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f36178c;
+        public final /* synthetic */ d f36182c;
 
         /* renamed from: com.alipay.sdk.widget.d$d$a */
         /* loaded from: classes4.dex */
@@ -225,14 +225,14 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ RunnableC1569d f36179a;
+            public final /* synthetic */ RunnableC1571d f36183a;
 
-            public a(RunnableC1569d runnableC1569d) {
+            public a(RunnableC1571d runnableC1571d) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC1569d};
+                    Object[] objArr = {runnableC1571d};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -242,22 +242,22 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                         return;
                     }
                 }
-                this.f36179a = runnableC1569d;
+                this.f36183a = runnableC1571d;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                    this.f36179a.f36177b.cancel();
-                    com.alipay.sdk.app.statistic.a.b(this.f36179a.f36178c.f36167h, "net", com.alipay.sdk.app.statistic.b.E, "2");
+                    this.f36183a.f36181b.cancel();
+                    com.alipay.sdk.app.statistic.a.b(this.f36183a.f36182c.f36171h, "net", com.alipay.sdk.app.statistic.b.E, "2");
                     com.alipay.sdk.app.b.a(com.alipay.sdk.app.b.a());
-                    this.f36179a.f36176a.finish();
+                    this.f36183a.f36180a.finish();
                 }
             }
         }
 
-        public RunnableC1569d(d dVar, Activity activity, SslErrorHandler sslErrorHandler) {
+        public RunnableC1571d(d dVar, Activity activity, SslErrorHandler sslErrorHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -272,16 +272,16 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     return;
                 }
             }
-            this.f36178c = dVar;
-            this.f36176a = activity;
-            this.f36177b = sslErrorHandler;
+            this.f36182c = dVar;
+            this.f36180a = activity;
+            this.f36181b = sslErrorHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                com.alipay.sdk.widget.b.a(this.f36176a, "安全警告", "安全连接证书校验无效，将无法保证访问数据的安全性，请安装支付宝后重试。", "确定", new a(this), null, null);
+                com.alipay.sdk.widget.b.a(this.f36180a, "安全警告", "安全连接证书校验无效，将无法保证访问数据的安全性，请安装支付宝后重试。", "确定", new a(this), null, null);
             }
         }
     }
@@ -337,10 +337,10 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final f f36185a;
+        public final f f36189a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f36186b;
+        public final String f36190b;
 
         public g(f fVar, String str) {
             Interceptable interceptable = $ic;
@@ -357,8 +357,8 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     return;
                 }
             }
-            this.f36185a = fVar;
-            this.f36186b = str;
+            this.f36189a = fVar;
+            this.f36190b = str;
         }
 
         @Override // com.alipay.sdk.app.d.a
@@ -366,7 +366,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), jSONObject, str}) == null) {
                 try {
-                    this.f36185a.a(new JSONObject().put("success", z).put("random", this.f36186b).put("code", jSONObject).put("status", str));
+                    this.f36189a.a(new JSONObject().put("success", z).put("random", this.f36190b).put("code", jSONObject).put("status", str));
                 } catch (JSONException unused) {
                 }
             }
@@ -392,12 +392,12 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                 return;
             }
         }
-        this.f36164e = true;
-        this.f36165f = "GET";
-        this.f36166g = false;
-        this.f36169j = null;
+        this.f36168e = true;
+        this.f36169f = "GET";
+        this.f36170g = false;
+        this.f36173j = null;
         this.k = new com.alipay.sdk.widget.f();
-        this.f36167h = aVar;
+        this.f36171h = aVar;
         g();
     }
 
@@ -407,18 +407,18 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             synchronized (this) {
                 if (this.k.b()) {
-                    this.f36162a.finish();
+                    this.f36166a.finish();
                 } else {
-                    this.f36166g = true;
-                    com.alipay.sdk.widget.e eVar = this.f36169j;
-                    this.f36169j = this.k.c();
+                    this.f36170g = true;
+                    com.alipay.sdk.widget.e eVar = this.f36173j;
+                    this.f36173j = this.k.c();
                     TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 1.0f, 1, 0.0f, 1, 0.0f);
                     translateAnimation.setDuration(400L);
                     translateAnimation.setFillAfter(false);
                     translateAnimation.setAnimationListener(new b(this, eVar));
                     eVar.setAnimation(translateAnimation);
                     removeView(eVar);
-                    addView(this.f36169j);
+                    addView(this.f36173j);
                 }
             }
             return true;
@@ -430,10 +430,10 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             synchronized (this) {
-                Activity activity = this.f36162a;
-                com.alipay.sdk.widget.e eVar = this.f36169j;
+                Activity activity = this.f36166a;
+                com.alipay.sdk.widget.e eVar = this.f36173j;
                 if (activity != null && eVar != null) {
-                    if (this.f36164e) {
+                    if (this.f36168e) {
                         activity.finish();
                     } else {
                         eVar.a("javascript:window.AlipayJSBridge.callListener('h5BackAction');");
@@ -449,12 +449,12 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             synchronized (this) {
                 try {
-                    com.alipay.sdk.widget.e eVar = new com.alipay.sdk.widget.e(this.f36162a, this.f36167h, new e.C1571e(!a(), !a()));
-                    this.f36169j = eVar;
+                    com.alipay.sdk.widget.e eVar = new com.alipay.sdk.widget.e(this.f36166a, this.f36171h, new e.C1573e(!a(), !a()));
+                    this.f36173j = eVar;
                     eVar.setChromeProxy(this);
-                    this.f36169j.setWebClientProxy(this);
-                    this.f36169j.setWebEventProxy(this);
-                    addView(this.f36169j);
+                    this.f36173j.setWebClientProxy(this);
+                    this.f36173j.setWebEventProxy(this);
+                    addView(this.f36173j);
                 } catch (Exception unused) {
                     return false;
                 }
@@ -467,7 +467,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
     private void h() {
         com.alipay.sdk.widget.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (eVar = this.f36169j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (eVar = this.f36173j) == null) {
             return;
         }
         eVar.getWebView().loadUrl("javascript:(function() {\n    if (window.AlipayJSBridge) {\n        return\n    }\n\n    function alipayjsbridgeFunc(url) {\n        var iframe = document.createElement(\"iframe\");\n        iframe.style.width = \"1px\";\n        iframe.style.height = \"1px\";\n        iframe.style.display = \"none\";\n        iframe.src = url;\n        document.body.appendChild(iframe);\n        setTimeout(function() {\n            document.body.removeChild(iframe)\n        }, 100)\n    }\n    window.alipayjsbridgeSetTitle = function(title) {\n        document.title = title;\n        alipayjsbridgeFunc(\"alipayjsbridge://setTitle?title=\" + encodeURIComponent(title))\n    };\n    window.alipayjsbridgeRefresh = function() {\n        alipayjsbridgeFunc(\"alipayjsbridge://onRefresh?\")\n    };\n    window.alipayjsbridgeBack = function() {\n        alipayjsbridgeFunc(\"alipayjsbridge://onBack?\")\n    };\n    window.alipayjsbridgeExit = function(bsucc) {\n        alipayjsbridgeFunc(\"alipayjsbridge://onExit?bsucc=\" + bsucc)\n    };\n    window.alipayjsbridgeShowBackButton = function(bshow) {\n        alipayjsbridgeFunc(\"alipayjsbridge://showBackButton?bshow=\" + bshow)\n    };\n    window.AlipayJSBridge = {\n        version: \"2.0\",\n        addListener: addListener,\n        hasListener: hasListener,\n        callListener: callListener,\n        callNativeFunc: callNativeFunc,\n        callBackFromNativeFunc: callBackFromNativeFunc\n    };\n    var uniqueId = 1;\n    var h5JsCallbackMap = {};\n\n    function iframeCall(paramStr) {\n        setTimeout(function() {\n        \tvar iframe = document.createElement(\"iframe\");\n        \tiframe.style.width = \"1px\";\n        \tiframe.style.height = \"1px\";\n        \tiframe.style.display = \"none\";\n        \tiframe.src = \"alipayjsbridge://callNativeFunc?\" + paramStr;\n        \tvar parent = document.body || document.documentElement;\n        \tparent.appendChild(iframe);\n        \tsetTimeout(function() {\n            \tparent.removeChild(iframe)\n        \t}, 0)\n        }, 0)\n    }\n\n    function callNativeFunc(nativeFuncName, data, h5JsCallback) {\n        var h5JsCallbackId = \"\";\n        if (h5JsCallback) {\n            h5JsCallbackId = \"cb_\" + (uniqueId++) + \"_\" + new Date().getTime();\n            h5JsCallbackMap[h5JsCallbackId] = h5JsCallback\n        }\n        var dataStr = \"\";\n        if (data) {\n            dataStr = encodeURIComponent(JSON.stringify(data))\n        }\n        var paramStr = \"func=\" + nativeFuncName + \"&cbId=\" + h5JsCallbackId + \"&data=\" + dataStr;\n        iframeCall(paramStr)\n    }\n\n    function callBackFromNativeFunc(h5JsCallbackId, data) {\n        var h5JsCallback = h5JsCallbackMap[h5JsCallbackId];\n        if (h5JsCallback) {\n            h5JsCallback(data);\n            delete h5JsCallbackMap[h5JsCallbackId]\n        }\n    }\n    var h5ListenerMap = {};\n\n    function addListener(jsFuncName, jsFunc) {\n        h5ListenerMap[jsFuncName] = jsFunc\n    }\n\n    function hasListener(jsFuncName) {\n        var jsFunc = h5ListenerMap[jsFuncName];\n        if (!jsFunc) {\n            return false\n        }\n        return true\n    }\n\n    function callListener(h5JsFuncName, data, nativeCallbackId) {\n        var responseCallback;\n        if (nativeCallbackId) {\n            responseCallback = function(responseData) {\n                var dataStr = \"\";\n                if (responseData) {\n                    dataStr = encodeURIComponent(JSON.stringify(responseData))\n                }\n                var paramStr = \"func=h5JsFuncCallback\" + \"&cbId=\" + nativeCallbackId + \"&data=\" + dataStr;\n                iframeCall(paramStr)\n            }\n        }\n        var h5JsFunc = h5ListenerMap[h5JsFuncName];\n        if (h5JsFunc) {\n            h5JsFunc(data, responseCallback)\n        } else if (h5JsFuncName == \"h5BackAction\") {\n            if (!window.alipayjsbridgeH5BackAction || !alipayjsbridgeH5BackAction()) {\n                var paramStr = \"func=back\";\n                iframeCall(paramStr)\n            }\n        } else {\n            console.log(\"AlipayJSBridge: no h5JsFunc \" + h5JsFuncName + data)\n        }\n    }\n    var event;\n    if (window.CustomEvent) {\n        event = new CustomEvent(\"alipayjsbridgeready\")\n    } else {\n        event = document.createEvent(\"Event\");\n        event.initEvent(\"alipayjsbridgeready\", true, true)\n    }\n    document.dispatchEvent(event);\n    setTimeout(excuteH5InitFuncs, 0);\n\n    function excuteH5InitFuncs() {\n        if (window.AlipayJSBridgeInitArray) {\n            var h5InitFuncs = window.AlipayJSBridgeInitArray;\n            delete window.AlipayJSBridgeInitArray;\n            for (var i = 0; i < h5InitFuncs.length; i++) {\n                try {\n                    h5InitFuncs[i](AlipayJSBridge)\n                } catch (e) {\n                    setTimeout(function() {\n                        throw e\n                    })\n                }\n            }\n        }\n    }\n})();\n;window.AlipayJSBridge.callListener('h5PageFinished');");
@@ -477,7 +477,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             synchronized (this) {
-                WebView webView = this.f36169j.getWebView();
+                WebView webView = this.f36173j.getWebView();
                 if (webView.canGoBack()) {
                     webView.goBack();
                 } else {
@@ -497,7 +497,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             synchronized (this) {
-                this.f36169j.a();
+                this.f36173j.a();
                 this.k.a();
             }
         }
@@ -509,7 +509,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, eVar, str)) == null) {
             synchronized (this) {
-                com.alipay.sdk.sys.a aVar = this.f36167h;
+                com.alipay.sdk.sys.a aVar = this.f36171h;
                 com.alipay.sdk.app.statistic.a.a(aVar, "biz", "h5ld", SystemClock.elapsedRealtime() + "|" + l.g(str));
                 if (!TextUtils.isEmpty(str) && !str.endsWith(".apk")) {
                     h();
@@ -527,7 +527,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
             synchronized (this) {
-                onInterceptTouchEvent = this.f36166g ? true : super.onInterceptTouchEvent(motionEvent);
+                onInterceptTouchEvent = this.f36170g ? true : super.onInterceptTouchEvent(motionEvent);
             }
             return onInterceptTouchEvent;
         }
@@ -540,16 +540,16 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this) {
-                Activity activity = this.f36162a;
+                Activity activity = this.f36166a;
                 if (activity == null) {
                     return true;
                 }
                 if (a()) {
-                    com.alipay.sdk.widget.e eVar = this.f36169j;
+                    com.alipay.sdk.widget.e eVar = this.f36173j;
                     if (eVar != null && eVar.getWebView() != null) {
                         if (eVar.getWebView().canGoBack()) {
                             if (d()) {
-                                com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f35932f.b());
+                                com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f35936f.b());
                                 com.alipay.sdk.app.b.a(com.alipay.sdk.app.b.a(b2.b(), b2.a(), ""));
                                 activity.finish();
                             }
@@ -562,7 +562,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     activity.finish();
                     return true;
                 }
-                if (!this.f36166g) {
+                if (!this.f36170g) {
                     f();
                 }
                 return true;
@@ -575,9 +575,9 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, str2, z2) == null) {
             synchronized (this) {
-                this.f36165f = str2;
-                this.f36169j.getTitle().setText(str);
-                this.f36164e = z2;
+                this.f36169f = str2;
+                this.f36173j.getTitle().setText(str);
+                this.f36168e = z2;
             }
         }
     }
@@ -588,7 +588,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         if (interceptable == null || interceptable.invokeLL(1048587, this, eVar, str) == null) {
             synchronized (this) {
                 if (!str.startsWith("http") && !eVar.getUrl().endsWith(str)) {
-                    this.f36169j.getTitle().setText(str);
+                    this.f36173j.getTitle().setText(str);
                 }
             }
         }
@@ -597,7 +597,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f36168i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f36172i : invokeV.booleanValue;
     }
 
     private synchronized void a(boolean z2) {
@@ -605,7 +605,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         if (interceptable == null || interceptable.invokeZ(65539, this, z2) == null) {
             synchronized (this) {
                 com.alipay.sdk.app.b.a(z2);
-                this.f36162a.finish();
+                this.f36166a.finish();
             }
         }
     }
@@ -616,19 +616,19 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<com.alipay.sdk.widget.e> f36180a;
+        public final WeakReference<com.alipay.sdk.widget.e> f36184a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f36181b;
+        public final String f36185b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f36182c;
+        public final String f36186c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final JSONObject f36183d;
+        public final JSONObject f36187d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f36184e;
+        public boolean f36188e;
 
         public f(com.alipay.sdk.widget.e eVar, String str, String str2, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -645,21 +645,21 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     return;
                 }
             }
-            this.f36184e = false;
-            this.f36180a = new WeakReference<>(eVar);
-            this.f36181b = str;
-            this.f36182c = str2;
-            this.f36183d = jSONObject;
+            this.f36188e = false;
+            this.f36184a = new WeakReference<>(eVar);
+            this.f36185b = str;
+            this.f36186c = str2;
+            this.f36187d = jSONObject;
         }
 
         public void a(JSONObject jSONObject) {
             com.alipay.sdk.widget.e eVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || this.f36184e || (eVar = (com.alipay.sdk.widget.e) l.a(this.f36180a)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || this.f36188e || (eVar = (com.alipay.sdk.widget.e) l.a(this.f36184a)) == null) {
                 return;
             }
-            this.f36184e = true;
-            eVar.a(String.format("javascript:window.AlipayJSBridge.callBackFromNativeFunc('%s','%s');", a(this.f36182c), a(jSONObject.toString())));
+            this.f36188e = true;
+            eVar.a(String.format("javascript:window.AlipayJSBridge.callBackFromNativeFunc('%s','%s');", a(this.f36186c), a(jSONObject.toString())));
         }
 
         public static String a(String str) {
@@ -674,12 +674,12 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             synchronized (this) {
-                if ("POST".equals(this.f36165f)) {
-                    this.f36169j.a(str, (byte[]) null);
+                if ("POST".equals(this.f36169f)) {
+                    this.f36173j.a(str, (byte[]) null);
                 } else {
-                    this.f36169j.a(str);
+                    this.f36173j.a(str);
                 }
-                com.alipay.sdk.widget.c.a(this.f36169j.getWebView());
+                com.alipay.sdk.widget.c.a(this.f36173j.getWebView());
             }
         }
     }
@@ -691,7 +691,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, eVar, str, str2, str3, jsPromptResult)) == null) {
             synchronized (this) {
                 if (str2.startsWith("<head>") && str2.contains(l)) {
-                    this.f36162a.runOnUiThread(new a(this));
+                    this.f36166a.runOnUiThread(new a(this));
                 }
                 jsPromptResult.cancel();
             }
@@ -705,24 +705,24 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) {
             synchronized (this) {
-                com.alipay.sdk.widget.e eVar = this.f36169j;
+                com.alipay.sdk.widget.e eVar = this.f36173j;
                 try {
-                    com.alipay.sdk.widget.e eVar2 = new com.alipay.sdk.widget.e(this.f36162a, this.f36167h, new e.C1571e(!a(), !a()));
-                    this.f36169j = eVar2;
+                    com.alipay.sdk.widget.e eVar2 = new com.alipay.sdk.widget.e(this.f36166a, this.f36171h, new e.C1573e(!a(), !a()));
+                    this.f36173j = eVar2;
                     eVar2.setChromeProxy(this);
-                    this.f36169j.setWebClientProxy(this);
-                    this.f36169j.setWebEventProxy(this);
+                    this.f36173j.setWebClientProxy(this);
+                    this.f36173j.setWebEventProxy(this);
                     if (!TextUtils.isEmpty(str2)) {
-                        this.f36169j.getTitle().setText(str2);
+                        this.f36173j.getTitle().setText(str2);
                     }
-                    this.f36166g = true;
+                    this.f36170g = true;
                     this.k.a(eVar);
                     TranslateAnimation translateAnimation = new TranslateAnimation(1, 1.0f, 1, 0.0f, 1, 0.0f, 1, 0.0f);
                     translateAnimation.setDuration(400L);
                     translateAnimation.setFillAfter(false);
                     translateAnimation.setAnimationListener(new c(this, eVar, str));
-                    this.f36169j.setAnimation(translateAnimation);
-                    addView(this.f36169j);
+                    this.f36173j.setAnimation(translateAnimation);
+                    addView(this.f36173j);
                 } catch (Throwable unused) {
                     return false;
                 }
@@ -741,11 +741,11 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
-                Activity activity = this.f36162a;
+                Activity activity = this.f36166a;
                 if (activity == null) {
                     return true;
                 }
-                if (l.a(this.f36167h, str, activity)) {
+                if (l.a(this.f36171h, str, activity)) {
                     return true;
                 }
                 if (str.startsWith(m)) {
@@ -758,7 +758,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     intent.setData(Uri.parse(str));
                     activity.startActivity(intent);
                 } else {
-                    this.f36169j.a(str);
+                    this.f36173j.a(str);
                 }
                 return true;
             }
@@ -772,8 +772,8 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048579, this, eVar, i2, str, str2)) == null) {
             synchronized (this) {
-                this.f36168i = true;
-                com.alipay.sdk.sys.a aVar = this.f36167h;
+                this.f36172i = true;
+                com.alipay.sdk.sys.a aVar = this.f36171h;
                 com.alipay.sdk.app.statistic.a.b(aVar, "net", com.alipay.sdk.app.statistic.b.C, "onReceivedError:" + str2);
                 eVar.getRefreshButton().setVisibility(0);
             }
@@ -788,7 +788,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, eVar, str)) == null) {
             synchronized (this) {
-                com.alipay.sdk.sys.a aVar = this.f36167h;
+                com.alipay.sdk.sys.a aVar = this.f36171h;
                 com.alipay.sdk.app.statistic.a.a(aVar, "biz", "h5ldd", SystemClock.elapsedRealtime() + "|" + l.g(str));
                 h();
                 eVar.getRefreshButton().setVisibility(0);
@@ -804,13 +804,13 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, eVar, sslErrorHandler, sslError)) == null) {
             synchronized (this) {
-                Activity activity = this.f36162a;
+                Activity activity = this.f36166a;
                 if (activity == null) {
                     return true;
                 }
-                com.alipay.sdk.sys.a aVar = this.f36167h;
+                com.alipay.sdk.sys.a aVar = this.f36171h;
                 com.alipay.sdk.app.statistic.a.b(aVar, "net", com.alipay.sdk.app.statistic.b.C, "2-" + sslError);
-                activity.runOnUiThread(new RunnableC1569d(this, activity, sslErrorHandler));
+                activity.runOnUiThread(new RunnableC1571d(this, activity, sslErrorHandler));
                 return true;
             }
         }
@@ -821,22 +821,22 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) {
             synchronized (this) {
-                Map<String, String> b2 = l.b(this.f36167h, str);
+                Map<String, String> b2 = l.b(this.f36171h, str);
                 if (str.startsWith(t)) {
                     a(b2.get(WebChromeClient.KEY_FUNCTION_NAME), b2.get("cbId"), b2.get("data"));
                 } else if (str.startsWith(n)) {
                     i();
                 } else if (str.startsWith("setTitle") && b2.containsKey("title")) {
-                    this.f36169j.getTitle().setText(b2.get("title"));
+                    this.f36173j.getTitle().setText(b2.get("title"));
                 } else if (str.startsWith(p)) {
-                    this.f36169j.getWebView().reload();
+                    this.f36173j.getWebView().reload();
                 } else if (str.startsWith(q) && b2.containsKey("bshow")) {
-                    this.f36169j.getBackButton().setVisibility(TextUtils.equals("true", b2.get("bshow")) ? 0 : 4);
+                    this.f36173j.getBackButton().setVisibility(TextUtils.equals("true", b2.get("bshow")) ? 0 : 4);
                 } else if (str.startsWith(r)) {
                     com.alipay.sdk.app.b.a(b2.get("result"));
                     a(TextUtils.equals("true", b2.get("bsucc")));
                 } else if (str.startsWith(s)) {
-                    this.f36169j.a("javascript:(function() {\n    if (window.AlipayJSBridge) {\n        return\n    }\n\n    function alipayjsbridgeFunc(url) {\n        var iframe = document.createElement(\"iframe\");\n        iframe.style.width = \"1px\";\n        iframe.style.height = \"1px\";\n        iframe.style.display = \"none\";\n        iframe.src = url;\n        document.body.appendChild(iframe);\n        setTimeout(function() {\n            document.body.removeChild(iframe)\n        }, 100)\n    }\n    window.alipayjsbridgeSetTitle = function(title) {\n        document.title = title;\n        alipayjsbridgeFunc(\"alipayjsbridge://setTitle?title=\" + encodeURIComponent(title))\n    };\n    window.alipayjsbridgeRefresh = function() {\n        alipayjsbridgeFunc(\"alipayjsbridge://onRefresh?\")\n    };\n    window.alipayjsbridgeBack = function() {\n        alipayjsbridgeFunc(\"alipayjsbridge://onBack?\")\n    };\n    window.alipayjsbridgeExit = function(bsucc) {\n        alipayjsbridgeFunc(\"alipayjsbridge://onExit?bsucc=\" + bsucc)\n    };\n    window.alipayjsbridgeShowBackButton = function(bshow) {\n        alipayjsbridgeFunc(\"alipayjsbridge://showBackButton?bshow=\" + bshow)\n    };\n    window.AlipayJSBridge = {\n        version: \"2.0\",\n        addListener: addListener,\n        hasListener: hasListener,\n        callListener: callListener,\n        callNativeFunc: callNativeFunc,\n        callBackFromNativeFunc: callBackFromNativeFunc\n    };\n    var uniqueId = 1;\n    var h5JsCallbackMap = {};\n\n    function iframeCall(paramStr) {\n        setTimeout(function() {\n        \tvar iframe = document.createElement(\"iframe\");\n        \tiframe.style.width = \"1px\";\n        \tiframe.style.height = \"1px\";\n        \tiframe.style.display = \"none\";\n        \tiframe.src = \"alipayjsbridge://callNativeFunc?\" + paramStr;\n        \tvar parent = document.body || document.documentElement;\n        \tparent.appendChild(iframe);\n        \tsetTimeout(function() {\n            \tparent.removeChild(iframe)\n        \t}, 0)\n        }, 0)\n    }\n\n    function callNativeFunc(nativeFuncName, data, h5JsCallback) {\n        var h5JsCallbackId = \"\";\n        if (h5JsCallback) {\n            h5JsCallbackId = \"cb_\" + (uniqueId++) + \"_\" + new Date().getTime();\n            h5JsCallbackMap[h5JsCallbackId] = h5JsCallback\n        }\n        var dataStr = \"\";\n        if (data) {\n            dataStr = encodeURIComponent(JSON.stringify(data))\n        }\n        var paramStr = \"func=\" + nativeFuncName + \"&cbId=\" + h5JsCallbackId + \"&data=\" + dataStr;\n        iframeCall(paramStr)\n    }\n\n    function callBackFromNativeFunc(h5JsCallbackId, data) {\n        var h5JsCallback = h5JsCallbackMap[h5JsCallbackId];\n        if (h5JsCallback) {\n            h5JsCallback(data);\n            delete h5JsCallbackMap[h5JsCallbackId]\n        }\n    }\n    var h5ListenerMap = {};\n\n    function addListener(jsFuncName, jsFunc) {\n        h5ListenerMap[jsFuncName] = jsFunc\n    }\n\n    function hasListener(jsFuncName) {\n        var jsFunc = h5ListenerMap[jsFuncName];\n        if (!jsFunc) {\n            return false\n        }\n        return true\n    }\n\n    function callListener(h5JsFuncName, data, nativeCallbackId) {\n        var responseCallback;\n        if (nativeCallbackId) {\n            responseCallback = function(responseData) {\n                var dataStr = \"\";\n                if (responseData) {\n                    dataStr = encodeURIComponent(JSON.stringify(responseData))\n                }\n                var paramStr = \"func=h5JsFuncCallback\" + \"&cbId=\" + nativeCallbackId + \"&data=\" + dataStr;\n                iframeCall(paramStr)\n            }\n        }\n        var h5JsFunc = h5ListenerMap[h5JsFuncName];\n        if (h5JsFunc) {\n            h5JsFunc(data, responseCallback)\n        } else if (h5JsFuncName == \"h5BackAction\") {\n            if (!window.alipayjsbridgeH5BackAction || !alipayjsbridgeH5BackAction()) {\n                var paramStr = \"func=back\";\n                iframeCall(paramStr)\n            }\n        } else {\n            console.log(\"AlipayJSBridge: no h5JsFunc \" + h5JsFuncName + data)\n        }\n    }\n    var event;\n    if (window.CustomEvent) {\n        event = new CustomEvent(\"alipayjsbridgeready\")\n    } else {\n        event = document.createEvent(\"Event\");\n        event.initEvent(\"alipayjsbridgeready\", true, true)\n    }\n    document.dispatchEvent(event);\n    setTimeout(excuteH5InitFuncs, 0);\n\n    function excuteH5InitFuncs() {\n        if (window.AlipayJSBridgeInitArray) {\n            var h5InitFuncs = window.AlipayJSBridgeInitArray;\n            delete window.AlipayJSBridgeInitArray;\n            for (var i = 0; i < h5InitFuncs.length; i++) {\n                try {\n                    h5InitFuncs[i](AlipayJSBridge)\n                } catch (e) {\n                    setTimeout(function() {\n                        throw e\n                    })\n                }\n            }\n        }\n    }\n})();\n");
+                    this.f36173j.a("javascript:(function() {\n    if (window.AlipayJSBridge) {\n        return\n    }\n\n    function alipayjsbridgeFunc(url) {\n        var iframe = document.createElement(\"iframe\");\n        iframe.style.width = \"1px\";\n        iframe.style.height = \"1px\";\n        iframe.style.display = \"none\";\n        iframe.src = url;\n        document.body.appendChild(iframe);\n        setTimeout(function() {\n            document.body.removeChild(iframe)\n        }, 100)\n    }\n    window.alipayjsbridgeSetTitle = function(title) {\n        document.title = title;\n        alipayjsbridgeFunc(\"alipayjsbridge://setTitle?title=\" + encodeURIComponent(title))\n    };\n    window.alipayjsbridgeRefresh = function() {\n        alipayjsbridgeFunc(\"alipayjsbridge://onRefresh?\")\n    };\n    window.alipayjsbridgeBack = function() {\n        alipayjsbridgeFunc(\"alipayjsbridge://onBack?\")\n    };\n    window.alipayjsbridgeExit = function(bsucc) {\n        alipayjsbridgeFunc(\"alipayjsbridge://onExit?bsucc=\" + bsucc)\n    };\n    window.alipayjsbridgeShowBackButton = function(bshow) {\n        alipayjsbridgeFunc(\"alipayjsbridge://showBackButton?bshow=\" + bshow)\n    };\n    window.AlipayJSBridge = {\n        version: \"2.0\",\n        addListener: addListener,\n        hasListener: hasListener,\n        callListener: callListener,\n        callNativeFunc: callNativeFunc,\n        callBackFromNativeFunc: callBackFromNativeFunc\n    };\n    var uniqueId = 1;\n    var h5JsCallbackMap = {};\n\n    function iframeCall(paramStr) {\n        setTimeout(function() {\n        \tvar iframe = document.createElement(\"iframe\");\n        \tiframe.style.width = \"1px\";\n        \tiframe.style.height = \"1px\";\n        \tiframe.style.display = \"none\";\n        \tiframe.src = \"alipayjsbridge://callNativeFunc?\" + paramStr;\n        \tvar parent = document.body || document.documentElement;\n        \tparent.appendChild(iframe);\n        \tsetTimeout(function() {\n            \tparent.removeChild(iframe)\n        \t}, 0)\n        }, 0)\n    }\n\n    function callNativeFunc(nativeFuncName, data, h5JsCallback) {\n        var h5JsCallbackId = \"\";\n        if (h5JsCallback) {\n            h5JsCallbackId = \"cb_\" + (uniqueId++) + \"_\" + new Date().getTime();\n            h5JsCallbackMap[h5JsCallbackId] = h5JsCallback\n        }\n        var dataStr = \"\";\n        if (data) {\n            dataStr = encodeURIComponent(JSON.stringify(data))\n        }\n        var paramStr = \"func=\" + nativeFuncName + \"&cbId=\" + h5JsCallbackId + \"&data=\" + dataStr;\n        iframeCall(paramStr)\n    }\n\n    function callBackFromNativeFunc(h5JsCallbackId, data) {\n        var h5JsCallback = h5JsCallbackMap[h5JsCallbackId];\n        if (h5JsCallback) {\n            h5JsCallback(data);\n            delete h5JsCallbackMap[h5JsCallbackId]\n        }\n    }\n    var h5ListenerMap = {};\n\n    function addListener(jsFuncName, jsFunc) {\n        h5ListenerMap[jsFuncName] = jsFunc\n    }\n\n    function hasListener(jsFuncName) {\n        var jsFunc = h5ListenerMap[jsFuncName];\n        if (!jsFunc) {\n            return false\n        }\n        return true\n    }\n\n    function callListener(h5JsFuncName, data, nativeCallbackId) {\n        var responseCallback;\n        if (nativeCallbackId) {\n            responseCallback = function(responseData) {\n                var dataStr = \"\";\n                if (responseData) {\n                    dataStr = encodeURIComponent(JSON.stringify(responseData))\n                }\n                var paramStr = \"func=h5JsFuncCallback\" + \"&cbId=\" + nativeCallbackId + \"&data=\" + dataStr;\n                iframeCall(paramStr)\n            }\n        }\n        var h5JsFunc = h5ListenerMap[h5JsFuncName];\n        if (h5JsFunc) {\n            h5JsFunc(data, responseCallback)\n        } else if (h5JsFuncName == \"h5BackAction\") {\n            if (!window.alipayjsbridgeH5BackAction || !alipayjsbridgeH5BackAction()) {\n                var paramStr = \"func=back\";\n                iframeCall(paramStr)\n            }\n        } else {\n            console.log(\"AlipayJSBridge: no h5JsFunc \" + h5JsFuncName + data)\n        }\n    }\n    var event;\n    if (window.CustomEvent) {\n        event = new CustomEvent(\"alipayjsbridgeready\")\n    } else {\n        event = document.createEvent(\"Event\");\n        event.initEvent(\"alipayjsbridgeready\", true, true)\n    }\n    document.dispatchEvent(event);\n    setTimeout(excuteH5InitFuncs, 0);\n\n    function excuteH5InitFuncs() {\n        if (window.AlipayJSBridgeInitArray) {\n            var h5InitFuncs = window.AlipayJSBridgeInitArray;\n            delete window.AlipayJSBridgeInitArray;\n            for (var i = 0; i < h5InitFuncs.length; i++) {\n                try {\n                    h5InitFuncs[i](AlipayJSBridge)\n                } catch (e) {\n                    setTimeout(function() {\n                        throw e\n                    })\n                }\n            }\n        }\n    }\n})();\n");
                 }
             }
         }
@@ -846,14 +846,14 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, this, str, str2, str3) == null) {
             synchronized (this) {
-                com.alipay.sdk.widget.e eVar = this.f36169j;
+                com.alipay.sdk.widget.e eVar = this.f36173j;
                 if (eVar == null) {
                     return;
                 }
                 JSONObject f2 = l.f(str3);
                 f fVar = new f(eVar, str, str2, f2);
                 Context context = eVar.getContext();
-                String str4 = fVar.f36181b;
+                String str4 = fVar.f36185b;
                 char c2 = 65535;
                 switch (str4.hashCode()) {
                     case -1785164386:
@@ -946,27 +946,27 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     case 7:
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "15.8.02");
-                        jSONObject.put("app_name", this.f36167h.b());
-                        jSONObject.put("app_version", this.f36167h.c());
+                        jSONObject.put("app_name", this.f36171h.b());
+                        jSONObject.put("app_version", this.f36171h.c());
                         fVar.a(jSONObject);
                         break;
                     case '\b':
                         String url = eVar.getUrl();
-                        if (!l.a(this.f36167h, url)) {
-                            com.alipay.sdk.app.statistic.a.b(this.f36167h, "biz", "jsUrlErr", url);
+                        if (!l.a(this.f36171h, url)) {
+                            com.alipay.sdk.app.statistic.a.b(this.f36171h, "biz", "jsUrlErr", url);
                             break;
                         } else {
                             JSONObject jSONObject2 = new JSONObject();
-                            boolean a2 = com.alipay.sdk.app.d.a(this.f36167h, context);
+                            boolean a2 = com.alipay.sdk.app.d.a(this.f36171h, context);
                             jSONObject2.put(SapiOptions.KEY_CACHE_ENABLED, a2);
-                            com.alipay.sdk.app.statistic.a.a(this.f36167h, "biz", com.alipay.sdk.app.statistic.b.y0, String.valueOf(a2));
+                            com.alipay.sdk.app.statistic.a.a(this.f36171h, "biz", com.alipay.sdk.app.statistic.b.y0, String.valueOf(a2));
                             fVar.a(jSONObject2);
                             break;
                         }
                     case '\t':
                         String url2 = eVar.getUrl();
-                        if (!l.a(this.f36167h, url2)) {
-                            com.alipay.sdk.app.statistic.a.b(this.f36167h, "biz", "jsUrlErr", url2);
+                        if (!l.a(this.f36171h, url2)) {
+                            com.alipay.sdk.app.statistic.a.b(this.f36171h, "biz", "jsUrlErr", url2);
                             break;
                         } else {
                             String optString = f2.optString("random");
@@ -975,7 +975,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                                 String optString2 = optJSONObject.optString("url");
                                 String optString3 = optJSONObject.optString("action");
                                 if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && (context instanceof Activity)) {
-                                    com.alipay.sdk.app.d.a(this.f36167h, (Activity) context, 1010, optString2, optString3, new g(fVar, optString));
+                                    com.alipay.sdk.app.d.a(this.f36171h, (Activity) context, 1010, optString2, optString3, new g(fVar, optString));
                                     break;
                                 }
                             }

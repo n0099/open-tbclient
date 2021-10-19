@@ -28,10 +28,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f14576a = false;
+    public static boolean f14596a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f14577b = "";
+    public static String f14597b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,8 +65,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (f14576a) {
-                return "hasSend_" + f14577b;
+            if (f14596a) {
+                return "hasSend_" + f14597b;
             }
             String str = TbConfig.SERVER_ADDRESS + TbConfig.DEBUG_UPLOAD;
             if (file.length() > ((long) EncoderParams.VIDEO_BIT_RATE) || !TbadkCoreApplication.isLogin()) {
@@ -88,8 +88,8 @@ public class a {
                             String postMultiNetData = netWork.postMultiNetData();
                             if (postMultiNetData != null && !postMultiNetData.isEmpty()) {
                                 String string = new JSONObject(postMultiNetData).getString("url");
-                                f14577b = string;
-                                f14576a = true;
+                                f14597b = string;
+                                f14596a = true;
                                 try {
                                     fileInputStream2.close();
                                 } catch (IOException e2) {

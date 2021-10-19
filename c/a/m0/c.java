@@ -33,16 +33,16 @@ public final class c {
     public static final int abc_search_view = 2131492889;
     public static final int abc_select_dialog_material = 2131492890;
     public static final int abc_tooltip = 2131492891;
-    public static final int mobads_cutom_notification_layout = 2131494177;
-    public static final int notification_action = 2131494305;
-    public static final int notification_action_tombstone = 2131494306;
-    public static final int notification_template_custom_big = 2131494313;
-    public static final int notification_template_icon_group = 2131494314;
-    public static final int notification_template_part_chronometer = 2131494318;
-    public static final int notification_template_part_time = 2131494319;
-    public static final int select_dialog_item_material = 2131494603;
-    public static final int select_dialog_multichoice_material = 2131494604;
-    public static final int select_dialog_singlechoice_material = 2131494605;
-    public static final int support_simple_spinner_dropdown_item = 2131494690;
+    public static final int mobads_cutom_notification_layout = 2131494181;
+    public static final int notification_action = 2131494309;
+    public static final int notification_action_tombstone = 2131494310;
+    public static final int notification_template_custom_big = 2131494317;
+    public static final int notification_template_icon_group = 2131494318;
+    public static final int notification_template_part_chronometer = 2131494322;
+    public static final int notification_template_part_time = 2131494323;
+    public static final int select_dialog_item_material = 2131494607;
+    public static final int select_dialog_multichoice_material = 2131494608;
+    public static final int select_dialog_singlechoice_material = 2131494609;
+    public static final int support_simple_spinner_dropdown_item = 2131494697;
     public transient /* synthetic */ FieldHolder $fh;
 }

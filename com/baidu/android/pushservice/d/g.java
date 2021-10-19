@@ -16,16 +16,16 @@ public class g extends com.baidu.android.pushservice.h.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37210a;
+    public Context f37214a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f37211b;
+    public a f37215b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37212c;
+    public String f37216c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f37213d;
+    public List<String> f37217d;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -47,10 +47,10 @@ public class g extends com.baidu.android.pushservice.h.c {
                 return;
             }
         }
-        this.f37213d = new ArrayList();
-        this.f37210a = context;
-        this.f37212c = str;
-        this.f37211b = aVar;
+        this.f37217d = new ArrayList();
+        this.f37214a = context;
+        this.f37216c = str;
+        this.f37215b = aVar;
         c("PushService-PushService-SearchboxDNS");
         a((short) 100);
     }
@@ -76,16 +76,16 @@ public class g extends com.baidu.android.pushservice.h.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                DnsHelper dnsHelper = new DnsHelper(this.f37210a);
+                DnsHelper dnsHelper = new DnsHelper(this.f37214a);
                 dnsHelper.setHttpDnsState(false, null, false, true);
-                List<String> ipListForceHttp = dnsHelper.getIpListForceHttp(this.f37212c);
+                List<String> ipListForceHttp = dnsHelper.getIpListForceHttp(this.f37216c);
                 if (ipListForceHttp != null && ipListForceHttp.size() > 0) {
-                    int b2 = com.baidu.android.pushservice.j.i.b(this.f37210a, "key_vip_type", 3);
+                    int b2 = com.baidu.android.pushservice.j.i.b(this.f37214a, "key_vip_type", 3);
                     if (b2 != 1) {
                         if (b2 == 2) {
                             String str = com.baidu.android.pushservice.j.m.d(ipListForceHttp.get(0)) ? null : ipListForceHttp.get(0);
                             if (!TextUtils.isEmpty(str)) {
-                                this.f37213d.add(str);
+                                this.f37217d.add(str);
                             }
                             r1 = com.baidu.android.pushservice.j.m.d(ipListForceHttp.get(ipListForceHttp.size() - 1)) ? ipListForceHttp.get(ipListForceHttp.size() - 1) : null;
                             if (!TextUtils.isEmpty(r1)) {
@@ -93,7 +93,7 @@ public class g extends com.baidu.android.pushservice.h.c {
                         } else if (b2 != 4) {
                             String str2 = com.baidu.android.pushservice.j.m.d(ipListForceHttp.get(ipListForceHttp.size() - 1)) ? ipListForceHttp.get(ipListForceHttp.size() - 1) : null;
                             if (!TextUtils.isEmpty(str2)) {
-                                this.f37213d.add(str2);
+                                this.f37217d.add(str2);
                             }
                             if (!com.baidu.android.pushservice.j.m.d(ipListForceHttp.get(0))) {
                                 r1 = ipListForceHttp.get(0);
@@ -106,11 +106,11 @@ public class g extends com.baidu.android.pushservice.h.c {
                     } else if (!com.baidu.android.pushservice.j.m.d(ipListForceHttp.get(0))) {
                         r1 = ipListForceHttp.get(0);
                     }
-                    this.f37213d.add(r1);
+                    this.f37217d.add(r1);
                 }
             } catch (Throwable unused) {
             }
-            this.f37211b.a(this.f37213d);
+            this.f37215b.a(this.f37217d);
         }
     }
 }

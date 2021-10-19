@@ -135,12 +135,12 @@ public class b {
                 c.a.p0.a.t1.d.a.a("getDownloadKey, app.json is null");
                 return null;
             }
-            SwanAppConfigData.k kVar = b2.f46658d;
+            SwanAppConfigData.k kVar = b2.f46570d;
             if (kVar == null) {
                 c.a.p0.a.t1.d.a.a("getDownloadKey, sub pkg obj is null");
                 return null;
             }
-            Map<String, String> map = kVar.f46697a;
+            Map<String, String> map = kVar.f46609a;
             if (map == null) {
                 c.a.p0.a.t1.d.a.a("getDownloadKey, sub pkg map is null");
                 return null;

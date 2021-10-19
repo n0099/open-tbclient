@@ -18,7 +18,7 @@ public class PermissionUtils {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final PermissionUtils f41369a;
+        public static final PermissionUtils f41373a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -34,7 +34,7 @@ public class PermissionUtils {
                     return;
                 }
             }
-            f41369a = new PermissionUtils(null);
+            f41373a = new PermissionUtils(null);
         }
     }
 
@@ -59,7 +59,7 @@ public class PermissionUtils {
     public static PermissionUtils getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f41369a : (PermissionUtils) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f41373a : (PermissionUtils) invokeV.objValue;
     }
 
     public boolean isIndoorNaviAuthorized() {

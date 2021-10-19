@@ -1,10 +1,11 @@
 package com.baidu.tieba.person;
 
+import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.d.l;
 import c.a.q0.s.r.a;
-import c.a.r0.c1.b;
-import c.a.r0.l2.c;
-import c.a.r0.l2.f;
+import c.a.r0.d1.b;
+import c.a.r0.m2.c;
+import c.a.r0.m2.f;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -67,7 +68,6 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     public int pageNum;
     public List<PostInfoList> post_list;
     public List<SmartApp> recomSwanList;
-    public TAInfo taInfo;
     public TAInfo tainfo;
     public f ucCardData;
     public User user;
@@ -94,212 +94,206 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         }
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public Anti GetAntiStat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.anti_stat : (Anti) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public List<PostInfoList> GetPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.post_list : (List) invokeV.objValue;
     }
 
-    public TAInfo GetTainfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.tainfo : (TAInfo) invokeV.objValue;
-    }
-
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public User GetUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.user : (User) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.user : (User) invokeV.objValue;
     }
 
     public List<BannerImage> getBannerList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.banner : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.banner : (List) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public TbBookrack getBookrackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.bookrack : (TbBookrack) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.bookrack : (TbBookrack) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public List<ForumDynamic> getConcernedForumList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.concernedForumList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.concernedForumList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public List<DynamicInfo> getDynamicInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.dynamicInfoList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.dynamicInfoList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? getError() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? getError() : invokeV.intValue;
     }
 
     public String getErrorMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? getErrorString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? getErrorString() : (String) invokeV.objValue;
     }
 
     public Feedback getFeedBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.feedBack : (Feedback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.feedBack : (Feedback) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public b getGoodsWindowInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mLiveGoodsWindowData : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mLiveGoodsWindowData : (b) invokeV.objValue;
     }
 
     public Highlist getHighlist() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.highlist : (Highlist) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.highlist : (Highlist) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public HotUserRankEntry getHotRankEntry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.hotUserRankEntry : (HotUserRankEntry) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.hotUserRankEntry : (HotUserRankEntry) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public AlaLiveInfoCoreData getLiveInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.liveInfoData : (AlaLiveInfoCoreData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.liveInfoData : (AlaLiveInfoCoreData) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public List<AlaLiveInfoCoreData> getLiveReplayInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.liveReplayData : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.liveReplayData : (List) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public int getMaskType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.maskType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.maskType : invokeV.intValue;
     }
 
     public ModuleInfo getModuleInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.moduleInfo : (ModuleInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.moduleInfo : (ModuleInfo) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public List<ThreadInfo> getNewestThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.newest_dynamic_list : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.newest_dynamic_list : (List) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public NicknameInfo getNicknameInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.nicknameInfo : (NicknameInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.nicknameInfo : (NicknameInfo) invokeV.objValue;
     }
 
     public int getPageNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.pageNum : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.pageNum : invokeV.intValue;
     }
 
     public List<SmartApp> getRecomSwanList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.recomSwanList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.recomSwanList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public TAInfo getTaInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.tainfo : (TAInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.tainfo : (TAInfo) invokeV.objValue;
     }
 
     public f getUcCardData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.ucCardData : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.ucCardData : (f) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public UserAgreeInfo getUserAgreeInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.userAgreeInfo : (UserAgreeInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.userAgreeInfo : (UserAgreeInfo) invokeV.objValue;
     }
 
     public UserManChannelInfo getUserChannelInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.userManChannelInfo : (UserManChannelInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.userManChannelInfo : (UserManChannelInfo) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l2.c
+    @Override // c.a.r0.m2.c
     public UserGodInfo getUserGodInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.userGodInfo : (UserGodInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.userGodInfo : (UserGodInfo) invokeV.objValue;
     }
 
     public boolean isError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? hasError() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? hasError() : invokeV.booleanValue;
     }
 
     public boolean isError_hint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.error_hint : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.error_hint : invokeV.booleanValue;
     }
 
     public boolean isFrom_db() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.from_db : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.from_db : invokeV.booleanValue;
     }
 
     public boolean isSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.isSelf : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.isSelf : invokeV.booleanValue;
     }
 
     public void setHighlist(Highlist highlist) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, highlist) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, highlist) == null) {
             this.highlist = highlist;
         }
     }
@@ -308,7 +302,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i2, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, bArr) == null) {
             a.f();
             l<byte[]> e2 = a.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
             if (bArr == null || !this.isSelf) {
@@ -322,7 +316,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i2, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) {
             super.beforeDispatchInBackGround(i2, (int) bArr);
             if (this.ucCardData != null) {
                 a.f();
@@ -330,14 +324,14 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
                 if (h2 == null || !this.isSelf) {
                     return;
                 }
-                List<f.a> list = this.ucCardData.f22087a;
+                List<f.a> list = this.ucCardData.f22267a;
                 if (ListUtils.getCount(list) > 4) {
-                    list.get(4).f22089b = 8L;
+                    list.get(4).f22269b = 8L;
                     for (f.a aVar : list) {
-                        if (aVar.f22089b > c.a.e.e.m.b.g(h2.get(aVar.f22088a), 0L)) {
-                            aVar.f22090c = true;
+                        if (aVar.f22269b > c.a.e.e.m.b.g(h2.get(aVar.f22268a), 0L)) {
+                            aVar.f22270c = true;
                         } else {
-                            aVar.f22090c = false;
+                            aVar.f22270c = false;
                         }
                     }
                 }
@@ -350,7 +344,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, bArr) == null) {
             ProfileRequestMessage profileRequestMessage = (ProfileRequestMessage) getOrginalMessage().getExtra();
             this.from_db = profileRequestMessage.is_from_db();
             this.error_hint = profileRequestMessage.is_error_hint();
@@ -366,7 +360,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
             if (getError() != 0) {
                 return;
             }
-            c.a.r0.l2.b personCenterData = profileRequestMessage.getPersonCenterData();
+            c.a.r0.m2.b personCenterData = profileRequestMessage.getPersonCenterData();
             if (personCenterData != null) {
                 personCenterData.b(profileResIdl);
             }
@@ -391,7 +385,6 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
             this.feedBack = dataRes2.feedback;
             this.concernedForumList = dataRes2.concerned_forum_list;
             this.dynamicInfoList = dataRes2.dynamic_list;
-            this.taInfo = dataRes2.tainfo;
             this.moduleInfo = dataRes2.module_info;
             if (dataRes2.ala_live_info != null) {
                 AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();

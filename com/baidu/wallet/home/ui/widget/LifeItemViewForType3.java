@@ -18,13 +18,13 @@ public class LifeItemViewForType3 extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f61437a;
+    public NetImageView f61472a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f61438b;
+    public MaskTextView f61473b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f61439c;
+    public NetImageView f61474c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LifeItemViewForType3(Context context) {
@@ -51,9 +51,9 @@ public class LifeItemViewForType3 extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             removeAllViews();
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_life_item_view_new"), this);
-            this.f61437a = (NetImageView) findViewById(ResUtils.id(getContext(), "life_icon"));
-            this.f61438b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
-            this.f61439c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
+            this.f61472a = (NetImageView) findViewById(ResUtils.id(getContext(), "life_icon"));
+            this.f61473b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
+            this.f61474c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
         }
     }
 
@@ -72,12 +72,12 @@ public class LifeItemViewForType3 extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || getData() == null) {
             return;
         }
-        this.f61438b.setMaskText(getData().name);
-        NetImageView netImageView = this.f61437a;
+        this.f61473b.setMaskText(getData().name);
+        NetImageView netImageView = this.f61472a;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().logo);
         if (hasCornor()) {
-            this.f61439c.setVisibility(0);
-            NetImageView netImageView2 = this.f61439c;
+            this.f61474c.setVisibility(0);
+            NetImageView netImageView2 = this.f61474c;
             netImageView2.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().corner_addr);
         }
     }

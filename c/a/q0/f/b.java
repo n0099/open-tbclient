@@ -33,16 +33,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f13057a;
+    public final String f13062a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f13058b;
+    public a f13063b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f13059c;
+    public c f13064c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Context f13060d;
+    public final Context f13065d;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Object, Integer, List<c.a.q0.f.a>> {
@@ -50,10 +50,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final c.a.q0.f.c f13061a;
+        public final c.a.q0.f.c f13066a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f13062b;
+        public final /* synthetic */ b f13067b;
 
         public a(b bVar, c.a.q0.f.c cVar) {
             Interceptable interceptable = $ic;
@@ -70,8 +70,8 @@ public class b {
                     return;
                 }
             }
-            this.f13062b = bVar;
-            this.f13061a = cVar;
+            this.f13067b = bVar;
+            this.f13066a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,7 +80,7 @@ public class b {
         public List<c.a.q0.f.a> doInBackground(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) ? this.f13062b.f() : (List) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) ? this.f13067b.f() : (List) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,7 +90,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 super.onPostExecute(list);
-                c.a.q0.f.c cVar = this.f13061a;
+                c.a.q0.f.c cVar = this.f13066a;
                 if (cVar != null) {
                     cVar.a(list);
                 }
@@ -102,7 +102,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 super.onPreExecute();
-                c.a.q0.f.c cVar = this.f13061a;
+                c.a.q0.f.c cVar = this.f13066a;
                 if (cVar != null) {
                     cVar.onPreLoad();
                 }
@@ -122,25 +122,25 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final d f13063a;
+        public final d f13068a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f13064b;
+        public final String f13069b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13065c;
+        public String f13070c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<c.a.q0.f.a> f13066d;
+        public List<c.a.q0.f.a> f13071d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f13067e;
+        public int f13072e;
 
         /* renamed from: f  reason: collision with root package name */
-        public InterfaceC0650b f13068f;
+        public InterfaceC0650b f13073f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f13069g;
+        public final /* synthetic */ b f13074g;
 
         /* loaded from: classes3.dex */
         public class a implements InterfaceC0650b {
@@ -148,7 +148,7 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f13070a;
+            public final /* synthetic */ c f13075a;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -165,14 +165,14 @@ public class b {
                         return;
                     }
                 }
-                this.f13070a = cVar;
+                this.f13075a = cVar;
             }
 
             @Override // c.a.q0.f.b.InterfaceC0650b
             public void a(List<ImageFileInfo> list) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                    this.f13070a.publishProgress(list);
+                    this.f13075a.publishProgress(list);
                 }
             }
         }
@@ -192,11 +192,11 @@ public class b {
                     return;
                 }
             }
-            this.f13069g = bVar;
-            this.f13067e = 1;
-            this.f13068f = new a(this);
-            this.f13063a = dVar;
-            this.f13064b = str;
+            this.f13074g = bVar;
+            this.f13072e = 1;
+            this.f13073f = new a(this);
+            this.f13068a = dVar;
+            this.f13069b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -206,24 +206,24 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                if (TextUtils.isEmpty(this.f13064b)) {
+                if (TextUtils.isEmpty(this.f13069b)) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                if (this.f13064b.equals(c.a.q0.f.a.f13050f)) {
-                    List<c.a.q0.f.a> f2 = this.f13069g.f();
-                    this.f13066d = f2;
+                if (this.f13069b.equals(c.a.q0.f.a.f13055f)) {
+                    List<c.a.q0.f.a> f2 = this.f13074g.f();
+                    this.f13071d = f2;
                     if (f2 != null) {
                         for (c.a.q0.f.a aVar : f2) {
                             String b2 = aVar.b();
                             if (!TextUtils.isEmpty(b2)) {
-                                e(arrayList, this.f13068f, b2);
+                                e(arrayList, this.f13073f, b2);
                             }
                         }
                     }
                     return arrayList;
                 }
-                e(arrayList, this.f13068f, this.f13064b);
+                e(arrayList, this.f13073f, this.f13069b);
                 return arrayList;
             }
             return (List) invokeL.objValue;
@@ -249,7 +249,7 @@ public class b {
                         do {
                             String string = query.getString(columnIndex);
                             try {
-                                this.f13065c = query.getString(columnIndex2);
+                                this.f13070c = query.getString(columnIndex2);
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 imageFileInfo.setAlbumnId(str);
                                 imageFileInfo.setContentUriStr(uri2);
@@ -316,9 +316,9 @@ public class b {
             if (!(interceptable == null || interceptable.invokeLLL(1048579, this, list, interfaceC0650b, str) == null) || list == null) {
                 return;
             }
-            d(list, interfaceC0650b, str, this.f13069g.f13060d, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            d(list, interfaceC0650b, str, this.f13074g.f13065d, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             if (list == null || list.size() <= 0) {
-                d(list, interfaceC0650b, str, this.f13069g.f13060d, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                d(list, interfaceC0650b, str, this.f13074g.f13065d, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
             }
         }
 
@@ -327,19 +327,19 @@ public class b {
             if (!(interceptable == null || interceptable.invokeLL(1048580, this, list, interfaceC0650b) == null) || list == null || interfaceC0650b == null) {
                 return;
             }
-            int i2 = this.f13067e;
+            int i2 = this.f13072e;
             if (i2 != 1 && i2 != 2) {
-                if (list.size() / this.f13067e > 500) {
+                if (list.size() / this.f13072e > 500) {
                     if (interfaceC0650b != null) {
                         interfaceC0650b.a(list);
                     }
-                    this.f13067e++;
+                    this.f13072e++;
                 }
-            } else if (list.size() / this.f13067e > 50) {
+            } else if (list.size() / this.f13072e > 50) {
                 if (interfaceC0650b != null) {
                     interfaceC0650b.a(list);
                 }
-                this.f13067e++;
+                this.f13072e++;
             }
         }
 
@@ -350,9 +350,9 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
                 super.onPostExecute(list);
-                d dVar = this.f13063a;
+                d dVar = this.f13068a;
                 if (dVar != null) {
-                    dVar.a(this.f13066d, list, this.f13065c);
+                    dVar.a(this.f13071d, list, this.f13070c);
                 }
             }
         }
@@ -365,10 +365,10 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, listArr) == null) {
                 super.onProgressUpdate(listArr);
-                if (listArr.length <= 0 || (dVar = this.f13063a) == null) {
+                if (listArr.length <= 0 || (dVar = this.f13068a) == null) {
                     return;
                 }
-                dVar.a(this.f13066d, listArr[0], this.f13065c);
+                dVar.a(this.f13071d, listArr[0], this.f13070c);
             }
         }
 
@@ -377,7 +377,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
                 super.onPreCancel();
-                d dVar = this.f13063a;
+                d dVar = this.f13068a;
                 if (dVar != null) {
                     dVar.onPreLoad();
                 }
@@ -400,28 +400,28 @@ public class b {
                 return;
             }
         }
-        this.f13057a = TbConfig.getTempDirName();
-        this.f13060d = context;
+        this.f13062a = TbConfig.getTempDirName();
+        this.f13065d = context;
     }
 
     public void c() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f13058b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f13063b) == null) {
             return;
         }
         aVar.cancel();
-        this.f13058b = null;
+        this.f13063b = null;
     }
 
     public void d() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f13059c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f13064c) == null) {
             return;
         }
         cVar.cancel();
-        this.f13059c = null;
+        this.f13064c = null;
     }
 
     public final List<c.a.q0.f.a> e(Context context, List<c.a.q0.f.a> list, Uri uri, HashSet<String> hashSet) {
@@ -480,7 +480,7 @@ public class b {
                                 imageFileInfo.setFilePath(string3);
                                 aVar.k(imageFileInfo);
                                 aVar.l(string2);
-                                if (string2 != null && string2.equals(this.f13057a)) {
+                                if (string2 != null && string2.equals(this.f13062a)) {
                                     arrayList.add(0, aVar);
                                 } else {
                                     arrayList.add(aVar);
@@ -504,7 +504,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             HashSet<String> hashSet = new HashSet<>();
-            return e(this.f13060d, e(this.f13060d, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
+            return e(this.f13065d, e(this.f13065d, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
         }
         return (List) invokeV.objValue;
     }
@@ -518,9 +518,9 @@ public class b {
             }
             c();
             a aVar = new a(this, cVar);
-            this.f13058b = aVar;
+            this.f13063b = aVar;
             aVar.setPriority(3);
-            this.f13058b.execute(new Object[0]);
+            this.f13063b.execute(new Object[0]);
             return true;
         }
         return invokeL.booleanValue;
@@ -560,9 +560,9 @@ public class b {
             }
             d();
             c cVar = new c(this, str, dVar);
-            this.f13059c = cVar;
+            this.f13064c = cVar;
             cVar.setPriority(3);
-            this.f13059c.execute(new Void[0]);
+            this.f13064c.execute(new Void[0]);
             return true;
         }
         return invokeLL.booleanValue;

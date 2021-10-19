@@ -13,7 +13,7 @@ public class RequestResult<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Exception f75957e;
+    public Exception f75992e;
     public ArrayList<Object> interceptResult;
     public T response;
 
@@ -34,7 +34,7 @@ public class RequestResult<T> {
     public Exception getE() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75957e : (Exception) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75992e : (Exception) invokeV.objValue;
     }
 
     public ArrayList<Object> getInterceptResult() {
@@ -52,7 +52,7 @@ public class RequestResult<T> {
     public void setE(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-            this.f75957e = exc;
+            this.f75992e = exc;
         }
     }
 

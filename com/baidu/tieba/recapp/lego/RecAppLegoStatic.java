@@ -1,7 +1,7 @@
 package com.baidu.tieba.recapp.lego;
 
-import c.a.r0.p1.o.b;
-import c.a.r0.y2.i0.a;
+import c.a.r0.q1.o.b;
+import c.a.r0.z2.i0.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

@@ -26,13 +26,13 @@ public abstract class BaseMenuView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f47278e;
+    public View f47190e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47279f;
+    public View f47191f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f47280g;
+    public final int f47192g;
     public TextView mCancelView;
     public Context mContext;
 
@@ -60,21 +60,21 @@ public abstract class BaseMenuView extends FrameLayout {
     public void adjustBgHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f47278e.getLayoutParams().height = i2 + this.f47280g;
-            this.f47278e.requestLayout();
+            this.f47190e.getLayoutParams().height = i2 + this.f47192g;
+            this.f47190e.requestLayout();
         }
     }
 
     public View getBgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47278e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47190e : (View) invokeV.objValue;
     }
 
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47279f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47191f : (View) invokeV.objValue;
     }
 
     public abstract boolean isHighMenu();
@@ -93,10 +93,10 @@ public abstract class BaseMenuView extends FrameLayout {
         }
         int height = view.getHeight();
         if (height != 0) {
-            this.f47278e.getLayoutParams().height = height + this.f47280g;
+            this.f47190e.getLayoutParams().height = height + this.f47192g;
         }
-        this.f47279f = view;
-        layoutParams.bottomMargin = this.f47280g;
+        this.f47191f = view;
+        layoutParams.bottomMargin = this.f47192g;
         addView(view, layoutParams);
     }
 
@@ -104,7 +104,7 @@ public abstract class BaseMenuView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             Resources resources = getResources();
-            this.f47278e.setBackground(resources.getDrawable(h.swan_app_menu_content_bg));
+            this.f47190e.setBackground(resources.getDrawable(h.swan_app_menu_content_bg));
             this.mCancelView.setBackgroundColor(resources.getColor(f.aiapp_menu_cancel_text_color_bg));
             this.mCancelView.setTextColor(resources.getColorStateList(f.aiapp_menu_cancel_text_color_day));
             this.mCancelView.setAlpha(1.0f);
@@ -153,8 +153,8 @@ public abstract class BaseMenuView extends FrameLayout {
         }
         this.mContext = context;
         View inflate = FrameLayout.inflate(context, j.aiapp_menu_base_view_layout, this);
-        this.f47278e = inflate.findViewById(i.background);
+        this.f47190e = inflate.findViewById(i.background);
         this.mCancelView = (TextView) inflate.findViewById(i.cancel);
-        this.f47280g = (int) context.getResources().getDimension(g.aiapp_menu_cancel_btn_height);
+        this.f47192g = (int) context.getResources().getDimension(g.aiapp_menu_cancel_btn_height);
     }
 }

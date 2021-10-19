@@ -1,74 +1,74 @@
 package c.a.r0.h0;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.dnsproxy.DnsProxyResponseData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class g extends BdAsyncTask<Collection<String>, Void, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
+public class g extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final BdUniqueId f17934f;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ScoreCardInfo f17935e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1785653616, "Lc/a/r0/h0/g;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1785653616, "Lc/a/r0/h0/g;");
+                return;
+            }
+        }
+        f17934f = BdUniqueId.gen();
+    }
 
     public g() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> doInBackground(Collection<String>... collectionArr) {
-        InterceptResult invokeL;
-        Collection<String> collection;
+    public ScoreCardInfo g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collectionArr)) == null) {
-            if (collectionArr == null || collectionArr.length != 1 || (collection = collectionArr[0]) == null) {
-                return null;
-            }
-            HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap = new HashMap<>(collection.size());
-            for (String str : collection) {
-                try {
-                    InetAddress[] allByName = InetAddress.getAllByName(str);
-                    if (allByName != null) {
-                        ArrayList arrayList = new ArrayList(allByName.length);
-                        for (InetAddress inetAddress : allByName) {
-                            if (inetAddress != null) {
-                                DnsProxyResponseData.DnsProxyIpData dnsProxyIpData = new DnsProxyResponseData.DnsProxyIpData();
-                                dnsProxyIpData.setIp(inetAddress.getHostAddress());
-                                arrayList.add(dnsProxyIpData);
-                            }
-                        }
-                        hashMap.put(str, arrayList);
-                    }
-                } catch (UnknownHostException e2) {
-                    BdLog.detailException(e2);
-                    d.c().a("sysdns_get", e2.getMessage());
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                    d.c().a("sysdns_get", th.getMessage());
-                }
-            }
-            return hashMap;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17935e : (ScoreCardInfo) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f17934f : (BdUniqueId) invokeV.objValue;
+    }
+
+    public void i(ScoreCardInfo scoreCardInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scoreCardInfo) == null) {
+            this.f17935e = scoreCardInfo;
         }
-        return (HashMap) invokeL.objValue;
     }
 }

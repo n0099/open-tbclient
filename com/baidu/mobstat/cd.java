@@ -20,20 +20,20 @@ public abstract class cd {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f43530a = 1000;
+    public static int f43442a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f43531b = 64;
+    public static int f43443b = 64;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f43532c;
+    public static final byte[] f43444c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public by.b f43533d;
+    public by.b f43445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public cq.a f43534e;
+    public cq.a f43446e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -41,16 +41,16 @@ public abstract class cd {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f43535a;
+        public static final a f43447a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f43536b;
+        public static final a f43448b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f43537c;
+        public static final a f43449c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ a[] f43538d;
+        public static final /* synthetic */ a[] f43450d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -66,11 +66,11 @@ public abstract class cd {
                     return;
                 }
             }
-            f43535a = new a("NONE", 0);
-            f43536b = new a("ONEWAY", 1);
+            f43447a = new a("NONE", 0);
+            f43448b = new a("ONEWAY", 1);
             a aVar = new a("TWOWAY", 2);
-            f43537c = aVar;
-            f43538d = new a[]{f43535a, f43536b, aVar};
+            f43449c = aVar;
+            f43450d = new a[]{f43447a, f43448b, aVar};
         }
 
         public a(String str, int i2) {
@@ -101,7 +101,7 @@ public abstract class cd {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f43538d.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f43450d.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -111,13 +111,13 @@ public abstract class cd {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f43539a;
+        public static final b f43451a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f43540b;
+        public static final b f43452b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ b[] f43541c;
+        public static final /* synthetic */ b[] f43453c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -133,10 +133,10 @@ public abstract class cd {
                     return;
                 }
             }
-            f43539a = new b("MATCHED", 0);
+            f43451a = new b("MATCHED", 0);
             b bVar = new b("NOT_MATCHED", 1);
-            f43540b = bVar;
-            f43541c = new b[]{f43539a, bVar};
+            f43452b = bVar;
+            f43453c = new b[]{f43451a, bVar};
         }
 
         public b(String str, int i2) {
@@ -167,7 +167,7 @@ public abstract class cd {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f43541c.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f43453c.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -184,7 +184,7 @@ public abstract class cd {
                 return;
             }
         }
-        f43532c = dc.a("<policy-file-request/>\u0000");
+        f43444c = dc.a("<policy-file-request/>\u0000");
     }
 
     public cd() {
@@ -200,8 +200,8 @@ public abstract class cd {
                 return;
             }
         }
-        this.f43533d = null;
-        this.f43534e = null;
+        this.f43445d = null;
+        this.f43446e = null;
     }
 
     public static ByteBuffer a(ByteBuffer byteBuffer) {
@@ -258,7 +258,7 @@ public abstract class cd {
     public cx d(ByteBuffer byteBuffer) throws cj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, byteBuffer)) == null) ? a(byteBuffer, this.f43533d) : (cx) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, byteBuffer)) == null) ? a(byteBuffer, this.f43445d) : (cx) invokeL.objValue;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -272,7 +272,7 @@ public abstract class cd {
             if (b2 != null) {
                 String[] split = b2.split(" ", 3);
                 if (split.length == 3) {
-                    if (bVar == by.b.f43507a) {
+                    if (bVar == by.b.f43419a) {
                         ?? cwVar = new cw();
                         cwVar.a(Short.parseShort(split[1]));
                         cwVar.a(split[2]);
@@ -364,7 +364,7 @@ public abstract class cd {
     public void a(by.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f43533d = bVar;
+            this.f43445d = bVar;
         }
     }
 }

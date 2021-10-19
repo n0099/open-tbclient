@@ -14,10 +14,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f64679a;
+    public a f64714a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f64680b;
+    public b f64715b;
 
     /* renamed from: com.bytedance.sdk.component.adnet.d.c$1  reason: invalid class name */
     /* loaded from: classes9.dex */
@@ -32,19 +32,19 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f64681a;
+        public static final a f64716a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f64682b;
+        public static final a f64717b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f64683c;
+        public static final a f64718c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f64684d;
+        public static final a f64719d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ a[] f64685e;
+        public static final /* synthetic */ a[] f64720e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -60,12 +60,12 @@ public class c {
                     return;
                 }
             }
-            f64681a = new a("DEBUG", 0);
-            f64682b = new a("INFO", 1);
-            f64683c = new a("ERROR", 2);
+            f64716a = new a("DEBUG", 0);
+            f64717b = new a("INFO", 1);
+            f64718c = new a("ERROR", 2);
             a aVar = new a("OFF", 3);
-            f64684d = aVar;
-            f64685e = new a[]{f64681a, f64682b, f64683c, aVar};
+            f64719d = aVar;
+            f64720e = new a[]{f64716a, f64717b, f64718c, aVar};
         }
 
         public a(String str, int i2) {
@@ -96,7 +96,7 @@ public class c {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f64685e.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f64720e.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -109,11 +109,11 @@ public class c {
 
     /* renamed from: com.bytedance.sdk.component.adnet.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1885c {
+    public static class C1887c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f64686a;
+        public static final c f64721a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -129,7 +129,7 @@ public class c {
                     return;
                 }
             }
-            f64686a = new c(null);
+            f64721a = new c(null);
         }
     }
 
@@ -141,17 +141,17 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
             synchronized (c.class) {
-                C1885c.f64686a.f64679a = aVar;
+                C1887c.f64721a.f64714a = aVar;
             }
         }
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || C1885c.f64686a.f64679a.compareTo(a.f64681a) > 0) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || C1887c.f64721a.f64714a.compareTo(a.f64716a) > 0) {
             return;
         }
-        C1885c.f64686a.f64680b.b(str, str2);
+        C1887c.f64721a.f64715b.b(str, str2);
     }
 
     public c() {
@@ -167,15 +167,15 @@ public class c {
                 return;
             }
         }
-        this.f64679a = a.f64684d;
-        this.f64680b = new com.bytedance.sdk.component.adnet.d.a();
+        this.f64714a = a.f64719d;
+        this.f64715b = new com.bytedance.sdk.component.adnet.d.a();
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || C1885c.f64686a.f64679a.compareTo(a.f64683c) > 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || C1887c.f64721a.f64714a.compareTo(a.f64718c) > 0) {
             return;
         }
-        C1885c.f64686a.f64680b.a(str, str2);
+        C1887c.f64721a.f64715b.a(str, str2);
     }
 }

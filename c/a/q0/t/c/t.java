@@ -50,38 +50,38 @@ public class t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BannerData f14737a;
+    public final BannerData f14761a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14738b;
+    public String f14762b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14739c;
+    public String f14763c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14740d;
+    public String f14764d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14741e;
+    public String f14765e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14742f;
+    public boolean f14766f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14743g;
+    public boolean f14767g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14744h;
+    public int f14768h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f14745i;
+    public long f14769i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f14746j;
+    public int f14770j;
     public HashMap<String, Integer> k;
     public c.a.q0.s.q.s l;
     public boolean m;
-    public j0 n;
+    public k0 n;
     public int o;
     public String p;
 
@@ -98,21 +98,21 @@ public class t {
                 return;
             }
         }
-        this.f14742f = true;
-        this.f14743g = true;
-        this.f14744h = 100000;
-        this.f14746j = 100;
+        this.f14766f = true;
+        this.f14767g = true;
+        this.f14768h = 100000;
+        this.f14770j = 100;
         this.k = null;
         this.m = false;
         this.o = 1;
-        this.f14738b = null;
-        this.f14739c = null;
-        this.f14740d = null;
-        this.f14741e = null;
-        this.f14737a = new BannerData();
+        this.f14762b = null;
+        this.f14763c = null;
+        this.f14764d = null;
+        this.f14765e = null;
+        this.f14761a = new BannerData();
         this.k = new HashMap<>();
         this.l = new c.a.q0.s.q.s();
-        this.n = new j0();
+        this.n = new k0();
     }
 
     public final String a(JSONArray jSONArray) throws Exception {
@@ -138,25 +138,25 @@ public class t {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14746j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14770j : invokeV.intValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14745i : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14769i : invokeV.longValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14744h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14768h : invokeV.intValue;
     }
 
-    public j0 e() {
+    public k0 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.n : (j0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.n : (k0) invokeV.objValue;
     }
 
     public void f(JSONObject jSONObject) {
@@ -166,14 +166,14 @@ public class t {
             return;
         }
         try {
-            this.f14737a.parserJson(jSONObject.optJSONObject("banner"));
-            this.f14738b = jSONObject.optString("big_head_image_host");
-            this.f14739c = jSONObject.optString("small_head_image_host");
-            this.f14740d = jSONObject.optString("yijianfankui_fname");
-            this.f14741e = jSONObject.optString("yijianfankui_fid");
-            this.f14746j = jSONObject.optInt("crash_limit_count", 100);
+            this.f14761a.parserJson(jSONObject.optJSONObject("banner"));
+            this.f14762b = jSONObject.optString("big_head_image_host");
+            this.f14763c = jSONObject.optString("small_head_image_host");
+            this.f14764d = jSONObject.optString("yijianfankui_fname");
+            this.f14765e = jSONObject.optString("yijianfankui_fid");
+            this.f14770j = jSONObject.optInt("crash_limit_count", 100);
             int optInt = jSONObject.optInt("app_recommend", -1);
-            this.f14745i = jSONObject.optLong("vip_new_task", 0L);
+            this.f14769i = jSONObject.optLong("vip_new_task", 0L);
             this.n.b(jSONObject.optJSONObject("webview_checkurl"));
             JSONObject optJSONObject = jSONObject.optJSONObject("log_together");
             if (optJSONObject != null) {
@@ -181,7 +181,7 @@ public class t {
                 c.a.q0.v.a.k().v(optJSONObject.optInt("items_num", 10));
                 c.a.q0.v.a.k().w(1 == optJSONObject.optInt("ad_show", 1));
             }
-            TbadkCoreApplication.getInst().setYijianfankuiFname(this.f14740d);
+            TbadkCoreApplication.getInst().setYijianfankuiFname(this.f14764d);
             if (this.l == null) {
                 this.l = new c.a.q0.s.q.s();
             }
@@ -200,9 +200,9 @@ public class t {
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("movideo");
             if (optJSONObject2 != null) {
-                c.a.r0.j3.p0.a.c(optJSONObject2.optInt("chunk_size"));
-                c.a.r0.j3.p0.a.b(optJSONObject2.optInt("block_size"));
-                c.a.r0.j3.p0.a.d(optJSONObject2.optInt("data_size"));
+                c.a.r0.k3.p0.a.c(optJSONObject2.optInt("chunk_size"));
+                c.a.r0.k3.p0.a.b(optJSONObject2.optInt("block_size"));
+                c.a.r0.k3.p0.a.d(optJSONObject2.optInt("data_size"));
             }
             c.a.q0.q0.k.d().i(jSONObject.optLong("small_flow_time_out"));
             TbadkCoreApplication.getInst().setInterviewLivePollingInterval(jSONObject.optLong("interview_pulling_interval"));
@@ -317,14 +317,14 @@ public class t {
             }
             c.a.q0.s.d0.b.j().v("force_update_auto_play_video", optInt2);
             CustomPlayerSwitch.setSwitchStatus(SwitchManager.getInstance().findType(CustomPlayerSwitch.CUSTOM_PLAYER_SWITCH));
-            this.f14743g = jSONObject.optInt("is_pushservice_open", 1) == 1;
-            TbadkCoreApplication.getInst().setIsPushServiceOpen(this.f14743g);
-            if (!this.f14743g) {
+            this.f14767g = jSONObject.optInt("is_pushservice_open", 1) == 1;
+            TbadkCoreApplication.getInst().setIsPushServiceOpen(this.f14767g);
+            if (!this.f14767g) {
                 UtilHelper.stopPushService(TbadkCoreApplication.getInst().getApp().getApplicationContext());
             }
             TbadkCoreApplication.getInst().setFeatureCrashAutoCloseLimit(jSONObject.optInt("feature_crash_auto_close_limit", 3));
-            this.f14742f = jSONObject.optInt("gpu_open", 1) == 1;
-            TbadkCoreApplication.getInst().setGpuOpen(this.f14742f);
+            this.f14766f = jSONObject.optInt("gpu_open", 1) == 1;
+            TbadkCoreApplication.getInst().setGpuOpen(this.f14766f);
             TbadkCoreApplication.getInst().setHttpClientOpen(jSONObject.optInt("http_client", 1) == 1);
             TbadkCoreApplication.getInst().setHttpAutoSwitch(jSONObject.optInt("http_client_auto", 1) == 1);
             boolean z = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
@@ -342,7 +342,7 @@ public class t {
             } else if (optInt == 0) {
                 TbadkCoreApplication.getInst().setIsAppOn(false);
             }
-            this.f14744h = jSONObject.optInt("perform_sample_param", 100000);
+            this.f14768h = jSONObject.optInt("perform_sample_param", 100000);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("keepalive");
             if (optJSONObject3 != null) {
                 JSONObject optJSONObject4 = optJSONObject3.optJSONObject("wifi");
@@ -380,9 +380,9 @@ public class t {
                 TbSingleton.getInstance().setAnimAverageFpsThreshold(optInt5);
             }
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008017));
-            TbConfig.setBigPhotoAdress(this.f14738b);
-            TbConfig.setSmallPhotoAdress(this.f14739c);
-            TbConfig.setFeedBack(this.f14740d, this.f14741e);
+            TbConfig.setBigPhotoAdress(this.f14762b);
+            TbConfig.setSmallPhotoAdress(this.f14763c);
+            TbConfig.setFeedBack(this.f14764d, this.f14765e);
             PreLoadVideoSwitchManager.getInstance().setSyncSwitchJson(jSONObject.optString("android_preload_conf"));
             JSONObject optJSONObject10 = jSONObject.optJSONObject("duxiaoman_url");
             if (optJSONObject10 != null) {

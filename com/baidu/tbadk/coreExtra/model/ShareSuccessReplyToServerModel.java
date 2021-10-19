@@ -26,7 +26,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f48210e;
+    public HttpMessageListener f48131e;
 
     /* loaded from: classes6.dex */
     public static class ShareSuccessReplySeverResponseMessage extends JsonHttpResponsedMessage {
@@ -65,7 +65,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                     return;
                 }
-                this.mActDialogData = c.a.r0.j2.b.a(optJSONObject);
+                this.mActDialogData = c.a.r0.k2.b.a(optJSONObject);
             }
         }
 
@@ -138,30 +138,30 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48210e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
+        this.f48131e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f48210e.setTag(getUniqueId());
-        this.f48210e.setSelfListener(true);
-        registerListener(this.f48210e);
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        this.f48131e.setTag(getUniqueId());
+        this.f48131e.setSelfListener(true);
+        registerListener(this.f48131e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            MessageManager.getInstance().unRegisterListener(this.f48131e);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f48210e);
             return false;
         }
         return invokeV.booleanValue;

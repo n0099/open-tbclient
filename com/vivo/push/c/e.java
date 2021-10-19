@@ -13,13 +13,13 @@ public final class e implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f76875a;
+    public final /* synthetic */ String f76910a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ com.vivo.push.b.k f76876b;
+    public final /* synthetic */ com.vivo.push.b.k f76911b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ d f76877c;
+    public final /* synthetic */ d f76912c;
 
     public e(d dVar, String str, com.vivo.push.b.k kVar) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public final class e implements Runnable {
                 return;
             }
         }
-        this.f76877c = dVar;
-        this.f76875a = str;
-        this.f76876b = kVar;
+        this.f76912c = dVar;
+        this.f76910a = str;
+        this.f76911b = kVar;
     }
 
     @Override // java.lang.Runnable
@@ -47,16 +47,16 @@ public final class e implements Runnable {
         Context context2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!TextUtils.isEmpty(this.f76875a)) {
-                d dVar = this.f76877c;
-                PushMessageCallback pushMessageCallback = ((ab) dVar).f76862b;
-                context2 = dVar.f77046a;
-                pushMessageCallback.onReceiveRegId(context2, this.f76875a);
+            if (!TextUtils.isEmpty(this.f76910a)) {
+                d dVar = this.f76912c;
+                PushMessageCallback pushMessageCallback = ((ab) dVar).f76897b;
+                context2 = dVar.f77081a;
+                pushMessageCallback.onReceiveRegId(context2, this.f76910a);
             }
-            d dVar2 = this.f76877c;
-            PushMessageCallback pushMessageCallback2 = ((ab) dVar2).f76862b;
-            context = dVar2.f77046a;
-            pushMessageCallback2.onBind(context, this.f76876b.h(), this.f76876b.d());
+            d dVar2 = this.f76912c;
+            PushMessageCallback pushMessageCallback2 = ((ab) dVar2).f76897b;
+            context = dVar2.f77081a;
+            pushMessageCallback2.onBind(context, this.f76911b.h(), this.f76911b.d());
         }
     }
 }

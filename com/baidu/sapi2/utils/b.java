@@ -36,21 +36,21 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WebView f44978a;
+        public final /* synthetic */ WebView f44890a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f44979b;
+        public final /* synthetic */ View f44891b;
 
         /* renamed from: com.baidu.sapi2.utils.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC1702a implements Runnable {
+        public class RunnableC1704a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f44980a;
+            public final /* synthetic */ a f44892a;
 
-            public RunnableC1702a(a aVar) {
+            public RunnableC1704a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,15 +65,15 @@ public class b {
                         return;
                     }
                 }
-                this.f44980a = aVar;
+                this.f44892a = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f44980a.f44979b.setVisibility(4);
-                    this.f44980a.f44978a.reload();
+                    this.f44892a.f44891b.setVisibility(4);
+                    this.f44892a.f44890a.reload();
                 }
             }
         }
@@ -93,15 +93,15 @@ public class b {
                     return;
                 }
             }
-            this.f44978a = webView;
-            this.f44979b = view;
+            this.f44890a = webView;
+            this.f44891b = view;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44978a.post(new RunnableC1702a(this));
+                this.f44890a.post(new RunnableC1704a(this));
             }
         }
     }

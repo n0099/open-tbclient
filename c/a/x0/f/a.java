@@ -16,7 +16,7 @@ public class a {
     public static void a(String str, b bVar, c.a.x0.f.b.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65536, null, str, bVar, aVar) == null) {
-            if (c.f31180a) {
+            if (c.f31227a) {
                 c.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + aVar.toString());
             }
             c.a.x0.e.a h2 = c.a.x0.b.d().h();
@@ -24,13 +24,13 @@ public class a {
                 ArrayList arrayList = null;
                 if (aVar != null) {
                     arrayList = new ArrayList();
-                    arrayList.add(new AbstractMap.SimpleEntry("sft", aVar.f30744a));
-                    arrayList.add(new AbstractMap.SimpleEntry("bft", aVar.f30745b));
-                    arrayList.add(new AbstractMap.SimpleEntry("mem", aVar.f30749f));
-                    arrayList.add(new AbstractMap.SimpleEntry("fc", aVar.f30746c));
-                    arrayList.add(new AbstractMap.SimpleEntry("time", aVar.f30747d + ""));
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", aVar.f30791a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", aVar.f30792b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", aVar.f30796f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", aVar.f30793c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", aVar.f30794d + ""));
                 }
-                h2.a("perf_record_arperf", str, bVar.f30751a, bVar.f30752b, bVar.f30753c, bVar.f30754d, bVar.f30755e, null, arrayList);
+                h2.a("perf_record_arperf", str, bVar.f30798a, bVar.f30799b, bVar.f30800c, bVar.f30801d, bVar.f30802e, null, arrayList);
             }
         }
     }
@@ -38,7 +38,7 @@ public class a {
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (c.f31180a) {
+            if (c.f31227a) {
                 c.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
             }
             c.a.x0.e.a h2 = c.a.x0.b.d().h();

@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alasquare.special_forum.subtab.view;
 
 import android.view.View;
-import c.a.r0.v.f.g.e.a.b;
+import c.a.r0.w.f.g.e.a.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

@@ -10,19 +10,19 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67204a;
+    public int f67239a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67205b;
+    public int f67240b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f67206c;
+    public float f67241c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67207d;
+    public int f67242d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f67208e;
+    public int f67243e;
 
     public k(int i2, float f2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class k {
                 return;
             }
         }
-        this.f67204a = 1;
-        this.f67205b = -1;
-        this.f67206c = 1.0f;
-        this.f67207d = 600;
-        this.f67208e = 150;
-        this.f67204a = i2;
-        this.f67206c = f2;
-        this.f67207d = i3;
-        this.f67208e = i4;
+        this.f67239a = 1;
+        this.f67240b = -1;
+        this.f67241c = 1.0f;
+        this.f67242d = 600;
+        this.f67243e = 150;
+        this.f67239a = i2;
+        this.f67241c = f2;
+        this.f67242d = i3;
+        this.f67243e = i4;
     }
 }

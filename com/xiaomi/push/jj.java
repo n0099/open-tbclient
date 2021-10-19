@@ -12,7 +12,7 @@ public class jj extends jl {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f78373a;
+    public int f78408a;
 
     /* renamed from: a  reason: collision with other field name */
     public it f821a;
@@ -41,12 +41,12 @@ public class jj extends jl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
             byte[] m519a = this.f821a.m519a();
-            if (i3 > this.f821a.a() - this.f78373a) {
-                i3 = this.f821a.a() - this.f78373a;
+            if (i3 > this.f821a.a() - this.f78408a) {
+                i3 = this.f821a.a() - this.f78408a;
             }
             if (i3 > 0) {
-                System.arraycopy(m519a, this.f78373a, bArr, i2, i3);
-                this.f78373a += i3;
+                System.arraycopy(m519a, this.f78408a, bArr, i2, i3);
+                this.f78408a += i3;
             }
             return i3;
         }

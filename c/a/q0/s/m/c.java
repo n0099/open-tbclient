@@ -28,25 +28,25 @@ public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f14016a = 2;
+    public static final int f14037a = 2;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f14017b = 3;
+    public static final int f14038b = 3;
     @JvmField
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f14018c = 2;
+    public static final int f14039c = 2;
     @JvmField
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f14019d = 3;
+    public static final int f14040d = 3;
     @JvmField
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f14020e = 4;
+    public static final int f14041e = 4;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f14021f;
+    public static final a f14042f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -56,14 +56,14 @@ public final class c {
 
         /* renamed from: c.a.q0.s.m.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static final class C0689a implements PermissionJudgePolicy.OnPermissionsGrantedListener {
+        public static final class C0691a implements PermissionJudgePolicy.OnPermissionsGrantedListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ IntentConfig f14022a;
+            public final /* synthetic */ IntentConfig f14043a;
 
-            public C0689a(IntentConfig intentConfig) {
+            public C0691a(IntentConfig intentConfig) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,14 +78,14 @@ public final class c {
                         return;
                     }
                 }
-                this.f14022a = intentConfig;
+                this.f14043a = intentConfig;
             }
 
             @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
             public final void onPermissionsGranted() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this.f14022a));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this.f14043a));
                 }
             }
         }
@@ -107,13 +107,13 @@ public final class c {
         public final int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.f14016a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.f14037a : invokeV.intValue;
         }
 
         public final int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.f14017b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.f14038b : invokeV.intValue;
         }
 
         public final void c(int i2, Context context, String str, String str2, String str3, String str4, Integer num, boolean z) {
@@ -143,26 +143,64 @@ public final class c {
                 albumFloatActivityConfig.setCanChangeBarName(z);
                 albumFloatActivityConfig.setVideoAbstract(str2);
                 albumFloatActivityConfig.setVideoTitle(str);
-                if (f((Activity) context, albumFloatActivityConfig)) {
+                if (g((Activity) context, albumFloatActivityConfig)) {
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
             }
         }
 
-        public final void d(WriteData writeData, Context context) {
+        public final void d(int i2, Context context, String str, String str2, String str3, String str4, Integer num, boolean z, String str5, String str6) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, writeData, context) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), context, str, str2, str3, str4, num, Boolean.valueOf(z), str5, str6}) == null) {
+                if (i2 == a()) {
+                    WorkPublishActivityConfig workPublishActivityConfig = new WorkPublishActivityConfig(context, a());
+                    if (!z && str3 != null && str4 != null) {
+                        workPublishActivityConfig.setCanChangeBar(z);
+                        workPublishActivityConfig.setBarId(str3);
+                        workPublishActivityConfig.setBarName(str4);
+                    }
+                    workPublishActivityConfig.setTopic(str5);
+                    workPublishActivityConfig.setTopicId(str6);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishActivityConfig));
+                    return;
+                }
+                AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(context, "", true, true);
+                albumFloatActivityConfig.setRequestCode(12002);
+                albumFloatActivityConfig.setAlbumThread(0);
+                albumFloatActivityConfig.setCanSelectVideo(true);
+                albumFloatActivityConfig.setCanSelectOnlyVideo(true);
+                albumFloatActivityConfig.setCanEditImage(false);
+                albumFloatActivityConfig.setFromWrite(4);
+                albumFloatActivityConfig.setCallFrom("2");
+                albumFloatActivityConfig.setRedirectToWorkPublishPage(i2);
+                albumFloatActivityConfig.setBarID(str3);
+                albumFloatActivityConfig.setBarName(str4);
+                albumFloatActivityConfig.setCanChangeBarName(z);
+                albumFloatActivityConfig.setVideoAbstract(str2);
+                albumFloatActivityConfig.setVideoTitle(str);
+                albumFloatActivityConfig.setTopic(str5);
+                albumFloatActivityConfig.setTopicId(str6);
+                if (g((Activity) context, albumFloatActivityConfig)) {
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
+            }
+        }
+
+        public final void e(WriteData writeData, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, writeData, context) == null) {
                 WorkPublishActivityConfig workPublishActivityConfig = new WorkPublishActivityConfig(context, b());
                 workPublishActivityConfig.setWriteData(writeData);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishActivityConfig));
             }
         }
 
-        public final boolean e(Intent intent, VideoInfo videoInfo, Activity activity, boolean z) {
+        public final boolean f(Intent intent, VideoInfo videoInfo, Activity activity, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{intent, videoInfo, activity, Boolean.valueOf(z)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{intent, videoInfo, activity, Boolean.valueOf(z)})) == null) {
                 WorkPublishActivityConfig workPublishActivityConfig = new WorkPublishActivityConfig(activity);
                 workPublishActivityConfig.setIntent(intent);
                 Intent intent2 = workPublishActivityConfig.getIntent();
@@ -180,14 +218,14 @@ public final class c {
             return invokeCommon.booleanValue;
         }
 
-        public final boolean f(Activity activity, IntentConfig intentConfig) {
+        public final boolean g(Activity activity, IntentConfig intentConfig) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, activity, intentConfig)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, activity, intentConfig)) == null) {
                 PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
                 permissionJudgePolicy.clearRequestPermissionList();
                 permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                permissionJudgePolicy.setOnPermissionsGrantedListener(new C0689a(intentConfig));
+                permissionJudgePolicy.setOnPermissionsGrantedListener(new C0691a(intentConfig));
                 return permissionJudgePolicy.startRequestPermission(activity);
             }
             return invokeLL.booleanValue;
@@ -211,6 +249,6 @@ public final class c {
                 return;
             }
         }
-        f14021f = new a(null);
+        f14042f = new a(null);
     }
 }

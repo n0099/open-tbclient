@@ -1,6 +1,6 @@
 package com.baidu.tieba.videoplay;
 
-import c.a.r0.j3.e0.a;
+import c.a.r0.k3.e0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;

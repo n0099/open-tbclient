@@ -33,7 +33,7 @@ public class e0 implements UBCManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f30007a;
+    public static final boolean f30054a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +49,7 @@ public class e0 implements UBCManager {
                 return;
             }
         }
-        f30007a = AppConfig.isDebug();
+        f30054a = AppConfig.isDebug();
     }
 
     public e0() {
@@ -79,7 +79,7 @@ public class e0 implements UBCManager {
             Flow flow = null;
             try {
                 flow = a().ubcBeginFlow(str, str2, i2);
-                if (f30007a) {
+                if (f30054a) {
                     String str3 = "flow id " + str + " beginFlow  process name " + c.a.h0.b.a.a.b() + "flow hashCode " + flow.hashCode() + " handle id " + flow.getHandle();
                 }
             } catch (RemoteException e2) {
@@ -109,7 +109,7 @@ public class e0 implements UBCManager {
     public void flowAddEventWithDate(Flow flow, String str, String str2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{flow, str, str2, Long.valueOf(j2)}) == null) {
-            if (f30007a) {
+            if (f30054a) {
                 String str3 = " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid();
             }
             if (flow == null || !flow.getValid()) {
@@ -131,7 +131,7 @@ public class e0 implements UBCManager {
     public void flowCancel(Flow flow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, flow) == null) {
-            if (f30007a) {
+            if (f30054a) {
                 String str = "cancel flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid();
             }
             if (flow == null || !flow.getValid()) {
@@ -153,7 +153,7 @@ public class e0 implements UBCManager {
     public void flowEnd(Flow flow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, flow) == null) {
-            if (f30007a) {
+            if (f30054a) {
                 String str = "end flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid();
             }
             if (flow == null || !flow.getValid()) {
@@ -198,7 +198,7 @@ public class e0 implements UBCManager {
     public void flowSetValue(Flow flow, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, flow, str) == null) {
-            if (f30007a) {
+            if (f30054a) {
                 String str2 = " flow setValue, mId:" + flow.getId() + " handle" + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid();
             }
             if (flow == null || !flow.getValid()) {
@@ -220,7 +220,7 @@ public class e0 implements UBCManager {
     public void flowSetValueWithDuration(Flow flow, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, flow, str) == null) {
-            if (f30007a) {
+            if (f30054a) {
                 String str2 = " flow setValueWithDuration, mId:" + flow.getId() + " handle: " + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid();
             }
             if (flow == null || !flow.getValid()) {
@@ -237,7 +237,7 @@ public class e0 implements UBCManager {
                     if (!TextUtils.isEmpty(str)) {
                         jSONObject.put(SpeedStatsUtils.UBC_KEY_OPTION, str);
                     }
-                    if (f30007a) {
+                    if (f30054a) {
                         String str3 = " flow setValueWithDuration, mId:" + flow.getId() + ", duration: " + jSONObject.toString();
                     }
                 } catch (JSONException e2) {
@@ -272,7 +272,7 @@ public class e0 implements UBCManager {
     public void flush() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            boolean z = f30007a;
+            boolean z = f30054a;
             d.v().u();
         }
     }
@@ -343,11 +343,11 @@ public class e0 implements UBCManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048610, this, mVar) == null) && mVar != null && c.a.h0.b.a.a.g()) {
             j.a aVar = new j.a();
-            aVar.c(mVar.f30089e);
-            aVar.f(mVar.f30085a);
-            aVar.e(mVar.f30086b);
-            aVar.d(mVar.f30088d);
-            aVar.g(mVar.f30087c);
+            aVar.c(mVar.f30136e);
+            aVar.f(mVar.f30132a);
+            aVar.e(mVar.f30133b);
+            aVar.d(mVar.f30135d);
+            aVar.g(mVar.f30134c);
             aVar.b(true);
             j a2 = aVar.a();
             ArrayList arrayList = new ArrayList(1);
@@ -380,7 +380,7 @@ public class e0 implements UBCManager {
     public void upload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            boolean z = f30007a;
+            boolean z = f30054a;
             d.v().J();
             d.v().F();
         }
@@ -390,7 +390,7 @@ public class e0 implements UBCManager {
     public void uploadFailedData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            boolean z = f30007a;
+            boolean z = f30054a;
             d.v().B();
             d.v().G();
         }
@@ -423,7 +423,7 @@ public class e0 implements UBCManager {
     public void flowAddEvent(Flow flow, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, flow, str, str2) == null) {
-            if (f30007a) {
+            if (f30054a) {
                 String str3 = " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid();
             }
             if (flow == null || !flow.getValid()) {
@@ -513,7 +513,7 @@ public class e0 implements UBCManager {
                     jSONObject.put(entry.getKey(), entry.getValue());
                 }
             } catch (JSONException e2) {
-                if (f30007a) {
+                if (f30054a) {
                     String str2 = "UBC beginFlow# exception:" + e2.getMessage();
                 }
             }
@@ -532,7 +532,7 @@ public class e0 implements UBCManager {
                     jSONObject.put(entry.getKey(), entry.getValue());
                 }
             } catch (JSONException e2) {
-                if (f30007a) {
+                if (f30054a) {
                     String str2 = "UBC onEvent# exception:" + e2.getMessage();
                 }
             }
@@ -550,11 +550,11 @@ public class e0 implements UBCManager {
                     jSONObject.put(entry.getKey(), entry.getValue());
                 }
             } catch (JSONException e2) {
-                if (f30007a) {
+                if (f30054a) {
                     String str = "UBC beginFlow# exception:" + e2.getMessage();
                 }
             }
-            if (f30007a) {
+            if (f30054a) {
                 String str2 = " flow setValue, mId:" + flow.getId() + " handle" + flow.getHandle() + " value:" + jSONObject.toString();
             }
             flowSetValue(flow, jSONObject.toString());
@@ -568,12 +568,12 @@ public class e0 implements UBCManager {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, str, str2, i2)) == null) {
             if (c.a.h0.b.a.a.g()) {
                 if (TextUtils.isEmpty(str)) {
-                    if (f30007a) {
+                    if (f30054a) {
                         throw new IllegalArgumentException("UBC beginFlow#flowId must not be null.");
                     }
                     return null;
                 }
-                if (f30007a) {
+                if (f30054a) {
                     String str3 = "begin flow id:" + str + " value:" + str2;
                 }
                 return d.v().o(str, str2, i2);
@@ -589,12 +589,12 @@ public class e0 implements UBCManager {
         if (interceptable == null || interceptable.invokeLLI(1048603, this, str, str2, i2) == null) {
             if (c.a.h0.b.a.a.g()) {
                 if (UBC.getUBCContext() == null && TextUtils.isEmpty(str)) {
-                    if (f30007a) {
+                    if (f30054a) {
                         throw new IllegalArgumentException("UBC onEvent#eventId must not be null.");
                     }
                     return;
                 }
-                if (f30007a) {
+                if (f30054a) {
                     String str3 = "on event id:" + str + " value:" + str2;
                 }
                 d.v().z(str, str2, i2);
@@ -617,7 +617,7 @@ public class e0 implements UBCManager {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                if (f30007a) {
+                if (f30054a) {
                     String str2 = "begin flow id:" + str + " value:" + jSONObject;
                 }
                 return d.v().p(str, jSONObject, i2);
@@ -635,7 +635,7 @@ public class e0 implements UBCManager {
                 if (UBC.getUBCContext() == null && TextUtils.isEmpty(str)) {
                     return;
                 }
-                if (f30007a) {
+                if (f30054a) {
                     String str2 = "on event id:" + str + " value:" + jSONObject.toString();
                 }
                 d.v().A(str, jSONObject, i2);

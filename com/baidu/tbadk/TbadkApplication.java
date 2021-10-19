@@ -31,6 +31,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ColdStartStatsUtil;
 import com.baidu.tbadk.core.util.EmotionUtil;
 import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.switchs.LaunchUpSpeedSwitch;
 import com.baidu.tbadk.switchs.PluginClassChangeSwitch;
 import com.baidu.tieba.service.SignAlertReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -280,36 +281,41 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
         super.handleInitMessage(message);
         boolean z = true;
+        boolean z2 = !LaunchUpSpeedSwitch.getIsOn();
         switch (message.what) {
             case 6:
                 SpeedStatsManager.getInstance().addStatsTimeStamp(2047);
                 Boolean bool = this.isCdnTachometerProcess;
                 if ((bool == null || !bool.booleanValue()) && !this.isPluginInstallProcess) {
                     boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-                    boolean z2 = this.mIsToLogo && isXiaomiPushSdkShouldOpen;
-                    b.e("TbadkApplication_onCreate", z2 ? "plugin_load_delay" : "plugin_load_now");
+                    boolean z3 = this.mIsToLogo && isXiaomiPushSdkShouldOpen;
+                    b.e("TbadkApplication_onCreate", z3 ? "plugin_load_delay" : "plugin_load_now");
                     long currentTimeMillis = System.currentTimeMillis();
                     b.e("TbadkApplication_onCreate", "load_all_plugins");
                     String str = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER;
                     if (!((isMainProcess(false) && PluginClassChangeSwitch.isOn()) ? false : false)) {
-                        isXiaomiPushSdkShouldOpen = z2;
+                        isXiaomiPushSdkShouldOpen = z3;
                     }
-                    boolean z3 = Build.VERSION.SDK_INT < 28 ? isXiaomiPushSdkShouldOpen : false;
+                    boolean z4 = Build.VERSION.SDK_INT < 28 ? isXiaomiPushSdkShouldOpen : false;
                     if (!this.isKeepLiveProcess) {
                         if (!this.mPluginIsInited) {
-                            PluginPackageManager.O().i0(c.a.q0.s0.c.n(), new c.a.q0.s0.d(), z3, null);
+                            PluginPackageManager.O().i0(c.a.q0.s0.c.n(), new c.a.q0.s0.d(), z4, null);
                         }
                         PluginSettings l = d.k().l();
                         if (l != null) {
                             String containerVersion = l.getContainerVersion();
                             if (!TextUtils.isEmpty(containerVersion) && Util.c(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                                l.b().D(z3);
+                                l.b().D(z4);
                                 l.b().C(System.currentTimeMillis() - currentTimeMillis);
                             }
                         }
                     }
                 }
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_SIX_STAMP_KEY);
+                if (z2) {
+                    this.mAppInitHandler.sendEmptyMessage(7);
+                    return;
+                }
                 return;
             case 7:
                 SpeedStatsManager.getInstance().addStatsTimeStamp(2048);
@@ -320,6 +326,10 @@ public class TbadkApplication extends TbadkCoreApplication {
                     initSignedForum();
                 }
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_SEVEN_STAMP_KEY);
+                if (z2) {
+                    this.mAppInitHandler.sendEmptyMessage(8);
+                    return;
+                }
                 return;
             case 8:
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_EIGHT_START_STAMP_KEY);
@@ -360,6 +370,10 @@ public class TbadkApplication extends TbadkCoreApplication {
                     l.b().q(System.currentTimeMillis() - currentTimeMillis2);
                 }
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_EIGHT_STAMP_KEY);
+                if (z2) {
+                    this.mAppInitHandler.sendEmptyMessage(9);
+                    return;
+                }
                 return;
             case 9:
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_NINE_START_STAMP_KEY);

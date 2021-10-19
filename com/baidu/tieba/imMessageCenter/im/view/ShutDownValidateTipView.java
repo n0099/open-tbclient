@@ -24,22 +24,22 @@ public class ShutDownValidateTipView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f53603e;
+    public TextView f53534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f53604f;
+    public ImageView f53535f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f53605g;
+    public TextView f53536g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f53606h;
+    public TextView f53537h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f53607i;
+    public boolean f53538i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ArrayList<c> f53608j;
+    public ArrayList<c> f53539j;
 
     /* loaded from: classes7.dex */
     public class a implements Animation.AnimationListener {
@@ -47,7 +47,7 @@ public class ShutDownValidateTipView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ShutDownValidateTipView f53609a;
+        public final /* synthetic */ ShutDownValidateTipView f53540a;
 
         public a(ShutDownValidateTipView shutDownValidateTipView) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class ShutDownValidateTipView extends FrameLayout {
                     return;
                 }
             }
-            this.f53609a = shutDownValidateTipView;
+            this.f53540a = shutDownValidateTipView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -95,7 +95,7 @@ public class ShutDownValidateTipView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ShutDownValidateTipView f53610a;
+        public final /* synthetic */ ShutDownValidateTipView f53541a;
 
         public b(ShutDownValidateTipView shutDownValidateTipView) {
             Interceptable interceptable = $ic;
@@ -112,14 +112,14 @@ public class ShutDownValidateTipView extends FrameLayout {
                     return;
                 }
             }
-            this.f53610a = shutDownValidateTipView;
+            this.f53541a = shutDownValidateTipView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f53610a.setVisibility(8);
+                this.f53541a.setVisibility(8);
             }
         }
 
@@ -162,26 +162,26 @@ public class ShutDownValidateTipView extends FrameLayout {
                 return;
             }
         }
-        this.f53608j = new ArrayList<>();
+        this.f53539j = new ArrayList<>();
         init(context);
     }
 
     public void addNetworkChangeListener(c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.f53608j.contains(cVar)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.f53539j.contains(cVar)) {
             return;
         }
-        this.f53608j.add(cVar);
+        this.f53539j.add(cVar);
     }
 
     public void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-            this.f53604f = (ImageView) findViewById(R.id.no_network_icon);
-            this.f53605g = (TextView) findViewById(R.id.no_network_guide1);
-            this.f53606h = (TextView) findViewById(R.id.no_network_guide2);
-            this.f53603e = (TextView) findViewById(R.id.no_network_showmore);
+            this.f53535f = (ImageView) findViewById(R.id.no_network_icon);
+            this.f53536g = (TextView) findViewById(R.id.no_network_guide1);
+            this.f53537h = (TextView) findViewById(R.id.no_network_guide2);
+            this.f53534e = (TextView) findViewById(R.id.no_network_showmore);
         }
     }
 
@@ -196,17 +196,17 @@ public class ShutDownValidateTipView extends FrameLayout {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            SkinManager.setImageResource(this.f53604f, R.drawable.icon_error);
+            SkinManager.setImageResource(this.f53535f, R.drawable.icon_error);
             SkinManager.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
             if (i2 != 1 && i2 != 4) {
-                this.f53605g.setTextColor(-14277082);
-                this.f53606h.setTextColor(-5065030);
-                this.f53603e.setTextColor(-14277082);
+                this.f53536g.setTextColor(-14277082);
+                this.f53537h.setTextColor(-5065030);
+                this.f53534e.setTextColor(-14277082);
                 return;
             }
-            this.f53605g.setTextColor(-10523526);
-            this.f53606h.setTextColor(-8682095);
-            this.f53603e.setTextColor(-10523526);
+            this.f53536g.setTextColor(-10523526);
+            this.f53537h.setTextColor(-8682095);
+            this.f53534e.setTextColor(-10523526);
         }
     }
 
@@ -215,21 +215,21 @@ public class ShutDownValidateTipView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            this.f53608j.clear();
+            this.f53539j.clear();
         }
     }
 
     public void removeNetworkChangeListener(c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) && cVar != null && this.f53608j.contains(cVar)) {
-            this.f53608j.remove(cVar);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) && cVar != null && this.f53539j.contains(cVar)) {
+            this.f53539j.remove(cVar);
         }
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) || (textView = this.f53603e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) || (textView = this.f53534e) == null) {
             return;
         }
         textView.setOnClickListener(onClickListener);
@@ -237,10 +237,10 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void setVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || z == this.f53607i) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || z == this.f53538i) {
             return;
         }
-        this.f53607i = z;
+        this.f53538i = z;
         if (z) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setFillAfter(true);
@@ -248,8 +248,8 @@ public class ShutDownValidateTipView extends FrameLayout {
             alphaAnimation.setAnimationListener(new a(this));
             setVisibility(0);
             startAnimation(alphaAnimation);
-            for (int i2 = 0; i2 < this.f53608j.size(); i2++) {
-                this.f53608j.get(i2).onNetworkChange(false);
+            for (int i2 = 0; i2 < this.f53539j.size(); i2++) {
+                this.f53539j.get(i2).onNetworkChange(false);
             }
         } else if (getVisibility() != 8) {
             AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -257,8 +257,8 @@ public class ShutDownValidateTipView extends FrameLayout {
             alphaAnimation2.setDuration(500L);
             alphaAnimation2.setAnimationListener(new b(this));
             startAnimation(alphaAnimation2);
-            for (int i3 = 0; i3 < this.f53608j.size(); i3++) {
-                this.f53608j.get(i3).onNetworkChange(true);
+            for (int i3 = 0; i3 < this.f53539j.size(); i3++) {
+                this.f53539j.get(i3).onNetworkChange(true);
             }
         }
     }
@@ -282,7 +282,7 @@ public class ShutDownValidateTipView extends FrameLayout {
                 return;
             }
         }
-        this.f53608j = new ArrayList<>();
+        this.f53539j = new ArrayList<>();
         init(context);
     }
 
@@ -304,7 +304,7 @@ public class ShutDownValidateTipView extends FrameLayout {
                 return;
             }
         }
-        this.f53608j = new ArrayList<>();
+        this.f53539j = new ArrayList<>();
         init(context);
     }
 }

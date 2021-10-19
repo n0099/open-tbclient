@@ -15,7 +15,7 @@ public class d implements View.OnFocusChangeListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardEditText f39791a;
+    public final /* synthetic */ SafeKeyBoardEditText f39795a;
 
     public d(SafeKeyBoardEditText safeKeyBoardEditText) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class d implements View.OnFocusChangeListener {
                 return;
             }
         }
-        this.f39791a = safeKeyBoardEditText;
+        this.f39795a = safeKeyBoardEditText;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -52,40 +52,40 @@ public class d implements View.OnFocusChangeListener {
         SafeScrollView safeScrollView6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-            SafeKeyBoardEditText safeKeyBoardEditText = this.f39791a;
+            SafeKeyBoardEditText safeKeyBoardEditText = this.f39795a;
             if (z) {
                 z2 = safeKeyBoardEditText.o;
                 if (z2) {
-                    context = this.f39791a.f39751e;
-                    RimGlobalUtils.hideInputMethod(context, this.f39791a);
-                    safeScrollView = this.f39791a.f39753g;
+                    context = this.f39795a.f39755e;
+                    RimGlobalUtils.hideInputMethod(context, this.f39795a);
+                    safeScrollView = this.f39795a.f39757g;
                     if (safeScrollView != null) {
-                        safeScrollView2 = this.f39791a.f39753g;
+                        safeScrollView2 = this.f39795a.f39757g;
                         if (safeScrollView2.hasWindowFocus()) {
-                            safeScrollView3 = this.f39791a.f39753g;
+                            safeScrollView3 = this.f39795a.f39757g;
                             if (!safeScrollView3.isPopupWindowShowing()) {
-                                safeScrollView4 = this.f39791a.f39753g;
-                                viewGroup = this.f39791a.f39752f;
-                                SafeKeyBoardEditText safeKeyBoardEditText2 = this.f39791a;
-                                view2 = safeKeyBoardEditText2.f39754h;
+                                safeScrollView4 = this.f39795a.f39757g;
+                                viewGroup = this.f39795a.f39756f;
+                                SafeKeyBoardEditText safeKeyBoardEditText2 = this.f39795a;
+                                view2 = safeKeyBoardEditText2.f39758h;
                                 safeScrollView4.showKeyBoard(viewGroup, safeKeyBoardEditText2, view2);
                             }
                         }
                     }
                 }
             } else if (!safeKeyBoardEditText.isAlwaysShow) {
-                safeScrollView5 = safeKeyBoardEditText.f39753g;
+                safeScrollView5 = safeKeyBoardEditText.f39757g;
                 if (safeScrollView5 != null) {
-                    safeScrollView6 = this.f39791a.f39753g;
-                    safeScrollView6.dismissKeyBoard(this.f39791a);
+                    safeScrollView6 = this.f39795a.f39757g;
+                    safeScrollView6.dismissKeyBoard(this.f39795a);
                 } else {
-                    context2 = this.f39791a.f39751e;
-                    RimGlobalUtils.hideInputMethod(context2, this.f39791a);
+                    context2 = this.f39795a.f39755e;
+                    RimGlobalUtils.hideInputMethod(context2, this.f39795a);
                 }
             }
-            onMyFocusChangeListener = this.f39791a.q;
+            onMyFocusChangeListener = this.f39795a.q;
             if (onMyFocusChangeListener != null) {
-                onMyFocusChangeListener2 = this.f39791a.q;
+                onMyFocusChangeListener2 = this.f39795a.q;
                 onMyFocusChangeListener2.onMyFocusChange(view, z);
             }
         }

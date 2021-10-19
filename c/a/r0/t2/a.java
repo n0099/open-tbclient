@@ -1,348 +1,72 @@
 package c.a.r0.t2;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ColumnLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.postsearch.PostSearchActivity;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class a {
+public class a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
+    public static c.a.e.l.d.a t;
+    public static String u;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public PostSearchActivity f25015a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f25016b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f25017c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f25018d;
-
     /* renamed from: e  reason: collision with root package name */
-    public EditText f25019e;
+    public final LinearLayout f24958e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f25020f;
+    public final LinearLayout f24959f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f25021g;
+    public final LinearLayout f24960g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final ColumnLayout f24961h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final ColumnLayout f24962i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public InterfaceC1154a f24963j;
+    public int k;
+    public LinearLayout l;
+    public HeadImageView m;
+    public TextView n;
+    public TextView o;
+    public TextView p;
+    public TextView q;
+    public ImageView r;
+    public TbPageContext<?> s;
 
     /* renamed from: c.a.r0.t2.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1162a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25022e;
-
-        public View$OnClickListenerC1162a(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f25022e = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f25022e.f25019e.hasFocus()) {
-                    l.x(this.f25022e.f25015a.getPageContext().getPageActivity(), this.f25022e.f25019e);
-                }
-                this.f25022e.f25015a.finish();
-            }
-        }
+    public interface InterfaceC1154a {
+        void a(View view);
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements View.OnFocusChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25023e;
-
-        public b(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f25023e = aVar;
-        }
-
-        @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                if (!z) {
-                    l.x(this.f25023e.f25015a.getPageContext().getPageActivity(), view);
-                    return;
-                }
-                this.f25023e.n();
-                this.f25023e.m();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25024e;
-
-        public c(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f25024e = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f25024e.n();
-                this.f25024e.m();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements TextView.OnEditorActionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f25025a;
-
-        public d(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f25025a = aVar;
-        }
-
-        @Override // android.widget.TextView.OnEditorActionListener
-        public boolean onEditorAction(TextView textView, int i2, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
-                if (i2 == 2 || i2 == 6 || i2 == 4 || i2 == 3) {
-                    String charSequence = textView.getText().toString();
-                    if (StringUtils.isNull(charSequence)) {
-                        return true;
-                    }
-                    this.f25025a.f25015a.startSearch(charSequence);
-                    PostSearchActivity unused = this.f25025a.f25015a;
-                    TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", charSequence).param("obj_source", "1").param("obj_type", "2").param("fid", this.f25025a.f25015a.mForumId));
-                    return true;
-                }
-                return false;
-            }
-            return invokeLIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25026e;
-
-        public e(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f25026e = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f25026e.f25019e.setText("");
-                this.f25026e.n();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class f implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25027e;
-
-        public f(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f25027e = aVar;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                String obj = editable.toString();
-                this.f25027e.f25015a.mSearchKey = obj;
-                if (obj.trim().length() == 0) {
-                    this.f25027e.n();
-                    this.f25027e.f25020f.setVisibility(8);
-                    return;
-                }
-                this.f25027e.f25020f.setVisibility(0);
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25028e;
-
-        public g(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f25028e = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                l.K(this.f25028e.f25015a.getPageContext().getPageActivity(), this.f25028e.f25019e);
-            }
-        }
-    }
-
-    public a(PostSearchActivity postSearchActivity, View view) {
+    public a(View view, TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {postSearchActivity, view};
+            Object[] objArr = {view, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -352,102 +76,243 @@ public class a {
                 return;
             }
         }
-        this.f25019e = null;
-        this.f25020f = null;
-        this.f25021g = null;
-        this.f25016b = view;
-        this.f25015a = postSearchActivity;
-        i();
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f25020f.setVisibility(8);
+        this.s = tbPageContext;
+        this.l = (LinearLayout) view.findViewById(R.id.top_line);
+        this.m = (HeadImageView) view.findViewById(R.id.portrait);
+        this.n = (TextView) view.findViewById(R.id.username);
+        this.o = (TextView) view.findViewById(R.id.reply_time);
+        this.p = (TextView) view.findViewById(R.id.forum_name);
+        this.q = (TextView) view.findViewById(R.id.reply_count);
+        this.f24960g = (LinearLayout) view.findViewById(R.id.item_content);
+        this.f24961h = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.f24962i = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.f24958e = (LinearLayout) view.findViewById(R.id.person_thread);
+        this.f24959f = (LinearLayout) view.findViewById(R.id.person_child);
+        this.r = (ImageView) view.findViewById(R.id.comment_icon);
+        this.k = c.a.e.e.p.l.e(view.getContext(), 42.0f);
+        LinearLayout linearLayout = this.f24960g;
+        if (linearLayout != null) {
+            linearLayout.setOnClickListener(this);
         }
+        this.m.setOnClickListener(this);
+        this.n.setOnClickListener(this);
+        this.p.setOnClickListener(this);
+        this.q.setOnClickListener(this);
+        this.f24961h.setOnClickListener(this);
+        this.f24962i.setOnClickListener(this);
+        this.q.setText(R.string.reply_me);
     }
 
-    public void g() {
+    public void a(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f25016b.setFocusable(true);
-            this.f25016b.setFocusableInTouchMode(true);
-            this.f25016b.requestFocus();
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            l.x(this.f25015a.getPageContext().getPageActivity(), this.f25019e);
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.f25016b.findViewById(R.id.view_navigation_bar);
-            this.f25017c = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View$OnClickListenerC1162a(this));
-            View addCustomView = this.f25017c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.post_search_navigation_view, (View.OnClickListener) null);
-            this.f25018d = addCustomView;
-            this.f25019e = (EditText) addCustomView.findViewById(R.id.search_text);
-            ImageView imageView = (ImageView) this.f25018d.findViewById(R.id.search_del);
-            this.f25020f = imageView;
-            imageView.setVisibility(8);
-            this.f25019e.requestFocus();
-            this.f25019e.setOnFocusChangeListener(new b(this));
-            this.f25019e.setOnClickListener(new c(this));
-            this.f25019e.setOnEditorActionListener(new d(this));
-            this.f25020f.setOnClickListener(new e(this));
-            this.f25019e.addTextChangedListener(new f(this));
-            this.f25021g = new g(this);
-            c.a.e.e.m.e.a().postDelayed(this.f25021g, 500L);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            SkinManager.setViewTextColor(this.p, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.o, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.n, R.color.CAM_X0106, 1);
+            SkinManager.setBackgroundResource(this.f24958e, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.f24959f, R.color.CAM_X0201);
+            TbadkCoreApplication.getInst().getSkinType();
+            SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
+            WebPManager.setPureDrawable(this.r, R.drawable.icon_pure_card_comment22, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
         }
     }
 
-    public void j(int i2) {
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f25017c.onChangeSkinType(this.f25015a.getPageContext(), i2);
-            c.a.q0.w0.a.a(this.f25015a.getPageContext(), this.f25018d);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f25020f, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            String str2 = u;
+            if (str2 != null && !str2.equals(str)) {
+                t = null;
+            }
+            c.a.e.l.d.a aVar = t;
+            if (aVar != null) {
+                this.m.setImageBitmap(aVar.p());
+                u = str;
+                return;
+            }
+            HeadImageView headImageView = this.m;
+            int i2 = this.k;
+            headImageView.startLoad(str, 12, i2, i2, false);
         }
     }
 
-    public void k() {
+    public void c(InterfaceC1154a interfaceC1154a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f25021g == null) {
-            return;
-        }
-        c.a.e.e.m.e.a().removeCallbacks(this.f25021g);
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f25019e.setText(str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1154a) == null) {
+            this.f24963j = interfaceC1154a;
         }
     }
 
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || StringUtils.isNull(this.f25019e.getText().toString())) {
-            return;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x000d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x009c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x009e A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x009f  */
+    /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r11v10, types: [android.widget.TextView] */
+    /* JADX WARN: Type inference failed for: r11v7, types: [android.widget.TextView] */
+    /* JADX WARN: Type inference failed for: r11v8, types: [android.widget.TextView] */
+    /* JADX WARN: Type inference failed for: r11v9, types: [android.widget.TextView] */
+    /* JADX WARN: Type inference failed for: r12v0, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r12v1 */
+    /* JADX WARN: Type inference failed for: r12v12 */
+    /* JADX WARN: Type inference failed for: r12v2 */
+    /* JADX WARN: Type inference failed for: r12v20 */
+    /* JADX WARN: Type inference failed for: r12v21 */
+    /* JADX WARN: Type inference failed for: r12v5 */
+    /* JADX WARN: Type inference failed for: r12v6, types: [java.lang.CharSequence] */
+    /* JADX WARN: Type inference failed for: r2v11 */
+    /* JADX WARN: Type inference failed for: r2v13 */
+    /* JADX WARN: Type inference failed for: r2v14 */
+    /* JADX WARN: Type inference failed for: r2v15 */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v4 */
+    /* JADX WARN: Type inference failed for: r2v6 */
+    /* JADX WARN: Type inference failed for: r2v8 */
+    /* JADX WARN: Type inference failed for: r2v9, types: [java.lang.CharSequence] */
+    /* JADX WARN: Type inference failed for: r3v1, types: [java.lang.Object[]] */
+    /* JADX WARN: Type inference failed for: r3v11 */
+    /* JADX WARN: Type inference failed for: r3v13 */
+    /* JADX WARN: Type inference failed for: r3v14 */
+    /* JADX WARN: Type inference failed for: r3v4 */
+    /* JADX WARN: Type inference failed for: r3v6 */
+    /* JADX WARN: Type inference failed for: r3v9, types: [java.lang.CharSequence, java.lang.Object] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void d(PersonPostModel.PostInfoList postInfoList, boolean z, String str) {
+        CharSequence charSequence;
+        CharSequence charSequence2;
+        CharSequence charSequence3;
+        CharSequence charSequence4;
+        CharSequence charSequence5;
+        ?? r0 = $ic;
+        if (r0 != 0) {
+            charSequence = new Object[]{postInfoList, Boolean.valueOf((boolean) z), str};
+            if (r0.invokeCommon(1048579, this, charSequence) != null) {
+                return;
+            }
         }
-        this.f25020f.setVisibility(0);
+        String[] strArr = new String[4];
+        CharSequence charSequence6 = 1000;
+        charSequence6 = 1000;
+        boolean z2 = true;
+        CharSequence charSequence7 = null;
+        try {
+            try {
+                try {
+                    try {
+                        if (z != 0) {
+                            String str2 = StringUtils.isNull(postInfoList.name_show) ? postInfoList.user_name : postInfoList.name_show;
+                            strArr[0] = String.valueOf(postInfoList.thread_id);
+                            strArr[1] = String.valueOf(postInfoList.post_id);
+                            String formatTime = StringHelper.getFormatTime(postInfoList.create_time * 1000);
+                            String str3 = postInfoList.forum_name;
+                            charSequence7 = String.valueOf(postInfoList.reply_num);
+                            strArr[3] = String.valueOf(postInfoList.thread_type);
+                            charSequence6 = formatTime;
+                            charSequence = str3;
+                            z = str2;
+                        } else {
+                            String str4 = StringUtils.isNull(postInfoList.name_show) ? postInfoList.user_name : postInfoList.name_show;
+                            strArr[0] = String.valueOf(postInfoList.thread_id);
+                            strArr[1] = String.valueOf(postInfoList.content[0].post_id);
+                            strArr[2] = String.valueOf(postInfoList.content[0].post_type);
+                            strArr[3] = String.valueOf(postInfoList.thread_type);
+                            String formatTime2 = StringHelper.getFormatTime(postInfoList.create_time * 1000);
+                            String str5 = postInfoList.forum_name;
+                            charSequence7 = String.valueOf(postInfoList.reply_num);
+                            charSequence6 = formatTime2;
+                            charSequence = str5;
+                            z = str4;
+                        }
+                    } catch (Exception unused) {
+                        charSequence2 = charSequence7;
+                        charSequence3 = charSequence2;
+                        charSequence5 = charSequence6;
+                        charSequence4 = z;
+                        charSequence7 = charSequence4;
+                        charSequence6 = charSequence5;
+                        charSequence = charSequence3;
+                        z = charSequence7;
+                        z2 = false;
+                        charSequence7 = charSequence2;
+                        if (z2) {
+                        }
+                    }
+                } catch (Exception unused2) {
+                    charSequence2 = null;
+                    charSequence6 = null;
+                    charSequence = null;
+                    z = charSequence7;
+                    z2 = false;
+                    charSequence7 = charSequence2;
+                    if (z2) {
+                    }
+                }
+            } catch (Exception unused3) {
+                charSequence2 = charSequence7;
+                charSequence5 = charSequence6;
+                charSequence3 = charSequence;
+                charSequence4 = z;
+                charSequence7 = charSequence4;
+                charSequence6 = charSequence5;
+                charSequence = charSequence3;
+                z = charSequence7;
+                z2 = false;
+                charSequence7 = charSequence2;
+                if (z2) {
+                }
+            }
+        } catch (Exception unused4) {
+            charSequence2 = charSequence7;
+            CharSequence charSequence8 = charSequence2;
+            charSequence3 = charSequence8;
+            charSequence5 = charSequence8;
+            charSequence4 = z;
+            charSequence7 = charSequence4;
+            charSequence6 = charSequence5;
+            charSequence = charSequence3;
+            z = charSequence7;
+            z2 = false;
+            charSequence7 = charSequence2;
+            if (z2) {
+            }
+        }
+        if (z2) {
+            this.n.setText(z);
+            this.o.setText(charSequence6);
+            this.p.setText(charSequence);
+            this.p.setTag(charSequence);
+            this.q.setText(charSequence7);
+            this.q.setTag(strArr);
+            this.p.setOnClickListener(this);
+            b(str);
+            LinearLayout linearLayout = this.f24960g;
+            if (linearLayout != null) {
+                linearLayout.setTag(strArr);
+            }
+            this.f24961h.setTag(strArr);
+            this.f24962i.setTag(strArr);
+        }
     }
 
-    public final void n() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f25015a.isHistoryVisible()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+            if (view.getId() == R.id.forum_name) {
+                TbPageContext<?> tbPageContext = this.s;
+                if (tbPageContext != null) {
+                    tbPageContext.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.s.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
+                    return;
+                }
+                return;
+            }
+            InterfaceC1154a interfaceC1154a = this.f24963j;
+            if (interfaceC1154a != null) {
+                interfaceC1154a.a(view);
+            }
         }
-        this.f25015a.refreshHistoryList();
-        if (this.f25019e.hasFocus()) {
-            return;
-        }
-        this.f25019e.requestFocus();
-        l.K(this.f25015a.getPageContext().getPageActivity(), this.f25019e);
     }
 }

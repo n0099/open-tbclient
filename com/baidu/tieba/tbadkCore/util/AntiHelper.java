@@ -135,13 +135,13 @@ public class AntiHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f57267e;
+        public final /* synthetic */ k f57201e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f57268f;
+        public final /* synthetic */ Context f57202f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f57269g;
+        public final /* synthetic */ BlockPopInfoData f57203g;
 
         public b(k kVar, Context context, BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
@@ -158,21 +158,21 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f57267e = kVar;
-            this.f57268f = context;
-            this.f57269g = blockPopInfoData;
+            this.f57201e = kVar;
+            this.f57202f = context;
+            this.f57203g = blockPopInfoData;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                k kVar = this.f57267e;
+                k kVar = this.f57201e;
                 if (kVar != null) {
                     kVar.onPositiveButtonClick(aVar);
                 }
                 aVar.dismiss();
-                c.a.q0.m.a.l(this.f57268f, this.f57269g.ahead_url);
+                c.a.q0.m.a.l(this.f57202f, this.f57203g.ahead_url);
             }
         }
     }
@@ -183,7 +183,7 @@ public class AntiHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f57270e;
+        public final /* synthetic */ k f57204e;
 
         public c(k kVar) {
             Interceptable interceptable = $ic;
@@ -200,14 +200,14 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f57270e = kVar;
+            this.f57204e = kVar;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                k kVar = this.f57270e;
+                k kVar = this.f57204e;
                 if (kVar != null) {
                     kVar.onNavigationButtonClick(aVar);
                 }
@@ -222,7 +222,7 @@ public class AntiHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f57271e;
+        public final /* synthetic */ Context f57205e;
 
         public d(Context context) {
             Interceptable interceptable = $ic;
@@ -239,7 +239,7 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f57271e = context;
+            this.f57205e = context;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -247,7 +247,7 @@ public class AntiHelper {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                c.a.q0.m.a.l(this.f57271e, "http://tieba.baidu.com/mo/q/userappeal");
+                c.a.q0.m.a.l(this.f57205e, "http://tieba.baidu.com/mo/q/userappeal");
             }
         }
     }
@@ -286,7 +286,7 @@ public class AntiHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f57272e;
+        public final /* synthetic */ Context f57206e;
 
         public f(Context context) {
             Interceptable interceptable = $ic;
@@ -303,7 +303,7 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f57272e = context;
+            this.f57206e = context;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -311,7 +311,7 @@ public class AntiHelper {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                c.a.q0.m.a.l(this.f57272e, "http://tieba.baidu.com/mo/q/userappeal");
+                c.a.q0.m.a.l(this.f57206e, "http://tieba.baidu.com/mo/q/userappeal");
             }
         }
     }
@@ -378,10 +378,10 @@ public class AntiHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f57273e;
+        public final /* synthetic */ Context f57207e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PageType f57274f;
+        public final /* synthetic */ PageType f57208f;
 
         public i(Context context, PageType pageType) {
             Interceptable interceptable = $ic;
@@ -398,8 +398,8 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f57273e = context;
-            this.f57274f = pageType;
+            this.f57207e = context;
+            this.f57208f = pageType;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -407,7 +407,7 @@ public class AntiHelper {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f57273e, this.f57274f)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f57207e, this.f57208f)));
             }
         }
     }

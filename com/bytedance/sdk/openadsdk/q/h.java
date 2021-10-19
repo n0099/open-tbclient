@@ -33,13 +33,13 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f69163a;
+        public String f69198a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f69164b;
+        public String f69199b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f69165c;
+        public String f69200c;
 
         public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -56,9 +56,9 @@ public class h {
                     return;
                 }
             }
-            this.f69163a = str;
-            this.f69164b = str2;
-            this.f69165c = str3;
+            this.f69198a = str;
+            this.f69199b = str2;
+            this.f69200c = str3;
         }
 
         public boolean equals(Object obj) {
@@ -68,8 +68,8 @@ public class h {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    String str2 = this.f69163a;
-                    return str2 != null && str2.equals(aVar.f69163a) && (str = this.f69165c) != null && str.equals(aVar.f69165c);
+                    String str2 = this.f69198a;
+                    return str2 != null && str2.equals(aVar.f69198a) && (str = this.f69200c) != null && str.equals(aVar.f69200c);
                 }
                 return super.equals(obj);
             }
@@ -81,7 +81,7 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 try {
-                    return "<" + this.f69163a + " name=\"" + this.f69164b + "\" path=\"" + this.f69165c + "\" />";
+                    return "<" + this.f69198a + " name=\"" + this.f69199b + "\" path=\"" + this.f69200c + "\" />";
                 } catch (Throwable unused) {
                     return super.toString();
                 }

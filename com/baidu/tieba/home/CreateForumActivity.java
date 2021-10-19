@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.e.e.p.l;
-import c.a.q0.t.c.k0;
+import c.a.q0.t.c.l0;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -51,7 +51,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CreateForumActivity f52113e;
+        public final /* synthetic */ CreateForumActivity f52040e;
 
         public a(CreateForumActivity createForumActivity) {
             Interceptable interceptable = $ic;
@@ -68,19 +68,19 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                     return;
                 }
             }
-            this.f52113e = createForumActivity;
+            this.f52040e = createForumActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f52113e.mCreate) {
-                    this.f52113e.startCreateTask();
+                if (view == this.f52040e.mCreate) {
+                    this.f52040e.startCreateTask();
                     TiebaStatic.log("c11223");
                     return;
                 }
-                this.f52113e.startImageTask();
+                this.f52040e.startImageTask();
             }
         }
     }
@@ -91,7 +91,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CreateForumActivity f52114e;
+        public final /* synthetic */ CreateForumActivity f52041e;
 
         public b(CreateForumActivity createForumActivity) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                     return;
                 }
             }
-            this.f52114e = createForumActivity;
+            this.f52041e = createForumActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -117,11 +117,11 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    if (this.f52114e.mEditName.hasFocus()) {
-                        l.x(this.f52114e.getPageContext().getPageActivity(), this.f52114e.mEditName);
+                    if (this.f52041e.mEditName.hasFocus()) {
+                        l.x(this.f52041e.getPageContext().getPageActivity(), this.f52041e.mEditName);
                     }
-                    if (this.f52114e.mEditVcode.hasFocus()) {
-                        l.x(this.f52114e.getPageContext().getPageActivity(), this.f52114e.mEditVcode);
+                    if (this.f52041e.mEditVcode.hasFocus()) {
+                        l.x(this.f52041e.getPageContext().getPageActivity(), this.f52041e.mEditVcode);
                         return false;
                     }
                     return false;
@@ -138,16 +138,16 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f52115a;
+        public String f52042a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f52116b;
+        public String f52043b;
 
         /* renamed from: c  reason: collision with root package name */
-        public NetWork f52117c;
+        public NetWork f52044c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CreateForumActivity f52118d;
+        public final /* synthetic */ CreateForumActivity f52045d;
 
         public c(CreateForumActivity createForumActivity, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -164,12 +164,12 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                     return;
                 }
             }
-            this.f52118d = createForumActivity;
-            this.f52115a = null;
-            this.f52116b = null;
-            this.f52117c = null;
-            this.f52115a = str;
-            this.f52116b = str2;
+            this.f52045d = createForumActivity;
+            this.f52042a = null;
+            this.f52043b = null;
+            this.f52044c = null;
+            this.f52042a = str;
+            this.f52043b = str2;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -177,11 +177,11 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.cancel(true);
-                NetWork netWork = this.f52117c;
+                NetWork netWork = this.f52044c;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f52118d.mCreateTask = null;
+                this.f52045d.mCreateTask = null;
             }
         }
 
@@ -201,13 +201,13 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/c/forum/create");
-                    this.f52117c = netWork;
+                    this.f52044c = netWork;
                     netWork.getNetContext().getRequest().mIsNeedTbs = true;
-                    this.f52117c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f52115a);
-                    this.f52117c.addPostData("vcode", this.f52116b);
-                    this.f52117c.addPostData("vcode_md5", this.f52118d.mVcode_md5);
-                    this.f52117c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
-                    this.f52117c.postNetData();
+                    this.f52044c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f52042a);
+                    this.f52044c.addPostData("vcode", this.f52043b);
+                    this.f52044c.addPostData("vcode_md5", this.f52045d.mVcode_md5);
+                    this.f52044c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                    this.f52044c.postNetData();
                     return null;
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
@@ -223,15 +223,15 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 super.onPostExecute((c) str);
-                this.f52118d.mCreateTask = null;
-                if (this.f52117c.getNetContext().getResponse().isRequestSuccess()) {
-                    CreateForumSuccessActivity.startActivity(this.f52118d.getPageContext().getPageActivity(), this.f52115a);
-                    this.f52118d.finish();
+                this.f52045d.mCreateTask = null;
+                if (this.f52044c.getNetContext().getResponse().isRequestSuccess()) {
+                    CreateForumSuccessActivity.startActivity(this.f52045d.getPageContext().getPageActivity(), this.f52042a);
+                    this.f52045d.finish();
                     return;
                 }
-                this.f52118d.showToast(this.f52117c.getErrorString());
-                if (this.f52117c.isNetSuccess()) {
-                    this.f52118d.startImageTask();
+                this.f52045d.showToast(this.f52044c.getErrorString());
+                if (this.f52044c.isNetSuccess()) {
+                    this.f52045d.startImageTask();
                 }
             }
         }
@@ -243,13 +243,13 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f52119a;
+        public NetWork f52046a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f52120b;
+        public volatile boolean f52047b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CreateForumActivity f52121c;
+        public final /* synthetic */ CreateForumActivity f52048c;
 
         public d(CreateForumActivity createForumActivity) {
             Interceptable interceptable = $ic;
@@ -266,9 +266,9 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                     return;
                 }
             }
-            this.f52121c = createForumActivity;
-            this.f52119a = null;
-            this.f52120b = false;
+            this.f52048c = createForumActivity;
+            this.f52046a = null;
+            this.f52047b = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -280,22 +280,22 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/anti/vcode");
-                    this.f52119a = netWork;
+                    this.f52046a = netWork;
                     netWork.addPostData("fid", "0");
-                    this.f52119a.addPostData("pub_type", "0");
-                    this.f52119a.addPostData("fname", "");
-                    this.f52119a.addPostData("tid", "0");
-                    String postNetData = this.f52119a.postNetData();
-                    if (this.f52119a.getNetContext().getResponse().isRequestSuccess()) {
-                        k0 k0Var = new k0();
-                        k0Var.e(postNetData);
-                        if (k0Var.c() != null && k0Var.c().length() > 0) {
-                            this.f52121c.mVcode_md5 = k0Var.b();
-                            if (this.f52120b) {
+                    this.f52046a.addPostData("pub_type", "0");
+                    this.f52046a.addPostData("fname", "");
+                    this.f52046a.addPostData("tid", "0");
+                    String postNetData = this.f52046a.postNetData();
+                    if (this.f52046a.getNetContext().getResponse().isRequestSuccess()) {
+                        l0 l0Var = new l0();
+                        l0Var.e(postNetData);
+                        if (l0Var.c() != null && l0Var.c().length() > 0) {
+                            this.f52048c.mVcode_md5 = l0Var.b();
+                            if (this.f52047b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(k0Var.c());
-                            this.f52119a = netWork2;
+                            NetWork netWork2 = new NetWork(l0Var.c());
+                            this.f52046a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
                     }
@@ -312,12 +312,12 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 super.cancel(true);
-                this.f52120b = true;
-                NetWork netWork = this.f52119a;
+                this.f52047b = true;
+                NetWork netWork = this.f52046a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f52121c.mGetImageTask = null;
+                this.f52048c.mGetImageTask = null;
             }
         }
 
@@ -326,8 +326,8 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 super.onPreExecute();
-                this.f52121c.mVcode_md5 = null;
-                this.f52121c.mImage.setImageDrawable(null);
+                this.f52048c.mVcode_md5 = null;
+                this.f52048c.mImage.setImageDrawable(null);
             }
         }
 
@@ -337,9 +337,9 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
                 super.onPostExecute((d) bitmap);
-                this.f52121c.mGetImageTask = null;
+                this.f52048c.mGetImageTask = null;
                 if (bitmap != null) {
-                    this.f52121c.mImage.setImageBitmap(bitmap);
+                    this.f52048c.mImage.setImageBitmap(bitmap);
                 }
             }
         }

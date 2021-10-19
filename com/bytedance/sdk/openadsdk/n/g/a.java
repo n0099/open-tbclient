@@ -18,14 +18,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f68602a;
+    public static Context f68637a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             if (context != null) {
-                f68602a = context;
+                f68637a = context;
                 return;
             }
             throw null;
@@ -78,7 +78,7 @@ public class a {
     public static File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b(f68602a) : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b(f68637a) : (File) invokeV.objValue;
     }
 
     public static File b() {

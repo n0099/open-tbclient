@@ -77,7 +77,7 @@ public class d implements b<String> {
                 for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
                     ActivityInfo activityInfo = resolveInfo.activityInfo;
                     if (activityInfo != null && activityInfo.applicationInfo != null && !this.f12401a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                        File file = new File(new File(resolveInfo.activityInfo.applicationInfo.dataDir, com.baidu.fsg.face.base.b.c.f39841g), "libuuid.so");
+                        File file = new File(new File(resolveInfo.activityInfo.applicationInfo.dataDir, com.baidu.fsg.face.base.b.c.f39845g), "libuuid.so");
                         if (file.exists()) {
                             str = c.a.p0.u.d.a.c(file);
                         }

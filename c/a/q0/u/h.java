@@ -13,10 +13,10 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f15034a;
+    public TbPageContext f15057a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15035b;
+    public String f15058b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public class h {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15035b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15058b : (String) invokeV.objValue;
     }
 
     public TbPageContext b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15034a : (TbPageContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15057a : (TbPageContext) invokeV.objValue;
     }
 
     public h(TbPageContext tbPageContext, String str) {
@@ -59,7 +59,7 @@ public class h {
                 return;
             }
         }
-        this.f15034a = tbPageContext;
-        this.f15035b = str;
+        this.f15057a = tbPageContext;
+        this.f15058b = str;
     }
 }

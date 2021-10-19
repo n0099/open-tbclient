@@ -39,39 +39,39 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f14905a;
+    public final Context f14929a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.q0.t.g.c f14906b;
+    public c.a.q0.t.g.c f14930b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f14907c;
+    public d f14931c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14908d;
+    public String f14932d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14909e;
+    public String f14933e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.q0.t.g.b f14910f;
+    public c.a.q0.t.g.b f14934f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.InterfaceC0704b f14911g;
+    public b.InterfaceC0706b f14935g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.InterfaceC0704b f14912h;
+    public b.InterfaceC0706b f14936h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.InterfaceC0704b f14913i;
+    public b.InterfaceC0706b f14937i;
 
     /* loaded from: classes3.dex */
-    public class a implements b.InterfaceC0704b {
+    public class a implements b.InterfaceC0706b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f14914a;
+        public final /* synthetic */ g f14938a;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -88,25 +88,25 @@ public class g {
                     return;
                 }
             }
-            this.f14914a = gVar;
+            this.f14938a = gVar;
         }
 
-        @Override // c.a.q0.t.g.b.InterfaceC0704b
+        @Override // c.a.q0.t.g.b.InterfaceC0706b
         public void a(ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-                this.f14914a.f14907c.a(this.f14914a.q(shareItem, ThirdPartyUtil.TYPE_WEIXIN), 3, false);
+                this.f14938a.f14931c.a(this.f14938a.q(shareItem, ThirdPartyUtil.TYPE_WEIXIN), 3, false);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements b.InterfaceC0704b {
+    public class b implements b.InterfaceC0706b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f14915a;
+        public final /* synthetic */ g f14939a;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -123,25 +123,25 @@ public class g {
                     return;
                 }
             }
-            this.f14915a = gVar;
+            this.f14939a = gVar;
         }
 
-        @Override // c.a.q0.t.g.b.InterfaceC0704b
+        @Override // c.a.q0.t.g.b.InterfaceC0706b
         public void a(ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-                this.f14915a.f14907c.a(this.f14915a.q(shareItem, Share.QQFRIEND), 8, true);
+                this.f14939a.f14931c.a(this.f14939a.q(shareItem, Share.QQFRIEND), 8, true);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements b.InterfaceC0704b {
+    public class c implements b.InterfaceC0706b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f14916a;
+        public final /* synthetic */ g f14940a;
 
         public c(g gVar) {
             Interceptable interceptable = $ic;
@@ -158,14 +158,14 @@ public class g {
                     return;
                 }
             }
-            this.f14916a = gVar;
+            this.f14940a = gVar;
         }
 
-        @Override // c.a.q0.t.g.b.InterfaceC0704b
+        @Override // c.a.q0.t.g.b.InterfaceC0706b
         public void a(ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-                this.f14916a.f14907c.a(this.f14916a.q(shareItem, "qzone"), 4, true);
+                this.f14940a.f14931c.a(this.f14940a.q(shareItem, "qzone"), 4, true);
             }
         }
     }
@@ -186,20 +186,20 @@ public class g {
                 return;
             }
         }
-        this.f14906b = null;
-        this.f14907c = null;
-        this.f14908d = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
-        this.f14909e = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.f14908d;
-        this.f14911g = new a(this);
-        this.f14912h = new b(this);
-        this.f14913i = new c(this);
-        this.f14905a = context;
-        this.f14906b = cVar;
+        this.f14930b = null;
+        this.f14931c = null;
+        this.f14932d = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
+        this.f14933e = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.f14932d;
+        this.f14935g = new a(this);
+        this.f14936h = new b(this);
+        this.f14937i = new c(this);
+        this.f14929a = context;
+        this.f14930b = cVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001445, e.class);
         if (runTask == null || runTask.getData() == null || (eVar = (e) runTask.getData()) == null) {
             return;
         }
-        this.f14907c = eVar.a(this.f14905a, this.f14906b);
+        this.f14931c = eVar.a(this.f14929a, this.f14930b);
     }
 
     public static String d(String str, String str2) {
@@ -295,125 +295,125 @@ public class g {
 
     public void h(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareItem) == null) || this.f14907c == null || shareItem == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareItem) == null) || this.f14931c == null || shareItem == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, 80, 32, shareItem.f0 ? this.f14908d : "");
+        shareItem.s = c(shareItem.s, 80, 32, shareItem.f0 ? this.f14932d : "");
         if (!QqShareH5Switch.isOn() && !k.isEmpty(shareItem.i0)) {
             shareItem.v = Uri.parse(shareItem.i0);
-            this.f14907c.a(q(shareItem, Share.QQFRIEND), 8, true);
+            this.f14931c.a(q(shareItem, Share.QQFRIEND), 8, true);
         } else if (!QqShareH5Switch.isOn() && k.isEmpty(shareItem.i0) && !k.isEmpty(shareItem.K) && !"0".equals(shareItem.K)) {
-            if (this.f14910f == null) {
+            if (this.f14934f == null) {
                 c.a.q0.t.g.b bVar = new c.a.q0.t.g.b();
-                this.f14910f = bVar;
-                bVar.c(this.f14912h);
+                this.f14934f = bVar;
+                bVar.c(this.f14936h);
             }
-            this.f14910f.b(shareItem);
+            this.f14934f.b(shareItem);
         } else {
             if (!QqShareH5Switch.isOn()) {
-                if (this.f14910f == null) {
-                    this.f14910f = new c.a.q0.t.g.b();
+                if (this.f14934f == null) {
+                    this.f14934f = new c.a.q0.t.g.b();
                 }
-                this.f14910f.b(shareItem);
+                this.f14934f.b(shareItem);
             }
-            this.f14907c.a(q(shareItem, Share.QQFRIEND), 8, true);
+            this.f14931c.a(q(shareItem, Share.QQFRIEND), 8, true);
         }
     }
 
     public void i(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, shareItem) == null) || this.f14907c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, shareItem) == null) || this.f14931c == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, 80, 32, shareItem.f0 ? this.f14908d : "");
+        shareItem.s = c(shareItem.s, 80, 32, shareItem.f0 ? this.f14932d : "");
         if (!QqShareH5Switch.isOn() && !k.isEmpty(shareItem.i0)) {
             shareItem.v = Uri.parse(shareItem.i0);
-            this.f14907c.a(q(shareItem, "qzone"), 4, true);
+            this.f14931c.a(q(shareItem, "qzone"), 4, true);
         } else if (!QqShareH5Switch.isOn() && k.isEmpty(shareItem.i0) && !k.isEmpty(shareItem.K) && !"0".equals(shareItem.K)) {
-            if (this.f14910f == null) {
+            if (this.f14934f == null) {
                 c.a.q0.t.g.b bVar = new c.a.q0.t.g.b();
-                this.f14910f = bVar;
-                bVar.c(this.f14913i);
+                this.f14934f = bVar;
+                bVar.c(this.f14937i);
             }
-            this.f14910f.b(shareItem);
+            this.f14934f.b(shareItem);
         } else {
             if (!QqShareH5Switch.isOn()) {
-                if (this.f14910f == null) {
-                    this.f14910f = new c.a.q0.t.g.b();
+                if (this.f14934f == null) {
+                    this.f14934f = new c.a.q0.t.g.b();
                 }
-                this.f14910f.b(shareItem);
+                this.f14934f.b(shareItem);
             }
-            this.f14907c.a(q(shareItem, "qzone"), 4, true);
+            this.f14931c.a(q(shareItem, "qzone"), 4, true);
         }
     }
 
     public void j(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, shareItem) == null) || this.f14907c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, shareItem) == null) || this.f14931c == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, 140, 20, shareItem.f0 ? this.f14908d : "");
-        this.f14907c.a(q(shareItem, "renren"), 7, true);
+        shareItem.s = c(shareItem.s, 140, 20, shareItem.f0 ? this.f14932d : "");
+        this.f14931c.a(q(shareItem, "renren"), 7, true);
     }
 
     public void k(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, shareItem) == null) || this.f14907c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, shareItem) == null) || this.f14931c == null) {
             return;
         }
         if (!c.a.q0.t.g.a.b(TbadkApplication.getInst().getApplicationContext(), 6)) {
             BdToast.c(TbadkApplication.getInst().getApplicationContext(), TbadkApplication.getInst().getApplicationContext().getText(R.string.share_sina_weibo_not_install)).q();
             return;
         }
-        shareItem.s = c(shareItem.s, 140, 20, shareItem.f0 ? this.f14909e : "");
-        this.f14907c.a(q(shareItem, "sina_weibo"), 6, true);
+        shareItem.s = c(shareItem.s, 140, 20, shareItem.f0 ? this.f14933e : "");
+        this.f14931c.a(q(shareItem, "sina_weibo"), 6, true);
     }
 
     public void l(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, shareItem) == null) || this.f14907c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, shareItem) == null) || this.f14931c == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, 140, 20, shareItem.f0 ? this.f14908d : "");
-        this.f14907c.a(q(shareItem, "tencent_weibo"), 5, true);
+        shareItem.s = c(shareItem.s, 140, 20, shareItem.f0 ? this.f14932d : "");
+        this.f14931c.a(q(shareItem, "tencent_weibo"), 5, true);
     }
 
     public void m(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, shareItem) == null) || this.f14907c == null || shareItem == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, shareItem) == null) || this.f14931c == null || shareItem == null) {
             return;
         }
         if (StringUtils.isNull(shareItem.K)) {
-            shareItem.s = c(shareItem.s, 80, 20, shareItem.f0 ? this.f14908d : "");
+            shareItem.s = c(shareItem.s, 80, 20, shareItem.f0 ? this.f14932d : "");
         }
         if (shareItem.j0 && !k.isEmpty(shareItem.i0)) {
             shareItem.v = Uri.parse(shareItem.i0);
-            this.f14907c.a(q(shareItem, ThirdPartyUtil.TYPE_WEIXIN), 3, false);
+            this.f14931c.a(q(shareItem, ThirdPartyUtil.TYPE_WEIXIN), 3, false);
         } else if (shareItem.j0 && k.isEmpty(shareItem.i0) && !k.isEmpty(shareItem.K) && !"0".equals(shareItem.K)) {
-            if (this.f14910f == null) {
+            if (this.f14934f == null) {
                 c.a.q0.t.g.b bVar = new c.a.q0.t.g.b();
-                this.f14910f = bVar;
-                bVar.c(this.f14911g);
+                this.f14934f = bVar;
+                bVar.c(this.f14935g);
             }
-            this.f14910f.b(shareItem);
+            this.f14934f.b(shareItem);
         } else {
             if (shareItem.y == 4) {
-                if (this.f14910f == null) {
-                    this.f14910f = new c.a.q0.t.g.b();
+                if (this.f14934f == null) {
+                    this.f14934f = new c.a.q0.t.g.b();
                 }
-                this.f14910f.b(shareItem);
+                this.f14934f.b(shareItem);
             }
-            this.f14907c.a(q(shareItem, ThirdPartyUtil.TYPE_WEIXIN), 3, false);
+            this.f14931c.a(q(shareItem, ThirdPartyUtil.TYPE_WEIXIN), 3, false);
         }
     }
 
     public void n(ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareItem) == null) || this.f14907c == null || shareItem == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareItem) == null) || this.f14931c == null || shareItem == null) {
             return;
         }
-        shareItem.s = c(shareItem.s, 80, 20, shareItem.f0 ? this.f14908d : "");
-        this.f14907c.a(q(shareItem, Share.WEIXIN_TIMELINE), 2, false);
+        shareItem.s = c(shareItem.s, 80, 20, shareItem.f0 ? this.f14932d : "");
+        this.f14931c.a(q(shareItem, Share.WEIXIN_TIMELINE), 2, false);
     }
 
     public final ShareItem q(ShareItem shareItem, String str) {

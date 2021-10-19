@@ -32,11 +32,11 @@ public abstract class a implements u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f29933b;
+    public static final boolean f29980b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e0 f29934a;
+    public e0 f29981a;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public abstract class a implements u {
                 return;
             }
         }
-        f29933b = AppConfig.isDebug();
+        f29980b = AppConfig.isDebug();
     }
 
     public a() {
@@ -67,7 +67,7 @@ public abstract class a implements u {
                 return;
             }
         }
-        this.f29934a = new e0();
+        this.f29981a = new e0();
     }
 
     @Override // c.a.t0.u
@@ -102,7 +102,7 @@ public abstract class a implements u {
         String processUrl;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            boolean isUBCDebug = this.f29934a.isUBCDebug();
+            boolean isUBCDebug = this.f29981a.isUBCDebug();
             if (isUBCDebug) {
                 str2 = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
             } else {
@@ -132,7 +132,7 @@ public abstract class a implements u {
                 return false;
             }
             if (!c0Var.d()) {
-                if (f29933b) {
+                if (f29980b) {
                     String str = "postByteRequest, fail: " + c0Var.c();
                 } else {
                     b0.a().i(c0Var.c(), null);
@@ -143,13 +143,13 @@ public abstract class a implements u {
             try {
                 int i2 = new JSONObject(c0Var.b()).getInt("error");
                 if (i2 != 0) {
-                    boolean z = f29933b;
-                    if (!f29933b) {
+                    boolean z = f29980b;
+                    if (!f29980b) {
                         b0.a().k(i2);
                     }
                 }
             } catch (Exception e2) {
-                if (f29933b) {
+                if (f29980b) {
                     String str2 = "body tostring fail:" + e2.getMessage();
                 } else {
                     b0.a().j(Log.getStackTraceString(e2));
@@ -185,7 +185,7 @@ public abstract class a implements u {
                     return e2;
                 } catch (Exception e3) {
                     e = e3;
-                    if (!f29933b) {
+                    if (!f29980b) {
                         b0.a().i(null, Log.getStackTraceString(e));
                     }
                     Closeables.closeSafely(bufferedInputStream);
@@ -223,7 +223,7 @@ public abstract class a implements u {
                 try {
                     return e(i(d2, gZip, c2));
                 } catch (IOException e2) {
-                    if (!f29933b) {
+                    if (!f29980b) {
                         b0.a().i(null, Log.getStackTraceString(e2));
                     }
                 }

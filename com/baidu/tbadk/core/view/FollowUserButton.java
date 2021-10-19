@@ -111,7 +111,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
                 setVisibility(0);
                 setClickable(this.t);
                 c.a.q0.s.f0.n.b bVar = new c.a.q0.s.f0.n.b();
-                bVar.r(R.color.CAM_X0109);
+                bVar.s(R.color.CAM_X0109);
                 bVar.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                 setConfig(bVar);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
@@ -120,7 +120,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
                 c.a.q0.s.f0.n.b bVar2 = new c.a.q0.s.f0.n.b();
                 bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
                 bVar2.i(this.s, 0, TBSpecificationButtonConfig.IconType.SVG);
-                bVar2.q(R.color.CAM_X0304);
+                bVar2.r(R.color.CAM_X0304);
                 setConfig(bVar2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.attention));
@@ -174,7 +174,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         c.a.q0.s.f0.n.b bVar = new c.a.q0.s.f0.n.b();
         bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
         bVar.i(this.s, 0, TBSpecificationButtonConfig.IconType.SVG);
-        bVar.q(R.color.CAM_X0304);
+        bVar.r(R.color.CAM_X0304);
         setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
     }

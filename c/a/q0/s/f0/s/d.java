@@ -2,6 +2,7 @@ package c.a.q0.s.f0.s;
 
 import android.text.Editable;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -21,7 +22,7 @@ public class d extends a<d> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public AtSelectData f13908i;
+    public AtSelectData f13928i;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -42,7 +43,7 @@ public class d extends a<d> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dVar, editable)) == null) {
             d dVar2 = new d();
-            dVar2.t(dVar);
+            dVar2.b(dVar);
             dVar2.n(editable);
             return dVar2;
         }
@@ -60,14 +61,14 @@ public class d extends a<d> {
     @Override // c.a.q0.s.f0.s.a
     public void p(Editable editable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editable) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("#(at, ");
-            sb.append(this.f13908i.getPortrait());
+            sb.append(this.f13928i.getPortrait());
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.f13908i.getNameShow());
+            sb.append(this.f13928i.getNameShow());
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.f13908i.getUid());
+            sb.append(this.f13928i.getUid());
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             sb.append(" ");
             i(sb);
@@ -77,12 +78,12 @@ public class d extends a<d> {
     @Override // c.a.q0.s.f0.s.a
     public void q(Editable editable, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, editable, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, editable, i2) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("#(at, ");
-            sb.append(this.f13908i.getPortrait());
+            sb.append(this.f13928i.getPortrait());
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.f13908i.getNameShow());
+            sb.append(this.f13928i.getNameShow());
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             sb.append(" ");
             i(sb);
@@ -91,7 +92,7 @@ public class d extends a<d> {
 
     public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             o(true);
             s();
         }
@@ -99,30 +100,33 @@ public class d extends a<d> {
 
     public final void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
         }
     }
 
-    public void t(d dVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.q0.s.f0.s.a
+    /* renamed from: t */
+    public void b(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
             super.b(dVar);
-            this.f13908i = dVar.f13908i;
+            this.f13928i = dVar.f13928i;
         }
     }
 
     public AtSelectData u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13908i : (AtSelectData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13928i : (AtSelectData) invokeV.objValue;
     }
 
     public String v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return TNCManager.TNC_PROBE_HEADER_SECEPTOR + this.f13908i.getNameShow() + " ";
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return TNCManager.TNC_PROBE_HEADER_SECEPTOR + this.f13928i.getNameShow() + " ";
         }
         return (String) invokeV.objValue;
     }
@@ -142,6 +146,6 @@ public class d extends a<d> {
                 return;
             }
         }
-        this.f13908i = atSelectData;
+        this.f13928i = atSelectData;
     }
 }

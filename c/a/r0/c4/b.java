@@ -1,91 +1,40 @@
 package c.a.r0.c4;
 
-import c.a.r0.c4.q.d.a;
-import c.a.r0.e0.c;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.view.MotionEvent;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsTabInfo;
-import tbclient.SimpleForum;
 /* loaded from: classes3.dex */
-public class b implements c.a.r0.e0.c {
+public class b extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static b f16344f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.r0.c4.q.d.a f16609a;
+    public c.a.q0.f1.m.f f16345a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f16610b;
+    public int f16346b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<SimpleForum> f16611c;
+    public int f16347c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a f16612d;
+    public long f16348d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f16613e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f16614f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public a.b f16615g;
-
-    /* loaded from: classes3.dex */
-    public class a implements a.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f16616a;
-
-        public a(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f16616a = bVar;
-        }
-
-        @Override // c.a.r0.c4.q.d.a.b
-        public void a(List<SimpleForum> list, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, list, i2) == null) {
-                this.f16616a.f16611c = list;
-                this.f16616a.f16614f = i2;
-                this.f16616a.h();
-            }
-        }
-
-        @Override // c.a.r0.c4.q.d.a.b
-        public void onError() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f16616a.g();
-            }
-        }
-    }
+    public int f16349e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -100,71 +49,119 @@ public class b implements c.a.r0.e0.c {
                 return;
             }
         }
-        this.f16610b = new ArrayList<>();
-        this.f16615g = new a(this);
-        BdUniqueId gen = BdUniqueId.gen();
-        c.a.r0.c4.q.d.a aVar = new c.a.r0.c4.q.d.a(gen);
-        this.f16609a = aVar;
-        aVar.i(this.f16615g);
-        this.f16609a.j(gen);
+        this.f16349e = -1;
     }
 
-    @Override // c.a.r0.e0.c
-    public void a(c.a aVar) {
+    public static b a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f16612d = aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f16344f == null) {
+                f16344f = new b();
+            }
+            return f16344f;
         }
+        return (b) invokeV.objValue;
     }
 
-    @Override // c.a.r0.e0.c
-    public void b() {
-        c.a.r0.c4.q.d.a aVar;
+    public static boolean c(float f2, float f3, float f4, float f5, long j2, long j3, long j4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f16612d == null || (aVar = this.f16609a) == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
+            return Math.abs(f4 - f2) <= 100.0f && Math.abs(f5 - f3) <= 100.0f && j3 - j2 >= j4;
         }
-        this.f16613e = false;
-        aVar.l(null);
-        this.f16609a.k(null);
-        this.f16609a.h();
+        return invokeCommon.booleanValue;
     }
 
-    public final void g() {
+    public final c.a.q0.f1.m.f b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f16613e) {
-            return;
-        }
-        c.a aVar = this.f16612d;
-        if (aVar != null) {
-            aVar.a(null, false, 2, 0);
-        }
-        this.f16613e = true;
-    }
-
-    public final void h() {
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f16610b.clear();
-            if (ListUtils.getCount(this.f16611c) > 0) {
-                for (SimpleForum simpleForum : this.f16611c) {
-                    if (simpleForum != null && (l = simpleForum.id) != null && l.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
-                        TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
-                        transmitForumData.tabItemDatas = new ArrayList<>();
-                        for (FrsTabInfo frsTabInfo : simpleForum.tab_info) {
-                            if (frsTabInfo != null && frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_id.intValue() > 0 && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                                transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
-                            }
-                        }
-                        this.f16610b.add(transmitForumData);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, textView, spannable, motionEvent)) == null) {
+            if (motionEvent != null && motionEvent.getAction() != 3) {
+                int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+                int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+                int scrollX = x + textView.getScrollX();
+                int scrollY = y + textView.getScrollY();
+                try {
+                    Layout layout = textView.getLayout();
+                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+                    c.a.q0.f1.m.f[] fVarArr = (c.a.q0.f1.m.f[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, c.a.q0.f1.m.f.class);
+                    if (fVarArr == null || fVarArr.length <= 0 || fVarArr[0] == null) {
+                        return null;
                     }
+                    return fVarArr[0];
+                } catch (Exception e2) {
+                    BdLog.e(e2);
+                    return this.f16345a;
                 }
             }
-            c.a aVar = this.f16612d;
-            if (aVar != null) {
-                aVar.a(this.f16610b, true, 2, this.f16614f);
+            return this.f16345a;
+        }
+        return (c.a.q0.f1.m.f) invokeLLL.objValue;
+    }
+
+    public void d(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f16349e = i2;
+        }
+    }
+
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, spannable, motionEvent)) == null) {
+            c.a.q0.f1.m.f b2 = b(textView, spannable, motionEvent);
+            if (b2 == null && motionEvent.getAction() == 0) {
+                try {
+                    return super.onTouchEvent(textView, spannable, motionEvent);
+                } catch (Exception e2) {
+                    BdLog.e(e2);
+                    return true;
+                }
+            }
+            if (b2 != null) {
+                this.f16345a = b2;
+            }
+            int i2 = this.f16349e;
+            if (i2 > -1) {
+                this.f16345a.g(i2);
+            }
+            if (motionEvent.getAction() == 0) {
+                this.f16346b = (int) motionEvent.getX();
+                this.f16347c = (int) motionEvent.getY();
+                this.f16348d = System.currentTimeMillis();
+                c.a.q0.f1.m.f fVar = this.f16345a;
+                if (fVar != null) {
+                    fVar.h(1);
+                    Selection.setSelection(spannable, spannable.getSpanStart(this.f16345a), spannable.getSpanEnd(this.f16345a));
+                }
+                textView.invalidate();
+            } else if (motionEvent.getAction() == 2) {
+                if (this.f16345a != null && (Math.abs(this.f16346b - motionEvent.getX()) > 20.0f || Math.abs(this.f16347c - motionEvent.getY()) > 20.0f)) {
+                    this.f16345a.h(2);
+                    textView.invalidate();
+                    Selection.removeSelection(spannable);
+                }
+            } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
+                c.a.q0.f1.m.f fVar2 = this.f16345a;
+                if (fVar2 != null) {
+                    fVar2.h(2);
+                    textView.invalidate();
+                    Selection.removeSelection(spannable);
+                }
+                if (c(this.f16346b, this.f16347c, motionEvent.getX(), motionEvent.getY(), this.f16348d, System.currentTimeMillis(), 500L)) {
+                    return true;
+                }
+            }
+            try {
+                return super.onTouchEvent(textView, spannable, motionEvent);
+            } catch (Exception e3) {
+                BdLog.e(e3);
+                return true;
             }
         }
+        return invokeLLL.booleanValue;
     }
 }

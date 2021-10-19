@@ -166,9 +166,17 @@ public class SelectForumActivityConfig extends IntentConfig {
         getIntent().putExtra(EXTRA_KEY_PRIVATE_THREAD, i2);
     }
 
-    public void setTransmitOriginThreadComment(String str) {
+    public void setTopicId(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || getIntent() == null) {
+            return;
+        }
+        getIntent().putExtra("topic_id", str);
+    }
+
+    public void setTransmitOriginThreadComment(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT, str);
@@ -176,7 +184,7 @@ public class SelectForumActivityConfig extends IntentConfig {
 
     public void setTransmitThreadAuthorNameShow(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);
@@ -184,7 +192,7 @@ public class SelectForumActivityConfig extends IntentConfig {
 
     public void setYyAnchorBdUid(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra("extra_key_yy_anchor_bduid", str);

@@ -34,32 +34,32 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     public static final String KEY_VERSION = "key_version";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f44842h = "ShareResultProxyActivity";
+    public static final String f44754h = "ShareResultProxyActivity";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f44843i = "key_launch_share_activity_status";
+    public static final String f44755i = "key_launch_share_activity_status";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44844a;
+    public String f44756a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44845b;
+    public String f44757b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f44846c;
+    public String f44758c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f44847d;
+    public String f44759d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<PassNameValuePair> f44848e;
+    public ArrayList<PassNameValuePair> f44760e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f44849f;
+    public String f44761f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f44850g;
+    public boolean f44762g;
 
     public ShareResultProxyActivity() {
         Interceptable interceptable = $ic;
@@ -78,14 +78,14 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f44850g = true;
-            this.f44844a = getIntent().getStringExtra(KEY_PKG);
-            if (ShareLoginModel.getInstance().isMeetShareV4(this, this.f44844a)) {
-                Log.d(f44842h, "openShareLogin: is meet share_v4");
-                ShareLoginModel.getInstance().openV4ShareLogin(this, this.f44844a, "product");
+            this.f44762g = true;
+            this.f44756a = getIntent().getStringExtra(KEY_PKG);
+            if (ShareLoginModel.getInstance().isMeetShareV4(this, this.f44756a)) {
+                Log.d(f44754h, "openShareLogin: is meet share_v4");
+                ShareLoginModel.getInstance().openV4ShareLogin(this, this.f44756a, "product");
                 return;
             }
-            Log.d(f44842h, "openShareLogin: is not share_v4");
+            Log.d(f44754h, "openShareLogin: is not share_v4");
             b();
         }
     }
@@ -94,13 +94,13 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             Intent intent = getIntent();
-            this.f44844a = intent.getStringExtra(KEY_PKG);
-            this.f44845b = intent.getStringExtra("key_url");
-            this.f44846c = intent.getStringExtra(KEY_TRACE_ID);
-            this.f44847d = intent.getStringExtra("key_session_id");
-            this.f44848e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
-            this.f44849f = intent.getStringExtra("key_version");
-            new ShareCallPacking().startLoginShareActivityForResult(this, this.f44844a, this.f44845b, this.f44846c, this.f44847d, this.f44848e, this.f44849f, "product");
+            this.f44756a = intent.getStringExtra(KEY_PKG);
+            this.f44757b = intent.getStringExtra("key_url");
+            this.f44758c = intent.getStringExtra(KEY_TRACE_ID);
+            this.f44759d = intent.getStringExtra("key_session_id");
+            this.f44760e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
+            this.f44761f = intent.getStringExtra("key_version");
+            new ShareCallPacking().startLoginShareActivityForResult(this, this.f44756a, this.f44757b, this.f44758c, this.f44759d, this.f44760e, this.f44761f, "product");
         }
     }
 
@@ -117,7 +117,7 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ ShareResultProxyActivity f44851a;
+                    public final /* synthetic */ ShareResultProxyActivity f44763a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -134,7 +134,7 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f44851a = this;
+                        this.f44763a = this;
                     }
 
                     @Override // com.baidu.sapi2.share.ShareResultCallback
@@ -178,9 +178,9 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
             attributes.flags = 32;
             window.setAttributes(attributes);
             if (bundle != null) {
-                this.f44850g = bundle.getBoolean(f44843i, false);
+                this.f44762g = bundle.getBoolean(f44755i, false);
             }
-            if (this.f44850g) {
+            if (this.f44762g) {
                 return;
             }
             a();
@@ -191,7 +191,7 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            bundle.putBoolean(f44843i, this.f44850g);
+            bundle.putBoolean(f44755i, this.f44762g);
             super.onSaveInstanceState(bundle);
         }
     }

@@ -70,7 +70,7 @@ public class j {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f71681a;
+            public final /* synthetic */ List f71716a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -87,7 +87,7 @@ public class j {
                         return;
                     }
                 }
-                this.f71681a = list;
+                this.f71716a = list;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -112,7 +112,7 @@ public class j {
             public com.kwad.sdk.collector.b.b b() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new com.kwad.sdk.collector.b.b(this.f71681a) : (com.kwad.sdk.collector.b.b) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new com.kwad.sdk.collector.b.b(this.f71716a) : (com.kwad.sdk.collector.b.b) invokeV.objValue;
             }
 
             @Override // com.kwad.sdk.core.network.i
@@ -129,7 +129,7 @@ public class j {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f71682a;
+            public final /* synthetic */ Context f71717a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -146,14 +146,14 @@ public class j {
                         return;
                     }
                 }
-                this.f71682a = context;
+                this.f71717a = context;
             }
 
             private synchronized void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(65537, this) == null) {
                     synchronized (this) {
-                        j.a(this.f71682a);
+                        j.a(this.f71717a);
                     }
                 }
             }

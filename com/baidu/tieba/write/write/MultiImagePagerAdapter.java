@@ -14,7 +14,7 @@ import c.a.e.e.p.l;
 import c.a.q0.d0.i.e;
 import c.a.q0.d1.k;
 import c.a.q0.s.s.a;
-import c.a.r0.c4.u.j;
+import c.a.r0.d4.u.j;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -41,22 +41,22 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public WriteMultiImgsActivity f59077e;
+    public WriteMultiImgsActivity f59025e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageFileInfo[] f59078f;
+    public ImageFileInfo[] f59026f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewPager f59079g;
+    public ViewPager f59027g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f59080h;
+    public c f59028h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f59081i;
+    public int f59029i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f59082j;
+    public int f59030j;
     public d[] k;
     public int l;
     public LinkedList<ImageFileInfo> m;
@@ -73,18 +73,18 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MultiImagePagerAdapter f59083e;
+        public final /* synthetic */ MultiImagePagerAdapter f59031e;
 
         /* renamed from: com.baidu.tieba.write.write.MultiImagePagerAdapter$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1809a implements c.a.r0.c4.u.n.b.c {
+        public class C1811a implements c.a.r0.d4.u.n.b.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f59084a;
+            public final /* synthetic */ a f59032a;
 
-            public C1809a(a aVar) {
+            public C1811a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,25 +99,25 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                         return;
                     }
                 }
-                this.f59084a = aVar;
+                this.f59032a = aVar;
             }
 
-            @Override // c.a.r0.c4.u.n.b.c
+            @Override // c.a.r0.d4.u.n.b.c
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f59084a.f59083e.f59080h.a();
+                    this.f59032a.f59031e.f59028h.a();
                 }
             }
 
-            @Override // c.a.r0.c4.u.n.b.c
+            @Override // c.a.r0.d4.u.n.b.c
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 }
             }
 
-            @Override // c.a.r0.c4.u.n.b.c
+            @Override // c.a.r0.d4.u.n.b.c
             public boolean c(Bitmap bitmap) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                 return invokeL.booleanValue;
             }
 
-            @Override // c.a.r0.c4.u.n.b.c
+            @Override // c.a.r0.d4.u.n.b.c
             public void d() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -150,18 +150,18 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                     return;
                 }
             }
-            this.f59083e = multiImagePagerAdapter;
+            this.f59031e = multiImagePagerAdapter;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (this.f59083e.q != null) {
-                    this.f59083e.q.dismiss();
+                if (this.f59031e.q != null) {
+                    this.f59031e.q.dismiss();
                 }
-                this.f59083e.p.f16982f.removeAllSticker(new C1809a(this));
-                MultiImagePagerAdapter multiImagePagerAdapter = this.f59083e;
+                this.f59031e.p.f17156f.removeAllSticker(new C1811a(this));
+                MultiImagePagerAdapter multiImagePagerAdapter = this.f59031e;
                 multiImagePagerAdapter.i(multiImagePagerAdapter.l, false);
             }
         }
@@ -173,7 +173,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MultiImagePagerAdapter f59085e;
+        public final /* synthetic */ MultiImagePagerAdapter f59033e;
 
         public b(MultiImagePagerAdapter multiImagePagerAdapter) {
             Interceptable interceptable = $ic;
@@ -190,16 +190,16 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                     return;
                 }
             }
-            this.f59085e = multiImagePagerAdapter;
+            this.f59033e = multiImagePagerAdapter;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f59085e.q == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f59033e.q == null) {
                 return;
             }
-            this.f59085e.q.dismiss();
+            this.f59033e.q.dismiss();
         }
     }
 
@@ -220,19 +220,19 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public FrameLayout f59086a;
+        public FrameLayout f59034a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f59087b;
+        public TbImageView f59035b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ProgressBar f59088c;
+        public ProgressBar f59036c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.a.q0.d0.b f59089d;
+        public c.a.q0.d0.b f59037d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MultiImagePagerAdapter f59090e;
+        public final /* synthetic */ MultiImagePagerAdapter f59038e;
 
         /* loaded from: classes7.dex */
         public class a implements View.OnClickListener {
@@ -240,7 +240,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f59091e;
+            public final /* synthetic */ d f59039e;
 
             public a(d dVar, MultiImagePagerAdapter multiImagePagerAdapter) {
                 Interceptable interceptable = $ic;
@@ -257,16 +257,16 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                         return;
                     }
                 }
-                this.f59091e = dVar;
+                this.f59039e = dVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f59091e.f59090e.f59080h == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f59039e.f59038e.f59028h == null) {
                     return;
                 }
-                this.f59091e.f59090e.f59080h.d();
+                this.f59039e.f59038e.f59028h.d();
             }
         }
 
@@ -276,10 +276,10 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ImageFileInfo f59092e;
+            public final /* synthetic */ ImageFileInfo f59040e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d f59093f;
+            public final /* synthetic */ d f59041f;
 
             public b(d dVar, ImageFileInfo imageFileInfo) {
                 Interceptable interceptable = $ic;
@@ -296,18 +296,18 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                         return;
                     }
                 }
-                this.f59093f = dVar;
-                this.f59092e = imageFileInfo;
+                this.f59041f = dVar;
+                this.f59040e = imageFileInfo;
             }
 
             @Override // c.a.q0.c0.b
             public void imageLoaded(c.a.e.l.d.a aVar, String str, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) {
-                    this.f59093f.e(this.f59092e, aVar);
-                    this.f59093f.f59088c.setVisibility(8);
-                    if (this.f59093f.f59090e.p != null) {
-                        this.f59093f.f59090e.p.n();
+                    this.f59041f.e(this.f59040e, aVar);
+                    this.f59041f.f59036c.setVisibility(8);
+                    if (this.f59041f.f59038e.p != null) {
+                        this.f59041f.f59038e.p.n();
                     }
                 }
             }
@@ -328,28 +328,28 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                     return;
                 }
             }
-            this.f59090e = multiImagePagerAdapter;
-            this.f59088c = null;
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(multiImagePagerAdapter.f59077e.getPageContext().getContext()).inflate(R.layout.progress_tb_imageview, (ViewGroup) null);
-            this.f59086a = frameLayout;
+            this.f59038e = multiImagePagerAdapter;
+            this.f59036c = null;
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(multiImagePagerAdapter.f59025e.getPageContext().getContext()).inflate(R.layout.progress_tb_imageview, (ViewGroup) null);
+            this.f59034a = frameLayout;
             TbImageView tbImageView = (TbImageView) frameLayout.findViewById(R.id.progress_tb_imageview);
-            this.f59087b = tbImageView;
+            this.f59035b = tbImageView;
             tbImageView.setClickable(true);
-            this.f59087b.setDefaultResource(0);
-            this.f59087b.setDefaultBgResource(0);
-            this.f59087b.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f59087b.setPadding(0, 0, 0, 0);
-            this.f59089d = new c.a.q0.d0.b();
-            this.f59087b.setOnClickListener(new a(this, multiImagePagerAdapter));
-            ProgressBar progressBar = (ProgressBar) this.f59086a.findViewById(R.id.progress_tb_imageview_progress);
-            this.f59088c = progressBar;
+            this.f59035b.setDefaultResource(0);
+            this.f59035b.setDefaultBgResource(0);
+            this.f59035b.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f59035b.setPadding(0, 0, 0, 0);
+            this.f59037d = new c.a.q0.d0.b();
+            this.f59035b.setOnClickListener(new a(this, multiImagePagerAdapter));
+            ProgressBar progressBar = (ProgressBar) this.f59034a.findViewById(R.id.progress_tb_imageview_progress);
+            this.f59036c = progressBar;
             progressBar.setVisibility(8);
         }
 
         public void d() {
             c.a.q0.d0.b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f59089d) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f59037d) == null) {
                 return;
             }
             bVar.b();
@@ -357,33 +357,33 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
 
         public final void e(ImageFileInfo imageFileInfo, c.a.e.l.d.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, aVar) == null) || aVar == null || this.f59087b == null) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, aVar) == null) || aVar == null || this.f59035b == null) {
                 return;
             }
-            int[] l = l.l(aVar.r(), aVar.m(), l.k(this.f59090e.f59077e), (l.i(this.f59090e.f59077e) - l.g(this.f59090e.f59077e, R.dimen.ds418)) - UtilHelper.getStatusBarHeight());
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f59087b.getLayoutParams();
+            int[] l = l.l(aVar.r(), aVar.m(), l.k(this.f59038e.f59025e), (l.i(this.f59038e.f59025e) - l.g(this.f59038e.f59025e, R.dimen.ds418)) - UtilHelper.getStatusBarHeight());
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f59035b.getLayoutParams();
             layoutParams.gravity = 17;
             layoutParams.width = l[0];
             layoutParams.height = l[1];
-            this.f59087b.setLayoutParams(layoutParams);
-            aVar.h(this.f59087b);
-            if (this.f59090e.p != null && this.f59090e.p.f16982f != null && imageFileInfo != null) {
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.f59090e.p.f16982f.getLayoutParams();
+            this.f59035b.setLayoutParams(layoutParams);
+            aVar.h(this.f59035b);
+            if (this.f59038e.p != null && this.f59038e.p.f17156f != null && imageFileInfo != null) {
+                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.f59038e.p.f17156f.getLayoutParams();
                 layoutParams2.gravity = 17;
                 layoutParams2.width = l[0];
                 layoutParams2.height = l[1];
-                this.f59090e.p.f16982f.setLayoutParams(layoutParams2);
+                this.f59038e.p.f17156f.setLayoutParams(layoutParams2);
             }
             if (aVar.p() == null || aVar.p().isRecycled()) {
                 return;
             }
-            this.f59090e.r = aVar.p();
+            this.f59038e.r = aVar.p();
         }
 
         public View f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59086a : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59034a : (View) invokeV.objValue;
         }
 
         public void g(ImageFileInfo imageFileInfo) {
@@ -392,20 +392,20 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                 return;
             }
             d();
-            this.f59088c.setVisibility(0);
-            c.a.e.l.d.a c2 = this.f59089d.c(imageFileInfo, false);
+            this.f59036c.setVisibility(0);
+            c.a.e.l.d.a c2 = this.f59037d.c(imageFileInfo, false);
             if (c2 != null) {
                 e(imageFileInfo, c2);
-                this.f59088c.setVisibility(8);
+                this.f59036c.setVisibility(8);
                 return;
             }
-            this.f59089d.d(imageFileInfo, new b(this, imageFileInfo), false);
+            this.f59037d.d(imageFileInfo, new b(this, imageFileInfo), false);
         }
 
         public boolean h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59088c.getVisibility() != 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59036c.getVisibility() != 0 : invokeV.booleanValue;
         }
     }
 
@@ -424,43 +424,43 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                 return;
             }
         }
-        this.f59077e = null;
-        this.f59078f = null;
-        this.f59079g = null;
-        this.f59080h = null;
-        this.f59081i = 0;
-        this.f59082j = 0;
+        this.f59025e = null;
+        this.f59026f = null;
+        this.f59027g = null;
+        this.f59028h = null;
+        this.f59029i = 0;
+        this.f59030j = 0;
         this.k = null;
         this.m = new LinkedList<>();
         this.n = 120;
         this.o = 120;
         this.s = z;
-        this.f59077e = writeMultiImgsActivity;
+        this.f59025e = writeMultiImgsActivity;
         this.p = jVar;
         this.n = (int) writeMultiImgsActivity.getResources().getDimension(R.dimen.ds720);
         this.o = (int) writeMultiImgsActivity.getResources().getDimension(R.dimen.ds1280);
-        this.f59082j = l(linkedList, i2);
+        this.f59030j = l(linkedList, i2);
         int size = this.m.size();
-        this.f59081i = size;
-        this.f59078f = new ImageFileInfo[size];
+        this.f59029i = size;
+        this.f59026f = new ImageFileInfo[size];
         this.k = new d[size];
-        for (int i5 = 0; i5 < this.f59081i; i5++) {
-            this.f59078f[i5] = this.m.get(i5).cloneWithoutFilterAction(true);
-            this.f59078f[i5].addPageAction(c.a.q0.d0.i.d.g(this.n, this.o));
-            linkedList.set(linkedList.indexOf(this.m.get(i5)), this.f59078f[i5]);
-            this.f59078f[i5].mCount = 0;
+        for (int i5 = 0; i5 < this.f59029i; i5++) {
+            this.f59026f[i5] = this.m.get(i5).cloneWithoutFilterAction(true);
+            this.f59026f[i5].addPageAction(c.a.q0.d0.i.d.g(this.n, this.o));
+            linkedList.set(linkedList.indexOf(this.m.get(i5)), this.f59026f[i5]);
+            this.f59026f[i5].mCount = 0;
         }
-        this.f59079g = viewPager;
-        this.f59080h = cVar;
+        this.f59027g = viewPager;
+        this.f59028h = cVar;
         viewPager.setOffscreenPageLimit(1);
-        this.f59079g.setOnPageChangeListener(this);
+        this.f59027g.setOnPageChangeListener(this);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) {
-            this.f59079g.removeView(this.k[i2].f());
+            this.f59027g.removeView(this.k[i2].f());
         }
     }
 
@@ -471,12 +471,12 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         Bitmap bitmap2;
         Bitmap f2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f59078f == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f59026f == null) {
             return;
         }
         int i2 = 0;
         while (true) {
-            ImageFileInfo[] imageFileInfoArr = this.f59078f;
+            ImageFileInfo[] imageFileInfoArr = this.f59026f;
             if (i2 >= imageFileInfoArr.length) {
                 break;
             }
@@ -493,12 +493,12 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
             n(this.r);
             return;
         }
-        c cVar = this.f59080h;
-        if (cVar != null && cVar.c() && (jVar = this.p) != null && (stickerLayout = jVar.f16982f) != null) {
+        c cVar = this.f59028h;
+        if (cVar != null && cVar.c() && (jVar = this.p) != null && (stickerLayout = jVar.f17156f) != null) {
             stickerLayout.redraw();
-            TbImageView tbImageView = this.k[this.f59082j].f59087b;
+            TbImageView tbImageView = this.k[this.f59030j].f59035b;
             try {
-                bitmap = this.p.f16982f.generateCombinedBitmap();
+                bitmap = this.p.f17156f.generateCombinedBitmap();
             } catch (OutOfMemoryError unused) {
                 bitmap = null;
             }
@@ -518,11 +518,11 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
             if (bitmap != null || bitmap2 == null || (f2 = k.f(bitmap2, bitmap, bitmap2.getWidth(), bitmap2.getHeight())) == null) {
                 return;
             }
-            this.f59078f[this.f59082j].setFilePath(FileHelper.saveFileAsPNG(FileHelper.getCacheDir(), String.valueOf(System.currentTimeMillis() + "_sticker.png"), f2, 100));
-            this.f59078f[this.f59082j].setContentUriStr(null);
-            this.f59078f[this.f59082j].clearAllActions();
-            this.f59078f[this.f59082j].clearPageActions();
-            this.f59078f[this.f59082j].setIsGif(false);
+            this.f59026f[this.f59030j].setFilePath(FileHelper.saveFileAsPNG(FileHelper.getCacheDir(), String.valueOf(System.currentTimeMillis() + "_sticker.png"), f2, 100));
+            this.f59026f[this.f59030j].setContentUriStr(null);
+            this.f59026f[this.f59030j].clearAllActions();
+            this.f59026f[this.f59030j].clearPageActions();
+            this.f59026f[this.f59030j].setIsGif(false);
             if (z || !this.s) {
                 return;
             }
@@ -537,13 +537,13 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59081i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59029i : invokeV.intValue;
     }
 
     public int getFixedCurrentIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59082j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59030j : invokeV.intValue;
     }
 
     public final boolean h() {
@@ -553,7 +553,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             d[] dVarArr = this.k;
-            return (dVarArr == null || (i2 = this.f59082j) >= dVarArr.length || dVarArr[i2] == null || (imageFileInfoArr = this.f59078f) == null || i2 >= imageFileInfoArr.length || imageFileInfoArr[i2] == null) ? false : true;
+            return (dVarArr == null || (i2 = this.f59030j) >= dVarArr.length || dVarArr[i2] == null || (imageFileInfoArr = this.f59026f) == null || i2 >= imageFileInfoArr.length || imageFileInfoArr[i2] == null) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -563,7 +563,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (judgeVaild()) {
-                c cVar = this.f59080h;
+                c cVar = this.f59028h;
                 if (cVar != null) {
                     cVar.b(i2, z);
                 }
@@ -571,13 +571,13 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                 o(i2);
             } else if (h()) {
                 d[] dVarArr = this.k;
-                int i3 = this.f59082j;
+                int i3 = this.f59030j;
                 d dVar = dVarArr[i3];
-                if (dVar == null || (imageFileInfo = this.f59078f[i3]) == null || !dVar.h()) {
+                if (dVar == null || (imageFileInfo = this.f59026f[i3]) == null || !dVar.h()) {
                     return;
                 }
                 imageFileInfo.addPageAction(e.e(i2));
-                this.f59077e.addAction();
+                this.f59025e.addAction();
                 dVar.g(imageFileInfo);
             }
         }
@@ -592,7 +592,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
             if (dVarArr[i2] == null) {
                 dVarArr[i2] = new d(this, i2);
             }
-            this.f59079g.addView(this.k[i2].f());
+            this.f59027g.addView(this.k[i2].f());
             return this.k[i2].f();
         }
         return invokeLI.objValue;
@@ -608,20 +608,20 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59082j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59030j : invokeV.intValue;
     }
 
     public boolean judgeVaild() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int i2 = this.f59082j;
-            ImageFileInfo[] imageFileInfoArr = this.f59078f;
+            int i2 = this.f59030j;
+            ImageFileInfo[] imageFileInfoArr = this.f59026f;
             if (i2 >= imageFileInfoArr.length || imageFileInfoArr[i2] == null || !imageFileInfoArr[i2].isGif()) {
                 return false;
             }
-            ImageFileInfo[] imageFileInfoArr2 = this.f59078f;
-            int i3 = this.f59082j;
+            ImageFileInfo[] imageFileInfoArr2 = this.f59026f;
+            int i3 = this.f59030j;
             if (imageFileInfoArr2[i3].mCount > 0) {
                 return false;
             }
@@ -636,10 +636,10 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         d[] dVarArr;
         d[] dVarArr2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (i2 = this.f59082j) < 0 || (dVarArr = this.k) == null || i2 >= dVarArr.length) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (i2 = this.f59030j) < 0 || (dVarArr = this.k) == null || i2 >= dVarArr.length) {
             return;
         }
-        ImageFileInfo[] imageFileInfoArr = this.f59078f;
+        ImageFileInfo[] imageFileInfoArr = this.f59026f;
         if (i2 >= imageFileInfoArr.length || imageFileInfoArr[i2] == null) {
             return;
         }
@@ -654,13 +654,13 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
             }
             i3++;
         }
-        int i4 = this.f59082j;
+        int i4 = this.f59030j;
         if (dVarArr2[i4] == null) {
             dVarArr2[i4] = new d(this, i4);
         }
         d[] dVarArr3 = this.k;
-        int i5 = this.f59082j;
-        dVarArr3[i5].g(this.f59078f[i5]);
+        int i5 = this.f59030j;
+        dVarArr3[i5].g(this.f59026f[i5]);
     }
 
     public final int l(LinkedList<ImageFileInfo> linkedList, int i2) {
@@ -689,10 +689,10 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, bitmap)) == null) {
             try {
-                FileHelper.SaveFile(TbConfig.LOCAL_PIC_DIR, str, bitmap, 90);
+                FileHelper.saveBitmapByRelativelyPath(TbConfig.LOCAL_PIC_DIR, str, bitmap, 90);
                 Bitmap resizeBitmap = BitmapHelper.resizeBitmap(bitmap, 100);
                 if (resizeBitmap != null) {
-                    return FileHelper.SaveFile(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) != null;
+                    return FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) != null;
                 }
                 return false;
             } catch (Exception e2) {
@@ -711,7 +711,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         Date date = new Date();
         String str = "tieba" + String.valueOf(date.getTime()) + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
         if (m(str, bitmap)) {
-            this.f59078f[0].extra = str;
+            this.f59026f[0].extra = str;
         }
     }
 
@@ -720,12 +720,12 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             this.l = i2;
             if (this.q == null) {
-                c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f59077e);
+                c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f59025e);
                 this.q = aVar;
                 aVar.setMessageId(R.string.rorate_tip);
                 this.q.setPositiveButton(R.string.alert_yes_button, new a(this));
                 this.q.setNegativeButton(R.string.cancel, new b(this));
-                this.q.create(this.f59077e.getPageContext());
+                this.q.create(this.f59025e.getPageContext());
             }
             this.q.show();
         }
@@ -749,7 +749,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
     public void onPageSelected(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f59082j = i2;
+            this.f59030j = i2;
             k();
         }
     }

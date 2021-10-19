@@ -3,8 +3,8 @@ package com.meizu.cloud.pushsdk.base;
 public class j {
     public static String a(String str) {
         com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.os.SystemProperties").a("get", String.class).a(str);
-        if (a2.f75028a) {
-            return (String) a2.f75029b;
+        if (a2.f75063a) {
+            return (String) a2.f75064b;
         }
         return null;
     }

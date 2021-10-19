@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.livecard.holder;
 
 import android.view.View;
-import c.a.r0.v.k.e.e;
+import c.a.r0.w.k.e.e;
 import com.baidu.card.AutoLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,6 +32,6 @@ public class FrsPageAlaVideoHolder extends AutoLiveViewHolder {
             }
         }
         this.mView = eVar;
-        this.tbLiveContainer = eVar.T();
+        this.tbLiveContainer = eVar.U();
     }
 }

@@ -20,13 +20,13 @@ public class PointPageIndicator extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47316e;
+    public int f47228e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47317f;
+    public int f47229f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47318g;
+    public int f47230g;
     public Drawable mNormalDrawable;
     public Rect mNormalPointRect;
     public Drawable mSelectDrawable;
@@ -54,9 +54,9 @@ public class PointPageIndicator extends View {
         this.mSelectDrawable = null;
         this.mNormalPointRect = new Rect();
         this.mSelectPointRect = new Rect();
-        this.f47316e = 0;
-        this.f47317f = 0;
-        this.f47318g = 0;
+        this.f47228e = 0;
+        this.f47229f = 0;
+        this.f47230g = 0;
         a(context);
     }
 
@@ -72,14 +72,14 @@ public class PointPageIndicator extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            int i2 = this.f47318g;
+            int i2 = this.f47230g;
             if (i2 <= 0) {
                 return;
             }
-            int i3 = this.f47316e;
+            int i3 = this.f47228e;
             int height = getHeight();
             int width2 = getWidth();
-            int i4 = this.f47317f;
+            int i4 = this.f47229f;
             Rect rect = this.mNormalPointRect;
             Rect rect2 = this.mSelectPointRect;
             Drawable drawable = this.mNormalDrawable;
@@ -111,7 +111,7 @@ public class PointPageIndicator extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.f47317f = i2;
+            this.f47229f = i2;
             invalidate();
             return this;
         }
@@ -122,8 +122,8 @@ public class PointPageIndicator extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (this.f47318g != i2) {
-                this.f47318g = i2;
+            if (this.f47230g != i2) {
+                this.f47230g = i2;
                 invalidate();
             }
             return this;
@@ -162,7 +162,7 @@ public class PointPageIndicator extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.f47316e = i2;
+            this.f47228e = i2;
             return this;
         }
         return (PointPageIndicator) invokeI.objValue;
@@ -202,9 +202,9 @@ public class PointPageIndicator extends View {
         this.mSelectDrawable = null;
         this.mNormalPointRect = new Rect();
         this.mSelectPointRect = new Rect();
-        this.f47316e = 0;
-        this.f47317f = 0;
-        this.f47318g = 0;
+        this.f47228e = 0;
+        this.f47229f = 0;
+        this.f47230g = 0;
         a(context);
     }
 
@@ -231,9 +231,9 @@ public class PointPageIndicator extends View {
         this.mSelectDrawable = null;
         this.mNormalPointRect = new Rect();
         this.mSelectPointRect = new Rect();
-        this.f47316e = 0;
-        this.f47317f = 0;
-        this.f47318g = 0;
+        this.f47228e = 0;
+        this.f47229f = 0;
+        this.f47230g = 0;
         a(context);
     }
 }

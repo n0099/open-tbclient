@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import c.a.e.e.m.b;
 import c.a.e.e.p.l;
-import c.a.r0.j3.k0.a;
+import c.a.r0.k3.k0.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;

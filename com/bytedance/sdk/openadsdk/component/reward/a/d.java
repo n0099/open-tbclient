@@ -65,9 +65,9 @@ public class d extends a implements w.a {
         }
         this.v = true;
         this.t = new w(Looper.getMainLooper(), this);
-        Activity activity2 = this.f66042a;
-        this.f66047f = (SSWebView) activity2.findViewById(t.e(activity2, "tt_browser_webview_loading"));
-        Activity activity3 = this.f66042a;
+        Activity activity2 = this.f66077a;
+        this.f66082f = (SSWebView) activity2.findViewById(t.e(activity2, "tt_browser_webview_loading"));
+        Activity activity3 = this.f66077a;
         this.w = (PlayableLoadingView) activity3.findViewById(t.e(activity3, "tt_reward_playable_loading"));
     }
 
@@ -77,18 +77,18 @@ public class d extends a implements w.a {
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             this.u = o.h().p();
             k.c("Playable", "getPlayableLoadH5Url->loadH5Url=" + this.u);
-            if (TextUtils.isEmpty(this.u) || (mVar = this.f66043b) == null || mVar.al() == null) {
+            if (TextUtils.isEmpty(this.u) || (mVar = this.f66078b) == null || mVar.al() == null) {
                 return;
             }
-            String c2 = this.f66043b.al().c();
-            int e2 = this.f66043b.al().e();
-            int f2 = this.f66043b.al().f();
-            String a2 = this.f66043b.Y().a();
-            String ak = this.f66043b.ak();
-            String d2 = this.f66043b.al().d();
-            String b2 = this.f66043b.al().b();
-            String c3 = this.f66043b.al().c();
-            String ah = this.f66043b.ah();
+            String c2 = this.f66078b.al().c();
+            int e2 = this.f66078b.al().e();
+            int f2 = this.f66078b.al().f();
+            String a2 = this.f66078b.Y().a();
+            String ak = this.f66078b.ak();
+            String d2 = this.f66078b.al().d();
+            String b2 = this.f66078b.al().b();
+            String c3 = this.f66078b.al().c();
+            String ah = this.f66078b.ah();
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("appname=");
             stringBuffer.append(URLEncoder.encode(c2));
@@ -127,7 +127,7 @@ public class d extends a implements w.a {
     public void u() {
         SSWebView sSWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (sSWebView = this.f66047f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (sSWebView = this.f66082f) == null) {
             return;
         }
         sSWebView.loadUrl(this.u);
@@ -136,11 +136,11 @@ public class d extends a implements w.a {
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (com.bytedance.sdk.openadsdk.core.e.o.f(this.f66043b)) {
+            if (com.bytedance.sdk.openadsdk.core.e.o.f(this.f66078b)) {
                 PlayableLoadingView playableLoadingView = this.w;
                 if (playableLoadingView != null) {
                     playableLoadingView.b();
-                    if (com.bytedance.sdk.openadsdk.core.e.o.h(this.f66043b)) {
+                    if (com.bytedance.sdk.openadsdk.core.e.o.h(this.f66078b)) {
                         this.t.sendMessageDelayed(a(2), 10000L);
                         return;
                     }
@@ -164,7 +164,7 @@ public class d extends a implements w.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f66068a;
+            public final /* synthetic */ d f66103a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -181,15 +181,15 @@ public class d extends a implements w.a {
                         return;
                     }
                 }
-                this.f66068a = this;
+                this.f66103a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.i.d
             public void a() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f66068a.f66042a.isFinishing() && com.bytedance.sdk.openadsdk.core.e.o.f(this.f66068a.f66043b) && com.bytedance.sdk.openadsdk.core.e.o.h(this.f66068a.f66043b)) {
-                    this.f66068a.t.removeMessages(10);
-                    d dVar = this.f66068a;
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f66103a.f66077a.isFinishing() && com.bytedance.sdk.openadsdk.core.e.o.f(this.f66103a.f66078b) && com.bytedance.sdk.openadsdk.core.e.o.h(this.f66103a.f66078b)) {
+                    this.f66103a.t.removeMessages(10);
+                    d dVar = this.f66103a;
                     dVar.t.sendMessage(dVar.a(1));
                 }
             }
@@ -197,11 +197,11 @@ public class d extends a implements w.a {
             @Override // com.bytedance.sdk.openadsdk.i.d
             public void b() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f66068a.f66042a.isFinishing()) {
+                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f66103a.f66077a.isFinishing()) {
                     return;
                 }
-                if ((com.bytedance.sdk.openadsdk.core.e.o.j(this.f66068a.f66043b) || this.f66068a.y) && com.bytedance.sdk.openadsdk.core.e.o.f(this.f66068a.f66043b) && com.bytedance.sdk.openadsdk.core.e.o.g(this.f66068a.f66043b)) {
-                    d dVar = this.f66068a;
+                if ((com.bytedance.sdk.openadsdk.core.e.o.j(this.f66103a.f66078b) || this.f66103a.y) && com.bytedance.sdk.openadsdk.core.e.o.f(this.f66103a.f66078b) && com.bytedance.sdk.openadsdk.core.e.o.g(this.f66103a.f66078b)) {
+                    d dVar = this.f66103a;
                     dVar.t.sendMessageDelayed(dVar.a(0), 1000L);
                 }
             }
@@ -210,16 +210,16 @@ public class d extends a implements w.a {
             public boolean c() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048579, this)) == null) ? this.f66068a.w != null && this.f66068a.w.getVisibility() == 0 : invokeV2.booleanValue;
+                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048579, this)) == null) ? this.f66103a.w != null && this.f66103a.w.getVisibility() == 0 : invokeV2.booleanValue;
             }
 
             @Override // com.bytedance.sdk.openadsdk.i.d
             public void a(int i2) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || !com.bytedance.sdk.openadsdk.core.e.o.f(this.f66068a.f66043b) || this.f66068a.f66042a.isFinishing() || this.f66068a.w == null) {
+                if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || !com.bytedance.sdk.openadsdk.core.e.o.f(this.f66103a.f66078b) || this.f66103a.f66077a.isFinishing() || this.f66103a.w == null) {
                     return;
                 }
-                this.f66068a.w.setProgress(i2);
+                this.f66103a.w.setProgress(i2);
             }
         } : (com.bytedance.sdk.openadsdk.i.d) invokeV.objValue;
     }
@@ -238,10 +238,10 @@ public class d extends a implements w.a {
     public void a(boolean z, Map<String, Object> map, View view, com.bytedance.sdk.openadsdk.i.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), map, view, eVar}) == null) {
-            this.f66050i = new j(this.f66042a, this.f66043b, this.f66047f).b(true);
-            com.bytedance.sdk.openadsdk.core.w wVar = new com.bytedance.sdk.openadsdk.core.w(this.f66042a);
-            this.f66048g = wVar;
-            wVar.b(this.f66047f).a(this.f66043b).b(this.f66043b.ak()).c(this.f66043b.ao()).a(z ? 7 : 5).a(this.f66047f).a(this.f66049h).a(this.f66044c).d(q.i(this.f66043b)).a(view);
+            this.f66085i = new j(this.f66077a, this.f66078b, this.f66082f).b(true);
+            com.bytedance.sdk.openadsdk.core.w wVar = new com.bytedance.sdk.openadsdk.core.w(this.f66077a);
+            this.f66083g = wVar;
+            wVar.b(this.f66082f).a(this.f66078b).b(this.f66078b.ak()).c(this.f66078b.ao()).a(z ? 7 : 5).a(this.f66082f).a(this.f66084h).a(this.f66079c).d(q.i(this.f66078b)).a(view);
             y();
         }
     }
@@ -249,14 +249,14 @@ public class d extends a implements w.a {
     public void a(DownloadListener downloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadListener) == null) {
-            a(this.f66047f);
-            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f66043b)) {
-                this.f66047f.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.e(this, this.f66042a, this.f66048g, this.f66043b.ak(), null) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.d.1
+            a(this.f66082f);
+            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f66078b)) {
+                this.f66082f.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.e(this, this.f66077a, this.f66083g, this.f66078b.ak(), null) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.d.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ d f66067a;
+                    public final /* synthetic */ d f66102a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -277,17 +277,17 @@ public class d extends a implements w.a {
                                 return;
                             }
                         }
-                        this.f66067a = this;
+                        this.f66102a = this;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.core.widget.webview.e, android.webkit.WebViewClient
                     public void onPageFinished(WebView webView, String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
-                            if (this.f66067a.v) {
-                                Context context = this.f67778c;
-                                d dVar = this.f66067a;
-                                com.bytedance.sdk.openadsdk.e.d.d(context, dVar.f66043b, dVar.f66044c, "loading_h5_success", (JSONObject) null);
+                            if (this.f66102a.v) {
+                                Context context = this.f67813c;
+                                d dVar = this.f66102a;
+                                com.bytedance.sdk.openadsdk.e.d.d(context, dVar.f66078b, dVar.f66079c, "loading_h5_success", (JSONObject) null);
                             }
                             super.onPageFinished(webView, str);
                         }
@@ -298,7 +298,7 @@ public class d extends a implements w.a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest, webResourceError) == null) {
                             super.onReceivedError(webView, webResourceRequest, webResourceError);
-                            this.f66067a.v = false;
+                            this.f66102a.v = false;
                         }
                     }
 
@@ -307,7 +307,7 @@ public class d extends a implements w.a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLLL(1048579, this, webView, webResourceRequest, webResourceResponse) == null) {
                             super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
-                            this.f66067a.v = false;
+                            this.f66102a.v = false;
                         }
                     }
 
@@ -316,14 +316,14 @@ public class d extends a implements w.a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i2, str, str2) == null) {
                             super.onReceivedError(webView, i2, str, str2);
-                            this.f66067a.v = false;
+                            this.f66102a.v = false;
                         }
                     }
                 });
-                this.f66047f.setBackgroundColor(-16777216);
-                this.f66047f.getSettings().setDisplayZoomControls(false);
-                this.f66047f.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.d(this.f66048g, this.f66050i));
-                this.f66047f.setDownloadListener(downloadListener);
+                this.f66082f.setBackgroundColor(-16777216);
+                this.f66082f.getSettings().setDisplayZoomControls(false);
+                this.f66082f.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.d(this.f66083g, this.f66085i));
+                this.f66082f.setDownloadListener(downloadListener);
             }
         }
     }
@@ -366,10 +366,10 @@ public class d extends a implements w.a {
             k.b("lfz", "hide playable loading");
             HashMap hashMap = new HashMap();
             hashMap.put("remove_loading_page_type", Integer.valueOf(message.arg1));
-            if (this.f66043b.V() != null) {
-                hashMap.put("playable_url", com.bytedance.sdk.openadsdk.core.e.o.e(this.f66043b) + "");
+            if (this.f66078b.V() != null) {
+                hashMap.put("playable_url", com.bytedance.sdk.openadsdk.core.e.o.e(this.f66078b) + "");
             }
-            com.bytedance.sdk.openadsdk.e.d.j(this.f66042a, this.f66043b, this.f66044c, "remove_loading_page", hashMap);
+            com.bytedance.sdk.openadsdk.e.d.j(this.f66077a, this.f66078b, this.f66079c, "remove_loading_page", hashMap);
             this.t.removeMessages(10);
             PlayableLoadingView playableLoadingView = this.w;
             if (playableLoadingView != null) {

@@ -17,8 +17,8 @@ import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.q0.s.s.a;
-import c.a.r0.j3.x;
-import c.a.r0.r0.t;
+import c.a.r0.k3.x;
+import c.a.r0.s0.t;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -68,22 +68,22 @@ public class CommonEmotionCenterFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50678e;
+    public String f50605e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaseWebView f50679f;
+    public BaseWebView f50606f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NewFaceGroupDownloadModel f50680g;
+    public NewFaceGroupDownloadModel f50607g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f50681h;
+    public RelativeLayout f50608h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.q0.g0.g f50682i;
+    public c.a.q0.g0.g f50609i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.q0.g0.h f50683j;
+    public c.a.q0.g0.h f50610j;
     public boolean k;
     public Handler l;
     public CustomMessageListener m;
@@ -97,10 +97,10 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f50684e;
+        public final /* synthetic */ JSONObject f50611e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50685f;
+        public final /* synthetic */ CommonEmotionCenterFragment f50612f;
 
         public a(CommonEmotionCenterFragment commonEmotionCenterFragment, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -117,22 +117,22 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50685f = commonEmotionCenterFragment;
-            this.f50684e = jSONObject;
+            this.f50612f = commonEmotionCenterFragment;
+            this.f50611e = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ArrayList<String> arrayList = new ArrayList(Arrays.asList(this.f50684e.optString("id").split(",")));
+                ArrayList<String> arrayList = new ArrayList(Arrays.asList(this.f50611e.optString("id").split(",")));
                 for (String str : arrayList) {
-                    c.a.r0.r0.g.k().h(str);
+                    c.a.r0.s0.g.k().h(str);
                 }
-                if (c.a.r0.e2.c.i().c(arrayList, true)) {
-                    this.f50685f.loadUrl("javascript:__js_bridge_emoticon_del_action(1)");
+                if (c.a.r0.f2.c.i().c(arrayList, true)) {
+                    this.f50612f.loadUrl("javascript:__js_bridge_emoticon_del_action(1)");
                 } else {
-                    this.f50685f.loadUrl("javascript:__js_bridge_emoticon_del_action(0)");
+                    this.f50612f.loadUrl("javascript:__js_bridge_emoticon_del_action(0)");
                 }
             }
         }
@@ -144,10 +144,10 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f50686e;
+        public final /* synthetic */ ShareItem f50613e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50687f;
+        public final /* synthetic */ CommonEmotionCenterFragment f50614f;
 
         public b(CommonEmotionCenterFragment commonEmotionCenterFragment, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -164,16 +164,16 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50687f = commonEmotionCenterFragment;
-            this.f50686e = shareItem;
+            this.f50614f = commonEmotionCenterFragment;
+            this.f50613e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.e.e.p.a.a(this.f50686e.t);
-                c.a.e.e.p.l.M(this.f50687f.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+                c.a.e.e.p.a.a(this.f50613e.t);
+                c.a.e.e.p.l.M(this.f50614f.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
@@ -184,7 +184,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50688e;
+        public final /* synthetic */ CommonEmotionCenterFragment f50615e;
 
         public c(CommonEmotionCenterFragment commonEmotionCenterFragment) {
             Interceptable interceptable = $ic;
@@ -201,16 +201,16 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50688e = commonEmotionCenterFragment;
+            this.f50615e = commonEmotionCenterFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<MyEmotionGroupData> f2 = c.a.r0.e2.c.i().f();
+                List<MyEmotionGroupData> f2 = c.a.r0.f2.c.i().f();
                 if (f2 == null || f2.isEmpty()) {
-                    this.f50688e.loadUrl("javascript:__js_bridge_emoticon_has_action()");
+                    this.f50615e.loadUrl("javascript:__js_bridge_emoticon_has_action()");
                     return;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -220,7 +220,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                         sb.append(",");
                     }
                 }
-                CommonEmotionCenterFragment commonEmotionCenterFragment = this.f50688e;
+                CommonEmotionCenterFragment commonEmotionCenterFragment = this.f50615e;
                 commonEmotionCenterFragment.loadUrl("javascript:__js_bridge_emoticon_has_action('" + sb.toString() + "')");
             }
         }
@@ -232,7 +232,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50689e;
+        public final /* synthetic */ CommonEmotionCenterFragment f50616e;
 
         public d(CommonEmotionCenterFragment commonEmotionCenterFragment) {
             Interceptable interceptable = $ic;
@@ -249,7 +249,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50689e = commonEmotionCenterFragment;
+            this.f50616e = commonEmotionCenterFragment;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -257,7 +257,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f50689e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(1)");
+                this.f50616e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(1)");
             }
         }
     }
@@ -268,7 +268,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50690e;
+        public final /* synthetic */ CommonEmotionCenterFragment f50617e;
 
         public e(CommonEmotionCenterFragment commonEmotionCenterFragment) {
             Interceptable interceptable = $ic;
@@ -285,7 +285,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50690e = commonEmotionCenterFragment;
+            this.f50617e = commonEmotionCenterFragment;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -293,7 +293,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f50690e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
+                this.f50617e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
             }
         }
     }
@@ -304,7 +304,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50691e;
+        public final /* synthetic */ CommonEmotionCenterFragment f50618e;
 
         public f(CommonEmotionCenterFragment commonEmotionCenterFragment) {
             Interceptable interceptable = $ic;
@@ -321,14 +321,14 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50691e = commonEmotionCenterFragment;
+            this.f50618e = commonEmotionCenterFragment;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f50691e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
+                this.f50618e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
             }
         }
     }
@@ -339,10 +339,10 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f50692e;
+        public final /* synthetic */ JSONObject f50619e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50693f;
+        public final /* synthetic */ CommonEmotionCenterFragment f50620f;
 
         public g(CommonEmotionCenterFragment commonEmotionCenterFragment, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -359,27 +359,27 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50693f = commonEmotionCenterFragment;
-            this.f50692e = jSONObject;
+            this.f50620f = commonEmotionCenterFragment;
+            this.f50619e = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.e2.c.i().j(new ArrayList(Arrays.asList(this.f50692e.optString("id").split(","))), true);
-                this.f50693f.loadUrl("javascript:__js_bridge_emoticon_sort_action()");
+                c.a.r0.f2.c.i().j(new ArrayList(Arrays.asList(this.f50619e.optString("id").split(","))), true);
+                this.f50620f.loadUrl("javascript:__js_bridge_emoticon_sort_action()");
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class h implements c.a.r0.e2.e.b {
+    public class h implements c.a.r0.f2.e.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50694a;
+        public final /* synthetic */ CommonEmotionCenterFragment f50621a;
 
         public h(CommonEmotionCenterFragment commonEmotionCenterFragment) {
             Interceptable interceptable = $ic;
@@ -396,29 +396,29 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50694a = commonEmotionCenterFragment;
+            this.f50621a = commonEmotionCenterFragment;
         }
 
-        @Override // c.a.r0.e2.e.b
+        @Override // c.a.r0.f2.e.b
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f50694a.loadUrl("javascript:__js_bridge_emoticon_save_action(0)");
+                this.f50621a.loadUrl("javascript:__js_bridge_emoticon_save_action(0)");
             }
         }
 
-        @Override // c.a.r0.e2.e.b
+        @Override // c.a.r0.f2.e.b
         public void onProgress(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             }
         }
 
-        @Override // c.a.r0.e2.e.b
+        @Override // c.a.r0.f2.e.b
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f50694a.loadUrl("javascript:__js_bridge_emoticon_save_action(1)");
+                this.f50621a.loadUrl("javascript:__js_bridge_emoticon_save_action(1)");
             }
         }
     }
@@ -429,7 +429,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50695a;
+        public final /* synthetic */ CommonEmotionCenterFragment f50622a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(CommonEmotionCenterFragment commonEmotionCenterFragment, int i2) {
@@ -449,7 +449,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50695a = commonEmotionCenterFragment;
+            this.f50622a = commonEmotionCenterFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -457,7 +457,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f50695a.loadUrl("javascript:__js_bridge_emoticon_refresh_has_action()");
+                this.f50622a.loadUrl("javascript:__js_bridge_emoticon_refresh_has_action()");
             }
         }
     }
@@ -468,7 +468,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50696a;
+        public final /* synthetic */ CommonEmotionCenterFragment f50623a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(CommonEmotionCenterFragment commonEmotionCenterFragment, int i2) {
@@ -488,7 +488,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50696a = commonEmotionCenterFragment;
+            this.f50623a = commonEmotionCenterFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -496,7 +496,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof x) && ((x) customResponsedMessage.getData()).l() == 1) {
-                this.f50696a.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
+                this.f50623a.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
             }
         }
     }
@@ -507,7 +507,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50697a;
+        public final /* synthetic */ CommonEmotionCenterFragment f50624a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k(CommonEmotionCenterFragment commonEmotionCenterFragment, int i2) {
@@ -527,7 +527,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50697a = commonEmotionCenterFragment;
+            this.f50624a = commonEmotionCenterFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -539,7 +539,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                 if (emotionPackageData.has_vote != 0 || emotionPackageData.id <= 0) {
                     return;
                 }
-                CommonEmotionCenterFragment commonEmotionCenterFragment = this.f50697a;
+                CommonEmotionCenterFragment commonEmotionCenterFragment = this.f50624a;
                 commonEmotionCenterFragment.loadUrl("javascript:__js_bridge_emoticon_vote_action(" + emotionPackageData.id + SmallTailInfo.EMOTION_SUFFIX);
             }
         }
@@ -551,7 +551,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50698a;
+        public final /* synthetic */ CommonEmotionCenterFragment f50625a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public l(CommonEmotionCenterFragment commonEmotionCenterFragment, int i2) {
@@ -571,7 +571,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50698a = commonEmotionCenterFragment;
+            this.f50625a = commonEmotionCenterFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -582,19 +582,19 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                 HashMap hashMap = (HashMap) customResponsedMessage.getData();
                 String str = null;
                 if (hashMap == null || hashMap.isEmpty()) {
-                    this.f50698a.q(0, null);
+                    this.f50625a.q(0, null);
                 } else if (!hashMap.containsKey("upload_result")) {
-                    this.f50698a.q(0, null);
+                    this.f50625a.q(0, null);
                 } else if (hashMap.get("upload_result") == null || !(hashMap.get("upload_result") instanceof Boolean)) {
-                    this.f50698a.q(0, null);
+                    this.f50625a.q(0, null);
                 } else if (((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                    BdToast.c(this.f50698a.getPageContext().getPageActivity(), this.f50698a.getPageContext().getPageActivity().getText(R.string.face_group_upload_success)).q();
-                    this.f50698a.q(1, null);
+                    BdToast.c(this.f50625a.getPageContext().getPageActivity(), this.f50625a.getPageContext().getPageActivity().getText(R.string.face_group_upload_success)).q();
+                    this.f50625a.q(1, null);
                 } else {
                     if (hashMap.containsKey("upload_msg") && hashMap.get("upload_msg") != null && (hashMap.get("upload_msg") instanceof String)) {
                         str = (String) hashMap.get("upload_msg");
                     }
-                    this.f50698a.q(0, str);
+                    this.f50625a.q(0, str);
                 }
             }
         }
@@ -606,7 +606,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50699e;
+        public final /* synthetic */ CommonEmotionCenterFragment f50626e;
 
         public m(CommonEmotionCenterFragment commonEmotionCenterFragment) {
             Interceptable interceptable = $ic;
@@ -623,14 +623,14 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50699e = commonEmotionCenterFragment;
+            this.f50626e = commonEmotionCenterFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50699e.reloadPage();
+                this.f50626e.reloadPage();
             }
         }
     }
@@ -641,10 +641,10 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f50700e;
+        public final /* synthetic */ String f50627e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50701f;
+        public final /* synthetic */ CommonEmotionCenterFragment f50628f;
 
         public n(CommonEmotionCenterFragment commonEmotionCenterFragment, String str) {
             Interceptable interceptable = $ic;
@@ -661,27 +661,27 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50701f = commonEmotionCenterFragment;
-            this.f50700e = str;
+            this.f50628f = commonEmotionCenterFragment;
+            this.f50627e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50701f.f50679f == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50628f.f50606f == null) {
                 return;
             }
-            this.f50701f.f50679f.loadUrl(this.f50700e);
+            this.f50628f.f50606f.loadUrl(this.f50627e);
         }
     }
 
     /* loaded from: classes7.dex */
-    public class o implements c.a.r0.e2.e.b {
+    public class o implements c.a.r0.f2.e.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50702a;
+        public final /* synthetic */ CommonEmotionCenterFragment f50629a;
 
         public o(CommonEmotionCenterFragment commonEmotionCenterFragment) {
             Interceptable interceptable = $ic;
@@ -698,43 +698,43 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50702a = commonEmotionCenterFragment;
+            this.f50629a = commonEmotionCenterFragment;
         }
 
-        @Override // c.a.r0.e2.e.b
+        @Override // c.a.r0.f2.e.b
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f50702a.loadUrl("javascript:__js_bridge_emoticon_down_process_action(-1)");
+                this.f50629a.loadUrl("javascript:__js_bridge_emoticon_down_process_action(-1)");
             }
         }
 
-        @Override // c.a.r0.e2.e.b
+        @Override // c.a.r0.f2.e.b
         public void onProgress(int i2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 <= 0 || i2 >= 100) {
                 return;
             }
-            CommonEmotionCenterFragment commonEmotionCenterFragment = this.f50702a;
+            CommonEmotionCenterFragment commonEmotionCenterFragment = this.f50629a;
             commonEmotionCenterFragment.loadUrl("javascript:__js_bridge_emoticon_down_process_action(" + i2 + SmallTailInfo.EMOTION_SUFFIX);
         }
 
-        @Override // c.a.r0.e2.e.b
+        @Override // c.a.r0.f2.e.b
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f50702a.loadUrl("javascript:__js_bridge_emoticon_down_process_action(100)");
+                this.f50629a.loadUrl("javascript:__js_bridge_emoticon_down_process_action(100)");
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class p implements c.a.r0.r0.x.d.c {
+    public class p implements c.a.r0.s0.x.d.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50703e;
+        public final /* synthetic */ CommonEmotionCenterFragment f50630e;
 
         public p(CommonEmotionCenterFragment commonEmotionCenterFragment) {
             Interceptable interceptable = $ic;
@@ -751,22 +751,22 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50703e = commonEmotionCenterFragment;
+            this.f50630e = commonEmotionCenterFragment;
         }
 
-        @Override // c.a.r0.r0.x.d.c
+        @Override // c.a.r0.s0.x.d.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f50703e.getPageContext().getPageActivity(), 25021)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f50630e.getPageContext().getPageActivity(), 25021)));
             }
         }
 
-        @Override // c.a.r0.r0.x.d.c
+        @Override // c.a.r0.s0.x.d.c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f50703e.getPageContext().getPageActivity(), true, 25021)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f50630e.getPageContext().getPageActivity(), true, 25021)));
             }
         }
     }
@@ -777,13 +777,13 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LikeModel f50704a;
+        public final /* synthetic */ LikeModel f50631a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f50705b;
+        public final /* synthetic */ String f50632b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50706c;
+        public final /* synthetic */ CommonEmotionCenterFragment f50633c;
 
         public q(CommonEmotionCenterFragment commonEmotionCenterFragment, LikeModel likeModel, String str) {
             Interceptable interceptable = $ic;
@@ -800,36 +800,36 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50706c = commonEmotionCenterFragment;
-            this.f50704a = likeModel;
-            this.f50705b = str;
+            this.f50633c = commonEmotionCenterFragment;
+            this.f50631a = likeModel;
+            this.f50632b = str;
         }
 
         @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (this.f50704a.getErrorCode() == 22) {
-                    this.f50706c.showToast(R.string.unfollow_title);
-                    this.f50706c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
-                } else if (AntiHelper.m(this.f50704a.getErrorCode(), this.f50704a.getErrorString())) {
-                    AntiHelper.u(this.f50706c.getPageContext().getPageActivity(), this.f50704a.getErrorString());
-                } else if (this.f50704a.getErrorCode() != 0) {
-                    this.f50706c.showToast(this.f50704a.getErrorString());
-                    this.f50706c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
+                if (this.f50631a.getErrorCode() == 22) {
+                    this.f50633c.showToast(R.string.unfollow_title);
+                    this.f50633c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
+                } else if (AntiHelper.m(this.f50631a.getErrorCode(), this.f50631a.getErrorString())) {
+                    AntiHelper.u(this.f50633c.getPageContext().getPageActivity(), this.f50631a.getErrorString());
+                } else if (this.f50631a.getErrorCode() != 0) {
+                    this.f50633c.showToast(this.f50631a.getErrorString());
+                    this.f50633c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
                 } else {
                     x xVar = (x) obj;
                     if (xVar != null) {
-                        this.f50706c.showToast(R.string.attention_success);
-                        TbadkApplication.getInst().addLikeForum(this.f50705b);
+                        this.f50633c.showToast(R.string.attention_success);
+                        TbadkApplication.getInst().addLikeForum(this.f50632b);
                         xVar.v(1);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, xVar));
-                        this.f50706c.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
+                        this.f50633c.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
                         return;
                     }
-                    CommonEmotionCenterFragment commonEmotionCenterFragment = this.f50706c;
+                    CommonEmotionCenterFragment commonEmotionCenterFragment = this.f50633c;
                     commonEmotionCenterFragment.showToast(commonEmotionCenterFragment.getPageContext().getString(R.string.neterror));
-                    this.f50706c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
+                    this.f50633c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
                 }
             }
         }
@@ -841,7 +841,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonEmotionCenterFragment f50707a;
+        public final /* synthetic */ CommonEmotionCenterFragment f50634a;
 
         public r(CommonEmotionCenterFragment commonEmotionCenterFragment) {
             Interceptable interceptable = $ic;
@@ -858,7 +858,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f50707a = commonEmotionCenterFragment;
+            this.f50634a = commonEmotionCenterFragment;
         }
 
         @Override // android.webkit.WebViewClient
@@ -866,13 +866,13 @@ public class CommonEmotionCenterFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                if (this.f50707a.getPageContext() == null || this.f50707a.getPageContext().getPageActivity() == null) {
+                if (this.f50634a.getPageContext() == null || this.f50634a.getPageContext().getPageActivity() == null) {
                     return;
                 }
-                this.f50707a.hideLoadingView();
+                this.f50634a.hideLoadingView();
                 if (c.a.e.e.p.j.z()) {
-                    this.f50707a.showNormalView();
-                    this.f50707a.k = true;
+                    this.f50634a.showNormalView();
+                    this.f50634a.k = true;
                 }
             }
         }
@@ -882,10 +882,10 @@ public class CommonEmotionCenterFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
-                if (this.f50707a.getPageContext() == null || this.f50707a.getPageContext().getPageActivity() == null) {
+                if (this.f50634a.getPageContext() == null || this.f50634a.getPageContext().getPageActivity() == null) {
                     return;
                 }
-                this.f50707a.showLoadingView();
+                this.f50634a.showLoadingView();
             }
         }
 
@@ -894,10 +894,10 @@ public class CommonEmotionCenterFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
                 super.onReceivedError(webView, i2, str, str2);
-                if (this.f50707a.getPageContext() == null || this.f50707a.getPageContext().getPageActivity() == null) {
+                if (this.f50634a.getPageContext() == null || this.f50634a.getPageContext().getPageActivity() == null) {
                     return;
                 }
-                this.f50707a.showNetRefreshView();
+                this.f50634a.showNetRefreshView();
             }
         }
 
@@ -923,8 +923,8 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
                 }
-                if (!StringUtils.isNull(str) && this.f50707a.getPageContext() != null && this.f50707a.getPageContext().getPageActivity() != null) {
-                    if (this.f50707a.s(str) || (dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f50707a.getPageContext(), new String[]{str})) == 1 || dealOneLinkWithOutJumpWebView == 0) {
+                if (!StringUtils.isNull(str) && this.f50634a.getPageContext() != null && this.f50634a.getPageContext().getPageActivity() != null) {
+                    if (this.f50634a.s(str) || (dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f50634a.getPageContext(), new String[]{str})) == 1 || dealOneLinkWithOutJumpWebView == 0) {
                     }
                     return true;
                 }
@@ -951,7 +951,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
                 return;
             }
         }
-        this.f50678e = null;
+        this.f50605e = null;
         this.m = new i(this, 2921054);
         this.n = new j(this, 2001266);
         this.o = new k(this, 2921062);
@@ -977,12 +977,12 @@ public class CommonEmotionCenterFragment extends BaseFragment {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (c.a.r0.e2.g.e.l().r()) {
+            if (c.a.r0.f2.g.e.l().r()) {
                 p(1, null);
-            } else if (c.a.r0.e2.g.e.l().k() == null) {
+            } else if (c.a.r0.f2.g.e.l().k() == null) {
                 p(0, null);
             } else {
-                FaceGroupDraft k2 = c.a.r0.e2.g.e.l().k();
+                FaceGroupDraft k2 = c.a.r0.f2.g.e.l().k();
                 if (!TextUtils.isEmpty(k2.getFailMsg())) {
                     p(2, k2.getFailMsg());
                 } else {
@@ -1010,47 +1010,47 @@ public class CommonEmotionCenterFragment extends BaseFragment {
     public void hideLoadingView() {
         c.a.q0.g0.g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (gVar = this.f50682i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (gVar = this.f50609i) == null) {
             return;
         }
-        gVar.dettachView(this.f50681h);
-        this.f50682i = null;
+        gVar.dettachView(this.f50608h);
+        this.f50609i = null;
     }
 
     public final void i(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            if (c.a.r0.e2.d.m().o()) {
+            if (c.a.r0.f2.d.m().o()) {
                 loadUrl("javascript:__js_bridge_emoticon_del_action(0)");
                 c.a.e.e.p.l.L(getPageContext().getPageActivity(), R.string.face_group_is_syncing);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DELETE);
-            c.a.r0.e2.a.b().a(new a(this, jSONObject));
+            c.a.r0.f2.a.b().a(new a(this, jSONObject));
         }
     }
 
     public final void j(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity())) {
-            if (c.a.r0.e2.d.m().o()) {
+            if (c.a.r0.f2.d.m().o()) {
                 loadUrl("javascript:__js_bridge_emoticon_down_process_action(-1)");
                 c.a.e.e.p.l.L(getPageContext().getPageActivity(), R.string.face_group_is_syncing);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DOWNLOAD);
             String optString = jSONObject.optString("id");
-            if (this.f50680g == null) {
-                this.f50680g = new NewFaceGroupDownloadModel();
+            if (this.f50607g == null) {
+                this.f50607g = new NewFaceGroupDownloadModel();
             }
-            this.f50680g.w(optString, Boolean.TRUE, new o(this));
+            this.f50607g.w(optString, Boolean.TRUE, new o(this));
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.r0.e2.a.b().a(new c(this));
+            c.a.r0.f2.a.b().a(new c(this));
         }
     }
 
@@ -1072,7 +1072,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
 
     public final void loadUrl(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || this.f50679f == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || this.f50606f == null) {
             return;
         }
         this.l.post(new n(this, str));
@@ -1083,7 +1083,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || getArguments() == null || TextUtils.isEmpty(getArguments().getString("key_load_url"))) {
             return;
         }
-        this.f50678e = getArguments().getString("key_load_url");
+        this.f50605e = getArguments().getString("key_load_url");
     }
 
     public final void n(JSONObject jSONObject) {
@@ -1126,15 +1126,15 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.f50681h = new RelativeLayout(getPageContext().getPageActivity());
-            this.f50679f = new BaseWebView(getPageContext().getPageActivity());
-            this.f50679f.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.f50681h.addView(this.f50679f);
-            this.f50679f.setWebViewClient(new r(this, null));
+            this.f50608h = new RelativeLayout(getPageContext().getPageActivity());
+            this.f50606f = new BaseWebView(getPageContext().getPageActivity());
+            this.f50606f.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            this.f50608h.addView(this.f50606f);
+            this.f50606f.setWebViewClient(new r(this, null));
             c.a.q0.m.a.f(getPageContext().getPageActivity());
             m();
-            loadUrl(this.f50678e);
-            return this.f50681h;
+            loadUrl(this.f50605e);
+            return this.f50608h;
         }
         return (View) invokeLLL.objValue;
     }
@@ -1181,23 +1181,23 @@ public class CommonEmotionCenterFragment extends BaseFragment {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            c.a.r0.r0.x.d.a aVar = new c.a.r0.r0.x.d.a(getPageContext().getPageActivity(), 1);
+            c.a.r0.s0.x.d.a aVar = new c.a.r0.s0.x.d.a(getPageContext().getPageActivity(), 1);
             aVar.d(new p(this));
             Rect rect = new Rect();
             getPageContext().getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-            aVar.showAtLocation(this.f50681h, 81, 0, getPageContext().getPageActivity().getWindow().getDecorView().getHeight() - rect.bottom);
+            aVar.showAtLocation(this.f50608h, 81, 0, getPageContext().getPageActivity().getWindow().getDecorView().getHeight() - rect.bottom);
         }
     }
 
     public void reloadPage() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f50679f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f50606f == null) {
             return;
         }
         if (this.k) {
             loadUrl("javascript:window.reload_page()");
         } else {
-            loadUrl(this.f50678e);
+            loadUrl(this.f50605e);
         }
     }
 
@@ -1269,9 +1269,9 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             c.a.q0.g0.g gVar = new c.a.q0.g0.g(getPageContext().getPageActivity());
-            this.f50682i = gVar;
-            gVar.attachView(this.f50681h, false);
-            this.f50682i.onChangeSkinType();
+            this.f50609i = gVar;
+            gVar.attachView(this.f50608h, false);
+            this.f50609i.onChangeSkinType();
         }
     }
 
@@ -1281,30 +1281,30 @@ public class CommonEmotionCenterFragment extends BaseFragment {
             return;
         }
         String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
-        if (this.f50683j == null) {
+        if (this.f50610j == null) {
             c.a.q0.g0.h hVar = new c.a.q0.g0.h(getPageContext().getPageActivity(), new m(this));
-            this.f50683j = hVar;
+            this.f50610j = hVar;
             hVar.onChangeSkinType();
         }
-        BaseWebView baseWebView = this.f50679f;
+        BaseWebView baseWebView = this.f50606f;
         if (baseWebView != null) {
             baseWebView.setVisibility(8);
         }
-        this.f50683j.l(string);
-        this.f50683j.attachView(this.f50681h, false);
-        this.f50683j.o();
-        this.f50683j.j(getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds280));
+        this.f50610j.l(string);
+        this.f50610j.attachView(this.f50608h, false);
+        this.f50610j.o();
+        this.f50610j.j(getPageContext().getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds280));
     }
 
     public void showNormalView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            c.a.q0.g0.h hVar = this.f50683j;
+            c.a.q0.g0.h hVar = this.f50610j;
             if (hVar != null) {
-                hVar.dettachView(this.f50681h);
-                this.f50683j = null;
+                hVar.dettachView(this.f50608h);
+                this.f50610j = null;
             }
-            BaseWebView baseWebView = this.f50679f;
+            BaseWebView baseWebView = this.f50606f;
             if (baseWebView != null) {
                 baseWebView.setVisibility(0);
             }
@@ -1314,13 +1314,13 @@ public class CommonEmotionCenterFragment extends BaseFragment {
     public final void t(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, jSONObject) == null) {
-            if (c.a.r0.e2.d.m().o()) {
+            if (c.a.r0.f2.d.m().o()) {
                 loadUrl("javascript:__js_bridge_emoticon_sort_action()");
                 c.a.e.e.p.l.L(getPageContext().getPageActivity(), R.string.face_group_is_syncing);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_ORDER);
-            c.a.r0.e2.a.b().a(new g(this, jSONObject));
+            c.a.r0.f2.a.b().a(new g(this, jSONObject));
         }
     }
 
@@ -1331,7 +1331,7 @@ public class CommonEmotionCenterFragment extends BaseFragment {
             if (TextUtils.isEmpty(optString)) {
                 return;
             }
-            c.a.r0.e2.c.i().d(optString, new h(this));
+            c.a.r0.f2.c.i().d(optString, new h(this));
         }
     }
 
@@ -1373,9 +1373,9 @@ public class CommonEmotionCenterFragment extends BaseFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            BaseWebView baseWebView = this.f50679f;
+            BaseWebView baseWebView = this.f50606f;
             if (baseWebView != null && baseWebView.canGoBack()) {
-                this.f50679f.goBack();
+                this.f50606f.goBack();
                 return true;
             }
             return false;

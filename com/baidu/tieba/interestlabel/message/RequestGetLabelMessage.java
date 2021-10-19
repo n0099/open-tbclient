@@ -1,7 +1,7 @@
 package com.baidu.tieba.interestlabel.message;
 
-import c.a.q0.d1.a0;
-import c.a.r0.n1.b.b;
+import c.a.q0.d1.z;
+import c.a.r0.o1.b.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -19,7 +19,7 @@ public class RequestGetLabelMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f53805common;
+    public CommonReq f53736common;
     public int from;
     public b mLabelDataSet;
 
@@ -48,10 +48,10 @@ public class RequestGetLabelMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f80056common = this.f53805common;
+            builder.f80093common = this.f53736common;
             builder.from = Integer.valueOf(this.from);
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             GetTagListReqIdl.Builder builder2 = new GetTagListReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -69,7 +69,7 @@ public class RequestGetLabelMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f53805common = commonReq;
+            this.f53736common = commonReq;
         }
     }
 

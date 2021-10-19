@@ -11,10 +11,10 @@ public class c1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f77310a;
+    public String f77345a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f77311b;
+    public long f77346b;
 
     public c1() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class c1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f77310a + ":" + this.f77311b;
+            return this.f77345a + ":" + this.f77346b;
         }
         return (String) invokeV.objValue;
     }

@@ -15,34 +15,34 @@ public class LoadAdParams {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f75615a;
+    public int f75650a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoginType f75616b;
+    public LoginType f75651b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f75617c;
+    public String f75652c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f75618d;
+    public String f75653d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f75619e;
+    public String f75654e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f75620f;
+    public int f75655f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f75621g;
+    public String f75656g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map f75622h;
+    public Map f75657h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f75623i;
+    public boolean f75658i;
 
     /* renamed from: j  reason: collision with root package name */
-    public JSONObject f75624j;
+    public JSONObject f75659j;
 
     public LoadAdParams() {
         Interceptable interceptable = $ic;
@@ -61,43 +61,43 @@ public class LoadAdParams {
     public int getBlockEffectValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75620f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75655f : invokeV.intValue;
     }
 
     public JSONObject getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75624j : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75659j : (JSONObject) invokeV.objValue;
     }
 
     public int getFlowSourceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75615a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75650a : invokeV.intValue;
     }
 
     public String getLoginAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75617c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75652c : (String) invokeV.objValue;
     }
 
     public String getLoginOpenid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f75618d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f75653d : (String) invokeV.objValue;
     }
 
     public LoginType getLoginType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f75616b : (LoginType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f75651b : (LoginType) invokeV.objValue;
     }
 
     public Map getPassThroughInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f75622h : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f75657h : (Map) invokeV.objValue;
     }
 
     public String getPassThroughInfoJsonString() {
@@ -105,10 +105,10 @@ public class LoadAdParams {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             try {
-                if (this.f75622h == null || this.f75622h.size() <= 0) {
+                if (this.f75657h == null || this.f75657h.size() <= 0) {
                     return null;
                 }
-                return new JSONObject(this.f75622h).toString();
+                return new JSONObject(this.f75657h).toString();
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
@@ -120,88 +120,88 @@ public class LoadAdParams {
     public String getUin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f75619e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f75654e : (String) invokeV.objValue;
     }
 
     public String getWXAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f75621g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f75656g : (String) invokeV.objValue;
     }
 
     public boolean isHotStart() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f75623i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f75658i : invokeV.booleanValue;
     }
 
     public void setBlockEffectValue(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f75620f = i2;
+            this.f75655f = i2;
         }
     }
 
     public void setExtraInfo(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
-            this.f75624j = jSONObject;
+            this.f75659j = jSONObject;
         }
     }
 
     public void setFlowSourceId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f75615a = i2;
+            this.f75650a = i2;
         }
     }
 
     public void setHotStart(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f75623i = z;
+            this.f75658i = z;
         }
     }
 
     public void setLoginAppId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f75617c = str;
+            this.f75652c = str;
         }
     }
 
     public void setLoginOpenid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f75618d = str;
+            this.f75653d = str;
         }
     }
 
     public void setLoginType(LoginType loginType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, loginType) == null) {
-            this.f75616b = loginType;
+            this.f75651b = loginType;
         }
     }
 
     public void setPassThroughInfo(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, map) == null) {
-            this.f75622h = map;
+            this.f75657h = map;
         }
     }
 
     public void setUin(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f75619e = str;
+            this.f75654e = str;
         }
     }
 
     public void setWXAppId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f75621g = str;
+            this.f75656g = str;
         }
     }
 
@@ -209,7 +209,7 @@ public class LoadAdParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return "LoadAdParams{flowSourceId=" + this.f75615a + ", loginType=" + this.f75616b + ", loginAppId=" + this.f75617c + ", loginOpenid=" + this.f75618d + ", uin=" + this.f75619e + ", blockEffect=" + this.f75620f + ", passThroughInfo=" + this.f75622h + ", extraInfo=" + this.f75624j + ExtendedMessageFormat.END_FE;
+            return "LoadAdParams{flowSourceId=" + this.f75650a + ", loginType=" + this.f75651b + ", loginAppId=" + this.f75652c + ", loginOpenid=" + this.f75653d + ", uin=" + this.f75654e + ", blockEffect=" + this.f75655f + ", passThroughInfo=" + this.f75657h + ", extraInfo=" + this.f75659j + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

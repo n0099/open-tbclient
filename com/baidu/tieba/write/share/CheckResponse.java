@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.share;
 
-import c.a.r0.c4.p.c;
+import c.a.r0.d4.p.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -45,12 +45,12 @@ public class CheckResponse extends JsonHttpResponsedMessage {
             }
             c cVar = new c();
             this.mCheckResponseData = cVar;
-            cVar.f16816a = jSONObject.optString("tbopen_app_key");
-            this.mCheckResponseData.f16818c = jSONObject.optString("tbopen_app_name");
-            this.mCheckResponseData.f16819d = jSONObject.optString("tbopen_app_icon");
+            cVar.f16990a = jSONObject.optString("tbopen_app_key");
+            this.mCheckResponseData.f16992c = jSONObject.optString("tbopen_app_name");
+            this.mCheckResponseData.f16993d = jSONObject.optString("tbopen_app_icon");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
             if (optJSONObject != null) {
-                this.mCheckResponseData.f16825j = optJSONObject.optString("default_pic");
+                this.mCheckResponseData.f16999j = optJSONObject.optString("default_pic");
             }
         }
     }

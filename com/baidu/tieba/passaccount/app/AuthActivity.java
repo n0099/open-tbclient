@@ -56,7 +56,7 @@ public class AuthActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f54936a;
+        public final /* synthetic */ AuthActivity f54867a;
 
         public a(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -73,14 +73,14 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54936a = authActivity;
+            this.f54867a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
         public void onBack() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54936a.goBack();
+                this.f54867a.goBack();
             }
         }
     }
@@ -91,7 +91,7 @@ public class AuthActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f54937a;
+        public final /* synthetic */ AuthActivity f54868a;
 
         public b(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -108,14 +108,14 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54937a = authActivity;
+            this.f54868a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54937a.onClose();
+                this.f54868a.onClose();
             }
         }
     }
@@ -126,7 +126,7 @@ public class AuthActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f54938a;
+        public final /* synthetic */ AuthActivity f54869a;
 
         public c(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54938a = authActivity;
+            this.f54869a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
@@ -161,7 +161,7 @@ public class AuthActivity extends BaseActivity {
                 if (TextUtils.isEmpty(queryParameter)) {
                     return;
                 }
-                this.f54938a.finishActivity(true, queryParameter);
+                this.f54869a.finishActivity(true, queryParameter);
             }
         }
 
@@ -179,7 +179,7 @@ public class AuthActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f54939a;
+        public final /* synthetic */ AuthActivity f54870a;
 
         public d(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -196,14 +196,14 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54939a = authActivity;
+            this.f54870a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54939a.finishActivity(true, null);
+                this.f54870a.finishActivity(true, null);
             }
         }
     }
@@ -230,13 +230,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(65539, this, z, str) == null) {
             int i2 = this.type;
             if (i2 == 0) {
-                c.a.r0.h2.d.b.f().b(z, str);
+                c.a.r0.i2.d.b.f().b(z, str);
             } else if (i2 == 1) {
-                c.a.r0.h2.d.b.f().e(z);
+                c.a.r0.i2.d.b.f().e(z);
             } else if (i2 == 2) {
-                c.a.r0.h2.d.b.f().c(z);
+                c.a.r0.i2.d.b.f().c(z);
             } else {
-                c.a.r0.h2.d.b.f().a(null);
+                c.a.r0.i2.d.b.f().a(null);
             }
             finish();
         }

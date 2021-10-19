@@ -85,10 +85,10 @@ public class e extends b {
                 this.q.updateTexImage();
                 this.q.getTransformMatrix(this.r);
                 f();
-                i(i2, fArr, this.z, this.x, this.f31033j, this.k, this.l, this.m, this.r, !this.F, false);
+                i(i2, fArr, this.z, this.x, this.f31080j, this.k, this.l, this.m, this.r, !this.F, false);
                 GLES20.glViewport(0, 0, this.t, this.u);
                 this.mFullScreen2D.drawFrame(this.x, GlUtil.IDENTITY_MATRIX);
-                i(i2, fArr, this.z, this.x, this.f31033j, this.k, this.l, this.m, this.r, false, true);
+                i(i2, fArr, this.z, this.x, this.f31080j, this.k, this.l, this.m, this.r, false, true);
             } catch (Throwable th) {
                 c.a.x0.t.c.c("followvideo", th.toString());
             }

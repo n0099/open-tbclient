@@ -19,10 +19,10 @@ public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f45537a;
+    public static final String[] f45449a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f45538b;
+    public static final String[] f45450b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,8 +38,8 @@ public final class i {
                 return;
             }
         }
-        f45537a = new String[]{"java.lang.UnsatisfiedLinkError"};
-        f45538b = new String[]{"space left"};
+        f45449a = new String[]{"java.lang.UnsatisfiedLinkError"};
+        f45450b = new String[]{"space left"};
     }
 
     public static String a(Context context, String str, String str2) {
@@ -50,10 +50,10 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
             try {
-                if (str.contains(f45537a[0])) {
+                if (str.contains(f45449a[0])) {
                     c2 = 1;
                 } else {
-                    c2 = str.contains(f45538b[0]) ? (char) 2 : (char) 0;
+                    c2 = str.contains(f45450b[0]) ? (char) 2 : (char) 0;
                 }
                 if (c2 != 1) {
                     return c2 != 2 ? str : a(context, str);

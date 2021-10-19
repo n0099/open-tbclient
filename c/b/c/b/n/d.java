@@ -24,22 +24,22 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31637a;
+    public final String f31641a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpURLConnection f31638b;
+    public HttpURLConnection f31642b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31639c;
+    public String f31643c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f31640d;
+    public boolean f31644d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DataOutputStream f31641e;
+    public DataOutputStream f31645e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GZIPOutputStream f31642f;
+    public GZIPOutputStream f31646f;
 
     public d(String str, String str2, boolean z) throws IOException {
         Interceptable interceptable = $ic;
@@ -56,23 +56,23 @@ public class d {
                 return;
             }
         }
-        this.f31639c = str2;
-        this.f31640d = z;
-        this.f31637a = "AAA" + System.currentTimeMillis() + "AAA";
+        this.f31643c = str2;
+        this.f31644d = z;
+        this.f31641a = "AAA" + System.currentTimeMillis() + "AAA";
         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-        this.f31638b = httpURLConnection;
+        this.f31642b = httpURLConnection;
         httpURLConnection.setUseCaches(false);
-        this.f31638b.setDoOutput(true);
-        this.f31638b.setDoInput(true);
-        this.f31638b.setRequestMethod("POST");
-        HttpURLConnection httpURLConnection2 = this.f31638b;
-        httpURLConnection2.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + this.f31637a);
+        this.f31642b.setDoOutput(true);
+        this.f31642b.setDoInput(true);
+        this.f31642b.setRequestMethod("POST");
+        HttpURLConnection httpURLConnection2 = this.f31642b;
+        httpURLConnection2.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + this.f31641a);
         if (z) {
-            this.f31638b.setRequestProperty("Content-Encoding", AsyncHttpClient.ENCODING_GZIP);
-            this.f31642f = new GZIPOutputStream(this.f31638b.getOutputStream());
+            this.f31642b.setRequestProperty("Content-Encoding", AsyncHttpClient.ENCODING_GZIP);
+            this.f31646f = new GZIPOutputStream(this.f31642b.getOutputStream());
             return;
         }
-        this.f31641e = new DataOutputStream(this.f31638b.getOutputStream());
+        this.f31645e = new DataOutputStream(this.f31642b.getOutputStream());
     }
 
     public String a() throws IOException {
@@ -80,19 +80,19 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList<String> arrayList = new ArrayList();
-            byte[] bytes = ("\r\n--" + this.f31637a + "--" + Part.CRLF).getBytes();
-            if (this.f31640d) {
-                this.f31642f.write(bytes);
-                this.f31642f.finish();
-                this.f31642f.close();
+            byte[] bytes = ("\r\n--" + this.f31641a + "--" + Part.CRLF).getBytes();
+            if (this.f31644d) {
+                this.f31646f.write(bytes);
+                this.f31646f.finish();
+                this.f31646f.close();
             } else {
-                this.f31641e.write(bytes);
-                this.f31641e.flush();
-                this.f31641e.close();
+                this.f31645e.write(bytes);
+                this.f31645e.flush();
+                this.f31645e.close();
             }
-            int responseCode = this.f31638b.getResponseCode();
+            int responseCode = this.f31642b.getResponseCode();
             if (responseCode == 200) {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f31638b.getInputStream()));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f31642b.getInputStream()));
                 while (true) {
                     String readLine = bufferedReader.readLine();
                     if (readLine == null) {
@@ -101,7 +101,7 @@ public class d {
                     arrayList.add(readLine);
                 }
                 bufferedReader.close();
-                this.f31638b.disconnect();
+                this.f31642b.disconnect();
                 StringBuilder sb = new StringBuilder();
                 for (String str : arrayList) {
                     sb.append(str);
@@ -119,7 +119,7 @@ public class d {
             String name = file.getName();
             StringBuilder sb = new StringBuilder();
             sb.append("--");
-            sb.append(this.f31637a);
+            sb.append(this.f31641a);
             sb.append(Part.CRLF);
             sb.append("Content-Disposition: form-data; name=\"");
             sb.append(str);
@@ -130,10 +130,10 @@ public class d {
             sb.append("Content-Transfer-Encoding: binary");
             sb.append(Part.CRLF);
             sb.append(Part.CRLF);
-            if (this.f31640d) {
-                this.f31642f.write(sb.toString().getBytes());
+            if (this.f31644d) {
+                this.f31646f.write(sb.toString().getBytes());
             } else {
-                this.f31641e.write(sb.toString().getBytes());
+                this.f31645e.write(sb.toString().getBytes());
             }
             FileInputStream fileInputStream = new FileInputStream(file);
             byte[] bArr = new byte[8192];
@@ -141,19 +141,19 @@ public class d {
                 int read = fileInputStream.read(bArr);
                 if (read == -1) {
                     break;
-                } else if (this.f31640d) {
-                    this.f31642f.write(bArr, 0, read);
+                } else if (this.f31644d) {
+                    this.f31646f.write(bArr, 0, read);
                 } else {
-                    this.f31641e.write(bArr, 0, read);
+                    this.f31645e.write(bArr, 0, read);
                 }
             }
             fileInputStream.close();
-            if (this.f31640d) {
-                this.f31642f.write(Part.CRLF.getBytes());
+            if (this.f31644d) {
+                this.f31646f.write(Part.CRLF.getBytes());
                 return;
             }
-            this.f31641e.write(sb.toString().getBytes());
-            this.f31641e.flush();
+            this.f31645e.write(sb.toString().getBytes());
+            this.f31645e.flush();
         }
     }
 
@@ -162,23 +162,23 @@ public class d {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("--");
-            sb.append(this.f31637a);
+            sb.append(this.f31641a);
             sb.append(Part.CRLF);
             sb.append("Content-Disposition: form-data; name=\"");
             sb.append(str);
             sb.append("\"");
             sb.append(Part.CRLF);
             sb.append("Content-Type: text/plain; charset=");
-            sb.append(this.f31639c);
+            sb.append(this.f31643c);
             sb.append(Part.CRLF);
             sb.append(Part.CRLF);
             sb.append(str2);
             sb.append(Part.CRLF);
             try {
-                if (this.f31640d) {
-                    this.f31642f.write(sb.toString().getBytes());
+                if (this.f31644d) {
+                    this.f31646f.write(sb.toString().getBytes());
                 } else {
-                    this.f31641e.write(sb.toString().getBytes());
+                    this.f31645e.write(sb.toString().getBytes());
                 }
             } catch (IOException e2) {
                 e2.printStackTrace();

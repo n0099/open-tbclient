@@ -66,7 +66,7 @@ public class b {
             if (s == null) {
                 return false;
             }
-            return TextUtils.equals("none", s.f46659e.q);
+            return TextUtils.equals("none", s.f46571e.q);
         }
         return invokeV.booleanValue;
     }

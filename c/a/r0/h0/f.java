@@ -1,6 +1,9 @@
 package c.a.r0.h0;
 
+import c.a.e.l.e.n;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,26 +12,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class f {
+public class f implements n {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: a  reason: collision with root package name */
-    public static f f18881a;
+    /* renamed from: f  reason: collision with root package name */
+    public static final BdUniqueId f17932f;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public FeatureCardGame f17933e;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1785653585, "Lc/a/r0/h0/f;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1785653585, "Lc/a/r0/h0/f;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1785653585, "Lc/a/r0/h0/f;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1785653585, "Lc/a/r0/h0/f;");
-        }
+        f17932f = BdUniqueId.gen();
     }
 
     public f() {
@@ -45,37 +52,27 @@ public class f {
         }
     }
 
-    public static final f a() {
+    public FeatureCardGame b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f18881a == null) {
-                synchronized (f.class) {
-                    if (f18881a == null) {
-                        f18881a = new f();
-                    }
-                }
-            }
-            return f18881a;
-        }
-        return (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17933e : (FeatureCardGame) invokeV.objValue;
     }
 
-    public boolean b(String str) {
-        InterceptResult invokeL;
+    public void c(FeatureCardGame featureCardGame) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardGame) == null) || featureCardGame == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.f17933e = featureCardGame;
+        String str = featureCardGame.title;
+        Integer num = featureCardGame.floor;
+        Integer num2 = featureCardGame.type;
     }
 
-    public boolean c(String str) {
-        InterceptResult invokeL;
+    @Override // c.a.e.l.e.n
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f17932f : (BdUniqueId) invokeV.objValue;
     }
 }

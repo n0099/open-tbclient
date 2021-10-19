@@ -20,13 +20,13 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f68617a;
+    public final c f68652a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<b> f68618b;
+    public final List<b> f68653b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f68619c;
+    public final a f68654c;
 
     /* loaded from: classes9.dex */
     public static final class a {
@@ -34,25 +34,25 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f68620a;
+        public final int f68655a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f68621b;
+        public final String f68656b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f68622c;
+        public final String f68657c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f68623d;
+        public final int f68658d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f68624e;
+        public final int f68659e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f68625f;
+        public final String f68660f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final List<String> f68626g;
+        public final List<String> f68661g;
 
         public a(int i2, String str, String str2, int i3, int i4, String str3, List<String> list) {
             Interceptable interceptable = $ic;
@@ -69,13 +69,13 @@ public class i {
                     return;
                 }
             }
-            this.f68620a = i2;
-            this.f68621b = str;
-            this.f68622c = str2;
-            this.f68623d = i3;
-            this.f68624e = i4;
-            this.f68625f = str3;
-            this.f68626g = list;
+            this.f68655a = i2;
+            this.f68656b = str;
+            this.f68657c = str2;
+            this.f68658d = i3;
+            this.f68659e = i4;
+            this.f68660f = str3;
+            this.f68661g = list;
         }
 
         public static a a(c cVar, List<b> list) throws d {
@@ -85,14 +85,14 @@ public class i {
             int i3;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cVar, list)) == null) {
-                int indexOf = cVar.f68630b.indexOf("?");
+                int indexOf = cVar.f68665b.indexOf("?");
                 if (indexOf != -1) {
                     ArrayList arrayList = new ArrayList();
                     String str2 = null;
                     String str3 = null;
                     String str4 = null;
                     int i4 = 0;
-                    for (String str5 : cVar.f68630b.substring(indexOf + 1).split("&")) {
+                    for (String str5 : cVar.f68665b.substring(indexOf + 1).split("&")) {
                         String[] split = str5.split("=");
                         if (split.length == 2) {
                             if ("rk".equals(split[0])) {
@@ -111,11 +111,11 @@ public class i {
                             i3 = 0;
                             int i5 = 0;
                             for (b bVar : list) {
-                                if (bVar != null && "Range".equalsIgnoreCase(bVar.f68627a)) {
-                                    int indexOf2 = bVar.f68628b.indexOf("=");
+                                if (bVar != null && "Range".equalsIgnoreCase(bVar.f68662a)) {
+                                    int indexOf2 = bVar.f68663b.indexOf("=");
                                     if (indexOf2 != -1) {
-                                        if ("bytes".equalsIgnoreCase(bVar.f68628b.substring(0, indexOf2).trim())) {
-                                            String substring = bVar.f68628b.substring(indexOf2 + 1);
+                                        if ("bytes".equalsIgnoreCase(bVar.f68663b.substring(0, indexOf2).trim())) {
+                                            String substring = bVar.f68663b.substring(indexOf2 + 1);
                                             if (!substring.contains(",")) {
                                                 int indexOf3 = substring.indexOf("-");
                                                 if (indexOf3 != -1) {
@@ -126,23 +126,23 @@ public class i {
                                                             i3 = Integer.parseInt(trim);
                                                         }
                                                         if (trim2.length() > 0 && i3 > (i5 = Integer.parseInt(trim2))) {
-                                                            throw new d("Range format error, Range: " + bVar.f68628b);
+                                                            throw new d("Range format error, Range: " + bVar.f68663b);
                                                         }
-                                                        str2 = bVar.f68628b;
+                                                        str2 = bVar.f68663b;
                                                     } catch (NumberFormatException unused) {
-                                                        throw new d("Range format error, Range: " + bVar.f68628b);
+                                                        throw new d("Range format error, Range: " + bVar.f68663b);
                                                     }
                                                 } else {
-                                                    throw new d("Range format error, Range: " + bVar.f68628b);
+                                                    throw new d("Range format error, Range: " + bVar.f68663b);
                                                 }
                                             } else {
-                                                throw new d("Range format error, Range: " + bVar.f68628b);
+                                                throw new d("Range format error, Range: " + bVar.f68663b);
                                             }
                                         } else {
-                                            throw new d("Range format error, Range: " + bVar.f68628b);
+                                            throw new d("Range format error, Range: " + bVar.f68663b);
                                         }
                                     } else {
-                                        throw new d("Range format error, Range: " + bVar.f68628b);
+                                        throw new d("Range format error, Range: " + bVar.f68663b);
                                     }
                                 }
                             }
@@ -156,11 +156,11 @@ public class i {
                         if (!arrayList.isEmpty()) {
                             return new a(i4, str3, str4, i3, i2, str, arrayList);
                         }
-                        throw new d("no url found: path: " + cVar.f68630b);
+                        throw new d("no url found: path: " + cVar.f68665b);
                     }
-                    throw new d("rawKey or key is empty, path: " + cVar.f68630b);
+                    throw new d("rawKey or key is empty, path: " + cVar.f68665b);
                 }
-                throw new d("path format error, path: " + cVar.f68630b);
+                throw new d("path format error, path: " + cVar.f68665b);
             }
             return (a) invokeLL.objValue;
         }
@@ -169,7 +169,7 @@ public class i {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Extra{flag=" + this.f68620a + ", rawKey='" + this.f68621b + ExtendedMessageFormat.QUOTE + ", key='" + this.f68622c + ExtendedMessageFormat.QUOTE + ", from=" + this.f68623d + ", to=" + this.f68624e + ", urls=" + this.f68626g + ExtendedMessageFormat.END_FE;
+                return "Extra{flag=" + this.f68655a + ", rawKey='" + this.f68656b + ExtendedMessageFormat.QUOTE + ", key='" + this.f68657c + ExtendedMessageFormat.QUOTE + ", from=" + this.f68658d + ", to=" + this.f68659e + ", urls=" + this.f68661g + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -181,10 +181,10 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f68627a;
+        public final String f68662a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f68628b;
+        public final String f68663b;
 
         public b(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -201,8 +201,8 @@ public class i {
                     return;
                 }
             }
-            this.f68627a = str;
-            this.f68628b = str2;
+            this.f68662a = str;
+            this.f68663b = str2;
         }
 
         public static b a(String str) throws d {
@@ -227,7 +227,7 @@ public class i {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Header{name='" + this.f68627a + ExtendedMessageFormat.QUOTE + ", value='" + this.f68628b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "Header{name='" + this.f68662a + ExtendedMessageFormat.QUOTE + ", value='" + this.f68663b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -239,13 +239,13 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f68629a;
+        public final String f68664a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f68630b;
+        public final String f68665b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f68631c;
+        public final String f68666c;
 
         public c(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -262,9 +262,9 @@ public class i {
                     return;
                 }
             }
-            this.f68629a = str;
-            this.f68630b = str2;
-            this.f68631c = str3;
+            this.f68664a = str;
+            this.f68665b = str2;
+            this.f68666c = str3;
         }
 
         public static c a(String str) throws d {
@@ -294,7 +294,7 @@ public class i {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "RequestLine{method='" + this.f68629a + ExtendedMessageFormat.QUOTE + ", path='" + this.f68630b + ExtendedMessageFormat.QUOTE + ", version='" + this.f68631c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "RequestLine{method='" + this.f68664a + ExtendedMessageFormat.QUOTE + ", path='" + this.f68665b + ExtendedMessageFormat.QUOTE + ", version='" + this.f68666c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -341,16 +341,16 @@ public class i {
                 return;
             }
         }
-        this.f68617a = cVar;
-        this.f68618b = list;
-        this.f68619c = aVar;
+        this.f68652a = cVar;
+        this.f68653b = list;
+        this.f68654c = aVar;
     }
 
     public static i a(InputStream inputStream) throws IOException, d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, com.bytedance.sdk.openadsdk.n.g.d.f68613a));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, com.bytedance.sdk.openadsdk.n.g.d.f68648a));
             ArrayList arrayList = new ArrayList();
             c cVar = null;
             while (true) {
@@ -377,7 +377,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "Request{requestLine=" + this.f68617a + ", headers=" + this.f68618b + ", extra=" + this.f68619c + ExtendedMessageFormat.END_FE;
+            return "Request{requestLine=" + this.f68652a + ", headers=" + this.f68653b + ", extra=" + this.f68654c + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

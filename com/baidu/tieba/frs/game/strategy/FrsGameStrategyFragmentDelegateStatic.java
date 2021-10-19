@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import c.a.q0.h0.b;
 import c.a.q0.h0.c;
-import c.a.r0.w0.i0;
+import c.a.r0.x0.i0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -70,7 +70,7 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
             bundle.putString("from", "game_frs");
             bundle.putBoolean("back_special", false);
             bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-            fragmentTabStructure.f13463a.setArguments(bundle);
+            fragmentTabStructure.f13471a.setArguments(bundle);
         }
     }
 
@@ -110,9 +110,9 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f13463a = new FrsGameStrategyMainFragment();
-            cVar.f13467e = 3;
-            cVar.f13471i = c.k;
+            cVar.f13471a = new FrsGameStrategyMainFragment();
+            cVar.f13475e = 3;
+            cVar.f13479i = c.k;
             return cVar;
         }
         return (c) invokeV.objValue;

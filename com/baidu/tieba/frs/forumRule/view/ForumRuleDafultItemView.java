@@ -20,7 +20,7 @@ public class ForumRuleDafultItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51257e;
+    public Context f51184e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ForumRuleDafultItemView(Context context) {
@@ -46,13 +46,13 @@ public class ForumRuleDafultItemView extends LinearLayout {
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            EMTextView eMTextView = new EMTextView(this.f51257e);
+            EMTextView eMTextView = new EMTextView(this.f51184e);
             eMTextView.setText(str);
             addView(eMTextView);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) eMTextView.getLayoutParams();
             marginLayoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X008);
             eMTextView.setLayoutParams(marginLayoutParams);
-            EMTextView eMTextView2 = new EMTextView(this.f51257e);
+            EMTextView eMTextView2 = new EMTextView(this.f51184e);
             eMTextView2.setText(str2);
             addView(eMTextView2);
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) eMTextView2.getLayoutParams();
@@ -64,10 +64,10 @@ public class ForumRuleDafultItemView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(this.f51257e.getResources().getString(R.string.forum_rule_defalt_one_title), this.f51257e.getResources().getString(R.string.forum_rule_defalt_one_content));
-            a(this.f51257e.getResources().getString(R.string.forum_rule_defalt_two_title), this.f51257e.getResources().getString(R.string.forum_rule_defalt_two_content));
-            a(this.f51257e.getResources().getString(R.string.forum_rule_defalt_three_title), this.f51257e.getResources().getString(R.string.forum_rule_defalt_three_content));
-            a(this.f51257e.getResources().getString(R.string.forum_rule_defalt_four_title), this.f51257e.getResources().getString(R.string.forum_rule_defalt_four_content));
+            a(this.f51184e.getResources().getString(R.string.forum_rule_defalt_one_title), this.f51184e.getResources().getString(R.string.forum_rule_defalt_one_content));
+            a(this.f51184e.getResources().getString(R.string.forum_rule_defalt_two_title), this.f51184e.getResources().getString(R.string.forum_rule_defalt_two_content));
+            a(this.f51184e.getResources().getString(R.string.forum_rule_defalt_three_title), this.f51184e.getResources().getString(R.string.forum_rule_defalt_three_content));
+            a(this.f51184e.getResources().getString(R.string.forum_rule_defalt_four_title), this.f51184e.getResources().getString(R.string.forum_rule_defalt_four_content));
         }
     }
 
@@ -80,12 +80,12 @@ public class ForumRuleDafultItemView extends LinearLayout {
             EMTextView eMTextView = (EMTextView) getChildAt(i3);
             if (i3 % 2 != 0) {
                 c d2 = c.d(eMTextView);
-                d2.w(R.color.CAM_X0107);
-                d2.x(R.dimen.M_T_X003);
+                d2.v(R.color.CAM_X0107);
+                d2.w(R.dimen.M_T_X003);
             } else {
                 c d3 = c.d(eMTextView);
-                d3.w(R.color.CAM_X0107);
-                d3.B(R.string.F_X02);
+                d3.v(R.color.CAM_X0107);
+                d3.A(R.string.F_X02);
             }
         }
     }
@@ -130,7 +130,7 @@ public class ForumRuleDafultItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51257e = context;
+        this.f51184e = context;
         setOrientation(1);
         b();
     }

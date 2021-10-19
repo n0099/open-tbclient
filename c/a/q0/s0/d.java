@@ -30,14 +30,14 @@ public class d implements c.a.e.h.j.f.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f14601c;
+    public static final String f14621c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.e.h.j.f.a f14602a;
+    public c.a.e.h.j.f.a f14622a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f14603b;
+    public boolean f14623b;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Void, Void, Void> {
@@ -45,7 +45,7 @@ public class d implements c.a.e.h.j.f.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public File f14604a;
+        public File f14624a;
 
         public a(d dVar, File file) {
             Interceptable interceptable = $ic;
@@ -62,8 +62,8 @@ public class d implements c.a.e.h.j.f.b {
                     return;
                 }
             }
-            this.f14604a = null;
-            this.f14604a = file;
+            this.f14624a = null;
+            this.f14624a = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -89,11 +89,11 @@ public class d implements c.a.e.h.j.f.b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voidArr)) == null) {
-                File file = this.f14604a;
+                File file = this.f14624a;
                 if (file == null || !file.exists()) {
                     return null;
                 }
-                Util.a(this.f14604a);
+                Util.a(this.f14624a);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -106,16 +106,16 @@ public class d implements c.a.e.h.j.f.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f14605a;
+        public NetWork f14625a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.e.h.j.f.c f14606b;
+        public c.a.e.h.j.f.c f14626b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f14607c;
+        public boolean f14627c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d f14608d;
+        public final /* synthetic */ d f14628d;
 
         public b(d dVar, c.a.e.h.j.f.c cVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -132,10 +132,10 @@ public class d implements c.a.e.h.j.f.b {
                     return;
                 }
             }
-            this.f14608d = dVar;
-            this.f14607c = false;
-            this.f14606b = cVar;
-            this.f14607c = z;
+            this.f14628d = dVar;
+            this.f14627c = false;
+            this.f14626b = cVar;
+            this.f14627c = z;
         }
 
         public final String b(l<String> lVar, String str) {
@@ -152,10 +152,10 @@ public class d implements c.a.e.h.j.f.b {
                 if (TbadkCoreApplication.getInst().checkInterrupt() && checkNewUser) {
                     return null;
                 }
-                NetWork netWork = new NetWork(d.f14601c);
-                this.f14605a = netWork;
+                NetWork netWork = new NetWork(d.f14621c);
+                this.f14625a = netWork;
                 netWork.addPostData("plugin_upload_config", str);
-                return this.f14605a.postNetData();
+                return this.f14625a.postNetData();
             }
             return (String) invokeLL.objValue;
         }
@@ -165,9 +165,9 @@ public class d implements c.a.e.h.j.f.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel();
-                this.f14608d.f14603b = false;
-                this.f14605a.cancelNetConnect();
-                this.f14605a = null;
+                this.f14628d.f14623b = false;
+                this.f14625a.cancelNetConnect();
+                this.f14625a = null;
             }
         }
 
@@ -178,17 +178,17 @@ public class d implements c.a.e.h.j.f.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, pluginNetConfigInfosArr) == null) {
                 super.onProgressUpdate(pluginNetConfigInfosArr);
-                this.f14608d.f14603b = false;
+                this.f14628d.f14623b = false;
                 boolean z = pluginNetConfigInfosArr[0] != null;
                 String str = null;
-                NetWork netWork = this.f14605a;
+                NetWork netWork = this.f14625a;
                 if (netWork != null && !netWork.isNetSuccess()) {
-                    str = this.f14605a.getNetException();
-                    if (this.f14605a.getServerErrorCode() != 0) {
-                        str = str + "-" + this.f14605a.getErrorString();
+                    str = this.f14625a.getNetException();
+                    if (this.f14625a.getServerErrorCode() != 0) {
+                        str = str + "-" + this.f14625a.getErrorString();
                     }
                 }
-                this.f14608d.f14602a.a(z, this.f14606b, pluginNetConfigInfosArr[0], str);
+                this.f14628d.f14622a.a(z, this.f14626b, pluginNetConfigInfosArr[0], str);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001224));
             }
         }
@@ -211,21 +211,21 @@ public class d implements c.a.e.h.j.f.b {
             PluginNetConfigInfos pluginNetConfigInfos;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, voidArr)) == null) {
-                c.a.e.h.j.f.c cVar = this.f14606b;
+                c.a.e.h.j.f.c cVar = this.f14626b;
                 if (cVar == null) {
                     publishProgress(null);
                     return null;
                 }
-                if (cVar.a() == null || this.f14606b.a().size() <= 0) {
+                if (cVar.a() == null || this.f14626b.a().size() <= 0) {
                     str = "";
                 } else {
                     StringBuilder sb = new StringBuilder(50);
-                    int size = this.f14606b.a().size();
+                    int size = this.f14626b.a().size();
                     for (int i2 = 0; i2 < size; i2++) {
                         if (i2 != 0) {
                             sb.append(",");
                         }
-                        BasicNameValuePair basicNameValuePair = this.f14606b.a().get(i2);
+                        BasicNameValuePair basicNameValuePair = this.f14626b.a().get(i2);
                         if (basicNameValuePair != null && !TextUtils.isEmpty(basicNameValuePair.getName()) && !TextUtils.isEmpty(basicNameValuePair.getValue())) {
                             sb.append(basicNameValuePair.getName());
                             sb.append(":");
@@ -237,7 +237,7 @@ public class d implements c.a.e.h.j.f.b {
                 BdCacheService j2 = BdCacheService.j("baidu_plugin.db");
                 l<String> c2 = j2.c("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
                 String str3 = c2.get("time");
-                if (!this.f14607c && str3 != null) {
+                if (!this.f14627c && str3 != null) {
                     long g2 = c.a.e.e.m.b.g(str3, -1L);
                     if (g2 != -1 && System.currentTimeMillis() - g2 < 86400000) {
                         z = false;
@@ -297,7 +297,7 @@ public class d implements c.a.e.h.j.f.b {
                 return;
             }
         }
-        f14601c = TbConfig.SERVER_ADDRESS + TbConfig.PLUGIN_NET_CONFIGS_MIS;
+        f14621c = TbConfig.SERVER_ADDRESS + TbConfig.PLUGIN_NET_CONFIGS_MIS;
     }
 
     public d() {
@@ -325,9 +325,9 @@ public class d implements c.a.e.h.j.f.b {
                 }
                 return;
             }
-            this.f14602a = aVar;
-            if (!this.f14603b) {
-                this.f14603b = true;
+            this.f14622a = aVar;
+            if (!this.f14623b) {
+                this.f14623b = true;
                 new b(this, cVar, z).execute(new Void[0]);
             }
             try {

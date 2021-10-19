@@ -11,7 +11,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile long f69161a;
+    public static volatile long f69196a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             try {
-                f69161a = com.bytedance.sdk.component.utils.l.a(com.bytedance.sdk.openadsdk.downloadnew.a.g.f67975a);
+                f69196a = com.bytedance.sdk.component.utils.l.a(com.bytedance.sdk.openadsdk.downloadnew.a.g.f68010a);
             } catch (Throwable unused) {
             }
         }

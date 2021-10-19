@@ -26,7 +26,7 @@ public class DxmCheckFingerprint {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static DxmCheckFingerprint f62843a;
+        public static DxmCheckFingerprint f62878a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public class DxmCheckFingerprint {
                     return;
                 }
             }
-            f62843a = new DxmCheckFingerprint(null);
+            f62878a = new DxmCheckFingerprint(null);
         }
     }
 
@@ -53,7 +53,7 @@ public class DxmCheckFingerprint {
     public static DxmCheckFingerprint getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62843a : (DxmCheckFingerprint) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62878a : (DxmCheckFingerprint) invokeV.objValue;
     }
 
     public void startCherkFingerprint(Context context, String str, RouterCallback routerCallback) {

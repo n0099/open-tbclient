@@ -34,34 +34,34 @@ public class a implements b<String, String> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39469a = "Host";
+    public static final String f39473a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39470b = "Accept";
+    public static final String f39474b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39471c = "Accept-Charset";
+    public static final String f39475c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39472d = "Accept-Encoding";
+    public static final String f39476d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39473e = "Accept-Language";
+    public static final String f39477e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39474f = "Allow";
+    public static final String f39478f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39475g = "Cache-Control";
+    public static final String f39479g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39476h = "Content-Disposition";
+    public static final String f39480h = "Content-Disposition";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39477i = "Content-Encoding";
+    public static final String f39481i = "Content-Encoding";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f39478j = "Content-Length";
+    public static final String f39482j = "Content-Length";
     public static final String k = "Content-Type";
     public static final String l = "Date";
     public static final String m = "ETag";

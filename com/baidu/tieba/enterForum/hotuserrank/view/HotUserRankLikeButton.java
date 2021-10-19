@@ -44,7 +44,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if (z) {
                 b bVar = new b();
-                bVar.r(R.color.CAM_X0109);
+                bVar.s(R.color.CAM_X0109);
                 setConfig(bVar);
                 setClickable(true);
                 if (i2 == 1) {
@@ -54,7 +54,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
                 }
             } else {
                 b bVar2 = new b();
-                bVar2.q(R.color.CAM_X0302);
+                bVar2.r(R.color.CAM_X0302);
                 setConfig(bVar2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.attention));

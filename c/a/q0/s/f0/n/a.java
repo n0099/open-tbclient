@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] t;
-    public boolean u;
+    public int[] u;
+    public boolean v;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,49 +33,49 @@ public class a extends TBSpecificationButtonConfig {
                 return;
             }
         }
-        this.u = false;
-        this.f48047b = R.color.CAM_X0101;
-        this.f48049d = R.color.CAM_X0302;
+        this.v = false;
+        this.f47967b = R.color.CAM_X0101;
+        this.f47969d = R.color.CAM_X0302;
     }
 
     @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
     public Drawable a(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? p(f2) : (Drawable) invokeF.objValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? q(f2) : (Drawable) invokeF.objValue;
     }
 
-    public void o(@ColorRes int i2) {
+    public void p(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f48049d = i2;
-            this.f48047b = R.color.CAM_X0101;
-            this.p = true;
-            TBSpecificationButtonConfig.a aVar = this.s;
+            this.f47969d = i2;
+            this.f47967b = R.color.CAM_X0101;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
             if (aVar != null) {
                 aVar.c();
             }
         }
     }
 
-    public final Drawable p(float f2) {
+    public final Drawable q(float f2) {
         InterceptResult invokeF;
         GradientDrawable gradientDrawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2)) == null) {
-            if (!this.p) {
-                this.f48047b = SkinManager.getColor(this.q, R.color.CAM_X0101);
+            if (!this.q) {
+                this.f47967b = SkinManager.getColor(this.r, R.color.CAM_X0101);
             }
-            int color = this.p ? SkinManager.getColor(this.q, this.f48049d) : this.f48049d;
-            if (!this.u) {
-                this.t = new int[]{color, color};
+            int color = this.q ? SkinManager.getColor(this.r, this.f47969d) : this.f47969d;
+            if (!this.v) {
+                this.u = new int[]{color, color};
             }
             if (Build.VERSION.SDK_INT >= 16) {
                 gradientDrawable = new GradientDrawable();
-                gradientDrawable.setOrientation(this.r);
-                gradientDrawable.setColors(this.t);
+                gradientDrawable.setOrientation(this.s);
+                gradientDrawable.setColors(this.u);
             } else {
-                gradientDrawable = new GradientDrawable(this.r, this.t);
+                gradientDrawable = new GradientDrawable(this.s, this.u);
             }
             gradientDrawable.setGradientType(0);
             gradientDrawable.setShape(0);

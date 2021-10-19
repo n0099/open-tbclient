@@ -11,7 +11,7 @@ public class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f30068a;
+    public static final boolean f30115a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,6 +27,6 @@ public class k {
                 return;
             }
         }
-        f30068a = AppConfig.isDebug();
+        f30115a = AppConfig.isDebug();
     }
 }

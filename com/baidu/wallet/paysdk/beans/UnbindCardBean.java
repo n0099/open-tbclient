@@ -23,16 +23,16 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62654a;
+    public String f62689a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62655b;
+    public String f62690b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62656c;
+    public String f62691c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f62657d;
+    public boolean f62692d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> UnbindCardBean(Context context) {
@@ -52,14 +52,14 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
                 return;
             }
         }
-        this.f62657d = true;
+        this.f62692d = true;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!TextUtils.isEmpty(this.f62656c)) {
+            if (!TextUtils.isEmpty(this.f62691c)) {
                 super.execBean(null);
             } else {
                 this.mRspCallback.onBeanExecFailure(getBeanId(), -10, "");
@@ -73,19 +73,19 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (TextUtils.isEmpty(this.f62656c)) {
+            if (TextUtils.isEmpty(this.f62691c)) {
                 return arrayList;
             }
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62654a)));
-            if (this.f62657d) {
+            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62689a)));
+            if (this.f62692d) {
                 String seed = PasswordController.getSeed();
-                String handlePwd = PasswordController.handlePwd(this.f62656c, seed);
+                String handlePwd = PasswordController.handlePwd(this.f62691c, seed);
                 String encryptProxy = SecurePay.getInstance().encryptProxy(seed);
                 arrayList.add(new RestNameValuePair("mobile_pass", handlePwd));
                 arrayList.add(new RestNameValuePair("seed", encryptProxy));
             } else {
-                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f62655b)));
-                arrayList.add(new RestNameValuePair("vcode", this.f62656c));
+                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f62690b)));
+                arrayList.add(new RestNameValuePair("vcode", this.f62691c));
             }
             return arrayList;
         }
@@ -115,28 +115,28 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
     public void setCardNo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f62654a = str;
+            this.f62689a = str;
         }
     }
 
     public void setPhoneNo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f62655b = str;
+            this.f62690b = str;
         }
     }
 
     public void setUsePass(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f62657d = z;
+            this.f62692d = z;
         }
     }
 
     public void setValue(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f62656c = str;
+            this.f62691c = str;
         }
     }
 }

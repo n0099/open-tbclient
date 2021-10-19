@@ -15,10 +15,10 @@ public class FrsTopViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f51224a;
+    public LinearLayout f51151a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f51225b;
+    public TextView f51152b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsTopViewHolder(View view) {
@@ -38,7 +38,7 @@ public class FrsTopViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f51224a = (LinearLayout) view.findViewById(R.id.frs_top_item);
-        this.f51225b = (TextView) view.findViewById(R.id.frs_top_title);
+        this.f51151a = (LinearLayout) view.findViewById(R.id.frs_top_item);
+        this.f51152b = (TextView) view.findViewById(R.id.frs_top_title);
     }
 }

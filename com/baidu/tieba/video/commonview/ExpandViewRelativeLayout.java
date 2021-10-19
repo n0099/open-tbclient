@@ -18,19 +18,19 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f57680e;
+    public a f57614e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f57681f;
+    public boolean f57615f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f57682g;
+    public float f57616g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f57683h;
+    public float f57617h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f57684i;
+    public boolean f57618i;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -67,7 +67,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f57684i = true;
+            this.f57618i = true;
         }
     }
 
@@ -77,9 +77,9 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                this.f57682g = motionEvent.getY();
-                this.f57683h = motionEvent.getY();
-                a aVar = this.f57680e;
+                this.f57616g = motionEvent.getY();
+                this.f57617h = motionEvent.getY();
+                a aVar = this.f57614e;
                 if (aVar != null) {
                     aVar.c(motionEvent.getY());
                 }
@@ -96,17 +96,17 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action != 0) {
-                if (action == 2 && this.f57680e != null) {
-                    this.f57682g = motionEvent.getY();
-                    boolean a2 = this.f57680e.a(motionEvent.getY() - this.f57682g, motionEvent.getY(), motionEvent.getY() - this.f57683h > 0.0f ? 1 : 2);
-                    this.f57681f = a2;
+                if (action == 2 && this.f57614e != null) {
+                    this.f57616g = motionEvent.getY();
+                    boolean a2 = this.f57614e.a(motionEvent.getY() - this.f57616g, motionEvent.getY(), motionEvent.getY() - this.f57617h > 0.0f ? 1 : 2);
+                    this.f57615f = a2;
                     return a2;
                 }
             } else {
-                a aVar = this.f57680e;
+                a aVar = this.f57614e;
                 if (aVar != null) {
                     boolean a3 = aVar.a(0.0f, motionEvent.getY(), 0);
-                    this.f57681f = a3;
+                    this.f57615f = a3;
                     return a3;
                 }
             }
@@ -118,7 +118,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) && this.f57684i) {
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) && this.f57618i) {
             super.onLayout(z, i2, i3, i4, i5);
         }
     }
@@ -132,16 +132,16 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
             int action = motionEvent.getAction();
             if (action != 1) {
                 if (action == 2) {
-                    float y = motionEvent.getY() - this.f57682g;
-                    int i2 = motionEvent.getY() - this.f57683h > 0.0f ? 1 : 2;
-                    if (this.f57681f && (aVar = this.f57680e) != null) {
+                    float y = motionEvent.getY() - this.f57616g;
+                    int i2 = motionEvent.getY() - this.f57617h > 0.0f ? 1 : 2;
+                    if (this.f57615f && (aVar = this.f57614e) != null) {
                         aVar.d(motionEvent.getY(), y, i2);
                         return true;
                     }
                 }
             } else {
-                this.f57681f = false;
-                a aVar2 = this.f57680e;
+                this.f57615f = false;
+                a aVar2 = this.f57614e;
                 if (aVar2 != null) {
                     aVar2.b();
                 }
@@ -162,14 +162,14 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public void setIsCanLayout(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f57684i = z;
+            this.f57618i = z;
         }
     }
 
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f57680e = aVar;
+            this.f57614e = aVar;
         }
     }
 

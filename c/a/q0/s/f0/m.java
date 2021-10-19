@@ -18,7 +18,7 @@ public class m extends ImageSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Drawable> f13849e;
+    public WeakReference<Drawable> f13869e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(Drawable drawable) {
@@ -44,11 +44,11 @@ public class m extends ImageSpan {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.f13849e;
+            WeakReference<Drawable> weakReference = this.f13869e;
             Drawable drawable = weakReference != null ? weakReference.get() : null;
             if (drawable == null) {
                 Drawable drawable2 = getDrawable();
-                this.f13849e = new WeakReference<>(drawable2);
+                this.f13869e = new WeakReference<>(drawable2);
                 return drawable2;
             }
             return drawable;

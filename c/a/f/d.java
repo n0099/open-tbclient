@@ -1,7 +1,7 @@
 package c.a.f;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.p1.o.h.b;
+import c.a.r0.q1.o.h.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.afd.ParseError;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class d extends BaseCardInfo implements c.a.r0.p1.o.l.i, c.a.r0.p1.o.h.b {
+public class d extends BaseCardInfo implements c.a.r0.q1.o.l.i, c.a.r0.q1.o.h.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,16 +66,16 @@ public class d extends BaseCardInfo implements c.a.r0.p1.o.l.i, c.a.r0.p1.o.h.b 
         return (d) invokeL.objValue;
     }
 
-    @Override // c.a.r0.p1.o.h.b
+    @Override // c.a.r0.q1.o.h.b
     public b.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ICardInfo iCardInfo = this.f3277f;
-            if (iCardInfo == null || !(iCardInfo instanceof c.a.r0.p1.o.h.b)) {
+            if (iCardInfo == null || !(iCardInfo instanceof c.a.r0.q1.o.h.b)) {
                 return null;
             }
-            return ((c.a.r0.p1.o.h.b) iCardInfo).getParallelCharge();
+            return ((c.a.r0.q1.o.h.b) iCardInfo).getParallelCharge();
         }
         return (b.a) invokeV.objValue;
     }
@@ -128,26 +128,26 @@ public class d extends BaseCardInfo implements c.a.r0.p1.o.l.i, c.a.r0.p1.o.h.b 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (!this.f3281j) {
-                c.a.r0.y2.l0.e.b().d(c.a.r0.y2.l0.g.o(this, ParseError.ERROR_SMOOTH_SCROLL));
+                c.a.r0.z2.l0.e.b().d(c.a.r0.z2.l0.g.o(this, ParseError.ERROR_SMOOTH_SCROLL));
                 return;
             }
             c.a.q0.s.q.e.h(this);
         }
     }
 
-    @Override // c.a.r0.p1.o.l.i
+    @Override // c.a.r0.q1.o.l.i
     public void setAutoPlay(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (o() instanceof c.a.r0.p1.o.l.i)) {
-            ((c.a.r0.p1.o.l.i) o()).setAutoPlay(z);
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (o() instanceof c.a.r0.q1.o.l.i)) {
+            ((c.a.r0.q1.o.l.i) o()).setAutoPlay(z);
         }
     }
 
-    @Override // c.a.r0.p1.o.l.i
+    @Override // c.a.r0.q1.o.l.i
     public void setWaitConfirm(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (o() instanceof c.a.r0.p1.o.l.i)) {
-            ((c.a.r0.p1.o.l.i) o()).setWaitConfirm(z);
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (o() instanceof c.a.r0.q1.o.l.i)) {
+            ((c.a.r0.q1.o.l.i) o()).setWaitConfirm(z);
         }
     }
 

@@ -173,7 +173,7 @@ public class g<E> implements Cloneable {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
                 sb.append(g(i2));
-                sb.append(com.alipay.sdk.encrypt.a.f36022h);
+                sb.append(com.alipay.sdk.encrypt.a.f36026h);
                 E i3 = i(i2);
                 if (i3 != this) {
                     sb.append(i3);

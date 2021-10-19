@@ -11,7 +11,7 @@ public class R0 implements z2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ S0 f77190a;
+    public final /* synthetic */ S0 f77225a;
 
     public R0(S0 s0) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class R0 implements z2 {
                 return;
             }
         }
-        this.f77190a = s0;
+        this.f77225a = s0;
     }
 
     @Override // com.win.opensdk.z2
@@ -42,14 +42,14 @@ public class R0 implements z2 {
     public void onLoaded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f77190a.k.removeMessages(11);
-            this.f77190a.f77203c = true;
-            Z0.a(this.f77190a.f77202b).a(new a1(this.f77190a.f77206f), 200, System.currentTimeMillis() - this.f77190a.f77210j).a();
-            S0 s0 = this.f77190a;
-            if (s0.f77205e) {
+            this.f77225a.k.removeMessages(11);
+            this.f77225a.f77238c = true;
+            Z0.a(this.f77225a.f77237b).a(new a1(this.f77225a.f77241f), 200, System.currentTimeMillis() - this.f77225a.f77245j).a();
+            S0 s0 = this.f77225a;
+            if (s0.f77240e) {
                 return;
             }
-            s0.f77208h.onLoaded();
+            s0.f77243h.onLoaded();
         }
     }
 }

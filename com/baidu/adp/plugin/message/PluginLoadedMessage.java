@@ -16,10 +16,10 @@ public class PluginLoadedMessage extends CustomResponsedMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f36366a;
+        public String f36370a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f36367b;
+        public int f36371b;
 
         public a(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class PluginLoadedMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f36366a = str;
-            this.f36367b = i2;
+            this.f36370a = str;
+            this.f36371b = i2;
         }
     }
 

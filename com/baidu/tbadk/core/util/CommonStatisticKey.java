@@ -35,6 +35,7 @@ public class CommonStatisticKey {
     public static final String KEY_CARD_ENTER_FORUM_CLICK = "C12888";
     public static final String KEY_CARD_ENTER_FORUM_SHOW = "c12887";
     public static final String KEY_CLICK_BIGDAY_AT_WRITE = "c13114";
+    public static final String KEY_CLICK_VIDEO_TOPIC = "c14410";
     public static final String KEY_CONCERN_YY_LIVE_AVATER_CLICK = "c14279";
     public static final String KEY_CONCERN_YY_LIVE_AVATER_SHOW = "c14280";
     public static final String KEY_CURRENCY_SWITCH_DIALOG_CLICK = "c14142";
@@ -137,6 +138,10 @@ public class CommonStatisticKey {
     public static final String KEY_VIDEO_PLAY_BTN_CLICK = "c13255";
     public static final String KEY_VIDEO_SEEK_CLICK = "c13256";
     public static final String KEY_WORK_PUBLISH_ENTER_TYPE_CLICK = "c13793";
+    public static final String KEY_WORK_VIDEO_HAS_TOPIC = "c14420";
+    public static final String KEY_WORK_VIDEO_TOPIC_LAYOUT_SHOW = "c14414";
+    public static final String KEY_WORK_VIDEO_TOPIC_SUGGESTION_CLICK = "c14418";
+    public static final String KEY_WORK_VIDEO_TOPIC_TAB_SHOW = "c14416";
     public static final String KEY_WRITE_VOTE_VIEW_SHOW = "c13800";
     public static final String KEY_WRITE_WINDOW_ARTICLE_WORDS_ICON = "c12372";
     public static final String KEY_WRITE_WINDOW_LINK_ICON = "c12162";

@@ -44,34 +44,34 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29940a;
+    public int f29987a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f29941b;
+    public long f29988b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29942c;
+    public boolean f29989c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f29943d;
+    public Context f29990d;
 
     /* renamed from: e  reason: collision with root package name */
-    public y f29944e;
+    public y f29991e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.b f29945f;
+    public c.a.t0.b f29992f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29946g;
+    public int f29993g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f29947h;
+    public long f29994h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<n> f29948i;
+    public List<n> f29995i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f29949j;
+    public long f29996j;
     public long k;
     public long l;
     public int m;
@@ -90,7 +90,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f29950e;
+        public final /* synthetic */ c f29997e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -107,26 +107,26 @@ public class c {
                     return;
                 }
             }
-            this.f29950e = cVar;
+            this.f29997e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f29950e.f29946g == 1) {
-                    long uptimeMillis = SystemClock.uptimeMillis() - this.f29950e.f29947h;
+                if (this.f29997e.f29993g == 1) {
+                    long uptimeMillis = SystemClock.uptimeMillis() - this.f29997e.f29994h;
                     if (uptimeMillis >= 5000) {
                         if (c.v) {
                             String.format("***saveCache after %d ms***", Long.valueOf(uptimeMillis));
                         }
-                        this.f29950e.w();
-                        this.f29950e.f29946g = 0;
+                        this.f29997e.w();
+                        this.f29997e.f29993g = 0;
                         return;
                     }
                     d.v().E(this, 5000 - uptimeMillis);
-                } else if (this.f29950e.f29946g == 2) {
-                    this.f29950e.f29946g = 0;
+                } else if (this.f29997e.f29993g == 2) {
+                    this.f29997e.f29993g = 0;
                 }
             }
         }
@@ -138,7 +138,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f29951a;
+        public final /* synthetic */ c f29998a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -155,7 +155,7 @@ public class c {
                     return;
                 }
             }
-            this.f29951a = cVar;
+            this.f29998a = cVar;
         }
 
         @Override // c.a.t0.t
@@ -163,9 +163,9 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, nVar) == null) {
                 if (!z) {
-                    this.f29951a.f29944e.u(nVar);
+                    this.f29998a.f29991e.u(nVar);
                 } else {
-                    this.f29951a.f29944e.f();
+                    this.f29998a.f29991e.f();
                 }
             }
         }
@@ -202,33 +202,33 @@ public class c {
                 return;
             }
         }
-        this.f29942c = false;
-        this.f29946g = 0;
-        this.f29947h = 0L;
+        this.f29989c = false;
+        this.f29993g = 0;
+        this.f29994h = 0L;
         this.u = new a(this);
-        this.f29943d = context;
+        this.f29990d = context;
         i0 e2 = i0.e();
-        this.f29944e = new y(context);
-        this.f29945f = new c.a.t0.b(context);
+        this.f29991e = new y(context);
+        this.f29992f = new c.a.t0.b(context);
         this.p = g0.a();
-        this.f29948i = new ArrayList(20);
-        this.f29949j = e2.getLong("ubc_last_upload_non_real", 0L);
+        this.f29995i = new ArrayList(20);
+        this.f29996j = e2.getLong("ubc_last_upload_non_real", 0L);
         this.k = e2.getLong("ubc_reset_real_time_count_time", 0L);
         this.l = e2.getLong("ubc_last_upload_failed_data_time", 0L);
         this.m = e2.getInt("ubc_real_time_count", 0);
         g n = g.n();
         this.q = n;
         n.x(this, context);
-        this.f29941b = System.currentTimeMillis();
-        this.f29940a = new Random().nextInt(31) + 60;
-        x.f().g(this.f29944e);
+        this.f29988b = System.currentTimeMillis();
+        this.f29987a = new Random().nextInt(31) + 60;
+        x.f().g(this.f29991e);
     }
 
     public final void A(String str, String str2) {
         OutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            String str3 = this.f29943d.getFilesDir() + File.separator + "ubcsenddir";
+            String str3 = this.f29990d.getFilesDir() + File.separator + "ubcsenddir";
             File file = new File(str3);
             if (!file.exists()) {
                 file.mkdir();
@@ -281,11 +281,11 @@ public class c {
 
     public void B() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && t(this.f29943d)) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && t(this.f29990d)) {
             if (this.n == null) {
                 r();
             }
-            j0 h2 = j0.h(this.f29943d);
+            j0 h2 = j0.h(this.f29990d);
             if (!x.f().d(h2) || h2 == null || h2.x()) {
                 return;
             }
@@ -298,7 +298,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             j0 i2 = j0.i();
-            if (this.f29945f.e(i2)) {
+            if (this.f29992f.e(i2)) {
                 JSONObject t = i2.t();
                 if (v) {
                     String str = "sendQualityData:" + t.toString();
@@ -313,12 +313,12 @@ public class c {
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             j0 i2 = j0.i();
             i2.K(z);
-            if (this.f29945f.f(i2, z)) {
+            if (this.f29992f.f(i2, z)) {
                 JSONObject t = i2.t();
                 if (v) {
                     String str = "checkFileData:" + t.toString();
                 }
-                this.f29945f.c(z);
+                this.f29992f.c(z);
                 d.v().L(t);
             }
         }
@@ -327,14 +327,14 @@ public class c {
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f29944e.x();
+            this.f29991e.x();
         }
     }
 
     public void F(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, pVar) == null) {
-            this.f29944e.w(pVar);
+            this.f29991e.w(pVar);
         }
     }
 
@@ -363,13 +363,13 @@ public class c {
                     return;
                 }
             }
-            if (!this.f29944e.e(j0Var, str)) {
+            if (!this.f29991e.e(j0Var, str)) {
                 j0Var.e();
-                File file = new File(this.f29943d.getFilesDir() + File.separator + "ubcsenddir", str);
+                File file = new File(this.f29990d.getFilesDir() + File.separator + "ubcsenddir", str);
                 if (file.exists()) {
                     file.delete();
                 }
-                this.f29944e.i(str);
+                this.f29991e.i(str);
                 return;
             }
             b0.a().m(j0Var.A(), j0Var.u());
@@ -427,7 +427,7 @@ public class c {
             } else {
                 hashMap.clear();
             }
-            this.f29944e.s(this.n);
+            this.f29991e.s(this.n);
             int i3 = 0;
             for (int i4 = 0; i4 < this.n.size(); i4++) {
                 int keyAt = this.n.keyAt(i4);
@@ -445,7 +445,7 @@ public class c {
     public void I(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2, str2) == null) {
-            this.f29944e.z(str, i2, str2);
+            this.f29991e.z(str, i2, str2);
         }
     }
 
@@ -485,7 +485,7 @@ public class c {
             return;
         }
         String a2 = oVar.a();
-        File file = new File(this.f29943d.getFilesDir() + File.separator + "ubcsenddir", a2);
+        File file = new File(this.f29990d.getFilesDir() + File.separator + "ubcsenddir", a2);
         if (file.exists()) {
             if (oVar.c()) {
                 d.v().K(j0.g(file, (int) file.length()), a2);
@@ -561,14 +561,14 @@ public class c {
                 String str2 = "upload file fail:" + str;
             }
             a0.b("upload file fail");
-            this.f29944e.A(str);
+            this.f29991e.A(str);
         }
     }
 
     public void N(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            File file = new File(this.f29943d.getFilesDir() + File.separator + "ubcsenddir", str);
+            File file = new File(this.f29990d.getFilesDir() + File.separator + "ubcsenddir", str);
             if (v) {
                 String str2 = "deleteUploadFile file:" + file.getAbsolutePath();
             }
@@ -576,19 +576,19 @@ public class c {
             if (file.exists() && file.delete()) {
                 a0.b("delete file suc");
             }
-            this.f29944e.i(str);
+            this.f29991e.i(str);
         }
     }
 
     public final void O(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && t(this.f29943d) && j()) {
-            j0 h2 = j0.h(this.f29943d);
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && t(this.f29990d) && j()) {
+            j0 h2 = j0.h(this.f29990d);
             h2.K(true);
             h2.B();
             ArrayList<String> arrayList = new ArrayList<>(1);
             arrayList.add(str);
-            this.f29944e.o(arrayList, true, h2);
+            this.f29991e.o(arrayList, true, h2);
             G(h2);
             v();
         }
@@ -596,16 +596,16 @@ public class c {
 
     public void P() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && t(this.f29943d)) {
-            this.f29944e.c();
-            j0 h2 = j0.h(this.f29943d);
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && t(this.f29990d)) {
+            this.f29991e.c();
+            j0 h2 = j0.h(this.f29990d);
             int o = this.q.o();
             h2.L(o);
             h2.K(true);
-            j0 h3 = j0.h(this.f29943d);
+            j0 h3 = j0.h(this.f29990d);
             h3.L(o);
             h3.K(false);
-            this.f29944e.k(h2, h3);
+            this.f29991e.k(h2, h3);
             int u = h2.u();
             int u2 = h3.u();
             if (v) {
@@ -645,17 +645,17 @@ public class c {
             int keyAt = sparseArray.keyAt(i2);
             if (keyAt == 0) {
                 if (B && A) {
-                    this.f29944e.o(new ArrayList<>(this.q.t()), false, j0Var);
+                    this.f29991e.o(new ArrayList<>(this.q.t()), false, j0Var);
                 } else {
-                    this.f29944e.o(sparseArray.valueAt(i2), true, j0Var);
+                    this.f29991e.o(sparseArray.valueAt(i2), true, j0Var);
                 }
             } else if (B && !A && keyAt == l) {
                 ArrayList<String> o = o(sparseArray, keyAt);
                 if (o != null) {
-                    this.f29944e.o(o, false, j0Var);
+                    this.f29991e.o(o, false, j0Var);
                 }
             } else {
-                this.f29944e.o(sparseArray.valueAt(i2), true, j0Var);
+                this.f29991e.o(sparseArray.valueAt(i2), true, j0Var);
             }
             if (j0Var.v()) {
                 break;
@@ -669,18 +669,18 @@ public class c {
     public final void R() {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && t(this.f29943d)) {
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && t(this.f29990d)) {
             boolean z2 = v;
-            this.f29949j = System.currentTimeMillis();
-            i0.e().putLong("ubc_last_upload_non_real", this.f29949j);
+            this.f29996j = System.currentTimeMillis();
+            i0.e().putLong("ubc_last_upload_non_real", this.f29996j);
             i();
             w();
-            this.f29944e.c();
+            this.f29991e.c();
             HashSet hashSet = new HashSet();
             if (this.n == null) {
                 r();
             }
-            j0 h2 = j0.h(this.f29943d);
+            j0 h2 = j0.h(this.f29990d);
             h2.K(false);
             for (int i2 = 0; i2 < this.n.size(); i2++) {
                 int keyAt = this.n.keyAt(i2);
@@ -688,7 +688,7 @@ public class c {
                     HashMap<String, Long> hashMap = this.o;
                     long longValue = hashMap.get("ubc_last_upload_time_level_" + keyAt).longValue();
                     if (longValue == 0 || (longValue + (keyAt * 60000)) - System.currentTimeMillis() < this.q.s()) {
-                        this.f29944e.o(this.n.valueAt(i2), true, h2);
+                        this.f29991e.o(this.n.valueAt(i2), true, h2);
                         if (h2.v()) {
                             break;
                         }
@@ -719,10 +719,10 @@ public class c {
                     if (B && !A && keyAt2 == l) {
                         ArrayList<String> o = o(this.n, keyAt2);
                         if (o != null) {
-                            this.f29944e.o(o, false, h2);
+                            this.f29991e.o(o, false, h2);
                         }
                     } else {
-                        this.f29944e.o(this.n.valueAt(i3), true, h2);
+                        this.f29991e.o(this.n.valueAt(i3), true, h2);
                     }
                     if (h2.v()) {
                         break;
@@ -742,7 +742,7 @@ public class c {
         SparseArray<ArrayList> sparseArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, nVar)) == null) {
-            if (t(this.f29943d) && j()) {
+            if (t(this.f29990d) && j()) {
                 w();
                 j0 p = p(nVar, false);
                 if (p == null || p.x()) {
@@ -774,8 +774,8 @@ public class c {
 
     public final void T() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && t(this.f29943d) && j()) {
-            j0 h2 = j0.h(this.f29943d);
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && t(this.f29990d) && j()) {
+            j0 h2 = j0.h(this.f29990d);
             h2.K(true);
             if (this.n == null) {
                 r();
@@ -793,13 +793,13 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, nVar)) == null) {
-            if (t(this.f29943d)) {
+            if (t(this.f29990d)) {
                 nVar.x("1");
                 j0 p = p(nVar, true);
                 if (p == null || p.x()) {
                     return false;
                 }
-                this.f29944e.p(p);
+                this.f29991e.p(p);
                 d.v().O(p.t(), true, nVar, new b(this));
                 p.e();
                 return true;
@@ -821,7 +821,7 @@ public class c {
                     if (arrayList.size() == 0) {
                         return true;
                     }
-                    this.f29944e.o(arrayList, true, j0Var);
+                    this.f29991e.o(arrayList, true, j0Var);
                     G(j0Var);
                     v();
                 }
@@ -835,15 +835,15 @@ public class c {
     public final void g(n nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, nVar) == null) {
-            this.f29948i.add(nVar);
-            int i2 = this.f29946g;
+            this.f29995i.add(nVar);
+            int i2 = this.f29993g;
             if (i2 == 0) {
-                this.f29947h = SystemClock.uptimeMillis();
+                this.f29994h = SystemClock.uptimeMillis();
                 d.v().E(this.u, 5000L);
-                this.f29946g = 1;
+                this.f29993g = 1;
             } else if (i2 == 2) {
-                this.f29947h = SystemClock.uptimeMillis();
-                this.f29946g = 1;
+                this.f29994h = SystemClock.uptimeMillis();
+                this.f29993g = 1;
             }
         }
     }
@@ -852,8 +852,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048599, this, str, i2) == null) {
             w();
-            this.f29944e.b(str, i2);
-            if (!UBC.getUBCContext().a() && Math.abs(System.currentTimeMillis() - this.f29949j) >= g.n().s()) {
+            this.f29991e.b(str, i2);
+            if (!UBC.getUBCContext().a() && Math.abs(System.currentTimeMillis() - this.f29996j) >= g.n().s()) {
                 if (v) {
                     String str2 = "cancel flow " + str + " invoke ->uploadNonRealTimeData ";
                 }
@@ -911,7 +911,7 @@ public class c {
             String next = keys.next();
             try {
                 JSONObject jSONObject = new JSONObject();
-                j m = this.f29944e.m(next);
+                j m = this.f29991e.m(next);
                 String optString = a2.optString(next, "0");
                 String k = m != null ? m.k() : "0";
                 boolean z2 = Integer.parseInt(k) >= Integer.parseInt(optString);
@@ -925,7 +925,7 @@ public class c {
                     jSONObject.put("product", String.format("del/%s", next));
                     jSONObject.put("version", optString);
                     jSONObject.put("valid", "1");
-                    if (!this.f29944e.h(next)) {
+                    if (!this.f29991e.h(next)) {
                         jSONObject.put("valid", "0");
                         this.s++;
                     } else {
@@ -946,7 +946,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), jSONArray}) == null) {
             w();
-            this.f29944e.j(str, i2, j2, jSONArray);
+            this.f29991e.j(str, i2, j2, jSONArray);
             if ((i3 & 128) != 0) {
                 O(str);
                 return;
@@ -956,11 +956,11 @@ public class c {
                 if (!e2 || (b2 = UBC.getUBCContext().b()) == null || !b2.contains(str)) {
                     return;
                 }
-                if (!this.f29942c) {
-                    if ((System.currentTimeMillis() - this.f29941b) / 1000 < this.f29940a) {
+                if (!this.f29989c) {
+                    if ((System.currentTimeMillis() - this.f29988b) / 1000 < this.f29987a) {
                         return;
                     }
-                    this.f29942c = true;
+                    this.f29989c = true;
                 }
             }
             if (e2) {
@@ -969,7 +969,7 @@ public class c {
                 }
                 T();
             }
-            if (!UBC.getUBCContext().a() && Math.abs(System.currentTimeMillis() - this.f29949j) >= g.n().s()) {
+            if (!UBC.getUBCContext().a() && Math.abs(System.currentTimeMillis() - this.f29996j) >= g.n().s()) {
                 if (v) {
                     String str3 = "endFlow flow " + str + " invoke ->uploadNonRealTimeData ";
                 }
@@ -992,7 +992,7 @@ public class c {
     public y n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f29944e : (y) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f29991e : (y) invokeV.objValue;
     }
 
     public final ArrayList o(SparseArray<ArrayList> sparseArray, int i2) {
@@ -1022,7 +1022,7 @@ public class c {
             if (z) {
                 h2 = j0.i();
             } else {
-                h2 = j0.h(this.f29943d);
+                h2 = j0.h(this.f29990d);
             }
             if (h2.c(nVar, nVar.e())) {
                 h2.K(true);
@@ -1058,7 +1058,7 @@ public class c {
             boolean z = v;
             SparseArray<ArrayList> sparseArray = new SparseArray<>();
             this.n = sparseArray;
-            this.f29944e.s(sparseArray);
+            this.f29991e.s(sparseArray);
             this.o = new HashMap<>();
             int i2 = 0;
             for (int i3 = 0; i3 < this.n.size(); i3++) {
@@ -1087,13 +1087,13 @@ public class c {
         }
         ArrayList arrayList2 = new ArrayList(b2);
         String str = "1";
-        if (this.f29944e.n() > 0) {
+        if (this.f29991e.n() > 0) {
             ArrayList<String> arrayList3 = new ArrayList<>();
             Iterator it = arrayList2.iterator();
             while (it.hasNext()) {
                 arrayList3.add(((j) it.next()).c());
             }
-            HashMap<String, String> l = this.f29944e.l(arrayList3);
+            HashMap<String, String> l = this.f29991e.l(arrayList3);
             Iterator it2 = arrayList2.iterator();
             while (it2.hasNext()) {
                 j jVar = (j) it2.next();
@@ -1151,7 +1151,7 @@ public class c {
             }
         }
         ArrayList arrayList4 = arrayList2;
-        boolean y = this.f29944e.y(arrayList4);
+        boolean y = this.f29991e.y(arrayList4);
         int size = arrayList4.size();
         if (y) {
             this.r += size;
@@ -1200,8 +1200,8 @@ public class c {
     public void u() {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048612, this) == null) && t(this.f29943d)) {
-            File file = new File(this.f29943d.getFilesDir() + File.separator + "ubcsenddir");
+        if ((interceptable == null || interceptable.invokeV(1048612, this) == null) && t(this.f29990d)) {
+            File file = new File(this.f29990d.getFilesDir() + File.separator + "ubcsenddir");
             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                 if (listFiles.length > 1000) {
                     if (!v) {
@@ -1210,19 +1210,19 @@ public class c {
                     for (File file2 : listFiles) {
                         file2.delete();
                     }
-                    this.f29944e.g();
+                    this.f29991e.g();
                 }
                 for (int i2 = 0; i2 < listFiles.length; i2++) {
                     if (v) {
                         String str = "uploadFailedData fileName:" + listFiles[i2].getAbsolutePath();
                     }
-                    o r = this.f29944e.r(listFiles[i2].getName());
+                    o r = this.f29991e.r(listFiles[i2].getName());
                     if (r != null && TextUtils.equals("0", r.b())) {
                         boolean z = v;
                         a0.b("processFailedData file, no need to send");
                     } else if (r != null && TextUtils.equals("1", r.b())) {
                         a0.b("processFailedData file, send");
-                        this.f29944e.B(listFiles[i2].getName(), "0");
+                        this.f29991e.B(listFiles[i2].getName(), "0");
                         L(r);
                     } else {
                         boolean z2 = v;
@@ -1245,13 +1245,13 @@ public class c {
     public final void w() {
         List<n> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048614, this) == null) || (list = this.f29948i) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048614, this) == null) || (list = this.f29995i) == null || list.size() == 0) {
             return;
         }
-        this.f29944e.v(this.f29948i);
-        this.f29948i.clear();
-        if (this.f29946g == 1) {
-            this.f29946g = 2;
+        this.f29991e.v(this.f29995i);
+        this.f29995i.clear();
+        if (this.f29993g == 1) {
+            this.f29993g = 2;
         }
     }
 
@@ -1267,31 +1267,31 @@ public class c {
             }
             if (UBC.getUBCContext().a()) {
                 if (!z) {
-                    this.f29944e.u(nVar);
+                    this.f29991e.u(nVar);
                     return;
                 }
                 List<String> b2 = UBC.getUBCContext().b();
                 if (b2 != null && b2.contains(nVar.j())) {
-                    if (!this.f29942c) {
-                        if ((System.currentTimeMillis() - this.f29941b) / 1000 >= this.f29940a) {
-                            this.f29942c = true;
+                    if (!this.f29989c) {
+                        if ((System.currentTimeMillis() - this.f29988b) / 1000 >= this.f29987a) {
+                            this.f29989c = true;
                         } else {
-                            this.f29944e.u(nVar);
+                            this.f29991e.u(nVar);
                             return;
                         }
                     }
                 } else {
-                    this.f29944e.u(nVar);
+                    this.f29991e.u(nVar);
                     return;
                 }
             }
             if (z && !S(nVar)) {
                 if (this.q.D(nVar.j())) {
-                    this.f29944e.u(nVar);
+                    this.f29991e.u(nVar);
                 }
             } else if (UBC.getUBCContext().a()) {
-                this.f29944e.c();
-            } else if (Math.abs(System.currentTimeMillis() - this.f29949j) >= g.n().s()) {
+                this.f29991e.c();
+            } else if (Math.abs(System.currentTimeMillis() - this.f29996j) >= g.n().s()) {
                 if (!z && this.q.D(nVar.j())) {
                     g(nVar);
                 }
@@ -1300,12 +1300,12 @@ public class c {
                 if (!z && this.q.D(nVar.j())) {
                     g(nVar);
                 }
-                if (this.f29948i.size() >= 20) {
+                if (this.f29995i.size() >= 20) {
                     w();
                 }
             } else if (z || !this.q.D(nVar.j())) {
             } else {
-                this.f29944e.u(nVar);
+                this.f29991e.u(nVar);
             }
         }
     }
@@ -1313,14 +1313,14 @@ public class c {
     public void y(n nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, nVar) == null) {
-            this.f29945f.g(nVar, this.q.e(nVar.j()));
+            this.f29992f.g(nVar, this.q.e(nVar.j()));
         }
     }
 
     public void z(n nVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048617, this, nVar) == null) && c.a.h0.b.a.a.g()) {
-            this.f29945f.i(nVar);
+            this.f29992f.i(nVar);
         }
     }
 }

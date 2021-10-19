@@ -22,16 +22,16 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f30549a;
+    public boolean f30596a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30550b;
+    public boolean f30597b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Window f30551c;
+    public Window f30598c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f30552d;
+    public View f30599d;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -39,7 +39,7 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f30553e;
+        public final /* synthetic */ View f30600e;
 
         public a(i iVar, View view) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class i {
                     return;
                 }
             }
-            this.f30553e = view;
+            this.f30600e = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                View view = this.f30553e;
-                view.setPadding(view.getPaddingLeft(), this.f30553e.getPaddingTop() + i.b(this.f30553e.getContext()), this.f30553e.getPaddingRight(), this.f30553e.getPaddingBottom());
-                this.f30553e.getLayoutParams().height += i.b(this.f30553e.getContext());
+                View view = this.f30600e;
+                view.setPadding(view.getPaddingLeft(), this.f30600e.getPaddingTop() + i.b(this.f30600e.getContext()), this.f30600e.getPaddingRight(), this.f30600e.getPaddingBottom());
+                this.f30600e.getLayoutParams().height += i.b(this.f30600e.getContext());
             }
         }
     }
@@ -76,16 +76,16 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Window f30554a;
+        public Window f30601a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f30555b;
+        public boolean f30602b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f30556c;
+        public boolean f30603c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f30557d;
+        public View f30604d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -100,21 +100,21 @@ public class i {
                     return;
                 }
             }
-            this.f30555b = false;
-            this.f30556c = false;
+            this.f30602b = false;
+            this.f30603c = false;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new i(this.f30554a, this.f30555b, this.f30556c, this.f30557d).d() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new i(this.f30601a, this.f30602b, this.f30603c, this.f30604d).d() : invokeV.booleanValue;
         }
 
         public b c(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.f30555b = z;
+                this.f30602b = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -124,7 +124,7 @@ public class i {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f30556c = z;
+                this.f30603c = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -134,7 +134,7 @@ public class i {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
-                this.f30554a = activity.getWindow();
+                this.f30601a = activity.getWindow();
                 return this;
             }
             return (b) invokeL.objValue;
@@ -156,10 +156,10 @@ public class i {
                 return;
             }
         }
-        this.f30549a = z;
-        this.f30550b = z2;
-        this.f30551c = window;
-        this.f30552d = view;
+        this.f30596a = z;
+        this.f30597b = z2;
+        this.f30598c = window;
+        this.f30599d = view;
     }
 
     public static b a(Activity activity) {
@@ -201,7 +201,7 @@ public class i {
                 if (i2 == 19) {
                     g();
                 }
-                e(this.f30552d);
+                e(this.f30599d);
                 return true;
             }
             return false;
@@ -211,7 +211,7 @@ public class i {
 
     public void e(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null || !this.f30550b || c()) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null || !this.f30597b || c()) {
             return;
         }
         view.post(new a(this, view));
@@ -221,7 +221,7 @@ public class i {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            WindowManager.LayoutParams attributes = this.f30551c.getAttributes();
+            WindowManager.LayoutParams attributes = this.f30598c.getAttributes();
             try {
                 Class<?> cls = Class.forName("android.view.WindowManager$LayoutParams");
                 int i2 = cls.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON").getInt(attributes);
@@ -246,13 +246,13 @@ public class i {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            WindowManager.LayoutParams attributes = this.f30551c.getAttributes();
-            if (this.f30550b) {
+            WindowManager.LayoutParams attributes = this.f30598c.getAttributes();
+            if (this.f30597b) {
                 attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
             } else {
                 attributes.flags &= -67108865;
             }
-            this.f30551c.setAttributes(attributes);
+            this.f30598c.setAttributes(attributes);
         }
     }
 
@@ -264,15 +264,15 @@ public class i {
             if (Build.VERSION.SDK_INT < 23) {
                 return false;
             }
-            int systemUiVisibility = this.f30551c.getDecorView().getSystemUiVisibility();
-            if (this.f30549a) {
+            int systemUiVisibility = this.f30598c.getDecorView().getSystemUiVisibility();
+            if (this.f30596a) {
                 systemUiVisibility |= -2147475456;
             }
-            if (this.f30550b) {
+            if (this.f30597b) {
                 systemUiVisibility |= 1280;
             }
-            this.f30551c.getDecorView().setSystemUiVisibility(systemUiVisibility);
-            this.f30551c.setStatusBarColor(0);
+            this.f30598c.getDecorView().setSystemUiVisibility(systemUiVisibility);
+            this.f30598c.setStatusBarColor(0);
             return true;
         }
         return invokeV.booleanValue;
@@ -282,12 +282,12 @@ public class i {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            Class<?> cls = this.f30551c.getClass();
+            Class<?> cls = this.f30598c.getClass();
             try {
                 Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
                 int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
                 Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
-                Window window = this.f30551c;
+                Window window = this.f30598c;
                 Object[] objArr = new Object[2];
                 objArr[0] = Integer.valueOf(z ? i2 : 0);
                 objArr[1] = Integer.valueOf(i2);
@@ -304,6 +304,6 @@ public class i {
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? f(this.f30549a) || i(this.f30549a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? f(this.f30596a) || i(this.f30596a) : invokeV.booleanValue;
     }
 }

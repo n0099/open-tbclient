@@ -19,20 +19,20 @@ public class LoadingDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f60636c = "LoadingDialog";
+    public static final String f60671c = "LoadingDialog";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f60637a;
+    public TextView f60672a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60638b;
+    public String f60673b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f60639d;
+    public Context f60674d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f60640e;
+    public ImageView f60675e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialog(Context context) {
@@ -53,8 +53,8 @@ public class LoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f60639d = null;
-        this.f60639d = context;
+        this.f60674d = null;
+        this.f60674d = context;
     }
 
     @Override // android.app.Dialog
@@ -63,16 +63,16 @@ public class LoadingDialog extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             requestWindowFeature(1);
-            setContentView(ResUtils.layout(this.f60639d, "wallet_base_layout_loading"));
-            this.f60637a = (TextView) findViewById(ResUtils.id(this.f60639d, "dialog_msg"));
-            if (!TextUtils.isEmpty(this.f60638b)) {
-                this.f60637a.setText(this.f60638b);
+            setContentView(ResUtils.layout(this.f60674d, "wallet_base_layout_loading"));
+            this.f60672a = (TextView) findViewById(ResUtils.id(this.f60674d, "dialog_msg"));
+            if (!TextUtils.isEmpty(this.f60673b)) {
+                this.f60672a.setText(this.f60673b);
             }
             if (!TextUtils.isEmpty(WalletGlobalUtils.showStr)) {
-                this.f60637a.setText(WalletGlobalUtils.showStr);
+                this.f60672a.setText(WalletGlobalUtils.showStr);
             }
-            ImageView imageView = (ImageView) findViewById(ResUtils.id(this.f60639d, "img_anim"));
-            this.f60640e = imageView;
+            ImageView imageView = (ImageView) findViewById(ResUtils.id(this.f60674d, "img_anim"));
+            this.f60675e = imageView;
             AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getDrawable();
             animationDrawable.stop();
             animationDrawable.start();
@@ -84,7 +84,7 @@ public class LoadingDialog extends Dialog {
     public void setMessage(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (textView = this.f60637a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (textView = this.f60672a) == null) {
             return;
         }
         textView.setText(i2);
@@ -93,7 +93,7 @@ public class LoadingDialog extends Dialog {
     public void setMessage(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (textView = this.f60637a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (textView = this.f60672a) == null) {
             return;
         }
         textView.setText(str);
@@ -118,9 +118,9 @@ public class LoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f60639d = null;
-        this.f60638b = str;
-        this.f60639d = context;
+        this.f60674d = null;
+        this.f60673b = str;
+        this.f60674d = context;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -142,6 +142,6 @@ public class LoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f60639d = null;
+        this.f60674d = null;
     }
 }

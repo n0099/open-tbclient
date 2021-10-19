@@ -18,13 +18,13 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35629a = "b";
+    public static String f35633a = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public static char[] f35630b;
+    public static char[] f35634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static byte[] f35631c;
+    public static byte[] f35635c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,8 +40,8 @@ public class b {
                 return;
             }
         }
-        f35630b = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
-        f35631c = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
+        f35634b = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+        f35635c = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
     }
 
     public b() {
@@ -70,24 +70,24 @@ public class b {
                 int i3 = i2 + 1;
                 int i4 = bArr[i2] & 255;
                 if (i3 == length) {
-                    stringBuffer.append(f35630b[i4 >>> 2]);
-                    stringBuffer.append(f35630b[(i4 & 3) << 4]);
+                    stringBuffer.append(f35634b[i4 >>> 2]);
+                    stringBuffer.append(f35634b[(i4 & 3) << 4]);
                     str = "==";
                 } else {
                     int i5 = i3 + 1;
                     int i6 = bArr[i3] & 255;
                     if (i5 == length) {
-                        stringBuffer.append(f35630b[i4 >>> 2]);
-                        stringBuffer.append(f35630b[((i4 & 3) << 4) | ((i6 & 240) >>> 4)]);
-                        stringBuffer.append(f35630b[(i6 & 15) << 2]);
+                        stringBuffer.append(f35634b[i4 >>> 2]);
+                        stringBuffer.append(f35634b[((i4 & 3) << 4) | ((i6 & 240) >>> 4)]);
+                        stringBuffer.append(f35634b[(i6 & 15) << 2]);
                         str = "=";
                     } else {
                         int i7 = i5 + 1;
                         int i8 = bArr[i5] & 255;
-                        stringBuffer.append(f35630b[i4 >>> 2]);
-                        stringBuffer.append(f35630b[((i4 & 3) << 4) | ((i6 & 240) >>> 4)]);
-                        stringBuffer.append(f35630b[((i6 & 15) << 2) | ((i8 & 192) >>> 6)]);
-                        stringBuffer.append(f35630b[i8 & 63]);
+                        stringBuffer.append(f35634b[i4 >>> 2]);
+                        stringBuffer.append(f35634b[((i4 & 3) << 4) | ((i6 & 240) >>> 4)]);
+                        stringBuffer.append(f35634b[((i6 & 15) << 2) | ((i8 & 192) >>> 6)]);
+                        stringBuffer.append(f35634b[i8 & 63]);
                         i2 = i7;
                     }
                 }
@@ -106,7 +106,7 @@ public class b {
             try {
                 return b(str);
             } catch (Throwable th) {
-                CtAuth.warn(f35629a, "When decode() ,throws exception", th);
+                CtAuth.warn(f35633a, "When decode() ,throws exception", th);
                 return new byte[0];
             }
         }
@@ -132,7 +132,7 @@ public class b {
             loop0: while (i6 < length) {
                 while (true) {
                     i2 = i6 + 1;
-                    b2 = f35631c[bytes[i6]];
+                    b2 = f35635c[bytes[i6]];
                     if (i2 >= length || b2 != -1) {
                         break;
                     }
@@ -143,7 +143,7 @@ public class b {
                 }
                 while (true) {
                     i3 = i2 + 1;
-                    b3 = f35631c[bytes[i2]];
+                    b3 = f35635c[bytes[i2]];
                     if (i3 >= length || b3 != -1) {
                         break;
                     }
@@ -159,7 +159,7 @@ public class b {
                     if (b6 == 61) {
                         break loop0;
                     }
-                    b4 = f35631c[b6];
+                    b4 = f35635c[b6];
                     if (i4 >= length || b4 != -1) {
                         break;
                     }
@@ -175,7 +175,7 @@ public class b {
                     if (b7 == 61) {
                         break loop0;
                     }
-                    b5 = f35631c[b7];
+                    b5 = f35635c[b7];
                     if (i5 >= length || b5 != -1) {
                         break;
                     }

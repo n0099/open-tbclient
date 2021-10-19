@@ -1,333 +1,155 @@
 package c.a.r0.s1;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.likedForum.GetBottleForumListHttpResMessage;
+import com.baidu.tieba.likedForum.GetBottleForumListReqMessage;
+import com.baidu.tieba.likedForum.GetBottleForumListSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final List<c.a.r0.s1.k.a> f24758a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1795841952, "Lc/a/r0/s1/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* renamed from: a  reason: collision with root package name */
+    public BdUniqueId f24658a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public List<ForumInfo> f24659b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public b f24660c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public BdUniqueId f24661d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public c.a.e.c.g.a f24662e;
+
+    /* renamed from: c.a.r0.s1.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class C1142a extends c.a.e.c.g.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f24663a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public C1142a(a aVar, int i2, int i3) {
+            super(i2, i3);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1795841952, "Lc/a/r0/s1/a;");
+            this.f24663a = aVar;
+        }
+
+        @Override // c.a.e.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-        }
-        f24758a = new ArrayList();
-    }
-
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            c.a.r0.w1.a.j().C(context, "");
-        }
-    }
-
-    public static void b(Context context, String str, HashMap<String, Object> hashMap) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, hashMap) == null) {
-            if (hashMap != null) {
-                String str3 = (String) hashMap.get("enterroom_type");
-                String str4 = (String) hashMap.get("live_activity_type");
-                String str5 = (String) hashMap.get("extra");
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("live_activity_type", str4);
-                    jSONObject.put("extra", str5);
-                    str2 = jSONObject.toString();
-                } catch (JSONException unused) {
-                    str2 = "";
-                }
-                if ("1".equals(str3)) {
-                    c.a.r0.w1.a.j().G(context, str2);
-                    return;
-                } else {
-                    c.a.r0.w1.a.j().C(context, "");
-                    return;
-                }
-            }
-            c.a.r0.w1.a.j().C(context, "");
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:58:0x017e  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0190  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(Context context, String str, Map<String, Object> map) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, context, str, map) == null) {
-            String str3 = (String) map.get("enterroom_type");
-            String str4 = (String) map.get("room_id");
-            String str5 = (String) map.get("live_id");
-            String str6 = (String) map.get("username");
-            String str7 = (String) map.get("userrec");
-            String str8 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            String str9 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY);
-            String str10 = (String) map.get("screen_direction");
-            String str11 = (String) map.get("open_giftlist");
-            String str12 = (String) map.get("tab");
-            String str13 = (String) map.get("tag");
-            String str14 = (String) map.get("source");
-            String str15 = (String) map.get("from");
-            String str16 = (String) map.get("extra");
-            String str17 = (String) map.get("audioUrl");
-            String str18 = (String) map.get("audio_bg");
-            String str19 = (String) map.get("chat_mcast_id");
-            String str20 = (String) map.get("open_msgpanel");
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(str12)) {
-                    jSONObject.put("tab", str12);
-                }
-                if (!TextUtils.isEmpty(str13)) {
-                    jSONObject.put("tag", str13);
-                }
-                if (!TextUtils.isEmpty(str14)) {
-                    jSONObject.put("source", str14);
-                }
-                if (!TextUtils.isEmpty(str15)) {
-                    jSONObject.put("from", str15);
-                }
-                if (!TextUtils.isEmpty(str8)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, str8);
-                }
-                if (!TextUtils.isEmpty(str9)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, str9);
-                }
-                if (!TextUtils.isEmpty(str10)) {
-                    jSONObject.put("screen_direction", str10);
-                }
-                if (!TextUtils.isEmpty(str4)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_ROOM_ID_KEY, str4);
-                }
-                if (TextUtils.isEmpty(str5)) {
-                    str2 = str5;
-                } else {
-                    str2 = str5;
-                    try {
-                        jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, str2);
-                    } catch (JSONException e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        if (!"1".equals(str3)) {
+            boolean z = responsedMessage instanceof GetBottleForumListHttpResMessage;
+            if (z || (responsedMessage instanceof GetBottleForumListSocketResMessage)) {
+                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetBottleForumListReqMessage) || this.f24663a.f24661d == ((GetBottleForumListReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
+                    if (responsedMessage.hasError()) {
+                        if (this.f24663a.f24660c != null) {
+                            this.f24663a.f24660c.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                            return;
                         }
+                        return;
+                    }
+                    if (z) {
+                        this.f24663a.f24659b = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
+                    }
+                    if (responsedMessage instanceof GetBottleForumListSocketResMessage) {
+                        this.f24663a.f24659b = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
+                    }
+                    if (this.f24663a.f24660c != null) {
+                        this.f24663a.f24660c.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), this.f24663a.f24659b);
                     }
                 }
-                if (!TextUtils.isEmpty(str16)) {
-                    jSONObject.put("extra", str16);
-                }
-                if (!TextUtils.isEmpty(str17)) {
-                    jSONObject.put("audioUrl", str17);
-                }
-                if (!TextUtils.isEmpty(str18)) {
-                    jSONObject.put("audio_bg", str18);
-                }
-                if (!TextUtils.isEmpty(str19)) {
-                    jSONObject.put("chat_mcast_id", str19);
-                }
-                if (!TextUtils.isEmpty(str20)) {
-                    jSONObject.put("open_msgpanel", str20);
-                }
-            } catch (JSONException e3) {
-                e = e3;
-                str2 = str5;
             }
-            if (!"1".equals(str3)) {
-                c.a.r0.w1.a.j().x(context, str, jSONObject.toString(), map);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(boolean z, int i2, String str, List<ForumInfo> list);
+    }
+
+    public a(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("user_name", str6);
-                jSONObject2.put("open_giftlist", str11);
-            } catch (JSONException e4) {
-                e4.printStackTrace();
-            }
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("live_id", str2);
-                jSONObject3.put("useRecommend", true);
-                jSONObject3.put("otherParams", jSONObject);
-            } catch (JSONException e5) {
-                e5.printStackTrace();
-            }
-            c.a.r0.w1.a.j().w(context, jSONObject3.toString());
+        }
+        this.f24660c = null;
+        C1142a c1142a = new C1142a(this, CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440);
+        this.f24662e = c1142a;
+        this.f24658a = bdUniqueId;
+        c1142a.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f24662e);
+        this.f24662e.getHttpMessageListener().setSelfListener(true);
+        this.f24662e.getSocketMessageListener().setSelfListener(true);
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.f24662e);
         }
     }
 
-    public static void d(Context context, String str) {
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
-            c.a.r0.w1.a.j().h(context, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            GetBottleForumListReqMessage getBottleForumListReqMessage = new GetBottleForumListReqMessage();
+            getBottleForumListReqMessage.setTag(this.f24658a);
+            getBottleForumListReqMessage.setRequestId(this.f24661d);
+            MessageManager.getInstance().sendMessage(getBottleForumListReqMessage);
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public static void e(Context context, c.a.r0.s1.n.a aVar, c.a.r0.s1.k.a aVar2) {
+    public void g(b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, aVar, aVar2) == null) || context == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        if (aVar != null) {
-            try {
-                if (!TextUtils.isEmpty(aVar.f24780a)) {
-                    jSONObject.put("callback", aVar.f24780a);
-                    if (aVar2 != null) {
-                        f24758a.add(aVar2);
-                    }
-                }
-                jSONObject.put("isTranslucent", aVar.f24781b);
-                if (!TextUtils.isEmpty(aVar.f24782c)) {
-                    jSONObject.put("from", aVar.f24782c);
-                }
-            } catch (JSONException unused) {
-            }
-        }
-        c.a.r0.w1.a.j().A(context, jSONObject.toString());
-    }
-
-    public static void f(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
-            c.a.r0.w1.a.j().q(context);
-        }
-    }
-
-    public static void g(Context context, long j2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            c.a.r0.w1.a.j().u(context, j2, i2);
-        }
-    }
-
-    public static void h(Context context, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65544, null, context, str, i2) == null) {
-            c.a.r0.w1.a.j().r(context, str, i2);
-        }
-    }
-
-    public static void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            c.a.r0.w1.a.j().s(context);
-        }
-    }
-
-    public static void j(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, str2) == null) {
-            c.a.r0.w1.a.j().t(context, str, str2);
-        }
-    }
-
-    public static void k(Context context, String str, AlaLiveInfoCoreData alaLiveInfoCoreData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65547, null, context, str, alaLiveInfoCoreData) == null) || alaLiveInfoCoreData == null) {
-            return;
-        }
-        long j2 = alaLiveInfoCoreData.liveID;
-        String str2 = alaLiveInfoCoreData.userName;
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("from", str);
-            jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, alaLiveInfoCoreData.liveCover);
-            jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, j2);
-            jSONObject.put("user_name", str2);
-            jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, alaLiveInfoCoreData.rtmpUrl);
-            jSONObject.put("screen_direction", alaLiveInfoCoreData.screenDirection);
-            jSONObject.put("open_giftlist", "0");
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            jSONObject2.put("live_id", j2);
-            jSONObject2.put("useRecommend", true);
-            jSONObject2.put("otherParams", jSONObject);
-        } catch (JSONException e3) {
-            e3.printStackTrace();
-        }
-        c.a.r0.w1.a.j().w(context, jSONObject2.toString());
-    }
-
-    public static void l(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
-            c.a.r0.w1.a.j().y(context);
-        }
-    }
-
-    public static void m(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
-            c.a.r0.w1.a.j().z(context, str);
-        }
-    }
-
-    public static void n(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65550, null, context, str, str2) == null) {
-            c.a.r0.w1.a.j().B(context, str, str2);
-        }
-    }
-
-    public static void o(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, jSONObject) == null) {
-            for (int i2 = 0; i2 < f24758a.size(); i2++) {
-                f24758a.get(i2).onCallback(jSONObject);
-            }
-            f24758a.clear();
-        }
-    }
-
-    public static void p(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65552, null, str, z) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("uid", str);
-            hashMap.put("isSubscribe", Boolean.valueOf(z));
-            c.a.r0.w1.a.j().g(TbadkCoreApplication.getInst(), "setAttentionChanged", hashMap);
-        }
-    }
-
-    public static void q(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65553, null, j2) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("uid", Long.valueOf(j2));
-            c.a.r0.w1.a.j().g(TbadkCoreApplication.getInst(), "shareSuccess", hashMap);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f24660c = bVar;
         }
     }
 }

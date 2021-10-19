@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.index;
 
-import c.a.r0.x1.c.k.m;
+import c.a.r0.y1.c.k.m;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

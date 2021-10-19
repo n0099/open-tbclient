@@ -29,22 +29,22 @@ public abstract class c implements p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Service> f35122e;
+    public WeakReference<Service> f35126e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<List<c.p.a.e.b.n.a>> f35123f;
+    public final SparseArray<List<c.p.a.e.b.n.a>> f35127f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f35124g;
+    public volatile boolean f35128g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f35125h;
+    public volatile boolean f35129h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f35126i;
+    public volatile boolean f35130i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Handler f35127j;
+    public Handler f35131j;
     public Runnable k;
 
     /* loaded from: classes4.dex */
@@ -53,7 +53,7 @@ public abstract class c implements p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f35128e;
+        public final /* synthetic */ c f35132e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public abstract class c implements p {
                     return;
                 }
             }
-            this.f35128e = cVar;
+            this.f35132e = cVar;
         }
 
         @Override // java.lang.Runnable
@@ -80,13 +80,13 @@ public abstract class c implements p {
                 if (c.p.a.e.b.c.a.e()) {
                     c.p.a.e.b.c.a.g(c.l, "tryDownload: 2 try");
                 }
-                if (this.f35128e.f35124g) {
+                if (this.f35132e.f35128g) {
                     return;
                 }
                 if (c.p.a.e.b.c.a.e()) {
                     c.p.a.e.b.c.a.g(c.l, "tryDownload: 2 error");
                 }
-                this.f35128e.e(e.n(), null);
+                this.f35132e.e(e.n(), null);
             }
         }
     }
@@ -119,10 +119,10 @@ public abstract class c implements p {
                 return;
             }
         }
-        this.f35123f = new SparseArray<>();
-        this.f35124g = false;
-        this.f35126i = false;
-        this.f35127j = new Handler(Looper.getMainLooper());
+        this.f35127f = new SparseArray<>();
+        this.f35128g = false;
+        this.f35130i = false;
+        this.f35131j = new Handler(Looper.getMainLooper());
         this.k = new a(this);
     }
 
@@ -137,7 +137,7 @@ public abstract class c implements p {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35124g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35128g : invokeV.booleanValue;
     }
 
     @Override // c.p.a.e.b.g.p
@@ -153,8 +153,8 @@ public abstract class c implements p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             String str = l;
-            c.p.a.e.b.c.a.i(str, "isServiceForeground = " + this.f35125h);
-            return this.f35125h;
+            c.p.a.e.b.c.a.i(str, "isServiceForeground = " + this.f35129h);
+            return this.f35129h;
         }
         return invokeV.booleanValue;
     }
@@ -170,7 +170,7 @@ public abstract class c implements p {
     public void c(WeakReference weakReference) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, weakReference) == null) {
-            this.f35122e = weakReference;
+            this.f35126e = weakReference;
         }
     }
 
@@ -178,7 +178,7 @@ public abstract class c implements p {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f35124g = false;
+            this.f35128g = false;
         }
     }
 
@@ -197,19 +197,19 @@ public abstract class c implements p {
             return;
         }
         int I = aVar.I();
-        synchronized (this.f35123f) {
+        synchronized (this.f35127f) {
             String str = l;
-            c.p.a.e.b.c.a.g(str, "pendDownloadTask pendingTasks.size:" + this.f35123f.size() + " downloadId:" + I);
-            List<c.p.a.e.b.n.a> list = this.f35123f.get(I);
+            c.p.a.e.b.c.a.g(str, "pendDownloadTask pendingTasks.size:" + this.f35127f.size() + " downloadId:" + I);
+            List<c.p.a.e.b.n.a> list = this.f35127f.get(I);
             if (list == null) {
                 list = new ArrayList<>();
-                this.f35123f.put(I, list);
+                this.f35127f.put(I, list);
             }
             String str2 = l;
             c.p.a.e.b.c.a.g(str2, "before pendDownloadTask taskArray.size:" + list.size());
             list.add(aVar);
             String str3 = l;
-            c.p.a.e.b.c.a.g(str3, "after pendDownloadTask pendingTasks.size:" + this.f35123f.size());
+            c.p.a.e.b.c.a.g(str3, "after pendDownloadTask pendingTasks.size:" + this.f35127f.size());
         }
     }
 
@@ -217,11 +217,11 @@ public abstract class c implements p {
         SparseArray<List<c.p.a.e.b.n.a>> clone;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            synchronized (this.f35123f) {
+            synchronized (this.f35127f) {
                 String str = l;
-                c.p.a.e.b.c.a.g(str, "resumePendingTask pendingTasks.size:" + this.f35123f.size());
-                clone = this.f35123f.clone();
-                this.f35123f.clear();
+                c.p.a.e.b.c.a.g(str, "resumePendingTask pendingTasks.size:" + this.f35127f.size());
+                clone = this.f35127f.clone();
+                this.f35127f.clear();
             }
             c.p.a.e.b.m.a c2 = e.c();
             if (c2 != null) {
@@ -254,13 +254,13 @@ public abstract class c implements p {
     public void a(int i2, Notification notification) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, notification) == null) {
-            WeakReference<Service> weakReference = this.f35122e;
+            WeakReference<Service> weakReference = this.f35126e;
             if (weakReference != null && weakReference.get() != null) {
                 String str = l;
-                c.p.a.e.b.c.a.i(str, "startForeground  id = " + i2 + ", service = " + this.f35122e.get() + ",  isServiceAlive = " + this.f35124g);
+                c.p.a.e.b.c.a.i(str, "startForeground  id = " + i2 + ", service = " + this.f35126e.get() + ",  isServiceAlive = " + this.f35128g);
                 try {
-                    this.f35122e.get().startForeground(i2, notification);
-                    this.f35125h = true;
+                    this.f35126e.get().startForeground(i2, notification);
+                    this.f35129h = true;
                     return;
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -275,14 +275,14 @@ public abstract class c implements p {
     public void a(boolean z) {
         WeakReference<Service> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (weakReference = this.f35122e) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (weakReference = this.f35126e) == null || weakReference.get() == null) {
             return;
         }
         String str = l;
-        c.p.a.e.b.c.a.i(str, "stopForeground  service = " + this.f35122e.get() + ",  isServiceAlive = " + this.f35124g);
+        c.p.a.e.b.c.a.i(str, "stopForeground  service = " + this.f35126e.get() + ",  isServiceAlive = " + this.f35128g);
         try {
-            this.f35125h = false;
-            this.f35122e.get().stopForeground(z);
+            this.f35129h = false;
+            this.f35126e.get().stopForeground(z);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -291,7 +291,7 @@ public abstract class c implements p {
     @Override // c.p.a.e.b.g.p
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || this.f35124g) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || this.f35128g) {
             return;
         }
         if (c.p.a.e.b.c.a.e()) {
@@ -306,22 +306,22 @@ public abstract class c implements p {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (!this.f35124g) {
+        if (!this.f35128g) {
             if (c.p.a.e.b.c.a.e()) {
                 c.p.a.e.b.c.a.g(l, "tryDownload but service is not alive");
             }
             if (c.p.a.e.b.l.a.a(262144)) {
                 f(aVar);
-                if (!this.f35126i) {
+                if (!this.f35130i) {
                     if (c.p.a.e.b.c.a.e()) {
                         c.p.a.e.b.c.a.g(l, "tryDownload: 1");
                     }
                     e(e.n(), null);
-                    this.f35126i = true;
+                    this.f35130i = true;
                     return;
                 }
-                this.f35127j.removeCallbacks(this.k);
-                this.f35127j.postDelayed(this.k, 10L);
+                this.f35131j.removeCallbacks(this.k);
+                this.f35131j.postDelayed(this.k, 10L);
                 return;
             }
             f(aVar);

@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.card.setCard;
 
-import c.a.r0.p3.c;
+import c.a.r0.q3.c;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -22,22 +22,22 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f57617e;
+    public long f57551e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57618f;
+    public int f57552f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f57619g;
+    public boolean f57553g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f57620h;
+    public boolean f57554h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f57621i;
+    public b f57555i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.e.c.g.a f57622j;
+    public c.a.e.c.g.a f57556j;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -45,7 +45,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SetPersonalCardModel f57623a;
+        public final /* synthetic */ SetPersonalCardModel f57557a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SetPersonalCardModel setPersonalCardModel, int i2, int i3) {
@@ -66,39 +66,39 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
                     return;
                 }
             }
-            this.f57623a = setPersonalCardModel;
+            this.f57557a = setPersonalCardModel;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f57623a.f57620h = false;
+                this.f57557a.f57554h = false;
                 if (responsedMessage == null) {
                     return;
                 }
                 boolean z = responsedMessage instanceof SetPersonalCardHttpResponse;
                 if (z || (responsedMessage instanceof SetPersonalCardSocketResponse)) {
                     if (responsedMessage.getError() == 0) {
-                        this.f57623a.D(true);
+                        this.f57557a.D(true);
                     } else {
-                        this.f57623a.D(false);
+                        this.f57557a.D(false);
                     }
                     if (z) {
                         SetPersonalCardHttpResponse setPersonalCardHttpResponse = (SetPersonalCardHttpResponse) responsedMessage;
-                        this.f57623a.setCardId(setPersonalCardHttpResponse.getCardId());
-                        this.f57623a.setType(setPersonalCardHttpResponse.getType());
+                        this.f57557a.setCardId(setPersonalCardHttpResponse.getCardId());
+                        this.f57557a.setType(setPersonalCardHttpResponse.getType());
                     } else if (responsedMessage instanceof SetPersonalCardSocketResponse) {
                         SetPersonalCardSocketResponse setPersonalCardSocketResponse = (SetPersonalCardSocketResponse) responsedMessage;
-                        this.f57623a.setCardId(setPersonalCardSocketResponse.getCardId());
-                        this.f57623a.setType(setPersonalCardSocketResponse.getType());
+                        this.f57557a.setCardId(setPersonalCardSocketResponse.getCardId());
+                        this.f57557a.setType(setPersonalCardSocketResponse.getType());
                     }
-                    if (this.f57623a.f57621i != null) {
-                        int i2 = c.f23886b;
-                        if (responsedMessage.getError() == c.f23887c) {
-                            i2 = c.f23885a;
+                    if (this.f57557a.f57555i != null) {
+                        int i2 = c.f24061b;
+                        if (responsedMessage.getError() == c.f24062c) {
+                            i2 = c.f24060a;
                         }
-                        this.f57623a.f57621i.a(this.f57623a.f57619g, this.f57623a.f57617e, this.f57623a.f57618f, responsedMessage.getErrorString(), i2);
+                        this.f57557a.f57555i.a(this.f57557a.f57553g, this.f57557a.f57551e, this.f57557a.f57552f, responsedMessage.getErrorString(), i2);
                     }
                 }
             }
@@ -123,27 +123,27 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
                 return;
             }
         }
-        this.f57619g = false;
-        this.f57620h = false;
-        this.f57622j = new a(this, CmdConfigHttp.CMD_SET_PERSONAL_CARD, 309345);
-        c.a.r0.j3.e0.a.h(309345, SetPersonalCardSocketResponse.class, false, false);
-        c.a.r0.j3.e0.a.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
-        registerListener(this.f57622j);
+        this.f57553g = false;
+        this.f57554h = false;
+        this.f57556j = new a(this, CmdConfigHttp.CMD_SET_PERSONAL_CARD, 309345);
+        c.a.r0.k3.e0.a.h(309345, SetPersonalCardSocketResponse.class, false, false);
+        c.a.r0.k3.e0.a.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
+        registerListener(this.f57556j);
     }
 
     public void B(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f57621i = bVar;
+            this.f57555i = bVar;
         }
     }
 
     public void C(long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) || this.f57620h) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) || this.f57554h) {
             return;
         }
-        this.f57620h = true;
+        this.f57554h = true;
         SetPersonalCardRequest setPersonalCardRequest = new SetPersonalCardRequest();
         setPersonalCardRequest.setCardId(j2);
         setPersonalCardRequest.setType(i2);
@@ -153,12 +153,12 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     public void D(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f57619g = z;
+            this.f57553g = z;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -168,7 +168,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -180,21 +180,21 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f57622j);
+            MessageManager.getInstance().unRegisterListener(this.f57556j);
         }
     }
 
     public void setCardId(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.f57617e = j2;
+            this.f57551e = j2;
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f57618f = i2;
+            this.f57552f = i2;
         }
     }
 }

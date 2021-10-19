@@ -20,39 +20,39 @@ public class au {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final au f43361a;
+    public static final au f43273a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f43362b;
+    public HashMap<String, String> f43274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<Character, Integer> f43363c;
+    public HashMap<Character, Integer> f43275c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f43364d;
+    public HashMap<String, String> f43276d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<Character, Integer> f43365e;
+    public HashMap<Character, Integer> f43277e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, String> f43366f;
+    public HashMap<String, String> f43278f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<Character, Integer> f43367g;
+    public HashMap<Character, Integer> f43279g;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f43369a = 0;
+        public static int f43281a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f43370b = 1;
+        public static int f43282b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f43371c = 2;
+        public static int f43283c = 2;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -84,7 +84,7 @@ public class au {
                 return;
             }
         }
-        f43361a = new au();
+        f43273a = new au();
     }
 
     public au() {
@@ -100,32 +100,32 @@ public class au {
                 return;
             }
         }
-        this.f43362b = new HashMap<>();
-        this.f43363c = new HashMap<>();
-        this.f43364d = new HashMap<>();
-        this.f43365e = new HashMap<>();
-        this.f43366f = new HashMap<>();
-        this.f43367g = new HashMap<>();
+        this.f43274b = new HashMap<>();
+        this.f43275c = new HashMap<>();
+        this.f43276d = new HashMap<>();
+        this.f43277e = new HashMap<>();
+        this.f43278f = new HashMap<>();
+        this.f43279g = new HashMap<>();
     }
 
     public static au a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43361a : (au) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43273a : (au) invokeV.objValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (i2 == a.f43369a) {
-                this.f43363c.clear();
-                this.f43362b.clear();
-            } else if (i2 == a.f43371c) {
-                this.f43367g.clear();
-                this.f43366f.clear();
+            if (i2 == a.f43281a) {
+                this.f43275c.clear();
+                this.f43274b.clear();
+            } else if (i2 == a.f43283c) {
+                this.f43279g.clear();
+                this.f43278f.clear();
             } else {
-                this.f43365e.clear();
-                this.f43364d.clear();
+                this.f43277e.clear();
+                this.f43276d.clear();
             }
         }
     }
@@ -137,25 +137,25 @@ public class au {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            if (i2 == a.f43369a) {
-                String str2 = this.f43362b.get(str);
+            if (i2 == a.f43281a) {
+                String str2 = this.f43274b.get(str);
                 if (TextUtils.isEmpty(str2)) {
-                    a(str, this.f43363c, this.f43362b);
-                    return this.f43362b.get(str);
+                    a(str, this.f43275c, this.f43274b);
+                    return this.f43274b.get(str);
                 }
                 return str2;
-            } else if (i2 == a.f43371c) {
-                String str3 = this.f43366f.get(str);
+            } else if (i2 == a.f43283c) {
+                String str3 = this.f43278f.get(str);
                 if (TextUtils.isEmpty(str3)) {
-                    a(str, this.f43367g, this.f43366f);
-                    return this.f43366f.get(str);
+                    a(str, this.f43279g, this.f43278f);
+                    return this.f43278f.get(str);
                 }
                 return str3;
             } else {
-                String str4 = this.f43364d.get(str);
+                String str4 = this.f43276d.get(str);
                 if (TextUtils.isEmpty(str4)) {
-                    a(str, this.f43365e, this.f43364d);
-                    return this.f43364d.get(str);
+                    a(str, this.f43277e, this.f43276d);
+                    return this.f43276d.get(str);
                 }
                 return str4;
             }
@@ -166,9 +166,9 @@ public class au {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b(a.f43369a);
-            b(a.f43371c);
-            b(a.f43370b);
+            b(a.f43281a);
+            b(a.f43283c);
+            b(a.f43282b);
         }
     }
 
@@ -188,12 +188,12 @@ public class au {
         HashMap<String, String> hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 == a.f43369a) {
-                hashMap = this.f43362b;
-            } else if (i2 == a.f43371c) {
-                hashMap = this.f43366f;
+            if (i2 == a.f43281a) {
+                hashMap = this.f43274b;
+            } else if (i2 == a.f43283c) {
+                hashMap = this.f43278f;
             } else {
-                hashMap = this.f43364d;
+                hashMap = this.f43276d;
             }
             JSONObject jSONObject = new JSONObject();
             if (hashMap == null) {
@@ -206,7 +206,7 @@ public class au {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ au f43368a;
+                    public final /* synthetic */ au f43280a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -223,7 +223,7 @@ public class au {
                                 return;
                             }
                         }
-                        this.f43368a = this;
+                        this.f43280a = this;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */

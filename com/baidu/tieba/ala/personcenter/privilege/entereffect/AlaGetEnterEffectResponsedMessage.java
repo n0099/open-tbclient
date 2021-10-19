@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.personcenter.privilege.entereffect;
 
 import c.a.e.l.e.n;
-import c.a.r0.v.l.g.d.d.a;
+import c.a.r0.w.l.g.d.d.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;

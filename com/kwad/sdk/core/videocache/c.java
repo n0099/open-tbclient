@@ -12,19 +12,19 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f72654a;
+    public final File f72689a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.a.c f72655b;
+    public final com.kwad.sdk.core.videocache.a.c f72690b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.a.a f72656c;
+    public final com.kwad.sdk.core.videocache.a.a f72691c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.d.b f72657d;
+    public final com.kwad.sdk.core.videocache.d.b f72692d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.b.b f72658e;
+    public final com.kwad.sdk.core.videocache.b.b f72693e;
 
     public c(File file, com.kwad.sdk.core.videocache.a.c cVar, com.kwad.sdk.core.videocache.a.a aVar, com.kwad.sdk.core.videocache.d.b bVar, com.kwad.sdk.core.videocache.b.b bVar2) {
         Interceptable interceptable = $ic;
@@ -41,16 +41,16 @@ public class c {
                 return;
             }
         }
-        this.f72654a = file;
-        this.f72655b = cVar;
-        this.f72656c = aVar;
-        this.f72657d = bVar;
-        this.f72658e = bVar2;
+        this.f72689a = file;
+        this.f72690b = cVar;
+        this.f72691c = aVar;
+        this.f72692d = bVar;
+        this.f72693e = bVar2;
     }
 
     public File a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new File(this.f72654a, this.f72655b.a(str)) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new File(this.f72689a, this.f72690b.a(str)) : (File) invokeL.objValue;
     }
 }

@@ -38,34 +38,34 @@ public class f {
     public ViewTreeObserver.OnGlobalLayoutListener E;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Handler f68325a;
+    public final Handler f68360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68326b;
+    public String f68361b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f68327c;
+    public long f68362c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f68328d;
+    public long f68363d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f68329e;
+    public long f68364e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f68330f;
+    public long f68365f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f68331g;
+    public long f68366g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f68332h;
+    public int f68367h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f68333i;
+    public int f68368i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f68334j;
+    public a f68369j;
     public Context k;
     public WeakReference<View> l;
     public d m;
@@ -89,13 +89,13 @@ public class f {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f68338a;
+        public static final a f68373a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f68339b;
+        public static final a f68374b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ a[] f68340c;
+        public static final /* synthetic */ a[] f68375c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -111,10 +111,10 @@ public class f {
                     return;
                 }
             }
-            f68338a = new a("MAIN", 0);
+            f68373a = new a("MAIN", 0);
             a aVar = new a("RIFLE", 1);
-            f68339b = aVar;
-            f68340c = new a[]{f68338a, aVar};
+            f68374b = aVar;
+            f68375c = new a[]{f68373a, aVar};
         }
 
         public a(String str, int i2) {
@@ -145,7 +145,7 @@ public class f {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f68340c.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f68375c.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -164,15 +164,15 @@ public class f {
                 return;
             }
         }
-        this.f68325a = new Handler(Looper.getMainLooper());
-        this.f68326b = null;
-        this.f68327c = 0L;
-        this.f68328d = -1L;
-        this.f68329e = -1L;
-        this.f68330f = -1L;
-        this.f68331g = -1L;
-        this.f68332h = 0;
-        this.f68333i = 0;
+        this.f68360a = new Handler(Looper.getMainLooper());
+        this.f68361b = null;
+        this.f68362c = 0L;
+        this.f68363d = -1L;
+        this.f68364e = -1L;
+        this.f68365f = -1L;
+        this.f68366g = -1L;
+        this.f68367h = 0;
+        this.f68368i = 0;
         this.p = 0;
         this.q = 0;
         this.r = new JSONObject();
@@ -183,7 +183,7 @@ public class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ f f68335a;
+            public final /* synthetic */ f f68370a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -200,7 +200,7 @@ public class f {
                         return;
                     }
                 }
-                this.f68335a = this;
+                this.f68370a = this;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -208,32 +208,32 @@ public class f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        View view = (View) this.f68335a.l.get();
+                        View view = (View) this.f68370a.l.get();
                         if (view == null) {
                             return;
                         }
-                        this.f68335a.b(view);
+                        this.f68370a.b(view);
                     } catch (Throwable th) {
                         e.a("PlayablePlugin", "onSizeChanged error", th);
                     }
                 }
             }
         };
-        this.f68334j = a.f68338a;
+        this.f68369j = a.f68373a;
         g.a(webView);
         a(webView);
         a(context, bVar, aVar);
     }
 
     public static /* synthetic */ int b(f fVar) {
-        int i2 = fVar.f68332h;
-        fVar.f68332h = i2 + 1;
+        int i2 = fVar.f68367h;
+        fVar.f68367h = i2 + 1;
         return i2;
     }
 
     public static /* synthetic */ int c(f fVar) {
-        int i2 = fVar.f68333i;
-        fVar.f68333i = i2 + 1;
+        int i2 = fVar.f68368i;
+        fVar.f68368i = i2 + 1;
         return i2;
     }
 
@@ -346,20 +346,20 @@ public class f {
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("playable_all_times", this.f68332h);
-            jSONObject.put("playable_hit_times", this.f68333i);
+            jSONObject.put("playable_all_times", this.f68367h);
+            jSONObject.put("playable_hit_times", this.f68368i);
             d("PL_sdk_preload_times", jSONObject);
         } catch (Throwable unused3) {
         }
         try {
-            if (this.f68328d != -1) {
-                long currentTimeMillis = System.currentTimeMillis() - this.f68328d;
+            if (this.f68363d != -1) {
+                long currentTimeMillis = System.currentTimeMillis() - this.f68363d;
                 e.a("PlayablePlugin", "playable show time +" + currentTimeMillis);
-                this.f68327c = this.f68327c + currentTimeMillis;
-                this.f68328d = -1L;
+                this.f68362c = this.f68362c + currentTimeMillis;
+                this.f68363d = -1L;
             }
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("playable_user_play_duration", this.f68327c);
+            jSONObject2.put("playable_user_play_duration", this.f68362c);
             d("PL_sdk_user_play_duration", jSONObject2);
         } catch (Throwable unused4) {
         }
@@ -437,9 +437,9 @@ public class f {
         if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                this.f68330f = System.currentTimeMillis();
+                this.f68365f = System.currentTimeMillis();
                 jSONObject.put("playable_full_url", str);
-                jSONObject.put("playable_page_show_duration", this.f68329e != -1 ? this.f68330f - this.f68329e : 0L);
+                jSONObject.put("playable_page_show_duration", this.f68364e != -1 ? this.f68365f - this.f68364e : 0L);
             } catch (Throwable th) {
                 e.a("PlayablePlugin", "reportUrlLoadStart error", th);
             }
@@ -452,9 +452,9 @@ public class f {
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                this.f68331g = System.currentTimeMillis();
+                this.f68366g = System.currentTimeMillis();
                 jSONObject.put("playable_full_url", str);
-                jSONObject.put("playable_html_load_start_duration", this.f68330f != -1 ? this.f68331g - this.f68330f : 0L);
+                jSONObject.put("playable_html_load_start_duration", this.f68365f != -1 ? this.f68366g - this.f68365f : 0L);
             } catch (Throwable th) {
                 e.a("PlayablePlugin", "reportUrlLoadFinish error", th);
             }
@@ -465,12 +465,12 @@ public class f {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            this.f68325a.post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.l.f.2
+            this.f68360a.post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.l.f.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ f f68336a;
+                public final /* synthetic */ f f68371a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -487,14 +487,14 @@ public class f {
                             return;
                         }
                     }
-                    this.f68336a = this;
+                    this.f68371a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        f.b(this.f68336a);
+                        f.b(this.f68371a);
                     }
                 }
             });
@@ -504,12 +504,12 @@ public class f {
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            this.f68325a.post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.l.f.3
+            this.f68360a.post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.l.f.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ f f68337a;
+                public final /* synthetic */ f f68372a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -526,14 +526,14 @@ public class f {
                             return;
                         }
                     }
-                    this.f68337a = this;
+                    this.f68372a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        f.c(this.f68337a);
+                        f.c(this.f68372a);
                     }
                 }
             });
@@ -543,7 +543,7 @@ public class f {
     private void a(Context context, b bVar, com.bytedance.sdk.openadsdk.l.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, context, bVar, aVar) == null) {
-            this.f68326b = UUID.randomUUID().toString();
+            this.f68361b = UUID.randomUUID().toString();
             this.k = context;
             this.m = new d(this);
             this.n = aVar;
@@ -563,7 +563,7 @@ public class f {
             jSONObject.put("playable_event", str);
             jSONObject.put("playable_ts", System.currentTimeMillis());
             jSONObject.put("playable_viewable", this.B);
-            jSONObject.put("playable_session_id", this.f68326b);
+            jSONObject.put("playable_session_id", this.f68361b);
             jSONObject.put("playable_url", this.x);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("ad_extra_data", jSONObject);
@@ -703,17 +703,17 @@ public class f {
             }
             this.B = z;
             d(z ? "PL_sdk_viewable_true" : "PL_sdk_viewable_false", null);
-            if (this.f68329e == -1 && this.B) {
-                this.f68329e = System.currentTimeMillis();
+            if (this.f68364e == -1 && this.B) {
+                this.f68364e = System.currentTimeMillis();
                 d("PL_sdk_page_show", null);
             }
             if (this.B) {
-                this.f68328d = System.currentTimeMillis();
-            } else if (this.f68328d != -1) {
-                long currentTimeMillis = System.currentTimeMillis() - this.f68328d;
+                this.f68363d = System.currentTimeMillis();
+            } else if (this.f68363d != -1) {
+                long currentTimeMillis = System.currentTimeMillis() - this.f68363d;
                 e.a("PlayablePlugin", "playable show time +" + currentTimeMillis);
-                this.f68327c = this.f68327c + currentTimeMillis;
-                this.f68328d = -1L;
+                this.f68362c = this.f68362c + currentTimeMillis;
+                this.f68363d = -1L;
             }
             try {
                 JSONObject jSONObject = new JSONObject();

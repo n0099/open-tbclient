@@ -26,34 +26,34 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f15201a;
+    public Activity f15224a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f15202b;
+    public Activity f15225b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WindowManager f15203c;
+    public WindowManager f15226c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f15204d;
+    public View f15227d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.y.c f15205e;
+    public c.a.q0.y.c f15228e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f15206f;
+    public boolean f15229f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f15207g;
+    public Runnable f15230g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15208h;
+    public int f15231h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15209i;
+    public int f15232i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CustomMessageListener f15210j;
+    public CustomMessageListener f15233j;
     public CustomMessageListener k;
     public CustomMessageListener l;
 
@@ -63,7 +63,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f15211a;
+        public final /* synthetic */ d f15234a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2) {
@@ -83,7 +83,7 @@ public class d {
                     return;
                 }
             }
-            this.f15211a = dVar;
+            this.f15234a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -93,22 +93,22 @@ public class d {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (data.booleanValue()) {
-                    this.f15211a.f15206f = true;
-                    if (this.f15211a.f15201a != null) {
-                        d dVar = this.f15211a;
-                        dVar.f15202b = dVar.f15201a;
+                    this.f15234a.f15229f = true;
+                    if (this.f15234a.f15224a != null) {
+                        d dVar = this.f15234a;
+                        dVar.f15225b = dVar.f15224a;
                     }
-                    this.f15211a.i(true);
+                    this.f15234a.i(true);
                     return;
                 }
-                this.f15211a.f15206f = false;
-                if (this.f15211a.f15202b != null) {
-                    d dVar2 = this.f15211a;
-                    dVar2.f15201a = dVar2.f15202b;
-                    this.f15211a.f15202b = null;
-                    if (c.a.e.a.b.f().i(this.f15211a.f15201a) != -1) {
-                        this.f15211a.j();
-                        this.f15211a.o(false);
+                this.f15234a.f15229f = false;
+                if (this.f15234a.f15225b != null) {
+                    d dVar2 = this.f15234a;
+                    dVar2.f15224a = dVar2.f15225b;
+                    this.f15234a.f15225b = null;
+                    if (c.a.e.a.b.g().j(this.f15234a.f15224a) != -1) {
+                        this.f15234a.j();
+                        this.f15234a.o(false);
                     }
                 }
             }
@@ -121,7 +121,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f15212a;
+        public final /* synthetic */ d f15235a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(d dVar, int i2) {
@@ -141,7 +141,7 @@ public class d {
                     return;
                 }
             }
-            this.f15212a = dVar;
+            this.f15235a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -154,8 +154,8 @@ public class d {
             }
             String str = (String) map.get("lifeCycle");
             if ("BarBroadcastEdit".equals((String) map.get("name"))) {
-                if (("0".equals(str) || "1".equals(str)) && (this.f15212a.f15205e instanceof c.a.q0.y.a)) {
-                    this.f15212a.i(false);
+                if (("0".equals(str) || "1".equals(str)) && (this.f15235a.f15228e instanceof c.a.q0.y.a)) {
+                    this.f15235a.i(false);
                 }
             }
         }
@@ -167,7 +167,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f15213a;
+        public final /* synthetic */ d f15236a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(d dVar, int i2) {
@@ -187,30 +187,30 @@ public class d {
                     return;
                 }
             }
-            this.f15213a = dVar;
+            this.f15236a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001304 || !(customResponsedMessage.getData() instanceof Integer) || this.f15213a.f15204d == null || this.f15213a.f15205e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001304 || !(customResponsedMessage.getData() instanceof Integer) || this.f15236a.f15227d == null || this.f15236a.f15228e == null) {
                 return;
             }
-            this.f15213a.f15205e.changeSkin();
+            this.f15236a.f15228e.changeSkin();
         }
     }
 
     /* renamed from: c.a.q0.y.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0719d implements View.OnClickListener {
+    public class View$OnClickListenerC0721d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f15214e;
+        public final /* synthetic */ d f15237e;
 
-        public View$OnClickListenerC0719d(d dVar) {
+        public View$OnClickListenerC0721d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -225,22 +225,22 @@ public class d {
                     return;
                 }
             }
-            this.f15214e = dVar;
+            this.f15237e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int i2;
-            int g2;
+            int j2;
+            int h2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f15214e.f15201a != null && (i2 = c.a.e.a.b.f().i(this.f15214e.f15201a)) != -1 && i2 < c.a.e.a.b.f().g() && (g2 = c.a.e.a.b.f().g() - i2) >= 0) {
-                    c.a.e.a.b.f().m(g2);
+                if (this.f15237e.f15224a != null && (j2 = c.a.e.a.b.g().j(this.f15237e.f15224a)) != -1 && j2 < c.a.e.a.b.g().h() && (h2 = c.a.e.a.b.g().h() - j2) >= 0) {
+                    c.a.e.a.b.g().n(h2);
                 }
-                if (this.f15214e.f15205e != null) {
-                    this.f15214e.f15205e.onClick();
+                if (this.f15237e.f15228e != null) {
+                    this.f15237e.f15228e.onClick();
                 }
-                this.f15214e.i(false);
+                this.f15237e.i(false);
             }
         }
     }
@@ -303,9 +303,9 @@ public class d {
                 return;
             }
         }
-        this.f15208h = 85;
-        this.f15209i = 0;
-        this.f15210j = new a(this, 2001011);
+        this.f15231h = 85;
+        this.f15232i = 0;
+        this.f15233j = new a(this, 2001011);
         this.k = new b(this, 2921478);
         this.l = new c(this, 2001304);
     }
@@ -325,33 +325,33 @@ public class d {
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (this.f15203c == null) {
-                this.f15203c = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
+            if (this.f15226c == null) {
+                this.f15226c = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
             }
-            View view = this.f15204d;
+            View view = this.f15227d;
             if (view == null || view.getParent() == null) {
                 return;
             }
             try {
                 if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {
-                    if (this.f15203c != null && this.f15204d != null) {
-                        this.f15203c.removeView(this.f15204d);
+                    if (this.f15226c != null && this.f15227d != null) {
+                        this.f15226c.removeView(this.f15227d);
                     }
-                    this.f15203c = null;
-                    this.f15204d = null;
+                    this.f15226c = null;
+                    this.f15227d = null;
                     return;
                 }
-                this.f15203c.removeView(this.f15204d);
-                this.f15204d = null;
-                this.f15203c = null;
-                if (z || this.f15206f) {
+                this.f15226c.removeView(this.f15227d);
+                this.f15227d = null;
+                this.f15226c = null;
+                if (z || this.f15229f) {
                     return;
                 }
-                this.f15207g = new e(this);
-                c.a.e.e.m.e.a().postDelayed(this.f15207g, 300L);
+                this.f15230g = new e(this);
+                c.a.e.e.m.e.a().postDelayed(this.f15230g, 300L);
             } catch (SecurityException unused) {
-                this.f15203c = null;
-                this.f15204d = null;
+                this.f15226c = null;
+                this.f15227d = null;
             }
         }
     }
@@ -360,17 +360,17 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.q0.y.c cVar = this.f15205e;
+            c.a.q0.y.c cVar = this.f15228e;
             if (cVar == null) {
                 return false;
             }
-            View view = this.f15204d;
+            View view = this.f15227d;
             if (view != null) {
                 return view.getParent() == null;
             }
             View view2 = cVar.getView();
-            this.f15204d = view2;
-            view2.setOnClickListener(new View$OnClickListenerC0719d(this));
+            this.f15227d = view2;
+            view2.setOnClickListener(new View$OnClickListenerC0721d(this));
             return true;
         }
         return invokeV.booleanValue;
@@ -380,20 +380,20 @@ public class d {
         InterceptResult invokeV;
         View view;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f15203c == null || (view = this.f15204d) == null || view.getParent() == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f15226c == null || (view = this.f15227d) == null || view.getParent() == null) ? false : true : invokeV.booleanValue;
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             i(false);
-            this.f15202b = null;
-            this.f15201a = null;
-            this.f15205e = null;
-            this.f15204d = null;
+            this.f15225b = null;
+            this.f15224a = null;
+            this.f15228e = null;
+            this.f15227d = null;
             m = null;
-            if (this.f15207g != null) {
-                c.a.e.e.m.e.a().removeCallbacks(this.f15207g);
+            if (this.f15230g != null) {
+                c.a.e.e.m.e.a().removeCallbacks(this.f15230g);
             }
         }
     }
@@ -401,15 +401,15 @@ public class d {
     public void m(c.a.q0.y.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f15205e = cVar;
+            this.f15228e = cVar;
         }
     }
 
     public void n(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048581, this, i2, i3, i4) == null) {
-            this.f15208h = i2;
-            this.f15209i = i3;
+            this.f15231h = i2;
+            this.f15232i = i3;
         }
     }
 
@@ -417,37 +417,37 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = c.a.r0.v3.c.a(2002);
+            layoutParams.type = c.a.r0.w3.c.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
-            int i2 = this.f15209i;
+            int i2 = this.f15232i;
             layoutParams.x = i2;
             layoutParams.y = i2;
             layoutParams.width = -2;
             layoutParams.height = -2;
-            layoutParams.gravity = this.f15208h;
-            if (this.f15203c == null) {
-                this.f15203c = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
+            layoutParams.gravity = this.f15231h;
+            if (this.f15226c == null) {
+                this.f15226c = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
             }
             try {
                 if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {
-                    this.f15203c = null;
-                    this.f15204d = null;
+                    this.f15226c = null;
+                    this.f15227d = null;
                 } else if (j()) {
-                    if (this.f15204d != null && this.f15204d.getParent() == null) {
-                        this.f15203c.addView(this.f15204d, layoutParams);
+                    if (this.f15227d != null && this.f15227d.getParent() == null) {
+                        this.f15226c.addView(this.f15227d, layoutParams);
                         if (z) {
-                            this.f15201a = c.a.e.a.b.f().b();
+                            this.f15224a = c.a.e.a.b.g().b();
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921473, 0));
-                    MessageManager.getInstance().registerListener(this.f15210j);
+                    MessageManager.getInstance().registerListener(this.f15233j);
                     MessageManager.getInstance().registerListener(this.l);
                     MessageManager.getInstance().registerListener(this.k);
                 }
             } catch (SecurityException unused) {
-                this.f15203c = null;
-                this.f15204d = null;
+                this.f15226c = null;
+                this.f15227d = null;
             }
         }
     }

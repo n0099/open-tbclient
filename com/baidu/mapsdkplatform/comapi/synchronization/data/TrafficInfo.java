@@ -18,13 +18,13 @@ public final class TrafficInfo implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42460a;
+    public boolean f42464a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42461b;
+    public String f42465b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<Integer> f42462c;
+    public ArrayList<Integer> f42466c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,11 +55,11 @@ public final class TrafficInfo implements Parcelable {
                 return;
             }
         }
-        this.f42460a = false;
-        this.f42461b = null;
-        this.f42460a = false;
-        this.f42461b = null;
-        this.f42462c = new ArrayList<>();
+        this.f42464a = false;
+        this.f42465b = null;
+        this.f42464a = false;
+        this.f42465b = null;
+        this.f42466c = new ArrayList<>();
     }
 
     public TrafficInfo(Parcel parcel) {
@@ -77,43 +77,43 @@ public final class TrafficInfo implements Parcelable {
                 return;
             }
         }
-        this.f42460a = false;
-        this.f42461b = null;
-        this.f42460a = parcel.readByte() != 0;
-        this.f42461b = parcel.readString();
+        this.f42464a = false;
+        this.f42465b = null;
+        this.f42464a = parcel.readByte() != 0;
+        this.f42465b = parcel.readString();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42461b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42465b : (String) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f42461b = str;
+            this.f42465b = str;
         }
     }
 
     public void a(ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.f42462c = arrayList;
+            this.f42466c = arrayList;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f42460a = z;
+            this.f42464a = z;
         }
     }
 
     public ArrayList<Integer> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42462c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42466c : (ArrayList) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -130,8 +130,8 @@ public final class TrafficInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
-            parcel.writeByte(this.f42460a ? (byte) 1 : (byte) 0);
-            parcel.writeString(this.f42461b);
+            parcel.writeByte(this.f42464a ? (byte) 1 : (byte) 0);
+            parcel.writeString(this.f42465b);
         }
     }
 }

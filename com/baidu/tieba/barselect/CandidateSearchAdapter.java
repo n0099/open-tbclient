@@ -3,7 +3,7 @@ package com.baidu.tieba.barselect;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.r0.x.b.a;
+import c.a.r0.y.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
@@ -20,7 +20,7 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f49908a;
+    public List<a> f49835a;
 
     public CandidateSearchAdapter() {
         Interceptable interceptable = $ic;
@@ -35,21 +35,21 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
                 return;
             }
         }
-        this.f49908a = new ArrayList();
+        this.f49835a = new ArrayList();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49908a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49835a.size() : invokeV.intValue;
     }
 
     public void setData(List<a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f49908a.clear();
-            this.f49908a.addAll(list);
+            this.f49835a.clear();
+            this.f49835a.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -58,10 +58,10 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(CandidateSearchItemHolder candidateSearchItemHolder, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, candidateSearchItemHolder, i2) == null) || candidateSearchItemHolder == null || ListUtils.isEmpty(this.f49908a)) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, candidateSearchItemHolder, i2) == null) || candidateSearchItemHolder == null || ListUtils.isEmpty(this.f49835a)) {
             return;
         }
-        candidateSearchItemHolder.bindData(this.f49908a.get(i2));
+        candidateSearchItemHolder.bindData(this.f49835a.get(i2));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

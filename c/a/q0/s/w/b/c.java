@@ -17,22 +17,22 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f14511a;
+    public int f14531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14512b;
+    public int f14532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14513c;
+    public int f14533c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14514d;
+    public int f14534d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14515e;
+    public int f14535e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14516f;
+    public int f14536f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -51,54 +51,54 @@ public class c {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14512b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14532b : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14513c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14533c : invokeV.intValue;
     }
 
     public final void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f14512b = i2;
+            this.f14532b = i2;
         }
     }
 
     public final void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f14511a = i2;
+            this.f14531a = i2;
         }
     }
 
     public final void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f14515e = i2;
+            this.f14535e = i2;
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f14516f = i2;
+            this.f14536f = i2;
         }
     }
 
     public final void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f14513c = i2;
+            this.f14533c = i2;
         }
     }
 
     public final void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f14514d = i2;
+            this.f14534d = i2;
         }
     }
 
@@ -108,27 +108,27 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, indicatorView) == null) || indicatorView == null || (resources = indicatorView.getResources()) == null) {
             return;
         }
-        int i2 = this.f14514d;
+        int i2 = this.f14534d;
         if (i2 > 0) {
             indicatorView.setSpacing(resources.getDimensionPixelSize(i2));
         }
-        int i3 = this.f14512b;
+        int i3 = this.f14532b;
         if (i3 > 0) {
             indicatorView.setDrawable(resources.getDrawable(i3));
         }
-        int i4 = this.f14513c;
+        int i4 = this.f14533c;
         if (i4 > 0) {
             indicatorView.setSelector(resources.getDrawable(i4));
         }
         ViewGroup.LayoutParams layoutParams = indicatorView.getLayoutParams();
         if (layoutParams instanceof FrameLayout.LayoutParams) {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            layoutParams2.gravity = this.f14511a;
-            int i5 = this.f14515e;
+            layoutParams2.gravity = this.f14531a;
+            int i5 = this.f14535e;
             if (i5 > 0) {
                 layoutParams2.bottomMargin = resources.getDimensionPixelSize(i5);
             }
-            int i6 = this.f14516f;
+            int i6 = this.f14536f;
             if (i6 > 0) {
                 layoutParams2.rightMargin = resources.getDimensionPixelSize(i6);
             }

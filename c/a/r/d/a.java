@@ -17,33 +17,33 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public C0723a f15245e;
+    public C0725a f15268e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f15246f;
+    public b f15269f;
 
     /* renamed from: c.a.r.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0723a {
+    public static class C0725a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public b.a f15247a;
+        public b.a f15270a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b.a f15248b;
+        public b.a f15271b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f15249c;
+        public Context f15272c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ExecutorService f15250d;
+        public ExecutorService f15273d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ExecutorService f15251e;
+        public ExecutorService f15274e;
 
-        public C0723a() {
+        public C0725a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,13 +91,13 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f15252a;
+        public String f15275a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f15253b;
+        public int f15276b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Exception f15254c;
+        public Exception f15277c;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -128,9 +128,9 @@ public abstract class a {
                     return;
                 }
             }
-            this.f15253b = i2;
-            this.f15252a = str;
-            this.f15254c = exc;
+            this.f15276b = i2;
+            this.f15275a = str;
+            this.f15277c = exc;
         }
 
         public static d a(int i2, Exception exc) {
@@ -138,8 +138,8 @@ public abstract class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i2, exc)) == null) {
                 d dVar = new d();
-                dVar.f15253b = i2;
-                dVar.f15254c = exc;
+                dVar.f15276b = i2;
+                dVar.f15277c = exc;
                 return dVar;
             }
             return (d) invokeIL.objValue;
@@ -150,8 +150,8 @@ public abstract class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
                 d dVar = new d();
-                dVar.f15253b = 0;
-                dVar.f15252a = str;
+                dVar.f15276b = 0;
+                dVar.f15275a = str;
                 return dVar;
             }
             return (d) invokeL.objValue;
@@ -160,7 +160,7 @@ public abstract class a {
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15253b == 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15276b == 0 : invokeV.booleanValue;
         }
     }
 
@@ -180,17 +180,17 @@ public abstract class a {
 
     public abstract void a(String str, Bundle bundle, c<String> cVar);
 
-    public void b(C0723a c0723a) {
+    public void b(C0725a c0725a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0723a) == null) {
-            this.f15245e = c0723a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0725a) == null) {
+            this.f15268e = c0725a;
         }
     }
 
     public void c(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f15246f = bVar;
+            this.f15269f = bVar;
             e(bVar);
         }
     }

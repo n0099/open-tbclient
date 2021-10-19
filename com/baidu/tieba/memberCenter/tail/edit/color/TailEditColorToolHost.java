@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.q0.x.n;
-import c.a.r0.x1.h.b.c.b;
-import c.a.r0.x1.h.b.c.c;
-import c.a.r0.x1.h.b.c.e;
+import c.a.r0.y1.h.b.c.b;
+import c.a.r0.y1.h.b.c.c;
+import c.a.r0.y1.h.b.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
@@ -26,22 +26,22 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54480e;
+    public int f54411e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.x1.h.b.c.a f54481f;
+    public c.a.r0.y1.h.b.c.a f54412f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f54482g;
+    public c f54413g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f54483h;
+    public e f54414h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EditorTools f54484i;
+    public EditorTools f54415i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f54485j;
+    public View.OnClickListener f54416j;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -49,7 +49,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TailEditColorToolHost f54486e;
+        public final /* synthetic */ TailEditColorToolHost f54417e;
 
         public a(TailEditColorToolHost tailEditColorToolHost) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
                     return;
                 }
             }
-            this.f54486e = tailEditColorToolHost;
+            this.f54417e = tailEditColorToolHost;
         }
 
         @Override // android.view.View.OnClickListener
@@ -76,9 +76,9 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = (b) view.getTag()) == null) {
                 return;
             }
-            this.f54486e.f54482g.c(bVar.b());
-            this.f54486e.f54481f.notifyDataSetChanged();
-            this.f54486e.f54484i.sendAction(new c.a.q0.x.a(26, -1, bVar.b()));
+            this.f54417e.f54413g.c(bVar.b());
+            this.f54417e.f54412f.notifyDataSetChanged();
+            this.f54417e.f54415i.sendAction(new c.a.q0.x.a(26, -1, bVar.b()));
         }
     }
 
@@ -100,8 +100,8 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
                 return;
             }
         }
-        this.f54480e = 0;
-        this.f54485j = new a(this);
+        this.f54411e = 0;
+        this.f54416j = new a(this);
         d(tbPageContext, str);
     }
 
@@ -109,13 +109,13 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, str) == null) {
             LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.tail_edit_color, (ViewGroup) this, true);
-            this.f54483h = new e(this);
+            this.f54414h = new e(this);
             c cVar = new c(tbPageContext);
-            this.f54482g = cVar;
+            this.f54413g = cVar;
             cVar.c(str);
-            c.a.r0.x1.h.b.c.a aVar = new c.a.r0.x1.h.b.c.a(tbPageContext, this.f54482g, this.f54485j);
-            this.f54481f = aVar;
-            this.f54483h.a(aVar);
+            c.a.r0.y1.h.b.c.a aVar = new c.a.r0.y1.h.b.c.a(tbPageContext, this.f54413g, this.f54416j);
+            this.f54412f = aVar;
+            this.f54414h.a(aVar);
         }
     }
 
@@ -131,7 +131,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54480e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54411e : invokeV.intValue;
     }
 
     @Override // c.a.q0.x.n
@@ -167,7 +167,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
     public void sendAction(c.a.q0.x.a aVar) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) || (editorTools = this.f54484i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) || (editorTools = this.f54415i) == null) {
             return;
         }
         editorTools.sendAction(aVar);
@@ -177,7 +177,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
-            this.f54484i = editorTools;
+            this.f54415i = editorTools;
         }
     }
 
@@ -185,7 +185,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f54480e = i2;
+            this.f54411e = i2;
         }
     }
 
@@ -208,8 +208,8 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
                 return;
             }
         }
-        this.f54480e = 0;
-        this.f54485j = new a(this);
+        this.f54411e = 0;
+        this.f54416j = new a(this);
         d(tbPageContext, str);
     }
 }

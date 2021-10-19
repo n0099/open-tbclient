@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class l0<T extends c.a.q0.s.q.a> implements q, c.a.r0.o.e {
+public class l0<T extends c.a.q0.s.q.a> implements q, c.a.r0.p.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -368,8 +368,8 @@ public class l0<T extends c.a.q0.s.q.a> implements q, c.a.r0.o.e {
             aVar.onChangeSkinType(tbPageContext, i2);
             if (this.o == null && ((t2 = this.s) == null || !t2.isSupportContent())) {
                 c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f3824i);
-                d2.n(1);
-                d2.o(R.string.J_X06);
+                d2.m(1);
+                d2.n(R.string.J_X06);
                 d2.f(this.r.f3843h);
             }
         }
@@ -378,8 +378,8 @@ public class l0<T extends c.a.q0.s.q.a> implements q, c.a.r0.o.e {
             aVar2.onChangeSkinType(tbPageContext, i2);
             if (TbSingleton.mIsAbNightModeColor && this.s != null) {
                 c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(this.f3824i);
-                d3.n(0);
-                d3.o(R.string.J_X02);
+                d3.m(0);
+                d3.n(R.string.J_X02);
                 d3.f(this.r.f3843h);
             }
         }
@@ -393,15 +393,15 @@ public class l0<T extends c.a.q0.s.q.a> implements q, c.a.r0.o.e {
             aVar3.onChangeSkinType(tbPageContext, i2);
             if (this.l == null && ((t = this.s) == null || !t.isSupportContent())) {
                 c.a.q0.s.u.c d4 = c.a.q0.s.u.c.d(this.f3824i);
-                d4.n(2);
-                d4.o(R.string.J_X06);
+                d4.m(2);
+                d4.n(R.string.J_X06);
                 d4.f(this.r.f3843h);
             }
         }
         if (this.l != null && this.o != null) {
             c.a.q0.s.u.c d5 = c.a.q0.s.u.c.d(this.f3824i);
-            d5.o(R.string.J_X06);
-            d5.j(this.r.f3843h, R.color.CAM_X0206);
+            d5.n(R.string.J_X06);
+            d5.i(this.r.f3843h, R.color.CAM_X0206);
         }
         FrameLayout frameLayout = this.f3823h;
         if (frameLayout != null) {
@@ -422,25 +422,25 @@ public class l0<T extends c.a.q0.s.q.a> implements q, c.a.r0.o.e {
         }
     }
 
-    public void p(c.a.r0.a0.b0<T> b0Var) {
+    public void p(c.a.r0.b0.c0<T> c0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, b0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, c0Var) == null) {
             c.a.l.a<T> aVar = this.l;
             if (aVar != null) {
-                aVar.k(b0Var);
+                aVar.k(c0Var);
             }
             c.a.l.a<T> aVar2 = this.m;
             if (aVar2 != null) {
-                aVar2.k(b0Var);
+                aVar2.k(c0Var);
             }
             for (h hVar : this.n) {
                 if (hVar != null) {
-                    hVar.k(b0Var);
+                    hVar.k(c0Var);
                 }
             }
             c.a.l.a<T> aVar3 = this.o;
             if (aVar3 != null) {
-                aVar3.k(b0Var);
+                aVar3.k(c0Var);
             }
         }
     }
@@ -461,7 +461,7 @@ public class l0<T extends c.a.q0.s.q.a> implements q, c.a.r0.o.e {
         }
     }
 
-    @Override // c.a.r0.o.e
+    @Override // c.a.r0.p.e
     public void setPage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {

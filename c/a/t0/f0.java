@@ -25,17 +25,17 @@ public class f0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f30018d;
+    public static final boolean f30065d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30019a;
+    public int f30066a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f30020b;
+    public long f30067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f30021c;
+    public d f30068c;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -81,7 +81,7 @@ public class f0 {
                 }
                 this.this$0.k();
             } catch (Exception unused) {
-                boolean unused2 = f0.f30018d;
+                boolean unused2 = f0.f30065d;
             }
         }
 
@@ -96,7 +96,7 @@ public class f0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f0 f30022e;
+        public final /* synthetic */ f0 f30069e;
 
         public c(f0 f0Var) {
             Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class f0 {
                     return;
                 }
             }
-            this.f30022e = f0Var;
+            this.f30069e = f0Var;
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -155,9 +155,9 @@ public class f0 {
         public void onActivityStarted(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-                f0.b(this.f30022e);
-                if (this.f30022e.f30019a == 1) {
-                    this.f30022e.i();
+                f0.b(this.f30069e);
+                if (this.f30069e.f30066a == 1) {
+                    this.f30069e.i();
                 }
             }
         }
@@ -166,9 +166,9 @@ public class f0 {
         public void onActivityStopped(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-                f0.c(this.f30022e);
-                if (this.f30022e.f30019a == 0) {
-                    this.f30022e.j();
+                f0.c(this.f30069e);
+                if (this.f30069e.f30066a == 0) {
+                    this.f30069e.j();
                 }
             }
         }
@@ -200,7 +200,7 @@ public class f0 {
                 return;
             }
         }
-        f30018d = AppConfig.isDebug();
+        f30065d = AppConfig.isDebug();
     }
 
     public f0(Context context) {
@@ -218,19 +218,19 @@ public class f0 {
                 return;
             }
         }
-        this.f30020b = 0L;
+        this.f30067b = 0L;
         h(context);
     }
 
     public static /* synthetic */ int b(f0 f0Var) {
-        int i2 = f0Var.f30019a;
-        f0Var.f30019a = i2 + 1;
+        int i2 = f0Var.f30066a;
+        f0Var.f30066a = i2 + 1;
         return i2;
     }
 
     public static /* synthetic */ int c(f0 f0Var) {
-        int i2 = f0Var.f30019a;
-        f0Var.f30019a = i2 - 1;
+        int i2 = f0Var.f30066a;
+        f0Var.f30066a = i2 - 1;
         return i2;
     }
 
@@ -248,7 +248,7 @@ public class f0 {
     public final void i() {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (dVar = this.f30021c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (dVar = this.f30068c) == null) {
             return;
         }
         dVar.a();
@@ -257,7 +257,7 @@ public class f0 {
     public final void j() {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (dVar = this.f30021c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (dVar = this.f30068c) == null) {
             return;
         }
         dVar.b();
@@ -268,17 +268,17 @@ public class f0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f30020b > 300000 && (dVar = this.f30021c) != null) {
+            if (currentTimeMillis - this.f30067b > 300000 && (dVar = this.f30068c) != null) {
                 dVar.c();
             }
-            this.f30020b = currentTimeMillis;
+            this.f30067b = currentTimeMillis;
         }
     }
 
     public void l(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f30021c = dVar;
+            this.f30068c = dVar;
         }
     }
 }

@@ -21,22 +21,22 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f73453a;
+    public static final byte[] f73488a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f73454b;
+    public static final byte[] f73489b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f73455c;
+    public static final byte[] f73490c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte[] f73456d;
+    public static final byte[] f73491d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Pattern f73457e;
+    public static Pattern f73492e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static byte[] f73458f;
+    public static byte[] f73493f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,18 +52,18 @@ public class b {
                 return;
             }
         }
-        f73453a = a("IHDR");
-        f73454b = a("PLTE");
-        f73455c = a("IDAT");
-        f73456d = a("IEND");
-        f73458f = new byte[4096];
-        f73457e = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
+        f73488a = a("IHDR");
+        f73489b = a("PLTE");
+        f73490c = a("IDAT");
+        f73491d = a("IEND");
+        f73493f = new byte[4096];
+        f73492e = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
     }
 
     public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? new String(bArr, com.kwad.sdk.pngencrypt.n.f73544a) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? new String(bArr, com.kwad.sdk.pngencrypt.n.f73579a) : (String) invokeL.objValue;
     }
 
     public static String a(byte[] bArr, int i2) {
@@ -75,7 +75,7 @@ public class b {
     public static String a(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i2, i3)) == null) ? new String(bArr, i2, i3, com.kwad.sdk.pngencrypt.n.f73544a) : (String) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i2, i3)) == null) ? new String(bArr, i2, i3, com.kwad.sdk.pngencrypt.n.f73579a) : (String) invokeLII.objValue;
     }
 
     public static List<PngChunk> a(List<PngChunk> list, c cVar) {
@@ -96,11 +96,11 @@ public class b {
     public static void a(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, inputStream, outputStream) == null) {
-            synchronized (f73458f) {
+            synchronized (f73493f) {
                 while (true) {
-                    int read = inputStream.read(f73458f);
+                    int read = inputStream.read(f73493f);
                     if (read > 0) {
-                        outputStream.write(f73458f, 0, read);
+                        outputStream.write(f73493f, 0, read);
                     }
                 }
             }
@@ -110,7 +110,7 @@ public class b {
     public static byte[] a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? str.getBytes(com.kwad.sdk.pngencrypt.n.f73544a) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? str.getBytes(com.kwad.sdk.pngencrypt.n.f73579a) : (byte[]) invokeL.objValue;
     }
 
     public static byte[] a(byte[] bArr, int i2, int i3, boolean z) {
@@ -139,13 +139,13 @@ public class b {
     public static String b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) ? new String(bArr, com.kwad.sdk.pngencrypt.n.f73545b) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) ? new String(bArr, com.kwad.sdk.pngencrypt.n.f73580b) : (String) invokeL.objValue;
     }
 
     public static String b(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, bArr, i2, i3)) == null) ? new String(bArr, i2, i3, com.kwad.sdk.pngencrypt.n.f73545b) : (String) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, bArr, i2, i3)) == null) ? new String(bArr, i2, i3, com.kwad.sdk.pngencrypt.n.f73580b) : (String) invokeLII.objValue;
     }
 
     public static boolean b(String str) {

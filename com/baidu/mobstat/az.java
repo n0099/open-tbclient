@@ -28,34 +28,34 @@ public class az {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f43411a;
+    public Context f43323a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f43412b;
+    public Activity f43324b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f43413c;
+    public volatile boolean f43325c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f43414d;
+    public volatile boolean f43326d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile String f43415e;
+    public volatile String f43327e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f43416f;
+    public long f43328f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f43417g;
+    public long f43329g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43418h;
+    public String f43330h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PointF f43419i;
+    public PointF f43331i;
 
     /* renamed from: j  reason: collision with root package name */
-    public bf f43420j;
+    public bf f43332j;
 
     static {
         InterceptResult invokeClinit;
@@ -87,21 +87,21 @@ public class az {
                 return;
             }
         }
-        this.f43420j = bf.a();
+        this.f43332j = bf.a();
     }
 
     private void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65553, this) == null) && bw.s(this.f43411a) && !this.f43413c) {
-            if (!this.f43414d) {
-                this.f43415e = bo.a(this.f43411a, "mtj_autoTracker.js");
-                this.f43414d = true;
+        if ((interceptable == null || interceptable.invokeV(65553, this) == null) && bw.s(this.f43323a) && !this.f43325c) {
+            if (!this.f43326d) {
+                this.f43327e = bo.a(this.f43323a, "mtj_autoTracker.js");
+                this.f43326d = true;
             }
-            if (this.f43416f == 0) {
-                this.f43416f = bq.a().n(this.f43411a);
-                this.f43417g = bq.a().o(this.f43411a);
+            if (this.f43328f == 0) {
+                this.f43328f = bq.a().n(this.f43323a);
+                this.f43329g = bq.a().o(this.f43323a);
             }
-            if (!(this.f43414d && TextUtils.isEmpty(this.f43415e)) && System.currentTimeMillis() - this.f43416f <= this.f43417g) {
+            if (!(this.f43326d && TextUtils.isEmpty(this.f43327e)) && System.currentTimeMillis() - this.f43328f <= this.f43329g) {
                 return;
             }
             f();
@@ -116,7 +116,7 @@ public class az {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ az f43422a;
+                public final /* synthetic */ az f43334a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -133,20 +133,20 @@ public class az {
                             return;
                         }
                     }
-                    this.f43422a = this;
+                    this.f43334a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f43422a.f43413c) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f43334a.f43325c) {
                         return;
                     }
-                    boolean a2 = bg.a(this.f43422a.f43411a, this.f43422a.f43418h, 1, false);
-                    this.f43422a.f43413c = true;
+                    boolean a2 = bg.a(this.f43334a.f43323a, this.f43334a.f43330h, 1, false);
+                    this.f43334a.f43325c = true;
                     if (a2) {
-                        az azVar = this.f43422a;
-                        azVar.f43415e = bo.a(azVar.f43411a, "mtj_autoTracker.js");
+                        az azVar = this.f43334a;
+                        azVar.f43327e = bo.a(azVar.f43323a, "mtj_autoTracker.js");
                     }
                 }
             });
@@ -173,7 +173,7 @@ public class az {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f43418h = str;
+            this.f43330h = str;
         }
     }
 
@@ -189,7 +189,7 @@ public class az {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ az f43421a;
+            public final /* synthetic */ az f43333a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -206,7 +206,7 @@ public class az {
                         return;
                     }
                 }
-                this.f43421a = this;
+                this.f43333a = this;
             }
 
             @Override // com.baidu.mobstat.al.a
@@ -214,10 +214,10 @@ public class az {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent) == null) && motionEvent.getActionMasked() == 1) {
                     az.a(true);
-                    if (this.f43421a.f43419i == null) {
-                        this.f43421a.f43419i = new PointF();
+                    if (this.f43333a.f43331i == null) {
+                        this.f43333a.f43331i = new PointF();
                     }
-                    this.f43421a.f43419i.set(motionEvent.getRawX(), motionEvent.getRawY());
+                    this.f43333a.f43331i.set(motionEvent.getRawX(), motionEvent.getRawY());
                 }
             }
 
@@ -234,14 +234,14 @@ public class az {
     public PointF b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43419i : (PointF) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43331i : (PointF) invokeV.objValue;
     }
 
     public void b(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, activity) == null) && d()) {
-            d(this.f43412b);
-            this.f43412b = null;
+            d(this.f43324b);
+            this.f43324b = null;
             a(activity, false);
         }
     }
@@ -255,7 +255,7 @@ public class az {
     private boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) ? !TextUtils.isEmpty(this.f43418h) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) ? !TextUtils.isEmpty(this.f43330h) : invokeV.booleanValue;
     }
 
     public void a(String str) {
@@ -280,15 +280,15 @@ public class az {
         if (!(interceptable == null || interceptable.invokeLLL(65545, this, webView, str, blVar) == null) || blVar == null) {
             return;
         }
-        blVar.a(this.f43412b, webView, str, (JSONObject) null, false);
+        blVar.a(this.f43324b, webView, str, (JSONObject) null, false);
     }
 
     public void a(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && d()) {
             a(true);
-            this.f43411a = activity.getApplicationContext();
-            this.f43412b = activity;
+            this.f43323a = activity.getApplicationContext();
+            this.f43324b = activity;
             e();
             c(activity);
             a(activity, true);
@@ -301,9 +301,9 @@ public class az {
             return;
         }
         if (z) {
-            this.f43420j.a(activity, false, null, false);
+            this.f43332j.a(activity, false, null, false);
         } else {
-            this.f43420j.a(activity, false);
+            this.f43332j.a(activity, false);
         }
     }
 
@@ -322,10 +322,10 @@ public class az {
     public void a(WebView webView, String str, bl blVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, blVar) == null) {
-            if (TextUtils.isEmpty(this.f43415e)) {
-                this.f43415e = bo.a(this.f43411a, "mtj_autoTracker.js");
+            if (TextUtils.isEmpty(this.f43327e)) {
+                this.f43327e = bo.a(this.f43323a, "mtj_autoTracker.js");
             }
-            b(webView, this.f43415e, blVar);
+            b(webView, this.f43327e, blVar);
         }
     }
 }

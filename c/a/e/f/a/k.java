@@ -73,9 +73,9 @@ public class k extends a {
             int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
             this.s.set(Math.max(i2, 0), Math.max(i3, 0), Math.min(i4, width), Math.min(i5, height));
             DrawerArgs drawerArgs = this.k;
-            if (drawerArgs.f36343c) {
-                float f2 = drawerArgs.f36344d / 2.0f;
-                if (!drawerArgs.f36347g) {
+            if (drawerArgs.f36347c) {
+                float f2 = drawerArgs.f36348d / 2.0f;
+                if (!drawerArgs.f36351g) {
                     this.f2710g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
                     return;
                 }
@@ -91,9 +91,9 @@ public class k extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) {
             DrawerArgs drawerArgs = this.k;
-            if (drawerArgs.f36343c) {
-                if (!drawerArgs.f36342b) {
-                    canvas.drawPath(l(this.f2710g, drawerArgs.f36341a), this.f2706c);
+            if (drawerArgs.f36347c) {
+                if (!drawerArgs.f36346b) {
+                    canvas.drawPath(l(this.f2710g, drawerArgs.f36345a), this.f2706c);
                     return;
                 }
                 RectF rectF = this.s;
@@ -105,7 +105,7 @@ public class k extends a {
                     f3 = (imageView.getTop() + imageView.getBottom()) / 2.0f;
                     min = Math.min(imageView.getWidth(), imageView.getHeight()) / 2.0f;
                 }
-                canvas.drawCircle(f2, f3, min - (this.k.f36344d / 2.0f), this.f2706c);
+                canvas.drawCircle(f2, f3, min - (this.k.f36348d / 2.0f), this.f2706c);
             }
         }
     }
@@ -119,8 +119,8 @@ public class k extends a {
                 dVar.f2719b.b(true);
             }
             DrawerArgs drawerArgs = this.k;
-            if (!drawerArgs.f36342b) {
-                canvas.drawPath(l(this.s, drawerArgs.f36341a), this.f2705b);
+            if (!drawerArgs.f36346b) {
+                canvas.drawPath(l(this.s, drawerArgs.f36345a), this.f2705b);
             } else {
                 RectF rectF = this.s;
                 canvas.drawCircle((rectF.right + rectF.left) / 2.0f, (rectF.top + rectF.bottom) / 2.0f, Math.min(rectF.width(), this.s.height()) / 2.0f, this.f2705b);
@@ -141,13 +141,13 @@ public class k extends a {
         int scrollY = imageView.getScrollY();
         canvas.translate(scrollX, scrollY);
         this.f2707d.setColor(this.k.m);
-        if (!this.k.f36342b) {
+        if (!this.k.f36346b) {
             this.n.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            canvas.drawPath(l(this.n, this.k.f36341a), this.f2707d);
+            canvas.drawPath(l(this.n, this.k.f36345a), this.f2707d);
         } else {
             float width = imageView.getWidth() / 2.0f;
             float height = imageView.getHeight() / 2.0f;
-            canvas.drawCircle(width, height, Math.min(width, height) - (this.k.f36344d / 2.0f), this.f2707d);
+            canvas.drawCircle(width, height, Math.min(width, height) - (this.k.f36348d / 2.0f), this.f2707d);
         }
         canvas.translate(-scrollX, -scrollY);
     }

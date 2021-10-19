@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.alasquare.special_forum.message;
 
-import c.a.r0.v.f.g.c.d;
+import c.a.r0.w.f.g.c.d;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

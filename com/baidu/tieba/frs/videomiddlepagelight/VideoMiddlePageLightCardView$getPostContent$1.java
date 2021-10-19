@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.videomiddlepagelight;
 
+import c.a.q0.f1.m.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AbstractData;
-import com.baidu.tbadk.widget.richText.TbRichTextHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public final class VideoMiddlePageLightCardView$getPostContent$1 extends Lambda 
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractData)) == null) {
-            int f2 = TbRichTextHelper.f(abstractData.type);
+            int f2 = e.f(Integer.valueOf(abstractData.type));
             if (f2 != 4) {
                 if (f2 == 8) {
                     return "[图片]";

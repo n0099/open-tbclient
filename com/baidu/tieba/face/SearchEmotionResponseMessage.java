@@ -1,6 +1,6 @@
 package com.baidu.tieba.face;
 
-import c.a.r0.q0.c.a;
+import c.a.r0.r0.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;

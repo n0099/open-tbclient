@@ -28,22 +28,22 @@ public class CouponEntranceView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f44434e;
+    public ImageView f44346e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44435f;
+    public TextView f44347f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44436g;
+    public TextView f44348g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44437h;
+    public TextView f44349h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f44438i;
+    public View f44350i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f44439j;
+    public a f44351j;
     public a.C0065a k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -70,7 +70,7 @@ public class CouponEntranceView extends FrameLayout {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f44439j = aVar;
+            this.f44351j = aVar;
             h();
         }
     }
@@ -79,11 +79,11 @@ public class CouponEntranceView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(g.coupon_entrance, (ViewGroup) this, true);
-            this.f44434e = (ImageView) findViewById(f.coupon_icon);
-            this.f44437h = (TextView) findViewById(f.coupon_text);
-            this.f44435f = (TextView) findViewById(f.coupon_title);
-            this.f44436g = (TextView) findViewById(f.coupon_subtitle);
-            this.f44438i = findViewById(f.icon_more);
+            this.f44346e = (ImageView) findViewById(f.coupon_icon);
+            this.f44349h = (TextView) findViewById(f.coupon_text);
+            this.f44347f = (TextView) findViewById(f.coupon_title);
+            this.f44348g = (TextView) findViewById(f.coupon_subtitle);
+            this.f44350i = findViewById(f.icon_more);
         }
     }
 
@@ -99,12 +99,12 @@ public class CouponEntranceView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.k = null;
-            a aVar = this.f44439j;
+            a aVar = this.f44351j;
             if (!((aVar == null || (list = aVar.f3244b) == null || list.size() <= 0) ? false : true)) {
                 setVisibility(8);
                 return;
             }
-            Iterator<a.C0065a> it = this.f44439j.f3244b.iterator();
+            Iterator<a.C0065a> it = this.f44351j.f3244b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -120,26 +120,26 @@ public class CouponEntranceView extends FrameLayout {
                 return;
             }
             setVisibility(0);
-            b.c().b(this.f44434e, this.k.f3249e);
-            this.f44435f.setText(this.k.f3246b);
+            b.c().b(this.f44346e, this.k.f3249e);
+            this.f44347f.setText(this.k.f3246b);
             a.C0065a c0065a = this.k;
             if (c0065a.f3245a == -1) {
                 str = c0065a.f3247c;
-                this.f44436g.setVisibility(8);
+                this.f44348g.setVisibility(8);
             } else {
                 str = "-" + a(this.k.f3250f.longValue()) + "元";
-                this.f44436g.setVisibility(0);
-                this.f44436g.setText(this.k.f3247c);
+                this.f44348g.setVisibility(0);
+                this.f44348g.setText(this.k.f3247c);
             }
-            this.f44437h.setText(str);
-            if (this.f44439j.f3243a) {
-                this.f44437h.setTextColor(getResources().getColor(c.coupon_description));
-                this.f44438i.setVisibility(0);
+            this.f44349h.setText(str);
+            if (this.f44351j.f3243a) {
+                this.f44349h.setTextColor(getResources().getColor(c.coupon_description));
+                this.f44350i.setVisibility(0);
                 setEnabled(true);
                 return;
             }
-            this.f44437h.setTextColor(getResources().getColor(c.black));
-            this.f44438i.setVisibility(8);
+            this.f44349h.setTextColor(getResources().getColor(c.black));
+            this.f44350i.setVisibility(8);
             setEnabled(false);
         }
     }

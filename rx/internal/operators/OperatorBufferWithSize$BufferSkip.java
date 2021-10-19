@@ -14,10 +14,10 @@ public final class OperatorBufferWithSize$BufferSkip<T> extends j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f79738e;
+    public final int f79773e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f79739f;
+    public final int f79774f;
 
     /* loaded from: classes2.dex */
     public final class BufferSkipProducer extends AtomicBoolean implements f {
@@ -54,9 +54,9 @@ public final class OperatorBufferWithSize$BufferSkip<T> extends j<T> {
                 } else if (i2 != 0) {
                     OperatorBufferWithSize$BufferSkip operatorBufferWithSize$BufferSkip = this.this$0;
                     if (get() || !compareAndSet(false, true)) {
-                        operatorBufferWithSize$BufferSkip.request(a.c(j2, operatorBufferWithSize$BufferSkip.f79739f));
+                        operatorBufferWithSize$BufferSkip.request(a.c(j2, operatorBufferWithSize$BufferSkip.f79774f));
                     } else {
-                        operatorBufferWithSize$BufferSkip.request(a.a(a.c(j2, operatorBufferWithSize$BufferSkip.f79738e), a.c(operatorBufferWithSize$BufferSkip.f79739f - operatorBufferWithSize$BufferSkip.f79738e, j2 - 1)));
+                        operatorBufferWithSize$BufferSkip.request(a.a(a.c(j2, operatorBufferWithSize$BufferSkip.f79773e), a.c(operatorBufferWithSize$BufferSkip.f79774f - operatorBufferWithSize$BufferSkip.f79773e, j2 - 1)));
                     }
                 }
             }

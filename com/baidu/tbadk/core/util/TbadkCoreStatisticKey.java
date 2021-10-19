@@ -89,6 +89,8 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_FE_FITE_PROGRAM_CLICK = "c13274";
     public static final String KEY_FRS_AD_LIST_ITEM_CLICK = "c13194";
     public static final String KEY_H5_OFFLINE_PACKAGE_DOWNLOAD = "c13435";
+    public static final String KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK = "c14372";
+    public static final String KEY_HOME_RECOMMEND_CARD_INTEREST_SHOW = "c14367";
     public static final String KEY_IMAGE_VIEWER_DOWNLOAD_DIALOG_SUCCESS = "c14047";
     public static final String KEY_ITEM_THROUGH_CLICK = "c14073";
     public static final String KEY_ITEM_THROUGH_EXPOSURE = "c14072";
@@ -142,6 +144,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_TIEBA_UID_SHARE_DIALOG_CLICK = "c14148";
     public static final String KEY_TIEBA_UID_SHARE_DIALOG_SHOW = "c14147";
     public static final String KEY_TOPIC_DETAIL_CARD_AGREE_CLICK = "c13358";
+    public static final String KEY_TOPIC_DETAIL_TO_PB_AGREE_CLICK = "c14394";
     public static final String KEY_TRANSFER_BTN_CLICK = "c13567";
     public static final String KEY_UPDATE_OFFLINE_PACK = "c14055";
     public static final String KEY_VIDEO_ACCOUNT_ADD_COLLECTION_CLICK = "c14182";

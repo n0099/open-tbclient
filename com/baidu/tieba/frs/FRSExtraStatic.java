@@ -4,11 +4,11 @@ import android.os.Bundle;
 import c.a.e.e.p.k;
 import c.a.q0.s.q.d2;
 import c.a.q0.s.q.t1;
-import c.a.r0.a0.d0.n;
-import c.a.r0.j3.f0;
-import c.a.r0.j3.l;
-import c.a.r0.w0.a1;
-import c.a.r0.w0.i0;
+import c.a.r0.b0.e0.n;
+import c.a.r0.k3.f0;
+import c.a.r0.k3.l;
+import c.a.r0.x0.a1;
+import c.a.r0.x0.i0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -87,9 +87,9 @@ public class FRSExtraStatic {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                 absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, t1.Z3, null));
-                absDelegateAdapterList.add(new c.a.r0.w0.p1.a.a(null, n.k, true));
-                absDelegateAdapterList.add(new c.a.r0.w0.p1.a.b(null, f0.a4, null));
-                absDelegateAdapterList.add(new c.a.r0.w0.t1.a(null, c.a.r0.z0.b.f29719i, null));
+                absDelegateAdapterList.add(new c.a.r0.x0.p1.a.a(null, n.k, true));
+                absDelegateAdapterList.add(new c.a.r0.x0.p1.a.b(null, f0.a4, null));
+                absDelegateAdapterList.add(new c.a.r0.x0.t1.a(null, c.a.r0.a1.b.f15592i, null));
             }
         }
     }
@@ -244,10 +244,10 @@ public class FRSExtraStatic {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof i0) {
                     i0 i0Var = (i0) data;
-                    i0Var.a(new c.a.r0.w0.u1.a(i0Var.d(), i0Var.e()));
+                    i0Var.a(new c.a.r0.x0.u1.a(i0Var.d(), i0Var.e()));
                     for (FrsTabInfo frsTabInfo : i0Var.g()) {
                         if (frsTabInfo.tab_id.intValue() > 100) {
-                            c.a.r0.w0.y1.c cVar = new c.a.r0.w0.y1.c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
+                            c.a.r0.x0.y1.c cVar = new c.a.r0.x0.y1.c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
                             i0Var.a(cVar);
                             if (i0Var.b() == null) {
                                 continue;
@@ -256,7 +256,7 @@ public class FRSExtraStatic {
                                 if (fragmentTabStructure == null) {
                                     return;
                                 }
-                                fragmentTabStructure.f13463a.setArguments(new Bundle());
+                                fragmentTabStructure.f13471a.setArguments(new Bundle());
                             }
                         }
                     }
@@ -295,7 +295,7 @@ public class FRSExtraStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c.a.r0.w0.r1.c(null, l.f20947g, true));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c.a.r0.x0.r1.c(null, l.f21125g, true));
             }
         }
     }
@@ -323,7 +323,7 @@ public class FRSExtraStatic {
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016468, new c.a.r0.w0.r1.a()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016468, new c.a.r0.x0.r1.a()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -349,7 +349,7 @@ public class FRSExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameSubPbActivityConfig.class, FrsGameSubPbActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsProfessionIntroActivityConfig.class, FrsProfessionIntroActivity.class);
         d2.M3.set(true);
-        c.a.r0.w0.e.f26590a.set(new a1());
+        c.a.r0.x0.e.f26765a.set(new a1());
         MessageManager.getInstance().registerListener(new a(2003008));
         MessageManager.getInstance().registerTask(new CustomMessageTask(2003016, new b()));
         UrlManager.getInstance().addListener(new c());

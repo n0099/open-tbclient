@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import c.a.r0.j3.x;
-import c.a.r0.w0.r1.d;
+import c.a.r0.k3.x;
+import c.a.r0.x0.r1.d;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -41,7 +41,7 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsMoreFeedForumsActivity f51258e;
+        public final /* synthetic */ FrsMoreFeedForumsActivity f51185e;
 
         public a(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
                     return;
                 }
             }
-            this.f51258e = frsMoreFeedForumsActivity;
+            this.f51185e = frsMoreFeedForumsActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.f51258e.mBackLogo.getId()) {
-                this.f51258e.finish();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.f51185e.mBackLogo.getId()) {
+                this.f51185e.finish();
             }
         }
     }
@@ -76,7 +76,7 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsMoreFeedForumsActivity f51259a;
+        public final /* synthetic */ FrsMoreFeedForumsActivity f51186a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity, int i2) {
@@ -96,7 +96,7 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
                     return;
                 }
             }
-            this.f51259a = frsMoreFeedForumsActivity;
+            this.f51186a = frsMoreFeedForumsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -104,7 +104,7 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof x)) {
-                this.f51259a.mAdapter.f(this.f51259a.mFeedForumDataList, (x) customResponsedMessage.getData());
+                this.f51186a.mAdapter.f(this.f51186a.mFeedForumDataList, (x) customResponsedMessage.getData());
             }
         }
     }

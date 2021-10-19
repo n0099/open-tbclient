@@ -1,8 +1,8 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import c.a.r0.x1.c.f;
-import c.a.r0.x1.c.k.k;
+import c.a.r0.y1.c.f;
+import c.a.r0.y1.c.k.k;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ public class ExchangeSuperMemberViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f54394a;
+    public f f54325a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ExchangeSuperMemberViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -35,16 +35,16 @@ public class ExchangeSuperMemberViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f54394a = new f(view, baseFragmentActivity);
+        this.f54325a = new f(view, baseFragmentActivity);
     }
 
     public void fillView(k kVar) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) || kVar == null || (fVar = this.f54394a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) || kVar == null || (fVar = this.f54325a) == null) {
             return;
         }
         fVar.f();
-        this.f54394a.c(kVar);
+        this.f54325a.c(kVar);
     }
 }

@@ -14,7 +14,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<z> f68226a;
+    public WeakReference<z> f68261a;
 
     public b(z zVar) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class b {
                 return;
             }
         }
-        this.f68226a = new WeakReference<>(zVar);
+        this.f68261a = new WeakReference<>(zVar);
     }
 
     public void a(z zVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, zVar) == null) {
-            this.f68226a = new WeakReference<>(zVar);
+            this.f68261a = new WeakReference<>(zVar);
         }
     }
 
@@ -45,9 +45,9 @@ public class b {
     public void invokeMethod(String str) {
         WeakReference<z> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (weakReference = this.f68226a) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (weakReference = this.f68261a) == null || weakReference.get() == null) {
             return;
         }
-        this.f68226a.get().invokeMethod(str);
+        this.f68261a.get().invokeMethod(str);
     }
 }

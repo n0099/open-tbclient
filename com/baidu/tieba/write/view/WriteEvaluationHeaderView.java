@@ -34,22 +34,22 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f59029e;
+    public int f58977e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EMTextView f59030f;
+    public EMTextView f58978f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f59031g;
+    public EMTextView f58979g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f59032h;
+    public ImageView f58980h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f59033i;
+    public View f58981i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f59034j;
+    public View f58982j;
     public ItemCardView k;
     public RankStarView l;
     public c m;
@@ -63,7 +63,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteEvaluationHeaderView f59035e;
+        public final /* synthetic */ WriteEvaluationHeaderView f58983e;
 
         public a(WriteEvaluationHeaderView writeEvaluationHeaderView) {
             Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
                     return;
                 }
             }
-            this.f59035e = writeEvaluationHeaderView;
+            this.f58983e = writeEvaluationHeaderView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f59035e.gotoItemSearch();
+                this.f58983e.gotoItemSearch();
             }
         }
     }
@@ -127,11 +127,11 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.write_evaluation_header_view, (ViewGroup) this, true);
-            this.f59031g = (EMTextView) findViewById(R.id.item_relevance_desc);
-            this.f59030f = (EMTextView) findViewById(R.id.item_relevance_tip);
-            this.f59033i = findViewById(R.id.write_select_item_relevance);
-            this.f59032h = (ImageView) findViewById(R.id.item_relevance_arrow);
-            this.f59034j = findViewById(R.id.item_relevance_line);
+            this.f58979g = (EMTextView) findViewById(R.id.item_relevance_desc);
+            this.f58978f = (EMTextView) findViewById(R.id.item_relevance_tip);
+            this.f58981i = findViewById(R.id.write_select_item_relevance);
+            this.f58980h = (ImageView) findViewById(R.id.item_relevance_arrow);
+            this.f58982j = findViewById(R.id.item_relevance_line);
             this.k = (ItemCardView) findViewById(R.id.item_star_info);
             RankStarView rankStarView = (RankStarView) findViewById(R.id.item_set_new_star);
             this.l = rankStarView;
@@ -148,7 +148,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f59033i.setOnClickListener(new a(this));
+            this.f58981i.setOnClickListener(new a(this));
         }
     }
 
@@ -186,21 +186,21 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f59029e) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f58977e) {
             return;
         }
-        this.f59029e = skinType;
-        EMTextView eMTextView = this.f59030f;
+        this.f58977e = skinType;
+        EMTextView eMTextView = this.f58978f;
         if (eMTextView != null) {
             SkinManager.setViewTextColor(eMTextView, R.color.CAM_X0109);
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f59030f);
-            d2.o(R.string.J_X06);
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f58978f);
+            d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0206);
         }
-        if (this.f59032h != null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f59032h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        if (this.f58980h != null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f58980h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         }
-        View view = this.f59034j;
+        View view = this.f58982j;
         if (view != null) {
             SkinManager.setBackgroundColor(view, R.color.CAM_X0210);
         }
@@ -208,7 +208,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         if (itemCardView != null) {
             SkinManager.setBackgroundColor(itemCardView, R.color.CAM_X0206);
         }
-        EMTextView eMTextView2 = this.f59031g;
+        EMTextView eMTextView2 = this.f58979g;
         if (eMTextView2 != null) {
             SkinManager.setViewTextColor(eMTextView2, R.color.CAM_X0105);
         }
@@ -227,9 +227,9 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
             this.k.setVisibility(8);
-            this.f59034j.setVisibility(0);
+            this.f58982j.setVisibility(0);
             this.l.setVisibility(8);
-            this.f59030f.setVisibility(0);
+            this.f58978f.setVisibility(0);
             c cVar = this.m;
             if (cVar != null) {
                 cVar.onClose();
@@ -260,11 +260,11 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
             this.o = tbRichTextEvaluateItemInfo;
             if (this.p) {
                 this.k.setVisibility(0);
-                this.f59034j.setVisibility(8);
+                this.f58982j.setVisibility(8);
             }
             this.l.setVisibility(0);
             this.l.setStarCount(0.0f);
-            this.f59030f.setVisibility(8);
+            this.f58978f.setVisibility(8);
             this.k.setData(tbRichTextEvaluateItemInfo, 10, "");
         }
     }
@@ -274,8 +274,8 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.p = z;
             this.k.setVisibility(8);
-            this.f59034j.setVisibility(0);
-            this.f59033i.setVisibility(8);
+            this.f58982j.setVisibility(0);
+            this.f58981i.setVisibility(8);
         }
     }
 
@@ -333,7 +333,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
                 return;
             }
         }
-        this.f59029e = 3;
+        this.f58977e = 3;
         this.p = true;
         a();
     }

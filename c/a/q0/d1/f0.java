@@ -1,68 +1,41 @@
 package c.a.q0.d1;
 
-import android.os.SystemClock;
-import androidx.annotation.NonNull;
-import androidx.collection.ArrayMap;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
-public class f0<KEY> {
+public class f0 {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayMap<KEY, Long> f12940a;
+    public static String f12948a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public long f12941b;
-
-    public f0(int i2, @NonNull TimeUnit timeUnit) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), timeUnit};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f12940a = new ArrayMap<>();
-        this.f12941b = timeUnit.toMillis(i2);
-    }
-
-    public static <T> f0<T> b() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new f0<>(1000, TimeUnit.MILLISECONDS) : (f0) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (StringUtils.isNull(f12948a)) {
+                return null;
+            }
+            return f12948a;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public synchronized boolean a(@NonNull KEY key) {
-        InterceptResult invokeL;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
-            synchronized (this) {
-                Long l = this.f12940a.get(key);
-                long uptimeMillis = SystemClock.uptimeMillis();
-                if (l == null) {
-                    this.f12940a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else if (uptimeMillis - l.longValue() > this.f12941b) {
-                    this.f12940a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else {
-                    return false;
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            f12948a = str;
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f12948a == null) {
+            return;
+        }
+        f12948a = null;
     }
 }

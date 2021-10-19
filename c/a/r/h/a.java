@@ -19,27 +19,27 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.C0735a f15454a;
+    public a.C0737a f15477a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f15455b;
+    public b f15478b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f15456c;
+    public String f15479c;
 
     /* renamed from: c.a.r.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0736a implements Runnable {
+    public class RunnableC0738a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f15457e;
+        public final /* synthetic */ d f15480e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f15458f;
+        public final /* synthetic */ String f15481f;
 
-        public RunnableC0736a(a aVar, d dVar, String str) {
+        public RunnableC0738a(a aVar, d dVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,15 +54,15 @@ public abstract class a {
                     return;
                 }
             }
-            this.f15457e = dVar;
-            this.f15458f = str;
+            this.f15480e = dVar;
+            this.f15481f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f15457e.onResult(this.f15458f, null);
+                this.f15480e.onResult(this.f15481f, null);
             }
         }
     }
@@ -73,19 +73,19 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f15459a;
+        public Context f15482a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.r.g.d.a f15460b;
+        public c.a.r.g.d.a f15483b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TrustSubjectManager.d f15461c;
+        public TrustSubjectManager.d f15484c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ExecutorService f15462d;
+        public ExecutorService f15485d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ExecutorService f15463e;
+        public ExecutorService f15486e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f15464a;
+        public boolean f15487a;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public abstract class a {
                     return;
                 }
             }
-            this.f15464a = false;
+            this.f15487a = false;
         }
     }
 
@@ -149,7 +149,7 @@ public abstract class a {
                 return;
             }
         }
-        this.f15456c = str;
+        this.f15479c = str;
     }
 
     public static String b(String str, String str2) {
@@ -174,8 +174,8 @@ public abstract class a {
     public final void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f15455b = bVar;
-            this.f15454a = bVar.f15460b.d().f("ids");
+            this.f15478b = bVar;
+            this.f15477a = bVar.f15483b.d().f("ids");
         }
     }
 
@@ -193,7 +193,7 @@ public abstract class a {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15456c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15479c : (String) invokeV.objValue;
     }
 
     public abstract void f(c cVar);
@@ -201,7 +201,7 @@ public abstract class a {
     public void g(d<String> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
-            this.f15455b.f15462d.submit(new RunnableC0736a(this, dVar, c()));
+            this.f15478b.f15485d.submit(new RunnableC0738a(this, dVar, c()));
         }
     }
 }

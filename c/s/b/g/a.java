@@ -12,11 +12,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f35619b;
+    public static a f35623b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.s.b.a f35620a;
+    public c.s.b.a f35624a;
 
     static {
         InterceptResult invokeClinit;
@@ -46,17 +46,17 @@ public class a {
                 return;
             }
         }
-        this.f35620a = null;
+        this.f35624a = null;
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f35619b == null) {
-                f35619b = new a();
+            if (f35623b == null) {
+                f35623b = new a();
             }
-            return f35619b;
+            return f35623b;
         }
         return (a) invokeV.objValue;
     }
@@ -64,7 +64,7 @@ public class a {
     public void a(String str) {
         c.s.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (aVar = this.f35620a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (aVar = this.f35624a) == null) {
             return;
         }
         aVar.info("authsdk", str);

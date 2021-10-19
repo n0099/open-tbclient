@@ -412,7 +412,6 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public void addStatsTimeStamp(int i2, long j2) {
         Interceptable interceptable = $ic;
@@ -442,9 +441,10 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
                     return;
                 case 2007:
                     this.mInitAccountChangeTimestamp = j2;
-                    break;
+                    return;
                 case 2008:
-                    break;
+                    this.mPermissionUtilEndTimestamp = j2;
+                    return;
                 case 2009:
                     this.mInitAdapterDimonEndTimestamp = j2;
                     return;
@@ -572,7 +572,6 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
                     this.mInitMsgNineStartTimestamp = j2;
                     return;
             }
-            this.mPermissionUtilEndTimestamp = j2;
         }
     }
 }

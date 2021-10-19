@@ -23,34 +23,34 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f30023a;
+    public Context f30070a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30024b;
+    public int f30071b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30025c;
+    public int f30072c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30026d;
+    public int f30073d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30027e;
+    public int f30074e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30028f;
+    public int f30075f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30029g;
+    public int f30076g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f30030h;
+    public int f30077h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f f30031i;
+    public f f30078i;
 
     /* renamed from: j  reason: collision with root package name */
-    public e0 f30032j;
+    public e0 f30079j;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -65,12 +65,12 @@ public class g {
                 return;
             }
         }
-        this.f30027e = 614400;
-        this.f30028f = 153600;
-        this.f30029g = 614400;
-        this.f30030h = 614400;
-        this.f30031i = new f();
-        this.f30032j = new e0();
+        this.f30074e = 614400;
+        this.f30075f = 153600;
+        this.f30076g = 614400;
+        this.f30077h = 614400;
+        this.f30078i = new f();
+        this.f30079j = new e0();
     }
 
     public static g n() {
@@ -92,24 +92,24 @@ public class g {
     public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30031i.f30008a.f30086b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30078i.f30055a.f30133b : invokeV.booleanValue;
     }
 
     public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30031i.f30008a.f30088d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30078i.f30055a.f30135d : invokeV.booleanValue;
     }
 
     public boolean C(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            HashMap<String, l> hashMap = this.f30031i.f30017j;
+            HashMap<String, l> hashMap = this.f30078i.f30064j;
             if (hashMap == null || !hashMap.containsKey(str)) {
                 return false;
             }
-            return this.f30031i.f30017j.get(str).b();
+            return this.f30078i.f30064j.get(str).b();
         }
         return invokeL.booleanValue;
     }
@@ -118,7 +118,7 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            Context context = this.f30023a;
+            Context context = this.f30070a;
             return context == null || E(context) || !c(str);
         }
         return invokeL.booleanValue;
@@ -137,7 +137,7 @@ public class g {
     public boolean F(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f30031i.f30010c.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f30078i.f30057c.contains(str) : invokeL.booleanValue;
     }
 
     public void G(int i2) {
@@ -145,7 +145,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 < 604800000) {
             return;
         }
-        this.f30025c = i2;
+        this.f30072c = i2;
         i0.e().putInt("ubc_data_expire_time", i2);
     }
 
@@ -154,7 +154,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || i2 < 10000) {
             return;
         }
-        this.f30026d = i2;
+        this.f30073d = i2;
         i0.e().putInt("ubc_database_limit", i2);
     }
 
@@ -163,7 +163,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || i2 < 153600) {
             return;
         }
-        this.f30027e = i2;
+        this.f30074e = i2;
         i0.e().putInt("ubc_launch_upload_max_limit", i2);
     }
 
@@ -172,7 +172,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || i2 < 153600) {
             return;
         }
-        this.f30030h = i2;
+        this.f30077h = i2;
         i0.e().putInt("ubc_non_real_upload_max_limit", i2);
     }
 
@@ -181,7 +181,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || i2 < 153600) {
             return;
         }
-        this.f30029g = i2;
+        this.f30076g = i2;
         i0.e().putInt("ubc_real_upload_max_limit", i2);
     }
 
@@ -190,7 +190,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || i2 < 30720) {
             return;
         }
-        this.f30028f = i2;
+        this.f30075f = i2;
         i0.e().putInt("ubc_single_log_max_limit", i2);
     }
 
@@ -199,7 +199,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || i2 < 6) {
             return;
         }
-        this.f30024b = i2 * 60000;
+        this.f30071b = i2 * 60000;
     }
 
     public void N(List<j> list) {
@@ -209,72 +209,72 @@ public class g {
                 String c2 = jVar.c();
                 if (!TextUtils.isEmpty(c2)) {
                     if (!jVar.t()) {
-                        this.f30031i.f30009b.add(c2);
-                        this.f30031i.f30013f.remove(c2);
+                        this.f30078i.f30056b.add(c2);
+                        this.f30078i.f30060f.remove(c2);
                     } else {
-                        this.f30031i.f30009b.remove(c2);
-                        this.f30031i.f30013f.add(c2);
+                        this.f30078i.f30056b.remove(c2);
+                        this.f30078i.f30060f.add(c2);
                     }
                     if (jVar.p()) {
-                        this.f30031i.f30010c.add(c2);
-                        this.f30031i.f30011d.remove(c2);
+                        this.f30078i.f30057c.add(c2);
+                        this.f30078i.f30058d.remove(c2);
                     } else {
-                        this.f30031i.f30010c.remove(c2);
-                        this.f30031i.f30011d.add(c2);
+                        this.f30078i.f30057c.remove(c2);
+                        this.f30078i.f30058d.add(c2);
                     }
                     if (jVar.l()) {
-                        this.f30031i.f30012e.add(c2);
+                        this.f30078i.f30059e.add(c2);
                     } else {
-                        this.f30031i.f30012e.remove(c2);
+                        this.f30078i.f30059e.remove(c2);
                     }
                     if (jVar.o()) {
-                        this.f30031i.f30014g.add(c2);
+                        this.f30078i.f30061g.add(c2);
                     } else {
-                        this.f30031i.f30014g.remove(c2);
+                        this.f30078i.f30061g.remove(c2);
                     }
                     int g2 = jVar.g();
                     if (g2 >= 1 && g2 <= 100) {
-                        this.f30031i.f30015h.put(c2, Integer.valueOf(g2));
+                        this.f30078i.f30062h.put(c2, Integer.valueOf(g2));
                     } else {
-                        this.f30031i.f30015h.remove(c2);
+                        this.f30078i.f30062h.remove(c2);
                     }
                     String a2 = jVar.a();
                     if (!TextUtils.isEmpty(a2)) {
-                        this.f30031i.f30016i.put(c2, a2);
+                        this.f30078i.f30063i.put(c2, a2);
                     } else {
-                        this.f30031i.f30016i.remove(c2);
+                        this.f30078i.f30063i.remove(c2);
                     }
                     int d2 = jVar.d();
                     int e2 = jVar.e();
                     if (d2 != 0 && e2 != 0) {
-                        this.f30031i.f30017j.put(c2, new l(c2, e2, d2));
+                        this.f30078i.f30064j.put(c2, new l(c2, e2, d2));
                     }
                     if (jVar.n()) {
-                        this.f30031i.k.add(c2);
+                        this.f30078i.k.add(c2);
                     } else {
-                        this.f30031i.k.remove(c2);
+                        this.f30078i.k.remove(c2);
                     }
                     if (jVar.q()) {
-                        this.f30031i.l.add(c2);
+                        this.f30078i.l.add(c2);
                     } else {
-                        this.f30031i.l.remove(c2);
+                        this.f30078i.l.remove(c2);
                     }
                     int b2 = jVar.b();
                     if (jVar.s()) {
-                        this.f30031i.m.put(c2, Integer.valueOf(b2));
+                        this.f30078i.m.put(c2, Integer.valueOf(b2));
                     } else {
-                        this.f30031i.m.remove(c2);
+                        this.f30078i.m.remove(c2);
                     }
                     if (jVar.u()) {
-                        this.f30031i.n.remove(c2);
+                        this.f30078i.n.remove(c2);
                     } else {
-                        this.f30031i.n.put(c2, Integer.valueOf(jVar.j()));
+                        this.f30078i.n.put(c2, Integer.valueOf(jVar.j()));
                     }
                     int f2 = jVar.f();
                     if (f2 != 2) {
-                        this.f30031i.o.put(c2, Integer.valueOf(f2));
+                        this.f30078i.o.put(c2, Integer.valueOf(f2));
                     } else {
-                        this.f30031i.o.remove(c2);
+                        this.f30078i.o.remove(c2);
                     }
                 }
             }
@@ -284,7 +284,7 @@ public class g {
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.f30031i.f30012e.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.f30078i.f30059e.contains(str) : invokeL.booleanValue;
     }
 
     public int b(String str) {
@@ -292,7 +292,7 @@ public class g {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            if (!this.f30031i.o.containsKey(str) || (num = this.f30031i.o.get(str)) == null) {
+            if (!this.f30078i.o.containsKey(str) || (num = this.f30078i.o.get(str)) == null) {
                 return 2;
             }
             return num.intValue();
@@ -303,7 +303,7 @@ public class g {
     public boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) ? this.f30031i.f30014g.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) ? this.f30078i.f30061g.contains(str) : invokeL.booleanValue;
     }
 
     public boolean d(String str) {
@@ -316,10 +316,10 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            if (this.f30032j.isUBCDebug() || this.f30031i.f30010c.contains(str)) {
+            if (this.f30079j.isUBCDebug() || this.f30078i.f30057c.contains(str)) {
                 return true;
             }
-            return this.f30031i.f30008a.f30086b;
+            return this.f30078i.f30055a.f30133b;
         }
         return invokeL.booleanValue;
     }
@@ -327,22 +327,22 @@ public class g {
     public boolean f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) ? this.f30031i.l.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) ? this.f30078i.l.contains(str) : invokeL.booleanValue;
     }
 
     public boolean g(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048596, this, str, i2)) == null) {
-            if (this.f30031i.f30009b.contains(str)) {
+            if (this.f30078i.f30056b.contains(str)) {
                 return false;
             }
             if ((i2 & 16) != 0 || (i2 & 32) != 0) {
-                return this.f30031i.f30013f.contains(str);
-            } else if (this.f30031i.f30013f.contains(str)) {
+                return this.f30078i.f30060f.contains(str);
+            } else if (this.f30078i.f30060f.contains(str)) {
                 return true;
             } else {
-                return this.f30031i.f30008a.f30085a;
+                return this.f30078i.f30055a.f30132a;
             }
         }
         return invokeLI.booleanValue;
@@ -352,7 +352,7 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-            if (!y() && this.f30032j.isUBCSample() && u(str) > 0) {
+            if (!y() && this.f30079j.isUBCSample() && u(str) > 0) {
                 if (new Random().nextInt(100) >= u(str)) {
                     return true;
                 }
@@ -365,25 +365,25 @@ public class g {
     public String i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) ? this.f30031i.f30016i.containsKey(str) ? this.f30031i.f30016i.get(str) : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) ? this.f30078i.f30063i.containsKey(str) ? this.f30078i.f30063i.get(str) : "" : (String) invokeL.objValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f30025c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f30072c : invokeV.intValue;
     }
 
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f30026d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f30073d : invokeV.intValue;
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f30031i.f30008a.f30087c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f30078i.f30055a.f30134c : invokeV.intValue;
     }
 
     public int m(String str) {
@@ -391,7 +391,7 @@ public class g {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
-            if (!this.f30031i.m.containsKey(str) || (num = this.f30031i.m.get(str)) == null) {
+            if (!this.f30078i.m.containsKey(str) || (num = this.f30078i.m.get(str)) == null) {
                 return 0;
             }
             return num.intValue();
@@ -402,37 +402,37 @@ public class g {
     public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f30027e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f30074e : invokeV.intValue;
     }
 
     public int p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f30030h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f30077h : invokeV.intValue;
     }
 
     public int q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f30029g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f30076g : invokeV.intValue;
     }
 
     public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f30028f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f30075f : invokeV.intValue;
     }
 
     public int s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f30024b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f30071b : invokeV.intValue;
     }
 
     public HashSet<String> t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f30031i.f30011d : (HashSet) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f30078i.f30058d : (HashSet) invokeV.objValue;
     }
 
     public int u(String str) {
@@ -440,7 +440,7 @@ public class g {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || !this.f30031i.f30015h.containsKey(str) || (num = this.f30031i.f30015h.get(str)) == null) {
+            if (TextUtils.isEmpty(str) || !this.f30078i.f30062h.containsKey(str) || (num = this.f30078i.f30062h.get(str)) == null) {
                 return 0;
             }
             return num.intValue();
@@ -451,7 +451,7 @@ public class g {
     public String v(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) ? !TextUtils.isEmpty(str) ? (this.f30031i.k.contains(str) || TextUtils.equals(str, "1876") || TextUtils.equals(str, "2980")) ? "1" : "0" : "0" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) ? !TextUtils.isEmpty(str) ? (this.f30078i.k.contains(str) || TextUtils.equals(str, "1876") || TextUtils.equals(str, "2980")) ? "1" : "0" : "0" : (String) invokeL.objValue;
     }
 
     public int w(String str) {
@@ -459,7 +459,7 @@ public class g {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) {
-            if (!this.f30031i.n.containsKey(str) || (num = this.f30031i.n.get(str)) == null) {
+            if (!this.f30078i.n.containsKey(str) || (num = this.f30078i.n.get(str)) == null) {
                 return -1;
             }
             return num.intValue();
@@ -470,16 +470,16 @@ public class g {
     public void x(c cVar, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048612, this, cVar, context) == null) {
-            this.f30023a = context;
-            this.f30024b = 360000;
+            this.f30070a = context;
+            this.f30071b = 360000;
             i0 e2 = i0.e();
-            this.f30025c = e2.getInt("ubc_data_expire_time", 604800000);
-            this.f30026d = e2.getInt("ubc_database_limit", 10000);
-            cVar.n().t(this.f30031i);
-            this.f30027e = e2.getInt("ubc_launch_upload_max_limit", 614400);
-            this.f30028f = e2.getInt("ubc_single_log_max_limit", 153600);
-            this.f30029g = e2.getInt("ubc_real_upload_max_limit", 614400);
-            this.f30030h = e2.getInt("ubc_non_real_upload_max_limit", 614400);
+            this.f30072c = e2.getInt("ubc_data_expire_time", 604800000);
+            this.f30073d = e2.getInt("ubc_database_limit", 10000);
+            cVar.n().t(this.f30078i);
+            this.f30074e = e2.getInt("ubc_launch_upload_max_limit", 614400);
+            this.f30075f = e2.getInt("ubc_single_log_max_limit", 153600);
+            this.f30076g = e2.getInt("ubc_real_upload_max_limit", 614400);
+            this.f30077h = e2.getInt("ubc_non_real_upload_max_limit", 614400);
         }
     }
 
@@ -500,11 +500,11 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
-            HashMap<String, l> hashMap = this.f30031i.f30017j;
+            HashMap<String, l> hashMap = this.f30078i.f30064j;
             if (hashMap == null || !hashMap.containsKey(str)) {
                 return false;
             }
-            return this.f30031i.f30017j.get(str).a();
+            return this.f30078i.f30064j.get(str).a();
         }
         return invokeL.booleanValue;
     }

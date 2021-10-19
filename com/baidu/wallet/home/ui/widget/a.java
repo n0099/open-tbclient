@@ -51,11 +51,11 @@ public class a {
 
     /* renamed from: com.baidu.wallet.home.ui.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1830a {
+    public static class C1832a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f61462a;
+        public static a f61497a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -71,7 +71,7 @@ public class a {
                     return;
                 }
             }
-            f61462a = new a(null);
+            f61497a = new a(null);
         }
     }
 
@@ -82,7 +82,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1830a.f61462a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1832a.f61497a : (a) invokeV.objValue;
     }
 
     public a() {

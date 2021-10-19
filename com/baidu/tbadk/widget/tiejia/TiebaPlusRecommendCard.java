@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
 import c.a.q0.b.d;
-import c.a.q0.d1.q0;
+import c.a.q0.d1.p0;
 import c.a.q0.s.q.d2;
 import c.a.q0.s.u.c;
 import com.baidu.adp.framework.MessageManager;
@@ -38,22 +38,22 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f49071e;
+    public TbImageView f48998e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressButton f49072f;
+    public ProgressButton f48999f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49073g;
+    public TextView f49000g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49074h;
+    public TextView f49001h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f49075i;
+    public TextView f49002i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f49076j;
+    public TextView f49003j;
     public TextView k;
     public TextView l;
     public View m;
@@ -62,7 +62,7 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
     public View p;
     public final Context q;
     public TbRichTextTiebaPlusInfo r;
-    public final q0 s;
+    public final p0 s;
     public TiePlusDownloadDialog t;
 
     /* loaded from: classes6.dex */
@@ -71,7 +71,7 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TiebaPlusRecommendCard f49077e;
+        public final /* synthetic */ TiebaPlusRecommendCard f49004e;
 
         public a(TiebaPlusRecommendCard tiebaPlusRecommendCard) {
             Interceptable interceptable = $ic;
@@ -88,32 +88,55 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
                     return;
                 }
             }
-            this.f49077e = tiebaPlusRecommendCard;
+            this.f49004e = tiebaPlusRecommendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TiePlusStat.LandingType landingType;
             TiePlusStat.CardBtnType cardBtnType;
+            TiePlusStat.LandingType landingType2;
+            TiePlusStat.CardBtnType cardBtnType2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49077e.r == null || this.f49077e.r.z() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49004e.r == null || this.f49004e.r.z() == null) {
                 return;
             }
-            if (this.f49077e.r.getType() == 33) {
-                landingType = TiePlusStat.LandingType.DIALOG_DOWNLOAD;
-                cardBtnType = TiePlusStat.CardBtnType.DOWNLOAD;
-                if (d.j0()) {
-                    this.f49077e.h();
+            TiebaPlusInfo z = this.f49004e.r.z();
+            int intValue = z != null ? z.jump_type.intValue() : 0;
+            if (this.f49004e.r.getType() == 36) {
+                if (intValue == 2) {
+                    landingType2 = TiePlusStat.LandingType.DIALOG_DOWNLOAD;
+                    TiePlusStat.CardBtnType cardBtnType3 = TiePlusStat.CardBtnType.DOWNLOAD;
+                    if (d.m0()) {
+                        this.f49004e.h();
+                    } else {
+                        this.f49004e.s.onClick(view);
+                    }
+                    cardBtnType = cardBtnType3;
                 } else {
-                    this.f49077e.s.onClick(view);
+                    if (intValue == 1) {
+                        landingType2 = TiePlusStat.LandingType.H5;
+                        cardBtnType2 = TiePlusStat.CardBtnType.H5;
+                        this.f49004e.h();
+                    } else if (intValue == 3) {
+                        landingType2 = TiePlusStat.LandingType.WECHAT;
+                        cardBtnType2 = TiePlusStat.CardBtnType.H5;
+                        this.f49004e.h();
+                    } else if (intValue == 4) {
+                        landingType2 = TiePlusStat.LandingType.WECHAT_MINIAPP;
+                        cardBtnType2 = TiePlusStat.CardBtnType.H5;
+                        this.f49004e.h();
+                    }
+                    cardBtnType = cardBtnType2;
                 }
-            } else {
-                landingType = TiePlusStat.LandingType.H5;
-                cardBtnType = TiePlusStat.CardBtnType.H5;
-                this.f49077e.h();
+                landingType = landingType2;
+                TiebaPlusRecommendCard tiebaPlusRecommendCard = this.f49004e;
+                tiebaPlusRecommendCard.i(tiebaPlusRecommendCard.r.z(), this.f49004e.r.x(), TiePlusStat.StatType.CLICK, landingType, cardBtnType, this.f49004e.r.y(), this.f49004e.r.getForumId(), this.f49004e.r.w());
             }
-            TiebaPlusRecommendCard tiebaPlusRecommendCard = this.f49077e;
-            tiebaPlusRecommendCard.i(tiebaPlusRecommendCard.r.z(), this.f49077e.r.x(), TiePlusStat.StatType.CLICK, landingType, cardBtnType, this.f49077e.r.y(), this.f49077e.r.getForumId(), this.f49077e.r.w());
+            landingType = null;
+            cardBtnType = null;
+            TiebaPlusRecommendCard tiebaPlusRecommendCard2 = this.f49004e;
+            tiebaPlusRecommendCard2.i(tiebaPlusRecommendCard2.r.z(), this.f49004e.r.x(), TiePlusStat.StatType.CLICK, landingType, cardBtnType, this.f49004e.r.y(), this.f49004e.r.getForumId(), this.f49004e.r.w());
         }
     }
 
@@ -123,10 +146,10 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f49078a;
+        public final /* synthetic */ String f49005a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TiebaPlusRecommendCard f49079b;
+        public final /* synthetic */ TiebaPlusRecommendCard f49006b;
 
         public b(TiebaPlusRecommendCard tiebaPlusRecommendCard, String str) {
             Interceptable interceptable = $ic;
@@ -143,15 +166,15 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
                     return;
                 }
             }
-            this.f49079b = tiebaPlusRecommendCard;
-            this.f49078a = str;
+            this.f49006b = tiebaPlusRecommendCard;
+            this.f49005a = str;
         }
 
         @Override // com.baidu.tbadk.widget.tiejia.TiePlusDownloadDialog.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TiePlusStat.d(TiePlusStat.StatType.DIALOG_CLICK, TiePlusStat.Locate.PB, TiePlusStat.ThreadType.IMAGE_TEXT, TiePlusStat.RichTextType.CARD, this.f49079b.r.y(), this.f49079b.r.getForumId(), this.f49079b.r.w(), this.f49078a);
+                TiePlusStat.d(TiePlusStat.StatType.DIALOG_CLICK, TiePlusStat.Locate.PB, TiePlusStat.ThreadType.IMAGE_TEXT, TiePlusStat.RichTextType.CARD, this.f49006b.r.y(), this.f49006b.r.getForumId(), this.f49006b.r.w(), this.f49005a);
             }
         }
     }
@@ -191,58 +214,58 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
             } else {
                 this.p.setVisibility(0);
             }
-            this.f49073g.setMaxLines(1);
+            this.f49000g.setMaxLines(1);
             if (StringUtils.isNull(tiebaPlusInfo.title)) {
-                this.f49073g.setVisibility(8);
+                this.f49000g.setVisibility(8);
             } else {
-                this.f49073g.setVisibility(0);
-                this.f49073g.setText(tiebaPlusInfo.title);
+                this.f49000g.setVisibility(0);
+                this.f49000g.setText(tiebaPlusInfo.title);
             }
             if (!StringUtils.isNull(tiebaPlusInfo.app_icon)) {
-                this.f49071e.startLoad(tiebaPlusInfo.app_icon, 10, false);
+                this.f48998e.startLoad(tiebaPlusInfo.app_icon, 10, false);
             }
             if (StringUtils.isNull(tiebaPlusInfo.desc)) {
-                this.f49074h.setVisibility(8);
+                this.f49001h.setVisibility(8);
             } else {
-                this.f49074h.setVisibility(0);
-                this.f49074h.setText(tiebaPlusInfo.desc);
+                this.f49001h.setVisibility(0);
+                this.f49001h.setText(tiebaPlusInfo.desc);
             }
             if (StringUtils.isNull(tiebaPlusInfo.app_version)) {
-                this.f49075i.setVisibility(8);
+                this.f49002i.setVisibility(8);
             } else {
-                this.f49075i.setVisibility(0);
-                this.f49075i.setText(String.format(this.q.getString(R.string.app_version), tiebaPlusInfo.app_version));
+                this.f49002i.setVisibility(0);
+                this.f49002i.setText(String.format(this.q.getString(R.string.app_version), tiebaPlusInfo.app_version));
             }
             if (StringUtils.isNull(tiebaPlusInfo.app_company)) {
-                this.f49076j.setVisibility(8);
+                this.f49003j.setVisibility(8);
             } else {
-                this.f49076j.setVisibility(0);
-                this.f49076j.setText(tiebaPlusInfo.app_company);
+                this.f49003j.setVisibility(0);
+                this.f49003j.setText(tiebaPlusInfo.app_company);
             }
-            if (!d.j0() && !d.k0()) {
-                this.f49075i.setVisibility(0);
+            if (!d.m0() && !d.n0()) {
+                this.f49002i.setVisibility(0);
                 this.p.setVisibility(0);
             } else {
-                this.f49075i.setVisibility(8);
+                this.f49002i.setVisibility(8);
                 this.p.setVisibility(8);
             }
-            if (d.k0()) {
+            if (d.n0()) {
                 this.n.setVisibility(0);
-                this.f49072f.setVisibility(8);
+                this.f48999f.setVisibility(8);
             } else {
                 this.n.setVisibility(8);
-                this.f49072f.setVisibility(0);
+                this.f48999f.setVisibility(0);
             }
             if (this.o.getVisibility() != 8) {
-                this.f49074h.requestLayout();
+                this.f49001h.requestLayout();
             }
-            q0 q0Var = this.s;
-            q0Var.q(tiebaPlusInfo.app_id);
-            q0Var.s(tiebaPlusInfo.download_url);
-            q0Var.u(tiebaPlusInfo.app_package);
-            q0Var.v(tiebaPlusInfo.app_power);
-            q0Var.w(tiebaPlusInfo.app_privacy);
-            q0Var.d(this.f49072f);
+            p0 p0Var = this.s;
+            p0Var.r(tiebaPlusInfo.app_id);
+            p0Var.t(tiebaPlusInfo.download_url);
+            p0Var.v(tiebaPlusInfo.app_package);
+            p0Var.w(tiebaPlusInfo.app_power);
+            p0Var.x(tiebaPlusInfo.app_privacy);
+            p0Var.d(this.f48999f);
             this.k.setOnClickListener(this.s);
             this.l.setOnClickListener(this.s);
             Context context = this.q;
@@ -258,24 +281,24 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tiebaPlusInfo) == null) {
             this.o.setVisibility(8);
             this.p.setVisibility(8);
-            this.f49073g.setMaxLines(2);
+            this.f49000g.setMaxLines(2);
             if (StringUtils.isNull(tiebaPlusInfo.desc)) {
-                this.f49073g.setText("");
+                this.f49000g.setText("");
             } else {
-                this.f49073g.setText(tiebaPlusInfo.desc);
+                this.f49000g.setText(tiebaPlusInfo.desc);
             }
             if (!StringUtils.isNull(tiebaPlusInfo.app_icon)) {
-                this.f49071e.startLoad(tiebaPlusInfo.app_icon, 10, false);
+                this.f48998e.startLoad(tiebaPlusInfo.app_icon, 10, false);
             }
-            this.f49072f.setText(this.q.getString(R.string.view));
-            this.f49072f.setOnClickListener(this);
-            if (d.l0()) {
+            this.f48999f.setText(this.q.getString(R.string.view));
+            this.f48999f.setOnClickListener(this);
+            if (d.o0()) {
                 this.n.setVisibility(8);
-                this.f49072f.setVisibility(0);
+                this.f48999f.setVisibility(0);
                 return;
             }
             this.n.setVisibility(0);
-            this.f49072f.setVisibility(8);
+            this.f48999f.setVisibility(8);
         }
     }
 
@@ -283,14 +306,14 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.tiejia_recommend_card, (ViewGroup) this, true);
-            this.f49071e = (TbImageView) findViewById(R.id.tiejia_card_icon);
+            this.f48998e = (TbImageView) findViewById(R.id.tiejia_card_icon);
             ProgressButton progressButton = (ProgressButton) findViewById(R.id.tiejia_card_download);
-            this.f49072f = progressButton;
+            this.f48999f = progressButton;
             progressButton.setUseLongText(false);
-            this.f49073g = (TextView) findViewById(R.id.tiejia_card_title);
-            this.f49074h = (TextView) findViewById(R.id.tiejia_card_desc);
-            this.f49075i = (TextView) findViewById(R.id.tiejia_card_version);
-            this.f49076j = (TextView) findViewById(R.id.tiejia_card_company);
+            this.f49000g = (TextView) findViewById(R.id.tiejia_card_title);
+            this.f49001h = (TextView) findViewById(R.id.tiejia_card_desc);
+            this.f49002i = (TextView) findViewById(R.id.tiejia_card_version);
+            this.f49003j = (TextView) findViewById(R.id.tiejia_card_company);
             this.k = (TextView) findViewById(R.id.tiejia_card_privacy);
             this.l = (TextView) findViewById(R.id.tiejia_card_permission);
             this.m = findViewById(R.id.tiejia_divider);
@@ -312,25 +335,34 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
             return;
         }
         TiebaPlusInfo z = this.r.z();
-        int type = this.r.getType();
-        if (type != 33) {
-            if (type != 50) {
-                return;
+        if (this.r.getType() == 36) {
+            int intValue = z.jump_type.intValue();
+            if (intValue != 2) {
+                if (intValue == 1) {
+                    this.s.f(z.jump_url, z.h5_jump_type.intValue());
+                    return;
+                } else if (intValue == 3) {
+                    this.s.f(z.h5_jump_number, intValue);
+                    return;
+                } else if (intValue == 4) {
+                    this.s.g(z.h5_jump_number, intValue, z.h5_jump_param);
+                    return;
+                } else {
+                    return;
+                }
             }
-            this.s.f(z.h5_jump_type.intValue() == 3 ? z.h5_jump_number : z.jump_url, z.h5_jump_type.intValue());
-            return;
+            String str = (this.r.x() == null || !this.r.x().R2) ? "" : this.r.x().S2;
+            if (this.t == null) {
+                this.t = new TiePlusDownloadDialog(this.q, this.s, false);
+            }
+            this.s.s(this.t);
+            ItemData itemData = new ItemData();
+            itemData.parseProto(z);
+            this.s.u(itemData);
+            this.t.setAppCompany(z.app_company).setAppIcon(z.app_icon).setAppTitle(z.title).setAppVersion(z.app_version).setDownloadClickCallback(new b(this, str));
+            this.t.show();
+            TiePlusStat.d(TiePlusStat.StatType.DIALOG_EXPOSE, TiePlusStat.Locate.PB, TiePlusStat.ThreadType.IMAGE_TEXT, TiePlusStat.RichTextType.CARD, this.r.y(), this.r.getForumId(), this.r.w(), str);
         }
-        String str = (this.r.x() == null || !this.r.x().R2) ? "" : this.r.x().S2;
-        if (this.t == null) {
-            this.t = new TiePlusDownloadDialog(this.q, this.s, false);
-        }
-        this.s.r(this.t);
-        ItemData itemData = new ItemData();
-        itemData.parseProto(z);
-        this.s.t(itemData);
-        this.t.setAppCompany(z.app_company).setAppIcon(z.app_icon).setAppTitle(z.title).setAppVersion(z.app_version).setDownloadClickCallback(new b(this, str));
-        this.t.show();
-        TiePlusStat.d(TiePlusStat.StatType.DIALOG_EXPOSE, TiePlusStat.Locate.PB, TiePlusStat.ThreadType.IMAGE_TEXT, TiePlusStat.RichTextType.CARD, this.r.y(), this.r.getForumId(), this.r.w(), str);
     }
 
     public final void i(TiebaPlusInfo tiebaPlusInfo, d2 d2Var, TiePlusStat.StatType statType, TiePlusStat.LandingType landingType, TiePlusStat.CardBtnType cardBtnType, String str, String str2, String str3) {
@@ -359,7 +391,6 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
-        TiePlusStat.LandingType landingType;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onAttachedToWindow();
@@ -367,23 +398,31 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
             if (tbRichTextTiebaPlusInfo == null || tbRichTextTiebaPlusInfo.z() == null) {
                 return;
             }
-            this.s.d(this.f49072f);
-            this.s.r(this.t);
+            this.s.d(this.f48999f);
+            this.s.s(this.t);
             TiePlusDownloadDialog tiePlusDownloadDialog = this.t;
             if (tiePlusDownloadDialog != null && tiePlusDownloadDialog.isShowing()) {
                 this.t.onAttachedToWindow();
             }
             TiebaPlusInfo z = this.r.z();
-            if (this.r.getType() == 33) {
-                landingType = TiePlusStat.LandingType.DIALOG_DOWNLOAD;
-                if (!StringUtils.isNull(z.app_package) && !StringUtils.isNull(z.app_id)) {
-                    this.s.y(z.app_package, z.app_id, this.q, this.f49072f);
-                    ItemData itemData = new ItemData();
-                    itemData.parseProto(z);
-                    this.s.t(itemData);
+            int intValue = z.jump_type.intValue();
+            TiePlusStat.LandingType landingType = null;
+            if (this.r.getType() == 36) {
+                if (intValue == 2) {
+                    landingType = TiePlusStat.LandingType.DIALOG_DOWNLOAD;
+                    if (!StringUtils.isNull(z.app_package) && !StringUtils.isNull(z.app_id)) {
+                        this.s.D(z.app_package, z.app_id, this.q, this.f48999f);
+                        ItemData itemData = new ItemData();
+                        itemData.parseProto(z);
+                        this.s.u(itemData);
+                    }
+                } else if (intValue == 1) {
+                    landingType = TiePlusStat.LandingType.H5;
+                } else if (intValue == 3) {
+                    landingType = TiePlusStat.LandingType.WECHAT;
+                } else if (intValue == 4) {
+                    landingType = TiePlusStat.LandingType.WECHAT_MINIAPP;
                 }
-            } else {
-                landingType = TiePlusStat.LandingType.H5;
             }
             i(this.r.z(), this.r.x(), TiePlusStat.StatType.EXPOSE, landingType, null, this.r.y(), this.r.getForumId(), this.r.w());
         }
@@ -398,7 +437,20 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
             if (tbRichTextTiebaPlusInfo == null || tbRichTextTiebaPlusInfo.z() == null) {
                 return;
             }
-            i(this.r.z(), this.r.x(), TiePlusStat.StatType.CLICK, this.r.getType() == 33 ? TiePlusStat.LandingType.DIALOG_DOWNLOAD : TiePlusStat.LandingType.H5, null, this.r.y(), this.r.getForumId(), this.r.w());
+            int intValue = this.r.z().jump_type.intValue();
+            TiePlusStat.LandingType landingType = null;
+            if (this.r.getType() == 36) {
+                if (intValue == 2) {
+                    landingType = TiePlusStat.LandingType.DIALOG_DOWNLOAD;
+                } else if (intValue == 1) {
+                    landingType = TiePlusStat.LandingType.H5;
+                } else if (intValue == 3) {
+                    landingType = TiePlusStat.LandingType.WECHAT;
+                } else if (intValue == 4) {
+                    landingType = TiePlusStat.LandingType.WECHAT_MINIAPP;
+                }
+            }
+            i(this.r.z(), this.r.x(), TiePlusStat.StatType.CLICK, landingType, null, this.r.y(), this.r.getForumId(), this.r.w());
         }
     }
 
@@ -406,48 +458,48 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             c d2 = c.d(this);
-            d2.o(R.string.J_X05);
+            d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
-            c.d(this.f49071e).o(R.string.J_X05);
-            c d3 = c.d(this.f49073g);
-            d3.B(R.string.F_X01);
-            d3.w(R.color.CAM_X0107);
-            c d4 = c.d(this.f49074h);
-            d4.B(R.string.F_X01);
-            d4.w(R.color.CAM_X0109);
-            c d5 = c.d(this.f49075i);
-            d5.B(R.string.F_X01);
-            d5.w(R.color.CAM_X0109);
-            c d6 = c.d(this.f49076j);
-            d6.B(R.string.F_X01);
-            d6.w(R.color.CAM_X0109);
+            c.d(this.f48998e).n(R.string.J_X05);
+            c d3 = c.d(this.f49000g);
+            d3.A(R.string.F_X01);
+            d3.v(R.color.CAM_X0107);
+            c d4 = c.d(this.f49001h);
+            d4.A(R.string.F_X01);
+            d4.v(R.color.CAM_X0109);
+            c d5 = c.d(this.f49002i);
+            d5.A(R.string.F_X01);
+            d5.v(R.color.CAM_X0109);
+            c d6 = c.d(this.f49003j);
+            d6.A(R.string.F_X01);
+            d6.v(R.color.CAM_X0109);
             c d7 = c.d(this.k);
-            d7.B(R.string.F_X01);
-            d7.w(R.color.CAM_X0109);
+            d7.A(R.string.F_X01);
+            d7.v(R.color.CAM_X0109);
             c d8 = c.d(this.l);
-            d8.B(R.string.F_X01);
-            d8.w(R.color.CAM_X0109);
+            d8.A(R.string.F_X01);
+            d8.v(R.color.CAM_X0109);
             c.d(this.m).f(R.color.CAM_X0110);
             this.n.setBackgroundResource(R.drawable.icon_ad_dislike_arrow20_right_n);
-            this.f49071e.setPlaceHolder(2);
-            this.f49071e.setConrers(15);
+            this.f48998e.setPlaceHolder(2);
+            this.f48998e.setConrers(15);
         }
     }
 
     public void resetData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f49072f.setCurProgress(-1);
-            this.f49071e.reset();
-            this.f49073g.setText("");
-            this.f49074h.setText("");
-            this.f49075i.setText("");
-            this.f49076j.setText("");
-            this.s.p();
+            this.f48999f.setCurProgress(-1);
+            this.f48998e.reset();
+            this.f49000g.setText("");
+            this.f49001h.setText("");
+            this.f49002i.setText("");
+            this.f49003j.setText("");
+            this.s.q();
             setOnClickListener(null);
             this.k.setOnClickListener(null);
             this.l.setOnClickListener(null);
-            this.f49072f.setOnClickListener(null);
+            this.f48999f.setOnClickListener(null);
             MessageManager.getInstance().unRegisterListener(this.s);
         }
     }
@@ -458,14 +510,16 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
             this.r = tbRichTextTiebaPlusInfo;
             if (tbRichTextTiebaPlusInfo != null && tbRichTextTiebaPlusInfo.z() != null) {
                 TiebaPlusInfo z = this.r.z();
-                int type = this.r.getType();
-                if (type == 33) {
-                    e(z);
-                } else if (type == 50) {
-                    f(z);
+                if (this.r.getType() == 36 && z != null) {
+                    int intValue = z.jump_type.intValue();
+                    if (intValue == 2) {
+                        e(z);
+                    } else if (intValue == 1 || intValue == 3 || intValue == 4) {
+                        f(z);
+                    }
                 }
                 setOnClickListener(this);
-                this.f49072f.setOnClickListener(new a(this));
+                this.f48999f.setOnClickListener(new a(this));
                 return;
             }
             resetData();
@@ -513,7 +567,7 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
             }
         }
         this.q = context;
-        this.s = new q0(context);
+        this.s = new p0(context);
         g();
     }
 }

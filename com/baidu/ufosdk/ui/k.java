@@ -12,7 +12,7 @@ public final class k implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ j f60086a;
+    public final /* synthetic */ j f60121a;
 
     public k(j jVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class k implements View.OnClickListener {
                 return;
             }
         }
-        this.f60086a = jVar;
+        this.f60121a = jVar;
     }
 
     public /* synthetic */ k(j jVar, byte b2) {
@@ -42,10 +42,10 @@ public final class k implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             switch (view.getId()) {
                 case R.dimen.L_X06 /* 2131165189 */:
-                    j.a(this.f60086a).b();
+                    j.a(this.f60121a).b();
                     return;
                 case R.dimen.M_H_X001 /* 2131165190 */:
-                    j.a(this.f60086a).a();
+                    j.a(this.f60121a).a();
                     return;
                 default:
                     return;

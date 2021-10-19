@@ -34,7 +34,7 @@ public class j implements IHttpStack {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final w f64651a;
+    public final w f64686a;
 
     /* loaded from: classes9.dex */
     public static class a extends FilterInputStream {
@@ -42,7 +42,7 @@ public class j implements IHttpStack {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ac f64652a;
+        public final ac f64687a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ac acVar) {
@@ -62,7 +62,7 @@ public class j implements IHttpStack {
                     return;
                 }
             }
-            this.f64652a = acVar;
+            this.f64687a = acVar;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -71,7 +71,7 @@ public class j implements IHttpStack {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.close();
                 try {
-                    this.f64652a.close();
+                    this.f64687a.close();
                 } catch (Throwable unused) {
                 }
             }
@@ -91,7 +91,7 @@ public class j implements IHttpStack {
                 return;
             }
         }
-        this.f64651a = new w.a().a(10000L, TimeUnit.MILLISECONDS).b(10000L, TimeUnit.MILLISECONDS).c(10000L, TimeUnit.MILLISECONDS).a();
+        this.f64686a = new w.a().a(10000L, TimeUnit.MILLISECONDS).b(10000L, TimeUnit.MILLISECONDS).c(10000L, TimeUnit.MILLISECONDS).a();
     }
 
     public static boolean a(int i2, int i3) {
@@ -128,7 +128,7 @@ public class j implements IHttpStack {
             z.a aVar = new z.a();
             URL url = new URL(request.getUrl());
             String host = url.getHost();
-            n nVar = com.bytedance.sdk.component.adnet.a.f64513a;
+            n nVar = com.bytedance.sdk.component.adnet.a.f64548a;
             String a2 = nVar != null ? nVar.a(host) : null;
             boolean z = false;
             if (!TextUtils.isEmpty(a2)) {
@@ -171,7 +171,7 @@ public class j implements IHttpStack {
         }
         long timeoutMs = request.getTimeoutMs();
         boolean z = true;
-        w a2 = this.f64651a.y().a(timeoutMs, TimeUnit.MILLISECONDS).b(timeoutMs, TimeUnit.MILLISECONDS).c(timeoutMs, TimeUnit.MILLISECONDS).b(true).a(true).a();
+        w a2 = this.f64686a.y().a(timeoutMs, TimeUnit.MILLISECONDS).b(timeoutMs, TimeUnit.MILLISECONDS).c(timeoutMs, TimeUnit.MILLISECONDS).b(true).a(true).a();
         z.a c2 = c(request);
         if (c2 != null) {
             a(request);
@@ -194,7 +194,7 @@ public class j implements IHttpStack {
             com.bytedance.sdk.component.b.b.a.c.k a3 = com.bytedance.sdk.component.b.b.a.c.k.a(b2);
             ac h2 = b2.h();
             try {
-                int i2 = a3.f64892b;
+                int i2 = a3.f64927b;
                 if (i2 != -1) {
                     if (!a(request.getMethod(), i2)) {
                         HttpResponse httpResponse = new HttpResponse(i2, a(b2.g()));

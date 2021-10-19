@@ -15,7 +15,7 @@ public class a2 extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c2 f77268a;
+    public final /* synthetic */ c2 f77303a;
 
     public a2(c2 c2Var) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a2 extends Handler {
                 return;
             }
         }
-        this.f77268a = c2Var;
+        this.f77303a = c2Var;
     }
 
     @Override // android.os.Handler
@@ -46,19 +46,19 @@ public class a2 extends Handler {
                 if (i2 != 11) {
                     if (i2 == 12) {
                         str = (String) message.obj;
-                        context = this.f77268a.f77312a;
+                        context = this.f77303a.f77347a;
                     }
                 }
                 str = (String) message.obj;
-                Y0 a2 = Z0.a(this.f77268a.f77312a);
+                Y0 a2 = Z0.a(this.f77303a.f77347a);
                 try {
-                    a2.f77254b = Z0.a("ps", new a1(this.f77268a.f77313b));
+                    a2.f77289b = Z0.a("ps", new a1(this.f77303a.f77348b));
                     a2.a("co", 2002);
                     a2.a("msg", str);
                 } catch (JSONException unused) {
                 }
                 a2.a();
-                context = this.f77268a.f77312a;
+                context = this.f77303a.f77347a;
                 Z1.a(context, Uri.parse(str));
             } catch (Exception unused2) {
             }

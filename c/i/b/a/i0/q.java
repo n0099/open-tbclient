@@ -13,16 +13,16 @@ public final class q implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f33854e;
+    public boolean f33858e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f33855f;
+    public long f33859f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f33856g;
+    public long f33860g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.i.b.a.p f33857h;
+    public c.i.b.a.p f33861h;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -37,26 +37,26 @@ public final class q implements h {
                 return;
             }
         }
-        this.f33857h = c.i.b.a.p.f33965d;
+        this.f33861h = c.i.b.a.p.f33969d;
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f33855f = j2;
-            if (this.f33854e) {
-                this.f33856g = SystemClock.elapsedRealtime();
+            this.f33859f = j2;
+            if (this.f33858e) {
+                this.f33860g = SystemClock.elapsedRealtime();
             }
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f33854e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f33858e) {
             return;
         }
-        this.f33856g = SystemClock.elapsedRealtime();
-        this.f33854e = true;
+        this.f33860g = SystemClock.elapsedRealtime();
+        this.f33858e = true;
     }
 
     @Override // c.i.b.a.i0.h
@@ -64,10 +64,10 @@ public final class q implements h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pVar)) == null) {
-            if (this.f33854e) {
+            if (this.f33858e) {
                 a(q());
             }
-            this.f33857h = pVar;
+            this.f33861h = pVar;
             return pVar;
         }
         return (c.i.b.a.p) invokeL.objValue;
@@ -77,14 +77,14 @@ public final class q implements h {
     public c.i.b.a.p d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33857h : (c.i.b.a.p) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33861h : (c.i.b.a.p) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f33854e) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f33858e) {
             a(q());
-            this.f33854e = false;
+            this.f33858e = false;
         }
     }
 
@@ -94,11 +94,11 @@ public final class q implements h {
         long a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            long j2 = this.f33855f;
-            if (this.f33854e) {
-                long elapsedRealtime = SystemClock.elapsedRealtime() - this.f33856g;
-                c.i.b.a.p pVar = this.f33857h;
-                if (pVar.f33966a == 1.0f) {
+            long j2 = this.f33859f;
+            if (this.f33858e) {
+                long elapsedRealtime = SystemClock.elapsedRealtime() - this.f33860g;
+                c.i.b.a.p pVar = this.f33861h;
+                if (pVar.f33970a == 1.0f) {
                     a2 = c.i.b.a.b.a(elapsedRealtime);
                 } else {
                     a2 = pVar.a(elapsedRealtime);

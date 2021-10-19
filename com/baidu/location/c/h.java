@@ -25,19 +25,19 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<ScanResult> f41268a;
+    public List<ScanResult> f41272a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f41269b;
+    public long f41273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f41270c;
+    public long f41274c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f41271d;
+    public boolean f41275d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f41272e;
+    public boolean f41276e;
 
     public h(List<ScanResult> list, long j2) {
         Interceptable interceptable = $ic;
@@ -54,13 +54,13 @@ public class h {
                 return;
             }
         }
-        this.f41268a = null;
-        this.f41269b = 0L;
-        this.f41270c = 0L;
-        this.f41271d = false;
-        this.f41269b = j2;
-        this.f41268a = list;
-        this.f41270c = System.currentTimeMillis();
+        this.f41272a = null;
+        this.f41273b = 0L;
+        this.f41274c = 0L;
+        this.f41275d = false;
+        this.f41273b = j2;
+        this.f41272a = list;
+        this.f41274c = System.currentTimeMillis();
         try {
             n();
         } catch (Exception e2) {
@@ -90,7 +90,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            List<ScanResult> list = this.f41268a;
+            List<ScanResult> list = this.f41272a;
             if (list == null) {
                 return 0;
             }
@@ -116,7 +116,7 @@ public class h {
             if (r0 >= r1) goto Lc
             return
         Lc:
-            java.util.List<android.net.wifi.ScanResult> r0 = r7.f41268a
+            java.util.List<android.net.wifi.ScanResult> r0 = r7.f41272a
             int r0 = r0.size()
             int r0 = r0 - r1
             r2 = 1
@@ -127,29 +127,29 @@ public class h {
             r3 = 0
         L1a:
             if (r2 >= r0) goto L5e
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.f41268a
+            java.util.List<android.net.wifi.ScanResult> r4 = r7.f41272a
             java.lang.Object r4 = r4.get(r2)
             if (r4 == 0) goto L5b
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.f41268a
+            java.util.List<android.net.wifi.ScanResult> r4 = r7.f41272a
             int r5 = r2 + 1
             java.lang.Object r4 = r4.get(r5)
             if (r4 == 0) goto L5b
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.f41268a
+            java.util.List<android.net.wifi.ScanResult> r4 = r7.f41272a
             java.lang.Object r4 = r4.get(r2)
             android.net.wifi.ScanResult r4 = (android.net.wifi.ScanResult) r4
             int r4 = r4.level
-            java.util.List<android.net.wifi.ScanResult> r6 = r7.f41268a
+            java.util.List<android.net.wifi.ScanResult> r6 = r7.f41272a
             java.lang.Object r6 = r6.get(r5)
             android.net.wifi.ScanResult r6 = (android.net.wifi.ScanResult) r6
             int r6 = r6.level
             if (r4 >= r6) goto L5b
-            java.util.List<android.net.wifi.ScanResult> r3 = r7.f41268a
+            java.util.List<android.net.wifi.ScanResult> r3 = r7.f41272a
             java.lang.Object r3 = r3.get(r5)
             android.net.wifi.ScanResult r3 = (android.net.wifi.ScanResult) r3
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.f41268a
+            java.util.List<android.net.wifi.ScanResult> r4 = r7.f41272a
             java.lang.Object r6 = r4.get(r2)
             r4.set(r5, r6)
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.f41268a
+            java.util.List<android.net.wifi.ScanResult> r4 = r7.f41272a
             r4.set(r2, r3)
             r3 = 1
         L5b:
@@ -175,7 +175,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<ScanResult> list = this.f41268a;
+            List<ScanResult> list = this.f41272a;
             if (list == null) {
                 return 0;
             }
@@ -266,7 +266,7 @@ public class h {
                         if (z3) {
                             z3 = z3 && z;
                         }
-                        size = this.f41268a.size();
+                        size = this.f41272a.size();
                         if (size > i2) {
                             size = i2;
                         }
@@ -278,7 +278,7 @@ public class h {
                         int i6 = 0;
                         char c3 = 0;
                         while (i4 < size) {
-                            if (this.f41268a.get(i4) == null || this.f41268a.get(i4).level == 0) {
+                            if (this.f41272a.get(i4) == null || this.f41272a.get(i4).level == 0) {
                                 str3 = str7;
                                 str4 = str2;
                                 j3 = j2;
@@ -289,7 +289,7 @@ public class h {
                                         str5 = str;
                                         str4 = str2;
                                         try {
-                                            j4 = (j2 - this.f41268a.get(i4).timestamp) / 1000000;
+                                            j4 = (j2 - this.f41272a.get(i4).timestamp) / 1000000;
                                         } catch (Exception unused3) {
                                             j4 = 0;
                                             arrayList.add(Long.valueOf(j4));
@@ -303,7 +303,7 @@ public class h {
                                             }
                                             if (z4) {
                                             }
-                                            str6 = this.f41268a.get(i4).BSSID;
+                                            str6 = this.f41272a.get(i4).BSSID;
                                             if (str6 == null) {
                                             }
                                             i4++;
@@ -323,7 +323,7 @@ public class h {
                                     str5 = str;
                                     str4 = str2;
                                 }
-                                if (Build.VERSION.SDK_INT >= 23 && this.f41268a.get(i4).is80211mcResponder()) {
+                                if (Build.VERSION.SDK_INT >= 23 && this.f41272a.get(i4).is80211mcResponder()) {
                                     if (stringBuffer2 == null) {
                                         stringBuffer2 = new StringBuffer();
                                     }
@@ -336,11 +336,11 @@ public class h {
                                     stringBuffer.append("&wf=");
                                     z4 = false;
                                 }
-                                str6 = this.f41268a.get(i4).BSSID;
+                                str6 = this.f41272a.get(i4).BSSID;
                                 if (str6 == null) {
                                     String replace = str6.replace(str7, "");
                                     stringBuffer.append(replace);
-                                    int i7 = this.f41268a.get(i4).level;
+                                    int i7 = this.f41272a.get(i4).level;
                                     if (i7 < 0) {
                                         i7 = -i7;
                                     }
@@ -351,26 +351,26 @@ public class h {
                                     if (str5 != null) {
                                         str = str5;
                                         if (str.equals(replace)) {
-                                            this.f41272e = a(this.f41268a.get(i4).capabilities);
+                                            this.f41276e = a(this.f41272a.get(i4).capabilities);
                                             i5 = i6;
                                             z5 = true;
                                             if (z5) {
                                                 c2 = c3;
                                                 if (c2 == 0) {
                                                     try {
-                                                        if (random.nextInt(10) == 2 && this.f41268a.get(i4).SSID != null && this.f41268a.get(i4).SSID.length() < 30) {
-                                                            stringBuffer.append(b(this.f41268a.get(i4).SSID));
+                                                        if (random.nextInt(10) == 2 && this.f41272a.get(i4).SSID != null && this.f41272a.get(i4).SSID.length() < 30) {
+                                                            stringBuffer.append(b(this.f41272a.get(i4).SSID));
                                                             c3 = 1;
                                                         }
                                                     } catch (Exception unused5) {
                                                     }
-                                                } else if (c2 == 1 && random.nextInt(20) == 1 && this.f41268a.get(i4).SSID != null && this.f41268a.get(i4).SSID.length() < 30) {
-                                                    stringBuffer.append(b(this.f41268a.get(i4).SSID));
+                                                } else if (c2 == 1 && random.nextInt(20) == 1 && this.f41272a.get(i4).SSID != null && this.f41272a.get(i4).SSID.length() < 30) {
+                                                    stringBuffer.append(b(this.f41272a.get(i4).SSID));
                                                     c3 = 2;
                                                 }
                                             } else {
                                                 c2 = c3;
-                                                stringBuffer.append(b(this.f41268a.get(i4).SSID));
+                                                stringBuffer.append(b(this.f41272a.get(i4).SSID));
                                             }
                                         }
                                     } else {
@@ -429,15 +429,15 @@ public class h {
                                 stringBuffer.append(stringBuffer3.toString());
                             }
                             stringBuffer.append("&wf_st=");
-                            stringBuffer.append(this.f41269b);
+                            stringBuffer.append(this.f41273b);
                             stringBuffer.append("&wf_et=");
-                            stringBuffer.append(this.f41270c);
+                            stringBuffer.append(this.f41274c);
                             stringBuffer.append("&wf_vt=");
-                            stringBuffer.append(i.f41273a);
+                            stringBuffer.append(i.f41277a);
                             if (i8 > 0) {
-                                this.f41271d = true;
+                                this.f41275d = true;
                                 stringBuffer.append("&wf_en=");
-                                stringBuffer.append(this.f41272e ? 1 : 0);
+                                stringBuffer.append(this.f41276e ? 1 : 0);
                             }
                             if (str8 != null) {
                                 stringBuffer.append("&wf_gw=");
@@ -450,7 +450,7 @@ public class h {
                 } else {
                     j2 = 0;
                 }
-                size = this.f41268a.size();
+                size = this.f41272a.size();
                 if (size > i2) {
                 }
                 i4 = 0;
@@ -503,19 +503,19 @@ public class h {
             }
             if (j3 > 0) {
                 z = true;
-                if (z || (list = this.f41268a) == null || list.size() == 0) {
+                if (z || (list = this.f41272a) == null || list.size() == 0) {
                     return false;
                 }
-                size = this.f41268a.size();
+                size = this.f41272a.size();
                 if (size > 16) {
                     size = 16;
                 }
                 long j5 = 0;
                 long j6 = 0;
                 for (i2 = 0; i2 < size; i2++) {
-                    if (this.f41268a.get(i2) != null && this.f41268a.get(i2).level != 0 && z) {
+                    if (this.f41272a.get(i2) != null && this.f41272a.get(i2).level != 0 && z) {
                         try {
-                            j4 = (j3 - this.f41268a.get(i2).timestamp) / 1000000;
+                            j4 = (j3 - this.f41272a.get(i2).timestamp) / 1000000;
                         } catch (Error | Exception unused2) {
                             j4 = 0;
                         }
@@ -534,7 +534,7 @@ public class h {
         if (z) {
             return false;
         }
-        size = this.f41268a.size();
+        size = this.f41272a.size();
         if (size > 16) {
         }
         long j52 = 0;
@@ -549,13 +549,13 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hVar)) == null) {
-            List<ScanResult> list = this.f41268a;
-            if (list == null || hVar == null || hVar.f41268a == null) {
+            List<ScanResult> list = this.f41272a;
+            if (list == null || hVar == null || hVar.f41272a == null) {
                 return false;
             }
-            int size = (list.size() < hVar.f41268a.size() ? this.f41268a : hVar.f41268a).size();
+            int size = (list.size() < hVar.f41272a.size() ? this.f41272a : hVar.f41272a).size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.f41268a.get(i2) != null && !this.f41268a.get(i2).BSSID.equals(hVar.f41268a.get(i2).BSSID)) {
+                if (this.f41272a.get(i2) != null && !this.f41272a.get(i2).BSSID.equals(hVar.f41272a.get(i2).BSSID)) {
                     return false;
                 }
             }
@@ -587,19 +587,19 @@ public class h {
                     return null;
                 }
                 StringBuffer stringBuffer = new StringBuffer(256);
-                int size = this.f41268a.size();
+                int size = this.f41272a.size();
                 int i4 = k.O;
                 if (size > i4) {
                     size = i4;
                 }
                 int i5 = 0;
                 for (int i6 = 0; i6 < size; i6++) {
-                    if (this.f41268a.get(i6) != null) {
-                        if ((i3 & i2) != 0 && this.f41268a.get(i6).BSSID != null) {
+                    if (this.f41272a.get(i6) != null) {
+                        if ((i3 & i2) != 0 && this.f41272a.get(i6).BSSID != null) {
                             stringBuffer.append(i5 == 0 ? "&ssid=" : "|");
-                            stringBuffer.append(this.f41268a.get(i6).BSSID.replace(":", ""));
+                            stringBuffer.append(this.f41272a.get(i6).BSSID.replace(":", ""));
                             stringBuffer.append(";");
-                            stringBuffer.append(b(this.f41268a.get(i6).SSID));
+                            stringBuffer.append(b(this.f41272a.get(i6).SSID));
                             i5++;
                         }
                         i3 <<= 1;
@@ -616,17 +616,17 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, hVar)) == null) {
-            List<ScanResult> list = this.f41268a;
-            if (list == null || hVar == null || hVar.f41268a == null) {
+            List<ScanResult> list = this.f41272a;
+            if (list == null || hVar == null || hVar.f41272a == null) {
                 return false;
             }
-            int size = (list.size() < hVar.f41268a.size() ? this.f41268a : hVar.f41268a).size();
+            int size = (list.size() < hVar.f41272a.size() ? this.f41272a : hVar.f41272a).size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.f41268a.get(i2) != null) {
-                    String str = this.f41268a.get(i2).BSSID;
-                    int i3 = this.f41268a.get(i2).level;
-                    String str2 = hVar.f41268a.get(i2).BSSID;
-                    int i4 = hVar.f41268a.get(i2).level;
+                if (this.f41272a.get(i2) != null) {
+                    String str = this.f41272a.get(i2).BSSID;
+                    int i3 = this.f41272a.get(i2).level;
+                    String str2 = hVar.f41272a.get(i2).BSSID;
+                    int i4 = hVar.f41272a.get(i2).level;
                     if (!str.equals(str2) || i3 != i4) {
                         return false;
                     }
@@ -690,7 +690,7 @@ public class h {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048588, this)) != null) {
             return invokeV.longValue;
         }
-        List<ScanResult> list = this.f41268a;
+        List<ScanResult> list = this.f41272a;
         if (list == null || list.size() == 0) {
             return 0L;
         }
@@ -706,14 +706,14 @@ public class h {
                 if (z) {
                     return 0L;
                 }
-                int size = this.f41268a.size();
+                int size = this.f41272a.size();
                 if (size > 16) {
                     size = 16;
                 }
                 for (int i2 = 0; i2 < size; i2++) {
-                    if (this.f41268a.get(i2) != null && this.f41268a.get(i2).level != 0 && z) {
+                    if (this.f41272a.get(i2) != null && this.f41272a.get(i2).level != 0 && z) {
                         try {
-                            j3 = (j2 - this.f41268a.get(i2).timestamp) / 1000000;
+                            j3 = (j2 - this.f41272a.get(i2).timestamp) / 1000000;
                         } catch (Error | Exception unused2) {
                             j3 = 0;
                         }
@@ -753,7 +753,7 @@ public class h {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048589, this)) != null) {
             return invokeV.longValue;
         }
-        List<ScanResult> list = this.f41268a;
+        List<ScanResult> list = this.f41272a;
         if (list == null || list.size() == 0) {
             return 0L;
         }
@@ -768,7 +768,7 @@ public class h {
                 if (z) {
                     return 0L;
                 }
-                int size = this.f41268a.size();
+                int size = this.f41272a.size();
                 if (size > 16) {
                     size = 16;
                 }
@@ -776,9 +776,9 @@ public class h {
                 long j5 = 0;
                 long j6 = 0;
                 for (int i2 = 0; i2 < size; i2++) {
-                    if (this.f41268a.get(i2) != null && this.f41268a.get(i2).level != 0 && z) {
+                    if (this.f41272a.get(i2) != null && this.f41272a.get(i2).level != 0 && z) {
                         try {
-                            j3 = (j2 - this.f41268a.get(i2).timestamp) / 1000000;
+                            j3 = (j2 - this.f41272a.get(i2).timestamp) / 1000000;
                         } catch (Error | Exception unused2) {
                             j3 = 0;
                         }
@@ -805,7 +805,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             for (int i3 = 0; i3 < a(); i3++) {
-                if (this.f41268a.get(i3) != null && (i2 = -this.f41268a.get(i3).level) > 0) {
+                if (this.f41272a.get(i3) != null && (i2 = -this.f41272a.get(i3).level) > 0) {
                     return i2;
                 }
             }
@@ -817,24 +817,24 @@ public class h {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f41271d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f41275d : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? System.currentTimeMillis() - this.f41270c > 0 && System.currentTimeMillis() - this.f41270c < 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? System.currentTimeMillis() - this.f41274c > 0 && System.currentTimeMillis() - this.f41274c < 5000 : invokeV.booleanValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? System.currentTimeMillis() - this.f41270c > 0 && System.currentTimeMillis() - this.f41270c < 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? System.currentTimeMillis() - this.f41274c > 0 && System.currentTimeMillis() - this.f41274c < 5000 : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? System.currentTimeMillis() - this.f41270c > 0 && System.currentTimeMillis() - this.f41269b < 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? System.currentTimeMillis() - this.f41274c > 0 && System.currentTimeMillis() - this.f41273b < 5000 : invokeV.booleanValue;
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.message;
 
 import c.a.q0.s.r.a;
-import c.a.r0.k1.g.b;
-import c.a.r0.k1.g.c;
+import c.a.r0.l1.g.b;
+import c.a.r0.l1.g.c;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;

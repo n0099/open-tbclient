@@ -81,13 +81,13 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public b ad;
 
     /* renamed from: d  reason: collision with root package name */
-    public DefaultParams f38435d;
+    public DefaultParams f38439d;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.ar.lua.b f38436f;
+    public com.baidu.ar.lua.b f38440f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.baidu.ar.arrender.c f38437g;
+    public com.baidu.ar.arrender.c f38441g;
     public Context mContext;
     public com.baidu.ar.a.b w;
 
@@ -142,33 +142,33 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
                         this.aX.W();
                         return;
                     case 3006:
-                        if (this.aX.f38437g != null) {
-                            this.aX.f38437g.changeOutputSize(message.arg1, message.arg2);
+                        if (this.aX.f38441g != null) {
+                            this.aX.f38441g.changeOutputSize(message.arg1, message.arg2);
                             return;
                         }
                         return;
                     case SpeedStatsStampTable.CHECK_PLUGIN_ENTRANCE_STATE_END_STAMP_KEY /* 3007 */:
                         this.aX.W = (DuMixOutput) message.obj;
-                        if (this.aX.f38437g != null) {
-                            this.aX.f38437g.changeOutput(this.aX.W);
+                        if (this.aX.f38441g != null) {
+                            this.aX.f38441g.changeOutput(this.aX.W);
                             return;
                         }
                         return;
                     case SpeedStatsStampTable.REG_RECEIVER_START_STAMP_KEY /* 3008 */:
-                        if (this.aX.f38437g != null) {
-                            this.aX.f38437g.pauseScene();
+                        if (this.aX.f38441g != null) {
+                            this.aX.f38441g.pauseScene();
                             return;
                         }
                         return;
                     case SpeedStatsStampTable.REG_RECEIVER_END_STAMP_KEY /* 3009 */:
-                        if (this.aX.f38437g != null) {
-                            this.aX.f38437g.resumeScene();
+                        if (this.aX.f38441g != null) {
+                            this.aX.f38441g.resumeScene();
                             return;
                         }
                         return;
                     case SpeedStatsStampTable.CHECK_CLIENT_CONFIG_START_STAMP_KEY /* 3010 */:
-                        if (this.aX.f38437g != null) {
-                            this.aX.f38437g.a(message.obj, message.arg1, message.arg2);
+                        if (this.aX.f38441g != null) {
+                            this.aX.f38441g.a(message.obj, message.arg1, message.arg2);
                             return;
                         }
                         return;
@@ -212,9 +212,9 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         }
         this.mContext = context;
         if (defaultParams != null) {
-            this.f38435d = defaultParams;
+            this.f38439d = defaultParams;
         } else {
-            this.f38435d = new DefaultParams();
+            this.f38439d = new DefaultParams();
         }
         com.baidu.ar.h.b.c("DuMixController", "create DuMixController sState = " + aW);
         if (aW == 3) {
@@ -232,7 +232,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         handlerThread.start();
         this.aO = new a(this, this.aN.getLooper());
         com.baidu.ar.c.c.cd().a(this.aN.getLooper());
-        a(this.mContext, this.f38435d);
+        a(this.mContext, this.f38439d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -240,29 +240,29 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             com.baidu.ar.h.b.c("DuMixController", "handleSetup() sState = " + aW);
-            if (aW != 0 || this.aR == null || this.f38437g == null || this.B == null || this.ad == null || this.w == null) {
+            if (aW != 0 || this.aR == null || this.f38441g == null || this.B == null || this.ad == null || this.w == null) {
                 return;
             }
             aW = 1;
             this.aQ = S();
-            this.aR.a(this.f38437g, this.ad, this.B, this.f38436f);
+            this.aR.a(this.f38441g, this.ad, this.B, this.f38440f);
             this.aR.setup(this.V, this.W, this.aQ);
             StatisticApi.setPubParam(StatisticConstants.FRAME_DATA_FROM, this.V.isCameraInput() ? "camera" : "video");
             StatisticApi.onEventStart(StatisticConstants.EVENT_SDK_START);
-            this.aT.addOrientationListener(this.f38437g);
+            this.aT.addOrientationListener(this.f38441g);
             this.aT.enable();
-            this.B.a(this.f38437g);
+            this.B.a(this.f38441g);
             com.baidu.ar.a.b bVar = this.w;
             if (bVar != null) {
                 JSONObject af = bVar.af();
                 if (af != null) {
-                    this.f38437g.a(af);
+                    this.f38441g.a(af);
                 } else {
-                    this.f38437g.setLocalDeviceGrade(this.w.ag());
+                    this.f38441g.setLocalDeviceGrade(this.w.ag());
                 }
             }
-            this.ad.a(this.f38436f, this.f38437g);
-            this.f38437g.a(this.V, this.W);
+            this.ad.a(this.f38440f, this.f38441g);
+            this.f38441g.a(this.V, this.W);
             this.aR.a(this.w);
             this.aR.E();
         }
@@ -554,7 +554,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
             if (bVar != null) {
                 bVar.pause();
             }
-            com.baidu.ar.arrender.c cVar = this.f38437g;
+            com.baidu.ar.arrender.c cVar = this.f38441g;
             if (cVar != null) {
                 cVar.pause();
             }
@@ -583,7 +583,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
             if (orientationManager != null) {
                 orientationManager.enable();
             }
-            com.baidu.ar.arrender.c cVar = this.f38437g;
+            com.baidu.ar.arrender.c cVar = this.f38441g;
             if (cVar != null) {
                 cVar.resume();
             }
@@ -625,10 +625,10 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
                 bVar.release();
                 this.ad = null;
             }
-            com.baidu.ar.arrender.c cVar = this.f38437g;
+            com.baidu.ar.arrender.c cVar = this.f38441g;
             if (cVar != null) {
                 cVar.release();
-                this.f38437g = null;
+                this.f38441g = null;
             }
             OrientationManager orientationManager = this.aT;
             if (orientationManager != null) {
@@ -645,10 +645,10 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
             StatisticApi.onEventEnd(StatisticConstants.EVENT_CASE_END);
             StatisticApi.onEventEnd(StatisticConstants.EVENT_SDK_END);
             StatisticApi.release();
-            com.baidu.ar.lua.b bVar3 = this.f38436f;
+            com.baidu.ar.lua.b bVar3 = this.f38440f;
             if (bVar3 != null) {
                 bVar3.destroy();
-                this.f38436f = null;
+                this.f38440f = null;
             }
             e eVar3 = this.aR;
             if (eVar3 != null) {
@@ -657,7 +657,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
             }
             this.V = null;
             this.W = null;
-            this.f38435d = null;
+            this.f38439d = null;
             this.aQ = null;
             this.mContext = null;
             com.baidu.ar.h.b.c("DuMixController", "handleRelease() end");
@@ -708,15 +708,15 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
                 this.B = new com.baidu.ar.filter.a(defaultParams);
                 this.ad = new b(context, this.aN.getLooper(), defaultParams, this.w, this.B);
             }
-            if (this.f38436f == null) {
+            if (this.f38440f == null) {
                 com.baidu.ar.lua.b bVar2 = new com.baidu.ar.lua.b(context);
-                this.f38436f = bVar2;
+                this.f38440f = bVar2;
                 bVar2.setUserPlayAudio(defaultParams.isUserPlayAudio());
             }
-            if (this.f38437g == null) {
-                this.f38437g = defaultParams.isUseTextureIO() ? new com.baidu.ar.arrender.d(context, this.aN.getLooper(), this.f38436f, defaultParams.getShareContext(), defaultParams.get3dShaderDBPath()) : new com.baidu.ar.arrender.c(context, this.aN.getLooper(), this.f38436f, defaultParams.get3dShaderDBPath());
+            if (this.f38441g == null) {
+                this.f38441g = defaultParams.isUseTextureIO() ? new com.baidu.ar.arrender.d(context, this.aN.getLooper(), this.f38440f, defaultParams.getShareContext(), defaultParams.get3dShaderDBPath()) : new com.baidu.ar.arrender.c(context, this.aN.getLooper(), this.f38440f, defaultParams.get3dShaderDBPath());
                 if (!TextUtils.isEmpty(defaultParams.getRenderPipeline())) {
-                    this.f38437g.setDefaultPipeLine(defaultParams.getRenderPipeline());
+                    this.f38441g.setDefaultPipeLine(defaultParams.getRenderPipeline());
                 }
             }
             com.baidu.ar.h.b.c("DuMixController", "createManagers end!!!");
@@ -831,7 +831,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public void addFrameRenderListener(FrameRenderListener frameRenderListener) {
         com.baidu.ar.arrender.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, frameRenderListener) == null) || (cVar = this.f38437g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, frameRenderListener) == null) || (cVar = this.f38441g) == null) {
             return;
         }
         cVar.addFrameRenderListener(frameRenderListener);
@@ -841,11 +841,11 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, luaMsgListener)) == null) {
-            com.baidu.ar.lua.b bVar = this.f38436f;
+            com.baidu.ar.lua.b bVar = this.f38440f;
             if (bVar == null || bVar.fk() == null) {
                 return false;
             }
-            return this.f38436f.fk().addLuaMsgListener(luaMsgListener);
+            return this.f38440f.fk().addLuaMsgListener(luaMsgListener);
         }
         return invokeL.booleanValue;
     }
@@ -854,7 +854,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public void addOutput(DuMixOutput duMixOutput) {
         com.baidu.ar.arrender.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, duMixOutput) == null) || (cVar = this.f38437g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, duMixOutput) == null) || (cVar = this.f38441g) == null) {
             return;
         }
         cVar.addOutputSurface(duMixOutput);
@@ -922,7 +922,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public void changeOutputObject(Object obj, int i2, int i3) {
         com.baidu.ar.arrender.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048587, this, obj, i2, i3) == null) || obj == null || (cVar = this.f38437g) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048587, this, obj, i2, i3) == null) || obj == null || (cVar = this.f38441g) == null) {
             return;
         }
         cVar.b(obj, i2, i3);
@@ -980,7 +980,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         if (interceptable == null || interceptable.invokeLL(1048593, this, pixelReadParams, pixelReadListener) == null) {
             if ((aW == 0 || aW == 1) && (eVar = this.aR) != null) {
                 eVar.a(pixelReadParams, pixelReadListener);
-            } else if (aW != 2 || (cVar = this.f38437g) == null) {
+            } else if (aW != 2 || (cVar = this.f38441g) == null) {
             } else {
                 cVar.createPixelReader(pixelReadParams, pixelReadListener);
             }
@@ -991,7 +991,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public void destroyPixelReader(PixelReadParams pixelReadParams, PixelReadListener pixelReadListener) {
         com.baidu.ar.arrender.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048594, this, pixelReadParams, pixelReadListener) == null) || (cVar = this.f38437g) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048594, this, pixelReadParams, pixelReadListener) == null) || (cVar = this.f38441g) == null) {
             return;
         }
         cVar.destroyPixelReader(pixelReadParams, pixelReadListener);
@@ -1014,7 +1014,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            com.baidu.ar.arrender.c cVar = this.f38437g;
+            com.baidu.ar.arrender.c cVar = this.f38441g;
             if (cVar == null || !(cVar instanceof l)) {
                 return null;
             }
@@ -1051,7 +1051,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            com.baidu.ar.arrender.c cVar = this.f38437g;
+            com.baidu.ar.arrender.c cVar = this.f38441g;
             if (cVar == null || !(cVar instanceof IGLRenderer)) {
                 return null;
             }
@@ -1064,7 +1064,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            com.baidu.ar.arrender.c cVar = this.f38437g;
+            com.baidu.ar.arrender.c cVar = this.f38441g;
             if (cVar != null) {
                 return cVar.bA();
             }
@@ -1145,10 +1145,10 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048607, this, view, motionEvent)) == null) {
-            if (this.f38437g == null || aW != 2) {
+            if (this.f38441g == null || aW != 2) {
                 return false;
             }
-            return this.f38437g.onTouch(view, motionEvent);
+            return this.f38441g.onTouch(view, motionEvent);
         }
         return invokeLL.booleanValue;
     }
@@ -1187,7 +1187,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             com.baidu.ar.h.b.c("DuMixController", "release() sState = " + aW);
             if (aW == 1) {
-                com.baidu.ar.arrender.c cVar = this.f38437g;
+                com.baidu.ar.arrender.c cVar = this.f38441g;
                 if (cVar == null || !cVar.bE()) {
                     synchronized (sLock) {
                         try {
@@ -1198,7 +1198,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
                         }
                     }
                 } else {
-                    this.f38437g.q(true);
+                    this.f38441g.q(true);
                     aW = 0;
                     aM = null;
                 }
@@ -1227,7 +1227,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public void removeFrameRenderListener(FrameRenderListener frameRenderListener) {
         com.baidu.ar.arrender.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048612, this, frameRenderListener) == null) || (cVar = this.f38437g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048612, this, frameRenderListener) == null) || (cVar = this.f38441g) == null) {
             return;
         }
         cVar.removeFrameRenderListener(frameRenderListener);
@@ -1237,11 +1237,11 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, luaMsgListener)) == null) {
-            com.baidu.ar.lua.b bVar = this.f38436f;
+            com.baidu.ar.lua.b bVar = this.f38440f;
             if (bVar == null || bVar.fk() == null) {
                 return false;
             }
-            return this.f38436f.fk().removeLuaMsgListener(luaMsgListener);
+            return this.f38440f.fk().removeLuaMsgListener(luaMsgListener);
         }
         return invokeL.booleanValue;
     }
@@ -1250,7 +1250,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public void removeOutput(DuMixOutput duMixOutput) {
         com.baidu.ar.arrender.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048614, this, duMixOutput) == null) || (cVar = this.f38437g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048614, this, duMixOutput) == null) || (cVar = this.f38441g) == null) {
             return;
         }
         cVar.removeOutputSurface(duMixOutput);
@@ -1296,10 +1296,10 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, str)) == null) {
-            if (this.f38436f == null || aW != 2) {
+            if (this.f38440f == null || aW != 2) {
                 return false;
             }
-            this.f38436f.aw(str);
+            this.f38440f.aw(str);
             return true;
         }
         return invokeL.booleanValue;
@@ -1309,10 +1309,10 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, hashMap)) == null) {
-            if (this.f38436f == null || aW != 2) {
+            if (this.f38440f == null || aW != 2) {
                 return false;
             }
-            this.f38436f.b(1902, hashMap);
+            this.f38440f.b(1902, hashMap);
             return true;
         }
         return invokeL.booleanValue;
@@ -1321,7 +1321,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public void setARRenderFpsCallback(ARRenderFpsCallback aRRenderFpsCallback) {
         com.baidu.ar.arrender.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048621, this, aRRenderFpsCallback) == null) || (cVar = this.f38437g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048621, this, aRRenderFpsCallback) == null) || (cVar = this.f38441g) == null) {
             return;
         }
         cVar.setARRenderFpsCallback(aRRenderFpsCallback);
@@ -1338,7 +1338,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, definedLuaListener) == null) {
             if (this.aS == null) {
-                this.aS = new com.baidu.ar.lua.e(this.f38436f);
+                this.aS = new com.baidu.ar.lua.e(this.f38440f);
             }
             this.aS.setDefinedLuaListener(definedLuaListener);
         }
@@ -1357,7 +1357,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public void setGLWebViewUseable(Context context, ViewGroup viewGroup) {
         com.baidu.ar.arrender.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048625, this, context, viewGroup) == null) || (cVar = this.f38437g) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048625, this, context, viewGroup) == null) || (cVar = this.f38441g) == null) {
             return;
         }
         cVar.setGLWebViewUseable(context, viewGroup);
@@ -1382,7 +1382,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public void setNativeWebViewUseable(Context context, ViewGroup viewGroup) {
         com.baidu.ar.arrender.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048628, this, context, viewGroup) == null) || (cVar = this.f38437g) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048628, this, context, viewGroup) == null) || (cVar = this.f38441g) == null) {
             return;
         }
         cVar.setNativeWebViewUseable(context, viewGroup);
@@ -1392,8 +1392,8 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public void setRecordWatermark(Watermark watermark) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048629, this, watermark) == null) && aW == 2) {
-            if (this.aU == null && this.f38437g != null) {
-                this.aU = new com.baidu.ar.record.a(this.mContext, this.f38437g);
+            if (this.aU == null && this.f38441g != null) {
+                this.aU = new com.baidu.ar.record.a(this.mContext, this.f38441g);
             }
             com.baidu.ar.record.a aVar = this.aU;
             if (aVar != null) {
@@ -1406,7 +1406,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public void setStateListener(DuMixStateListener duMixStateListener) {
         com.baidu.ar.arrender.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048630, this, duMixStateListener) == null) || (cVar = this.f38437g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048630, this, duMixStateListener) == null) || (cVar = this.f38441g) == null) {
             return;
         }
         cVar.setStateListener(duMixStateListener);
@@ -1464,15 +1464,15 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         DefaultParams defaultParams;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{str, Long.valueOf(j2), recordCallback}) == null) && aW == 2) {
-            if (this.aU == null && this.f38437g != null) {
-                this.aU = new com.baidu.ar.record.a(this.mContext, this.f38437g);
+            if (this.aU == null && this.f38441g != null) {
+                this.aU = new com.baidu.ar.record.a(this.mContext, this.f38441g);
             }
             e eVar = this.aR;
             if (eVar != null) {
                 eVar.k("start");
             }
             if (this.aU != null) {
-                if (this.W != null && (defaultParams = this.f38435d) != null && defaultParams.isRecordAutoCrop()) {
+                if (this.W != null && (defaultParams = this.f38439d) != null && defaultParams.isRecordAutoCrop()) {
                     this.aU.j(this.W.getOutputWidth(), this.W.getOutputHeight());
                 }
                 this.aU.startRecord(str, j2, recordCallback);
@@ -1523,8 +1523,8 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     @Override // com.baidu.ar.photo.IPhoto
     public void takePicture(String str, PhotoCallback photoCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048638, this, str, photoCallback) == null) && this.f38437g != null && aW == 2) {
-            new com.baidu.ar.photo.a().a(this.f38437g, str, photoCallback);
+        if ((interceptable == null || interceptable.invokeLL(1048638, this, str, photoCallback) == null) && this.f38441g != null && aW == 2) {
+            new com.baidu.ar.photo.a().a(this.f38441g, str, photoCallback);
         }
     }
 
@@ -1595,7 +1595,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public void updatePixelReader(PixelReadParams pixelReadParams, PixelRotation pixelRotation) {
         com.baidu.ar.arrender.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048645, this, pixelReadParams, pixelRotation) == null) || (cVar = this.f38437g) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048645, this, pixelReadParams, pixelRotation) == null) || (cVar = this.f38441g) == null) {
             return;
         }
         cVar.updatePixelReader(pixelReadParams, pixelRotation);

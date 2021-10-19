@@ -37,21 +37,21 @@ public class a extends com.baidu.platform.base.e {
         if (!(interceptable == null || interceptable.invokeL(65537, this, districtSearchOption) == null) || districtSearchOption == null) {
             return;
         }
-        this.f44367a.a("qt", "con");
-        this.f44367a.a("rp_format", "json");
-        this.f44367a.a("rp_filter", "mobile");
-        this.f44367a.a("area_res", "true");
-        this.f44367a.a("addr_identify", "1");
-        this.f44367a.a("ie", "utf-8");
-        this.f44367a.a("pn", "0");
-        this.f44367a.a("rn", "10");
-        this.f44367a.a("c", districtSearchOption.mCityName);
+        this.f44279a.a("qt", "con");
+        this.f44279a.a("rp_format", "json");
+        this.f44279a.a("rp_filter", "mobile");
+        this.f44279a.a("area_res", "true");
+        this.f44279a.a("addr_identify", "1");
+        this.f44279a.a("ie", "utf-8");
+        this.f44279a.a("pn", "0");
+        this.f44279a.a("rn", "10");
+        this.f44279a.a("c", districtSearchOption.mCityName);
         String str2 = districtSearchOption.mDistrictName;
         if (str2 == null || str2.equals("")) {
-            aVar = this.f44367a;
+            aVar = this.f44279a;
             str = districtSearchOption.mCityName;
         } else {
-            aVar = this.f44367a;
+            aVar = this.f44279a;
             str = districtSearchOption.mDistrictName;
         }
         aVar.a(ActVideoSetting.WIFI_DISPLAY, str);

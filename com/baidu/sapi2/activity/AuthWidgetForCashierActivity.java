@@ -103,7 +103,7 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AuthWidgetForCashierActivity f44664a;
+                public final /* synthetic */ AuthWidgetForCashierActivity f44576a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -120,14 +120,14 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44664a = this;
+                    this.f44576a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
                 public void onBack() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f44664a.a();
+                        this.f44576a.a();
                     }
                 }
             });
@@ -136,7 +136,7 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AuthWidgetForCashierActivity f44665a;
+                public final /* synthetic */ AuthWidgetForCashierActivity f44577a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -153,14 +153,14 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44665a = this;
+                    this.f44577a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f44665a.onClose();
+                        this.f44577a.onClose();
                     }
                 }
             });
@@ -169,7 +169,7 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AuthWidgetForCashierActivity f44666a;
+                public final /* synthetic */ AuthWidgetForCashierActivity f44578a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -186,7 +186,7 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44666a = this;
+                    this.f44578a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.LeftBtnVisibleCallback
@@ -194,9 +194,9 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
                         if (i2 == 0) {
-                            this.f44666a.setBtnVisibility(4, 4, 4);
+                            this.f44578a.setBtnVisibility(4, 4, 4);
                         } else {
-                            this.f44666a.setBtnVisibility(4, 0, 4);
+                            this.f44578a.setBtnVisibility(4, 0, 4);
                         }
                     }
                 }
@@ -206,7 +206,7 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AuthWidgetForCashierActivity f44667a;
+                public final /* synthetic */ AuthWidgetForCashierActivity f44579a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -223,7 +223,7 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44667a = this;
+                    this.f44579a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
@@ -247,8 +247,8 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                         Intent intent = new Intent();
                         intent.putExtra(AuthWidgetForCashierActivity.w, 0);
                         intent.putExtra(AuthWidgetForCashierActivity.x, "验证通过");
-                        this.f44667a.setResult(102, intent);
-                        this.f44667a.finish();
+                        this.f44579a.setResult(102, intent);
+                        this.f44579a.finish();
                     }
                 }
             });

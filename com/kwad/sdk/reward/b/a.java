@@ -24,16 +24,16 @@ public class a extends com.kwad.sdk.reward.d implements aw.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f73579b;
+    public Handler f73614b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f73580c;
+    public AdInfo f73615c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f73581d;
+    public com.kwad.sdk.reward.c.a f73616d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f73582e;
+    public BroadcastReceiver f73617e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,12 +48,12 @@ public class a extends com.kwad.sdk.reward.d implements aw.a {
                 return;
             }
         }
-        this.f73582e = new BroadcastReceiver(this) { // from class: com.kwad.sdk.reward.b.a.1
+        this.f73617e = new BroadcastReceiver(this) { // from class: com.kwad.sdk.reward.b.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f73583a;
+            public final /* synthetic */ a f73618a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -70,7 +70,7 @@ public class a extends com.kwad.sdk.reward.d implements aw.a {
                         return;
                     }
                 }
-                this.f73583a = this;
+                this.f73618a = this;
             }
 
             @Override // android.content.BroadcastReceiver
@@ -81,7 +81,7 @@ public class a extends com.kwad.sdk.reward.d implements aw.a {
                     if (TextUtils.isEmpty(schemeSpecificPart)) {
                         return;
                     }
-                    Message obtainMessage = this.f73583a.f73579b.obtainMessage(BaseActivity.DIALOG_LOADING);
+                    Message obtainMessage = this.f73618a.f73614b.obtainMessage(BaseActivity.DIALOG_LOADING);
                     obtainMessage.obj = schemeSpecificPart;
                     obtainMessage.sendToTarget();
                 }
@@ -95,17 +95,17 @@ public class a extends com.kwad.sdk.reward.d implements aw.a {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
             intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
-            ((com.kwad.sdk.reward.d) this).f73909a.f73573g.registerReceiver(this.f73582e, intentFilter);
+            ((com.kwad.sdk.reward.d) this).f73944a.f73608g.registerReceiver(this.f73617e, intentFilter);
         }
     }
 
     private void f() {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (activity = ((com.kwad.sdk.reward.d) this).f73909a.f73573g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (activity = ((com.kwad.sdk.reward.d) this).f73944a.f73608g) == null) {
             return;
         }
-        activity.unregisterReceiver(this.f73582e);
+        activity.unregisterReceiver(this.f73617e);
     }
 
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
@@ -113,9 +113,9 @@ public class a extends com.kwad.sdk.reward.d implements aw.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f73580c = com.kwad.sdk.core.response.b.c.i(((com.kwad.sdk.reward.d) this).f73909a.f73572f);
-            this.f73581d = ((com.kwad.sdk.reward.d) this).f73909a.f73575i;
-            this.f73579b = new aw(this);
+            this.f73615c = com.kwad.sdk.core.response.b.c.i(((com.kwad.sdk.reward.d) this).f73944a.f73607f);
+            this.f73616d = ((com.kwad.sdk.reward.d) this).f73944a.f73610i;
+            this.f73614b = new aw(this);
             e();
         }
     }
@@ -124,13 +124,13 @@ public class a extends com.kwad.sdk.reward.d implements aw.a {
     public void a(Message message) {
         Object obj;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && message.what == 242 && (obj = message.obj) != null && obj.equals(this.f73580c.adBaseInfo.appPackageName)) {
-            com.kwad.sdk.reward.a.b bVar = ((com.kwad.sdk.reward.d) this).f73909a.f73568b;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && message.what == 242 && (obj = message.obj) != null && obj.equals(this.f73615c.adBaseInfo.appPackageName)) {
+            com.kwad.sdk.reward.a.b bVar = ((com.kwad.sdk.reward.d) this).f73944a.f73603b;
             if (bVar != null) {
                 bVar.e();
             }
-            this.f73581d.i();
-            ((com.kwad.sdk.reward.d) this).f73909a.b();
+            this.f73616d.i();
+            ((com.kwad.sdk.reward.d) this).f73944a.b();
         }
     }
 

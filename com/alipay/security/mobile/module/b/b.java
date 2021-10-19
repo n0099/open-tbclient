@@ -60,7 +60,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f36211a;
+    public static b f36215a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -76,7 +76,7 @@ public final class b {
                 return;
             }
         }
-        f36211a = new b();
+        f36215a = new b();
     }
 
     public b() {
@@ -136,7 +136,7 @@ public final class b {
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f36211a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f36215a : (b) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0024  */

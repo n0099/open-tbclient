@@ -1,12 +1,15 @@
 package c.a.q0.t.c;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.coreExtra.data.VcodeExtra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class l0 {
@@ -14,22 +17,16 @@ public class l0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14695a;
+    public String f14715a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f14696b;
+    public String f14716b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f14697c;
+    public String f14717c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f14698d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f14699e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f14700f;
+    public VcodeExtra f14718d;
 
     public l0() {
         Interceptable interceptable = $ic;
@@ -41,61 +38,73 @@ public class l0 {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f14715a = null;
+        this.f14716b = null;
+        this.f14717c = null;
     }
 
-    public long a() {
+    public VcodeExtra a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14697c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14718d : (VcodeExtra) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14700f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14715a : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14699e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14716b : (String) invokeV.objValue;
     }
 
-    public long d() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14698d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14717c : (String) invokeV.objValue;
     }
 
-    public long e() {
-        InterceptResult invokeV;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14696b : invokeV.longValue;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                JSONObject optJSONObject = jSONObject.optJSONObject("info");
+                if (optJSONObject == null) {
+                    optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
+                }
+                f(optJSONObject);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
+        }
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14695a : (String) invokeV.objValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || c.a.e.e.p.k.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.f14695a = jSONObject.optString("splash_video_url");
-            this.f14696b = jSONObject.optLong("splash_video_start_time") * 1000;
-            this.f14697c = jSONObject.optLong("splash_video_end_time") * 1000;
-            this.f14698d = jSONObject.optLong("splash_video_interval_time") * 1000;
-            this.f14699e = jSONObject.optString("splash_video_h5_url");
-            this.f14700f = jSONObject.optString("splash_video_h5_text");
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+            this.f14715a = jSONObject.optString("vcode_md5");
+            this.f14716b = jSONObject.optString("vcode_pic_url");
+            this.f14717c = jSONObject.optString("vcode_type");
+            JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
+            VcodeExtra vcodeExtra = new VcodeExtra();
+            this.f14718d = vcodeExtra;
+            vcodeExtra.textImg = jSONObject2.optString("textimg");
+            this.f14718d.slideImg = jSONObject2.optString("slideimg");
+            this.f14718d.endPoint = jSONObject2.optString(ContentUtil.RESULT_KEY_ENDPOINT);
+            this.f14718d.successImg = jSONObject2.optString("successimg");
+            this.f14718d.slideEndPoint = jSONObject2.optString("slideendpoint");
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
         }
     }
 }

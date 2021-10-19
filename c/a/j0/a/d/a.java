@@ -12,6 +12,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -242,7 +243,12 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.f3600a.setRepeatCount(-1);
                 this.f3600a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.f3601b.p.addView(this.f3600a, new RelativeLayout.LayoutParams(-1, -1));
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+                LottieAnimationView lottieAnimationView = this.f3600a;
+                if (lottieAnimationView != null && (lottieAnimationView.getParent() instanceof ViewGroup)) {
+                    ((ViewGroup) this.f3600a.getParent()).removeView(this.f3600a);
+                }
+                this.f3601b.p.addView(this.f3600a, layoutParams);
                 this.f3601b.x();
                 if (this.f3601b.Q) {
                     this.f3600a.setOnTouchListener(new View$OnTouchListenerC0080a(this));

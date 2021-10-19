@@ -13,13 +13,13 @@ public final class d<T, R> extends i.j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> f78923e;
+    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> f78958e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f78924f;
+    public final int f78959f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f78925g;
+    public boolean f78960g;
 
     public d(OnSubscribeCombineLatest$LatestCoordinator<T, R> onSubscribeCombineLatest$LatestCoordinator, int i2) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public final class d<T, R> extends i.j<T> {
                 return;
             }
         }
-        this.f78923e = onSubscribeCombineLatest$LatestCoordinator;
-        this.f78924f = i2;
+        this.f78958e = onSubscribeCombineLatest$LatestCoordinator;
+        this.f78959f = i2;
         request(onSubscribeCombineLatest$LatestCoordinator.bufferSize);
     }
 
@@ -51,33 +51,33 @@ public final class d<T, R> extends i.j<T> {
     @Override // i.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f78925g) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f78960g) {
             return;
         }
-        this.f78925g = true;
-        this.f78923e.combine(null, this.f78924f);
+        this.f78960g = true;
+        this.f78958e.combine(null, this.f78959f);
     }
 
     @Override // i.e
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            if (this.f78925g) {
+            if (this.f78960g) {
                 i.r.c.j(th);
                 return;
             }
-            this.f78923e.onError(th);
-            this.f78925g = true;
-            this.f78923e.combine(null, this.f78924f);
+            this.f78958e.onError(th);
+            this.f78960g = true;
+            this.f78958e.combine(null, this.f78959f);
         }
     }
 
     @Override // i.e
     public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.f78925g) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.f78960g) {
             return;
         }
-        this.f78923e.combine(NotificationLite.h(t), this.f78924f);
+        this.f78958e.combine(NotificationLite.h(t), this.f78959f);
     }
 }

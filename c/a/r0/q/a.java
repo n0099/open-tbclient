@@ -1,290 +1,258 @@
 package c.a.r0.q;
 
-import android.content.Context;
-import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.m.e;
-import c.a.r0.y2.l;
-import com.baidu.adp.lib.util.StringUtils;
+import c.a.q0.s.c;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
-public final class a implements l {
+public class a extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f24079d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static a f24080e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public final List<l.a> f24081a;
+    /* renamed from: e  reason: collision with root package name */
+    public BaseActivity f23572e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final ConcurrentHashMap<String, l.b> f24082b;
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f23573f;
 
-    /* renamed from: c  reason: collision with root package name */
-    public l.c f24083c;
+    /* renamed from: g  reason: collision with root package name */
+    public List<AccountData> f23574g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public View.OnClickListener f23575h;
 
     /* renamed from: c.a.r0.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1116a implements Runnable {
+    public static /* synthetic */ class C1097a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l.a f24084e;
+        /* renamed from: a  reason: collision with root package name */
+        public TextView f23576a;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f24085f;
+        /* renamed from: b  reason: collision with root package name */
+        public TextView f23577b;
 
-        public RunnableC1116a(a aVar, l.a aVar2) {
+        /* renamed from: c  reason: collision with root package name */
+        public ImageView f23578c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public TextView f23579d;
+
+        public b(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, aVar2};
+                Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.f24085f = aVar;
-            this.f24084e = aVar2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f24085f.f(this.f24084e);
-            }
+        public /* synthetic */ b(a aVar, C1097a c1097a) {
+            this(aVar);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-634866269, "Lc/a/r0/q/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-634866269, "Lc/a/r0/q/a;");
-                return;
-            }
-        }
-        f24079d = Pattern.compile(UrlManager.patternText, 2);
-        f24080e = new a();
-    }
-
-    public a() {
+    public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, onClickListener};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f24081a = new LinkedList();
-        this.f24082b = new ConcurrentHashMap<>();
-        this.f24083c = null;
+        this.f23572e = baseActivity;
+        this.f23574g = null;
+        this.f23573f = false;
+        this.f23575h = onClickListener;
     }
 
-    public static a l() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f24080e : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23573f : invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.y2.l
-    public boolean a(String str) {
-        InterceptResult invokeL;
+    public void b(List<AccountData> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f24079d.matcher(str).find() : invokeL.booleanValue;
-    }
-
-    @Override // c.a.r0.y2.l
-    public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
-            h(context, strArr, false, null, z, bundle);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.f23574g = list;
         }
     }
 
-    @Override // c.a.r0.y2.l
-    public boolean c(Context context, String[] strArr, Bundle bundle) {
-        InterceptResult invokeLLL;
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, strArr, bundle)) == null) ? h(context, strArr, false, null, false, bundle) : invokeLLL.booleanValue;
-    }
-
-    public void e(l.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (c.a.e.e.p.l.C()) {
-                f(aVar);
-            } else {
-                e.a().post(new RunnableC1116a(this, aVar));
-            }
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.f23573f = z;
         }
     }
 
-    public final void f(l.a aVar) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || this.f24081a.contains(aVar)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<AccountData> list = this.f23574g;
+            return (list != null ? list.size() : 0) + 1;
         }
-        this.f24081a.add(aVar);
+        return invokeV.intValue;
     }
 
-    public boolean g(Context context, String str, String[] strArr, boolean z, l.d dVar, boolean z2, Bundle bundle) {
-        InterceptResult invokeCommon;
-        boolean z3;
+    @Override // android.widget.Adapter
+    public Object getItem(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{context, str, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
-            if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
-                return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+            List<AccountData> list = this.f23574g;
+            if (list == null || i2 < 0 || i2 >= list.size()) {
+                return null;
             }
-            String str2 = strArr[0];
-            l.b bVar = this.f24082b.get(m(str2));
-            if (bVar != null) {
-                bVar.a(context, j(k(str2)));
-                return true;
+            return this.f23574g.get(i2);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+            if (getItem(i2) != null) {
+                return i2;
             }
-            Iterator<l.a> it = this.f24081a.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z3 = false;
-                    break;
+            return -1L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? getItemId(i2) >= 0 ? 0 : 1 : invokeI.intValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, INVOKE, INVOKE, INVOKE]}, finally: {[IGET, INVOKE, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE, CONST, INVOKE, IGET, INVOKE, INVOKE, IF] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x00ce, code lost:
+        if (com.baidu.tbadk.core.TbadkCoreApplication.getInst().getSkinType() == 1) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x00e5, code lost:
+        if (com.baidu.tbadk.core.TbadkCoreApplication.getInst().getSkinType() != 1) goto L22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00e8, code lost:
+        r0 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00e9, code lost:
+        r6.k(r0);
+        r5.f23572e.getLayoutMode().j(r7);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00f5, code lost:
+        return r7;
+     */
+    @Override // android.widget.Adapter
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public View getView(int i2, View view, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c layoutMode;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) != null) {
+            return (View) invokeILL.objValue;
+        }
+        try {
+            try {
+                if (view == null) {
+                    if (getItemViewType(i2) == 0) {
+                        view = LayoutInflater.from(this.f23572e.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
+                        bVar = new b(this, null);
+                        bVar.f23576a = (TextView) view.findViewById(R.id.account);
+                        bVar.f23578c = (ImageView) view.findViewById(R.id.active);
+                        TextView textView = (TextView) view.findViewById(R.id.delete);
+                        bVar.f23579d = textView;
+                        textView.setOnClickListener(this.f23575h);
+                        view.setTag(bVar);
+                    } else {
+                        view = LayoutInflater.from(this.f23572e.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
+                        bVar = new b(this, null);
+                        bVar.f23577b = (TextView) view.findViewById(R.id.add_text);
+                        view.setTag(bVar);
+                    }
+                } else {
+                    bVar = (b) view.getTag();
                 }
-                l.a next = it.next();
-                if (next != null && next.a(context, strArr) != 3) {
-                    z3 = true;
-                    break;
-                }
-            }
-            if (!z3 && this.f24083c != null) {
-                if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
-                    return true;
-                }
-                n(context, str, strArr[0], z, dVar, z2, bundle);
-            }
-            return z3;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public boolean h(Context context, String[] strArr, boolean z, l.d dVar, boolean z2, Bundle bundle) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) ? g(context, "", strArr, z, dVar, z2, bundle) : invokeCommon.booleanValue;
-    }
-
-    public int i(Context context, String[] strArr) {
-        InterceptResult invokeLL;
-        int a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (l.a aVar : this.f24081a) {
-                    if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
-                        return a2;
+                if (getItemViewType(i2) == 0) {
+                    AccountData accountData = (AccountData) getItem(i2);
+                    bVar.f23578c.setVisibility(8);
+                    bVar.f23579d.setVisibility(8);
+                    bVar.f23579d.setTag(accountData);
+                    if (accountData != null) {
+                        bVar.f23576a.setText(accountData.getAccountNameShow());
+                        if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
+                            bVar.f23578c.setVisibility(0);
+                        }
+                        if (this.f23573f) {
+                            bVar.f23579d.setVisibility(0);
+                        }
                     }
                 }
+                layoutMode = this.f23572e.getLayoutMode();
+            } catch (Exception e2) {
+                BdLog.detailException(e2);
+                layoutMode = this.f23572e.getLayoutMode();
             }
-            return 3;
-        }
-        return invokeLL.intValue;
-    }
-
-    public final Map<String, String> j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            String[] split = str.split("[&]");
-            if (split == null) {
-                hashMap.put(UrlManager.DEFAULT_PARAM, str);
-                return hashMap;
-            }
-            for (String str2 : split) {
-                String[] split2 = str2.split("[=]");
-                if (split2.length > 1) {
-                    hashMap.put(split2[0], split2[1]);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public final String k(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
-                return str.substring(lastIndexOf + 1);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            return str.contains(":") ? str.substring(0, str.lastIndexOf(":")) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void n(Context context, String str, String str2, boolean z, l.d dVar, boolean z2, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && f24079d.matcher(str2).find()) {
-            this.f24083c.a(context, str, str2, z, dVar, z2, bundle);
+        } catch (Throwable th) {
+            this.f23572e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.f23572e.getLayoutMode().j(view);
+            throw th;
         }
     }
 
-    public void o(l.c cVar) {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.f24083c = cVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 2;
         }
+        return invokeV.intValue;
     }
 }

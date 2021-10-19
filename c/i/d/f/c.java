@@ -19,7 +19,7 @@ public final class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f34288a;
+        public static final /* synthetic */ int[] f34292a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -36,37 +36,37 @@ public final class c {
                 }
             }
             int[] iArr = new int[RoundingMode.values().length];
-            f34288a = iArr;
+            f34292a = iArr;
             try {
                 iArr[RoundingMode.UNNECESSARY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f34288a[RoundingMode.DOWN.ordinal()] = 2;
+                f34292a[RoundingMode.DOWN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f34288a[RoundingMode.FLOOR.ordinal()] = 3;
+                f34292a[RoundingMode.FLOOR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f34288a[RoundingMode.UP.ordinal()] = 4;
+                f34292a[RoundingMode.UP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f34288a[RoundingMode.CEILING.ordinal()] = 5;
+                f34292a[RoundingMode.CEILING.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f34288a[RoundingMode.HALF_DOWN.ordinal()] = 6;
+                f34292a[RoundingMode.HALF_DOWN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f34288a[RoundingMode.HALF_UP.ordinal()] = 7;
+                f34292a[RoundingMode.HALF_UP.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f34288a[RoundingMode.HALF_EVEN.ordinal()] = 8;
+                f34292a[RoundingMode.HALF_EVEN.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -120,7 +120,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, roundingMode)) == null) {
             e.c("x", i2);
-            switch (a.f34288a[roundingMode.ordinal()]) {
+            switch (a.f34292a[roundingMode.ordinal()]) {
                 case 1:
                     e.d(b(i2));
                     break;

@@ -16,10 +16,10 @@ public class PromptTipDialog extends WalletDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TipDialogModel f70044e;
+    public TipDialogModel f70079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f70045f;
+    public View.OnClickListener f70080f;
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -27,7 +27,7 @@ public class PromptTipDialog extends WalletDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PromptTipDialog f70046e;
+        public final /* synthetic */ PromptTipDialog f70081e;
 
         public a(PromptTipDialog promptTipDialog) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class PromptTipDialog extends WalletDialog {
                     return;
                 }
             }
-            this.f70046e = promptTipDialog;
+            this.f70081e = promptTipDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f70046e.dismiss();
+                this.f70081e.dismiss();
             }
         }
     }
@@ -62,10 +62,10 @@ public class PromptTipDialog extends WalletDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f70047e;
+        public final /* synthetic */ View.OnClickListener f70082e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PromptTipDialog f70048f;
+        public final /* synthetic */ PromptTipDialog f70083f;
 
         public b(PromptTipDialog promptTipDialog, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -82,16 +82,16 @@ public class PromptTipDialog extends WalletDialog {
                     return;
                 }
             }
-            this.f70048f = promptTipDialog;
-            this.f70047e = onClickListener;
+            this.f70083f = promptTipDialog;
+            this.f70082e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f70048f.dismiss();
-                View.OnClickListener onClickListener = this.f70047e;
+                this.f70083f.dismiss();
+                View.OnClickListener onClickListener = this.f70082e;
                 if (onClickListener != null) {
                     onClickListener.onClick(view);
                 }
@@ -118,16 +118,16 @@ public class PromptTipDialog extends WalletDialog {
                 return;
             }
         }
-        this.f70044e = new TipDialogModel();
-        this.f70045f = new a(this);
+        this.f70079e = new TipDialogModel();
+        this.f70080f = new a(this);
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TipDialogModel tipDialogModel = this.f70044e;
-            tipDialogModel.defaultClickListener = this.f70045f;
+            TipDialogModel tipDialogModel = this.f70079e;
+            tipDialogModel.defaultClickListener = this.f70080f;
             setAdapter(new TipDialogAdapter(tipDialogModel));
         }
     }
@@ -135,49 +135,49 @@ public class PromptTipDialog extends WalletDialog {
     public void setButtonMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f70044e.btnTextId = i2;
+            this.f70079e.btnTextId = i2;
         }
     }
 
     public void setDefaultBtnListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f70044e.defaultClickListener = new b(this, onClickListener);
+            this.f70079e.defaultClickListener = new b(this, onClickListener);
         }
     }
 
     public void setMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f70044e.messageId = i2;
+            this.f70079e.messageId = i2;
         }
     }
 
     public void setTitleMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f70044e.titleId = i2;
+            this.f70079e.titleId = i2;
         }
     }
 
     public void setButtonMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f70044e.btnText = str;
+            this.f70079e.btnText = str;
         }
     }
 
     public void setMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f70044e.message = str;
+            this.f70079e.message = str;
         }
     }
 
     public void setTitleMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f70044e.titleText = str;
+            this.f70079e.titleText = str;
         }
     }
 
@@ -200,8 +200,8 @@ public class PromptTipDialog extends WalletDialog {
                 return;
             }
         }
-        this.f70044e = new TipDialogModel();
-        this.f70045f = new a(this);
+        this.f70079e = new TipDialogModel();
+        this.f70080f = new a(this);
         a();
     }
 }

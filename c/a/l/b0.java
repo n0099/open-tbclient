@@ -139,7 +139,7 @@ public class b0 extends c implements p<x0>, q {
             if (!aVar.showCardBottomOpWeight() && !aVar.isFromFrs()) {
                 k(Align.ALIGN_RIGHT_BOTTOM);
             } else if (aVar.isSupportTop()) {
-                u((!o(aVar) || c.a.q0.b.d.h0()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : n(R.dimen.tbds64));
+                u((!o(aVar) || c.a.q0.b.d.k0()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : n(R.dimen.tbds64));
             } else if (aVar.isSupportBottom()) {
                 l0 l0Var = this.f3795h;
                 if (l0Var != null) {
@@ -173,7 +173,7 @@ public class b0 extends c implements p<x0>, q {
     public final boolean o(c.a.q0.s.q.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, aVar)) == null) ? (aVar instanceof c.a.r0.a0.d0.k) && ((c.a.r0.a0.d0.k) aVar).s : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, aVar)) == null) ? (aVar instanceof c.a.r0.b0.e0.k) && ((c.a.r0.b0.e0.k) aVar).s : invokeL.booleanValue;
     }
 
     @Override // c.a.l.q

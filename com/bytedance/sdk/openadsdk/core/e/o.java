@@ -16,28 +16,28 @@ public class o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f66810a;
+    public boolean f66845a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f66811b;
+    public int f66846b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66812c;
+    public String f66847c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f66813d;
+    public String f66848d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f66814e;
+    public String f66849e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f66815f;
+    public int f66850f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f66816g;
+    public int f66851g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f66817h;
+    public int f66852h;
 
     public o(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -59,15 +59,15 @@ public class o {
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("playable");
         if (optJSONObject != null) {
-            this.f66813d = optJSONObject.optString("playable_url", "");
-            this.f66814e = optJSONObject.optString("playable_download_url", "");
-            this.f66815f = optJSONObject.optInt("if_playable_loading_show", 0);
-            this.f66816g = optJSONObject.optInt("remove_loading_page_type", 0);
-            this.f66817h = optJSONObject.optInt("playable_orientation", 0);
+            this.f66848d = optJSONObject.optString("playable_url", "");
+            this.f66849e = optJSONObject.optString("playable_download_url", "");
+            this.f66850f = optJSONObject.optInt("if_playable_loading_show", 0);
+            this.f66851g = optJSONObject.optInt("remove_loading_page_type", 0);
+            this.f66852h = optJSONObject.optInt("playable_orientation", 0);
         }
-        this.f66810a = jSONObject.optBoolean("is_playable");
-        this.f66811b = jSONObject.optInt("playable_type", 0);
-        this.f66812c = jSONObject.optString("playable_style");
+        this.f66845a = jSONObject.optBoolean("is_playable");
+        this.f66846b = jSONObject.optInt("playable_type", 0);
+        this.f66847c = jSONObject.optString("playable_style");
     }
 
     public static boolean b(m mVar) {
@@ -75,7 +75,7 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mVar)) == null) {
             o l = l(mVar);
-            return (l == null || !l.f66810a || TextUtils.isEmpty(d(mVar))) ? false : true;
+            return (l == null || !l.f66845a || TextUtils.isEmpty(d(mVar))) ? false : true;
         }
         return invokeL.booleanValue;
     }
@@ -88,7 +88,7 @@ public class o {
             if (l == null) {
                 return null;
             }
-            return l.f66812c;
+            return l.f66847c;
         }
         return (String) invokeL.objValue;
     }
@@ -101,7 +101,7 @@ public class o {
             if (l == null) {
                 return null;
             }
-            return l.f66813d;
+            return l.f66848d;
         }
         return (String) invokeL.objValue;
     }
@@ -134,7 +134,7 @@ public class o {
             } else {
                 o l = l(mVar);
                 if (l != null) {
-                    i2 = l.f66815f;
+                    i2 = l.f66850f;
                 }
                 i2 = 0;
             }
@@ -156,7 +156,7 @@ public class o {
             } else {
                 o l = l(mVar);
                 if (l != null) {
-                    i2 = l.f66816g;
+                    i2 = l.f66851g;
                 }
                 i2 = 0;
             }
@@ -180,7 +180,7 @@ public class o {
                 if (l == null) {
                     return false;
                 }
-                i2 = l.f66816g;
+                i2 = l.f66851g;
             }
             return i2 == 1;
         }
@@ -195,7 +195,7 @@ public class o {
             if (l == null) {
                 return 0;
             }
-            return l.f66817h;
+            return l.f66852h;
         }
         return invokeL.intValue;
     }
@@ -232,7 +232,7 @@ public class o {
             if (l == null) {
                 return 0;
             }
-            return l.f66811b;
+            return l.f66846b;
         }
         return invokeL.intValue;
     }
@@ -241,30 +241,30 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             try {
-                jSONObject.put("is_playable", this.f66810a);
+                jSONObject.put("is_playable", this.f66845a);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            if (!TextUtils.isEmpty(this.f66813d)) {
+            if (!TextUtils.isEmpty(this.f66848d)) {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    jSONObject2.put("playable_url", this.f66813d);
-                    jSONObject2.put("playable_download_url", this.f66814e);
-                    jSONObject2.put("if_playable_loading_show", this.f66815f);
-                    jSONObject2.put("remove_loading_page_type", this.f66816g);
-                    jSONObject2.put("playable_orientation", this.f66817h);
+                    jSONObject2.put("playable_url", this.f66848d);
+                    jSONObject2.put("playable_download_url", this.f66849e);
+                    jSONObject2.put("if_playable_loading_show", this.f66850f);
+                    jSONObject2.put("remove_loading_page_type", this.f66851g);
+                    jSONObject2.put("playable_orientation", this.f66852h);
                     jSONObject.put("playable", jSONObject2);
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             try {
-                jSONObject.put("playable_type", this.f66811b);
+                jSONObject.put("playable_type", this.f66846b);
             } catch (JSONException e4) {
                 e4.printStackTrace();
             }
             try {
-                jSONObject.put("playable_style", this.f66812c);
+                jSONObject.put("playable_style", this.f66847c);
             } catch (JSONException e5) {
                 e5.printStackTrace();
             }
@@ -276,7 +276,7 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, mVar)) == null) {
             o l = l(mVar);
-            return (l == null || !l.f66810a || TextUtils.isEmpty(e(mVar))) ? false : true;
+            return (l == null || !l.f66845a || TextUtils.isEmpty(e(mVar))) ? false : true;
         }
         return invokeL.booleanValue;
     }

@@ -35,7 +35,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f68241a;
+    public static volatile a f68276a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -56,14 +56,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f68241a == null) {
+            if (f68276a == null) {
                 synchronized (a.class) {
-                    if (f68241a == null) {
-                        f68241a = new a();
+                    if (f68276a == null) {
+                        f68276a = new a();
                     }
                 }
             }
-            return f68241a;
+            return f68276a;
         }
         return (a) invokeV.objValue;
     }
@@ -156,10 +156,10 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f68242a;
+                public final /* synthetic */ Activity f68277a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f68243b;
+                public final /* synthetic */ a f68278b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -179,8 +179,8 @@ public class a {
                             return;
                         }
                     }
-                    this.f68243b = this;
-                    this.f68242a = activity;
+                    this.f68278b = this;
+                    this.f68277a = activity;
                 }
 
                 @Override // java.lang.Runnable
@@ -189,7 +189,7 @@ public class a {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("page_name", this.f68242a.getClass().getName());
+                            jSONObject.put("page_name", this.f68277a.getClass().getName());
                             s.a(jSONObject);
                             String jSONObject2 = jSONObject.toString();
                             com.bytedance.sdk.openadsdk.j.a.c b2 = com.bytedance.sdk.openadsdk.j.a.c.b().a("delegate_on_create").b(jSONObject2);
@@ -268,16 +268,16 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f68248a;
+            public final /* synthetic */ List f68283a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ m f68249b;
+            public final /* synthetic */ m f68284b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f68250c;
+            public final /* synthetic */ JSONObject f68285c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ a f68251d;
+            public final /* synthetic */ a f68286d;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -297,10 +297,10 @@ public class a {
                         return;
                     }
                 }
-                this.f68251d = this;
-                this.f68248a = list;
-                this.f68249b = mVar;
-                this.f68250c = jSONObject;
+                this.f68286d = this;
+                this.f68283a = list;
+                this.f68284b = mVar;
+                this.f68285c = jSONObject;
             }
 
             @Override // java.lang.Runnable
@@ -308,7 +308,7 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     if (!o.h().u() || n.c(o.a()) == 4) {
-                        o.f().a(this.f68251d.b(this.f68248a, this.f68249b, this.f68250c), 1);
+                        o.f().a(this.f68286d.b(this.f68283a, this.f68284b, this.f68285c), 1);
                     }
                 }
             }
@@ -470,10 +470,10 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f68244a;
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f68279a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f68245b;
+            public final /* synthetic */ a f68280b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -493,16 +493,16 @@ public class a {
                         return;
                     }
                 }
-                this.f68245b = this;
-                this.f68244a = cVar;
+                this.f68280b = this;
+                this.f68279a = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f68245b.n(this.f68244a) && this.f68245b.a(this.f68244a.e(), 1)) {
-                    this.f68244a.a("reg_creative");
-                    o.i().a(this.f68244a);
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f68280b.n(this.f68279a) && this.f68280b.a(this.f68279a.e(), 1)) {
+                    this.f68279a.a("reg_creative");
+                    o.i().a(this.f68279a);
                 }
             }
         }, 5);
@@ -518,10 +518,10 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f68246a;
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f68281a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f68247b;
+            public final /* synthetic */ a f68282b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -541,16 +541,16 @@ public class a {
                         return;
                     }
                 }
-                this.f68247b = this;
-                this.f68246a = cVar;
+                this.f68282b = this;
+                this.f68281a = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f68247b.n(this.f68246a) && this.f68247b.a(this.f68246a.e(), 0)) {
-                    this.f68246a.a("no_reg_creative");
-                    o.i().a(this.f68246a);
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f68282b.n(this.f68281a) && this.f68282b.a(this.f68281a.e(), 0)) {
+                    this.f68281a.a("no_reg_creative");
+                    o.i().a(this.f68281a);
                 }
             }
         }, 5);

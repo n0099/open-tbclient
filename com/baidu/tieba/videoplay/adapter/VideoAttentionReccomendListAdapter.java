@@ -34,16 +34,16 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f58056a;
+    public Context f57991a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<VideoItemData> f58057b;
+    public List<VideoItemData> f57992b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f58058c;
+    public View f57993c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58059d;
+    public String f57994d;
     public boolean isNaniVideo;
 
     /* loaded from: classes7.dex */
@@ -87,9 +87,9 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             this.mMaskView = view.findViewById(R.id.img_mask);
             this.mVideoCover.setRadiusById(R.string.J_X05);
             this.mVideoCover.setConrers(3);
-            c.d(this.mMaskView).t(R.array.Mask_X003);
+            c.d(this.mMaskView).s(R.array.Mask_X003);
             c d2 = c.d(view);
-            d2.o(R.string.J_X05);
+            d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0613);
         }
 
@@ -109,13 +109,13 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f58060e;
+        public final /* synthetic */ int f57995e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoItemData f58061f;
+        public final /* synthetic */ VideoItemData f57996f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionReccomendListAdapter f58062g;
+        public final /* synthetic */ VideoAttentionReccomendListAdapter f57997g;
 
         public a(VideoAttentionReccomendListAdapter videoAttentionReccomendListAdapter, int i2, VideoItemData videoItemData) {
             Interceptable interceptable = $ic;
@@ -132,20 +132,20 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                     return;
                 }
             }
-            this.f58062g = videoAttentionReccomendListAdapter;
-            this.f58060e = i2;
-            this.f58061f = videoItemData;
+            this.f57997g = videoAttentionReccomendListAdapter;
+            this.f57995e = i2;
+            this.f57996f = videoItemData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                VideoRecommentPlayActivityConfig videoRecommentPlayActivityConfig = new VideoRecommentPlayActivityConfig(this.f58062g.f58056a, this.f58062g.f58057b, 0, null, "video_attention_tab", "", "", "");
-                videoRecommentPlayActivityConfig.setVideoShowIndex(this.f58060e);
+                VideoRecommentPlayActivityConfig videoRecommentPlayActivityConfig = new VideoRecommentPlayActivityConfig(this.f57997g.f57991a, this.f57997g.f57992b, 0, null, "video_attention_tab", "", "", "");
+                videoRecommentPlayActivityConfig.setVideoShowIndex(this.f57995e);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
-                this.f58062g.f58059d = this.f58061f.thread_id;
-                this.f58062g.attentionListPageClick(4);
+                this.f57997g.f57994d = this.f57996f.thread_id;
+                this.f57997g.attentionListPageClick(4);
             }
         }
     }
@@ -166,8 +166,8 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             }
         }
         this.isNaniVideo = false;
-        this.f58057b = new ArrayList();
-        this.f58056a = context;
+        this.f57992b = new ArrayList();
+        this.f57991a = context;
     }
 
     public void attentionListPageClick(int i2) {
@@ -175,7 +175,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_ACCOUNT_ATTENTION_PAGE_CLICK);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("tid", this.f58059d);
+            statisticItem.param("tid", this.f57994d);
             statisticItem.param("obj_locate", i2);
             TiebaStatic.log(statisticItem);
         }
@@ -188,8 +188,8 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         }
         forumViewHolder.mPlayNumber.setText(StringHelper.numberUniformFormatExtra(videoItemData.play_count));
         c d2 = c.d(forumViewHolder.mPlayNumber);
-        d2.A(R.dimen.T_X09);
-        d2.w(R.color.CAM_X0101);
+        d2.z(R.dimen.T_X09);
+        d2.v(R.color.CAM_X0101);
     }
 
     public final void e(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
@@ -228,8 +228,8 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             sb.append("00");
         }
         c d2 = c.d(forumViewHolder.mPlayTime);
-        d2.A(R.dimen.T_X09);
-        d2.w(R.color.CAM_X0101);
+        d2.z(R.dimen.T_X09);
+        d2.v(R.color.CAM_X0101);
         forumViewHolder.mPlayTime.setText(sb.toString());
     }
 
@@ -260,7 +260,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<VideoItemData> list = this.f58057b;
+            List<VideoItemData> list = this.f57992b;
             if (list == null) {
                 return 0;
             }
@@ -278,8 +278,8 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
     public void setData(List<VideoItemData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            this.f58057b.clear();
-            this.f58057b.addAll(list);
+            this.f57992b.clear();
+            this.f57992b.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -290,7 +290,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         List<VideoItemData> list;
         VideoItemData videoItemData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, forumViewHolder, i2) == null) || forumViewHolder == null || (list = this.f58057b) == null || (videoItemData = list.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, forumViewHolder, i2) == null) || forumViewHolder == null || (list = this.f57992b) == null || (videoItemData = list.get(i2)) == null) {
             return;
         }
         g(videoItemData, forumViewHolder);
@@ -306,8 +306,8 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, viewGroup, i2)) == null) {
-            this.f58058c = LayoutInflater.from(this.f58056a).inflate(R.layout.video_attention_list_cover_view, viewGroup, false);
-            return new ForumViewHolder(this.f58058c);
+            this.f57993c = LayoutInflater.from(this.f57991a).inflate(R.layout.video_attention_list_cover_view, viewGroup, false);
+            return new ForumViewHolder(this.f57993c);
         }
         return (ForumViewHolder) invokeLI.objValue;
     }

@@ -42,20 +42,20 @@ public class c<T extends c.a.q0.k0.b.c> extends a<T> {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:87:0x00d5 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:99:0x0073 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0073 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x00d6 */
     /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: T */
-    /* JADX DEBUG: Type inference failed for r2v11. Raw type applied. Possible types: T */
-    /* JADX DEBUG: Type inference failed for r2v8. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v12. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v9. Raw type applied. Possible types: T */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v10, types: [java.util.List, java.util.ArrayList] */
     /* JADX WARN: Type inference failed for: r1v8, types: [java.util.List, java.util.ArrayList] */
     /* JADX WARN: Type inference failed for: r1v9 */
     /* JADX WARN: Type inference failed for: r7v10 */
-    /* JADX WARN: Type inference failed for: r7v15, types: [java.util.List, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r7v16 */
-    /* JADX WARN: Type inference failed for: r7v33 */
-    /* JADX WARN: Type inference failed for: r7v9 */
+    /* JADX WARN: Type inference failed for: r7v12 */
+    /* JADX WARN: Type inference failed for: r7v17, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r7v18 */
+    /* JADX WARN: Type inference failed for: r7v36 */
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
         InterceptResult invokeL;
@@ -90,7 +90,7 @@ public class c<T extends c.a.q0.k0.b.c> extends a<T> {
                         try {
                             if (cVar4 instanceof c.a.q0.k0.b.b) {
                                 c.a.q0.s.r.a.f();
-                                List<l.b<byte[]>> a2 = p.a(c.a.q0.s.r.a.e(this.f13535f, str));
+                                List<l.b<byte[]>> a2 = p.a(c.a.q0.s.r.a.e(this.f13554f, str));
                                 if (a2 != null) {
                                     arrayList = new ArrayList(a2.size());
                                     for (l.b<byte[]> bVar : a2) {
@@ -103,7 +103,7 @@ public class c<T extends c.a.q0.k0.b.c> extends a<T> {
                                 }
                             } else if (cVar4 instanceof e) {
                                 c.a.q0.s.r.a.f();
-                                List<l.b<String>> b2 = p.b(c.a.q0.s.r.a.h(this.f13535f, str));
+                                List<l.b<String>> b2 = p.b(c.a.q0.s.r.a.h(this.f13554f, str));
                                 if (b2 != null) {
                                     arrayList = new ArrayList(b2.size());
                                     for (l.b<String> bVar2 : b2) {
@@ -119,10 +119,12 @@ public class c<T extends c.a.q0.k0.b.c> extends a<T> {
                             e = e2;
                             cVar3 = cVar4;
                             e.printStackTrace();
-                            return new ReadCacheRespMsg(this.f13537e, cVar3);
-                        } catch (Throwable unused) {
+                            return new ReadCacheRespMsg(this.f13556e, cVar3);
+                        } catch (Throwable th) {
+                            th = th;
                             cVar3 = cVar4;
-                            return new ReadCacheRespMsg(this.f13537e, cVar3);
+                            new ReadCacheRespMsg(this.f13556e, cVar3);
+                            throw th;
                         }
                     } else {
                         String cacheKey = readCacheMessage.getRequestData().getCacheKey();
@@ -153,18 +155,21 @@ public class c<T extends c.a.q0.k0.b.c> extends a<T> {
                             cVar3 = v;
                             e = e3;
                             e.printStackTrace();
-                            return new ReadCacheRespMsg(this.f13537e, cVar3);
-                        } catch (Throwable unused2) {
+                            return new ReadCacheRespMsg(this.f13556e, cVar3);
+                        } catch (Throwable th2) {
                             cVar3 = v;
-                            return new ReadCacheRespMsg(this.f13537e, cVar3);
+                            th = th2;
+                            new ReadCacheRespMsg(this.f13556e, cVar3);
+                            throw th;
                         }
                     }
                 }
-                return new ReadCacheRespMsg(this.f13537e, cVar3);
-            } catch (Throwable unused3) {
+                return new ReadCacheRespMsg(this.f13556e, cVar3);
+            } catch (Exception e4) {
+                e = e4;
             }
-        } catch (Exception e4) {
-            e = e4;
+        } catch (Throwable th3) {
+            th = th3;
         }
     }
 }

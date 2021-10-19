@@ -105,13 +105,13 @@ public final class Util {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f36410a;
+        public boolean f36414a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f36411b;
+        public String f36415b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f36412c;
+        public int f36416c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -126,9 +126,9 @@ public final class Util {
                     return;
                 }
             }
-            this.f36410a = false;
-            this.f36411b = null;
-            this.f36412c = 0;
+            this.f36414a = false;
+            this.f36415b = null;
+            this.f36416c = 0;
         }
     }
 
@@ -246,12 +246,12 @@ public final class Util {
                     }
                     fileOutputStream.flush();
                     fileOutputStream.close();
-                    aVar.f36410a = true;
+                    aVar.f36414a = true;
                 } catch (Exception e3) {
                     e = e3;
                     fileOutputStream2 = fileOutputStream;
-                    aVar.f36410a = false;
-                    aVar.f36411b = e.toString();
+                    aVar.f36414a = false;
+                    aVar.f36415b = e.toString();
                     c.a.e.e.m.a.d(fileOutputStream2);
                     return aVar;
                 } catch (Throwable th2) {
@@ -263,7 +263,7 @@ public final class Util {
                 c.a.e.e.m.a.d(fileOutputStream2);
                 return aVar;
             }
-            aVar.f36411b = "illegal_param";
+            aVar.f36415b = "illegal_param";
             return aVar;
         }
         return (a) invokeLL.objValue;

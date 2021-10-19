@@ -12,34 +12,34 @@ public class j0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f14220a;
+    public int f14243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14221b;
+    public String f14244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f14222c;
+    public long f14245c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14223d;
+    public String f14246d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14224e;
+    public String f14247e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14225f;
+    public int f14248f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14226g;
+    public String f14249g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f14227h;
+    public long f14250h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f14228i;
+    public long f14251i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f14229j;
+    public long f14252j;
     public int k;
     public int l;
     public long m;
@@ -67,12 +67,12 @@ public class j0 {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14229j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14252j : invokeV.longValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14222c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14245c : invokeV.longValue;
     }
 }

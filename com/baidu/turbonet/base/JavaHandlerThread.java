@@ -19,7 +19,7 @@ public class JavaHandlerThread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HandlerThread f59402a;
+    public final HandlerThread f59437a;
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
@@ -27,13 +27,13 @@ public class JavaHandlerThread {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f59403e;
+        public final /* synthetic */ long f59438e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f59404f;
+        public final /* synthetic */ long f59439f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JavaHandlerThread f59405g;
+        public final /* synthetic */ JavaHandlerThread f59440g;
 
         public a(JavaHandlerThread javaHandlerThread, long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public class JavaHandlerThread {
                     return;
                 }
             }
-            this.f59405g = javaHandlerThread;
-            this.f59403e = j2;
-            this.f59404f = j3;
+            this.f59440g = javaHandlerThread;
+            this.f59438e = j2;
+            this.f59439f = j3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f59405g.nativeInitializeThread(this.f59403e, this.f59404f);
+                this.f59440g.nativeInitializeThread(this.f59438e, this.f59439f);
             }
         }
     }
@@ -70,16 +70,16 @@ public class JavaHandlerThread {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f59406e;
+        public final /* synthetic */ long f59441e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f59407f;
+        public final /* synthetic */ long f59442f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f59408g;
+        public final /* synthetic */ boolean f59443g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JavaHandlerThread f59409h;
+        public final /* synthetic */ JavaHandlerThread f59444h;
 
         public b(JavaHandlerThread javaHandlerThread, long j2, long j3, boolean z) {
             Interceptable interceptable = $ic;
@@ -96,21 +96,21 @@ public class JavaHandlerThread {
                     return;
                 }
             }
-            this.f59409h = javaHandlerThread;
-            this.f59406e = j2;
-            this.f59407f = j3;
-            this.f59408g = z;
+            this.f59444h = javaHandlerThread;
+            this.f59441e = j2;
+            this.f59442f = j3;
+            this.f59443g = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f59409h.nativeStopThread(this.f59406e, this.f59407f);
-                if (this.f59408g) {
+                this.f59444h.nativeStopThread(this.f59441e, this.f59442f);
+                if (this.f59443g) {
                     return;
                 }
-                this.f59409h.f59402a.quit();
+                this.f59444h.f59437a.quit();
             }
         }
     }
@@ -130,7 +130,7 @@ public class JavaHandlerThread {
                 return;
             }
         }
-        this.f59402a = new HandlerThread(str);
+        this.f59437a = new HandlerThread(str);
     }
 
     @CalledByNative
@@ -150,8 +150,8 @@ public class JavaHandlerThread {
     private void start(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f59402a.start();
-            new Handler(this.f59402a.getLooper()).post(new a(this, j2, j3));
+            this.f59437a.start();
+            new Handler(this.f59437a.getLooper()).post(new a(this, j2, j3));
         }
     }
 
@@ -161,9 +161,9 @@ public class JavaHandlerThread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             boolean z = Build.VERSION.SDK_INT >= 18;
-            new Handler(this.f59402a.getLooper()).post(new b(this, j2, j3, z));
+            new Handler(this.f59437a.getLooper()).post(new b(this, j2, j3, z));
             if (z) {
-                this.f59402a.quitSafely();
+                this.f59437a.quitSafely();
             }
         }
     }

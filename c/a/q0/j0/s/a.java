@@ -1,7 +1,7 @@
 package c.a.q0.j0.s;
 
+import android.text.TextUtils;
 import c.a.q0.j0.b;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class a implements b<PrePageKeyEvent> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, prePageKeyEvent)) == null) {
-            if (prePageKeyEvent == null && StringUtil.isEmpty(prePageKeyEvent.prePageKey)) {
+            if (prePageKeyEvent == null || TextUtils.isEmpty(prePageKeyEvent.prePageKey)) {
                 return false;
             }
             TbPageExtraHelper.v(prePageKeyEvent.prePageKey);

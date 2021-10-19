@@ -18,13 +18,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaMuxer f30723a;
+    public MediaMuxer f30770a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f30724b;
+    public volatile boolean f30771b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f30725c;
+    public f f30772c;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public class e {
                 return;
             }
         }
-        this.f30724b = false;
+        this.f30771b = false;
     }
 
     public synchronized int a(MediaFormat mediaFormat) {
@@ -63,7 +63,7 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
             synchronized (this) {
                 try {
-                    int addTrack = this.f30723a.addTrack(mediaFormat);
+                    int addTrack = this.f30770a.addTrack(mediaFormat);
                     if (addTrack >= 0) {
                         return addTrack;
                     }
@@ -84,9 +84,9 @@ public class e {
                 c.a.x.c.h.a.b(str);
             }
             try {
-                this.f30723a = new MediaMuxer(str, i2);
-                this.f30725c = fVar;
-                this.f30724b = false;
+                this.f30770a = new MediaMuxer(str, i2);
+                this.f30772c = fVar;
+                this.f30771b = false;
                 return true;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -99,16 +99,16 @@ public class e {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30724b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30771b : invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f30724b) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f30771b) {
             return;
         }
-        this.f30723a.release();
-        this.f30723a = null;
+        this.f30770a.release();
+        this.f30770a = null;
     }
 
     public synchronized void e() {
@@ -117,13 +117,13 @@ public class e {
             synchronized (this) {
                 boolean z = true;
                 try {
-                    this.f30723a.start();
-                    this.f30724b = true;
+                    this.f30770a.start();
+                    this.f30771b = true;
                 } catch (Exception unused) {
                     z = false;
                 }
-                if (this.f30725c != null) {
-                    this.f30725c.a(z);
+                if (this.f30772c != null) {
+                    this.f30772c.a(z);
                 }
             }
         }
@@ -135,13 +135,13 @@ public class e {
             synchronized (this) {
                 boolean z = false;
                 try {
-                    this.f30723a.stop();
-                    this.f30724b = false;
+                    this.f30770a.stop();
+                    this.f30771b = false;
                     z = true;
                 } catch (Exception unused) {
                 }
-                if (this.f30725c != null) {
-                    this.f30725c.b(z);
+                if (this.f30772c != null) {
+                    this.f30772c.b(z);
                 }
             }
         }
@@ -153,7 +153,7 @@ public class e {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, byteBuffer, bufferInfo)) == null) {
             if (i2 != -1) {
                 try {
-                    this.f30723a.writeSampleData(i2, byteBuffer, bufferInfo);
+                    this.f30770a.writeSampleData(i2, byteBuffer, bufferInfo);
                     return true;
                 } catch (Exception unused) {
                     return false;

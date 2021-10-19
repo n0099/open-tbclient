@@ -53,7 +53,7 @@ public class BdBaseApplication extends Application {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdBaseApplication f36272a;
+        public final /* synthetic */ BdBaseApplication f36276a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdBaseApplication bdBaseApplication, Looper looper) {
@@ -73,14 +73,14 @@ public class BdBaseApplication extends Application {
                     return;
                 }
             }
-            this.f36272a = bdBaseApplication;
+            this.f36276a = bdBaseApplication;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f36272a.handleInitMessage(message);
+                this.f36276a.handleInitMessage(message);
             }
         }
     }
@@ -223,7 +223,7 @@ public class BdBaseApplication extends Application {
     public int getActivityStackMaxSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b.f().d() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b.g().e() : invokeV.intValue;
     }
 
     public Application getApp() {
@@ -311,7 +311,7 @@ public class BdBaseApplication extends Application {
     public void onAppMemoryLow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            b.f().p();
+            b.g().q();
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGcTime > 30000) {
                 this.lastGcTime = currentTimeMillis;
@@ -333,7 +333,7 @@ public class BdBaseApplication extends Application {
     public void setActivityStackMaxSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            b.f().q(i2);
+            b.g().r(i2);
         }
     }
 

@@ -6,12 +6,12 @@ import androidx.annotation.NonNull;
 import c.a.e.e.p.k;
 import c.a.q0.b.d;
 import c.a.q0.b.e;
-import c.a.q0.b.f.x;
-import c.a.q0.d1.t0;
+import c.a.q0.b.f.z;
+import c.a.q0.d1.s0;
 import c.a.q0.g1.b.c;
 import c.a.q0.s.d0.b;
 import c.a.q0.t.b.a;
-import c.a.r0.s0.a.b.g;
+import c.a.r0.t0.a.b.g;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -445,7 +445,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            e a2 = d.a(x.f12778c);
+            e a2 = d.a(z.f12790c);
             if (a2 == null || k.isEmpty(a2.f12711a)) {
                 return "";
             }
@@ -516,7 +516,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             if (from != null && from.length() > 0) {
                 hashMap.put("appFrom", from);
             }
-            hashMap.put("isVideoAutoPlay", Boolean.valueOf(t0.e()));
+            hashMap.put("isVideoAutoPlay", Boolean.valueOf(s0.e()));
             hashMap.put("cuid", TbadkCoreApplication.getInst().getCuid());
             hashMap.put("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
             hashMap.put("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
@@ -625,8 +625,8 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap2.put("userBigPhotoHost", TbConfig.getBigPhotoAdress());
             hashMap2.put("isYYUser", TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
             hashMap2.put("videoWorksProgressBarWaitingTime", String.valueOf(b.j().k("key_video_works_progress_bar_waiting_time", 0)));
-            hashMap2.put("experimentPersonalVideoTabID", d.H() ? "12_10_zhuye_feed_b" : "");
-            hashMap2.put("experimentNickNameID", d.D() ? "12_11_nick_name_a" : "");
+            hashMap2.put("experimentPersonalVideoTabID", d.I() ? "12_10_zhuye_feed_b" : "");
+            hashMap2.put("experimentNickNameID", d.E() ? "12_11_nick_name_a" : "");
             hashMap.put("syncData", hashMap2);
             if (TbSingleton.getInstance().getTiebaPlusConfigData() != null) {
                 hashMap3.put("heatingSwitchOpen", TbSingleton.getInstance().getTiebaPlusConfigData().f() ? "1" : "0");

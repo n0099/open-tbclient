@@ -32,7 +32,7 @@ public class d extends h<Long, Bitmap> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Long, SoftReference<c>> f76028a;
+    public final Map<Long, SoftReference<c>> f76063a;
 
     /* loaded from: classes10.dex */
     public class a implements h.i.a<Object, Object> {
@@ -40,10 +40,10 @@ public class d extends h<Long, Bitmap> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f76029a;
+        public final /* synthetic */ long f76064a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f76030b;
+        public final /* synthetic */ d f76065b;
 
         public a(d dVar, long j2) {
             Interceptable interceptable = $ic;
@@ -60,8 +60,8 @@ public class d extends h<Long, Bitmap> {
                     return;
                 }
             }
-            this.f76030b = dVar;
-            this.f76029a = j2;
+            this.f76065b = dVar;
+            this.f76064a = j2;
         }
 
         @Override // c.p.a.d.h.i.a
@@ -69,11 +69,11 @@ public class d extends h<Long, Bitmap> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                SoftReference softReference = (SoftReference) this.f76030b.f76028a.remove(Long.valueOf(this.f76029a));
+                SoftReference softReference = (SoftReference) this.f76065b.f76063a.remove(Long.valueOf(this.f76064a));
                 if (softReference == null || softReference.get() == null) {
                     return null;
                 }
-                ((c) softReference.get()).a(this.f76030b.get(Long.valueOf(this.f76029a)));
+                ((c) softReference.get()).a(this.f76065b.get(Long.valueOf(this.f76064a)));
                 return null;
             }
             return invokeL.objValue;
@@ -86,16 +86,16 @@ public class d extends h<Long, Bitmap> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f76031a;
+        public final /* synthetic */ String f76066a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f76032b;
+        public final /* synthetic */ long f76067b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ long f76033c;
+        public final /* synthetic */ long f76068c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d f76034d;
+        public final /* synthetic */ d f76069d;
 
         public b(d dVar, String str, long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -112,10 +112,10 @@ public class d extends h<Long, Bitmap> {
                     return;
                 }
             }
-            this.f76034d = dVar;
-            this.f76031a = str;
-            this.f76032b = j2;
-            this.f76033c = j3;
+            this.f76069d = dVar;
+            this.f76066a = str;
+            this.f76067b = j2;
+            this.f76068c = j3;
         }
 
         @Override // c.p.a.d.h.i.a
@@ -127,7 +127,7 @@ public class d extends h<Long, Bitmap> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 try {
-                    B = e.B(true, 0, this.f76031a, null);
+                    B = e.B(true, 0, this.f76066a, null);
                 } catch (Exception e2) {
                     e = e2;
                     bufferedInputStream = null;
@@ -164,8 +164,8 @@ public class d extends h<Long, Bitmap> {
                         } catch (Exception e3) {
                             e3.printStackTrace();
                         }
-                        e.c.a().q("ttd_pref_monitor", jSONObject, this.f76032b);
-                        this.f76034d.put(Long.valueOf(this.f76033c), decodeStream);
+                        e.c.a().q("ttd_pref_monitor", jSONObject, this.f76067b);
+                        this.f76069d.put(Long.valueOf(this.f76068c), decodeStream);
                         f.E(bufferedInputStream);
                     } catch (Exception e4) {
                         e = e4;
@@ -191,11 +191,11 @@ public class d extends h<Long, Bitmap> {
 
     /* renamed from: com.ss.android.downloadlib.addownload.compliance.d$d  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C2055d {
+    public static class C2057d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f76035a;
+        public static d f76070a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -211,7 +211,7 @@ public class d extends h<Long, Bitmap> {
                     return;
                 }
             }
-            f76035a = new d(null);
+            f76070a = new d(null);
         }
     }
 
@@ -248,13 +248,13 @@ public class d extends h<Long, Bitmap> {
                 return;
             }
         }
-        this.f76028a = new HashMap();
+        this.f76063a = new HashMap();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C2055d.f76035a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C2057d.f76070a : (d) invokeV.objValue;
     }
 
     public void a(long j2, @NonNull c cVar) {
@@ -263,7 +263,7 @@ public class d extends h<Long, Bitmap> {
             if (get(Long.valueOf(j2)) != null) {
                 cVar.a(get(Long.valueOf(j2)));
             } else {
-                this.f76028a.put(Long.valueOf(j2), new SoftReference<>(cVar));
+                this.f76063a.put(Long.valueOf(j2), new SoftReference<>(cVar));
             }
         }
     }
@@ -272,7 +272,7 @@ public class d extends h<Long, Bitmap> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str}) == null) {
             if (get(Long.valueOf(j2)) != null) {
-                SoftReference<c> remove = this.f76028a.remove(Long.valueOf(j2));
+                SoftReference<c> remove = this.f76063a.remove(Long.valueOf(j2));
                 if (remove == null || remove.get() == null) {
                     return;
                 }

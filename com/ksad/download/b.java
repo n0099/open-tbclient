@@ -12,52 +12,52 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f71253a;
+    public static Context f71288a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static File f71254b;
+    public static File f71289b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f71255c;
+    public static a f71290c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f71253a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f71288a : (Context) invokeV.objValue;
     }
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            f71253a = context.getApplicationContext();
+            f71288a = context.getApplicationContext();
         }
     }
 
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            f71255c = aVar;
+            f71290c = aVar;
         }
     }
 
     public static void a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
-            f71254b = file;
+            f71289b = file;
         }
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            f71255c.installApp(a(), str);
+            f71290c.installApp(a(), str);
         }
     }
 
     public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f71254b : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f71289b : (File) invokeV.objValue;
     }
 }

@@ -16,7 +16,7 @@ public class LoadingDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f40462a;
+    public TextView f40466a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialog(Context context) {
@@ -45,21 +45,21 @@ public class LoadingDialog extends Dialog {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             setContentView(R.layout.layout_sapi_liveness_dialog_loading);
             setCanceledOnTouchOutside(false);
-            this.f40462a = (TextView) findViewById(R.id.msg_text);
+            this.f40466a = (TextView) findViewById(R.id.msg_text);
         }
     }
 
     public void setMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f40462a.setText(str);
+            this.f40466a.setText(str);
         }
     }
 
     public void setMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f40462a.setText(i2);
+            this.f40466a.setText(i2);
         }
     }
 

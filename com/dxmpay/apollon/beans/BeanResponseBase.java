@@ -123,7 +123,7 @@ public class BeanResponseBase implements NoProguard {
                 return this.err_msg;
             }
             if (TextUtils.isEmpty(this.result_info)) {
-                return !TextUtils.isEmpty(this.result_string) ? this.result_string : com.baidu.apollon.beans.BeanResponseBase.f37873a;
+                return !TextUtils.isEmpty(this.result_string) ? this.result_string : com.baidu.apollon.beans.BeanResponseBase.f37877a;
             }
             return this.result_info;
         }

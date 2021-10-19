@@ -13,10 +13,10 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f65487a;
+    public static final Charset f65522a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f65488b;
+    public static final Charset f65523b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,8 +32,8 @@ public final class d {
                 return;
             }
         }
-        f65487a = Charset.forName("US-ASCII");
-        f65488b = Charset.forName("UTF-8");
+        f65522a = Charset.forName("US-ASCII");
+        f65523b = Charset.forName("UTF-8");
     }
 
     public static void a(File file) throws IOException {

@@ -18,7 +18,7 @@ public class EventAnalysis {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, Object> f43754a;
+    public Map<String, Object> f43666a;
 
     public EventAnalysis() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class EventAnalysis {
                 return;
             }
         }
-        this.f43754a = new HashMap();
+        this.f43666a = new HashMap();
     }
 
     public static void doEventMerge(JSONArray jSONArray, JSONObject jSONObject) {

@@ -20,16 +20,16 @@ public class RimLivenessBaseDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f40501a;
+    public TextView f40505a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f40502b;
+    public LinearLayout f40506b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f40503c;
+    public Button f40507c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f40504d;
+    public Button f40508d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RimLivenessBaseDialog(Context context) {
@@ -57,10 +57,10 @@ public class RimLivenessBaseDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             setContentView(R.layout.rim_liveness_alert_dialog_base);
-            this.f40501a = (TextView) findViewById(R.id.dialog_title);
-            this.f40502b = (LinearLayout) findViewById(R.id.dialog_content);
-            this.f40503c = (Button) findViewById(R.id.positive_btn);
-            this.f40504d = (Button) findViewById(R.id.negative_btn);
+            this.f40505a = (TextView) findViewById(R.id.dialog_title);
+            this.f40506b = (LinearLayout) findViewById(R.id.dialog_content);
+            this.f40507c = (Button) findViewById(R.id.positive_btn);
+            this.f40508d = (Button) findViewById(R.id.negative_btn);
             setCancelable(false);
         }
     }
@@ -68,7 +68,7 @@ public class RimLivenessBaseDialog extends Dialog {
     public void addContentView(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) this.f40502b, true);
+            LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) this.f40506b, true);
         }
     }
 
@@ -76,17 +76,17 @@ public class RimLivenessBaseDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, onClickListener) == null) {
             findViewById(R.id.btn_line).setVisibility(0);
-            this.f40504d.setVisibility(0);
-            this.f40504d.setText(charSequence);
-            this.f40504d.setOnClickListener(onClickListener);
+            this.f40508d.setVisibility(0);
+            this.f40508d.setText(charSequence);
+            this.f40508d.setOnClickListener(onClickListener);
         }
     }
 
     public void setPositiveBtnClickListener(CharSequence charSequence, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, charSequence, onClickListener) == null) {
-            this.f40503c.setText(charSequence);
-            this.f40503c.setOnClickListener(onClickListener);
+            this.f40507c.setText(charSequence);
+            this.f40507c.setOnClickListener(onClickListener);
         }
     }
 
@@ -102,7 +102,7 @@ public class RimLivenessBaseDialog extends Dialog {
             int dimension = (int) getContext().getResources().getDimension(R.dimen.rim_dimen_20dp);
             textView.setPadding(dimension, dimension, dimension, dimension);
             textView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.f40502b.addView(textView);
+            this.f40506b.addView(textView);
         }
     }
 
@@ -110,7 +110,7 @@ public class RimLivenessBaseDialog extends Dialog {
     public void setTitle(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            this.f40501a.setText(charSequence);
+            this.f40505a.setText(charSequence);
         }
     }
 

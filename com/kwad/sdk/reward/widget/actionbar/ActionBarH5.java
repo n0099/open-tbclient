@@ -24,16 +24,16 @@ public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f73945a;
+    public TextView f73980a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f73946b;
+    public TextView f73981b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f73947c;
+    public AdTemplate f73982c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f73948d;
+    public a f73983d;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -109,19 +109,19 @@ public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             FrameLayout.inflate(context, R.layout.ksad_video_actionbar_h5, this);
-            this.f73945a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
-            this.f73946b = (TextView) findViewById(R.id.ksad_h5_open_btn);
+            this.f73980a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
+            this.f73981b = (TextView) findViewById(R.id.ksad_h5_open_btn);
         }
     }
 
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adTemplate, aVar) == null) {
-            this.f73947c = adTemplate;
-            this.f73948d = aVar;
+            this.f73982c = adTemplate;
+            this.f73983d = aVar;
             AdInfo i2 = c.i(adTemplate);
-            this.f73945a.setText(com.kwad.sdk.core.response.b.a.m(i2));
-            this.f73946b.setText(com.kwad.sdk.core.response.b.a.u(i2));
+            this.f73980a.setText(com.kwad.sdk.core.response.b.a.m(i2));
+            this.f73981b.setText(com.kwad.sdk.core.response.b.a.u(i2));
             setOnClickListener(this);
         }
     }
@@ -130,12 +130,12 @@ public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f73947c, new a.InterfaceC1990a(this) { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f73982c, new a.InterfaceC1992a(this) { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ActionBarH5 f73949a;
+                public final /* synthetic */ ActionBarH5 f73984a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -152,16 +152,16 @@ public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
                             return;
                         }
                     }
-                    this.f73949a = this;
+                    this.f73984a = this;
                 }
 
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1990a
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1992a
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f73949a.f73948d == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f73984a.f73983d == null) {
                         return;
                     }
-                    this.f73949a.f73948d.a();
+                    this.f73984a.f73983d.a();
                 }
             }, null, false);
         }

@@ -17,7 +17,7 @@ public class e extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f12898a;
+    public int f12904a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class e extends b {
                 return;
             }
         }
-        this.f12898a = 0;
+        this.f12904a = 0;
     }
 
     public static ImageOperation e(int i2) {
@@ -63,11 +63,11 @@ public class e extends b {
                 return null;
             }
             c.a.q0.c0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            int i2 = this.f12898a;
+            int i2 = this.f12904a;
             if (i2 == 0 || i2 == 1) {
-                return BitmapHelper.rotateBitmap(bitmap, this.f12898a);
+                return BitmapHelper.rotateBitmap(bitmap, this.f12904a);
             }
-            return (i2 == 2 || i2 == 3) ? BitmapHelper.reversalBitmap(bitmap, this.f12898a) : bitmap;
+            return (i2 == 2 || i2 == 3) ? BitmapHelper.reversalBitmap(bitmap, this.f12904a) : bitmap;
         }
         return (Bitmap) invokeLZ.objValue;
     }
@@ -89,6 +89,6 @@ public class e extends b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null) {
             return;
         }
-        this.f12898a = Integer.parseInt(str);
+        this.f12904a = Integer.parseInt(str);
     }
 }

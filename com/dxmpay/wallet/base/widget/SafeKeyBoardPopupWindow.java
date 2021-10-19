@@ -36,22 +36,22 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
     public View contentView;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f69986e;
+    public Button f70021e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f69987f;
+    public Button f70022f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f69988g;
+    public Button f70023g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f69989h;
+    public Button f70024h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Button f69990i;
+    public Button f70025i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Button f69991j;
+    public Button f70026j;
     public Button k;
     public Button l;
     public Button m;
@@ -99,7 +99,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SafeKeyBoardPopupWindow f69992e;
+        public final /* synthetic */ SafeKeyBoardPopupWindow f70027e;
 
         public b(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
             Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
                     return;
                 }
             }
-            this.f69992e = safeKeyBoardPopupWindow;
+            this.f70027e = safeKeyBoardPopupWindow;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -125,15 +125,15 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f69992e.h();
+                    this.f70027e.h();
                     return false;
                 } else if (motionEvent.getAction() == 1) {
-                    this.f69992e.g();
+                    this.f70027e.g();
                     return false;
-                } else if (motionEvent.getAction() != 2 || this.f69992e.o.isPressed()) {
+                } else if (motionEvent.getAction() != 2 || this.f70027e.o.isPressed()) {
                     return false;
                 } else {
-                    this.f69992e.g();
+                    this.f70027e.g();
                     return false;
                 }
             }
@@ -147,7 +147,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SafeKeyBoardPopupWindow f69993e;
+        public final /* synthetic */ SafeKeyBoardPopupWindow f70028e;
 
         public c(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
             Interceptable interceptable = $ic;
@@ -164,16 +164,16 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
                     return;
                 }
             }
-            this.f69993e = safeKeyBoardPopupWindow;
+            this.f70028e = safeKeyBoardPopupWindow;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int selectionStart = this.f69993e.mySafeEditText.getSelectionStart();
-                int selectionEnd = this.f69993e.mySafeEditText.getSelectionEnd();
-                Editable text = this.f69993e.mySafeEditText.getText();
+                int selectionStart = this.f70028e.mySafeEditText.getSelectionStart();
+                int selectionEnd = this.f70028e.mySafeEditText.getSelectionEnd();
+                Editable text = this.f70028e.mySafeEditText.getText();
                 if (selectionStart >= 0) {
                     if (selectionStart < selectionEnd) {
                         text.replace(selectionStart, selectionEnd, "", 0, 0);
@@ -193,10 +193,10 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f69994e;
+        public final /* synthetic */ View f70029e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SafeKeyBoardPopupWindow f69995f;
+        public final /* synthetic */ SafeKeyBoardPopupWindow f70030f;
 
         public d(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow, View view) {
             Interceptable interceptable = $ic;
@@ -213,29 +213,29 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
                     return;
                 }
             }
-            this.f69995f = safeKeyBoardPopupWindow;
-            this.f69994e = view;
+            this.f70030f = safeKeyBoardPopupWindow;
+            this.f70029e = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int selectionStart = this.f69995f.mySafeEditText.getSelectionStart();
-                int selectionEnd = this.f69995f.mySafeEditText.getSelectionEnd();
-                Editable text = this.f69995f.mySafeEditText.getText();
+                int selectionStart = this.f70030f.mySafeEditText.getSelectionStart();
+                int selectionEnd = this.f70030f.mySafeEditText.getSelectionEnd();
+                Editable text = this.f70030f.mySafeEditText.getText();
                 if (selectionStart >= 0) {
                     if (selectionStart < selectionEnd) {
-                        text.replace(selectionStart, selectionEnd, this.f69994e.getTag().toString(), 0, this.f69994e.getTag().toString().length());
+                        text.replace(selectionStart, selectionEnd, this.f70029e.getTag().toString(), 0, this.f70029e.getTag().toString().length());
                     } else if (selectionStart == selectionEnd) {
-                        text.replace(selectionStart, selectionStart, this.f69994e.getTag().toString(), 0, this.f69994e.getTag().toString().length());
+                        text.replace(selectionStart, selectionStart, this.f70029e.getTag().toString(), 0, this.f70029e.getTag().toString().length());
                     } else {
-                        text.replace(selectionEnd, selectionStart, this.f69994e.getTag().toString(), 0, this.f69994e.getTag().toString().length());
-                        int selectionEnd2 = this.f69995f.mySafeEditText.getSelectionEnd() + this.f69994e.getTag().toString().length();
-                        if (selectionEnd2 < 0 || selectionEnd2 > this.f69995f.mySafeEditText.getText().toString().length()) {
+                        text.replace(selectionEnd, selectionStart, this.f70029e.getTag().toString(), 0, this.f70029e.getTag().toString().length());
+                        int selectionEnd2 = this.f70030f.mySafeEditText.getSelectionEnd() + this.f70029e.getTag().toString().length();
+                        if (selectionEnd2 < 0 || selectionEnd2 > this.f70030f.mySafeEditText.getText().toString().length()) {
                             return;
                         }
-                        Selection.setSelection(this.f69995f.mySafeEditText.getEditableText(), selectionEnd2);
+                        Selection.setSelection(this.f70030f.mySafeEditText.getEditableText(), selectionEnd2);
                     }
                 }
             }
@@ -248,7 +248,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<SafeKeyBoardPopupWindow> f69996a;
+        public WeakReference<SafeKeyBoardPopupWindow> f70031a;
 
         public e(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
             Interceptable interceptable = $ic;
@@ -265,7 +265,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
                     return;
                 }
             }
-            this.f69996a = new WeakReference<>(safeKeyBoardPopupWindow);
+            this.f70031a = new WeakReference<>(safeKeyBoardPopupWindow);
         }
 
         @Override // android.os.Handler
@@ -273,7 +273,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f69996a.get();
+                SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f70031a.get();
                 if (safeKeyBoardPopupWindow == null) {
                     return;
                 }
@@ -381,12 +381,12 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
             setAnimationStyle(ResUtils.style(this.mContext, "dxm_wallet_safekeyboard_popwindown_anim"));
             c.f.b.g.b.a().d(this);
             this.n = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn0"));
-            this.f69986e = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn1"));
-            this.f69987f = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn2"));
-            this.f69988g = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn3"));
-            this.f69989h = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn4"));
-            this.f69990i = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn5"));
-            this.f69991j = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn6"));
+            this.f70021e = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn1"));
+            this.f70022f = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn2"));
+            this.f70023g = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn3"));
+            this.f70024h = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn4"));
+            this.f70025i = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn5"));
+            this.f70026j = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn6"));
             this.k = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn7"));
             this.l = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn8"));
             this.m = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn9"));
@@ -395,12 +395,12 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
             this.o = imageButton;
             AccessibilityUtils.setContentDescription(imageButton, ResUtils.getString(this.mContext, "dxm_wallet_base_delete"));
             this.n.setOnClickListener(this);
-            this.f69986e.setOnClickListener(this);
-            this.f69987f.setOnClickListener(this);
-            this.f69988g.setOnClickListener(this);
-            this.f69989h.setOnClickListener(this);
-            this.f69990i.setOnClickListener(this);
-            this.f69991j.setOnClickListener(this);
+            this.f70021e.setOnClickListener(this);
+            this.f70022f.setOnClickListener(this);
+            this.f70023g.setOnClickListener(this);
+            this.f70024h.setOnClickListener(this);
+            this.f70025i.setOnClickListener(this);
+            this.f70026j.setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.l.setOnClickListener(this);
             this.m.setOnClickListener(this);
@@ -453,24 +453,24 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
             Button button = this.n;
             button.setText("" + c2[0]);
             this.n.setTag(Integer.valueOf(c2[0]));
-            Button button2 = this.f69986e;
+            Button button2 = this.f70021e;
             button2.setText("" + c2[1]);
-            this.f69986e.setTag(Integer.valueOf(c2[1]));
-            Button button3 = this.f69987f;
+            this.f70021e.setTag(Integer.valueOf(c2[1]));
+            Button button3 = this.f70022f;
             button3.setText("" + c2[2]);
-            this.f69987f.setTag(Integer.valueOf(c2[2]));
-            Button button4 = this.f69988g;
+            this.f70022f.setTag(Integer.valueOf(c2[2]));
+            Button button4 = this.f70023g;
             button4.setText("" + c2[3]);
-            this.f69988g.setTag(Integer.valueOf(c2[3]));
-            Button button5 = this.f69989h;
+            this.f70023g.setTag(Integer.valueOf(c2[3]));
+            Button button5 = this.f70024h;
             button5.setText("" + c2[4]);
-            this.f69989h.setTag(Integer.valueOf(c2[4]));
-            Button button6 = this.f69990i;
+            this.f70024h.setTag(Integer.valueOf(c2[4]));
+            Button button6 = this.f70025i;
             button6.setText("" + c2[5]);
-            this.f69990i.setTag(Integer.valueOf(c2[5]));
-            Button button7 = this.f69991j;
+            this.f70025i.setTag(Integer.valueOf(c2[5]));
+            Button button7 = this.f70026j;
             button7.setText("" + c2[6]);
-            this.f69991j.setTag(Integer.valueOf(c2[6]));
+            this.f70026j.setTag(Integer.valueOf(c2[6]));
             Button button8 = this.k;
             button8.setText("" + c2[7]);
             this.k.setTag(Integer.valueOf(c2[7]));

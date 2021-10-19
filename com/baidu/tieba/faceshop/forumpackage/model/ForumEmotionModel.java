@@ -27,16 +27,16 @@ public class ForumEmotionModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50815e;
+    public int f50742e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f50816f;
+    public boolean f50743f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a.r0.r0.y.b.b f50817g;
+    public final c.a.r0.s0.y.b.b f50744g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HttpMessageListener f50818h;
+    public final HttpMessageListener f50745h;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -44,7 +44,7 @@ public class ForumEmotionModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumEmotionModel f50819a;
+        public final /* synthetic */ ForumEmotionModel f50746a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ForumEmotionModel forumEmotionModel, int i2) {
@@ -64,7 +64,7 @@ public class ForumEmotionModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f50819a = forumEmotionModel;
+            this.f50746a = forumEmotionModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,13 +78,13 @@ public class ForumEmotionModel extends BdBaseModel {
                     bVar = (b) extra;
                 }
                 ForumEmotionCenterResponseMessage forumEmotionCenterResponseMessage = (ForumEmotionCenterResponseMessage) httpResponsedMessage;
-                ForumEmotionModel forumEmotionModel = this.f50819a;
+                ForumEmotionModel forumEmotionModel = this.f50746a;
                 ForumEmotionData forumEmotionData = forumEmotionCenterResponseMessage.data;
-                forumEmotionModel.f50816f = forumEmotionData != null && forumEmotionData.has_more == 1;
+                forumEmotionModel.f50743f = forumEmotionData != null && forumEmotionData.has_more == 1;
                 if (bVar != null) {
                     if (forumEmotionCenterResponseMessage.getStatusCode() == 200) {
                         if (forumEmotionCenterResponseMessage.getError() == 0 && forumEmotionCenterResponseMessage.data != null) {
-                            if (this.f50819a.f50815e == 1) {
+                            if (this.f50746a.f50742e == 1) {
                                 bVar.onRefreshSuccess(forumEmotionCenterResponseMessage.data);
                                 return;
                             } else {
@@ -128,25 +128,25 @@ public class ForumEmotionModel extends BdBaseModel {
                 return;
             }
         }
-        this.f50815e = 1;
-        this.f50816f = true;
-        this.f50817g = new c.a.r0.r0.y.b.b();
-        this.f50818h = new a(this, CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
+        this.f50742e = 1;
+        this.f50743f = true;
+        this.f50744g = new c.a.r0.s0.y.b.b();
+        this.f50745h = new a(this, CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
         registerTask();
-        this.f50818h.setTag(getUniqueId());
-        this.f50818h.setSelfListener(true);
-        registerListener(this.f50818h);
+        this.f50745h.setTag(getUniqueId());
+        this.f50745h.setSelfListener(true);
+        registerListener(this.f50745h);
     }
 
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
-            int i2 = this.f50815e + 1;
-            this.f50815e = i2;
+            int i2 = this.f50742e + 1;
+            this.f50742e = i2;
             httpMessage.addParam("pn", i2);
             httpMessage.addParam("rn", 10);
-            httpMessage.addParam("forum_type", this.f50817g.a() == 1 ? "like_forum" : "all_forum");
+            httpMessage.addParam("forum_type", this.f50744g.a() == 1 ? "like_forum" : "all_forum");
             httpMessage.setExtra(bVar);
             sendMessage(httpMessage);
         }
@@ -155,33 +155,33 @@ public class ForumEmotionModel extends BdBaseModel {
     public void B(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f50815e = 1;
+            this.f50742e = 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
-            httpMessage.addParam("pn", this.f50815e);
+            httpMessage.addParam("pn", this.f50742e);
             httpMessage.addParam("rn", 10);
-            httpMessage.addParam("forum_type", this.f50817g.a() == 1 ? "like_forum" : "all_forum");
+            httpMessage.addParam("forum_type", this.f50744g.a() == 1 ? "like_forum" : "all_forum");
             httpMessage.setExtra(bVar);
             sendMessage(httpMessage);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
+            return true;
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -195,15 +195,15 @@ public class ForumEmotionModel extends BdBaseModel {
         }
     }
 
-    public c.a.r0.r0.y.b.b y() {
+    public c.a.r0.s0.y.b.b y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f50817g : (c.a.r0.r0.y.b.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f50744g : (c.a.r0.s0.y.b.b) invokeV.objValue;
     }
 
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f50816f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f50743f : invokeV.booleanValue;
     }
 }

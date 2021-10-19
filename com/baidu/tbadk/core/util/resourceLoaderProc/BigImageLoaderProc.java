@@ -11,7 +11,7 @@ import c.a.e.e.l.e;
 import c.a.e.e.p.j;
 import c.a.e.e.p.l;
 import c.a.e.l.d.a;
-import c.a.q0.d1.s;
+import c.a.q0.d1.r;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -133,7 +133,7 @@ public class BigImageLoaderProc implements e<a> {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && s.b(str)) {
+            if (str != null && r.b(str)) {
                 String[] split2 = str.split("/");
                 if (split2.length > 3) {
                     try {
@@ -173,7 +173,7 @@ public class BigImageLoaderProc implements e<a> {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            if (str != null && s.b(str)) {
+            if (str != null && r.b(str)) {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
                 int lastIndexOf3 = str.lastIndexOf(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX);

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.e.l.e.a;
-import c.a.r0.r0.x.c.b;
+import c.a.r0.s0.x.c.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,7 +28,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public EmotionHorizontalView f50726a;
+        public EmotionHorizontalView f50653a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public EmotionGridViewHolder(View view) {
@@ -48,16 +48,16 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
                     return;
                 }
             }
-            this.f50726a = (EmotionHorizontalView) view;
+            this.f50653a = (EmotionHorizontalView) view;
         }
 
         public void setData(b bVar) {
             EmotionHorizontalView emotionHorizontalView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.f50726a) == null || bVar == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.f50653a) == null || bVar == null) {
                 return;
             }
-            emotionHorizontalView.setData(bVar.f24426e);
+            emotionHorizontalView.setData(bVar.f24601e);
         }
     }
 

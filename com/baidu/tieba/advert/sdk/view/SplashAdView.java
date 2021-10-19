@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import c.a.r0.y2.l0.g;
+import c.a.r0.z2.l0.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,7 +28,7 @@ public class SplashAdView extends BCAdView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.t.a.f.b f49429e;
+    public c.a.r0.u.a.f.b f49356e;
     public boolean isVideoAd;
     public ScalableVideoView scalableVideoView;
 
@@ -38,7 +38,7 @@ public class SplashAdView extends BCAdView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f49430e;
+        public final /* synthetic */ SplashAdView f49357e;
 
         public a(SplashAdView splashAdView) {
             Interceptable interceptable = $ic;
@@ -55,14 +55,14 @@ public class SplashAdView extends BCAdView {
                     return;
                 }
             }
-            this.f49430e = splashAdView;
+            this.f49357e = splashAdView;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f49430e.scalableVideoView.start();
+                this.f49357e.scalableVideoView.start();
             }
         }
     }
@@ -73,7 +73,7 @@ public class SplashAdView extends BCAdView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f49431e;
+        public final /* synthetic */ SplashAdView f49358e;
 
         public b(SplashAdView splashAdView) {
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class SplashAdView extends BCAdView {
                     return;
                 }
             }
-            this.f49431e = splashAdView;
+            this.f49358e = splashAdView;
         }
 
         @Override // android.media.MediaPlayer.OnErrorListener
@@ -98,9 +98,9 @@ public class SplashAdView extends BCAdView {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3)) == null) {
-                c.a.r0.t.a.j.a.a();
-                this.f49431e.f49429e.f24908d = "";
-                c.a.r0.t.a.j.a.h(this.f49431e.f49429e);
+                c.a.r0.u.a.j.a.a();
+                this.f49358e.f49356e.f25083d = "";
+                c.a.r0.u.a.j.a.h(this.f49358e.f49356e);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://timeout"));
                 return false;
             }
@@ -114,7 +114,7 @@ public class SplashAdView extends BCAdView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f49432e;
+        public final /* synthetic */ SplashAdView f49359e;
 
         public c(SplashAdView splashAdView) {
             Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class SplashAdView extends BCAdView {
                     return;
                 }
             }
-            this.f49432e = splashAdView;
+            this.f49359e = splashAdView;
         }
 
         @Override // android.media.MediaPlayer.OnCompletionListener
@@ -149,7 +149,7 @@ public class SplashAdView extends BCAdView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f49433e;
+        public final /* synthetic */ SplashAdView f49360e;
 
         public d(SplashAdView splashAdView) {
             Interceptable interceptable = $ic;
@@ -166,25 +166,25 @@ public class SplashAdView extends BCAdView {
                     return;
                 }
             }
-            this.f49433e = splashAdView;
+            this.f49360e = splashAdView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || c.a.r0.t.a.j.a.f()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || c.a.r0.u.a.j.a.f()) {
                 return;
             }
-            AdInfo adInfo = this.f49433e.mCacheAdInfo;
+            AdInfo adInfo = this.f49360e.mCacheAdInfo;
             if (adInfo.advisible != 0) {
-                c.a.r0.y2.l0.e.b().d(g.k(adInfo.extraParam, 2, adInfo.placeId, "video"));
+                c.a.r0.z2.l0.e.b().d(g.k(adInfo.extraParam, 2, adInfo.placeId, "video"));
             }
-            SplashAdView splashAdView = this.f49433e;
-            if (splashAdView.mCallBack == null || TextUtils.isEmpty(splashAdView.f49429e.f24909e)) {
+            SplashAdView splashAdView = this.f49360e;
+            if (splashAdView.mCallBack == null || TextUtils.isEmpty(splashAdView.f49356e.f25084e)) {
                 return;
             }
-            SplashAdView splashAdView2 = this.f49433e;
-            splashAdView2.mCallBack.a(splashAdView2.f49429e.f24909e);
+            SplashAdView splashAdView2 = this.f49360e;
+            splashAdView2.mCallBack.a(splashAdView2.f49356e.f25084e);
         }
     }
 
@@ -194,7 +194,7 @@ public class SplashAdView extends BCAdView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f49434e;
+        public final /* synthetic */ SplashAdView f49361e;
 
         public e(SplashAdView splashAdView) {
             Interceptable interceptable = $ic;
@@ -211,25 +211,25 @@ public class SplashAdView extends BCAdView {
                     return;
                 }
             }
-            this.f49434e = splashAdView;
+            this.f49361e = splashAdView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || c.a.r0.t.a.j.a.f()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || c.a.r0.u.a.j.a.f()) {
                 return;
             }
-            AdInfo adInfo = this.f49434e.mCacheAdInfo;
+            AdInfo adInfo = this.f49361e.mCacheAdInfo;
             if (adInfo.advisible != 0) {
-                c.a.r0.y2.l0.e.b().d(g.k(adInfo.extraParam, 2, adInfo.placeId, "image"));
+                c.a.r0.z2.l0.e.b().d(g.k(adInfo.extraParam, 2, adInfo.placeId, "image"));
             }
-            SplashAdView splashAdView = this.f49434e;
-            if (splashAdView.mCallBack == null || TextUtils.isEmpty(splashAdView.f49429e.f24906b)) {
+            SplashAdView splashAdView = this.f49361e;
+            if (splashAdView.mCallBack == null || TextUtils.isEmpty(splashAdView.f49356e.f25081b)) {
                 return;
             }
-            SplashAdView splashAdView2 = this.f49434e;
-            splashAdView2.mCallBack.a(splashAdView2.f49429e.f24906b);
+            SplashAdView splashAdView2 = this.f49361e;
+            splashAdView2.mCallBack.a(splashAdView2.f49356e.f25081b);
         }
     }
 
@@ -253,14 +253,14 @@ public class SplashAdView extends BCAdView {
             }
         }
         this.redirectType = redirectType;
-        this.mSplashInfoCache = new c.a.r0.t.a.f.c(tbPageContext.getPageActivity());
+        this.mSplashInfoCache = new c.a.r0.u.a.f.c(tbPageContext.getPageActivity());
         this.mCacheAdInfo = new AdInfo();
     }
 
-    public c.a.r0.t.a.f.b getEntryInfoData() {
+    public c.a.r0.u.a.f.b getEntryInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49429e : (c.a.r0.t.a.f.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49356e : (c.a.r0.u.a.f.b) invokeV.objValue;
     }
 
     public boolean isCanShow() {
@@ -288,17 +288,17 @@ public class SplashAdView extends BCAdView {
             String str = this.placeId;
             jsonToObject.placeId = str;
             if (jsonToObject.advisible == 0) {
-                c.a.r0.y2.l0.e.b().d(g.j(jsonToObject.extraParam, 3, str));
+                c.a.r0.z2.l0.e.b().d(g.j(jsonToObject.extraParam, 3, str));
             }
-            c.a.r0.t.a.f.b b2 = c.a.r0.t.a.f.b.b(c.a.r0.t.a.j.a.d());
-            this.f49429e = b2;
+            c.a.r0.u.a.f.b b2 = c.a.r0.u.a.f.b.b(c.a.r0.u.a.j.a.d());
+            this.f49356e = b2;
             if (b2.c()) {
-                if (this.f49429e.d()) {
+                if (this.f49356e.d()) {
                     this.isVideoAd = true;
-                    String str2 = this.f49429e.f24908d;
+                    String str2 = this.f49356e.f25083d;
                     File file = new File(str2);
                     if (file.exists()) {
-                        c.a.r0.t.a.j.a.b(file);
+                        c.a.r0.u.a.j.a.b(file);
                         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.mWidth, this.mHeight);
                         ScalableVideoView scalableVideoView = new ScalableVideoView(this.mContext);
                         this.scalableVideoView = scalableVideoView;
@@ -312,23 +312,23 @@ public class SplashAdView extends BCAdView {
                             this.scalableVideoView.setOnClickListener(new d(this));
                             addView(this.scalableVideoView, layoutParams);
                             AdInfo adInfo = this.mCacheAdInfo;
-                            c.a.r0.y2.l0.e.b().d(g.k(adInfo.extraParam, 3, adInfo.placeId, "video"));
+                            c.a.r0.z2.l0.e.b().d(g.k(adInfo.extraParam, 3, adInfo.placeId, "video"));
                             return true;
                         } catch (Exception e2) {
                             e2.printStackTrace();
-                            c.a.r0.t.a.j.a.a();
-                            c.a.r0.t.a.f.b bVar = this.f49429e;
-                            bVar.f24908d = "";
-                            c.a.r0.t.a.j.a.h(bVar);
+                            c.a.r0.u.a.j.a.a();
+                            c.a.r0.u.a.f.b bVar = this.f49356e;
+                            bVar.f25083d = "";
+                            c.a.r0.u.a.j.a.h(bVar);
                             return false;
                         }
                     }
-                    c.a.r0.t.a.j.a.a();
-                    c.a.r0.t.a.f.b bVar2 = this.f49429e;
-                    bVar2.f24908d = "";
-                    c.a.r0.t.a.j.a.h(bVar2);
+                    c.a.r0.u.a.j.a.a();
+                    c.a.r0.u.a.f.b bVar2 = this.f49356e;
+                    bVar2.f25083d = "";
+                    c.a.r0.u.a.j.a.h(bVar2);
                     return false;
-                } else if (!TextUtils.isEmpty(this.f49429e.f24905a)) {
+                } else if (!TextUtils.isEmpty(this.f49356e.f25080a)) {
                     if (this.mAdImageView != null) {
                         this.mAdImageView = null;
                     }
@@ -339,14 +339,14 @@ public class SplashAdView extends BCAdView {
                     this.mAdImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     addView(this.mAdImageView, new RelativeLayout.LayoutParams(this.mWidth, this.mHeight));
                     AdInfo adInfo2 = this.mCacheAdInfo;
-                    c.a.r0.y2.l0.e.b().d(g.k(adInfo2.extraParam, 3, adInfo2.placeId, "image"));
+                    c.a.r0.z2.l0.e.b().d(g.k(adInfo2.extraParam, 3, adInfo2.placeId, "image"));
                     return true;
                 } else {
-                    c.a.r0.t.a.j.a.a();
+                    c.a.r0.u.a.j.a.a();
                 }
             } else {
-                c.a.r0.t.a.j.a.c();
-                c.a.r0.t.a.j.a.a();
+                c.a.r0.u.a.j.a.c();
+                c.a.r0.u.a.j.a.a();
             }
             return false;
         }

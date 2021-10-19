@@ -14,10 +14,10 @@ public class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f74296a;
+    public static boolean f74331a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Location f74297b;
+    public static Location f74332b;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Nullable
@@ -25,8 +25,8 @@ public class o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (f74296a || f74297b != null || context == null) {
-                return f74297b;
+            if (f74331a || f74332b != null || context == null) {
+                return f74332b;
             }
             if (com.kwad.sdk.core.config.c.a(64L)) {
                 return null;
@@ -34,17 +34,17 @@ public class o {
             try {
                 LocationManager locationManager = (LocationManager) context.getSystemService("location");
                 if (locationManager.isProviderEnabled("gps")) {
-                    f74297b = a(context, locationManager);
+                    f74332b = a(context, locationManager);
                 }
-                if (f74297b == null && locationManager.isProviderEnabled("network")) {
-                    f74297b = b(context, locationManager);
+                if (f74332b == null && locationManager.isProviderEnabled("network")) {
+                    f74332b = b(context, locationManager);
                 }
-                if (f74297b == null && locationManager.isProviderEnabled("passive")) {
-                    f74297b = c(context, locationManager);
+                if (f74332b == null && locationManager.isProviderEnabled("passive")) {
+                    f74332b = c(context, locationManager);
                 }
-                return f74297b;
+                return f74332b;
             } catch (Exception e2) {
-                f74296a = true;
+                f74331a = true;
                 com.kwad.sdk.core.d.a.b(e2);
                 return null;
             }
@@ -61,13 +61,13 @@ public class o {
                 if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("gps");
                     if (lastKnownLocation == null) {
-                        f74296a = true;
+                        f74331a = true;
                     }
                     return lastKnownLocation;
                 }
                 return null;
             } catch (Exception e2) {
-                f74296a = true;
+                f74331a = true;
                 com.kwad.sdk.core.d.a.b(e2);
                 return null;
             }
@@ -84,13 +84,13 @@ public class o {
                 if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") == 0 || ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("network");
                     if (lastKnownLocation == null) {
-                        f74296a = true;
+                        f74331a = true;
                     }
                     return lastKnownLocation;
                 }
                 return null;
             } catch (Exception e2) {
-                f74296a = true;
+                f74331a = true;
                 com.kwad.sdk.core.d.a.b(e2);
                 return null;
             }
@@ -107,13 +107,13 @@ public class o {
                 if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("passive");
                     if (lastKnownLocation == null) {
-                        f74296a = true;
+                        f74331a = true;
                     }
                     return lastKnownLocation;
                 }
                 return null;
             } catch (Exception e2) {
-                f74296a = true;
+                f74331a = true;
                 com.kwad.sdk.core.d.a.b(e2);
                 return null;
             }

@@ -8,7 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import c.a.q0.a.w;
 import c.a.q0.h0.c;
-import c.a.r0.c2.b;
+import c.a.r0.d2.b;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -34,7 +34,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public static final String FRAGMENTS_TAG = "android:support:fragments";
     public static final String SCHEME_MY_COLLECT = "tbmycollection://";
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.c2.a mController;
+    public c.a.r0.d2.a mController;
     public CustomMessageListener mEditorEnableListener;
 
     /* loaded from: classes7.dex */
@@ -43,7 +43,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CollectTabActivity f54585a;
+        public final /* synthetic */ CollectTabActivity f54516a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CollectTabActivity collectTabActivity, int i2) {
@@ -63,7 +63,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f54585a = collectTabActivity;
+            this.f54516a = collectTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,10 +74,10 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean(CollectFragment.EDITOR_ENABLE_EXTRA, true);
                 int i2 = bundle.getInt(CollectFragment.FRAGMENT_TYPE, -1);
-                if (i2 == -1 || i2 != this.f54585a.mController.f()) {
+                if (i2 == -1 || i2 != this.f54516a.mController.f()) {
                     return;
                 }
-                this.f54585a.mController.k(z);
+                this.f54516a.mController.k(z);
             }
         }
     }
@@ -137,7 +137,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 if (fragmentTabStructure == null) {
                     return;
                 }
-                fragmentTabStructure.f13463a.setArguments(new Bundle());
+                fragmentTabStructure.f13471a.setArguments(new Bundle());
             }
             this.mController.h(aVar.c());
         }
@@ -170,7 +170,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.mController.d()) {
             boolean z = !this.mController.i();
             if (z) {
-                c.a.r0.c2.c.a("c14067");
+                c.a.r0.d2.c.a("c14067");
             }
             this.mController.b(z);
         }
@@ -182,7 +182,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.collect_tab_activity);
-            this.mController = new c.a.r0.c2.a(this);
+            this.mController = new c.a.r0.d2.a(this);
             registerListener(this.mEditorEnableListener);
             initTabsOnActivityCreated();
             checkSchemeFromIntent(getIntent());
@@ -213,7 +213,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            c.a.r0.c2.c.a("c14061");
+            c.a.r0.d2.c.a("c14061");
             b.b().f(true);
             b.b().e(false);
             NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);

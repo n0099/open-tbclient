@@ -30,16 +30,16 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53125a;
+        public String f53056a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53126b;
+        public int f53057b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f53127c;
+        public String f53058c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f53128d;
+        public int f53059d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -104,10 +104,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        aVar.f53125a = k.getDateStringMouth(date);
-                        aVar.f53126b = msgInfo.type.intValue();
-                        aVar.f53127c = msgInfo.content;
-                        aVar.f53128d = msgInfo.id.intValue();
+                        aVar.f53056a = k.getDateStringMouth(date);
+                        aVar.f53057b = msgInfo.type.intValue();
+                        aVar.f53058c = msgInfo.content;
+                        aVar.f53059d = msgInfo.id.intValue();
                         this.msg.add(aVar);
                     }
                 }

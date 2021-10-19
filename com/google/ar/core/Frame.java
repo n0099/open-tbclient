@@ -15,7 +15,7 @@ public class Frame {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f70551a;
+    public long f70586a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,8 +47,8 @@ public class Frame {
                 return;
             }
         }
-        this.f70551a = 0L;
-        this.f70551a = 0L;
+        this.f70586a = 0L;
+        this.f70586a = 0L;
     }
 
     private native long nativeAcquireCameraImage(long j2, long j3);
@@ -78,7 +78,7 @@ public class Frame {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.f70551a;
+            long j2 = this.f70586a;
             if (j2 != 0) {
                 nativeDestroyFrame(j2);
             }

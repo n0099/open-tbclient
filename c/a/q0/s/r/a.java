@@ -22,19 +22,19 @@ public class a extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f14383a;
+    public static a f14403a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ConcurrentHashMap<String, Integer> f14384b;
+    public static ConcurrentHashMap<String, Integer> f14404b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<String> f14385c;
+    public static ArrayList<String> f14405c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ConcurrentHashMap<String, l<byte[]>> f14386d;
+    public static ConcurrentHashMap<String, l<byte[]>> f14406d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ConcurrentHashMap<String, l<String>> f14387e;
+    public static ConcurrentHashMap<String, l<String>> f14407e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,63 +51,63 @@ public class a extends CustomMessageListener {
             }
         }
         ConcurrentHashMap<String, Integer> concurrentHashMap = new ConcurrentHashMap<>();
-        f14384b = concurrentHashMap;
+        f14404b = concurrentHashMap;
         concurrentHashMap.put("tb.pb_mark", 50);
-        f14384b.put("tb.pb_history", 300);
-        f14384b.put("tb.pb_normal", 1);
-        f14384b.put("tb.pb_editor", 50);
-        f14384b.put("tb.live_hotlist", 20);
-        f14384b.put("tb.live_hotlist", 20);
-        f14384b.put("tb.my_pages", 5);
-        f14384b.put("tb.my_forums", 3);
-        f14384b.put("tb.my_bookmarks", 3);
-        f14384b.put("tb.my_posts", 3);
-        f14384b.put("tb.eva_posts", 50);
-        f14384b.put("tb.im_frsgroup", 50);
-        f14384b.put("tb.im_hotgroup", 30);
-        f14384b.put("tb.im_groupinfo", 50);
-        f14384b.put("tb.im_groupactivity", 50);
-        f14384b.put("tb.im_entergroup", 10);
-        f14384b.put("tb.im_enterforum_groupinfo", 10);
-        f14384b.put("tb.im_group_setting", 3);
-        f14384b.put("tb.im_personal_chat_setting", 3);
-        f14384b.put("tb.im_official_chat_setting", 3);
-        f14384b.put("tb.im_group_search_history", 50);
-        f14384b.put("tb.im_official_history", 50);
-        f14384b.put("tb.im_recommend_detail", 10);
-        f14384b.put("tb.square", 1);
-        f14384b.put("tb.first_dir", 1);
-        f14384b.put("tb.forum_rank", 20);
-        f14384b.put("tb.pic_gif", 50);
-        f14384b.put("tb.official_bar_menu", 1000);
-        f14384b.put("tb.friend_feed", 20);
-        f14384b.put("net_err_record", 30);
-        f14384b.put("tb_face_package", 30);
-        f14384b.put("tb.recommend_friend", 10);
-        f14384b.put("tb.searchperson_history", 5);
-        f14384b.put("tb.game_center_home", 20);
-        f14384b.put("tb.game_center_list", 20);
-        f14384b.put("tb.person_wallet_new", 10);
-        f14384b.put("tb.frs_hottopic", 100);
+        f14404b.put("tb.pb_history", 300);
+        f14404b.put("tb.pb_normal", 1);
+        f14404b.put("tb.pb_editor", 50);
+        f14404b.put("tb.live_hotlist", 20);
+        f14404b.put("tb.live_hotlist", 20);
+        f14404b.put("tb.my_pages", 5);
+        f14404b.put("tb.my_forums", 3);
+        f14404b.put("tb.my_bookmarks", 3);
+        f14404b.put("tb.my_posts", 3);
+        f14404b.put("tb.eva_posts", 50);
+        f14404b.put("tb.im_frsgroup", 50);
+        f14404b.put("tb.im_hotgroup", 30);
+        f14404b.put("tb.im_groupinfo", 50);
+        f14404b.put("tb.im_groupactivity", 50);
+        f14404b.put("tb.im_entergroup", 10);
+        f14404b.put("tb.im_enterforum_groupinfo", 10);
+        f14404b.put("tb.im_group_setting", 3);
+        f14404b.put("tb.im_personal_chat_setting", 3);
+        f14404b.put("tb.im_official_chat_setting", 3);
+        f14404b.put("tb.im_group_search_history", 50);
+        f14404b.put("tb.im_official_history", 50);
+        f14404b.put("tb.im_recommend_detail", 10);
+        f14404b.put("tb.square", 1);
+        f14404b.put("tb.first_dir", 1);
+        f14404b.put("tb.forum_rank", 20);
+        f14404b.put("tb.pic_gif", 50);
+        f14404b.put("tb.official_bar_menu", 1000);
+        f14404b.put("tb.friend_feed", 20);
+        f14404b.put("net_err_record", 30);
+        f14404b.put("tb_face_package", 30);
+        f14404b.put("tb.recommend_friend", 10);
+        f14404b.put("tb.searchperson_history", 5);
+        f14404b.put("tb.game_center_home", 20);
+        f14404b.put("tb.game_center_list", 20);
+        f14404b.put("tb.person_wallet_new", 10);
+        f14404b.put("tb.frs_hottopic", 100);
         ArrayList<String> arrayList = new ArrayList<>();
-        f14385c = arrayList;
+        f14405c = arrayList;
         arrayList.add("tb.ala.gift_list");
-        f14385c.add("tb.square");
-        f14385c.add("tb.first_dir");
-        f14385c.add("tb.forum_rank");
-        f14385c.add("tb.im_group_setting");
-        f14385c.add("tb.im_personal_chat_setting");
-        f14385c.add("tb.im_official_chat_setting");
-        f14385c.add("net_err_record");
-        f14385c.add("tb_user_profile");
-        f14385c.add("tb_forum_recommend");
-        f14385c.add("tb.ad_killer_tags");
-        f14385c.add("tb.manga.settings");
-        f14385c.add("tb.share_add_experienced");
-        f14385c.add("tb.write_privacy_state_space");
-        f14385c.add("tb.concern_page_all");
-        f14387e = new ConcurrentHashMap<>();
-        f14386d = new ConcurrentHashMap<>();
+        f14405c.add("tb.square");
+        f14405c.add("tb.first_dir");
+        f14405c.add("tb.forum_rank");
+        f14405c.add("tb.im_group_setting");
+        f14405c.add("tb.im_personal_chat_setting");
+        f14405c.add("tb.im_official_chat_setting");
+        f14405c.add("net_err_record");
+        f14405c.add("tb_user_profile");
+        f14405c.add("tb_forum_recommend");
+        f14405c.add("tb.ad_killer_tags");
+        f14405c.add("tb.manga.settings");
+        f14405c.add("tb.share_add_experienced");
+        f14405c.add("tb.write_privacy_state_space");
+        f14405c.add("tb.concern_page_all");
+        f14407e = new ConcurrentHashMap<>();
+        f14406d = new ConcurrentHashMap<>();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001012));
     }
 
@@ -140,10 +140,10 @@ public class a extends CustomMessageListener {
                 if (str2 != null) {
                     str = str + str2;
                 }
-                l<byte[]> lVar = f14386d.get(str);
+                l<byte[]> lVar = f14406d.get(str);
                 if (lVar != null) {
                     BdCacheService.l().k(lVar);
-                    f14386d.remove(str);
+                    f14406d.remove(str);
                 }
             }
         }
@@ -168,11 +168,11 @@ public class a extends CustomMessageListener {
                 if (str2 != null) {
                     str = str + str2;
                 }
-                l<String> lVar = f14387e.get(str);
+                l<String> lVar = f14407e.get(str);
                 if (lVar != null) {
                     try {
                         BdCacheService.l().k(lVar);
-                        f14387e.remove(str);
+                        f14407e.remove(str);
                     } catch (Exception e2) {
                         BdLog.detailException(e2);
                     }
@@ -208,13 +208,13 @@ public class a extends CustomMessageListener {
                 } else {
                     str3 = str;
                 }
-                l<byte[]> lVar = f14386d.get(str3);
+                l<byte[]> lVar = f14406d.get(str3);
                 if (lVar == null || !(lVar instanceof l)) {
                     BdCacheService l = BdCacheService.l();
-                    Integer num = f14384b.get(str);
+                    Integer num = f14404b.get(str);
                     num = (num == null || num.intValue() == 0) ? 20 : 20;
                     BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
-                    if (f14385c.contains(str)) {
+                    if (f14405c.contains(str)) {
                         cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
                     }
                     try {
@@ -222,7 +222,7 @@ public class a extends CustomMessageListener {
                     } catch (Exception e2) {
                         BdLog.detailException(e2);
                     }
-                    f14386d.put(str3, lVar);
+                    f14406d.put(str3, lVar);
                     return lVar;
                 }
                 return lVar;
@@ -238,10 +238,10 @@ public class a extends CustomMessageListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             synchronized (a.class) {
-                if (f14383a == null) {
-                    f14383a = new a();
+                if (f14403a == null) {
+                    f14403a = new a();
                 }
-                aVar = f14383a;
+                aVar = f14403a;
             }
             return aVar;
         }
@@ -275,12 +275,12 @@ public class a extends CustomMessageListener {
                 } else {
                     str3 = str;
                 }
-                l<String> lVar = f14387e.get(str3);
+                l<String> lVar = f14407e.get(str3);
                 BdCacheService l = BdCacheService.l();
-                Integer num = f14384b.get(str);
+                Integer num = f14404b.get(str);
                 num = (num == null || num.intValue() == 0) ? 20 : 20;
                 BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
-                if (f14385c.contains(str)) {
+                if (f14405c.contains(str)) {
                     cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
                 }
                 try {
@@ -300,8 +300,8 @@ public class a extends CustomMessageListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
             synchronized (a.class) {
-                f14386d.clear();
-                f14387e.clear();
+                f14406d.clear();
+                f14407e.clear();
             }
         }
     }

@@ -23,10 +23,10 @@ public class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static WeakReference<SSWebView> f67763a;
+    public static WeakReference<SSWebView> f67798a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f67764b;
+    public static volatile b f67799b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -93,14 +93,14 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f67764b == null) {
+            if (f67799b == null) {
                 synchronized (f.class) {
-                    if (f67764b == null) {
-                        f67764b = new b();
+                    if (f67799b == null) {
+                        f67799b = new b();
                     }
                 }
             }
-            return f67764b;
+            return f67799b;
         }
         return (b) invokeV.objValue;
     }
@@ -114,7 +114,7 @@ public class b implements a {
                 return;
             }
             SSWebView sSWebView = new SSWebView(o.a());
-            f67763a = new WeakReference<>(sSWebView);
+            f67798a = new WeakReference<>(sSWebView);
             a(sSWebView);
             Uri build = Uri.parse(e2).buildUpon().appendQueryParameter("isPreLoad", "1").build();
             w wVar = new w(o.a());
@@ -130,9 +130,9 @@ public class b implements a {
     public void a() {
         WeakReference<SSWebView> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (weakReference = f67763a) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (weakReference = f67798a) == null || weakReference.get() == null) {
             return;
         }
-        f.a().b(f67763a.get());
+        f.a().b(f67798a.get());
     }
 }

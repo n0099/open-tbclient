@@ -12,7 +12,7 @@ import java.util.List;
 public interface m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final m f32138a = new a();
+    public static final m f32142a = new a();
 
     /* loaded from: classes4.dex */
     public class a implements m {

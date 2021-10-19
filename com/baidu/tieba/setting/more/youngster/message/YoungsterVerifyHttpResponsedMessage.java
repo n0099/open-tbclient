@@ -1,6 +1,6 @@
 package com.baidu.tieba.setting.more.youngster.message;
 
-import c.a.r0.b3.c.k.a.a;
+import c.a.r0.c3.c.k.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

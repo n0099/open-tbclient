@@ -16,11 +16,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f13047b;
+    public static c f13052b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<e> f13048a;
+    public SparseArray<e> f13053a;
 
     static {
         InterceptResult invokeClinit;
@@ -50,21 +50,21 @@ public class c {
                 return;
             }
         }
-        this.f13048a = new SparseArray<>();
+        this.f13053a = new SparseArray<>();
     }
 
     public static c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f13047b == null) {
+            if (f13052b == null) {
                 synchronized (c.class) {
-                    if (f13047b == null) {
-                        f13047b = new c();
+                    if (f13052b == null) {
+                        f13052b = new c();
                     }
                 }
             }
-            return f13047b;
+            return f13052b;
         }
         return (c) invokeV.objValue;
     }
@@ -73,8 +73,8 @@ public class c {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i2)) == null) {
-            if (this.f13048a.get(i2) != null) {
-                return this.f13048a.get(i2).a(context);
+            if (this.f13053a.get(i2) != null) {
+                return this.f13053a.get(i2).a(context);
             }
             return null;
         }
@@ -84,7 +84,7 @@ public class c {
     public void c(int i2, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, eVar) == null) {
-            this.f13048a.put(i2, eVar);
+            this.f13053a.put(i2, eVar);
         }
     }
 }

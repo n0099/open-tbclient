@@ -33,7 +33,7 @@ public class f extends c.a.e.l.e.c {
     public LinearLayout l;
     public ImageView m;
     public g n;
-    public InterfaceC0679f o;
+    public InterfaceC0681f o;
     public h p;
     public e q;
     public AnimationDrawable r;
@@ -52,7 +52,7 @@ public class f extends c.a.e.l.e.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f13835e;
+        public final /* synthetic */ f f13855e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -69,16 +69,16 @@ public class f extends c.a.e.l.e.c {
                     return;
                 }
             }
-            this.f13835e = fVar;
+            this.f13855e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f13835e.B == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f13855e.B == null) {
                 return;
             }
-            this.f13835e.B.onClick(view);
+            this.f13855e.B.onClick(view);
         }
     }
 
@@ -88,7 +88,7 @@ public class f extends c.a.e.l.e.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f13836e;
+        public final /* synthetic */ f f13856e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -105,14 +105,14 @@ public class f extends c.a.e.l.e.c {
                     return;
                 }
             }
-            this.f13836e = fVar;
+            this.f13856e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             AnimationDrawable animationDrawable;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (animationDrawable = this.f13836e.r) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (animationDrawable = this.f13856e.r) == null) {
                 return;
             }
             animationDrawable.start();
@@ -125,7 +125,7 @@ public class f extends c.a.e.l.e.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f13837e;
+        public final /* synthetic */ f f13857e;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public class f extends c.a.e.l.e.c {
                     return;
                 }
             }
-            this.f13837e = fVar;
+            this.f13857e = fVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -162,12 +162,12 @@ public class f extends c.a.e.l.e.c {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.f13837e.A) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.f13857e.A) {
                 return;
             }
-            this.f13837e.A = true;
-            this.f13837e.s.setSpeed(1.0f);
-            this.f13837e.s.setMinAndMaxFrame(45, 105);
+            this.f13857e.A = true;
+            this.f13857e.s.setSpeed(1.0f);
+            this.f13857e.s.setMinAndMaxFrame(45, 105);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -184,7 +184,7 @@ public class f extends c.a.e.l.e.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f13838a;
+        public final /* synthetic */ f f13858a;
 
         public d(f fVar) {
             Interceptable interceptable = $ic;
@@ -201,16 +201,16 @@ public class f extends c.a.e.l.e.c {
                     return;
                 }
             }
-            this.f13838a = fVar;
+            this.f13858a = fVar;
         }
 
         @Override // com.baidu.tieba.frs.SmartBubbleAnimatedView.e
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13838a.w == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13858a.w == null) {
                 return;
             }
-            this.f13838a.w.onAnimationEnd();
+            this.f13858a.w.onAnimationEnd();
         }
     }
 
@@ -221,7 +221,7 @@ public class f extends c.a.e.l.e.c {
 
     /* renamed from: c.a.q0.s.f0.f$f  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0679f {
+    public interface InterfaceC0681f {
         void a(View view, boolean z);
     }
 
@@ -241,10 +241,10 @@ public class f extends c.a.e.l.e.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f13839a;
+        public String f13859a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f13840b;
+        public int f13860b;
 
         public i(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -261,20 +261,20 @@ public class f extends c.a.e.l.e.c {
                     return;
                 }
             }
-            this.f13839a = str;
-            this.f13840b = i2;
+            this.f13859a = str;
+            this.f13860b = i2;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13840b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13860b : invokeV.intValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13839a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13859a : (String) invokeV.objValue;
         }
     }
 
@@ -541,10 +541,10 @@ public class f extends c.a.e.l.e.c {
         return invokeV.longValue;
     }
 
-    public void h(InterfaceC0679f interfaceC0679f) {
+    public void h(InterfaceC0681f interfaceC0681f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, interfaceC0679f) == null) {
-            this.o = interfaceC0679f;
+        if (interceptable == null || interceptable.invokeL(1048595, this, interfaceC0681f) == null) {
+            this.o = interfaceC0681f;
         }
     }
 
@@ -592,9 +592,9 @@ public class f extends c.a.e.l.e.c {
                 }
             }
             J();
-            InterfaceC0679f interfaceC0679f = this.o;
-            if (interfaceC0679f != null) {
-                interfaceC0679f.a(this.k, z);
+            InterfaceC0681f interfaceC0681f = this.o;
+            if (interfaceC0681f != null) {
+                interfaceC0681f.a(this.k, z);
             }
         }
     }

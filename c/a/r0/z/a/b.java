@@ -1,0 +1,332 @@
+package c.a.r0.z.a;
+
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import c.a.r0.c4.l.a;
+import c.a.r0.z.a.a;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public class b implements c.a.r0.z.a.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public c.a.r0.c4.l.a f29392a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f29393b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public a.c f29394c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public a.b f29395d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public a.InterfaceC1372a f29396e;
+
+    /* loaded from: classes4.dex */
+    public class a implements a.InterfaceC0788a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ b f29397a;
+
+        public a(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f29397a = bVar;
+        }
+
+        @Override // c.a.r0.c4.l.a.InterfaceC0788a
+        public float a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.f29397a.f29395d != null) {
+                    return this.f29397a.f29395d.a();
+                }
+                return 1.0f;
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // c.a.r0.c4.l.a.InterfaceC0788a
+        public void b(float f2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
+                if (this.f29397a.f29396e != null) {
+                    this.f29397a.f29396e.a(f2);
+                }
+                TextView textView = this.f29397a.f29393b;
+                b bVar = this.f29397a;
+                textView.setText(bVar.f(bVar.getProgress()));
+            }
+        }
+
+        @Override // c.a.r0.c4.l.a.InterfaceC0788a
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f29397a.f29394c == null) {
+                return;
+            }
+            this.f29397a.f29394c.a();
+        }
+
+        @Override // c.a.r0.c4.l.a.InterfaceC0788a
+        public void onProgress(float f2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
+                this.f29397a.f29393b.setText(this.f29397a.f(f2));
+            }
+        }
+    }
+
+    public b(c.a.r0.c4.l.a aVar, TextView textView, a.c cVar, a.b bVar, a.InterfaceC1372a interfaceC1372a) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, textView, cVar, bVar, interfaceC1372a};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f29392a = aVar;
+        this.f29393b = textView;
+        this.f29394c = cVar;
+        this.f29395d = bVar;
+        this.f29396e = interfaceC1372a;
+        g();
+    }
+
+    @Override // c.a.r0.z.a.a
+    public boolean deleteLast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            c.a.r0.c4.l.a aVar = this.f29392a;
+            if (aVar != null) {
+                aVar.deleteLast();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String f(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
+            if (f2 >= getMaxDuration()) {
+                f2 = getMaxDuration();
+            }
+            if (f2 > 60.0f) {
+                return ((int) (f2 / 60.0f)) + "'" + String.format("%.1f", Float.valueOf(f2 % 60.0f));
+            }
+            return String.format("%.1f", Float.valueOf(f2));
+        }
+        return (String) invokeF.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            c.a.r0.c4.l.a aVar = this.f29392a;
+            if (aVar == null) {
+                return false;
+            }
+            aVar.setOnProgressListener(new a(this));
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // c.a.r0.z.a.a
+    public int getMaxDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            c.a.r0.c4.l.a aVar = this.f29392a;
+            if (aVar != null) {
+                return aVar.getMaxDuration();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // c.a.r0.z.a.a
+    public float getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            c.a.r0.c4.l.a aVar = this.f29392a;
+            if (aVar != null) {
+                return aVar.getProgress();
+            }
+            return 0.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // c.a.r0.z.a.a
+    public int getSlideNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            c.a.r0.c4.l.a aVar = this.f29392a;
+            if (aVar != null) {
+                return aVar.getSlideNum();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // c.a.r0.z.a.a
+    public boolean isShowingDeleteLastTip() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            c.a.r0.c4.l.a aVar = this.f29392a;
+            if (aVar != null) {
+                return aVar.isShowingDeleteLastTip();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // c.a.r0.z.a.a
+    public boolean pause() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            c.a.r0.c4.l.a aVar = this.f29392a;
+            if (aVar != null) {
+                aVar.stop();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // c.a.r0.z.a.a
+    public boolean reset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            c.a.r0.c4.l.a aVar = this.f29392a;
+            if (aVar != null) {
+                aVar.reset();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // c.a.r0.z.a.a
+    public boolean setMaxDuration(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+            c.a.r0.c4.l.a aVar = this.f29392a;
+            if (aVar != null) {
+                aVar.setMaxDuration(i2);
+                this.f29392a.invalidate();
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // c.a.r0.z.a.a
+    public boolean setMinDuration(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+            c.a.r0.c4.l.a aVar = this.f29392a;
+            if (aVar != null) {
+                aVar.setMinDuration(i2);
+                this.f29392a.invalidate();
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // c.a.r0.z.a.a
+    public boolean setProgress(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
+            c.a.r0.c4.l.a aVar = this.f29392a;
+            if (aVar != null) {
+                aVar.setProgress(j2);
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // c.a.r0.z.a.a
+    public boolean setShowDeleteLastTip(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
+            c.a.r0.c4.l.a aVar = this.f29392a;
+            if (aVar != null) {
+                aVar.setShowDeleteLastTip(z);
+                return true;
+            }
+            return false;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    @Override // c.a.r0.z.a.a
+    public boolean start() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            c.a.r0.c4.l.a aVar = this.f29392a;
+            if (aVar != null) {
+                aVar.start();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+}

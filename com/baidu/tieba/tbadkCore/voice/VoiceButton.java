@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.ImageView;
 import c.a.e.a.j;
 import c.a.e.e.q.f;
-import c.a.r0.j3.q0.a;
+import c.a.r0.k3.q0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
@@ -21,10 +21,10 @@ public class VoiceButton extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f57296e;
+    public f f57230e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f57297f;
+    public boolean f57231f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoiceButton(Context context, AttributeSet attributeSet) {
@@ -45,7 +45,7 @@ public class VoiceButton extends ImageView {
                 return;
             }
         }
-        this.f57297f = false;
+        this.f57231f = false;
     }
 
     public a getRecorderManager() {
@@ -88,14 +88,14 @@ public class VoiceButton extends ImageView {
                 if (recorderManager == null || !recorderManager.e()) {
                     return false;
                 }
-                this.f57297f = recorderManager.c(this.f57296e, -1);
+                this.f57231f = recorderManager.c(this.f57230e, -1);
                 setPressed(true);
             } else if (motionEvent.getAction() != 1 && motionEvent.getAction() != 3) {
                 if (!isPressed()) {
                     setPressed(true);
                 }
             } else {
-                if (this.f57297f && recorderManager != null) {
+                if (this.f57231f && recorderManager != null) {
                     recorderManager.stopRecord();
                 }
                 setPressed(false);
@@ -108,7 +108,7 @@ public class VoiceButton extends ImageView {
     public void setRecorderView(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f57296e = fVar;
+            this.f57230e = fVar;
             a recorderManager = getRecorderManager();
             if (recorderManager != null) {
                 recorderManager.d(fVar);

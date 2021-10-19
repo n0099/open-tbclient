@@ -25,16 +25,16 @@ public final class CSJNativeAdGroupImgView extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f70261f;
+    public LinearLayout f70296f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f70262g;
+    public ImageView f70297g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f70263h;
+    public ImageView f70298h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f70264i;
+    public ImageView f70299i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdGroupImgView(Context context) {
@@ -111,7 +111,7 @@ public final class CSJNativeAdGroupImgView extends b {
             if (tTImage != null && tTImage.isValid()) {
                 Context context = getContext();
                 String imageUrl = tTImage.getImageUrl();
-                ImageView imageView = this.f70262g;
+                ImageView imageView = this.f70297g;
                 if (context == null) {
                     d.f("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
                 } else if (context instanceof Activity) {
@@ -129,7 +129,7 @@ public final class CSJNativeAdGroupImgView extends b {
             if (tTImage2 != null && tTImage2.isValid()) {
                 Context context2 = getContext();
                 String imageUrl2 = tTImage2.getImageUrl();
-                ImageView imageView2 = this.f70263h;
+                ImageView imageView2 = this.f70298h;
                 if (context2 == null) {
                     d.f("GlideHelper: context is null when load: " + imageUrl2, new Object[0]);
                 } else if (context2 instanceof Activity) {
@@ -149,7 +149,7 @@ public final class CSJNativeAdGroupImgView extends b {
             }
             Context context3 = getContext();
             String imageUrl3 = tTImage3.getImageUrl();
-            ImageView imageView3 = this.f70264i;
+            ImageView imageView3 = this.f70299i;
             if (context3 == null) {
                 d.f("GlideHelper: context is null when load: " + imageUrl3, new Object[0]);
             } else if (context3 instanceof Activity) {
@@ -170,10 +170,10 @@ public final class CSJNativeAdGroupImgView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f70261f = (LinearLayout) findViewById(R.id.ad_img_container);
-            this.f70262g = (ImageView) findViewById(R.id.ad_img_1);
-            this.f70263h = (ImageView) findViewById(R.id.ad_img_2);
-            this.f70264i = (ImageView) findViewById(R.id.ad_img_3);
+            this.f70296f = (LinearLayout) findViewById(R.id.ad_img_container);
+            this.f70297g = (ImageView) findViewById(R.id.ad_img_1);
+            this.f70298h = (ImageView) findViewById(R.id.ad_img_2);
+            this.f70299i = (ImageView) findViewById(R.id.ad_img_3);
         }
     }
 
@@ -182,14 +182,14 @@ public final class CSJNativeAdGroupImgView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f70261f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f70296f.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f70262g.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f70263h.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f70264i.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f70297g.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f70298h.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f70299i.getLayoutParams();
             layoutParams.width = i6;
             layoutParams.height = (int) (((((((i6 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.52f);
-            this.f70261f.setLayoutParams(layoutParams);
+            this.f70296f.setLayoutParams(layoutParams);
         }
     }
 }

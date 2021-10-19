@@ -51,15 +51,15 @@ public class g extends b {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f30712h == 0) {
-                this.f30712h = this.f30709e.presentationTimeUs;
-                b.f30703i = 0L;
+            if (this.f30759h == 0) {
+                this.f30759h = this.f30756e.presentationTimeUs;
+                b.f30750i = 0L;
             }
-            MediaCodec.BufferInfo bufferInfo = this.f30709e;
-            long j2 = bufferInfo.presentationTimeUs - this.f30712h;
+            MediaCodec.BufferInfo bufferInfo = this.f30756e;
+            long j2 = bufferInfo.presentationTimeUs - this.f30759h;
             bufferInfo.presentationTimeUs = j2;
-            b.f30703i = j2;
-            c.a.x.c.d.x().V(b.f30703i / 1000);
+            b.f30750i = j2;
+            c.a.x.c.d.x().V(b.f30750i / 1000);
         }
     }
 
@@ -82,7 +82,7 @@ public class g extends b {
         }
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.f30707c = eVar;
+            this.f30754c = eVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(dVar.j(), dVar.n(), dVar.l());
             createVideoFormat.setInteger("color-format", 2130708361);
             createVideoFormat.setInteger("bitrate", dVar.i());
@@ -90,14 +90,14 @@ public class g extends b {
             createVideoFormat.setInteger("i-frame-interval", dVar.m());
             try {
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(dVar.j());
-                this.f30708d = createEncoderByType;
+                this.f30755d = createEncoderByType;
                 createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                this.k = this.f30708d.createInputSurface();
-                this.f30711g = true;
+                this.k = this.f30755d.createInputSurface();
+                this.f30758g = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            cVar = this.f30710f;
+            cVar = this.f30757f;
             if (cVar == null) {
                 cVar.b(z);
                 return;
@@ -105,7 +105,7 @@ public class g extends b {
             return;
         }
         z = false;
-        cVar = this.f30710f;
+        cVar = this.f30757f;
         if (cVar == null) {
         }
     }

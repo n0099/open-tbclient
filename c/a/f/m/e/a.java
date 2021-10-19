@@ -1,6 +1,6 @@
 package c.a.f.m.e;
 
-import c.a.r0.p1.o.h.b;
+import c.a.r0.q1.o.h.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a implements c.a.r0.p1.o.h.b {
+public class a implements c.a.r0.q1.o.h.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -110,7 +110,7 @@ public class a implements c.a.r0.p1.o.h.b {
         }
     }
 
-    @Override // c.a.r0.p1.o.h.b
+    @Override // c.a.r0.q1.o.h.b
     public b.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -118,8 +118,8 @@ public class a implements c.a.r0.p1.o.h.b {
             if (this.w == null) {
                 b.a aVar = new b.a();
                 this.w = aVar;
-                aVar.f23560c = this.u;
-                aVar.f23561d = this.v;
+                aVar.f23735c = this.u;
+                aVar.f23736d = this.v;
             }
             return this.w;
         }

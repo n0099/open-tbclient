@@ -171,7 +171,7 @@ public class h {
                     String optString = jSONObject.optString("url");
                     Integer valueOf = Integer.valueOf(jSONObject.optInt("is_game"));
                     this.k = valueOf;
-                    this.f12623d = c.a.r0.u.a.a(this.f12626g, optString, "9104", valueOf);
+                    this.f12623d = c.a.r0.v.a.a(this.f12626g, optString, "9104", valueOf);
                     this.f12629j = jSONObject.optString("swan_app_id");
                 } catch (JSONException e2) {
                     e2.printStackTrace();

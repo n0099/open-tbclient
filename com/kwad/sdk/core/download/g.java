@@ -12,7 +12,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f72030a;
+    public volatile boolean f72065a;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -27,19 +27,19 @@ public class g {
                 return;
             }
         }
-        this.f72030a = false;
+        this.f72065a = false;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f72030a = true;
+            this.f72065a = true;
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !this.f72030a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !this.f72065a : invokeV.booleanValue;
     }
 }

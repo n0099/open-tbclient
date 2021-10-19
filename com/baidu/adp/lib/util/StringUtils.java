@@ -1,6 +1,8 @@
 package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -185,10 +187,17 @@ public class StringUtils {
         return (String) invokeI.objValue;
     }
 
+    @NonNull
+    public static String tryFixDefaultValue(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
+    }
+
     public static String unitFormat(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i2)) == null) {
             if (i2 >= 0 && i2 < 10) {
                 return "0" + Integer.toString(i2);
             }

@@ -14,7 +14,7 @@ public class w1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f79661a;
+    public static int f79696a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(Context context) {
@@ -24,11 +24,11 @@ public class w1 {
             if (context != null) {
                 try {
                     new DisplayMetrics();
-                    f79661a = context.getResources().getDisplayMetrics().densityDpi;
+                    f79696a = context.getResources().getDisplayMetrics().densityDpi;
                 } catch (Throwable unused) {
                 }
             }
-            return "" + f79661a;
+            return "" + f79696a;
         }
         return (String) invokeL.objValue;
     }

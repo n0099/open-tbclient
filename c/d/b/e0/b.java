@@ -19,7 +19,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Comparator<String> f31780a;
+    public static final Comparator<String> f31784a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -76,14 +76,14 @@ public final class b {
                 return;
             }
         }
-        f31780a = new a();
+        f31784a = new a();
     }
 
     public static Map<String, List<String>> a(r rVar, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, rVar, str)) == null) {
-            TreeMap treeMap = new TreeMap(f31780a);
+            TreeMap treeMap = new TreeMap(f31784a);
             int g2 = rVar.g();
             for (int i2 = 0; i2 < g2; i2++) {
                 String e2 = rVar.e(i2);

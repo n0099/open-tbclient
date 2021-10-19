@@ -22,7 +22,7 @@ public final class k extends c.a.v0.a.f.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f30350e;
+    public static String f30397e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public k() {
@@ -54,17 +54,17 @@ public final class k extends c.a.v0.a.f.c {
         d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            dVar = d.a.f30329a;
+            dVar = d.a.f30376a;
             if (dVar.a().size() == 0) {
                 c.a.v0.a.f.a.b(" 线程轮询  app 应该是退出了");
             }
-            if (f30350e == null && Environment.getExternalStorageState().equals("mounted")) {
+            if (f30397e == null && Environment.getExternalStorageState().equals("mounted")) {
                 StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append(Environment.getExternalStorageDirectory().getPath());
                 stringBuffer.append("/baidu/ab/");
                 stringBuffer.append(i.l(c.a.v0.a.c.i().g()));
                 stringBuffer.append("/");
-                f30350e = stringBuffer.toString();
+                f30397e = stringBuffer.toString();
             }
             c.h hVar = new c.h();
             c.l lVar = new c.l();
@@ -129,7 +129,7 @@ public final class k extends c.a.v0.a.f.c {
             bVar2.b(d2);
             bVar2.d(a3);
             String a5 = c.a.v0.a.f.g.a(bVar2);
-            String e3 = c.a.v0.a.f.f.e(f30350e, "ABJson.log");
+            String e3 = c.a.v0.a.f.f.e(f30397e, "ABJson.log");
             if (!e3.equals("")) {
                 StringBuffer stringBuffer2 = new StringBuffer();
                 stringBuffer2.append(PreferencesUtil.LEFT_MOUNT);
@@ -138,7 +138,7 @@ public final class k extends c.a.v0.a.f.c {
                 stringBuffer2.append(PreferencesUtil.RIGHT_MOUNT);
                 if (c.a.v0.a.d.a.a(c.a.v0.a.c.i().g(), stringBuffer2.toString())) {
                     c.a.v0.a.f.a.b("上传成功，删除本地文件的       ");
-                    c.a.v0.a.f.f.b(f30350e + "ABJson.log");
+                    c.a.v0.a.f.f.b(f30397e + "ABJson.log");
                     b(hVar, lVar, jVar, bVar, a3, a2, a4);
                     return;
                 }
@@ -149,7 +149,7 @@ public final class k extends c.a.v0.a.f.c {
                 if (c.a.v0.a.d.a.a(c.a.v0.a.c.i().g(), stringBuffer3.toString())) {
                     b(hVar, lVar, jVar, bVar, a3, a2, a4);
                     return;
-                } else if (c.a.v0.a.f.f.d(a5, f30350e, "ABJson.log")) {
+                } else if (c.a.v0.a.f.f.d(a5, f30397e, "ABJson.log")) {
                     b(hVar, lVar, jVar, bVar, a3, a2, a4);
                     return;
                 } else {
@@ -162,7 +162,7 @@ public final class k extends c.a.v0.a.f.c {
             stringBuffer4.append(PreferencesUtil.RIGHT_MOUNT);
             if (c.a.v0.a.d.a.a(c.a.v0.a.c.i().g(), stringBuffer4.toString())) {
                 b(hVar, lVar, jVar, bVar, a3, a2, a4);
-            } else if (c.a.v0.a.f.f.d(a5, f30350e, "ABJson.log")) {
+            } else if (c.a.v0.a.f.f.d(a5, f30397e, "ABJson.log")) {
                 b(hVar, lVar, jVar, bVar, a3, a2, a4);
             }
         }

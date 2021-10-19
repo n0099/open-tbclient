@@ -23,19 +23,19 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f46717e;
+    public ImageView f46629e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f46718f;
+    public TextView f46630f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f46719g;
+    public ImageView f46631g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f46720h;
+    public TextView f46632h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f46721i;
+    public boolean f46633i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwanAppBottomTabIconView(Context context) {
@@ -56,22 +56,22 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
             }
         }
         LayoutInflater.from(context).inflate(g.aiapps_bottom_tab_icon, (ViewGroup) this, true);
-        this.f46717e = (ImageView) findViewById(f.bottom_tab_icon);
-        this.f46718f = (TextView) findViewById(f.bottom_tab_text);
-        this.f46719g = (ImageView) findViewById(f.bottom_tab_red_dot);
-        this.f46720h = (TextView) findViewById(f.bottom_tab_badge);
+        this.f46629e = (ImageView) findViewById(f.bottom_tab_icon);
+        this.f46630f = (TextView) findViewById(f.bottom_tab_text);
+        this.f46631g = (ImageView) findViewById(f.bottom_tab_red_dot);
+        this.f46632h = (TextView) findViewById(f.bottom_tab_badge);
     }
 
     public boolean ismIsSelect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46721i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46633i : invokeV.booleanValue;
     }
 
     public void setBadgeText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f46720h.setText(str);
+            this.f46632h.setText(str);
         }
     }
 
@@ -79,9 +79,9 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                this.f46720h.setVisibility(0);
+                this.f46632h.setVisibility(0);
             } else {
-                this.f46720h.setVisibility(8);
+                this.f46632h.setVisibility(8);
             }
         }
     }
@@ -89,7 +89,7 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     public void setIconView(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f46717e.setImageDrawable(getResources().getDrawable(i2));
+            this.f46629e.setImageDrawable(getResources().getDrawable(i2));
         }
     }
 
@@ -97,9 +97,9 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                this.f46719g.setVisibility(0);
+                this.f46631g.setVisibility(0);
             } else {
-                this.f46719g.setVisibility(8);
+                this.f46631g.setVisibility(8);
             }
         }
     }
@@ -107,35 +107,35 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f46718f.setTextColor(i2);
+            this.f46630f.setTextColor(i2);
         }
     }
 
     public void setTextView(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f46718f.setText(str);
+            this.f46630f.setText(str);
         }
     }
 
     public void setmIsSelect(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f46721i = z;
+            this.f46633i = z;
         }
     }
 
     public void setIconView(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bitmap) == null) {
-            this.f46717e.setImageBitmap(bitmap);
+            this.f46629e.setImageBitmap(bitmap);
         }
     }
 
     public void setIconView(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, drawable) == null) {
-            this.f46717e.setImageDrawable(drawable);
+            this.f46629e.setImageDrawable(drawable);
         }
     }
 }

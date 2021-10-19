@@ -16,7 +16,7 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final RandomAccessFile f68616a;
+    public final RandomAccessFile f68651a;
 
     /* loaded from: classes9.dex */
     public static class a extends Exception {
@@ -60,7 +60,7 @@ public class h {
             }
         }
         try {
-            this.f68616a = new RandomAccessFile(file, str);
+            this.f68651a = new RandomAccessFile(file, str);
         } catch (FileNotFoundException e2) {
             throw new a(e2);
         }
@@ -70,7 +70,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
             try {
-                this.f68616a.seek(j2);
+                this.f68651a.seek(j2);
             } catch (IOException e2) {
                 throw new a(e2);
             }
@@ -81,7 +81,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i2, i3) == null) {
             try {
-                this.f68616a.write(bArr, i2, i3);
+                this.f68651a.write(bArr, i2, i3);
             } catch (IOException e2) {
                 throw new a(e2);
             }
@@ -93,7 +93,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             try {
-                return this.f68616a.read(bArr);
+                return this.f68651a.read(bArr);
             } catch (IOException e2) {
                 throw new a(e2);
             }
@@ -104,7 +104,7 @@ public class h {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            com.bytedance.sdk.openadsdk.n.g.d.a(this.f68616a);
+            com.bytedance.sdk.openadsdk.n.g.d.a(this.f68651a);
         }
     }
 }

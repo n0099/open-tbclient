@@ -20,29 +20,29 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f35431e = "d";
+    public static final String f35435e = "d";
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f35432f = false;
+    public static volatile boolean f35436f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f35433g = -1;
+    public static long f35437g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile d f35434h;
+    public static volatile d f35438h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final m f35435a;
+    public final m f35439a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f35436b;
+    public final AtomicInteger f35440b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f35437c;
+    public final a f35441c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f35438d;
+    public long f35442d;
 
     /* loaded from: classes4.dex */
     public class a extends Handler {
@@ -50,7 +50,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f35439a;
+        public final /* synthetic */ d f35443a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, Looper looper) {
@@ -70,7 +70,7 @@ public class d {
                     return;
                 }
             }
-            this.f35439a = dVar;
+            this.f35443a = dVar;
         }
 
         public void a() {
@@ -91,7 +91,7 @@ public class d {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) && message.what == 1) {
-                this.f35439a.f();
+                this.f35443a.f();
                 sendEmptyMessageDelayed(1, 1000L);
             }
         }
@@ -125,23 +125,23 @@ public class d {
                 return;
             }
         }
-        this.f35435a = m.a();
-        this.f35436b = new AtomicInteger();
-        this.f35437c = new a(this, c.p.a.e.b.k.e.a());
+        this.f35439a = m.a();
+        this.f35440b = new AtomicInteger();
+        this.f35441c = new a(this, c.p.a.e.b.k.e.a());
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f35434h == null) {
+            if (f35438h == null) {
                 synchronized (d.class) {
-                    if (f35434h == null) {
-                        f35434h = new d();
+                    if (f35438h == null) {
+                        f35438h = new d();
                     }
                 }
             }
-            return f35434h;
+            return f35438h;
         }
         return (d) invokeV.objValue;
     }
@@ -155,7 +155,7 @@ public class d {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            f35432f = c.p.a.e.b.l.f.g0(c.p.a.e.b.g.e.n());
+            f35436f = c.p.a.e.b.l.f.g0(c.p.a.e.b.g.e.n());
         }
     }
 
@@ -163,11 +163,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                String str = f35431e;
-                c.p.a.e.b.c.a.i(str, "startSampling: mSamplingCounter = " + this.f35436b);
-                if (this.f35436b.getAndIncrement() == 0) {
-                    this.f35437c.a();
-                    this.f35438d = SystemClock.uptimeMillis();
+                String str = f35435e;
+                c.p.a.e.b.c.a.i(str, "startSampling: mSamplingCounter = " + this.f35440b);
+                if (this.f35440b.getAndIncrement() == 0) {
+                    this.f35441c.a();
+                    this.f35442d = SystemClock.uptimeMillis();
                 }
             } catch (Throwable unused) {
             }
@@ -178,10 +178,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                String str = f35431e;
-                c.p.a.e.b.c.a.i(str, "stopSampling: mSamplingCounter = " + this.f35436b);
-                if (this.f35436b.decrementAndGet() == 0) {
-                    this.f35437c.b();
+                String str = f35435e;
+                c.p.a.e.b.c.a.i(str, "stopSampling: mSamplingCounter = " + this.f35440b);
+                if (this.f35440b.decrementAndGet() == 0) {
+                    this.f35441c.b();
                     g();
                 }
             } catch (Throwable unused) {
@@ -195,20 +195,20 @@ public class d {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
                 e();
-                if (f35432f) {
+                if (f35436f) {
                     mobileRxBytes = d();
                 } else {
                     mobileRxBytes = TrafficStats.getMobileRxBytes();
                 }
-                long j2 = mobileRxBytes - f35433g;
-                if (f35433g >= 0) {
+                long j2 = mobileRxBytes - f35437g;
+                if (f35437g >= 0) {
                     synchronized (this) {
                         long uptimeMillis = SystemClock.uptimeMillis();
-                        this.f35435a.c(j2, uptimeMillis - this.f35438d);
-                        this.f35438d = uptimeMillis;
+                        this.f35439a.c(j2, uptimeMillis - this.f35442d);
+                        this.f35442d = uptimeMillis;
                     }
                 }
-                f35433g = mobileRxBytes;
+                f35437g = mobileRxBytes;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -219,7 +219,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             f();
-            f35433g = -1L;
+            f35437g = -1L;
         }
     }
 }

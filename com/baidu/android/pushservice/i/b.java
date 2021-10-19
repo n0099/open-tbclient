@@ -40,14 +40,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f37622b;
+    public static b f37626b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public OkHttpClient f37623a;
+    public OkHttpClient f37627a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f37624c;
+    public Context f37628c;
 
     /* loaded from: classes4.dex */
     public class a implements Interceptor {
@@ -55,7 +55,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f37627a;
+        public final /* synthetic */ b f37631a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class b {
                     return;
                 }
             }
-            this.f37627a = bVar;
+            this.f37631a = bVar;
         }
 
         private RequestBody a(RequestBody requestBody) {
@@ -83,10 +83,10 @@ public class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RequestBody f37628a;
+                public final /* synthetic */ RequestBody f37632a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f37629b;
+                public final /* synthetic */ a f37633b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -103,8 +103,8 @@ public class b {
                             return;
                         }
                     }
-                    this.f37629b = this;
-                    this.f37628a = requestBody;
+                    this.f37633b = this;
+                    this.f37632a = requestBody;
                 }
 
                 @Override // okhttp3.RequestBody
@@ -121,7 +121,7 @@ public class b {
                 public MediaType contentType() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37628a.contentType() : (MediaType) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37632a.contentType() : (MediaType) invokeV.objValue;
                 }
 
                 @Override // okhttp3.RequestBody
@@ -130,7 +130,7 @@ public class b {
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
                         BufferedSink buffer = Okio.buffer(new GzipSink(bufferedSink));
                         try {
-                            this.f37628a.writeTo(buffer);
+                            this.f37632a.writeTo(buffer);
                             buffer.close();
                         } catch (IOException unused) {
                         }
@@ -173,18 +173,18 @@ public class b {
                 return;
             }
         }
-        this.f37623a = a();
-        this.f37624c = context;
+        this.f37627a = a();
+        this.f37628c = context;
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f37622b == null) {
-                f37622b = new b(context);
+            if (f37626b == null) {
+                f37626b = new b(context);
             }
-            return f37622b;
+            return f37626b;
         }
         return (b) invokeL.objValue;
     }
@@ -214,9 +214,9 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, bArr)) == null) {
             try {
                 a.c a2 = a.c.a(bArr);
-                if (this.f37623a.pingIntervalMillis() != a2.i()) {
-                    this.f37623a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
-                    this.f37623a = this.f37623a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
+                if (this.f37627a.pingIntervalMillis() != a2.i()) {
+                    this.f37627a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS);
+                    this.f37627a = this.f37627a.newBuilder().pingInterval(a2.i(), TimeUnit.MILLISECONDS).build();
                 }
                 return new String[]{String.valueOf(a2.d()), a2.f()};
             } catch (InvalidProtocolBufferException unused) {
@@ -230,13 +230,13 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, bArr, str)) == null) {
-            a.C1608a.C1609a.C1610a e2 = a.C1608a.C1609a.e();
+            a.C1610a.C1611a.C1612a e2 = a.C1610a.C1611a.e();
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            a.C1608a.C1609a build = e2.a(str).build();
+            a.C1610a.C1611a build = e2.a(str).build();
             long currentTimeMillis = System.currentTimeMillis();
-            return a.C1608a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.i.a.a(this.f37624c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+            return a.C1610a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.i.a.a(this.f37628c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
         }
         return (byte[]) invokeLL.objValue;
     }
@@ -245,18 +245,18 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, map, bArr, str, cVar) == null) {
             Request a2 = a(bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 1000.0d)));
-            if (this.f37623a == null) {
-                this.f37623a = a();
+            if (this.f37627a == null) {
+                this.f37627a = a();
             }
-            this.f37623a.newCall(a2).enqueue(new Callback(this, cVar) { // from class: com.baidu.android.pushservice.i.b.1
+            this.f37627a.newCall(a2).enqueue(new Callback(this, cVar) { // from class: com.baidu.android.pushservice.i.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f37625a;
+                public final /* synthetic */ c f37629a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f37626b;
+                public final /* synthetic */ b f37630b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -273,8 +273,8 @@ public class b {
                             return;
                         }
                     }
-                    this.f37626b = this;
-                    this.f37625a = cVar;
+                    this.f37630b = this;
+                    this.f37629a = cVar;
                 }
 
                 @Override // okhttp3.Callback
@@ -285,7 +285,7 @@ public class b {
                         if (iOException instanceof SocketException) {
                             str2 = "Request SocketException :" + iOException.toString();
                         }
-                        this.f37625a.a(-1, str2);
+                        this.f37629a.a(-1, str2);
                     }
                 }
 
@@ -297,16 +297,16 @@ public class b {
                         int i2 = 0;
                         try {
                             if (response.body() != null) {
-                                String[] a3 = this.f37626b.a(response.body().bytes());
+                                String[] a3 = this.f37630b.a(response.body().bytes());
                                 i2 = Integer.valueOf(a3[0]).intValue();
                                 str2 = a3[1];
                             }
                         } catch (IOException unused) {
                         } catch (Throwable th) {
-                            this.f37625a.a(i2, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+                            this.f37629a.a(i2, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
                             throw th;
                         }
-                        this.f37625a.a(i2, str2);
+                        this.f37629a.a(i2, str2);
                     }
                 }
             });

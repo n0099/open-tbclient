@@ -1,7 +1,7 @@
 package com.baidu.tieba.hottopic.data;
 
 import c.a.e.l.e.n;
-import c.a.r0.a0.d0.a;
+import c.a.r0.b0.e0.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;

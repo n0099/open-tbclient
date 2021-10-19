@@ -16,7 +16,7 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f45418a;
+    public Context f45330a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class a {
                 return;
             }
         }
-        this.f45418a = context;
+        this.f45330a = context;
     }
 
     public final boolean a(String str) {
@@ -45,7 +45,7 @@ public final class a {
                 return true;
             }
             try {
-                a2 = g.a(this.f45418a, c.b() + "p/1/r", str, false, false);
+                a2 = g.a(this.f45330a, c.b() + "p/1/r", str, false, false);
             } catch (Throwable unused) {
                 c.a();
             }

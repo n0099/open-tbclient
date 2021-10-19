@@ -18,13 +18,13 @@ public class LifeItemViewForType6 extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f61440a;
+    public NetImageView f61475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f61441b;
+    public MaskTextView f61476b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f61442c;
+    public NetImageView f61477c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LifeItemViewForType6(Context context) {
@@ -51,9 +51,9 @@ public class LifeItemViewForType6 extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             removeAllViews();
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_item_view_for_type_6"), this);
-            this.f61440a = (NetImageView) findViewById(ResUtils.id(getContext(), "life_icon"));
-            this.f61441b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
-            this.f61442c = (NetImageView) findViewById(ResUtils.id(getContext(), "red_dot_im"));
+            this.f61475a = (NetImageView) findViewById(ResUtils.id(getContext(), "life_icon"));
+            this.f61476b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
+            this.f61477c = (NetImageView) findViewById(ResUtils.id(getContext(), "red_dot_im"));
         }
     }
 
@@ -63,11 +63,11 @@ public class LifeItemViewForType6 extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (isShoudShowPoint()) {
-                this.f61442c.setVisibility(0);
-                this.f61442c.setImageDrawable(ResUtils.getDrawable(getContext(), isShowWhiteDot() ? "wallet_home_white_star" : "wallet_home_red_star"));
+                this.f61477c.setVisibility(0);
+                this.f61477c.setImageDrawable(ResUtils.getDrawable(getContext(), isShowWhiteDot() ? "wallet_home_white_star" : "wallet_home_red_star"));
                 return true;
             }
-            this.f61442c.setVisibility(8);
+            this.f61477c.setVisibility(8);
             return false;
         }
         return invokeV.booleanValue;
@@ -78,8 +78,8 @@ public class LifeItemViewForType6 extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || getData() == null) {
             return;
         }
-        this.f61441b.setMaskText(getData().name);
-        NetImageView netImageView = this.f61440a;
+        this.f61476b.setMaskText(getData().name);
+        NetImageView netImageView = this.f61475a;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().logo);
         handlePoint();
     }

@@ -17,10 +17,10 @@ public class a extends ICommonDialogListener.Stub {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f68366a;
+    public Handler f68401a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a f68367b;
+    public c.a f68402b;
 
     public a(c.a aVar) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class a extends ICommonDialogListener.Stub {
                 return;
             }
         }
-        this.f68366a = new Handler(Looper.getMainLooper());
-        this.f68367b = aVar;
+        this.f68401a = new Handler(Looper.getMainLooper());
+        this.f68402b = aVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
@@ -51,7 +51,7 @@ public class a extends ICommonDialogListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f68369a;
+                public final /* synthetic */ a f68404a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -68,16 +68,16 @@ public class a extends ICommonDialogListener.Stub {
                             return;
                         }
                     }
-                    this.f68369a = this;
+                    this.f68404a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f68369a.f68367b == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f68404a.f68402b == null) {
                         return;
                     }
-                    this.f68369a.f68367b.b();
+                    this.f68404a.f68402b.b();
                 }
             });
         }
@@ -93,7 +93,7 @@ public class a extends ICommonDialogListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f68368a;
+                public final /* synthetic */ a f68403a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -110,16 +110,16 @@ public class a extends ICommonDialogListener.Stub {
                             return;
                         }
                     }
-                    this.f68368a = this;
+                    this.f68403a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f68368a.f68367b == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f68403a.f68402b == null) {
                         return;
                     }
-                    this.f68368a.f68367b.a();
+                    this.f68403a.f68402b.a();
                 }
             });
         }
@@ -135,7 +135,7 @@ public class a extends ICommonDialogListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f68370a;
+                public final /* synthetic */ a f68405a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -152,16 +152,16 @@ public class a extends ICommonDialogListener.Stub {
                             return;
                         }
                     }
-                    this.f68370a = this;
+                    this.f68405a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f68370a.f68367b == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f68405a.f68402b == null) {
                         return;
                     }
-                    this.f68370a.f68367b.c();
+                    this.f68405a.f68402b.c();
                 }
             });
         }
@@ -170,7 +170,7 @@ public class a extends ICommonDialogListener.Stub {
     private void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, runnable) == null) {
-            this.f68366a.post(runnable);
+            this.f68401a.post(runnable);
         }
     }
 }

@@ -1,6 +1,5 @@
 package c.a.f0.a.c;
 
-import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -60,7 +59,7 @@ public class i {
                 try {
                     context.startActivity(intent2);
                     z = true;
-                } catch (ActivityNotFoundException unused) {
+                } catch (Exception unused) {
                 }
             }
             if (f3353a && !z) {
@@ -92,7 +91,7 @@ public class i {
                     return true;
                 }
                 return true;
-            } catch (ActivityNotFoundException unused) {
+            } catch (Exception unused) {
                 return false;
             }
         }

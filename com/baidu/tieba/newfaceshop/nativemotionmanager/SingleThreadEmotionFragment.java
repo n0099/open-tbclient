@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.e;
-import c.a.r0.e2.h.f.f;
+import c.a.r0.f2.h.f.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,18 +21,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.e2.h.e.a.a<List<EmotionPackageData>> {
+public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.f2.h.e.a.a<List<EmotionPackageData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f54797e;
+    public f f54728e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SingleThreadEmotionModel f54798f;
+    public SingleThreadEmotionModel f54729f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f54799g;
+    public CustomMessageListener f54730g;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -40,7 +40,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SingleThreadEmotionFragment f54800a;
+        public final /* synthetic */ SingleThreadEmotionFragment f54731a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SingleThreadEmotionFragment singleThreadEmotionFragment, int i2) {
@@ -60,17 +60,17 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
                     return;
                 }
             }
-            this.f54800a = singleThreadEmotionFragment;
+            this.f54731a = singleThreadEmotionFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f54800a.f54798f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f54731a.f54729f == null) {
                 return;
             }
-            this.f54800a.f54798f.C();
+            this.f54731a.f54729f.loadData();
         }
     }
 
@@ -80,10 +80,10 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f54801e;
+        public final /* synthetic */ List f54732e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SingleThreadEmotionFragment f54802f;
+        public final /* synthetic */ SingleThreadEmotionFragment f54733f;
 
         public b(SingleThreadEmotionFragment singleThreadEmotionFragment, List list) {
             Interceptable interceptable = $ic;
@@ -100,18 +100,18 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
                     return;
                 }
             }
-            this.f54802f = singleThreadEmotionFragment;
-            this.f54801e = list;
+            this.f54733f = singleThreadEmotionFragment;
+            this.f54732e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54802f.f54797e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54733f.f54728e == null) {
                 return;
             }
-            this.f54802f.f54797e.i(this.f54801e);
-            this.f54802f.h();
+            this.f54733f.f54728e.i(this.f54732e);
+            this.f54733f.h();
         }
     }
 
@@ -121,7 +121,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SingleThreadEmotionFragment f54803e;
+        public final /* synthetic */ SingleThreadEmotionFragment f54734e;
 
         public c(SingleThreadEmotionFragment singleThreadEmotionFragment) {
             Interceptable interceptable = $ic;
@@ -138,16 +138,16 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
                     return;
                 }
             }
-            this.f54803e = singleThreadEmotionFragment;
+            this.f54734e = singleThreadEmotionFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54803e.f54797e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54734e.f54728e == null) {
                 return;
             }
-            this.f54803e.f54797e.h();
+            this.f54734e.f54728e.h();
         }
     }
 
@@ -164,22 +164,22 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
                 return;
             }
         }
-        this.f54799g = new a(this, 2921314);
+        this.f54730g = new a(this, 2921314);
     }
 
     public final void g() {
         SingleThreadEmotionModel singleThreadEmotionModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (singleThreadEmotionModel = this.f54798f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (singleThreadEmotionModel = this.f54729f) == null) {
             return;
         }
-        singleThreadEmotionModel.C();
+        singleThreadEmotionModel.loadData();
     }
 
     public final void h() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (fVar = this.f54797e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (fVar = this.f54728e) == null) {
             return;
         }
         fVar.b();
@@ -190,7 +190,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            f fVar = this.f54797e;
+            f fVar = this.f54728e;
             if (fVar != null) {
                 fVar.d(i2);
             }
@@ -202,13 +202,13 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.f54797e = new f(getPageContext());
+            this.f54728e = new f(getPageContext());
             SingleThreadEmotionModel singleThreadEmotionModel = new SingleThreadEmotionModel();
-            this.f54798f = singleThreadEmotionModel;
-            singleThreadEmotionModel.F(this);
-            registerListener(this.f54799g);
+            this.f54729f = singleThreadEmotionModel;
+            singleThreadEmotionModel.E(this);
+            registerListener(this.f54730g);
             g();
-            return this.f54797e.a();
+            return this.f54728e.a();
         }
         return (View) invokeLLL.objValue;
     }
@@ -218,17 +218,17 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            if (this.f54799g != null) {
-                MessageManager.getInstance().unRegisterListener(this.f54799g);
+            if (this.f54730g != null) {
+                MessageManager.getInstance().unRegisterListener(this.f54730g);
             }
-            SingleThreadEmotionModel singleThreadEmotionModel = this.f54798f;
+            SingleThreadEmotionModel singleThreadEmotionModel = this.f54729f;
             if (singleThreadEmotionModel != null) {
-                singleThreadEmotionModel.D();
+                singleThreadEmotionModel.C();
             }
         }
     }
 
-    @Override // c.a.r0.e2.h.e.a.a
+    @Override // c.a.r0.f2.h.e.a.a
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -236,7 +236,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
         }
     }
 
-    @Override // c.a.r0.e2.h.e.a.a
+    @Override // c.a.r0.f2.h.e.a.a
     public void redraw() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -244,7 +244,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.e2.h.e.a.a
+    @Override // c.a.r0.f2.h.e.a.a
     public void onSuccess(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {

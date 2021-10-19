@@ -10,13 +10,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f15440a;
+    public static final char[] f15463a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f15441b;
+    public static final char[] f15464b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f15442c;
+    public static final byte[] f15465c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,11 +32,11 @@ public class a {
                 return;
             }
         }
-        f15440a = "0123456789ABCDEF".toCharArray();
-        f15441b = "0123456789abcdef".toCharArray();
-        f15442c = new byte[128];
+        f15463a = "0123456789ABCDEF".toCharArray();
+        f15464b = "0123456789abcdef".toCharArray();
+        f15465c = new byte[128];
         for (int i2 = 0; i2 < 10; i2++) {
-            byte[] bArr = f15442c;
+            byte[] bArr = f15465c;
             bArr[i2 + 48] = (byte) i2;
             byte b2 = (byte) (i2 + 10);
             bArr[i2 + 65] = b2;
@@ -48,7 +48,7 @@ public class a {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
-            char[] cArr = z ? f15440a : f15441b;
+            char[] cArr = z ? f15463a : f15464b;
             char[] cArr2 = new char[bArr.length * 2];
             int i2 = 0;
             for (byte b2 : bArr) {

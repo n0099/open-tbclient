@@ -14,7 +14,7 @@ public class g implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardPopupWindow f39794a;
+    public final /* synthetic */ SafeKeyBoardPopupWindow f39798a;
 
     public g(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class g implements View.OnTouchListener {
                 return;
             }
         }
-        this.f39794a = safeKeyBoardPopupWindow;
+        this.f39798a = safeKeyBoardPopupWindow;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -41,19 +41,19 @@ public class g implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                this.f39794a.b();
+                this.f39798a.b();
                 return false;
             }
             if (motionEvent.getAction() != 1) {
                 if (motionEvent.getAction() != 2) {
                     return false;
                 }
-                imageButton = this.f39794a.k;
+                imageButton = this.f39798a.k;
                 if (imageButton.isPressed()) {
                     return false;
                 }
             }
-            this.f39794a.a();
+            this.f39798a.a();
             return false;
         }
         return invokeLL.booleanValue;

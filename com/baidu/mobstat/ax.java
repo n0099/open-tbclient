@@ -16,14 +16,14 @@ public class ax {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ax f43406c;
+    public static final ax f43318c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f43407a;
+    public boolean f43319a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f43408b;
+    public volatile boolean f43320b;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class ax {
                 return;
             }
         }
-        f43406c = new ax();
+        f43318c = new ax();
     }
 
     public ax() {
@@ -54,19 +54,19 @@ public class ax {
                 return;
             }
         }
-        this.f43407a = false;
+        this.f43319a = false;
     }
 
     public static ax a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43406c : (ax) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43318c : (ax) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43407a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43319a : invokeV.booleanValue;
     }
 
     public void a(String str) {
@@ -76,9 +76,9 @@ public class ax {
         }
         try {
             JSONObject jSONObject = (JSONObject) new JSONObject(str).opt("full");
-            this.f43407a = (jSONObject != null ? jSONObject.optInt(IntentConfig.CLOSE) : 0) != 0;
+            this.f43319a = (jSONObject != null ? jSONObject.optInt(IntentConfig.CLOSE) : 0) != 0;
         } catch (Exception unused) {
         }
-        this.f43408b = true;
+        this.f43320b = true;
     }
 }

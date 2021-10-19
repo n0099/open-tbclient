@@ -35,7 +35,7 @@ public final class a implements c.i.b.a.c0.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-            ByteBuffer byteBuffer = cVar.f34112g;
+            ByteBuffer byteBuffer = cVar.f34116g;
             byte[] array = byteBuffer.array();
             int limit = byteBuffer.limit();
             l lVar = new l(array, limit);

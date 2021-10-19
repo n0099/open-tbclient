@@ -12,25 +12,25 @@ public class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36121a = "pref_trade_token";
+    public static final String f36125a = "pref_trade_token";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36122b = ";";
+    public static final String f36126b = ";";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f36123c = "result={";
+    public static final String f36127c = "result={";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36124d = "}";
+    public static final String f36128d = "}";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f36125e = "trade_token=\"";
+    public static final String f36129e = "trade_token=\"";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f36126f = "\"";
+    public static final String f36130f = "\"";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f36127g = "trade_token=";
+    public static final String f36131g = "trade_token=";
     public transient /* synthetic */ FieldHolder $fh;
 
     public g() {
@@ -56,7 +56,7 @@ public class g {
                 if (TextUtils.isEmpty(a2)) {
                     return;
                 }
-                h.b(aVar, context, f36121a, a2);
+                h.b(aVar, context, f36125a, a2);
             } catch (Throwable th) {
                 com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.M, th);
                 c.a(th);
@@ -74,16 +74,16 @@ public class g {
             }
             String[] split = str.split(";");
             for (int i2 = 0; i2 < split.length; i2++) {
-                if (split[i2].startsWith(f36123c) && split[i2].endsWith("}")) {
+                if (split[i2].startsWith(f36127c) && split[i2].endsWith("}")) {
                     String[] split2 = split[i2].substring(8, split[i2].length() - 1).split("&");
                     int i3 = 0;
                     while (true) {
                         if (i3 >= split2.length) {
                             break;
-                        } else if (split2[i3].startsWith(f36125e) && split2[i3].endsWith("\"")) {
+                        } else if (split2[i3].startsWith(f36129e) && split2[i3].endsWith("\"")) {
                             str2 = split2[i3].substring(13, split2[i3].length() - 1);
                             break;
-                        } else if (split2[i3].startsWith(f36127g)) {
+                        } else if (split2[i3].startsWith(f36131g)) {
                             str2 = split2[i3].substring(12);
                             break;
                         } else {
@@ -101,7 +101,7 @@ public class g {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, aVar, context)) == null) {
-            String a2 = h.a(aVar, context, f36121a, "");
+            String a2 = h.a(aVar, context, f36125a, "");
             c.b(com.alipay.sdk.cons.a.x, "get trade token: " + a2);
             return a2;
         }

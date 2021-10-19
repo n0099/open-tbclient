@@ -11,7 +11,7 @@ public class ax implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<Runnable> f74249a;
+    public WeakReference<Runnable> f74284a;
 
     public ax(Runnable runnable) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class ax implements Runnable {
                 return;
             }
         }
-        this.f74249a = new WeakReference<>(runnable);
+        this.f74284a = new WeakReference<>(runnable);
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Runnable runnable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (runnable = this.f74249a.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (runnable = this.f74284a.get()) == null) {
             return;
         }
         runnable.run();

@@ -47,22 +47,22 @@ public class EditorTools extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f48378e;
+    public View f48302e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f48379f;
+    public View f48303f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<m> f48380g;
+    public List<m> f48304g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SparseArray<c.a.q0.x.b> f48381h;
+    public SparseArray<c.a.q0.x.b> f48305h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SparseArray<HashSet<c.a.q0.x.b>> f48382i;
+    public SparseArray<HashSet<c.a.q0.x.b>> f48306i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SparseArray<HashSet<Integer>> f48383j;
+    public SparseArray<HashSet<Integer>> f48307j;
     public int k;
     public boolean l;
     public int m;
@@ -87,7 +87,7 @@ public class EditorTools extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f48384e;
+        public final /* synthetic */ EditorTools f48308e;
 
         public a(EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -104,14 +104,14 @@ public class EditorTools extends LinearLayout {
                     return;
                 }
             }
-            this.f48384e = editorTools;
+            this.f48308e = editorTools;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48384e.performLauncherClick(view);
+                this.f48308e.performLauncherClick(view);
             }
         }
     }
@@ -122,7 +122,7 @@ public class EditorTools extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f48385e;
+        public final /* synthetic */ EditorTools f48309e;
 
         public b(EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -139,14 +139,14 @@ public class EditorTools extends LinearLayout {
                     return;
                 }
             }
-            this.f48385e = editorTools;
+            this.f48309e = editorTools;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48385e.displaySoftKey();
+                this.f48309e.displaySoftKey();
             }
         }
     }
@@ -157,7 +157,7 @@ public class EditorTools extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f48386e;
+        public final /* synthetic */ EditorTools f48310e;
 
         public c(EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -174,7 +174,7 @@ public class EditorTools extends LinearLayout {
                     return;
                 }
             }
-            this.f48386e = editorTools;
+            this.f48310e = editorTools;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -183,7 +183,7 @@ public class EditorTools extends LinearLayout {
         public int compare(m mVar, m mVar2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mVar, mVar2)) == null) ? mVar.f15101j - mVar2.f15101j : invokeLL.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mVar, mVar2)) == null) ? mVar.f15132j - mVar2.f15132j : invokeLL.intValue;
         }
     }
 
@@ -193,7 +193,7 @@ public class EditorTools extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f48387e;
+        public final /* synthetic */ EditorTools f48311e;
 
         public d(EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -210,16 +210,16 @@ public class EditorTools extends LinearLayout {
                     return;
                 }
             }
-            this.f48387e = editorTools;
+            this.f48311e = editorTools;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48387e.w == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48311e.w == null) {
                 return;
             }
-            this.f48387e.w.onClick(view);
+            this.f48311e.w.onClick(view);
         }
     }
 
@@ -283,23 +283,23 @@ public class EditorTools extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) || mVar == null) {
             return;
         }
-        this.f48380g.add(mVar);
+        this.f48304g.add(mVar);
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View view = this.f48379f;
+            View view = this.f48303f;
             if (view == null || view.getParent() != null) {
                 View view2 = new View(getContext());
-                this.f48379f = view2;
+                this.f48303f = view2;
                 SkinManager.setBackgroundResource(view2, R.color.transparent);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0);
                 layoutParams.weight = 1.0f;
-                this.f48379f.setLayoutParams(layoutParams);
-                this.f48379f.setOnClickListener(new d(this));
+                this.f48303f.setLayoutParams(layoutParams);
+                this.f48303f.setOnClickListener(new d(this));
             }
-            addView(this.f48379f, 0);
+            addView(this.f48303f, 0);
         }
     }
 
@@ -308,19 +308,19 @@ public class EditorTools extends LinearLayout {
         j jVar;
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (list = this.f48380g) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (list = this.f48304g) == null || list.size() == 0) {
             return;
         }
         d();
         LinkedList linkedList = new LinkedList();
         boolean z = false;
-        for (m mVar : this.f48380g) {
-            if (mVar.f15095d > 0) {
+        for (m mVar : this.f48304g) {
+            if (mVar.f15126d > 0) {
                 linkedList.add(mVar);
             }
             n nVar2 = mVar.k;
             if (nVar2 != null) {
-                nVar2.setToolId(mVar.f15094c);
+                nVar2.setToolId(mVar.f15125c);
                 mVar.k.setEditorTools(this);
                 int i2 = mVar.l;
                 if (i2 == 6) {
@@ -331,7 +331,7 @@ public class EditorTools extends LinearLayout {
                         z = true;
                     }
                 }
-                setActionListener(mVar.n, mVar.f15094c, mVar.k);
+                setActionListener(mVar.n, mVar.f15125c, mVar.k);
             }
         }
         Collections.sort(linkedList, new c(this));
@@ -351,9 +351,9 @@ public class EditorTools extends LinearLayout {
                 jVar.o = false;
             }
             addTool(jVar);
-            jVar.k.setToolId(jVar.f15094c);
+            jVar.k.setToolId(jVar.f15125c);
             jVar.k.setEditorTools(this);
-            setActionListener(jVar.n, jVar.f15094c, jVar.k);
+            setActionListener(jVar.n, jVar.f15125c, jVar.k);
             this.mED.addToolView(jVar.k);
             if (this.l) {
                 linkedList.add(this.k, jVar);
@@ -403,26 +403,26 @@ public class EditorTools extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            View view = this.f48378e;
+            View view = this.f48302e;
             if (view == null || view.getParent() != null) {
                 View view2 = new View(getContext());
-                this.f48378e = view2;
+                this.f48302e = view2;
                 c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(view2);
-                d2.o(R.string.J_X02);
+                d2.n(R.string.J_X02);
                 d2.f(R.color.CAM_X0210);
-                this.f48378e.setLayoutParams(new RelativeLayout.LayoutParams(-1, l.g(getContext(), R.dimen.L_X01)));
+                this.f48302e.setLayoutParams(new RelativeLayout.LayoutParams(-1, l.g(getContext(), R.dimen.L_X01)));
             }
-            addView(this.f48378e);
+            addView(this.f48302e);
         }
     }
 
     public void clearTools() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f48380g.clear();
-            this.f48381h.clear();
-            this.f48382i.clear();
-            this.f48383j.clear();
+            this.f48304g.clear();
+            this.f48305h.clear();
+            this.f48306i.clear();
+            this.f48307j.clear();
         }
     }
 
@@ -446,7 +446,7 @@ public class EditorTools extends LinearLayout {
     public void display(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            for (m mVar : this.f48380g) {
+            for (m mVar : this.f48304g) {
                 if (mVar != null) {
                     n nVar = mVar.k;
                     if ((nVar instanceof View) && ((View) nVar).getVisibility() == 0 && !mVar.m) {
@@ -490,7 +490,7 @@ public class EditorTools extends LinearLayout {
     public void displayWithoutSoftKey() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            for (m mVar : this.f48380g) {
+            for (m mVar : this.f48304g) {
                 if (mVar != null) {
                     n nVar = mVar.k;
                     if ((nVar instanceof View) && ((View) nVar).getVisibility() == 0 && !mVar.m) {
@@ -509,7 +509,7 @@ public class EditorTools extends LinearLayout {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, mVar, i2)) == null) {
             h a2 = g.a(getContext(), mVar, i2);
             if (a2 instanceof View) {
-                ((View) a2).setContentDescription(mVar.f15093b);
+                ((View) a2).setContentDescription(mVar.f15124b);
             }
             if (a2 instanceof BLauncher) {
                 ((View) a2).setOnClickListener(this.v);
@@ -523,10 +523,10 @@ public class EditorTools extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
             this.s = context;
-            this.f48380g = new LinkedList();
-            this.f48381h = new SparseArray<>();
-            this.f48382i = new SparseArray<>();
-            this.f48383j = new SparseArray<>();
+            this.f48304g = new LinkedList();
+            this.f48305h = new SparseArray<>();
+            this.f48306i = new SparseArray<>();
+            this.f48307j = new SparseArray<>();
             this.mEB = new EditorBar(context, this);
             this.mED = new EditorDesk(context, this);
             this.p = new LinkedList<>();
@@ -548,8 +548,8 @@ public class EditorTools extends LinearLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-            for (m mVar : this.f48380g) {
-                if (mVar.f15094c == i2) {
+            for (m mVar : this.f48304g) {
+                if (mVar.f15125c == i2) {
                     return mVar;
                 }
             }
@@ -561,7 +561,7 @@ public class EditorTools extends LinearLayout {
     public List<m> getAllTools() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f48380g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f48304g : (List) invokeV.objValue;
     }
 
     public List<Integer> getCollectTools() {
@@ -655,10 +655,10 @@ public class EditorTools extends LinearLayout {
             SkinManager.setBackgroundColor(this, this.m, i2);
             this.mEB.onChangeSkinType(i2);
             this.mED.onChangeSkinType(i2);
-            View view = this.f48378e;
+            View view = this.f48302e;
             if (view != null) {
                 c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(view);
-                d2.o(R.string.J_X02);
+                d2.n(R.string.J_X02);
                 d2.f(R.color.CAM_X0210);
             }
         }
@@ -711,7 +711,7 @@ public class EditorTools extends LinearLayout {
         }
         for (int i2 = 0; i2 < iArr.length; i2++) {
             if (iArr[i2] > 0) {
-                this.f48380g.remove(iArr[i2]);
+                this.f48304g.remove(iArr[i2]);
             }
         }
     }
@@ -739,12 +739,12 @@ public class EditorTools extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048611, this, aVar) == null) || aVar == null) {
             return;
         }
-        int i3 = aVar.f15086a;
+        int i3 = aVar.f15109a;
         if (i3 == 2) {
             boolean z = false;
-            h findLauncherById = this.mEB.findLauncherById(aVar.f15087b);
+            h findLauncherById = this.mEB.findLauncherById(aVar.f15110b);
             if (findLauncherById == null) {
-                findLauncherById = this.mED.findLauncherById(aVar.f15087b);
+                findLauncherById = this.mED.findLauncherById(aVar.f15110b);
                 z = true;
             }
             if (findLauncherById == null) {
@@ -754,7 +754,7 @@ public class EditorTools extends LinearLayout {
                         break;
                     }
                     h next = it.next();
-                    if (next.getToolId() == aVar.f15087b) {
+                    if (next.getToolId() == aVar.f15110b) {
                         findLauncherById = next;
                         break;
                     }
@@ -771,34 +771,34 @@ public class EditorTools extends LinearLayout {
             this.mEB.changeToLauncher(null);
             this.mED.changeToKeyboard();
         } else {
-            int i4 = aVar.f15087b;
+            int i4 = aVar.f15110b;
             if (i4 > 0) {
-                c.a.q0.x.b bVar = this.f48381h.get(i4);
+                c.a.q0.x.b bVar = this.f48305h.get(i4);
                 if (bVar != null) {
-                    int i5 = aVar.f15086a;
-                    if (i5 != 19 && i5 != 20 && (i2 = aVar.f15087b) != 27) {
+                    int i5 = aVar.f15109a;
+                    if (i5 != 19 && i5 != 20 && (i2 = aVar.f15110b) != 27) {
                         this.mEB.changeToTool(i2);
                     }
-                    m findToolById2 = findToolById(aVar.f15087b);
+                    m findToolById2 = findToolById(aVar.f15110b);
                     if (findToolById2 != null && findToolById2.l == 5) {
                         hideTools();
                         hideSoftKey();
                     } else {
-                        this.mED.changeToTool(aVar.f15087b);
+                        this.mED.changeToTool(aVar.f15110b);
                     }
                     bVar.onAction(aVar);
                 }
             } else if (i4 <= 0) {
-                if (i4 < 0 && (hashSet = this.f48383j.get(i3)) != null && !hashSet.isEmpty()) {
+                if (i4 < 0 && (hashSet = this.f48307j.get(i3)) != null && !hashSet.isEmpty()) {
                     Iterator<Integer> it2 = hashSet.iterator();
                     while (it2.hasNext()) {
-                        c.a.q0.x.b bVar2 = this.f48381h.get(it2.next().intValue());
+                        c.a.q0.x.b bVar2 = this.f48305h.get(it2.next().intValue());
                         if (bVar2 != null) {
                             bVar2.onAction(aVar);
                         }
                     }
                 }
-                HashSet<c.a.q0.x.b> hashSet2 = this.f48382i.get(aVar.f15086a);
+                HashSet<c.a.q0.x.b> hashSet2 = this.f48306i.get(aVar.f15109a);
                 if (hashSet2 != null && !hashSet2.isEmpty()) {
                     Iterator<c.a.q0.x.b> it3 = hashSet2.iterator();
                     while (it3.hasNext()) {
@@ -967,7 +967,7 @@ public class EditorTools extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048634, this, view) == null) {
             BaseActivity baseActivity = (BaseActivity) this.s;
-            c.a.r0.e0.e eVar = new c.a.r0.e0.e(baseActivity.getPageContext(), view);
+            c.a.r0.f0.e eVar = new c.a.r0.f0.e(baseActivity.getPageContext(), view);
             eVar.g0(R.drawable.bg_tip_blue_down_right);
             eVar.O(48);
             eVar.U(true);
@@ -978,7 +978,7 @@ public class EditorTools extends LinearLayout {
             eVar.d0(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds26));
             eVar.a0(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds44));
             eVar.N((int) 3000);
-            eVar.n0(baseActivity.getString(R.string.user_bubble_tail_position_prompt), "write_buttle_tail_hint_tip_key", true);
+            eVar.n0(baseActivity.getString(R.string.user_associate_item_prompt), "write_associate_item_hint_tip_key", true);
         }
     }
 
@@ -997,28 +997,28 @@ public class EditorTools extends LinearLayout {
                 if (iArr == null || iArr.length == 0) {
                     return;
                 }
-                HashSet<c.a.q0.x.b> hashSet = this.f48382i.get(iArr[0]);
+                HashSet<c.a.q0.x.b> hashSet = this.f48306i.get(iArr[0]);
                 if (hashSet == null) {
                     hashSet = new HashSet<>();
                     int length = iArr.length;
                     while (i3 < length) {
-                        this.f48382i.put(iArr[i3], hashSet);
+                        this.f48306i.put(iArr[i3], hashSet);
                         i3++;
                     }
                 }
                 hashSet.add(bVar);
             } else if (i2 > 0) {
-                this.f48381h.put(i2, bVar);
+                this.f48305h.put(i2, bVar);
                 if (iArr == null || iArr.length <= 0) {
                     return;
                 }
                 int length2 = iArr.length;
                 while (i3 < length2) {
                     int i4 = iArr[i3];
-                    HashSet<Integer> hashSet2 = this.f48383j.get(i4);
+                    HashSet<Integer> hashSet2 = this.f48307j.get(i4);
                     if (hashSet2 == null) {
                         hashSet2 = new HashSet<>();
-                        this.f48383j.put(i4, hashSet2);
+                        this.f48307j.put(i4, hashSet2);
                     }
                     hashSet2.add(Integer.valueOf(i2));
                     i3++;

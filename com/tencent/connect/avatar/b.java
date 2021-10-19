@@ -18,10 +18,10 @@ public class b extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f76503a;
+    public Rect f76538a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f76504b;
+    public Paint f76539b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -47,7 +47,7 @@ public class b extends View {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f76504b = new Paint();
+            this.f76539b = new Paint();
         }
     }
 
@@ -55,16 +55,16 @@ public class b extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f76503a == null) {
-                this.f76503a = new Rect();
+            if (this.f76538a == null) {
+                this.f76538a = new Rect();
                 int measuredWidth = getMeasuredWidth();
                 int measuredHeight = getMeasuredHeight();
                 int min = Math.min(Math.min((measuredHeight - 60) - 80, measuredWidth), 640);
                 int i2 = (measuredWidth - min) / 2;
                 int i3 = (measuredHeight - min) / 2;
-                this.f76503a.set(i2, i3, i2 + min, min + i3);
+                this.f76538a.set(i2, i3, i2 + min, min + i3);
             }
-            return this.f76503a;
+            return this.f76538a;
         }
         return (Rect) invokeV.objValue;
     }
@@ -77,17 +77,17 @@ public class b extends View {
             Rect a2 = a();
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            this.f76504b.setStyle(Paint.Style.FILL);
-            this.f76504b.setColor(Color.argb(100, 0, 0, 0));
+            this.f76539b.setStyle(Paint.Style.FILL);
+            this.f76539b.setColor(Color.argb(100, 0, 0, 0));
             float f2 = measuredWidth;
-            canvas.drawRect(0.0f, 0.0f, f2, a2.top, this.f76504b);
-            canvas.drawRect(0.0f, a2.bottom, f2, measuredHeight, this.f76504b);
-            canvas.drawRect(0.0f, a2.top, a2.left, a2.bottom, this.f76504b);
-            canvas.drawRect(a2.right, a2.top, f2, a2.bottom, this.f76504b);
+            canvas.drawRect(0.0f, 0.0f, f2, a2.top, this.f76539b);
+            canvas.drawRect(0.0f, a2.bottom, f2, measuredHeight, this.f76539b);
+            canvas.drawRect(0.0f, a2.top, a2.left, a2.bottom, this.f76539b);
+            canvas.drawRect(a2.right, a2.top, f2, a2.bottom, this.f76539b);
             canvas.drawColor(Color.argb(100, 0, 0, 0));
-            this.f76504b.setStyle(Paint.Style.STROKE);
-            this.f76504b.setColor(-1);
-            canvas.drawRect(a2.left, a2.top, a2.right - 1, a2.bottom, this.f76504b);
+            this.f76539b.setStyle(Paint.Style.STROKE);
+            this.f76539b.setColor(-1);
+            canvas.drawRect(a2.left, a2.top, a2.right - 1, a2.bottom, this.f76539b);
         }
     }
 }

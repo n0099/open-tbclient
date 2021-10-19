@@ -12,13 +12,13 @@ public final class b<T> extends j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.n.b<? super T> f79149e;
+    public final i.n.b<? super T> f79184e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.n.b<Throwable> f79150f;
+    public final i.n.b<Throwable> f79185f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final i.n.a f79151g;
+    public final i.n.a f79186g;
 
     public b(i.n.b<? super T> bVar, i.n.b<Throwable> bVar2, i.n.a aVar) {
         Interceptable interceptable = $ic;
@@ -35,16 +35,16 @@ public final class b<T> extends j<T> {
                 return;
             }
         }
-        this.f79149e = bVar;
-        this.f79150f = bVar2;
-        this.f79151g = aVar;
+        this.f79184e = bVar;
+        this.f79185f = bVar2;
+        this.f79186g = aVar;
     }
 
     @Override // i.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f79151g.call();
+            this.f79186g.call();
         }
     }
 
@@ -52,7 +52,7 @@ public final class b<T> extends j<T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f79150f.call(th);
+            this.f79185f.call(th);
         }
     }
 
@@ -60,7 +60,7 @@ public final class b<T> extends j<T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f79149e.call(t);
+            this.f79184e.call(t);
         }
     }
 }

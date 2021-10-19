@@ -79,6 +79,7 @@ public class IntentConfig extends OrmObject {
     public static final String IS_MASK = "isMask";
     public static final String IS_NEED_MULTIPLE = "is_need_multiple";
     public static final String IS_VIDEO_THREAD = "is_video_thread";
+    public static final String IS_VIDEO_TOPIC = "is_video_topic";
     public static final String KEY_AI_APP_SCHEMA = "KEY_AI_APP_SCHEMA";
     public static final String KEY_ALBUM_THREAD = "album_thread";
     public static final String KEY_CAN_EDIT_IMAGE = "can_edit_image";
@@ -157,7 +158,7 @@ public class IntentConfig extends OrmObject {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f47646e;
+        public final /* synthetic */ IntentConfig f47566e;
 
         public a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -174,7 +175,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f47646e = intentConfig;
+            this.f47566e = intentConfig;
         }
 
         @Override // android.content.ServiceConnection
@@ -183,17 +184,17 @@ public class IntentConfig extends OrmObject {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) || iBinder == null) {
                 return;
             }
-            this.f47646e.mReplyMessenger = new Messenger(iBinder);
-            if (this.f47646e.mReplyMessenger != null) {
+            this.f47566e.mReplyMessenger = new Messenger(iBinder);
+            if (this.f47566e.mReplyMessenger != null) {
                 Message obtain = Message.obtain();
                 Bundle bundle = new Bundle();
-                if (this.f47646e.mComponentClass != null) {
-                    bundle.putString(DealIntentService.KEY_CLASS, this.f47646e.mComponentClass.getName());
+                if (this.f47566e.mComponentClass != null) {
+                    bundle.putString(DealIntentService.KEY_CLASS, this.f47566e.mComponentClass.getName());
                 }
                 obtain.setData(bundle);
-                obtain.replyTo = this.f47646e.mClientMessenger;
+                obtain.replyTo = this.f47566e.mClientMessenger;
                 try {
-                    this.f47646e.mReplyMessenger.send(obtain);
+                    this.f47566e.mReplyMessenger.send(obtain);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -214,7 +215,7 @@ public class IntentConfig extends OrmObject {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f47647a;
+        public final /* synthetic */ IntentConfig f47567a;
 
         public b(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -231,7 +232,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f47647a = intentConfig;
+            this.f47567a = intentConfig;
         }
 
         public final boolean a(Message message) {
@@ -243,19 +244,19 @@ public class IntentConfig extends OrmObject {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || this.f47647a.mContext == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || this.f47567a.mContext == null) {
                 return;
             }
             if (a(message)) {
-                if (this.f47647a.isForResult) {
-                    IntentConfig intentConfig = this.f47647a;
-                    intentConfig.startActivityForResult(intentConfig.mRequestCode, this.f47647a.mComponentClass);
+                if (this.f47567a.isForResult) {
+                    IntentConfig intentConfig = this.f47567a;
+                    intentConfig.startActivityForResult(intentConfig.mRequestCode, this.f47567a.mComponentClass);
                 } else {
-                    IntentConfig intentConfig2 = this.f47647a;
+                    IntentConfig intentConfig2 = this.f47567a;
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            f.e(this.f47647a.mContext, this.f47647a.mClientConnection);
+            f.e(this.f47567a.mContext, this.f47567a.mClientConnection);
         }
 
         public /* synthetic */ b(IntentConfig intentConfig, a aVar) {

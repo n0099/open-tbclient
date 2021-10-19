@@ -15,7 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a0.m;
+import c.a.r0.b0.m;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
@@ -57,7 +57,6 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.videoPreload.IVideoData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.switchs.ConveneThreadOpenSwitch;
-import com.baidu.tbadk.widget.richText.TbRichTextHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
@@ -195,7 +194,7 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
     public VideoInfo G1;
     public String G2;
     public String H;
-    public r2 H0;
+    public q2 H0;
     public boolean H1;
     public boolean H2;
     public String I;
@@ -209,7 +208,7 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
     public int K;
     public String K0;
     public boolean K1;
-    public c.a.r0.j3.i0.o K2;
+    public c.a.r0.k3.i0.o K2;
     public int L;
     public int L0;
     public boolean L1;
@@ -282,33 +281,33 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
     public boolean d2;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14136e;
+    public boolean f14159e;
     public boolean e1;
     public boolean e2;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14137f;
+    public boolean f14160f;
     public boolean f1;
     public boolean f2;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14138g;
+    public boolean f14161g;
     public int g1;
     public boolean g2;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14139h;
+    public boolean f14162h;
     public boolean h1;
     public boolean h2;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f14140i;
+    public boolean f14163i;
     public int i0;
     public boolean i1;
     public String i2;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f14141j;
+    public boolean f14164j;
     public PraiseData j0;
     public int j1;
     public boolean j2;
@@ -477,12 +476,12 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
                 return;
             }
         }
-        this.f14136e = false;
-        this.f14137f = false;
-        this.f14138g = false;
-        this.f14139h = false;
-        this.f14140i = false;
-        this.f14141j = false;
+        this.f14159e = false;
+        this.f14160f = false;
+        this.f14161g = false;
+        this.f14162h = false;
+        this.f14163i = false;
+        this.f14164j = false;
         this.k = false;
         this.l = false;
         this.m = false;
@@ -802,10 +801,10 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.V1 : (String) invokeV.objValue;
     }
 
-    public r2 F1() {
+    public q2 F1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.H0 : (r2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.H0 : (q2) invokeV.objValue;
     }
 
     public boolean F2() {
@@ -847,11 +846,11 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
         }
         SpannableStringBuilder spannableStringBuilder = this.y;
         if (spannableStringBuilder != null) {
-            spannableStringBuilder.insert(0, (CharSequence) TbRichTextHelper.e(this.A2));
+            spannableStringBuilder.insert(0, (CharSequence) c.a.q0.f1.m.e.e(this.A2));
             return;
         }
         SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(this.z);
-        spannableStringBuilder2.insert(0, (CharSequence) TbRichTextHelper.e(this.A2));
+        spannableStringBuilder2.insert(0, (CharSequence) c.a.q0.f1.m.e.e(this.A2));
         this.z = new SpannableString(spannableStringBuilder2);
     }
 
@@ -1101,7 +1100,7 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
             SpannableStringBuilder P2 = P2();
-            c.a.r0.a0.m.b(this, P2, false);
+            c.a.r0.b0.m.b(this, P2, false);
             return new SpannableString(P2);
         }
         return (SpannableString) invokeV.objValue;
@@ -1157,7 +1156,7 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
             if (ListUtils.isEmpty(this.w)) {
                 return null;
             }
-            return new SpannableString(TbRichTextHelper.B(this, this.w, this.t));
+            return new SpannableString(c.a.q0.f1.m.e.C(this, this.w, this.t));
         }
         return (SpannableString) invokeV.objValue;
     }
@@ -1341,7 +1340,7 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
     }
 
     public void O2(WriteData writeData) {
-        String l;
+        String m;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048662, this, writeData) == null) || writeData == null) {
             return;
@@ -1361,12 +1360,12 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
             this.U = writeData.getForumName();
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.is_vertical = Integer.valueOf(writeData.getVideoInfo().getVideoHeight() > writeData.getVideoInfo().getVideoWidth() ? 1 : 0);
-            if (c.a.e.e.p.k.isEmpty(c.a.r0.j3.r0.g.i().l())) {
-                l = writeData.getVideoInfo().getThumbPath();
+            if (c.a.e.e.p.k.isEmpty(c.a.r0.k3.r0.g.j().m())) {
+                m = writeData.getVideoInfo().getThumbPath();
             } else {
-                l = c.a.r0.j3.r0.g.i().l();
+                m = c.a.r0.k3.r0.g.j().m();
             }
-            builder.thumbnail_url = l;
+            builder.thumbnail_url = m;
             builder.video_url = writeData.getVideoInfo().getVideoUrl();
             this.t0 = builder.build(true);
             this.i0 = 40;
@@ -1375,8 +1374,8 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
             this.t = writeData.getContent();
             z1 z1Var = new z1();
             this.G = z1Var;
-            z1Var.f14373a = writeData.getForumId();
-            this.G.f14374b = writeData.getForumName();
+            z1Var.f14393a = writeData.getForumId();
+            this.G.f14394b = writeData.getForumName();
             this.s2 = writeData.getTabId();
             this.t2 = writeData.getTabName();
             N2(writeData.getTitle());
@@ -1436,7 +1435,7 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
             if (this.A == null) {
                 this.A = new ArrayList();
             }
-            return TbRichTextHelper.C(this, this.v, this.t, this.A);
+            return c.a.q0.f1.m.e.D(this, this.v, this.t, this.A);
         }
         return (SpannableStringBuilder) invokeV.objValue;
     }
@@ -1493,7 +1492,7 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
     public SpannableStringBuilder Q2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) ? TbRichTextHelper.B(this, this.u, this.s) : (SpannableStringBuilder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) ? c.a.q0.f1.m.e.C(this, this.u, this.s) : (SpannableStringBuilder) invokeV.objValue;
     }
 
     public void Q3(boolean z) {
@@ -1990,9 +1989,9 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("yule_post_activity");
             if (optJSONObject4 != null) {
-                r2 r2Var = new r2();
-                this.H0 = r2Var;
-                r2Var.c(optJSONObject4);
+                q2 q2Var = new q2();
+                this.H0 = q2Var;
+                q2Var.c(optJSONObject4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("app_code");
             if (optJSONObject5 != null) {
@@ -2320,7 +2319,7 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048711, this)) == null) {
-            c.a.r0.j3.i0.o oVar = this.K2;
+            c.a.r0.k3.i0.o oVar = this.K2;
             if (oVar != null) {
                 return oVar.f();
             }
@@ -2451,9 +2450,9 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
                 }
             }
             if (threadInfo.yule_post_activity != null) {
-                r2 r2Var = new r2();
-                this.H0 = r2Var;
-                r2Var.d(threadInfo.yule_post_activity);
+                q2 q2Var = new q2();
+                this.H0 = q2Var;
+                q2Var.d(threadInfo.yule_post_activity);
             }
             if (threadInfo.app_code != null) {
                 i iVar = new i();
@@ -2977,7 +2976,7 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
             if (N0 == null) {
                 return new SpannableStringBuilder();
             }
-            SpannableStringBuilder h2 = c.a.r0.a0.m.h(TbadkCoreApplication.getInst(), str, N0, false);
+            SpannableStringBuilder h2 = c.a.r0.b0.m.h(TbadkCoreApplication.getInst(), str, N0, false);
             if (N0.size() > 0) {
                 if (h2 == null) {
                     h2 = new SpannableStringBuilder();
@@ -3218,7 +3217,7 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
             getThreadData();
             x0Var.o(F0());
             x0Var.k(this.k1);
-            x0Var.f14351g = this.l1;
+            x0Var.f14371g = this.l1;
             x0Var.p = this.Z0;
             x0Var.k = this.Y0;
             x0Var.m = this.a1;
@@ -3257,7 +3256,7 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048760, this)) == null) {
-            c.a.r0.j3.i0.o oVar = this.K2;
+            c.a.r0.k3.i0.o oVar = this.K2;
             if (oVar != null) {
                 return oVar.f() ? this.K2.g() ? AdvertAppInfo.B4 : AdvertAppInfo.C4 : this.K2.g() ? AdvertAppInfo.B4 : AdvertAppInfo.A4;
             } else if (i0()) {
@@ -3327,19 +3326,19 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
                                 if (Z1()) {
                                     return w3;
                                 }
-                                if (this.f14136e) {
+                                if (this.f14159e) {
                                     return g3;
                                 }
-                                if (this.f14137f) {
+                                if (this.f14160f) {
                                     return h3;
                                 }
-                                if (this.f14138g) {
+                                if (this.f14161g) {
                                     return i3;
                                 }
-                                if (this.f14139h) {
+                                if (this.f14162h) {
                                     return j3;
                                 }
-                                if (this.f14140i) {
+                                if (this.f14163i) {
                                     return k3;
                                 }
                                 if (this.k) {
@@ -3348,7 +3347,7 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
                                 if (this.l) {
                                     return n3;
                                 }
-                                if (this.f14141j) {
+                                if (this.f14164j) {
                                     return l3;
                                 }
                                 if (this.m) {
@@ -3527,10 +3526,10 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048771, this) == null) && n2() && !TextUtils.isEmpty(this.T.getNewGodData().getFieldName())) {
             if (!TextUtils.isEmpty(this.P1)) {
-                this.P1 += "   " + this.T.getNewGodData().getFieldName() + c.a.q0.d1.s0.c(this.T.getNewGodData().isVideoGod());
+                this.P1 += "   " + this.T.getNewGodData().getFieldName() + c.a.q0.d1.r0.c(this.T.getNewGodData().isVideoGod());
                 return;
             }
-            this.P1 = this.T.getNewGodData().getFieldName() + c.a.q0.d1.s0.c(this.T.getNewGodData().isVideoGod());
+            this.P1 = this.T.getNewGodData().getFieldName() + c.a.q0.d1.r0.c(this.T.getNewGodData().isVideoGod());
         }
     }
 
@@ -3786,7 +3785,7 @@ public class d2 extends a implements PreLoadImageProvider, c.a.e.l.e.n, IVideoDa
         if (interceptable == null || interceptable.invokeV(1048798, this) == null) {
             SpannableStringBuilder S2 = S2();
             this.y = S2;
-            c.a.r0.a0.m.b(this, S2, true);
+            c.a.r0.b0.m.b(this, S2, true);
         }
     }
 

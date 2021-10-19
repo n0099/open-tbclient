@@ -30,8 +30,8 @@ import c.a.e.e.p.l;
 import c.a.e.l.e.q;
 import c.a.q0.a.p;
 import c.a.q0.a.s;
-import c.a.q0.d1.h0;
-import c.a.q0.d1.k0;
+import c.a.q0.d1.g0;
+import c.a.q0.d1.j0;
 import c.a.q0.g0.g;
 import c.a.q0.g0.h;
 import c.a.q0.j0.i;
@@ -132,7 +132,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public ContinuousAnimationView mProgressBar;
     public h mRefreshView;
     public final Handler mSafeHandler;
-    public h0 mScreenShotListenManager;
+    public g0 mScreenShotListenManager;
     public int mSkinType;
     public SwipeBackLayout mSwipeBackLayout;
     public c.a.q0.m0.c mTbPageExtra;
@@ -382,7 +382,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.isFinishing()) {
                     return;
                 }
-                k0.a(this.this$0);
+                j0.a(this.this$0);
             }
         };
         this.nightResourcesChangeListener = new CustomMessageListener(this, 2005017) { // from class: com.baidu.tbadk.BaseActivity.5
@@ -515,12 +515,12 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     private void startScreenShotListen() {
-        h0 h0Var;
+        g0 g0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65556, this) == null) || !PermissionUtil.isAgreePrivacyPolicy() || this.mIsHasScreenShotListener || (h0Var = this.mScreenShotListenManager) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65556, this) == null) || !PermissionUtil.isAgreePrivacyPolicy() || this.mIsHasScreenShotListener || (g0Var = this.mScreenShotListenManager) == null) {
             return;
         }
-        h0Var.i(new h0.b(this) { // from class: com.baidu.tbadk.BaseActivity.9
+        g0Var.i(new g0.b(this) { // from class: com.baidu.tbadk.BaseActivity.9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BaseActivity this$0;
@@ -543,7 +543,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 this.this$0 = this;
             }
 
-            @Override // c.a.q0.d1.h0.b
+            @Override // c.a.q0.d1.g0.b
             public void onShot(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -559,10 +559,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     private void stopScreenShotListen() {
-        h0 h0Var;
+        g0 g0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65557, this) == null) && this.mIsHasScreenShotListener && (h0Var = this.mScreenShotListenManager) != null) {
-            h0Var.k();
+        if ((interceptable == null || interceptable.invokeV(65557, this) == null) && this.mIsHasScreenShotListener && (g0Var = this.mScreenShotListenManager) != null) {
+            g0Var.k();
             this.mIsHasScreenShotListener = false;
         }
     }
@@ -882,7 +882,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
             s.a(motionEvent, getPageId(), getMissionTid());
-            c.a.r0.o3.a.getInstance().behaviorRecordEvent(motionEvent, this);
+            c.a.r0.p3.a.getInstance().behaviorRecordEvent(motionEvent, this);
             try {
                 if (this.mProgressBar == null || !this.mProgressBar.isShown()) {
                     return super.dispatchTouchEvent(motionEvent);
@@ -1062,8 +1062,8 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (this.pageStayDurationItem == null) {
                 c.a.q0.o0.d dVar = new c.a.q0.o0.d();
                 this.pageStayDurationItem = dVar;
-                dVar.v(getCurrentPageSourceKeyList());
-                this.pageStayDurationItem.q(getCurrentPageKey());
+                dVar.x(getCurrentPageSourceKeyList());
+                this.pageStayDurationItem.s(getCurrentPageKey());
             }
             return this.pageStayDurationItem;
         }
@@ -1494,7 +1494,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             registerListener(this.skinTypeChangeListener);
             enterExitAnimation();
             this.mIsLogin = TbadkCoreApplication.isLogin();
-            this.mScreenShotListenManager = new h0(this);
+            this.mScreenShotListenManager = new g0(this);
             SpeedStats.getInstance().onBaseActivityCreate(this);
         }
     }
@@ -1608,7 +1608,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048654, this) == null) {
-            c.a.r0.o3.a.getInstance().onPause(this);
+            c.a.r0.p3.a.getInstance().onPause(this);
             super.onPause();
             if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 hideFloatingWindow();
@@ -1616,7 +1616,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (this.lastResumeTime != 0 && !this.isInterceptStimeStat && !this.isForceInterceptStimeStat) {
                 long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
                 c.a.q0.o0.d pageStayDurationItem = getPageStayDurationItem();
-                pageStayDurationItem.w(currentTimeMillis);
+                pageStayDurationItem.y(currentTimeMillis);
                 c.a.q0.o0.e.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
             }
             this.customToast.onPause();
@@ -1694,7 +1694,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (interceptable == null || interceptable.invokeV(1048659, this) == null) {
             MenuKeyUtils.hideSoftMenuKey(getWindow());
             super.onResume();
-            c.a.r0.o3.a.getInstance().onResume(this);
+            c.a.r0.p3.a.getInstance().onResume(this);
             if (this.isInterceptStimeStat) {
                 setInterceptStimeStat(false);
             } else {
@@ -1728,7 +1728,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             }
             if (this.isAddSwipeBackLayout) {
                 c.a.e.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
-                k0.b(this);
+                j0.b(this);
             }
         }
     }

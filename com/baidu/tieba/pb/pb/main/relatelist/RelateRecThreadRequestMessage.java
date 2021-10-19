@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.pb.main.relatelist;
 
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +49,7 @@ public class RelateRecThreadRequestMessage extends NetMessage {
             builder.source_type = Integer.valueOf(this.sourceType);
             builder.source_from = Integer.valueOf(this.sourceFrom);
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             RelateRecThreadReqIdl.Builder builder2 = new RelateRecThreadReqIdl.Builder();
             builder2.data = builder.build(false);

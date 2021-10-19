@@ -179,8 +179,8 @@ public class c extends c.a.p0.a.g1.b {
                         if (!TextUtils.isEmpty(f2) && f2.startsWith(File.separator)) {
                             f2 = f2.substring(1);
                         }
-                        String str = gVar.f4507b.f46657c.f46693c.get(j.b(f2));
-                        c.a.p0.a.c2.f.p0.g.l(this.f5762a.H(), this.f5762a.u1(), "3", str, gVar.f4507b.f46658d.f46697a.get(str), this.f5763b.D(), new a(this, i2, gVar));
+                        String str = gVar.f4507b.f46569c.f46605c.get(j.b(f2));
+                        c.a.p0.a.c2.f.p0.g.l(this.f5762a.H(), this.f5762a.u1(), "3", str, gVar.f4507b.f46570d.f46609a.get(str), this.f5763b.D(), new a(this, i2, gVar));
                         return;
                     }
                     c.a.p0.a.e0.d.l("SwanApp", "subpackage is invalid");

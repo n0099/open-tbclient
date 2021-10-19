@@ -12,7 +12,7 @@ public final class m<IN> implements b<IN> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b<IN> f68952a;
+    public b<IN> f68987a;
 
     public m(b<IN> bVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class m<IN> implements b<IN> {
                 return;
             }
         }
-        this.f68952a = bVar;
+        this.f68987a = bVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.b
@@ -46,13 +46,13 @@ public final class m<IN> implements b<IN> {
     public <O> O b(Class<? extends d<?, O>> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) ? (O) this.f68952a.b(cls) : (O) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) ? (O) this.f68987a.b(cls) : (O) invokeL.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.b
     public <I> I a(Class<? extends d<I, ?>> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? (I) this.f68952a.a((Class<? extends d<Object, ?>>) cls) : (I) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? (I) this.f68987a.a((Class<? extends d<Object, ?>>) cls) : (I) invokeL.objValue;
     }
 }

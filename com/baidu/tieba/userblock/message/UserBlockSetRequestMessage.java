@@ -1,6 +1,6 @@
 package com.baidu.tieba.userblock.message;
 
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -53,7 +53,7 @@ public class UserBlockSetRequestMessage extends NetMessage {
             builder2.chat = Integer.valueOf(this.chat);
             builder.perm_list = builder2.build(true);
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             SetUserBlackReqIdl.Builder builder3 = new SetUserBlackReqIdl.Builder();
             builder3.data = builder.build(false);

@@ -11,7 +11,7 @@ public class U implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ V f77224a;
+    public final /* synthetic */ V f77259a;
 
     public U(V v) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class U implements Runnable {
                 return;
             }
         }
-        this.f77224a = v;
+        this.f77259a = v;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Toast.makeText(this.f77224a.f77236b.getApplicationContext(), R.string.win_toast_network_error2, 0).show();
+            Toast.makeText(this.f77259a.f77271b.getApplicationContext(), R.string.win_toast_network_error2, 0).show();
         }
     }
 }

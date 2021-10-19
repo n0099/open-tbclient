@@ -15,7 +15,7 @@ public class g extends c {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(Context context, b bVar, d dVar) {
-        super(com.bytedance.tea.crash.c.f69219b, context, bVar, dVar);
+        super(com.bytedance.tea.crash.c.f69254b, context, bVar, dVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,12 +43,12 @@ public class g extends c {
             a2.k("app_count", 1);
             a2.k("magic_tag", "ss_app_log");
             e(a2);
-            c.b.c.b.e.b a3 = c.b.c.b.e.b.a(this.f31567b);
+            c.b.c.b.e.b a3 = c.b.c.b.e.b.a(this.f31571b);
             a3.d(m.a().a());
             a3.c(m.d().a());
-            a3.g(this.f31568c.c());
+            a3.g(this.f31572c.c());
             a2.d(a3);
-            l.C1448l.b(a2, a3, this.f31566a);
+            l.C1450l.b(a2, a3, this.f31570a);
             return a2;
         }
         return (c.b.c.b.e.a) invokeL.objValue;

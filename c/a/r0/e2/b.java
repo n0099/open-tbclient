@@ -1,322 +1,55 @@
 package c.a.r0.e2;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.m;
-import c.a.q0.w.e;
-import c.a.q0.w.f;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import android.view.View;
+import c.a.r0.j1.c.d;
+import c.a.r0.j1.c.e;
 /* loaded from: classes3.dex */
-public class b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface b {
+    void changePkView(long j2, long j3, int i2);
 
-    /* loaded from: classes3.dex */
-    public static class a implements e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    d curFeedData(int i2);
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.e2.e.b f17252a;
+    int curFeedType();
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f17253b;
+    e curHeadData();
 
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.e2.f.a f17254c;
+    void destroy();
 
-        /* renamed from: c.a.r0.e2.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0834a extends BdAsyncTask<Void, Void, Boolean> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+    View getRootView();
 
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DownloadData f17255a;
+    void hideFeedEmpty(int i2);
 
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f17256b;
+    void hideFeedLoading(int i2);
 
-            public C0834a(a aVar, DownloadData downloadData) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, downloadData};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f17256b = aVar;
-                this.f17255a = downloadData;
-            }
+    void hideFullEmpty();
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public Boolean doInBackground(Void... voidArr) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                    FileHelper.deleteFileOrDir(new File(this.f17256b.f17253b));
-                    if (b.g(this.f17255a.getPath(), this.f17256b.f17254c)) {
-                        a aVar = this.f17256b;
-                        return Boolean.valueOf(b.f(aVar.f17254c, aVar.f17253b));
-                    }
-                    return Boolean.FALSE;
-                }
-                return (Boolean) invokeL.objValue;
-            }
+    void hideFullLoading();
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onPostExecute(Boolean bool) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
-                    if (bool.booleanValue()) {
-                        a aVar = this.f17256b;
-                        aVar.f17252a.onSuccess(aVar.f17253b);
-                        return;
-                    }
-                    this.f17256b.f17252a.onFail("fail to download");
-                }
-            }
-        }
+    void initViewPage();
 
-        public a(c.a.r0.e2.e.b bVar, String str, c.a.r0.e2.f.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, str, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f17252a = bVar;
-            this.f17253b = str;
-            this.f17254c = aVar;
-        }
+    void onChangeSkinType();
 
-        @Override // c.a.q0.w.e
-        public void onFileDownloadFailed(DownloadData downloadData, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i2, str) == null) || this.f17252a == null) {
-                return;
-            }
-            String str2 = "faile to download:";
-            if (downloadData != null && !TextUtils.isEmpty(downloadData.getUrl())) {
-                str2 = "faile to download:" + downloadData.getUrl();
-            }
-            this.f17252a.onFail(str2);
-        }
+    void pause();
 
-        @Override // c.a.q0.w.e
-        public void onFileDownloadSucceed(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-                new C0834a(this, downloadData).execute(new Void[0]);
-            }
-        }
+    void refreshPkAndBless(e eVar);
 
-        @Override // c.a.q0.w.e
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
+    void resume();
 
-        @Override // c.a.q0.w.e
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            c.a.r0.e2.e.b bVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || (bVar = this.f17252a) == null) {
-                return;
-            }
-            bVar.onProgress(downloadData.getProcess());
-        }
+    void showBlessView(long j2, long j3);
 
-        @Override // c.a.q0.w.e
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
+    void showFeedEmpty(boolean z, int i2);
 
-    public static void c(c.a.r0.e2.f.a aVar, c.a.r0.e2.e.b bVar) {
-        List<c.a.r0.e2.f.b> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, aVar, bVar) == null) {
-            if (aVar == null || (list = aVar.f17291e) == null || list.size() == 0 || TextUtils.isEmpty(aVar.f17290d)) {
-                if (bVar != null) {
-                    bVar.onFail("group data null");
-                    return;
-                }
-                return;
-            }
-            a aVar2 = new a(bVar, c.f17258c + aVar.f17287a + "/", aVar);
-            new File(c.f17258c).mkdirs();
-            d(aVar, c.f17258c, aVar2);
-        }
-    }
+    void showFeedLoading(int i2);
 
-    public static void d(c.a.r0.e2.f.a aVar, String str, e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, aVar, str, eVar) == null) {
-            if (aVar == null || TextUtils.isEmpty(aVar.f17290d)) {
-                if (eVar != null) {
-                    eVar.onFileDownloadFailed(null, 0, "data is null");
-                    return;
-                }
-                return;
-            }
-            String str2 = aVar.f17287a + ".zip";
-            DownloadData downloadData = new DownloadData(aVar.f17287a, str2, Uri.encode(aVar.f17290d, "-![.:/,%?&=]"), eVar);
-            downloadData.setPath(str + str2);
-            f.k().l(downloadData);
-        }
-    }
+    void showFeedView(d dVar, boolean z, int i2);
 
-    public static String e(String str, String str2, Bitmap bitmap, int i2) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bitmap, i2)) == null) {
-            if (bitmap != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                File file = new File(str + str2);
-                try {
-                    if ((!file.exists() || file.delete()) && file.createNewFile()) {
-                        FileOutputStream fileOutputStream = new FileOutputStream(file);
-                        bitmap.compress(Bitmap.CompressFormat.PNG, i2, fileOutputStream);
-                        fileOutputStream.flush();
-                        fileOutputStream.close();
-                        return file.getPath();
-                    }
-                    return null;
-                } catch (Exception unused) {
-                }
-            }
-            return null;
-        }
-        return (String) invokeLLLI.objValue;
-    }
+    void showFullEmpty(boolean z);
 
-    public static boolean f(c.a.r0.e2.f.a aVar, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, aVar, str)) == null) {
-            File file = new File(str + "panel.png");
-            File file2 = new File(str + "panel_momo.png");
-            if (file.exists() && file2.exists()) {
-                return true;
-            }
-            if (new File(str + aVar.f17289c).exists()) {
-                Bitmap bitmap = null;
-                try {
-                    bitmap = BitmapFactory.decodeFile(str + aVar.f17289c);
-                } catch (OutOfMemoryError e2) {
-                    e2.printStackTrace();
-                }
-                if (bitmap == null) {
-                    return false;
-                }
-                if (file.exists() || !TextUtils.isEmpty(e(str, "panel.png", bitmap, 60))) {
-                    return file2.exists() || !TextUtils.isEmpty(e(str, "panel_momo.png", bitmap, 60));
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    void showFullLoading();
 
-    public static boolean g(String str, c.a.r0.e2.f.a aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, aVar)) != null) {
-            return invokeLL.booleanValue;
-        }
-        ZipInputStream zipInputStream = null;
-        try {
-            try {
-                ZipInputStream zipInputStream2 = new ZipInputStream(new BufferedInputStream(new FileInputStream(str)));
-                while (true) {
-                    try {
-                        ZipEntry nextEntry = zipInputStream2.getNextEntry();
-                        if (nextEntry != null) {
-                            if (!nextEntry.isDirectory()) {
-                                String str2 = ".emotions/" + aVar.f17287a;
-                                FileHelper.saveFile(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + str2 + "/" + nextEntry.getName(), zipInputStream2);
-                            }
-                        } else {
-                            zipInputStream2.close();
-                            FileHelper.deleteFile(new File(str));
-                            m.e(zipInputStream2);
-                            return true;
-                        }
-                    } catch (FileNotFoundException e2) {
-                        e = e2;
-                        zipInputStream = zipInputStream2;
-                        e.printStackTrace();
-                        m.e(zipInputStream);
-                        return false;
-                    } catch (IOException e3) {
-                        e = e3;
-                        zipInputStream = zipInputStream2;
-                        e.printStackTrace();
-                        m.e(zipInputStream);
-                        return false;
-                    } catch (Throwable th) {
-                        th = th;
-                        zipInputStream = zipInputStream2;
-                        m.e(zipInputStream);
-                        throw th;
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } catch (FileNotFoundException e4) {
-            e = e4;
-        } catch (IOException e5) {
-            e = e5;
-        }
-    }
+    void showHasDeleteEmpty(boolean z);
+
+    void showHeadView(e eVar);
+
+    void stopPullRefresh();
 }

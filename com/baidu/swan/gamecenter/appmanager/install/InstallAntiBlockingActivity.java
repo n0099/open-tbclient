@@ -40,7 +40,7 @@ public class InstallAntiBlockingActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InstallAntiBlockingActivity f47103e;
+        public final /* synthetic */ InstallAntiBlockingActivity f47015e;
 
         public a(InstallAntiBlockingActivity installAntiBlockingActivity) {
             Interceptable interceptable = $ic;
@@ -57,15 +57,15 @@ public class InstallAntiBlockingActivity extends Activity {
                     return;
                 }
             }
-            this.f47103e = installAntiBlockingActivity;
+            this.f47015e = installAntiBlockingActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a(this.f47103e.mPackageName, TextUtils.equals(this.f47103e.mType, "authorize") ? "authorizeClick" : "continueClick", "success", null, new c.a.p0.g.c.i.a(this.f47103e.mUbcParams));
-                this.f47103e.finish();
+                c.a(this.f47015e.mPackageName, TextUtils.equals(this.f47015e.mType, "authorize") ? "authorizeClick" : "continueClick", "success", null, new c.a.p0.g.c.i.a(this.f47015e.mUbcParams));
+                this.f47015e.finish();
             }
         }
     }

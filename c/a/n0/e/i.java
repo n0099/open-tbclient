@@ -84,7 +84,7 @@ public class i {
             } else if (TextUtils.equals(str, "ct")) {
                 m = str2;
                 n = str3;
-            } else if (TextUtils.equals(str, k.f39576b)) {
+            } else if (TextUtils.equals(str, k.f39580b)) {
                 o = str2;
                 p = str3;
             }

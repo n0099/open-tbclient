@@ -15,7 +15,7 @@ public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SurfaceHolder f52886e;
+    public SurfaceHolder f52817e;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -23,7 +23,7 @@ public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicGifView f52887e;
+        public final /* synthetic */ TopicGifView f52818e;
 
         public a(TopicGifView topicGifView) {
             Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback 
                     return;
                 }
             }
-            this.f52887e = topicGifView;
+            this.f52818e = topicGifView;
         }
 
         @Override // java.lang.Runnable
@@ -78,7 +78,7 @@ public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SurfaceHolder holder = getHolder();
-            this.f52886e = holder;
+            this.f52817e = holder;
             holder.addCallback(this);
         }
     }

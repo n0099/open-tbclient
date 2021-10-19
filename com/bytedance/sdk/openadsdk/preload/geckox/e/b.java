@@ -15,7 +15,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Class<? extends d<?, ?>>, com.bytedance.sdk.openadsdk.preload.b.b.b> f69055a;
+    public final Map<Class<? extends d<?, ?>>, com.bytedance.sdk.openadsdk.preload.b.b.b> f69090a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -30,17 +30,17 @@ public class b {
                 return;
             }
         }
-        this.f69055a = new HashMap();
+        this.f69090a = new HashMap();
     }
 
     public void a(Class<? extends d<?, ?>> cls, com.bytedance.sdk.openadsdk.preload.b.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, aVar) == null) {
-            synchronized (this.f69055a) {
-                com.bytedance.sdk.openadsdk.preload.b.b.b bVar = this.f69055a.get(cls);
+            synchronized (this.f69090a) {
+                com.bytedance.sdk.openadsdk.preload.b.b.b bVar = this.f69090a.get(cls);
                 if (bVar == null) {
                     bVar = new com.bytedance.sdk.openadsdk.preload.b.b.b(new com.bytedance.sdk.openadsdk.preload.b.b.a[0]);
-                    this.f69055a.put(cls, bVar);
+                    this.f69090a.put(cls, bVar);
                 }
                 bVar.a(aVar);
             }
@@ -52,8 +52,8 @@ public class b {
         com.bytedance.sdk.openadsdk.preload.b.b.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            synchronized (this.f69055a) {
-                bVar = this.f69055a.get(cls);
+            synchronized (this.f69090a) {
+                bVar = this.f69090a.get(cls);
             }
             return bVar;
         }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.e;
 import c.a.e.e.n.a;
@@ -22,6 +23,7 @@ import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
@@ -37,6 +39,7 @@ import com.baidu.tbadk.switchs.FlutterForumDetailEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterPersonAttentionEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterPersonCenterEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterSignAllEnableSwitch;
+import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.flutter.base.view.FlutterPageActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -56,6 +59,7 @@ public class OpenFlutter {
     public static final String ACTIVITY_FORUM_DETAIL = "ForumDetail";
     public static final String ACTIVITY_PERSON_CENTER = "PersonalCenter";
     public static final String ACTIVITY_SIGN_TOGETHER = "SignAllForum";
+    public static final String ACTIVITY_VIDEO_TOPIC_DETAILS_PAGE = "VideoTopicDetailsPage";
     public static final String ACTIVITY_VIDEO_WORK_LIST = "VideoWorkListPage";
     public static final int DEFAULT_REQUEST_CODE = 10001;
     public static final String EXTRA_ANIMATED = "animated";
@@ -88,10 +92,16 @@ public class OpenFlutter {
         }
     }
 
+    public static boolean checkIsVideoTopic(@NonNull HotTopicActivityConfig hotTopicActivityConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hotTopicActivityConfig)) == null) ? TextUtils.equals(hotTopicActivityConfig.getIntent().getStringExtra(IntentConfig.IS_VIDEO_TOPIC), "1") : invokeL.booleanValue;
+    }
+
     public static boolean checkPluginEnable(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
             if ((h2 == null || h2.apkPath == null) && !TbadkCoreApplication.getInst().isDebugMode()) {
                 a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
@@ -112,7 +122,7 @@ public class OpenFlutter {
     public static boolean checkSwitch(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (str.contains(ACTIVITY_SIGN_TOGETHER)) {
                 return FlutterSignAllEnableSwitch.isOn();
             }
@@ -138,7 +148,7 @@ public class OpenFlutter {
         String str;
         String name;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, customMessage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, customMessage)) == null) {
             IntentConfig intentConfig = (IntentConfig) customMessage.getData();
             if (intentConfig instanceof SignAllForumActivityConfig) {
                 str = ACTIVITY_SIGN_TOGETHER;
@@ -152,10 +162,13 @@ public class OpenFlutter {
             } else if (intentConfig instanceof PersonBarActivityConfig) {
                 str = ACTIVITY_CONCERN_FORUM;
             } else if (!(intentConfig instanceof PersonPolymericActivityConfig) && !(intentConfig instanceof PersonInfoActivityConfig)) {
-                if (!(intentConfig instanceof VideoWorkListActivityConfig)) {
+                if (intentConfig instanceof VideoWorkListActivityConfig) {
+                    str = ACTIVITY_VIDEO_WORK_LIST;
+                } else if (!(intentConfig instanceof HotTopicActivityConfig) || !checkIsVideoTopic((HotTopicActivityConfig) intentConfig)) {
                     return customMessage;
+                } else {
+                    str = ACTIVITY_VIDEO_TOPIC_DETAILS_PAGE;
                 }
-                str = ACTIVITY_VIDEO_WORK_LIST;
             } else {
                 e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.2
                     public static /* synthetic */ Interceptable $ic;
@@ -211,7 +224,7 @@ public class OpenFlutter {
         InterceptResult invokeLLL;
         String name;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, map)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, map)) == null) {
             if (checkSwitch(str)) {
                 Intent intent = new Intent(context, FlutterPageActivity.class);
                 BoostFlutterActivity.SerializableMap serializableMap = new BoostFlutterActivity.SerializableMap();
@@ -260,7 +273,7 @@ public class OpenFlutter {
     public static HashMap parseParmes(IntentConfig intentConfig, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, intentConfig, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, intentConfig, str)) == null) {
             HashMap hashMap = new HashMap();
             if (ACTIVITY_VIDEO_WORK_LIST.equals(str)) {
                 hashMap.put("publisher", intentConfig.getIntent().getStringExtra("type"));
@@ -293,6 +306,8 @@ public class OpenFlutter {
                 if (intentConfig.getIntent().getBooleanExtra(PersonInfoActivityConfig.IS_SHOW_PROGRESS, false)) {
                     hashMap.put(PersonInfoActivityConfig.IS_SHOW_PROGRESS, "1");
                 }
+            } else if (ACTIVITY_VIDEO_TOPIC_DETAILS_PAGE.equals(str)) {
+                hashMap.putAll(DataExt.g(intentConfig.getIntent().getExtras()));
             }
             if (intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
                 parseUriParmes(str, hashMap, (Uri) intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI));
@@ -307,7 +322,7 @@ public class OpenFlutter {
         int i2;
         String substring;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, hashMap, uri) == null) && ACTIVITY_PERSON_CENTER.equals(str)) {
+        if ((interceptable == null || interceptable.invokeLLL(65543, null, str, hashMap, uri) == null) && ACTIVITY_PERSON_CENTER.equals(str)) {
             String uri2 = uri.toString();
             if (g.c(uri)) {
                 g.b().h(uri, new g.b(hashMap) { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1

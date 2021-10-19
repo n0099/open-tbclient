@@ -18,7 +18,7 @@ public final class n implements o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f77018a;
+    public static final String f77053a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class n implements o {
                 return;
             }
         }
-        f77018a = "(" + Process.myPid() + SmallTailInfo.EMOTION_SUFFIX;
+        f77053a = "(" + Process.myPid() + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public n() {
@@ -56,7 +56,7 @@ public final class n implements o {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            return Log.e("VivoPush." + str, f77018a + str2);
+            return Log.e("VivoPush." + str, f77053a + str2);
         }
         return invokeLL.intValue;
     }
@@ -66,7 +66,7 @@ public final class n implements o {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            return Log.w("VivoPush." + str, f77018a + str2);
+            return Log.w("VivoPush." + str, f77053a + str2);
         }
         return invokeLL.intValue;
     }
@@ -76,7 +76,7 @@ public final class n implements o {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            return Log.d("VivoPush." + str, f77018a + str2);
+            return Log.d("VivoPush." + str, f77053a + str2);
         }
         return invokeLL.intValue;
     }
@@ -87,7 +87,7 @@ public final class n implements o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
             if (p.a()) {
-                return Log.i("VivoPush." + str, f77018a + str2);
+                return Log.i("VivoPush." + str, f77053a + str2);
             }
             return -1;
         }
@@ -100,7 +100,7 @@ public final class n implements o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
             if (p.a()) {
-                return Log.v("VivoPush." + str, f77018a + str2);
+                return Log.v("VivoPush." + str, f77053a + str2);
             }
             return -1;
         }
@@ -123,7 +123,7 @@ public final class n implements o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, str2, th)) == null) {
             if (p.a()) {
-                return Log.i("VivoPush." + str, f77018a + str2, th);
+                return Log.i("VivoPush." + str, f77053a + str2, th);
             }
             return -1;
         }
@@ -151,7 +151,7 @@ public final class n implements o {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, th)) == null) {
-            return Log.e("VivoPush." + str, f77018a + str2, th);
+            return Log.e("VivoPush." + str, f77053a + str2, th);
         }
         return invokeLLL.intValue;
     }
@@ -195,7 +195,7 @@ public final class n implements o {
     public static void a(Context context, com.vivo.push.b.p pVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, context, pVar, str) == null) {
-            if (str.contains(com.baidu.fsg.base.a.f39359g) || str.equals(s.b(context))) {
+            if (str.contains(com.baidu.fsg.base.a.f39363g) || str.equals(s.b(context))) {
                 com.vivo.push.a.a.a(context, pVar, str);
             }
         }

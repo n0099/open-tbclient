@@ -13,14 +13,14 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f35831a;
+    public static b f35835a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread f35832b;
+    public Thread f35836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<Runnable> f35833c;
+    public LinkedList<Runnable> f35837c;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public final class b {
                 return;
             }
         }
-        f35831a = new b();
+        f35835a = new b();
     }
 
     public b() {
@@ -51,24 +51,24 @@ public final class b {
                 return;
             }
         }
-        this.f35832b = null;
-        this.f35833c = new LinkedList<>();
+        this.f35836b = null;
+        this.f35837c = new LinkedList<>();
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35831a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35835a : (b) invokeV.objValue;
     }
 
     public final synchronized void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
             synchronized (this) {
-                this.f35833c.add(runnable);
-                if (this.f35832b == null) {
+                this.f35837c.add(runnable);
+                if (this.f35836b == null) {
                     Thread thread = new Thread(new c(this));
-                    this.f35832b = thread;
+                    this.f35836b = thread;
                     thread.start();
                 }
             }

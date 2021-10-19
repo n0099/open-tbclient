@@ -35,26 +35,26 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final byte[] f15540g;
+    public static final byte[] f15563g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f15541a;
+    public long f15564a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f15542b;
+    public boolean f15565b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<String> f15543c;
+    public Set<String> f15566c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f15544d;
+    public String f15567d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f15545e;
+    public Context f15568e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15546f;
+    public int f15569f;
 
     static {
         InterceptResult invokeClinit;
@@ -69,7 +69,7 @@ public class a {
                 return;
             }
         }
-        f15540g = new byte[]{77, 73, 78, 71};
+        f15563g = new byte[]{77, 73, 78, 71};
     }
 
     public a() {
@@ -144,38 +144,38 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(1048576, this, bundle, aVar) == null) {
             try {
                 if (aVar == null) {
-                    this.f15546f |= 16;
+                    this.f15569f |= 16;
                     return;
                 }
                 String string = bundle.getString("helios_data");
                 if (TextUtils.isEmpty(string)) {
-                    this.f15546f |= 1;
+                    this.f15569f |= 1;
                     return;
                 }
                 String string2 = bundle.getString("helios_sf");
                 if (TextUtils.isEmpty(string2)) {
-                    this.f15546f |= 2;
+                    this.f15569f |= 2;
                     return;
                 }
                 byte[] decode = Base64.decode(string.getBytes("utf-8"), 1);
                 for (int i2 = 0; i2 < decode.length; i2++) {
-                    decode[i2] = (byte) (decode[i2] ^ f15540g[i2 % f15540g.length]);
+                    decode[i2] = (byte) (decode[i2] ^ f15563g[i2 % f15563g.length]);
                 }
                 JSONObject jSONObject = new JSONObject(new String(decode));
                 if (f(jSONObject)) {
                     HashSet hashSet = new HashSet();
-                    this.f15543c = hashSet;
-                    if (!e(this.f15544d, this.f15545e, jSONObject, hashSet)) {
-                        this.f15546f |= 4;
+                    this.f15566c = hashSet;
+                    if (!e(this.f15567d, this.f15568e, jSONObject, hashSet)) {
+                        this.f15569f |= 4;
                     } else if (!Arrays.equals(g.a(Base64.decode(string2, 0), aVar), f.b(decode))) {
-                        this.f15546f |= 8;
+                        this.f15569f |= 8;
                     } else {
-                        this.f15541a = jSONObject.getLong("priority");
-                        this.f15542b = true;
+                        this.f15564a = jSONObject.getLong("priority");
+                        this.f15565b = true;
                     }
                 }
             } catch (Exception e2) {
-                this.f15546f |= 256;
+                this.f15569f |= 256;
                 Log.getStackTraceString(e2);
             }
         }
@@ -188,9 +188,9 @@ public class a {
         Bundle bundle;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, z) == null) {
-            PackageManager packageManager = this.f15545e.getPackageManager();
+            PackageManager packageManager = this.f15568e.getPackageManager();
             try {
-                packageInfo = packageManager.getPackageInfo(this.f15544d, 2);
+                packageInfo = packageManager.getPackageInfo(this.f15567d, 2);
             } catch (PackageManager.NameNotFoundException unused) {
                 packageInfo = null;
             }
@@ -215,19 +215,19 @@ public class a {
     public void c(String str, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, context) == null) {
-            this.f15544d = str;
-            this.f15545e = context;
+            this.f15567d = str;
+            this.f15568e = context;
         }
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15542b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15565b : invokeV.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0041, code lost:
-        if (r10.equals(r9.f15544d) == false) goto L15;
+        if (r10.equals(r9.f15567d) == false) goto L15;
      */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x0056, code lost:
         if (r0.startsWith(r10) != false) goto L16;
@@ -247,20 +247,20 @@ public class a {
             if (!optString.equals("") || a2 == 4) {
                 if (a2 != 0) {
                     if (a2 == 1) {
-                        String str = this.f15544d;
+                        String str = this.f15567d;
                         if (str != null) {
                         }
-                        i2 = this.f15546f | 32;
-                        this.f15546f = i2;
+                        i2 = this.f15569f | 32;
+                        this.f15569f = i2;
                         return false;
                     } else if (a2 == 2) {
                         try {
-                            if (!Pattern.compile(optString).matcher(this.f15544d).matches()) {
-                                this.f15546f |= 32;
+                            if (!Pattern.compile(optString).matcher(this.f15567d).matches()) {
+                                this.f15569f |= 32;
                                 return false;
                             }
                         } catch (Exception unused) {
-                            i2 = this.f15546f | 128;
+                            i2 = this.f15569f | 128;
                         }
                     } else if (a2 == 4) {
                         return true;
@@ -268,8 +268,8 @@ public class a {
                     return true;
                 }
             }
-            i2 = this.f15546f | 64;
-            this.f15546f = i2;
+            i2 = this.f15569f | 64;
+            this.f15569f = i2;
             return false;
         }
         return invokeL.booleanValue;
@@ -278,12 +278,12 @@ public class a {
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15541a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15564a : invokeV.longValue;
     }
 
     public Set<String> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15543c : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15566c : (Set) invokeV.objValue;
     }
 }

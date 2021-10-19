@@ -3,7 +3,7 @@ package com.baidu.tieba.addresslist.model;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import c.a.e.a.f;
-import c.a.r0.s.d.a;
+import c.a.r0.t.d.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.addresslist.QuickSearchActivity;
@@ -20,10 +20,10 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f49420e;
+    public a f49347e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f49421f;
+    public byte[] f49348f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
@@ -43,12 +43,12 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                 return;
             }
         }
-        this.f49421f = new byte[0];
-        this.f49420e = a.d();
+        this.f49348f = new byte[0];
+        this.f49347e = a.d();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -58,7 +58,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -72,12 +72,12 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this.f49421f) {
+            synchronized (this.f49348f) {
                 ArrayList arrayList = new ArrayList();
                 if (TextUtils.isEmpty(str)) {
                     return arrayList;
                 }
-                List<c.a.q0.t.f.a> c2 = this.f49420e.c();
+                List<c.a.q0.t.f.a> c2 = this.f49347e.c();
                 if (c2 == null) {
                     return arrayList;
                 }

@@ -358,8 +358,8 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                this.f70807c = true;
-                return ImmutableList.asImmutableList(this.f70805a, this.f70806b);
+                this.f70842c = true;
+                return ImmutableList.asImmutableList(this.f70840a, this.f70841b);
             }
             return (ImmutableList) invokeV.objValue;
         }
@@ -391,7 +391,7 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final ImmutableList<E> f70808g;
+        public final ImmutableList<E> f70843g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ImmutableList<E> immutableList, int i2) {
@@ -412,14 +412,14 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
                     return;
                 }
             }
-            this.f70808g = immutableList;
+            this.f70843g = immutableList;
         }
 
         @Override // c.i.d.c.a
         public E a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f70808g.get(i2) : (E) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f70843g.get(i2) : (E) invokeI.objValue;
         }
     }
 

@@ -29,7 +29,7 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ILightAppListener f61771a;
+    public ILightAppListener f61806a;
 
     /* renamed from: com.baidu.wallet.lightapp.base.LightAppWrapper$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -43,7 +43,7 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static LightAppWrapper f61772a;
+        public static LightAppWrapper f61807a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -59,7 +59,7 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
                     return;
                 }
             }
-            f61772a = new LightAppWrapper(null);
+            f61807a = new LightAppWrapper(null);
         }
     }
 
@@ -70,7 +70,7 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
     public static LightAppWrapper getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61772a : (LightAppWrapper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61807a : (LightAppWrapper) invokeV.objValue;
     }
 
     public boolean callShare(Activity activity, LightAppShareModel lightAppShareModel, ILightappInvokerCallback iLightappInvokerCallback) {
@@ -80,7 +80,7 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
             if (activity == null) {
                 return false;
             }
-            ILightAppListener iLightAppListener = this.f61771a;
+            ILightAppListener iLightAppListener = this.f61806a;
             if (iLightAppListener != null) {
                 boolean callShare = iLightAppListener.callShare(activity, lightAppShareModel.toMap(), iLightappInvokerCallback);
                 if (callShare) {
@@ -111,7 +111,7 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iLocationCallback)) == null) {
-            ILightAppListener iLightAppListener = this.f61771a;
+            ILightAppListener iLightAppListener = this.f61806a;
             if (iLightAppListener == null || !iLightAppListener.getCurrentLocation(iLocationCallback)) {
                 return false;
             }
@@ -126,7 +126,7 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ILightAppListener iLightAppListener = this.f61771a;
+            ILightAppListener iLightAppListener = this.f61806a;
             if (iLightAppListener != null) {
                 return iLightAppListener.getMethodList();
             }
@@ -138,7 +138,7 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
     public void initLightApp(ILightAppListener iLightAppListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, iLightAppListener) == null) {
-            this.f61771a = iLightAppListener;
+            this.f61806a = iLightAppListener;
         }
     }
 
@@ -146,7 +146,7 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
     public void lightappInvoke(Context context, String str, ILightappInvokerCallback iLightappInvokerCallback) {
         ILightAppListener iLightAppListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, context, str, iLightappInvokerCallback) == null) || (iLightAppListener = this.f61771a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, context, str, iLightappInvokerCallback) == null) || (iLightAppListener = this.f61806a) == null) {
             return;
         }
         iLightAppListener.lightappInvoke(context, str, iLightappInvokerCallback);

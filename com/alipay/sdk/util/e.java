@@ -16,28 +16,28 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final e f36095c;
+    public static final e f36099c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final e f36096d;
+    public static final e f36100d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final e f36097e;
+    public static final e f36101e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final e f36098f;
+    public static final e f36102f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final e f36099g;
+    public static final e f36103g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final e f36100h;
+    public static final e f36104h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final e f36101i;
+    public static final e f36105i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final e f36102j;
+    public static final e f36106j;
     public static final e k;
     public static final e l;
     public static final e m;
@@ -50,10 +50,10 @@ public final class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f36103a;
+    public int f36107a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36104b;
+    public String f36108b;
 
     static {
         InterceptResult invokeClinit;
@@ -68,14 +68,14 @@ public final class e {
                 return;
             }
         }
-        f36095c = new e(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0, 0, CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING);
-        f36096d = new e("NETWORK_TYPE_1", 1, 1, "unicom2G");
-        f36097e = new e("NETWORK_TYPE_2", 2, 2, "mobile2G");
-        f36098f = new e("NETWORK_TYPE_4", 3, 4, "telecom2G");
-        f36099g = new e("NETWORK_TYPE_5", 4, 5, "telecom3G");
-        f36100h = new e("NETWORK_TYPE_6", 5, 6, "telecom3G");
-        f36101i = new e("NETWORK_TYPE_12", 6, 12, "telecom3G");
-        f36102j = new e("NETWORK_TYPE_8", 7, 8, "unicom3G");
+        f36099c = new e(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0, 0, CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING);
+        f36100d = new e("NETWORK_TYPE_1", 1, 1, "unicom2G");
+        f36101e = new e("NETWORK_TYPE_2", 2, 2, "mobile2G");
+        f36102f = new e("NETWORK_TYPE_4", 3, 4, "telecom2G");
+        f36103g = new e("NETWORK_TYPE_5", 4, 5, "telecom3G");
+        f36104h = new e("NETWORK_TYPE_6", 5, 6, "telecom3G");
+        f36105i = new e("NETWORK_TYPE_12", 6, 12, "telecom3G");
+        f36106j = new e("NETWORK_TYPE_8", 7, 8, "unicom3G");
         k = new e("NETWORK_TYPE_3", 8, 3, "unicom3G");
         l = new e("NETWORK_TYPE_13", 9, 13, "LTE");
         m = new e("NETWORK_TYPE_11", 10, 11, "IDEN");
@@ -85,7 +85,7 @@ public final class e {
         q = new e("NETWORK_TYPE_20", 14, 20, "5G");
         e eVar = new e("NONE", 15, -1, "none");
         r = eVar;
-        s = new e[]{f36095c, f36096d, f36097e, f36098f, f36099g, f36100h, f36101i, f36102j, k, l, m, n, o, p, q, eVar};
+        s = new e[]{f36099c, f36100d, f36101e, f36102f, f36103g, f36104h, f36105i, f36106j, k, l, m, n, o, p, q, eVar};
     }
 
     public e(String str, int i2, int i3, String str2) {
@@ -106,8 +106,8 @@ public final class e {
                 return;
             }
         }
-        this.f36103a = i3;
-        this.f36104b = str2;
+        this.f36107a = i3;
+        this.f36108b = str2;
     }
 
     public static e valueOf(String str) {
@@ -125,13 +125,13 @@ public final class e {
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36103a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36107a : invokeV.intValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36104b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36108b : (String) invokeV.objValue;
     }
 
     public static e a(int i2) {

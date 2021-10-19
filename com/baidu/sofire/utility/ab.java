@@ -12,7 +12,7 @@ public final class ab {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f45521a = "";
+    public static String f45433a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,15 +34,15 @@ public final class ab {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!TextUtils.isEmpty(f45521a)) {
-                return f45521a;
+            if (!TextUtils.isEmpty(f45433a)) {
+                return f45433a;
             }
             try {
-                f45521a = context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
+                f45433a = context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
             } catch (Throwable unused) {
                 c.a();
             }
-            return f45521a;
+            return f45433a;
         }
         return (String) invokeL.objValue;
     }

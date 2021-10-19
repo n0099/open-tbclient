@@ -21,29 +21,29 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f68346c;
+    public static volatile a f68381c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f68347a;
+    public Context f68382a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IBinderPool f68348b;
+    public IBinderPool f68383b;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f68349d;
+    public CountDownLatch f68384d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f68350e;
+    public final Object f68385e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f68351f;
+    public long f68386f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ServiceConnection f68352g;
+    public ServiceConnection f68387g;
 
     /* renamed from: h  reason: collision with root package name */
-    public IBinder.DeathRecipient f68353h;
+    public IBinder.DeathRecipient f68388h;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public class a {
                 return;
             }
         }
-        this.f68350e = new Object();
-        this.f68351f = 0L;
-        this.f68352g = new ServiceConnection(this) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.a.1
+        this.f68385e = new Object();
+        this.f68386f = 0L;
+        this.f68387g = new ServiceConnection(this) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f68354a;
+            public final /* synthetic */ a f68389a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -84,21 +84,21 @@ public class a {
                         return;
                     }
                 }
-                this.f68354a = this;
+                this.f68389a = this;
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
-                    this.f68354a.f68348b = IBinderPool.Stub.asInterface(iBinder);
+                    this.f68389a.f68383b = IBinderPool.Stub.asInterface(iBinder);
                     try {
-                        this.f68354a.f68348b.asBinder().linkToDeath(this.f68354a.f68353h, 0);
+                        this.f68389a.f68383b.asBinder().linkToDeath(this.f68389a.f68388h, 0);
                     } catch (RemoteException e2) {
                         k.c("MultiProcess", "onServiceConnected throws :", e2);
                     }
-                    this.f68354a.f68349d.countDown();
-                    k.b("MultiProcess", "onServiceConnected - binderService consume time ：" + (System.currentTimeMillis() - this.f68354a.f68351f));
+                    this.f68389a.f68384d.countDown();
+                    k.b("MultiProcess", "onServiceConnected - binderService consume time ：" + (System.currentTimeMillis() - this.f68389a.f68386f));
                 }
             }
 
@@ -110,12 +110,12 @@ public class a {
                 }
             }
         };
-        this.f68353h = new IBinder.DeathRecipient(this) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.a.2
+        this.f68388h = new IBinder.DeathRecipient(this) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.a.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f68355a;
+            public final /* synthetic */ a f68390a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -132,7 +132,7 @@ public class a {
                         return;
                     }
                 }
-                this.f68355a = this;
+                this.f68390a = this;
             }
 
             @Override // android.os.IBinder.DeathRecipient
@@ -140,13 +140,13 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     k.d("MultiProcess", "binder died.");
-                    this.f68355a.f68348b.asBinder().unlinkToDeath(this.f68355a.f68353h, 0);
-                    this.f68355a.f68348b = null;
-                    this.f68355a.a();
+                    this.f68390a.f68383b.asBinder().unlinkToDeath(this.f68390a.f68388h, 0);
+                    this.f68390a.f68383b = null;
+                    this.f68390a.a();
                 }
             }
         };
-        this.f68347a = context.getApplicationContext();
+        this.f68382a = context.getApplicationContext();
         a();
     }
 
@@ -154,14 +154,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f68346c == null) {
+            if (f68381c == null) {
                 synchronized (a.class) {
-                    if (f68346c == null) {
-                        f68346c = new a(context);
+                    if (f68381c == null) {
+                        f68381c = new a(context);
                     }
                 }
             }
-            return f68346c;
+            return f68381c;
         }
         return (a) invokeL.objValue;
     }
@@ -171,8 +171,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             try {
-                if (this.f68348b != null) {
-                    return this.f68348b.queryBinder(i2);
+                if (this.f68383b != null) {
+                    return this.f68383b.queryBinder(i2);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -189,11 +189,11 @@ public class a {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             synchronized (this) {
                 k.c("MultiProcess", "BinderPool......connectBinderPoolService");
-                this.f68349d = new CountDownLatch(1);
+                this.f68384d = new CountDownLatch(1);
                 try {
-                    this.f68347a.bindService(new Intent(this.f68347a, BinderPoolService.class), this.f68352g, 1);
-                    this.f68351f = System.currentTimeMillis();
-                    this.f68349d.await();
+                    this.f68382a.bindService(new Intent(this.f68382a, BinderPoolService.class), this.f68387g, 1);
+                    this.f68386f = System.currentTimeMillis();
+                    this.f68384d.await();
                 } catch (Exception e2) {
                     k.c("MultiProcess", "connectBinderPoolService throws: ", e2);
                 }

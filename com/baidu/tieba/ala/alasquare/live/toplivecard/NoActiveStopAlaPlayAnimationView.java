@@ -14,7 +14,7 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f49496h;
+    public boolean f49423h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NoActiveStopAlaPlayAnimationView(Context context) {
@@ -34,7 +34,7 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
                 return;
             }
         }
-        this.f49496h = false;
+        this.f49423h = false;
     }
 
     @Override // com.baidu.tieba.view.AlaPlayAnimationView, android.widget.ImageView, android.view.View
@@ -42,7 +42,7 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onAttachedToWindow();
-            if (this.f49496h) {
+            if (this.f49423h) {
                 return;
             }
             startPlayAnimation();
@@ -60,7 +60,7 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
     public void setFromSpecialForum(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f49496h = z;
+            this.f49423h = z;
         }
     }
 
@@ -83,6 +83,6 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
                 return;
             }
         }
-        this.f49496h = false;
+        this.f49423h = false;
     }
 }

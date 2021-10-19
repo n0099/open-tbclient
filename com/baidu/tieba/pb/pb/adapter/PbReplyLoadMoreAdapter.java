@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.r0.j2.k.e.n;
-import c.a.r0.j2.o.b;
+import c.a.r0.k2.k.e.n;
+import c.a.r0.k2.o.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,7 +30,7 @@ public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f55037a;
+        public TextView f54968a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ReplyLoadMoreViewHolder(View view) {
@@ -50,13 +50,13 @@ public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder>
                     return;
                 }
             }
-            this.f55037a = (TextView) view.findViewById(R.id.tv_pb_reply_more);
+            this.f54968a = (TextView) view.findViewById(R.id.tv_pb_reply_more);
         }
 
         public void onChangeSkin() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SkinManager.setViewTextColor(this.f55037a, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(this.f54968a, R.color.CAM_X0109);
             }
         }
 
@@ -68,12 +68,12 @@ public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder>
             if (postData.D) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                this.f55037a.setCompoundDrawables(null, null, drawable, null);
+                this.f54968a.setCompoundDrawables(null, null, drawable, null);
                 return;
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_down);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-            this.f55037a.setCompoundDrawables(null, null, drawable2, null);
+            this.f54968a.setCompoundDrawables(null, null, drawable2, null);
         }
     }
 
@@ -115,7 +115,7 @@ public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.j2.k.e.n, c.a.e.l.e.a
+    @Override // c.a.r0.k2.k.e.n, c.a.e.l.e.a
     /* renamed from: k0 */
     public View a0(int i2, View view, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;

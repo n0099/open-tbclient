@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.tabfeed.message;
 
-import c.a.r0.g1.j.h.a;
+import c.a.r0.h1.j.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;

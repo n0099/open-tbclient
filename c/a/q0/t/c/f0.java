@@ -1,6 +1,5 @@
 package c.a.q0.t.c;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,18 +9,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class f0 extends c.a.q0.s.q.p {
+public class f0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f14664a;
+    public String f14685a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f14665b;
+    public long f14686b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14666c;
+    public long f14687c;
 
     public f0() {
         Interceptable interceptable = $ic;
@@ -33,44 +32,35 @@ public class f0 extends c.a.q0.s.q.p {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f14664a = Long.MAX_VALUE;
-        this.f14665b = 0L;
-        this.f14666c = null;
     }
 
-    public String a() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14666c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14687c : invokeV.longValue;
     }
 
-    public long b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14665b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14685a : (String) invokeV.objValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14664a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14686b : invokeV.longValue;
     }
 
-    @Override // c.a.q0.s.q.p
-    public void parserJson(JSONObject jSONObject) {
+    public void d(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        try {
-            this.f14664a = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, Long.MAX_VALUE);
-            this.f14665b = jSONObject.optLong("end_time", 0L);
-            this.f14666c = jSONObject.optString("dest_url", "");
-        } catch (Exception e2) {
-            BdLog.detailException(e2);
-        }
+        this.f14685a = jSONObject.optString("link_url", "");
+        this.f14686b = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, 0L);
+        this.f14687c = jSONObject.optLong("end_time", 0L);
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.pb.main.emotion.message;
 
-import c.a.r0.j2.k.e.b1.e.a;
+import c.a.r0.k2.k.e.b1.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;

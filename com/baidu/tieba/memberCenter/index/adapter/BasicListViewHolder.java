@@ -1,8 +1,8 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import c.a.r0.x1.c.b;
-import c.a.r0.x1.c.k.c;
+import c.a.r0.y1.c.b;
+import c.a.r0.y1.c.k.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -17,10 +17,10 @@ public class BasicListViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f54383a;
+    public b f54314a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f54384b;
+    public Object f54315b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasicListViewHolder(View view, BaseFragmentActivity baseFragmentActivity, View.OnClickListener onClickListener) {
@@ -40,7 +40,7 @@ public class BasicListViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f54383a = new b(baseFragmentActivity, view, onClickListener);
+        this.f54314a = new b(baseFragmentActivity, view, onClickListener);
     }
 
     public void fillView(c cVar) {
@@ -48,20 +48,20 @@ public class BasicListViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null) {
             return;
         }
-        this.f54383a.g(cVar);
-        this.f54383a.i();
+        this.f54314a.g(cVar);
+        this.f54314a.i();
     }
 
     public Object getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54384b : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54315b : invokeV.objValue;
     }
 
     public void setTag(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            this.f54384b = obj;
+            this.f54315b = obj;
         }
     }
 }

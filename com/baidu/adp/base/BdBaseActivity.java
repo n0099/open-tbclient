@@ -45,7 +45,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseActivity f36271e;
+        public final /* synthetic */ BdBaseActivity f36275e;
 
         public a(BdBaseActivity bdBaseActivity) {
             Interceptable interceptable = $ic;
@@ -62,14 +62,14 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
                     return;
                 }
             }
-            this.f36271e = bdBaseActivity;
+            this.f36275e = bdBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseActivity bdBaseActivity = this.f36271e;
+                BdBaseActivity bdBaseActivity = this.f36275e;
                 bdBaseActivity.onPreLoad(bdBaseActivity.onGetPreLoadListView());
             }
         }
@@ -176,7 +176,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
             c.a.e.a.a.b(this);
             super.onCreate(bundle);
             this.mId = BdUniqueId.gen();
-            b.f().n(getPageContext().getPageActivity());
+            b.g().o(getPageContext().getPageActivity());
         }
     }
 
@@ -188,7 +188,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
             d.h().b(this.mId);
-            b.f().l(getPageContext().getPageActivity());
+            b.g().m(getPageContext().getPageActivity());
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }

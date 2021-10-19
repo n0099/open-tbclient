@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,6 +38,9 @@ public class VideoNotifyPersonalPageData implements Serializable {
     @NonNull
     @SerializedName("post_reply_list")
     public List<Map<String, Object>> userPostDataResMapList;
+    @NonNull
+    @SerializedName("hot_thread_list")
+    public List<Map<String, Object>> videoHotTopicDataResMapList;
 
     public VideoNotifyPersonalPageData() {
         Interceptable interceptable = $ic;
@@ -105,6 +109,13 @@ public class VideoNotifyPersonalPageData implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.userPostDataResMapList = list;
+        }
+    }
+
+    public void setVideoHotTopicDataResMapList(@NonNull List<Map<String, Object>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
+            this.videoHotTopicDataResMapList = list;
         }
     }
 }

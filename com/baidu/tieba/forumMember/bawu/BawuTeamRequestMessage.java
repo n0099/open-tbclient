@@ -1,6 +1,6 @@
 package com.baidu.tieba.forumMember.bawu;
 
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -46,7 +46,7 @@ public class BawuTeamRequestMessage extends NetMessage {
             GetBawuInfoReqIdl.Builder builder2 = new GetBawuInfoReqIdl.Builder();
             builder2.data = builder.build(false);
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             return builder2.build(false);
         }

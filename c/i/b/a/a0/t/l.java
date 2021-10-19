@@ -13,22 +13,22 @@ public final class l implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c.i.b.a.i0.l f32882a;
+    public final c.i.b.a.i0.l f32886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.i.b.a.a0.m f32883b;
+    public c.i.b.a.a0.m f32887b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f32884c;
+    public boolean f32888c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f32885d;
+    public long f32889d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f32886e;
+    public int f32890e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f32887f;
+    public int f32891f;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -43,40 +43,40 @@ public final class l implements h {
                 return;
             }
         }
-        this.f32882a = new c.i.b.a.i0.l(10);
+        this.f32886a = new c.i.b.a.i0.l(10);
     }
 
     @Override // c.i.b.a.a0.t.h
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f32884c = false;
+            this.f32888c = false;
         }
     }
 
     @Override // c.i.b.a.a0.t.h
     public void c(c.i.b.a.i0.l lVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) && this.f32884c) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) && this.f32888c) {
             int a2 = lVar.a();
-            int i2 = this.f32887f;
+            int i2 = this.f32891f;
             if (i2 < 10) {
                 int min = Math.min(a2, 10 - i2);
-                System.arraycopy(lVar.f33835a, lVar.c(), this.f32882a.f33835a, this.f32887f, min);
-                if (this.f32887f + min == 10) {
-                    this.f32882a.J(0);
-                    if (73 == this.f32882a.x() && 68 == this.f32882a.x() && 51 == this.f32882a.x()) {
-                        this.f32882a.K(3);
-                        this.f32886e = this.f32882a.w() + 10;
+                System.arraycopy(lVar.f33839a, lVar.c(), this.f32886a.f33839a, this.f32891f, min);
+                if (this.f32891f + min == 10) {
+                    this.f32886a.J(0);
+                    if (73 == this.f32886a.x() && 68 == this.f32886a.x() && 51 == this.f32886a.x()) {
+                        this.f32886a.K(3);
+                        this.f32890e = this.f32886a.w() + 10;
                     } else {
-                        this.f32884c = false;
+                        this.f32888c = false;
                         return;
                     }
                 }
             }
-            int min2 = Math.min(a2, this.f32886e - this.f32887f);
-            this.f32883b.a(lVar, min2);
-            this.f32887f += min2;
+            int min2 = Math.min(a2, this.f32890e - this.f32891f);
+            this.f32887b.a(lVar, min2);
+            this.f32891f += min2;
         }
     }
 
@@ -84,9 +84,9 @@ public final class l implements h {
     public void d() {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f32884c && (i2 = this.f32886e) != 0 && this.f32887f == i2) {
-            this.f32883b.c(this.f32885d, 1, i2, 0, null);
-            this.f32884c = false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f32888c && (i2 = this.f32890e) != 0 && this.f32891f == i2) {
+            this.f32887b.c(this.f32889d, 1, i2, 0, null);
+            this.f32888c = false;
         }
     }
 
@@ -94,10 +94,10 @@ public final class l implements h {
     public void e(long j2, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) && z) {
-            this.f32884c = true;
-            this.f32885d = j2;
-            this.f32886e = 0;
-            this.f32887f = 0;
+            this.f32888c = true;
+            this.f32889d = j2;
+            this.f32890e = 0;
+            this.f32891f = 0;
         }
     }
 
@@ -107,7 +107,7 @@ public final class l implements h {
         if (interceptable == null || interceptable.invokeLL(1048580, this, gVar, dVar) == null) {
             dVar.a();
             c.i.b.a.a0.m a2 = gVar.a(dVar.c(), 4);
-            this.f32883b = a2;
+            this.f32887b = a2;
             a2.b(Format.createSampleFormat(dVar.b(), "application/id3", null, -1, null));
         }
     }

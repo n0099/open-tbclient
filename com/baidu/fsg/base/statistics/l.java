@@ -12,10 +12,10 @@ public class l implements IBeanResponseCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f39586a;
+    public final /* synthetic */ String f39590a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ n f39587b;
+    public final /* synthetic */ n f39591b;
 
     public l(n nVar, String str) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class l implements IBeanResponseCallback {
                 return;
             }
         }
-        this.f39587b = nVar;
-        this.f39586a = str;
+        this.f39591b = nVar;
+        this.f39590a = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
@@ -47,7 +47,7 @@ public class l implements IBeanResponseCallback {
     public void onBeanExecSuccess(int i2, Object obj, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), obj, str, str2}) == null) {
-            g.b().a(this.f39586a);
+            g.b().a(this.f39590a);
         }
     }
 }

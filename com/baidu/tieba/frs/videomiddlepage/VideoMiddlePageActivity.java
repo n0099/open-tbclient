@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import c.a.e.e.m.b;
 import c.a.e.e.p.k;
 import c.a.q0.o0.d;
-import c.a.r0.v3.c;
+import c.a.r0.w3.c;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -161,9 +161,9 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
                 } else if ("homepage".equals(this.mFrom)) {
                     arrayList.add("a002");
                 }
-                pageStayDurationItem.v(arrayList);
+                pageStayDurationItem.x(arrayList);
                 pageStayDurationItem.l = "0";
-                pageStayDurationItem.p = TextUtils.isEmpty(this.mNid) ? "0" : "1";
+                pageStayDurationItem.r = TextUtils.isEmpty(this.mNid) ? "0" : "1";
             }
             return pageStayDurationItem;
         }
@@ -208,7 +208,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.f().h("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.g().i("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {

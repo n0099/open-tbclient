@@ -83,10 +83,10 @@ public class r extends t0 {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.r0.a0.b0<c.a.q0.s.q.a> b0Var) {
+    public void k(c.a.r0.b0.c0<c.a.q0.s.q.a> c0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
-            this.C.setSubClickListener(b0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0Var) == null) {
+            this.C.setSubClickListener(c0Var);
         }
     }
 
@@ -103,15 +103,15 @@ public class r extends t0 {
     }
 
     @Override // c.a.l.t0
-    public c.a.r0.p2.q.a p() {
+    public c.a.r0.q2.q.a p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c.a.r0.p2.q.b bVar = new c.a.r0.p2.q.b(this.f3783f, this.m);
+            c.a.r0.q2.q.b bVar = new c.a.r0.q2.q.b(this.f3783f, this.m);
             bVar.setStageType("2003");
             return bVar;
         }
-        return (c.a.r0.p2.q.a) invokeV.objValue;
+        return (c.a.r0.q2.q.a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -150,7 +150,7 @@ public class r extends t0 {
             this.E = (TextView) this.f3863j.findViewById(R.id.video_seg_abstract);
             this.m = (RoundCornerFrameLayout) this.f3863j.findViewById(R.id.frame_video);
             this.C = (InterviewLiveLayout) this.f3863j.findViewById(R.id.frame_interview_no_video);
-            c.a.r0.p2.q.a p = p();
+            c.a.r0.q2.q.a p = p();
             this.n = p;
             p.getMainView().setBackgroundResource(R.color.transparent);
         }

@@ -14,13 +14,13 @@ public final class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f59725a;
+    public Context f59760a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f59726b;
+    public SharedPreferences f59761b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences.Editor f59727c;
+    public SharedPreferences.Editor f59762c;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -37,23 +37,23 @@ public final class d {
                 return;
             }
         }
-        this.f59725a = context;
+        this.f59760a = context;
         SharedPreferences sharedPreferences = context.getSharedPreferences("UfoSharePreference", 0);
-        this.f59726b = sharedPreferences;
-        this.f59727c = sharedPreferences.edit();
+        this.f59761b = sharedPreferences;
+        this.f59762c = sharedPreferences.edit();
     }
 
     private int a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? this.f59726b.getInt(str, 0) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? this.f59761b.getInt(str, 0) : invokeL.intValue;
     }
 
     private void a(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, this, str, i2) == null) {
-            this.f59727c.putInt(str, i2);
-            this.f59727c.commit();
+            this.f59762c.putInt(str, i2);
+            this.f59762c.commit();
         }
     }
 

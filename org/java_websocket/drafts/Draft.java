@@ -36,10 +36,10 @@ public abstract class Draft {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WebSocket.Role f79669a;
+    public WebSocket.Role f79704a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Framedata.Opcode f79670b;
+    public Framedata.Opcode f79705b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -191,8 +191,8 @@ public abstract class Draft {
                 return;
             }
         }
-        this.f79669a = null;
-        this.f79670b = null;
+        this.f79704a = null;
+        this.f79705b = null;
     }
 
     public static ByteBuffer p(ByteBuffer byteBuffer) {
@@ -322,10 +322,10 @@ public abstract class Draft {
             if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
                 throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
             }
-            if (this.f79670b != null) {
+            if (this.f79705b != null) {
                 iVar = new h.b.h.c();
             } else {
-                this.f79670b = opcode;
+                this.f79705b = opcode;
                 if (opcode == Framedata.Opcode.BINARY) {
                     iVar = new h.b.h.a();
                 } else {
@@ -337,9 +337,9 @@ public abstract class Draft {
             try {
                 iVar.h();
                 if (z) {
-                    this.f79670b = null;
+                    this.f79705b = null;
                 } else {
-                    this.f79670b = opcode;
+                    this.f79705b = opcode;
                 }
                 return Collections.singletonList(iVar);
             } catch (InvalidDataException e2) {
@@ -431,7 +431,7 @@ public abstract class Draft {
     public void t(WebSocket.Role role) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, role) == null) {
-            this.f79669a = role;
+            this.f79704a = role;
         }
     }
 
@@ -446,6 +446,6 @@ public abstract class Draft {
     public f v(ByteBuffer byteBuffer) throws InvalidHandshakeException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, byteBuffer)) == null) ? w(byteBuffer, this.f79669a) : (f) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, byteBuffer)) == null) ? w(byteBuffer, this.f79704a) : (f) invokeL.objValue;
     }
 }

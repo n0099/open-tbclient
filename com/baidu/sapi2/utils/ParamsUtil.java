@@ -224,7 +224,7 @@ public class ParamsUtil implements NoProguard {
                 hashMap.put("connect", "1");
             }
             if (sapiConfiguration.language == Language.ENGLISH) {
-                hashMap.put("lang", h.f39556a);
+                hashMap.put("lang", h.f39560a);
             }
             hashMap.put("suppcheck", "1");
             if (sapiConfiguration.supportFaceLogin) {

@@ -29,7 +29,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdShimmerView f46352a;
+        public final /* synthetic */ BdShimmerView f46264a;
 
         public a(BdShimmerView bdShimmerView) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
                     return;
                 }
             }
-            this.f46352a = bdShimmerView;
+            this.f46264a = bdShimmerView;
         }
     }
 

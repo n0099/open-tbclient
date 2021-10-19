@@ -428,7 +428,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
-            c.a.r0.s0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
+            c.a.r0.t0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
         }
     }
 
@@ -436,7 +436,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, flutterPluginBinding) == null) {
-            c.a.r0.s0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
+            c.a.r0.t0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
         }
     }
 }

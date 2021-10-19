@@ -10,6 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.module.hottopic.VideoHotTopicParams;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,6 +35,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static final String FROM_PERSONAL_PAGE = "from_personal_page";
     public static final String FROM_VIDEO_ACCOUNT_ATTENTION_TAB = "video_attention_tab";
     public static final String FROM_VIDEO_ACCOUNT_TAB = "video_channel_tab";
+    public static final String FROM_VIDEO_HOT_TOPIC = "from_video_hot_topic";
     public static final String FROM_VIDEO_MIDDLE_VIDEO = "from_video_middle_video";
     public static final String IS_FROM_BJH_PB = "is_from_bjh_pb";
     public static final String KEY_NID = "key_nid";
@@ -53,6 +55,8 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static final String VIDEO_SHOW_INDEX = "video_show_index";
     @Nullable
     public static PersonalPageParams bigPersonalPageParams;
+    @Nullable
+    public static VideoHotTopicParams bigVideoHotTopicParams;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -67,6 +71,9 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         public List<Map<String, Object>> dataList;
         @SerializedName("enter_type")
         public String enterType;
+        @NonNull
+        @SerializedName("pageId")
+        public String flutterPageId;
         public boolean hasMore;
         @SerializedName("is_share")
         public boolean isShareThread;
@@ -74,9 +81,6 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         public boolean isVideoTab;
         @SerializedName("uid")
         public String personalPageUid;
-        @NonNull
-        @SerializedName("pageId")
-        public String plutterPageId;
         @SerializedName("tid")
         public String threadId;
         @SerializedName("work_tab_id")
@@ -112,7 +116,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         public String getFlutterPageId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.plutterPageId : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.flutterPageId : (String) invokeV.objValue;
         }
 
         public String getPersonalPageUid() {
@@ -332,13 +336,13 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(@NonNull Context context, int i2) {
+    public VideoRecommentPlayActivityConfig(@NonNull Context context, int i2, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -350,7 +354,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("video_show_index", i2);
-        getIntent().putExtra("page_from", FROM_PERSONAL_PAGE);
-        getIntent().putExtra("from", FROM_PERSONAL_PAGE);
+        getIntent().putExtra("page_from", str);
+        getIntent().putExtra("from", str);
     }
 }

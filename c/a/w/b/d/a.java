@@ -27,36 +27,36 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f30416a;
+    public final String f30463a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f30417b;
+    public final boolean f30464b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30418c;
+    public String f30465c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f30419d;
+    public b f30466d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f30420e;
+    public Context f30467e;
 
     /* renamed from: c.a.w.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1406a implements c.a.w.e.d.a<c> {
+    public class C1409a implements c.a.w.e.d.a<c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f30421a;
+        public final /* synthetic */ String f30468a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f30422b;
+        public final /* synthetic */ int f30469b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f30423c;
+        public final /* synthetic */ a f30470c;
 
-        public C1406a(a aVar, String str, int i2) {
+        public C1409a(a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,9 +71,9 @@ public class a {
                     return;
                 }
             }
-            this.f30423c = aVar;
-            this.f30421a = str;
-            this.f30422b = i2;
+            this.f30470c = aVar;
+            this.f30468a = str;
+            this.f30469b = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,25 +102,25 @@ public class a {
                 long currentTimeMillis = System.currentTimeMillis();
                 String str8 = "";
                 if (netResponse == null) {
-                    String string = this.f30423c.f30420e.getResources().getString(e.live_feed_net_error);
-                    this.f30423c.f30419d.b(-100, string, map);
+                    String string = this.f30470c.f30467e.getResources().getString(e.live_feed_net_error);
+                    this.f30470c.f30466d.b(-100, string, map);
                     str = "";
                     str2 = string;
                     i2 = -100;
                 } else if (!netResponse.isSuccessful() || cVar == null) {
-                    this.f30423c.f30419d.b(netResponse.responseCode, netResponse.exception, map);
+                    this.f30470c.f30466d.b(netResponse.responseCode, netResponse.exception, map);
                     int i3 = netResponse.responseCode;
                     str2 = netResponse.exception;
                     str = "";
                     i2 = i3;
                 } else {
-                    this.f30423c.f30419d.a(cVar, map);
+                    this.f30470c.f30466d.a(cVar, map);
                     c.a.w.b.f.b.a(list);
-                    i2 = cVar.f30428a;
-                    str2 = cVar.f30429b;
-                    str = cVar.f30430c;
+                    i2 = cVar.f30475a;
+                    str2 = cVar.f30476b;
+                    str = cVar.f30477c;
                 }
-                String str9 = this.f30423c.f30417b ? "chenjinshi" : "zhibopindao";
+                String str9 = this.f30470c.f30464b ? "chenjinshi" : "zhibopindao";
                 if (map != null) {
                     String str10 = map.get("tab");
                     String str11 = map.get("subtab");
@@ -137,10 +137,10 @@ public class a {
                         if (str4.contains("tab")) {
                             str7 = "";
                         } else {
-                            str7 = (cVar == null || (gVar = cVar.f30434g) == null || (list2 = gVar.f30452c) == null || list2.isEmpty()) ? "1" : "0";
+                            str7 = (cVar == null || (gVar = cVar.f30481g) == null || (list2 = gVar.f30499c) == null || list2.isEmpty()) ? "1" : "0";
                         }
                         str8 = URLEncoder.encode(str4, "UTF-8");
-                        c.a.w.b.c.a.q(this.f30423c.f30420e, this.f30423c.f30416a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
+                        c.a.w.b.c.a.q(this.f30470c.f30467e, this.f30470c.f30463a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
                     }
                     str3 = str10;
                     str5 = str11;
@@ -155,7 +155,7 @@ public class a {
                 if (str4.contains("tab")) {
                 }
                 str8 = URLEncoder.encode(str4, "UTF-8");
-                c.a.w.b.c.a.q(this.f30423c.f30420e, this.f30423c.f30416a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
+                c.a.w.b.c.a.q(this.f30470c.f30467e, this.f30470c.f30463a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
             }
         }
 
@@ -169,10 +169,10 @@ public class a {
                 c cVar = new c();
                 if (netResponse != null && !TextUtils.isEmpty(netResponse.decodedResponseStr)) {
                     try {
-                        cVar.c(new JSONObject(netResponse.decodedResponseStr), this.f30421a, this.f30422b);
+                        cVar.c(new JSONObject(netResponse.decodedResponseStr), this.f30468a, this.f30469b);
                     } catch (JSONException e2) {
                         LiveFeedPageSdk.l(e2.getMessage());
-                        if (TextUtils.equals("banner,tab,feed,follow,config", this.f30421a)) {
+                        if (TextUtils.equals("banner,tab,feed,follow,config", this.f30468a)) {
                             cVar.a("banner,tab,feed,follow,config", -101, e2.getMessage());
                         }
                     }
@@ -205,10 +205,10 @@ public class a {
                 return;
             }
         }
-        this.f30420e = context;
-        this.f30416a = str;
-        this.f30417b = z;
-        this.f30418c = z ? "immer" : "tab";
+        this.f30467e = context;
+        this.f30463a = str;
+        this.f30464b = z;
+        this.f30465c = z ? "immer" : "tab";
     }
 
     public final void e(String str, String str2, int i2, String str3, String str4, String str5, int i3, String str6, List<String> list) {
@@ -216,7 +216,7 @@ public class a {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i2), str3, str4, str5, Integer.valueOf(i3), str6, list}) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("resource", str);
-            hashMap.put("scene", this.f30418c);
+            hashMap.put("scene", this.f30465c);
             if (str2 == null) {
                 str2 = "";
             }
@@ -228,7 +228,7 @@ public class a {
             hashMap.put("upload_ids", str6);
             hashMap.put("refresh_index", String.valueOf(i3));
             hashMap.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, System.currentTimeMillis() + "");
-            c.a.w.e.d.b.d("https://tiebac.baidu.com/livefeed/feed", hashMap, new C1406a(this, str, i2), 0, 0, null, list);
+            c.a.w.e.d.b.d("https://tiebac.baidu.com/livefeed/feed", hashMap, new C1409a(this, str, i2), 0, 0, null, list);
         }
     }
 
@@ -242,21 +242,21 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            e("banner,tab,feed,follow,config", "", 0, "", "", "", 1, c.a.w.b.f.b.b(), c.a.w.b.f.b.f30479b);
+            e("banner,tab,feed,follow,config", "", 0, "", "", "", 1, c.a.w.b.f.b.b(), c.a.w.b.f.b.f30526b);
         }
     }
 
     public void h(String str, String str2, int i2, String str3, String str4, String str5, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i2), str3, str4, str5, Integer.valueOf(i3)}) == null) {
-            e(str, str2, i2, str3, str4, str5, i3, c.a.w.b.f.b.b(), c.a.w.b.f.b.f30479b);
+            e(str, str2, i2, str3, str4, str5, i3, c.a.w.b.f.b.b(), c.a.w.b.f.b.f30526b);
         }
     }
 
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f30419d = bVar;
+            this.f30466d = bVar;
         }
     }
 }

@@ -10,7 +10,7 @@ public class jc extends iv {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f78363a;
+    public int f78398a;
 
     public jc() {
         Interceptable interceptable = $ic;
@@ -25,7 +25,7 @@ public class jc extends iv {
                 return;
             }
         }
-        this.f78363a = 0;
+        this.f78398a = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,8 +46,8 @@ public class jc extends iv {
                 return;
             }
         }
-        this.f78363a = 0;
-        this.f78363a = i2;
+        this.f78398a = 0;
+        this.f78398a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,6 +68,6 @@ public class jc extends iv {
                 return;
             }
         }
-        this.f78363a = 0;
+        this.f78398a = 0;
     }
 }

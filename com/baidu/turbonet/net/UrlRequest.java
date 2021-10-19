@@ -28,34 +28,34 @@ public interface UrlRequest {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final TurbonetEngine f59626a;
+        public final TurbonetEngine f59661a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f59627b;
+        public final String f59662b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Callback f59628c;
+        public final Callback f59663c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Executor f59629d;
+        public final Executor f59664d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f59630e;
+        public String f59665e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ArrayList<Pair<String, String>> f59631f;
+        public final ArrayList<Pair<String, String>> f59666f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f59632g;
+        public boolean f59667g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f59633h;
+        public boolean f59668h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f59634i;
+        public int f59669i;
 
         /* renamed from: j  reason: collision with root package name */
-        public Collection<Object> f59635j;
+        public Collection<Object> f59670j;
         public UploadDataProvider k;
         public Executor l;
         public boolean m;
@@ -89,9 +89,9 @@ public interface UrlRequest {
                     return;
                 }
             }
-            this.f59631f = new ArrayList<>();
-            this.f59634i = 3;
-            this.f59635j = Collections.emptyList();
+            this.f59666f = new ArrayList<>();
+            this.f59669i = 3;
+            this.f59670j = Collections.emptyList();
             if (str == null) {
                 throw new NullPointerException("URL is required.");
             }
@@ -102,10 +102,10 @@ public interface UrlRequest {
                 throw new NullPointerException("Executor is required.");
             }
             if (turbonetEngine != null) {
-                this.f59627b = str;
-                this.f59628c = callback;
-                this.f59629d = executor;
-                this.f59626a = turbonetEngine;
+                this.f59662b = str;
+                this.f59663c = callback;
+                this.f59664d = executor;
+                this.f59661a = turbonetEngine;
                 this.m = false;
                 this.o = false;
                 this.p = 0;
@@ -130,7 +130,7 @@ public interface UrlRequest {
                             new Exception();
                             return this;
                         }
-                        this.f59631f.add(Pair.create(str, str2));
+                        this.f59666f.add(Pair.create(str, str2));
                         return this;
                     }
                     throw new NullPointerException("Invalid header value.");
@@ -144,12 +144,12 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                UrlRequest b2 = this.f59626a.b(this.f59627b, this.f59628c, this.f59629d, this.f59634i, this.f59635j, this.f59632g, this.f59633h, this.n);
-                String str = this.f59630e;
+                UrlRequest b2 = this.f59661a.b(this.f59662b, this.f59663c, this.f59664d, this.f59669i, this.f59670j, this.f59667g, this.f59668h, this.n);
+                String str = this.f59665e;
                 if (str != null) {
                     b2.e(str);
                 }
-                Iterator<Pair<String, String>> it = this.f59631f.iterator();
+                Iterator<Pair<String, String>> it = this.f59666f.iterator();
                 while (it.hasNext()) {
                     Pair<String, String> next = it.next();
                     b2.addHeader((String) next.first, (String) next.second);
@@ -199,7 +199,7 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                this.f59632g = true;
+                this.f59667g = true;
                 return this;
             }
             return (Builder) invokeV.objValue;
@@ -230,7 +230,7 @@ public interface UrlRequest {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
                 if (str != null) {
-                    this.f59630e = str;
+                    this.f59665e = str;
                     return this;
                 }
                 throw new NullPointerException("Method is required.");
@@ -284,8 +284,8 @@ public interface UrlRequest {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, uploadDataProvider, executor)) == null) {
                 if (uploadDataProvider != null) {
                     if (executor != null) {
-                        if (this.f59630e == null) {
-                            this.f59630e = "POST";
+                        if (this.f59665e == null) {
+                            this.f59665e = "POST";
                         }
                         this.k = uploadDataProvider;
                         this.l = executor;

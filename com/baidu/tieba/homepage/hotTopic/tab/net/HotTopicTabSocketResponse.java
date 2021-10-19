@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.hotTopic.tab.net;
 
 import c.a.e.l.e.n;
-import c.a.r0.g1.f.a.c;
-import c.a.r0.g1.f.a.f.a;
+import c.a.r0.h1.f.a.c;
+import c.a.r0.h1.f.a.f.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,14 +38,14 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
         }
     }
 
-    @Override // c.a.r0.g1.f.a.f.a
+    @Override // c.a.r0.h1.f.a.f.a
     public List<n> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHotTopicDataList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.r0.g1.f.a.f.a
+    @Override // c.a.r0.h1.f.a.f.a
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

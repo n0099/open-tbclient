@@ -1,10 +1,8 @@
 package c.a.q0.t.c;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
@@ -14,13 +12,31 @@ public class e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14651a;
+    public boolean f14666a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f14652b;
+    public boolean f14667b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f14653c;
+    public int f14668c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f14669d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f14670e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f14671f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f14672g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f14673h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f14674i;
 
     public e0() {
         Interceptable interceptable = $ic;
@@ -36,31 +52,19 @@ public class e0 {
         }
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14653c : invokeV.longValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14651a : (String) invokeV.objValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14652b : invokeV.longValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f14651a = jSONObject.optString("link_url", "");
-        this.f14652b = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, 0L);
-        this.f14653c = jSONObject.optLong("end_time", 0L);
+        this.f14666a = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
+        this.f14667b = jSONObject.optInt("isActivateNaniApp", 1) == 1;
+        this.f14668c = jSONObject.optInt("downloadNaniShowPosition", 3);
+        this.f14669d = jSONObject.optInt("downloadNaniShowRate", 2);
+        this.f14670e = jSONObject.optString("downloadNaniLinkUrl", null);
+        this.f14671f = jSONObject.optString("downloadNaniTxt", null);
+        this.f14672g = jSONObject.optString("showNaniTailTxt", null);
+        this.f14673h = jSONObject.optInt("showNaniTailVideoType", 0);
+        this.f14674i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
     }
 }

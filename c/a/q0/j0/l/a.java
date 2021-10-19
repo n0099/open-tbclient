@@ -1,7 +1,7 @@
 package c.a.q0.j0.l;
 
 import c.a.q0.j0.b;
-import c.a.r0.j3.i0.e;
+import c.a.r0.k3.i0.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
@@ -38,7 +38,7 @@ public class a implements b<AgreeEvent> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, agreeEvent)) == null) {
             if (agreeEvent != null && agreeEvent.agreeData != null) {
                 e eVar = new e();
-                eVar.f20853b = agreeEvent.agreeData;
+                eVar.f21031b = agreeEvent.agreeData;
                 String str = agreeEvent.agreeExtra;
                 if (AgreeEvent.IS_THREAD.equals(str)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, eVar));

@@ -23,13 +23,13 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public n f55910a;
+    public n f55844a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f55911b;
+    public int f55845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f55912c;
+    public View.OnClickListener f55846c;
     public View coverView;
     public TbImageView imageView;
     public TextView tipTextView;
@@ -52,7 +52,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f55911b = 3;
+        this.f55845b = 3;
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.photo_image_view);
         this.imageView = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
@@ -63,7 +63,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public void bindDataToView(n nVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) && (nVar instanceof m)) {
-            this.f55910a = nVar;
+            this.f55844a = nVar;
             m mVar = (m) nVar;
             if (mVar.d()) {
                 String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(mVar.c());
@@ -78,7 +78,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
                 this.tipTextView.setVisibility(8);
                 this.imageView.startLoad(mVar.c(), 10, false);
             }
-            getView().setOnClickListener(this.f55912c);
+            getView().setOnClickListener(this.f55846c);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -86,23 +86,23 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public n getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55910a : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55844a : (n) invokeV.objValue;
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f55911b == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f55845b == i2) {
             return;
         }
         SkinManager.setViewTextColor(this.tipTextView, R.color.CAM_X0111, 1);
         SkinManager.setBackgroundColor(this.tipTextView, R.color.black_alpha50);
-        this.f55911b = i2;
+        this.f55845b = i2;
     }
 
     public void setOnclickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f55912c = onClickListener;
+            this.f55846c = onClickListener;
         }
     }
 }

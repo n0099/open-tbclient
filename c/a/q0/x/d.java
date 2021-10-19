@@ -32,11 +32,11 @@ public class d extends m {
             }
         }
         int i5 = R.drawable.icon_pure_post_more_goods64;
-        this.f15095d = i5;
-        this.f15097f = i5;
-        this.f15100i = false;
-        this.f15098g = false;
-        this.f15099h = false;
+        this.f15126d = i5;
+        this.f15128f = i5;
+        this.f15131i = false;
+        this.f15129g = false;
+        this.f15130h = false;
         this.n = new int[]{59};
     }
 }

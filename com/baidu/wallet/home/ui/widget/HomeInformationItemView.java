@@ -21,16 +21,16 @@ public class HomeInformationItemView extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f61414a;
+    public NetImageView f61449a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f61415b;
+    public TextView f61450b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f61416c;
+    public TextView f61451c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f61417d;
+    public TextView f61452d;
     public View mLine;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,10 +59,10 @@ public class HomeInformationItemView extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             removeAllViews();
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_information_item_view"), this);
-            this.f61414a = (NetImageView) findViewById(ResUtils.id(getContext(), "home_info_item_logo"));
-            this.f61415b = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_title"));
-            this.f61416c = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_date"));
-            this.f61417d = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_source"));
+            this.f61449a = (NetImageView) findViewById(ResUtils.id(getContext(), "home_info_item_logo"));
+            this.f61450b = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_title"));
+            this.f61451c = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_date"));
+            this.f61452d = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_source"));
             this.mLine = findViewById(ResUtils.id(getContext(), "home_info_item_line"));
         }
     }
@@ -83,28 +83,28 @@ public class HomeInformationItemView extends BaseItemView {
             return;
         }
         a();
-        if (this.f61414a != null) {
+        if (this.f61449a != null) {
             String str = getData().value3;
             if (!TextUtils.isEmpty(str)) {
-                this.f61414a.setImageUrl(str);
+                this.f61449a.setImageUrl(str);
             }
         }
-        if (this.f61415b != null) {
+        if (this.f61450b != null) {
             String str2 = getData().name;
             if (!TextUtils.isEmpty(str2)) {
-                this.f61415b.setText(str2);
+                this.f61450b.setText(str2);
             }
         }
-        if (this.f61416c != null) {
+        if (this.f61451c != null) {
             String str3 = getData().value2;
             if (!TextUtils.isEmpty(str3)) {
-                this.f61416c.setText(str3);
+                this.f61451c.setText(str3);
             }
         }
-        if (this.f61417d != null) {
+        if (this.f61452d != null) {
             String str4 = getData().value1;
             if (!TextUtils.isEmpty(str4)) {
-                this.f61417d.setText(str4);
+                this.f61452d.setText(str4);
             }
         }
         if (TextUtils.isEmpty(getData().link_addr)) {

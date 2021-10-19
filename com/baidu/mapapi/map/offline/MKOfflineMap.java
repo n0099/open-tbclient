@@ -26,14 +26,14 @@ public class MKOfflineMap {
     public static final int TYPE_VER_UPDATE = 4;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41749a = "MKOfflineMap";
+    public static final String f41753a = "MKOfflineMap";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public r f41750b;
+    public r f41754b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MKOfflineMapListener f41751c;
+    public MKOfflineMapListener f41755c;
 
     static {
         InterceptResult invokeClinit;
@@ -67,9 +67,9 @@ public class MKOfflineMap {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41750b.d(0);
-            this.f41750b.b((v) null);
-            this.f41750b.b();
+            this.f41754b.d(0);
+            this.f41754b.b((v) null);
+            this.f41754b.b();
             i.b();
         }
     }
@@ -78,7 +78,7 @@ public class MKOfflineMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<u> e2 = this.f41750b.e();
+            ArrayList<u> e2 = this.f41754b.e();
             if (e2 == null) {
                 return null;
             }
@@ -96,7 +96,7 @@ public class MKOfflineMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<q> c2 = this.f41750b.c();
+            ArrayList<q> c2 = this.f41754b.c();
             if (c2 == null) {
                 return null;
             }
@@ -114,7 +114,7 @@ public class MKOfflineMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<q> d2 = this.f41750b.d();
+            ArrayList<q> d2 = this.f41754b.d();
             if (d2 == null) {
                 return null;
             }
@@ -132,7 +132,7 @@ public class MKOfflineMap {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            u g2 = this.f41750b.g(i2);
+            u g2 = this.f41754b.g(i2);
             if (g2 == null) {
                 return null;
             }
@@ -154,7 +154,7 @@ public class MKOfflineMap {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            ArrayList<u> e2 = this.f41750b.e();
+            ArrayList<u> e2 = this.f41754b.e();
             int i3 = 0;
             if (e2 != null) {
                 i3 = e2.size();
@@ -162,8 +162,8 @@ public class MKOfflineMap {
             } else {
                 i2 = 0;
             }
-            this.f41750b.a(z, true);
-            ArrayList<u> e3 = this.f41750b.e();
+            this.f41754b.a(z, true);
+            ArrayList<u> e3 = this.f41754b.e();
             if (e3 != null) {
                 i2 = e3.size();
             }
@@ -178,12 +178,12 @@ public class MKOfflineMap {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, mKOfflineMapListener)) == null) {
             i.a();
             r a2 = r.a();
-            this.f41750b = a2;
+            this.f41754b = a2;
             if (a2 == null) {
                 return false;
             }
             a2.a(new a(this));
-            this.f41751c = mKOfflineMapListener;
+            this.f41755c = mKOfflineMapListener;
             return true;
         }
         return invokeL.booleanValue;
@@ -192,20 +192,20 @@ public class MKOfflineMap {
     public boolean pause(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.f41750b.c(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.f41754b.c(i2) : invokeI.booleanValue;
     }
 
     public boolean remove(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.f41750b.e(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.f41754b.e(i2) : invokeI.booleanValue;
     }
 
     public ArrayList<MKOLSearchRecord> searchCity(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            ArrayList<q> a2 = this.f41750b.a(str);
+            ArrayList<q> a2 = this.f41754b.a(str);
             if (a2 == null) {
                 return null;
             }
@@ -224,23 +224,23 @@ public class MKOfflineMap {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            r rVar = this.f41750b;
+            r rVar = this.f41754b;
             if (rVar == null) {
                 return false;
             }
             if (rVar.e() != null) {
-                Iterator<u> it = this.f41750b.e().iterator();
+                Iterator<u> it = this.f41754b.e().iterator();
                 while (it.hasNext()) {
-                    t tVar = it.next().f42358a;
-                    if (tVar.f42348a == i2) {
-                        if (tVar.f42357j || (i3 = tVar.l) == 2 || i3 == 3 || i3 == 6) {
-                            return this.f41750b.b(i2);
+                    t tVar = it.next().f42362a;
+                    if (tVar.f42352a == i2) {
+                        if (tVar.f42361j || (i3 = tVar.l) == 2 || i3 == 3 || i3 == 6) {
+                            return this.f41754b.b(i2);
                         }
                         return false;
                     }
                 }
             }
-            return this.f41750b.a(i2);
+            return this.f41754b.a(i2);
         }
         return invokeI.booleanValue;
     }
@@ -249,17 +249,17 @@ public class MKOfflineMap {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            r rVar = this.f41750b;
+            r rVar = this.f41754b;
             if (rVar != null && rVar.e() != null) {
-                Iterator<u> it = this.f41750b.e().iterator();
+                Iterator<u> it = this.f41754b.e().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    t tVar = it.next().f42358a;
-                    if (tVar.f42348a == i2) {
-                        if (tVar.f42357j) {
-                            return this.f41750b.f(i2);
+                    t tVar = it.next().f42362a;
+                    if (tVar.f42352a == i2) {
+                        if (tVar.f42361j) {
+                            return this.f41754b.f(i2);
                         }
                     }
                 }

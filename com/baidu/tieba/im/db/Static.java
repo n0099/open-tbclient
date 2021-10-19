@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.db;
 
-import c.a.q0.d1.j0;
-import c.a.q0.d1.m0;
-import c.a.q0.d1.r;
-import c.a.r0.k1.h.g;
+import c.a.q0.d1.i0;
+import c.a.q0.d1.l0;
+import c.a.q0.d1.q;
+import c.a.r0.l1.h.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -26,14 +26,14 @@ public class Static {
 
         /* renamed from: com.baidu.tieba.im.db.Static$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1770a extends j0<Void> {
+        public class C1772a extends i0<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f53154a;
+            public final /* synthetic */ CustomResponsedMessage f53085a;
 
-            public C1770a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public C1772a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,18 +48,18 @@ public class Static {
                         return;
                     }
                 }
-                this.f53154a = customResponsedMessage;
+                this.f53085a = customResponsedMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.a.q0.d1.j0
+            @Override // c.a.q0.d1.i0
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (this.f53154a.getData() instanceof String) {
-                        g.a((String) this.f53154a.getData());
+                    if (this.f53085a.getData() instanceof String) {
+                        g.a((String) this.f53085a.getData());
                         return null;
                     }
                     return null;
@@ -69,7 +69,7 @@ public class Static {
         }
 
         /* loaded from: classes7.dex */
-        public class b implements r<Void> {
+        public class b implements q<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -90,7 +90,7 @@ public class Static {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.a.q0.d1.r
+            @Override // c.a.q0.d1.q
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class Static {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2008015 || customResponsedMessage.getData() == null) {
                 return;
             }
-            m0.c(new C1770a(this, customResponsedMessage), new b(this));
+            l0.c(new C1772a(this, customResponsedMessage), new b(this));
         }
     }
 

@@ -11,13 +11,13 @@ public class o1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14273a;
+    public String f14296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14274b;
+    public String f14297b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f14275c;
+    public long f14298c;
 
     public o1() {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class o1 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, recomPostTopic) == null) || recomPostTopic == null) {
             return;
         }
-        this.f14273a = recomPostTopic.recom_title;
-        this.f14274b = recomPostTopic.recom_topic;
-        this.f14275c = recomPostTopic.uniq_topicid.longValue();
+        this.f14296a = recomPostTopic.recom_title;
+        this.f14297b = recomPostTopic.recom_topic;
+        this.f14298c = recomPostTopic.uniq_topicid.longValue();
     }
 }

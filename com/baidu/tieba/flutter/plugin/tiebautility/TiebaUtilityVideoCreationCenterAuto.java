@@ -1,5 +1,6 @@
 package com.baidu.tieba.flutter.plugin.tiebautility;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -83,6 +84,8 @@ public class TiebaUtilityVideoCreationCenterAuto {
         public transient /* synthetic */ FieldHolder $fh;
         public String objLocate;
         public String pageId;
+        public String topicId;
+        public String topicName;
 
         public VideoCreationCenterSendParams() {
             Interceptable interceptable = $ic;
@@ -105,6 +108,8 @@ public class TiebaUtilityVideoCreationCenterAuto {
                 VideoCreationCenterSendParams videoCreationCenterSendParams = new VideoCreationCenterSendParams();
                 videoCreationCenterSendParams.objLocate = (String) hashMap.get("objLocate");
                 videoCreationCenterSendParams.pageId = (String) hashMap.get("pageId");
+                videoCreationCenterSendParams.topicId = (String) hashMap.get("topicId");
+                videoCreationCenterSendParams.topicName = (String) hashMap.get("topicName");
                 return videoCreationCenterSendParams;
             }
             return (VideoCreationCenterSendParams) invokeL.objValue;
@@ -122,27 +127,55 @@ public class TiebaUtilityVideoCreationCenterAuto {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageId : (String) invokeV.objValue;
         }
 
+        public String getTopicId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.topicId : (String) invokeV.objValue;
+        }
+
+        public String getTopicName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.topicName : (String) invokeV.objValue;
+        }
+
         public void setObjLocate(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 this.objLocate = str;
             }
         }
 
         public void setPageId(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
                 this.pageId = str;
+            }
+        }
+
+        public void setTopicId(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+                this.topicId = str;
+            }
+        }
+
+        public void setTopicName(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+                this.topicName = str;
             }
         }
 
         public HashMap toMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("objLocate", this.objLocate);
                 hashMap.put("pageId", this.pageId);
+                hashMap.put("topicId", this.topicId);
+                hashMap.put("topicName", this.topicName);
                 return hashMap;
             }
             return (HashMap) invokeV.objValue;

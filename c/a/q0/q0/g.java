@@ -11,7 +11,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13683a;
+    public int f13703a;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -27,13 +27,13 @@ public class g {
             }
         }
         BdUniqueId.gen();
-        this.f13683a = 0;
+        this.f13703a = 0;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f13683a = i2;
+            this.f13703a = i2;
         }
     }
 }

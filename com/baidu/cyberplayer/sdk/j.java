@@ -28,34 +28,34 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public k f39155a;
+    public k f39159a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CyberPlayerManager.OnPreparedListener f39156b;
+    public CyberPlayerManager.OnPreparedListener f39160b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CyberPlayerManager.OnCompletionListener f39157c;
+    public CyberPlayerManager.OnCompletionListener f39161c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CyberPlayerManager.OnBufferingUpdateListener f39158d;
+    public CyberPlayerManager.OnBufferingUpdateListener f39162d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CyberPlayerManager.OnSeekCompleteListener f39159e;
+    public CyberPlayerManager.OnSeekCompleteListener f39163e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CyberPlayerManager.OnVideoSizeChangedListener f39160f;
+    public CyberPlayerManager.OnVideoSizeChangedListener f39164f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CyberPlayerManager.OnErrorListener f39161g;
+    public CyberPlayerManager.OnErrorListener f39165g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CyberPlayerManager.OnInfoListener f39162h;
+    public CyberPlayerManager.OnInfoListener f39166h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CyberPlayerManager.OnMediaSourceChangedListener f39163i;
+    public CyberPlayerManager.OnMediaSourceChangedListener f39167i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f39164j;
+    public int f39168j;
     public int k;
     public a l;
     public b m;
@@ -68,7 +68,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<j> f39165a;
+        public final WeakReference<j> f39169a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(j jVar, Looper looper) {
@@ -88,14 +88,14 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     return;
                 }
             }
-            this.f39165a = new WeakReference<>(jVar);
+            this.f39169a = new WeakReference<>(jVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                j jVar = this.f39165a.get();
+                j jVar = this.f39169a.get();
                 if (jVar == null) {
                     CyberLog.e("MediaPlayerAsync", "EventHandler,MediaPlayerImpl went away with unhandled events msg.what:" + message.what);
                     return;
@@ -103,34 +103,34 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                 CyberLog.i("MediaPlayerAsync", "EventHandler handleMessage what=" + message.what);
                 switch (message.what) {
                     case 1:
-                        if (jVar.f39156b != null) {
-                            jVar.f39156b.onPrepared();
+                        if (jVar.f39160b != null) {
+                            jVar.f39160b.onPrepared();
                             return;
                         }
                         return;
                     case 2:
-                        if (jVar.f39157c != null) {
-                            jVar.f39157c.onCompletion();
+                        if (jVar.f39161c != null) {
+                            jVar.f39161c.onCompletion();
                             return;
                         }
                         return;
                     case 3:
-                        if (jVar.f39158d != null) {
-                            jVar.f39158d.onBufferingUpdate(message.arg1);
+                        if (jVar.f39162d != null) {
+                            jVar.f39162d.onBufferingUpdate(message.arg1);
                             return;
                         }
                         return;
                     case 4:
-                        if (jVar.f39159e != null) {
-                            jVar.f39159e.onSeekComplete();
+                        if (jVar.f39163e != null) {
+                            jVar.f39163e.onSeekComplete();
                             return;
                         }
                         return;
                     case 5:
-                        jVar.f39164j = message.arg1;
+                        jVar.f39168j = message.arg1;
                         jVar.k = message.arg2;
-                        if (jVar.f39160f != null) {
-                            jVar.f39160f.onVideoSizeChanged(message.arg1, message.arg2, 1, 1);
+                        if (jVar.f39164f != null) {
+                            jVar.f39164f.onVideoSizeChanged(message.arg1, message.arg2, 1, 1);
                             return;
                         }
                         return;
@@ -139,20 +139,20 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                         CyberLog.e("MediaPlayerAsync", "EventHandler Unknown message type=" + message.what);
                         return;
                     case 7:
-                        if (jVar.f39161g != null) {
-                            jVar.f39161g.onError(message.arg1, message.arg2, null);
+                        if (jVar.f39165g != null) {
+                            jVar.f39165g.onError(message.arg1, message.arg2, null);
                             return;
                         }
                         return;
                     case 8:
-                        if (jVar.f39162h != null) {
-                            jVar.f39162h.onInfo(message.arg1, message.arg2, null);
+                        if (jVar.f39166h != null) {
+                            jVar.f39166h.onInfo(message.arg1, message.arg2, null);
                             return;
                         }
                         return;
                     case 9:
-                        if (jVar.f39163i != null) {
-                            jVar.f39163i.onMediaSourceChanged(-100, message.arg1, null);
+                        if (jVar.f39167i != null) {
+                            jVar.f39167i.onMediaSourceChanged(-100, message.arg1, null);
                             return;
                         }
                         return;
@@ -167,7 +167,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<j> f39166a;
+        public final WeakReference<j> f39170a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(j jVar, Looper looper) {
@@ -187,7 +187,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     return;
                 }
             }
-            this.f39166a = new WeakReference<>(jVar);
+            this.f39170a = new WeakReference<>(jVar);
         }
 
         @Override // android.os.Handler
@@ -195,46 +195,46 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                j jVar = this.f39166a.get();
-                if (jVar == null || (jVar.f39155a == null && message.what != 8)) {
+                j jVar = this.f39170a.get();
+                if (jVar == null || (jVar.f39159a == null && message.what != 8)) {
                     CyberLog.e("MediaPlayerAsync", "RequestHandler,MediaPlayerImpl went away with unhandled events msg.what:" + message.what);
                     return;
                 }
                 CyberLog.i("MediaPlayerAsync", "RequestHandler handleMessage what=" + message.what);
                 switch (message.what) {
                     case 1:
-                        jVar.f39155a.stop();
+                        jVar.f39159a.stop();
                         return;
                     case 2:
                         try {
-                            jVar.f39155a.setOnPreparedListener(null);
-                            jVar.f39155a.setOnCompletionListener(null);
-                            jVar.f39155a.setOnBufferingUpdateListener(null);
-                            jVar.f39155a.setOnSeekCompleteListener(null);
-                            jVar.f39155a.setOnVideoSizeChangedListener(null);
-                            jVar.f39155a.setOnErrorListener(null);
-                            jVar.f39155a.setOnInfoListener(null);
-                            jVar.f39155a.release();
-                            jVar.f39155a = null;
+                            jVar.f39159a.setOnPreparedListener(null);
+                            jVar.f39159a.setOnCompletionListener(null);
+                            jVar.f39159a.setOnBufferingUpdateListener(null);
+                            jVar.f39159a.setOnSeekCompleteListener(null);
+                            jVar.f39159a.setOnVideoSizeChangedListener(null);
+                            jVar.f39159a.setOnErrorListener(null);
+                            jVar.f39159a.setOnInfoListener(null);
+                            jVar.f39159a.release();
+                            jVar.f39159a = null;
                             return;
                         } catch (Exception unused) {
                             return;
                         }
                     case 3:
-                        jVar.f39155a.reset();
+                        jVar.f39159a.reset();
                         return;
                     case 4:
-                        jVar.f39155a.pause();
+                        jVar.f39159a.pause();
                         return;
                     case 5:
-                        jVar.f39155a.start();
+                        jVar.f39159a.start();
                         return;
                     case 6:
-                        jVar.f39155a.prepareAsync();
+                        jVar.f39159a.prepareAsync();
                         return;
                     case 7:
                         if (message.obj instanceof Long) {
-                            jVar.f39155a.seekTo((int) ((Long) message.obj).longValue(), message.arg1);
+                            jVar.f39159a.seekTo((int) ((Long) message.obj).longValue(), message.arg1);
                             return;
                         }
                         return;
@@ -244,11 +244,11 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     case 9:
                         Object obj = message.obj;
                         if (obj == null) {
-                            jVar.f39155a.setSurface(null);
+                            jVar.f39159a.setSurface(null);
                             return;
                         } else if ((obj instanceof Surface) && ((Surface) obj).isValid()) {
                             try {
-                                jVar.f39155a.setSurface((Surface) message.obj);
+                                jVar.f39159a.setSurface((Surface) message.obj);
                                 return;
                             } catch (Exception unused2) {
                                 str = "setSurface exception!";
@@ -259,7 +259,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                         }
                     case 10:
                         if (message.obj instanceof FileDescriptor) {
-                            jVar.f39155a.setDataSource((FileDescriptor) message.obj);
+                            jVar.f39159a.setDataSource((FileDescriptor) message.obj);
                             return;
                         }
                         return;
@@ -267,7 +267,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                         Object obj2 = message.obj;
                         if (obj2 instanceof Boolean) {
                             float f2 = ((Boolean) obj2).booleanValue() ? 0.0f : 1.0f;
-                            jVar.f39155a.setVolume(f2, f2);
+                            jVar.f39159a.setVolume(f2, f2);
                             return;
                         }
                         return;
@@ -275,7 +275,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                         Object obj3 = message.obj;
                         if (obj3 instanceof ArrayList) {
                             ArrayList arrayList = (ArrayList) obj3;
-                            jVar.f39155a.setDataSource((Context) arrayList.get(0), (Uri) arrayList.get(1));
+                            jVar.f39159a.setDataSource((Context) arrayList.get(0), (Uri) arrayList.get(1));
                             return;
                         }
                         return;
@@ -283,13 +283,13 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                         Object obj4 = message.obj;
                         if (obj4 instanceof ArrayList) {
                             ArrayList arrayList2 = (ArrayList) obj4;
-                            jVar.f39155a.setDataSource((Context) arrayList2.get(0), (Uri) arrayList2.get(1), (Map) arrayList2.get(2));
+                            jVar.f39159a.setDataSource((Context) arrayList2.get(0), (Uri) arrayList2.get(1), (Map) arrayList2.get(2));
                             return;
                         }
                         return;
                     case 14:
                         if (message.obj instanceof String) {
-                            jVar.f39155a.setDataSource(String.valueOf(message.obj));
+                            jVar.f39159a.setDataSource(String.valueOf(message.obj));
                             return;
                         }
                         return;
@@ -298,7 +298,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                         if (obj5 instanceof ArrayList) {
                             ArrayList arrayList3 = (ArrayList) obj5;
                             try {
-                                jVar.f39155a.setDataSource((String) arrayList3.get(0), (Map) arrayList3.get(1));
+                                jVar.f39159a.setDataSource((String) arrayList3.get(0), (Map) arrayList3.get(1));
                                 return;
                             } catch (IllegalArgumentException e2) {
                                 jVar.b(7, -1004, -1004, null);
@@ -311,24 +311,24 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                         Object obj6 = message.obj;
                         if (obj6 instanceof ArrayList) {
                             ArrayList arrayList4 = (ArrayList) obj6;
-                            jVar.f39155a.setWakeMode((Context) arrayList4.get(0), ((Integer) arrayList4.get(1)).intValue());
+                            jVar.f39159a.setWakeMode((Context) arrayList4.get(0), ((Integer) arrayList4.get(1)).intValue());
                             return;
                         }
                         return;
                     case 17:
                         if (message.obj instanceof Boolean) {
-                            jVar.f39155a.setScreenOnWhilePlaying(((Boolean) message.obj).booleanValue());
+                            jVar.f39159a.setScreenOnWhilePlaying(((Boolean) message.obj).booleanValue());
                             return;
                         }
                         return;
                     case 18:
                         Object obj7 = message.obj;
                         if (obj7 == null) {
-                            jVar.f39155a.setDisplay(null);
+                            jVar.f39159a.setDisplay(null);
                             return;
                         } else if ((obj7 instanceof SurfaceHolder) && ((SurfaceHolder) obj7).getSurface() != null && ((SurfaceHolder) message.obj).getSurface().isValid()) {
                             try {
-                                jVar.f39155a.setDisplay((SurfaceHolder) message.obj);
+                                jVar.f39159a.setDisplay((SurfaceHolder) message.obj);
                                 return;
                             } catch (Exception unused3) {
                                 str = "setDisplay exception!";
@@ -340,7 +340,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                         break;
                     case 19:
                         if (message.obj instanceof Boolean) {
-                            jVar.f39155a.setLooping(((Boolean) message.obj).booleanValue());
+                            jVar.f39159a.setLooping(((Boolean) message.obj).booleanValue());
                             return;
                         }
                         return;
@@ -348,14 +348,14 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                         Object obj8 = message.obj;
                         if (obj8 instanceof ArrayList) {
                             ArrayList arrayList5 = (ArrayList) obj8;
-                            jVar.f39155a.setVolume(((Float) arrayList5.get(0)).floatValue(), ((Float) arrayList5.get(1)).floatValue());
+                            jVar.f39159a.setVolume(((Float) arrayList5.get(0)).floatValue(), ((Float) arrayList5.get(1)).floatValue());
                             return;
                         }
                         return;
                     case 21:
                         Object obj9 = message.obj;
                         if (obj9 instanceof Float) {
-                            jVar.f39155a.setSpeed(((Float) obj9).floatValue());
+                            jVar.f39159a.setSpeed(((Float) obj9).floatValue());
                             return;
                         }
                         return;
@@ -363,7 +363,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                         Object obj10 = message.obj;
                         if (obj10 instanceof ArrayList) {
                             ArrayList arrayList6 = (ArrayList) obj10;
-                            jVar.f39155a.changeProxyDynamic((String) arrayList6.get(0), ((Boolean) arrayList6.get(1)).booleanValue());
+                            jVar.f39159a.changeProxyDynamic((String) arrayList6.get(0), ((Boolean) arrayList6.get(1)).booleanValue());
                             return;
                         }
                         return;
@@ -530,15 +530,15 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             synchronized (this) {
-                this.f39155a = new k();
-                CyberLog.i("MediaPlayerAsync", "createPlayer mPlayer=" + this.f39155a);
-                this.f39155a.setOnPreparedListener(this);
-                this.f39155a.setOnCompletionListener(this);
-                this.f39155a.setOnBufferingUpdateListener(this);
-                this.f39155a.setOnSeekCompleteListener(this);
-                this.f39155a.setOnVideoSizeChangedListener(this);
-                this.f39155a.setOnErrorListener(this);
-                this.f39155a.setOnInfoListener(this);
+                this.f39159a = new k();
+                CyberLog.i("MediaPlayerAsync", "createPlayer mPlayer=" + this.f39159a);
+                this.f39159a.setOnPreparedListener(this);
+                this.f39159a.setOnCompletionListener(this);
+                this.f39159a.setOnBufferingUpdateListener(this);
+                this.f39159a.setOnSeekCompleteListener(this);
+                this.f39159a.setOnVideoSizeChangedListener(this);
+                this.f39159a.setOnErrorListener(this);
+                this.f39159a.setOnInfoListener(this);
             }
         }
     }
@@ -575,7 +575,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            k kVar = this.f39155a;
+            k kVar = this.f39159a;
             if (kVar != null) {
                 return kVar.getCurrentPosition();
             }
@@ -589,7 +589,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            k kVar = this.f39155a;
+            k kVar = this.f39159a;
             if (kVar != null) {
                 return kVar.getCurrentPositionSync();
             }
@@ -613,7 +613,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            k kVar = this.f39155a;
+            k kVar = this.f39159a;
             if (kVar != null) {
                 return kVar.getDownloadSpeed();
             }
@@ -627,7 +627,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            k kVar = this.f39155a;
+            k kVar = this.f39159a;
             if (kVar != null) {
                 return kVar.getDuration();
             }
@@ -641,7 +641,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            k kVar = this.f39155a;
+            k kVar = this.f39159a;
             if (kVar != null) {
                 return kVar.getPlayedTime();
             }
@@ -661,7 +661,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     public int getVideoWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f39164j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f39168j : invokeV.intValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
@@ -669,7 +669,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            k kVar = this.f39155a;
+            k kVar = this.f39159a;
             return kVar != null && kVar.isLooping();
         }
         return invokeV.booleanValue;
@@ -680,7 +680,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            k kVar = this.f39155a;
+            k kVar = this.f39159a;
             return kVar != null && kVar.isPlaying();
         }
         return invokeV.booleanValue;
@@ -786,14 +786,14 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
             a(2);
             e();
             this.m = null;
-            this.f39156b = null;
-            this.f39157c = null;
-            this.f39158d = null;
-            this.f39159e = null;
-            this.f39160f = null;
-            this.f39161g = null;
-            this.f39162h = null;
-            this.f39163i = null;
+            this.f39160b = null;
+            this.f39161c = null;
+            this.f39162d = null;
+            this.f39163e = null;
+            this.f39164f = null;
+            this.f39165g = null;
+            this.f39166h = null;
+            this.f39167i = null;
         }
     }
 
@@ -886,7 +886,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, onBufferingUpdateListener) == null) {
-            this.f39158d = onBufferingUpdateListener;
+            this.f39162d = onBufferingUpdateListener;
         }
     }
 
@@ -894,7 +894,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, onCompletionListener) == null) {
-            this.f39157c = onCompletionListener;
+            this.f39161c = onCompletionListener;
         }
     }
 
@@ -902,7 +902,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     public void setOnErrorListener(CyberPlayerManager.OnErrorListener onErrorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, onErrorListener) == null) {
-            this.f39161g = onErrorListener;
+            this.f39165g = onErrorListener;
         }
     }
 
@@ -910,7 +910,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, onInfoListener) == null) {
-            this.f39162h = onInfoListener;
+            this.f39166h = onInfoListener;
         }
     }
 
@@ -918,7 +918,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, onMediaSourceChangedListener) == null) {
-            this.f39163i = onMediaSourceChangedListener;
+            this.f39167i = onMediaSourceChangedListener;
         }
     }
 
@@ -926,7 +926,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, onPreparedListener) == null) {
-            this.f39156b = onPreparedListener;
+            this.f39160b = onPreparedListener;
         }
     }
 
@@ -934,7 +934,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, onSeekCompleteListener) == null) {
-            this.f39159e = onSeekCompleteListener;
+            this.f39163e = onSeekCompleteListener;
         }
     }
 
@@ -942,7 +942,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, onVideoSizeChangedListener) == null) {
-            this.f39160f = onVideoSizeChangedListener;
+            this.f39164f = onVideoSizeChangedListener;
         }
     }
 

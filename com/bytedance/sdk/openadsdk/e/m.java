@@ -14,10 +14,10 @@ public class m extends b<c.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f68136a;
+    public AtomicBoolean f68171a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f68137b;
+    public boolean f68172b;
 
     public m(boolean z) {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class m extends b<c.a> {
                 return;
             }
         }
-        this.f68136a = new AtomicBoolean(false);
-        this.f68137b = true;
-        this.f68137b = z;
+        this.f68171a = new AtomicBoolean(false);
+        this.f68172b = true;
+        this.f68172b = z;
     }
 
     @Override // com.bytedance.sdk.openadsdk.e.b
@@ -49,10 +49,10 @@ public class m extends b<c.a> {
     @Override // com.bytedance.sdk.openadsdk.e.b
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f68136a.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f68171a.getAndSet(true)) {
             return;
         }
-        com.bytedance.sdk.openadsdk.multipro.c.a.a(this.f68137b);
+        com.bytedance.sdk.openadsdk.multipro.c.a.a(this.f68172b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,11 +60,11 @@ public class m extends b<c.a> {
     public void a(@NonNull c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            if (!this.f68136a.get()) {
+            if (!this.f68171a.get()) {
                 a();
             }
-            if (this.f68136a.get()) {
-                com.bytedance.sdk.openadsdk.multipro.c.a.a(aVar.a(), this.f68137b);
+            if (this.f68171a.get()) {
+                com.bytedance.sdk.openadsdk.multipro.c.a.a(aVar.a(), this.f68172b);
             }
         }
     }

@@ -1,46 +1,75 @@
 package c.a.r0.z3;
 
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
-import c.a.q0.s.q.x0;
-import c.a.r0.i.d;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.StringRes;
+import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.f;
+import c.a.e.e.l.d;
+import c.a.e.e.p.k;
+import c.a.q0.s.s.a;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class a {
+public class a extends c.a.q0.s.s.a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f29774a;
+    /* renamed from: e  reason: collision with root package name */
+    public ViewGroup f29865e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public d f29775b;
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f29866f;
 
-    /* renamed from: c  reason: collision with root package name */
-    public NEGFeedBackView.b f29776c;
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f29867g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ViewGroup f29868h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TbCheckBox f29869i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f29870j;
+    public Button k;
+    public Button l;
+    public ImageView m;
+    public String n;
+    public String o;
+    public String p;
+    public a.e q;
+    public String r;
+    public a.e s;
+    public String t;
+    public CompoundButton.OnCheckedChangeListener u;
+    public boolean v;
+    public TbCheckBox.b w;
+    public final c.a.e.e.l.c<c.a.e.l.d.a> x;
 
     /* renamed from: c.a.r0.z3.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1384a implements NEGFeedBackView.b {
+    public class C1389a implements TbCheckBox.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f29777a;
+        public final /* synthetic */ a f29871a;
 
-        public C1384a(a aVar) {
+        public C1389a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,114 +84,326 @@ public class a {
                     return;
                 }
             }
-            this.f29777a = aVar;
+            this.f29871a = aVar;
         }
 
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void onCheckedChanged(x0 x0Var, CompoundButton compoundButton, boolean z) {
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.b
+        public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(1048576, this, x0Var, compoundButton, z) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void onNEGFeedbackConfirm(ArrayList<Integer> arrayList, String str, x0 x0Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, str, x0Var) == null) || arrayList == null || x0Var == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbCheckBox, Boolean.valueOf(z), obj}) == null) || this.f29871a.u == null) {
                 return;
             }
-            StringBuilder sb = new StringBuilder();
-            int size = arrayList.size();
-            int i2 = 0;
-            for (int i3 = 0; i3 < size; i3++) {
-                sb.append(arrayList.get(i3));
-                sb.append(",");
+            this.f29871a.u.onCheckedChanged(null, z);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends c.a.e.e.l.c<c.a.e.l.d.a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f29872a;
+
+        public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (sb.length() > 0) {
-                sb.deleteCharAt(sb.length() - 1);
-            }
-            int i4 = x0Var.n;
-            int i5 = 3;
-            if (i4 == 0) {
-                i2 = 1;
-            } else if (i4 == 40) {
-                i2 = 2;
-            } else if (i4 == 49 || i4 == 69) {
-                i2 = 3;
-            }
-            boolean z = x0Var.r;
-            if (!this.f29777a.f29774a) {
-                i5 = z ? 5 : 4;
-            } else if (!z) {
-                i5 = 2;
-            }
-            StatisticItem.make(TbadkCoreStatisticKey.NEG_FEEDBACK_KEY).param("tid", x0Var.f()).param("nid", x0Var.e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", x0Var.c()).param("obj_param1", x0Var.k).param("obj_source", x0Var.l).param("obj_id", x0Var.m).param("obj_type", sb.toString()).param("obj_name", str).param(TiebaStatic.Params.OBJ_PARAM2, i2).param("obj_locate", i5).eventStat();
+            this.f29872a = aVar;
         }
 
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void onNEGFeedbackWindowShow(x0 x0Var) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // c.a.e.e.l.c
+        public void onLoaded(c.a.e.l.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x0Var) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
+                super.onLoaded((b) aVar, str, i2);
+                if (aVar == null || !aVar.w()) {
+                    this.f29872a.f29866f.setImageResource(R.drawable.frs_luhan_moren_background);
+                    return;
+                }
+                this.f29872a.f29866f.setBackgroundResource(0);
+                this.f29872a.f29866f.setImageDrawable(null);
+                aVar.h(this.f29872a.f29866f);
             }
         }
     }
 
-    public a() {
+    /* loaded from: classes4.dex */
+    public class c implements TbCheckBox.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f29873e;
+
+        public c(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f29873e = false;
+        }
+
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+        public boolean isChecked() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29873e : invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+        public void setChecked(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                this.f29873e = z;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f29774a = false;
-        this.f29776c = new C1384a(this);
+        this.v = false;
+        this.w = new C1389a(this);
+        this.x = new b(this);
+        c();
+        setContentViewSize(1);
+        setCanceledOnTouchOutside(false);
+        setCancelable(false);
     }
 
-    public void b() {
-        d dVar;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dVar = this.f29775b) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.easter_egg_dialog, (ViewGroup) null);
+            this.f29865e = viewGroup;
+            this.f29866f = (ImageView) viewGroup.findViewById(R.id.dialog_bg);
+            this.f29867g = (TextView) this.f29865e.findViewById(R.id.message);
+            Button button = (Button) this.f29865e.findViewById(R.id.negative_btn);
+            this.l = button;
+            button.setOnClickListener(this);
+            Button button2 = (Button) this.f29865e.findViewById(R.id.positive_btn);
+            this.k = button2;
+            button2.setOnClickListener(this);
+            ImageView imageView = (ImageView) this.f29865e.findViewById(R.id.close);
+            this.m = imageView;
+            imageView.setOnClickListener(this);
+            this.f29868h = (ViewGroup) this.f29865e.findViewById(R.id.checkbox_container);
+            this.f29870j = (TextView) this.f29865e.findViewById(R.id.checkbox_text);
+            TbCheckBox tbCheckBox = (TbCheckBox) this.f29865e.findViewById(R.id.checkbox);
+            this.f29869i = tbCheckBox;
+            tbCheckBox.setBackgroundDrawableId(R.drawable.icon_frs_luhan_selct, R.drawable.icon_frs_luhan_selctguand);
+            this.f29869i.setStatedChangedListener(this.w);
+            this.f29869i.setTagData(new c(this));
+            this.f29868h.setClickable(true);
+            this.f29868h.setOnClickListener(this);
+            setContentView(this.f29865e);
+        }
+    }
+
+    @Override // c.a.q0.s.s.a
+    public c.a.q0.s.s.a create(f<?> fVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar)) == null) {
+            if (this.v) {
+                return this;
+            }
+            this.v = true;
+            super.create(fVar);
+            if (!k.isEmpty(this.o)) {
+                this.f29867g.setText(this.o);
+            }
+            if (!k.isEmpty(this.t)) {
+                this.f29870j.setText(this.t);
+            } else {
+                this.f29868h.setVisibility(4);
+            }
+            if (!k.isEmpty(this.r)) {
+                this.l.setText(this.r);
+            }
+            if (!k.isEmpty(this.p)) {
+                this.k.setText(this.p);
+            }
+            if (!TextUtils.isEmpty(this.n)) {
+                d.h().m(this.n, 10, this.x, fVar.getUniqueId());
+            } else {
+                this.f29866f.setImageResource(R.drawable.frs_luhan_moren_background);
+            }
+            getRealView().setBackgroundDrawable(null);
+            return this;
+        }
+        return (c.a.q0.s.s.a) invokeL.objValue;
+    }
+
+    public a d(@StringRes int i2, CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, onCheckedChangeListener)) == null) {
+            Activity activity = this.mActivity;
+            if (activity != null) {
+                this.t = activity.getResources().getString(i2);
+                this.u = onCheckedChangeListener;
+            }
+            return this;
+        }
+        return (a) invokeIL.objValue;
+    }
+
+    public a e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.n = str;
+            return this;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public a f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.o = str;
+            return this;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public a g(@StringRes int i2, a.e eVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, eVar)) == null) {
+            Activity activity = this.mActivity;
+            if (activity != null) {
+                this.r = activity.getResources().getString(i2);
+                this.s = eVar;
+            }
+            return this;
+        }
+        return (a) invokeIL.objValue;
+    }
+
+    public a h(int i2, a.e eVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, eVar)) == null) {
+            Activity activity = this.mActivity;
+            if (activity != null) {
+                this.p = activity.getResources().getString(i2);
+                this.q = eVar;
+            }
+            return this;
+        }
+        return (a) invokeIL.objValue;
+    }
+
+    public a i(String str, a.e eVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, eVar)) == null) {
+            this.p = str;
+            this.q = eVar;
+            return this;
+        }
+        return (a) invokeLL.objValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || view == null) {
             return;
         }
-        dVar.h();
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f29774a = z;
+        int id = view.getId();
+        if (id == R.id.positive_btn) {
+            a.e eVar = this.q;
+            if (eVar != null) {
+                eVar.onClick(this);
+            }
+        } else if (id == R.id.negative_btn) {
+            a.e eVar2 = this.s;
+            if (eVar2 != null) {
+                eVar2.onClick(this);
+            }
+        } else if (id == R.id.close) {
+            dismiss();
+        } else if (id == R.id.checkbox_container) {
+            TbCheckBox tbCheckBox = this.f29869i;
+            tbCheckBox.setChecked(!tbCheckBox.isChecked());
         }
     }
 
-    public void d(TbPageContext tbPageContext, VideoItemData videoItemData, boolean z) {
+    @Override // c.a.q0.s.s.a
+    public /* bridge */ /* synthetic */ c.a.q0.s.s.a setMessage(String str) {
+        f(str);
+        return this;
+    }
+
+    @Override // c.a.q0.s.s.a
+    public /* bridge */ /* synthetic */ c.a.q0.s.s.a setNegativeButton(@StringRes int i2, a.e eVar) {
+        g(i2, eVar);
+        return this;
+    }
+
+    @Override // c.a.q0.s.s.a
+    public /* bridge */ /* synthetic */ c.a.q0.s.s.a setPositiveButton(int i2, a.e eVar) {
+        h(i2, eVar);
+        return this;
+    }
+
+    @Override // c.a.q0.s.s.a
+    public c.a.q0.s.s.a setNegativeButton(String str, a.e eVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, videoItemData, z) == null) || tbPageContext == null || videoItemData == null || !ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, eVar)) == null) {
+            this.r = str;
+            this.s = eVar;
+            return this;
         }
-        if (this.f29775b == null) {
-            this.f29775b = new d(tbPageContext);
-        }
-        x0 negFeedBackData = videoItemData.getNegFeedBackData();
-        if (negFeedBackData == null) {
-            negFeedBackData = new x0();
-        }
-        String str = videoItemData.thread_id;
-        String str2 = videoItemData.forum_id;
-        negFeedBackData.r = z;
-        negFeedBackData.p(str);
-        negFeedBackData.m(str2);
-        this.f29775b.r(this.f29774a);
-        this.f29775b.p(this.f29776c);
-        this.f29775b.o(negFeedBackData);
-        this.f29775b.q(true);
-        this.f29775b.h();
-        this.f29775b.s();
-        StatisticItem.make(TbadkCoreStatisticKey.NEGATIVE_FEEDBACK_OPEN_CLICK).param("obj_locate", this.f29774a ? z ? 3 : 2 : z ? 5 : 4).param("fid", str2).param("tid", str).param("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
+        return (c.a.q0.s.s.a) invokeLL.objValue;
+    }
+
+    @Override // c.a.q0.s.s.a
+    public /* bridge */ /* synthetic */ c.a.q0.s.s.a setPositiveButton(String str, a.e eVar) {
+        i(str, eVar);
+        return this;
     }
 }

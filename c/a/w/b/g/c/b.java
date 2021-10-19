@@ -30,22 +30,22 @@ public class b extends LinearLayout {
     public Context E;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f30500e;
+    public final int f30547e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f30501f;
+    public final int f30548f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f30502g;
+    public final int f30549g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f30503h;
+    public final int f30550h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Paint f30504i;
+    public final Paint f30551i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final RectF f30505j;
+    public final RectF f30552j;
     public final boolean k;
     public final boolean l;
     public final boolean m;
@@ -59,7 +59,7 @@ public class b extends LinearLayout {
     public final int u;
     public final Paint v;
     public final float w;
-    public final C1411b x;
+    public final C1414b x;
     public final boolean y;
     public int z;
 
@@ -71,17 +71,17 @@ public class b extends LinearLayout {
 
     /* renamed from: c.a.w.b.g.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1411b implements SmartTabLayout.g {
+    public static class C1414b implements SmartTabLayout.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int[] f30506a;
+        public int[] f30553a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int[] f30507b;
+        public int[] f30554b;
 
-        public C1411b() {
+        public C1414b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class b extends LinearLayout {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                int[] iArr = this.f30506a;
+                int[] iArr = this.f30553a;
                 return iArr[i2 % iArr.length];
             }
             return invokeI.intValue;
@@ -111,7 +111,7 @@ public class b extends LinearLayout {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                int[] iArr = this.f30507b;
+                int[] iArr = this.f30554b;
                 return iArr[i2 % iArr.length];
             }
             return invokeI.intValue;
@@ -120,18 +120,18 @@ public class b extends LinearLayout {
         public void c(int... iArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr) == null) {
-                this.f30507b = iArr;
+                this.f30554b = iArr;
             }
         }
 
         public void d(int... iArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, iArr) == null) {
-                this.f30506a = iArr;
+                this.f30553a = iArr;
             }
         }
 
-        public /* synthetic */ C1411b(a aVar) {
+        public /* synthetic */ C1414b(a aVar) {
             this();
         }
     }
@@ -157,7 +157,7 @@ public class b extends LinearLayout {
                 return;
             }
         }
-        this.f30505j = new RectF();
+        this.f30552j = new RectF();
         setWillNotDraw(false);
         setClipChildren(false);
         setClipToPadding(false);
@@ -206,15 +206,15 @@ public class b extends LinearLayout {
         } else {
             intArray2 = getResources().getIntArray(resourceId2);
         }
-        C1411b c1411b = new C1411b(null);
-        this.x = c1411b;
-        c1411b.d(intArray);
+        C1414b c1414b = new C1414b(null);
+        this.x = c1414b;
+        c1414b.d(intArray);
         this.x.c(intArray2);
-        this.f30500e = dimensionPixelSize3;
-        this.f30501f = color2;
-        this.f30502g = dimensionPixelSize4;
-        this.f30503h = color3;
-        this.f30504i = new Paint(1);
+        this.f30547e = dimensionPixelSize3;
+        this.f30548f = color2;
+        this.f30549g = dimensionPixelSize4;
+        this.f30550h = color3;
+        this.f30551i = new Paint(1);
         this.l = z;
         this.m = z2;
         this.k = z3;
@@ -336,18 +336,18 @@ public class b extends LinearLayout {
             f4 = f7 + (i6 / 2.0f);
             this.t.setColor(i5);
             if (this.q != -1) {
-                this.f30505j.set(i2 + c.a.w.b.f.a.a(this.E, 16.0f), f5, i3 - c.a.w.b.f.a.a(this.E, 16.0f), f4);
+                this.f30552j.set(i2 + c.a.w.b.f.a.a(this.E, 16.0f), f5, i3 - c.a.w.b.f.a.a(this.E, 16.0f), f4);
             } else {
                 float abs = (Math.abs(i2 - i3) - this.q) / 2.0f;
-                this.f30505j.set(i2 + abs, f5, i3 - abs, f4);
+                this.f30552j.set(i2 + abs, f5, i3 - abs, f4);
             }
             f6 = this.s;
             if (f6 <= 0.0f) {
                 float d2 = c.a.w.b.f.a.d(this.E, f6);
-                canvas.drawRoundRect(this.f30505j, d2, d2, this.t);
+                canvas.drawRoundRect(this.f30552j, d2, d2, this.t);
                 return;
             }
-            canvas.drawRect(this.f30505j, this.t);
+            canvas.drawRect(this.f30552j, this.t);
             return;
         } else {
             f3 = i4 / 2.0f;
@@ -366,11 +366,11 @@ public class b extends LinearLayout {
 
     public final void d(Canvas canvas, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, canvas, i2, i3) == null) || this.f30500e <= 0) {
+        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, canvas, i2, i3) == null) || this.f30547e <= 0) {
             return;
         }
-        this.f30504i.setColor(this.f30501f);
-        canvas.drawRect(i2, 0.0f, i3, this.f30500e, this.f30504i);
+        this.f30551i.setColor(this.f30548f);
+        canvas.drawRect(i2, 0.0f, i3, this.f30547e, this.f30551i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -407,11 +407,11 @@ public class b extends LinearLayout {
 
     public final void f(Canvas canvas, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(1048581, this, canvas, i2, i3, i4) == null) || this.f30502g <= 0) {
+        if (!(interceptable == null || interceptable.invokeLIII(1048581, this, canvas, i2, i3, i4) == null) || this.f30549g <= 0) {
             return;
         }
-        this.f30504i.setColor(this.f30503h);
-        canvas.drawRect(i2, i4 - this.f30502g, i3, i4, this.f30504i);
+        this.f30551i.setColor(this.f30550h);
+        canvas.drawRect(i2, i4 - this.f30549g, i3, i4, this.f30551i);
     }
 
     public SmartTabLayout.g g() {

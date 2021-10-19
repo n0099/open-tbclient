@@ -5,34 +5,34 @@ import androidx.annotation.NonNull;
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f61067a = "life_host";
+    public static final String f61102a = "life_host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f61068b = "xinyongka_host";
+    public static final String f61103b = "xinyongka_host";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f61069c = "nfc_host";
+    public static final String f61104c = "nfc_host";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f61070d = "app_host";
+    public static final String f61105d = "app_host";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f61071e = "dxm_host";
+    public static final String f61106e = "dxm_host";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f61072f = "zhifu_host";
+    public static final String f61107f = "zhifu_host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f61073g = "comet_host";
+    public static final String f61108g = "comet_host";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f61074h = "my_host";
+    public static final String f61109h = "my_host";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f61075i = "init_host";
+    public static final String f61110i = "init_host";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f61076j = "sensors_host";
+    public static final String f61111j = "sensors_host";
     public static final String k = "hawking_host";
     public static final String l = "net_check_host";
 

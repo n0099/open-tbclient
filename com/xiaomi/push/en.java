@@ -22,7 +22,7 @@ public class en extends Notification.Builder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f77891a;
+    public Context f77926a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public en(Context context) {
@@ -42,7 +42,7 @@ public class en extends Notification.Builder {
                 return;
             }
         }
-        this.f77891a = context;
+        this.f77926a = context;
     }
 
     public int a(Resources resources, String str, String str2, String str3) {
@@ -60,7 +60,7 @@ public class en extends Notification.Builder {
     public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f77891a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f77926a : (Context) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

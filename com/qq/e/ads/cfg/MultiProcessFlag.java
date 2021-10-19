@@ -11,10 +11,10 @@ public class MultiProcessFlag {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f75444a;
+    public static boolean f75479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f75445b;
+    public static boolean f75480b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public MultiProcessFlag() {
@@ -34,18 +34,18 @@ public class MultiProcessFlag {
     public static boolean isMultiProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f75444a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f75479a : invokeV.booleanValue;
     }
 
     public static void setMultiProcess(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            if (f75445b) {
+            if (f75480b) {
                 GDTLogger.w("MultiProcessFlag已经设置过，再次设置无效");
                 return;
             }
-            f75445b = true;
-            f75444a = z;
+            f75480b = true;
+            f75479a = z;
         }
     }
 }

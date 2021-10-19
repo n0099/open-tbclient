@@ -18,22 +18,22 @@ public class ChooseColorLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f55873e;
+    public int[] f55807e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55874f;
+    public int f55808f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55875g;
+    public int f55809g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55876h;
+    public int f55810h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f55877i;
+    public int f55811i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f55878j;
+    public int f55812j;
     public int k;
     public b l;
     public View.OnClickListener onClickListener;
@@ -44,7 +44,7 @@ public class ChooseColorLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ChooseColorLayout f55879e;
+        public final /* synthetic */ ChooseColorLayout f55813e;
 
         public a(ChooseColorLayout chooseColorLayout) {
             Interceptable interceptable = $ic;
@@ -61,25 +61,25 @@ public class ChooseColorLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f55879e = chooseColorLayout;
+            this.f55813e = chooseColorLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != this.f55879e.f55878j) {
-                ChooseColorLayout chooseColorLayout = this.f55879e;
-                View childAt = chooseColorLayout.getChildAt(chooseColorLayout.f55878j);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != this.f55813e.f55812j) {
+                ChooseColorLayout chooseColorLayout = this.f55813e;
+                View childAt = chooseColorLayout.getChildAt(chooseColorLayout.f55812j);
                 if (childAt instanceof ChooseColorView) {
                     ((ChooseColorView) childAt).setIsChooseView(false);
                 }
-                this.f55879e.f55878j = intValue;
+                this.f55813e.f55812j = intValue;
                 ChooseColorView chooseColorView = (ChooseColorView) view;
-                this.f55879e.f55877i = chooseColorView.getChooseColor();
+                this.f55813e.f55811i = chooseColorView.getChooseColor();
                 chooseColorView.setIsChooseView(true);
-                if (this.f55879e.l != null) {
-                    this.f55879e.l.a(this.f55879e.f55877i);
+                if (this.f55813e.l != null) {
+                    this.f55813e.l.a(this.f55813e.f55811i);
                 }
             }
         }
@@ -115,29 +115,29 @@ public class ChooseColorLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.k = l.k(getContext());
-            this.f55873e = getResources().getIntArray(R.array.choose_colors);
+            this.f55807e = getResources().getIntArray(R.array.choose_colors);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds24);
-            this.f55876h = dimensionPixelSize;
+            this.f55810h = dimensionPixelSize;
             int i2 = (this.k - (dimensionPixelSize * 2)) / 8;
-            this.f55874f = i2;
-            this.f55875g = (i2 - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
-            int i3 = this.f55874f;
+            this.f55808f = i2;
+            this.f55809g = (i2 - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
+            int i3 = this.f55808f;
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i3, i3);
             layoutParams.gravity = 17;
-            for (int i4 = 0; i4 < this.f55873e.length; i4++) {
+            for (int i4 = 0; i4 < this.f55807e.length; i4++) {
                 ChooseColorView chooseColorView = new ChooseColorView(getContext());
-                chooseColorView.setChooseColor(this.f55873e[i4]);
+                chooseColorView.setChooseColor(this.f55807e[i4]);
                 chooseColorView.setTag(Integer.valueOf(i4));
-                chooseColorView.setRadius(this.f55875g);
+                chooseColorView.setRadius(this.f55809g);
                 if (i4 == 0) {
                     chooseColorView.setIsChooseView(true);
-                    this.f55877i = this.f55873e[i4];
-                    this.f55878j = i4;
+                    this.f55811i = this.f55807e[i4];
+                    this.f55812j = i4;
                 }
                 chooseColorView.setOnClickListener(this.onClickListener);
                 addView(chooseColorView, layoutParams);
             }
-            int i5 = this.f55876h;
+            int i5 = this.f55810h;
             setPadding(i5, 0, i5, getResources().getDimensionPixelSize(R.dimen.ds20));
         }
     }
@@ -145,7 +145,7 @@ public class ChooseColorLayout extends LinearLayout {
     public int getCurrentChooseColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55877i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55811i : invokeV.intValue;
     }
 
     public void setOnChooseColorChangeListener(b bVar) {

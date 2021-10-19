@@ -90,7 +90,7 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
         public final Observer<? super R> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f79318d;
+        public Disposable f79353d;
 
         public TargetObserver(Observer<? super R> observer) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f79318d.dispose();
+                this.f79353d.dispose();
                 DisposableHelper.dispose(this);
             }
         }
@@ -123,7 +123,7 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f79318d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f79353d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -155,8 +155,8 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f79318d, disposable)) {
-                this.f79318d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f79353d, disposable)) {
+                this.f79353d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

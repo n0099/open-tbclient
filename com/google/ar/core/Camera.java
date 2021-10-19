@@ -12,7 +12,7 @@ public class Camera {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f70547a;
+    public long f70582a;
 
     public Camera() {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class Camera {
                 return;
             }
         }
-        this.f70547a = 0L;
+        this.f70582a = 0L;
     }
 
     public static native long nativeAcquireCamera(long j2, long j3);
@@ -55,13 +55,13 @@ public class Camera {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof Camera) && ((Camera) obj).f70547a == this.f70547a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof Camera) && ((Camera) obj).f70582a == this.f70582a : invokeL.booleanValue;
     }
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j2 = this.f70547a;
+            long j2 = this.f70582a;
             if (j2 != 0) {
                 nativeReleaseCamera(j2);
             }
@@ -72,6 +72,6 @@ public class Camera {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f70547a).hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f70582a).hashCode() : invokeV.intValue;
     }
 }

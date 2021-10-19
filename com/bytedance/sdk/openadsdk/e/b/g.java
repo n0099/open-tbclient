@@ -12,10 +12,10 @@ public class g implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f68021a;
+    public long f68056a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f68022b;
+    public long f68057b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -34,14 +34,14 @@ public class g implements c {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f68021a = j2;
+            this.f68056a = j2;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f68022b = j2;
+            this.f68057b = j2;
         }
     }
 
@@ -52,8 +52,8 @@ public class g implements c {
             return;
         }
         try {
-            jSONObject.put("buffers_time", this.f68021a);
-            jSONObject.put("total_duration", this.f68022b);
+            jSONObject.put("buffers_time", this.f68056a);
+            jSONObject.put("total_duration", this.f68057b);
         } catch (Throwable th) {
             th.printStackTrace();
         }

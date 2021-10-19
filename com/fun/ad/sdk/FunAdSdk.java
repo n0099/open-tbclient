@@ -42,7 +42,7 @@ public final class FunAdSdk {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunAdCallback f70259a;
+        public final /* synthetic */ FunAdCallback f70294a;
 
         public a(FunAdCallback funAdCallback) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public final class FunAdSdk {
                     return;
                 }
             }
-            this.f70259a = funAdCallback;
+            this.f70294a = funAdCallback;
         }
 
         @Override // b.a.a.a.f
         public void onAdClicked(h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f70259a.onAdClicked(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
+                this.f70294a.onAdClicked(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
             }
         }
 
@@ -74,7 +74,7 @@ public final class FunAdSdk {
         public void onAdClose(h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-                this.f70259a.onAdClose(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
+                this.f70294a.onAdClose(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
             }
         }
 
@@ -82,7 +82,7 @@ public final class FunAdSdk {
         public void onAdLoad(h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                this.f70259a.onAdLoad(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
+                this.f70294a.onAdLoad(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
             }
         }
 
@@ -90,7 +90,7 @@ public final class FunAdSdk {
         public void onAdLoadError(h.a aVar, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048579, this, aVar, i2, str) == null) {
-                this.f70259a.onAdLoadError(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, i2, str);
+                this.f70294a.onAdLoadError(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, i2, str);
             }
         }
 
@@ -98,7 +98,7 @@ public final class FunAdSdk {
         public void onAdLoaded(h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-                this.f70259a.onAdLoaded(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
+                this.f70294a.onAdLoaded(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
             }
         }
 
@@ -106,7 +106,7 @@ public final class FunAdSdk {
         public void onAdShow(h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-                this.f70259a.onAdShow(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
+                this.f70294a.onAdShow(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
             }
         }
 
@@ -114,7 +114,7 @@ public final class FunAdSdk {
         public void onAdShowError(h.a aVar, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048582, this, aVar, i2, str) == null) {
-                this.f70259a.onAdShowError(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, i2, str);
+                this.f70294a.onAdShowError(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, i2, str);
             }
         }
 
@@ -122,7 +122,7 @@ public final class FunAdSdk {
         public void onRewardedVideo(h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-                this.f70259a.onRewardedVideo(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
+                this.f70294a.onRewardedVideo(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
             }
         }
     }

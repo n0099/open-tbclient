@@ -13,14 +13,14 @@ public final class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static y f45576c;
+    public static y f45488c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f45577a;
+    public SharedPreferences f45489a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f45578b;
+    public SharedPreferences.Editor f45490b;
 
     public y(Context context) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public final class y {
                 return;
             }
         }
-        SharedPreferences sharedPreferences = com.baidu.sofire.h.a.a(context).f45428a;
-        this.f45577a = sharedPreferences;
-        this.f45578b = sharedPreferences.edit();
+        SharedPreferences sharedPreferences = com.baidu.sofire.h.a.a(context).f45340a;
+        this.f45489a = sharedPreferences;
+        this.f45490b = sharedPreferences.edit();
     }
 
     public static synchronized y a(Context context) {
@@ -48,12 +48,12 @@ public final class y {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (y.class) {
                 if (context == null) {
-                    return f45576c;
+                    return f45488c;
                 }
-                if (f45576c == null) {
-                    f45576c = new y(context);
+                if (f45488c == null) {
+                    f45488c = new y(context);
                 }
-                return f45576c;
+                return f45488c;
             }
         }
         return (y) invokeL.objValue;
@@ -62,32 +62,32 @@ public final class y {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45577a.getBoolean("lt_sucf", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45489a.getBoolean("lt_sucf", false) : invokeV.booleanValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45577a.getBoolean("lt_sssf", true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45489a.getBoolean("lt_sssf", true) : invokeV.booleanValue;
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f45577a.getBoolean("lt_sbwnp", true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f45489a.getBoolean("lt_sbwnp", true) : invokeV.booleanValue;
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45577a.getBoolean("lt_sdcf", true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45489a.getBoolean("lt_sdcf", true) : invokeV.booleanValue;
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f45578b.putBoolean("lt_sssf", z);
-            this.f45578b.commit();
+            this.f45490b.putBoolean("lt_sssf", z);
+            this.f45490b.commit();
         }
     }
 }

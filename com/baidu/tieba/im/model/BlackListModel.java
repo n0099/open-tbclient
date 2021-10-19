@@ -47,19 +47,9 @@ public class BlackListModel extends BdBaseModel {
         this.mMaskType = 2;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void addToBlackList(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
             this.mUpdateMessage = requestUpdateMaskInfoMessage;
             requestUpdateMaskInfoMessage.setIsMask(1);
@@ -73,7 +63,7 @@ public class BlackListModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             super.cancelMessage();
             return false;
         }
@@ -82,7 +72,7 @@ public class BlackListModel extends BdBaseModel {
 
     public void checkUserMask(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
             RequestCheckUserMaskMessage requestCheckUserMaskMessage = new RequestCheckUserMaskMessage();
             this.mCheckMessage = requestCheckUserMaskMessage;
             requestCheckUserMaskMessage.setUserId(j2);
@@ -93,17 +83,27 @@ public class BlackListModel extends BdBaseModel {
     public int getMaskType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mMaskType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mMaskType : invokeV.intValue;
     }
 
     public void loadBlackList() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             RequestGetMaskInfoMessage requestGetMaskInfoMessage = new RequestGetMaskInfoMessage();
             this.mGetMessage = requestGetMaskInfoMessage;
             requestGetMaskInfoMessage.setMaskType(10);
             super.sendMessage(this.mGetMessage);
         }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void removeFromBlackList(long j2) {

@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.lowFlows.message;
 
-import c.a.q0.d1.a0;
-import c.a.r0.y2.j0.a;
+import c.a.q0.d1.z;
+import c.a.r0.z2.j0.a;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -51,7 +51,7 @@ public class MoreTreasureTroveReqMsg extends NetMessage {
                 builder.lf_user_taskid = this.taskId;
                 builder.app_pos = a.e().a();
                 if (z) {
-                    a0.c(builder, true, true, false);
+                    z.c(builder, true, true, false);
                 }
                 MoreTreasureTroveReqIdl.Builder builder2 = new MoreTreasureTroveReqIdl.Builder();
                 builder2.data = builder.build(false);

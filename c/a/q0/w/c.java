@@ -36,17 +36,17 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f15070b;
+    public static c f15093b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static DownloadData f15071c;
+    public static DownloadData f15094c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<DownloadData> f15072d;
+    public static List<DownloadData> f15095d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f15073a;
+    public b f15096a;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -60,7 +60,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f15074a;
+        public final /* synthetic */ c f15097a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class c {
                     return;
                 }
             }
-            this.f15074a = cVar;
+            this.f15097a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -98,7 +98,7 @@ public class c {
                 }
                 boolean isForceDownload = downloadData.isForceDownload();
                 String str = id.replace(".", "_") + ".apk";
-                String o = this.f15074a.o(str);
+                String o = this.f15097a.o(str);
                 File GetFile = FileHelper.GetFile(str);
                 if (!isForceDownload && GetFile != null) {
                     DownloadData downloadData2 = new DownloadData(id);
@@ -123,32 +123,32 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
                 super.onPostExecute(downloadData);
-                this.f15074a.f15073a = null;
+                this.f15097a.f15096a = null;
                 if (downloadData != null) {
                     if (downloadData.getStatus() == 3) {
-                        this.f15074a.w(downloadData);
+                        this.f15097a.w(downloadData);
                         if (downloadData.isNeedInvokeApk()) {
                             Application app = TbadkCoreApplication.getInst().getApp();
                             UtilHelper.install_apk(app, downloadData.getId().replace(".", "_") + ".apk");
                         }
                     } else {
                         f.k().m(downloadData, 5);
-                        int l = this.f15074a.l(downloadData.getId(), downloadData.getName());
+                        int l = this.f15097a.l(downloadData.getId(), downloadData.getName());
                         if (downloadData.isNeedNotify() && l <= 0) {
                             String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_will_begin);
                             Application app2 = TbadkCoreApplication.getInst().getApp();
                             int notifyId = downloadData.getNotifyId();
-                            NotificationHelper.showProgressNotification(app2, notifyId, downloadData.getName() + string, 0, string, downloadData.getName(), this.f15074a.i(downloadData.getAction()), false);
+                            NotificationHelper.showProgressNotification(app2, notifyId, downloadData.getName() + string, 0, string, downloadData.getName(), this.f15097a.i(downloadData.getAction()), false);
                         } else {
-                            this.f15074a.x(downloadData);
+                            this.f15097a.x(downloadData);
                         }
                     }
-                    DownloadData unused = c.f15071c = null;
-                    if (c.f15072d.isEmpty()) {
+                    DownloadData unused = c.f15094c = null;
+                    if (c.f15095d.isEmpty()) {
                         return;
                     }
-                    c.f15072d.remove(0);
-                    this.f15074a.C();
+                    c.f15095d.remove(0);
+                    this.f15097a.C();
                 }
             }
         }
@@ -171,7 +171,7 @@ public class c {
                 return;
             }
         }
-        f15072d = new LinkedList();
+        f15095d = new LinkedList();
     }
 
     public c() {
@@ -187,7 +187,7 @@ public class c {
                 return;
             }
         }
-        this.f15073a = null;
+        this.f15096a = null;
     }
 
     public static c q() {
@@ -195,11 +195,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             synchronized (c.class) {
-                if (f15070b == null) {
-                    f15070b = new c();
+                if (f15093b == null) {
+                    f15093b = new c();
                 }
             }
-            return f15070b;
+            return f15093b;
         }
         return (c) invokeV.objValue;
     }
@@ -231,14 +231,14 @@ public class c {
 
     public final void C() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && f15071c == null) {
-            DownloadData downloadData = (DownloadData) ListUtils.getItem(f15072d, 0);
-            f15071c = downloadData;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && f15094c == null) {
+            DownloadData downloadData = (DownloadData) ListUtils.getItem(f15095d, 0);
+            f15094c = downloadData;
             if (downloadData != null) {
                 b bVar = new b(this, null);
-                this.f15073a = bVar;
+                this.f15096a = bVar;
                 bVar.setPriority(3);
-                this.f15073a.execute(f15071c);
+                this.f15096a.execute(f15094c);
             }
         }
     }
@@ -439,7 +439,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, arrayList) == null) {
             try {
-                new C0713c(this, null).execute(arrayList);
+                new C0715c(this, null).execute(arrayList);
             } catch (Exception unused) {
             }
         }
@@ -482,7 +482,7 @@ public class c {
             UtilHelper.showToast(TbadkCoreApplication.getInst(), R.string.download_fail_over_max);
             return;
         }
-        f15072d.add(downloadData);
+        f15095d.add(downloadData);
         C();
     }
 
@@ -495,17 +495,17 @@ public class c {
 
     /* renamed from: c.a.q0.w.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0713c extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
+    public class C0715c extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<AdvertAppInfo> f15075a;
+        public ArrayList<AdvertAppInfo> f15098a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f15076b;
+        public final /* synthetic */ c f15099b;
 
-        public C0713c(c cVar) {
+        public C0715c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -520,8 +520,8 @@ public class c {
                     return;
                 }
             }
-            this.f15076b = cVar;
-            this.f15075a = null;
+            this.f15099b = cVar;
+            this.f15098a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -536,12 +536,12 @@ public class c {
                 if (arrayList == null) {
                     return linkedList;
                 }
-                this.f15075a = arrayList;
+                this.f15098a = arrayList;
                 Iterator<AdvertAppInfo> it = arrayList.iterator();
                 while (it.hasNext()) {
                     AdvertAppInfo next = it.next();
                     String downloadId = next.getDownloadId();
-                    if (FileHelper.GetFile(this.f15076b.n(next.o4)) != null) {
+                    if (FileHelper.GetFile(this.f15099b.n(next.o4)) != null) {
                         DownloadData downloadData = new DownloadData(downloadId);
                         downloadData.setStatus(3);
                         linkedList.add(downloadData);
@@ -563,19 +563,19 @@ public class c {
                     list = new LinkedList<>();
                 }
                 for (DownloadData downloadData : f.k().j()) {
-                    Iterator<AdvertAppInfo> it = this.f15075a.iterator();
+                    Iterator<AdvertAppInfo> it = this.f15098a.iterator();
                     while (it.hasNext()) {
                         if (TextUtils.equals(it.next().getDownloadId(), downloadData.getId())) {
                             list.add(downloadData);
                         }
                     }
                 }
-                this.f15076b.v(list);
-                this.f15075a = null;
+                this.f15099b.v(list);
+                this.f15098a = null;
             }
         }
 
-        public /* synthetic */ C0713c(c cVar, a aVar) {
+        public /* synthetic */ C0715c(c cVar, a aVar) {
             this(cVar);
         }
     }

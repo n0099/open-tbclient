@@ -10,6 +10,7 @@ import c.a.f0.d.a.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.nad.jni.NADNativeHelper;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.prologue.business.data.ParseError;
 import com.baidu.prologue.service.network.Als;
@@ -281,7 +282,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, aVar) == null) {
             cVar.j("ver", aVar.D());
-            cVar.j("sv", "2.1.1");
+            cVar.j("sv", "2.2.1");
             cVar.j("uid", aVar.x());
             cVar.j(TiebaStatic.Params.BDID, aVar.l());
             cVar.j("cuid", aVar.f());
@@ -343,7 +344,7 @@ public class a {
                                 }
                             }
                         }
-                        jSONObject3.put(r.f42342a, String.valueOf(hVar.w));
+                        jSONObject3.put(r.f42346a, String.valueOf(hVar.w));
                         jSONArray2.put(jSONObject3);
                     }
                 }
@@ -367,6 +368,13 @@ public class a {
                 jSONObject7.put("k", "uid");
                 jSONObject7.put("v", aVar.x());
                 jSONArray.put(jSONObject7);
+                JSONObject jSONObject8 = new JSONObject();
+                jSONObject8.put("k", "ext_info");
+                JSONObject jSONObject9 = new JSONObject();
+                jSONObject9.put("update_mark", NADNativeHelper.b());
+                jSONObject9.put("boot_mark", NADNativeHelper.a());
+                jSONObject8.put("v", jSONObject9);
+                jSONArray.put(jSONObject8);
                 cVar.j("ext", jSONArray.toString());
             } catch (JSONException e3) {
                 e3.printStackTrace();

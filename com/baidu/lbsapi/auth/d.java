@@ -12,7 +12,7 @@ public class d implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f40681a;
+    public final /* synthetic */ c f40685a;
 
     public d(c cVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class d implements Runnable {
                 return;
             }
         }
-        this.f40681a = cVar;
+        this.f40685a = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -39,10 +39,10 @@ public class d implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a.a("postWithHttps start Thread id = " + String.valueOf(Thread.currentThread().getId()));
-            context = this.f40681a.f40678a;
+            context = this.f40685a.f40682a;
             g gVar = new g(context);
-            hashMap = this.f40681a.f40679b;
-            this.f40681a.a(gVar.a(hashMap));
+            hashMap = this.f40685a.f40683b;
+            this.f40685a.a(gVar.a(hashMap));
         }
     }
 }

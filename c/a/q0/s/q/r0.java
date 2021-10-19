@@ -19,26 +19,26 @@ public class r0 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f14291g = 1;
+    public static int f14313g = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14292a;
+    public String f14314a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14293b;
+    public String f14315b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14294c;
+    public String f14316c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14295d;
+    public String f14317d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14296e;
+    public int f14318e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14297f;
+    public boolean f14319f;
 
     static {
         InterceptResult invokeClinit;
@@ -68,44 +68,44 @@ public class r0 {
                 return;
             }
         }
-        this.f14296e = 0;
-        this.f14297f = false;
+        this.f14318e = 0;
+        this.f14319f = false;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14294c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14316c : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14295d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14317d : (String) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14296e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14318e : invokeV.intValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14293b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14315b : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14292a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14314a : (String) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14297f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14319f : invokeV.booleanValue;
     }
 
     public void g(JSONObject jSONObject) {
@@ -113,29 +113,29 @@ public class r0 {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f14292a = jSONObject.optString("link_url");
+        this.f14314a = jSONObject.optString("link_url");
         JSONArray optJSONArray = jSONObject.optJSONArray("link_content");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             try {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
                 if (jSONObject2 != null) {
-                    this.f14293b = jSONObject2.optString("link_title");
-                    this.f14294c = jSONObject2.optString("link_abstract");
-                    this.f14295d = jSONObject2.optString("link_head_small_pic");
-                    this.f14296e = jSONObject2.optInt("link_type");
-                    if (c.a.e.e.p.k.isEmpty(this.f14293b) && c.a.e.e.p.k.isEmpty(this.f14294c)) {
-                        this.f14297f = true;
+                    this.f14315b = jSONObject2.optString("link_title");
+                    this.f14316c = jSONObject2.optString("link_abstract");
+                    this.f14317d = jSONObject2.optString("link_head_small_pic");
+                    this.f14318e = jSONObject2.optInt("link_type");
+                    if (c.a.e.e.p.k.isEmpty(this.f14315b) && c.a.e.e.p.k.isEmpty(this.f14316c)) {
+                        this.f14319f = true;
                     }
                 } else {
-                    this.f14297f = true;
+                    this.f14319f = true;
                 }
                 return;
             } catch (JSONException unused) {
-                this.f14297f = true;
+                this.f14319f = true;
                 return;
             }
         }
-        this.f14297f = true;
+        this.f14319f = true;
     }
 
     public void h(LinkThreadInfo linkThreadInfo) {
@@ -143,19 +143,19 @@ public class r0 {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, linkThreadInfo) == null) || linkThreadInfo == null) {
             return;
         }
-        this.f14292a = linkThreadInfo.link_url;
+        this.f14314a = linkThreadInfo.link_url;
         LinkThreadContent linkThreadContent = (LinkThreadContent) ListUtils.getItem(linkThreadInfo.link_content, 0);
         if (linkThreadContent != null) {
-            this.f14293b = linkThreadContent.link_title;
-            this.f14294c = linkThreadContent.link_abstract;
-            this.f14295d = linkThreadContent.link_head_small_pic;
-            this.f14296e = linkThreadContent.link_type.intValue();
-            if (c.a.e.e.p.k.isEmpty(this.f14293b) && c.a.e.e.p.k.isEmpty(this.f14294c)) {
-                this.f14297f = true;
+            this.f14315b = linkThreadContent.link_title;
+            this.f14316c = linkThreadContent.link_abstract;
+            this.f14317d = linkThreadContent.link_head_small_pic;
+            this.f14318e = linkThreadContent.link_type.intValue();
+            if (c.a.e.e.p.k.isEmpty(this.f14315b) && c.a.e.e.p.k.isEmpty(this.f14316c)) {
+                this.f14319f = true;
                 return;
             }
             return;
         }
-        this.f14297f = true;
+        this.f14319f = true;
     }
 }

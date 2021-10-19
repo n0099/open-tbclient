@@ -11,7 +11,7 @@ public class H implements q2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ H5Activity f77117a;
+    public final /* synthetic */ H5Activity f77152a;
 
     public H(H5Activity h5Activity) {
         Interceptable interceptable = $ic;
@@ -28,6 +28,6 @@ public class H implements q2 {
                 return;
             }
         }
-        this.f77117a = h5Activity;
+        this.f77152a = h5Activity;
     }
 }

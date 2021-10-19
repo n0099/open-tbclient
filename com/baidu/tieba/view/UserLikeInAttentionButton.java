@@ -89,13 +89,13 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             if (z) {
                 c.a.q0.s.f0.n.b bVar = new c.a.q0.s.f0.n.b();
-                bVar.o(R.color.CAM_X0613, R.color.CAM_X0103);
+                bVar.p(R.color.CAM_X0613, R.color.CAM_X0103);
                 setConfig(bVar);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
                 c.a.q0.s.f0.n.b bVar2 = new c.a.q0.s.f0.n.b();
-                bVar2.o(R.color.CAM_X0302, R.color.CAM_X0101);
+                bVar2.p(R.color.CAM_X0302, R.color.CAM_X0101);
                 setConfig(bVar2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.attention));
@@ -145,7 +145,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
             }
         }
         c.a.q0.s.f0.n.b bVar = new c.a.q0.s.f0.n.b();
-        bVar.o(R.color.CAM_X0302, R.color.CAM_X0101);
+        bVar.p(R.color.CAM_X0302, R.color.CAM_X0101);
         setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
     }

@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.g1.e.b.c;
-import c.a.r0.w0.n0;
+import c.a.r0.h1.e.b.c;
+import c.a.r0.x0.n0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,7 +28,7 @@ public class GameVideoFragment extends BaseFragment implements n0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f52323e;
+    public c f52250e;
 
     public GameVideoFragment() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         }
     }
 
-    @Override // c.a.r0.w0.n0
+    @Override // c.a.r0.x0.n0
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -83,7 +83,7 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c cVar = this.f52323e;
+            c cVar = this.f52250e;
             if (cVar != null) {
                 cVar.n();
             }
@@ -96,10 +96,10 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5042);
             super.onCreate(bundle);
-            if (this.f52323e == null) {
-                this.f52323e = new c(getPageContext(), getUniqueId());
+            if (this.f52250e == null) {
+                this.f52250e = new c(getPageContext(), getUniqueId());
             }
-            this.f52323e.s();
+            this.f52250e.s();
             SpeedStatsManager.getInstance().addStatsTimeStamp(5043);
         }
     }
@@ -112,14 +112,14 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5044);
-            c cVar = this.f52323e;
+            c cVar = this.f52250e;
             if (cVar == null || cVar.r() == null) {
                 view = null;
             } else {
-                if (this.f52323e.r().getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.f52323e.r().getParent()).removeView(this.f52323e.r());
+                if (this.f52250e.r().getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.f52250e.r().getParent()).removeView(this.f52250e.r());
                 }
-                view = this.f52323e.r();
+                view = this.f52250e.r();
             }
             if (view == null) {
                 view = super.onCreateView(layoutInflater, viewGroup, bundle);
@@ -135,7 +135,7 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            c cVar = this.f52323e;
+            c cVar = this.f52250e;
             if (cVar != null) {
                 cVar.v();
             }
@@ -148,21 +148,21 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onLazyLoad();
-            c cVar = this.f52323e;
+            c cVar = this.f52250e;
             if (cVar != null) {
                 cVar.t();
             }
         }
     }
 
-    @Override // c.a.r0.w0.n0
+    @Override // c.a.r0.x0.n0
     public void onPageOutEnd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
-    @Override // c.a.r0.w0.n0
+    @Override // c.a.r0.x0.n0
     public void onPageStartIn() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -174,7 +174,7 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            c cVar = this.f52323e;
+            c cVar = this.f52250e;
             if (cVar != null) {
                 cVar.w();
             }
@@ -189,18 +189,18 @@ public class GameVideoFragment extends BaseFragment implements n0 {
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            c cVar = this.f52323e;
+            c cVar = this.f52250e;
             if (cVar != null) {
                 cVar.y(isPrimary());
             }
         }
     }
 
-    @Override // c.a.r0.w0.n0
+    @Override // c.a.r0.x0.n0
     public void refreshPage() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (cVar = this.f52323e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (cVar = this.f52250e) == null) {
             return;
         }
         cVar.x();

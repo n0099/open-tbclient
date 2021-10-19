@@ -5,13 +5,13 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.b0;
+import c.a.q0.d1.a0;
 import c.a.q0.s.k;
 import c.a.q0.s.q.z0;
 import c.a.q0.t.j.c;
 import c.a.q0.z0.a;
-import c.a.r0.o3.d;
-import c.a.r0.x3.h;
+import c.a.r0.p3.d;
+import c.a.r0.y3.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -109,7 +109,7 @@ public class InitAllTask extends LaunchTask {
                 c.a.e.e.i.a.l().h(false);
             }
             try {
-                b0.b().e();
+                a0.b().e();
                 if (isMainProcess(false)) {
                     c.a.q0.g.a.d().f();
                 }

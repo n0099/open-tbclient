@@ -54,7 +54,7 @@ public final class b {
             return;
         }
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-        if (d.h0()) {
+        if (d.k0()) {
             marginLayoutParams.topMargin = l.g(TbadkCoreApplication.getInst(), i3);
         } else {
             marginLayoutParams.topMargin = l.g(TbadkCoreApplication.getInst(), i2);
@@ -65,7 +65,7 @@ public final class b {
     public static int e(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? d.h0() ? i3 : i2 : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? d.k0() ? i3 : i2 : invokeII.intValue;
     }
 
     public static void f(TextView textView) {
@@ -73,7 +73,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, textView) == null) || textView == null) {
             return;
         }
-        if (d.h0()) {
+        if (d.k0()) {
             textView.setTypeface(Typeface.DEFAULT);
             textView.setTextSize(0, textView.getResources().getDimension(R.dimen.tbds39));
             return;
@@ -87,7 +87,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, textView) == null) || textView == null) {
             return;
         }
-        if (d.h0()) {
+        if (d.k0()) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
         } else {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0106);
@@ -99,7 +99,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeLI(65543, null, view, i2) == null) || view == null) {
             return;
         }
-        if (d.h0()) {
+        if (d.k0()) {
             view.setBackgroundResource(R.drawable.bg_img_mask);
         } else if (i2 > 0) {
             view.setBackgroundResource(i2);
@@ -132,7 +132,7 @@ public final class b {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, d2Var, iArr) == null) && iArr != null && iArr.length == 2 && d2Var != null && d.h0()) {
+        if ((interceptable == null || interceptable.invokeLL(65546, null, d2Var, iArr) == null) && iArr != null && iArr.length == 2 && d2Var != null && d.k0()) {
             int size = View.MeasureSpec.getSize(l.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
             int c2 = (c() * ((int) ((size - (dimensionPixelSize * 2)) / a()))) + dimensionPixelSize;
@@ -159,7 +159,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, mediaData)) == null) {
             int[] iArr = new int[2];
-            if (mediaData != null && d.h0()) {
+            if (mediaData != null && d.k0()) {
                 int size = View.MeasureSpec.getSize(l.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
                 int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
                 int c2 = (c() * ((int) ((size - (dimensionPixelSize * 2)) / a()))) + dimensionPixelSize;
@@ -187,7 +187,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeLII(65548, null, textView, i2, i3) == null) || textView == null || Build.VERSION.SDK_INT < 16) {
             return;
         }
-        if (d.h0()) {
+        if (d.k0()) {
             textView.setLineSpacing(l.g(textView.getContext(), i3), textView.getLineSpacingMultiplier());
         } else {
             textView.setLineSpacing(l.g(textView.getContext(), i2), textView.getLineSpacingMultiplier());
@@ -198,7 +198,7 @@ public final class b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{layoutParams, layoutParams2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-            if (layoutParams == null || layoutParams2 == null || !d.h0()) {
+            if (layoutParams == null || layoutParams2 == null || !d.k0()) {
                 return z;
             }
             int size = View.MeasureSpec.getSize(l.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
@@ -213,11 +213,11 @@ public final class b {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean o(ViewGroup.LayoutParams layoutParams, boolean z, c.a.r0.p2.q.a aVar, int i2, int i3) {
+    public static boolean o(ViewGroup.LayoutParams layoutParams, boolean z, c.a.r0.q2.q.a aVar, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{layoutParams, Boolean.valueOf(z), aVar, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (layoutParams == null || !d.h0()) {
+            if (layoutParams == null || !d.k0()) {
                 return z;
             }
             int size = View.MeasureSpec.getSize(l.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);

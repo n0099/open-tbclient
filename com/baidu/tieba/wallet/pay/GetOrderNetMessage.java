@@ -1,7 +1,7 @@
 package com.baidu.tieba.wallet.pay;
 
 import c.a.e.e.m.b;
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -66,7 +66,7 @@ public class GetOrderNetMessage extends NetMessage {
                 builder.click_zone = this.mClickZone;
             }
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             builder.wallet_sdk_ua = this.mWalletSdkUa;
             GetOrderReqIdl.Builder builder2 = new GetOrderReqIdl.Builder();

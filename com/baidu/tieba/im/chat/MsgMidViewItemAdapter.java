@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.r0.k1.f.d;
+import c.a.r0.l1.f.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;

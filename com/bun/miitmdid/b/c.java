@@ -16,7 +16,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f64274a;
+    public Map<String, String> f64309a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -31,22 +31,22 @@ public class c {
                 return;
             }
         }
-        this.f64274a = new HashMap();
+        this.f64309a = new HashMap();
     }
 
     private Map<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f64274a.isEmpty()) {
-                this.f64274a.put(com.alipay.sdk.sys.a.t, sysParamters.a().b());
-                this.f64274a.put("sv", sysParamters.a().c());
-                this.f64274a.put("md", sysParamters.a().d());
-                this.f64274a.put("mf", sysParamters.a().e());
-                this.f64274a.put("pn", sysParamters.g());
+            if (this.f64309a.isEmpty()) {
+                this.f64309a.put(com.alipay.sdk.sys.a.t, sysParamters.a().b());
+                this.f64309a.put("sv", sysParamters.a().c());
+                this.f64309a.put("md", sysParamters.a().d());
+                this.f64309a.put("mf", sysParamters.a().e());
+                this.f64309a.put("pn", sysParamters.g());
             }
-            this.f64274a.put("tm", String.valueOf(System.currentTimeMillis()));
-            return this.f64274a;
+            this.f64309a.put("tm", String.valueOf(System.currentTimeMillis()));
+            return this.f64309a;
         }
         return (Map) invokeV.objValue;
     }
@@ -67,7 +67,7 @@ public class c {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ c f64275a;
+                    public final /* synthetic */ c f64310a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -84,7 +84,7 @@ public class c {
                                 return;
                             }
                         }
-                        this.f64275a = this;
+                        this.f64310a = this;
                     }
 
                     @Override // com.bun.miitmdid.b.b.a

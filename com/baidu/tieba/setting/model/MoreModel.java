@@ -17,10 +17,10 @@ public class MoreModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonChangeData f56784e;
+    public PersonChangeData f56718e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f56785f;
+    public boolean f56719f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
@@ -100,16 +100,16 @@ public class MoreModel extends BdBaseModel {
                 return;
             }
         }
-        this.f56784e = null;
-        this.f56785f = false;
-        this.f56784e = personChangeData;
+        this.f56718e = null;
+        this.f56719f = false;
+        this.f56718e = personChangeData;
         if (personChangeData == null) {
-            this.f56784e = new PersonChangeData();
+            this.f56718e = new PersonChangeData();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -119,7 +119,7 @@ public class MoreModel extends BdBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -131,26 +131,26 @@ public class MoreModel extends BdBaseModel {
     public PersonChangeData w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56784e : (PersonChangeData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56718e : (PersonChangeData) invokeV.objValue;
     }
 
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56785f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56719f : invokeV.booleanValue;
     }
 
     public void y(PersonChangeData personChangeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, personChangeData) == null) {
-            this.f56784e = personChangeData;
+            this.f56718e = personChangeData;
         }
     }
 
     public void z(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f56785f = z;
+            this.f56719f = z;
         }
     }
 }

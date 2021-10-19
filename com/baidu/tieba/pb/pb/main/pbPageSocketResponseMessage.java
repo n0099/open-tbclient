@@ -1,10 +1,10 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
-import c.a.r0.j2.h.c;
-import c.a.r0.j2.h.e;
-import c.a.r0.j2.k.e.j;
-import c.a.r0.y2.l0.b;
+import c.a.r0.k2.h.c;
+import c.a.r0.k2.h.e;
+import c.a.r0.k2.k.e.j;
+import c.a.r0.z2.l0.b;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -113,20 +113,20 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 this.mAppealInfo = cVar;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    cVar.f19620a = appealInfo.source;
-                    cVar.f19622c = appealInfo.appeal_url;
+                    cVar.f19797a = appealInfo.source;
+                    cVar.f19799c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
-                    this.mAppealInfo.f19621b = simpleForum.name;
+                    this.mAppealInfo.f19798b = simpleForum.name;
                     return;
                 }
                 return;
             }
             e eVar = new e();
             this.pbData = eVar;
-            eVar.v0(2);
-            this.pbData.u0(pbPageResIdl.data, this.context);
+            eVar.w0(2);
+            this.pbData.v0(pbPageResIdl.data, this.context);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
                 JSONObject b2 = b.b(dataRes.thread);

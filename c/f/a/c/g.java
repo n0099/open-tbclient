@@ -14,19 +14,19 @@ public final class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f32278a;
+    public final Object f32282a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Method f32279b;
+    public final Method f32283b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f32280c;
+    public final int f32284c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final EventBus.ThreadMode f32281d;
+    public final EventBus.ThreadMode f32285d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f32282e;
+    public volatile boolean f32286e;
 
     public g(Object obj, Method method, String str, int i2, EventBus.ThreadMode threadMode) {
         Interceptable interceptable = $ic;
@@ -43,11 +43,11 @@ public final class g {
                 return;
             }
         }
-        this.f32278a = obj;
-        this.f32279b = method;
-        this.f32280c = i2;
-        this.f32281d = threadMode;
-        this.f32282e = true;
+        this.f32282a = obj;
+        this.f32283b = method;
+        this.f32284c = i2;
+        this.f32285d = threadMode;
+        this.f32286e = true;
     }
 
     public boolean equals(Object obj) {
@@ -56,7 +56,7 @@ public final class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj instanceof g) {
                 g gVar = (g) obj;
-                return this.f32278a == gVar.f32278a && this.f32279b.equals(gVar.f32279b);
+                return this.f32282a == gVar.f32282a && this.f32283b.equals(gVar.f32283b);
             }
             return false;
         }
@@ -66,6 +66,6 @@ public final class g {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32278a.hashCode() + this.f32279b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32282a.hashCode() + this.f32283b.hashCode() : invokeV.intValue;
     }
 }

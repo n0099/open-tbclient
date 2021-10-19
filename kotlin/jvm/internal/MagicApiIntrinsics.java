@@ -1,8 +1,7 @@
 package kotlin.jvm.internal;
 
-import com.baidu.media.duplayer.LibsInfoDef;
 import kotlin.SinceKotlin;
-@SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+@SinceKotlin(version = "1.2")
 /* loaded from: classes2.dex */
 public class MagicApiIntrinsics {
     public static <T> T anyMagicApiCall(int i2) {

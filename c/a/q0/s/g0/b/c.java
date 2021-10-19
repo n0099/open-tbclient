@@ -56,8 +56,8 @@ public class c implements e<a> {
             if (diskFileOperate.isSuccess()) {
                 String desPath = diskFileOperate.getDesPath();
                 a aVar = new a();
-                aVar.f13953a = str;
-                aVar.f13954b = desPath;
+                aVar.f13974a = str;
+                aVar.f13975b = desPath;
                 return aVar;
             }
             return null;
@@ -98,12 +98,12 @@ public class c implements e<a> {
             }
             byte[] downloadCommonBytes = webClient.downloadCommonBytes(str4);
             if (!webClient.IsRequestSuccess()) {
-                aVar.f13955c = 3;
-                aVar.f13956d = h.a(R.string.neterror);
+                aVar.f13976c = 3;
+                aVar.f13977d = h.a(R.string.neterror);
                 return aVar;
             } else if (downloadCommonBytes == null || downloadCommonBytes.length == 0) {
-                aVar.f13955c = 4;
-                aVar.f13956d = h.a(R.string.voice_cache_error_no_file);
+                aVar.f13976c = 4;
+                aVar.f13977d = h.a(R.string.voice_cache_error_no_file);
                 return aVar;
             } else {
                 if (str == null) {
@@ -129,11 +129,11 @@ public class c implements e<a> {
                     }
                 }
                 if (i4 == 0) {
-                    aVar.f13954b = str3;
-                    aVar.f13953a = str;
+                    aVar.f13975b = str3;
+                    aVar.f13974a = str;
                 } else {
-                    aVar.f13955c = i4;
-                    aVar.f13956d = a.a(i4);
+                    aVar.f13976c = i4;
+                    aVar.f13977d = a.a(i4);
                 }
                 return aVar;
             }

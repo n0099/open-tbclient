@@ -11,34 +11,34 @@ public final class b implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f45330a;
+    public int f45242a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45331b;
+    public int f45243b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45332c;
+    public String f45244c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f45333d;
+    public String f45245d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f45334e;
+    public String f45246e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45335f;
+    public int f45247f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45336g;
+    public int f45248g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45337h;
+    public int f45249h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f45338i;
+    public int f45250i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f45339j;
+    public String f45251j;
     public String k;
     public int l;
     public String m;

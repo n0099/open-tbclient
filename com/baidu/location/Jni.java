@@ -14,34 +14,34 @@ public class Jni {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f41021a = 0;
+    public static int f41025a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f41022b = 1;
+    public static int f41026b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f41023c = 2;
+    public static int f41027c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f41024d = 11;
+    public static int f41028d = 11;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f41025e = 12;
+    public static int f41029e = 12;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f41026f = 13;
+    public static int f41030f = 13;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f41027g = 14;
+    public static int f41031g = 14;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f41028h = 15;
+    public static int f41032h = 15;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f41029i = 1024;
+    public static int f41033i = 1024;
 
     /* renamed from: j  reason: collision with root package name */
-    public static boolean f41030j;
+    public static boolean f41034j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,7 +61,7 @@ public class Jni {
             System.loadLibrary("locSDK7d");
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
-            f41030j = true;
+            f41034j = true;
         }
     }
 
@@ -90,24 +90,24 @@ public class Jni {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str})) == null) {
             double[] dArr = {0.0d, 0.0d};
-            if (f41030j) {
+            if (f41034j) {
                 return dArr;
             }
             int i2 = -1;
             if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
-                i2 = f41021a;
+                i2 = f41025a;
             } else if (str.equals("bd09ll")) {
-                i2 = f41022b;
+                i2 = f41026b;
             } else if (str.equals("gcj02")) {
-                i2 = f41023c;
+                i2 = f41027c;
             } else if (str.equals(BDLocation.BDLOCATION_WGS84_TO_GCJ02)) {
-                i2 = f41024d;
+                i2 = f41028d;
             } else if (str.equals(BDLocation.BDLOCATION_BD09_TO_GCJ02)) {
-                i2 = f41025e;
+                i2 = f41029e;
             } else if (str.equals(BDLocation.BDLOCATION_BD09LL_TO_GCJ02)) {
-                i2 = f41026f;
+                i2 = f41030f;
             } else if (str.equals("wgs842mc")) {
-                i2 = f41028h;
+                i2 = f41032h;
             }
             try {
                 String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(":");
@@ -126,14 +126,14 @@ public class Jni {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (f41030j) {
+            if (f41034j) {
                 return "err!";
             }
             if (str == null) {
                 return StringUtil.NULL_STRING;
             }
             byte[] bytes = str.getBytes();
-            byte[] bArr = new byte[f41029i];
+            byte[] bArr = new byte[f41033i];
             int length = bytes.length;
             if (length > 740) {
                 length = 740;
@@ -159,7 +159,7 @@ public class Jni {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (f41030j) {
+            if (f41034j) {
                 return "err!";
             }
             return en1(str) + "|tp=3";
@@ -171,7 +171,7 @@ public class Jni {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (f41030j) {
+            if (f41034j) {
                 return "err!";
             }
             if (str == null) {
@@ -192,7 +192,7 @@ public class Jni {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (f41030j) {
+            if (f41034j) {
                 return null;
             }
             try {
@@ -218,7 +218,7 @@ public class Jni {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             String str3 = "err!";
-            if (f41030j) {
+            if (f41034j) {
                 return "err!";
             }
             try {
@@ -242,7 +242,7 @@ public class Jni {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
             String str3 = "err!";
-            if (f41030j) {
+            if (f41034j) {
                 return "err!";
             }
             try {
@@ -264,7 +264,7 @@ public class Jni {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Float.valueOf(f2), Double.valueOf(d2), Double.valueOf(d3)})) == null) {
-            if (f41030j) {
+            if (f41034j) {
                 return 0.0d;
             }
             try {
@@ -280,7 +280,7 @@ public class Jni {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            if (f41030j) {
+            if (f41034j) {
                 return null;
             }
             try {

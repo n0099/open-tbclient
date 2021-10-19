@@ -12,7 +12,7 @@ public final class d implements com.sdk.base.framework.b.a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ a f75952a;
+    public /* synthetic */ a f75987a;
 
     public d(a aVar) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public final class d implements com.sdk.base.framework.b.a<T> {
                 return;
             }
         }
-        this.f75952a = aVar;
+        this.f75987a = aVar;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-            this.f75952a.a(i2, i3, str);
+            this.f75987a.a(i2, i3, str);
         }
     }
 
@@ -47,17 +47,17 @@ public final class d implements com.sdk.base.framework.b.a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) {
             if (i2 == 0) {
-                context = this.f75952a.f75931d;
+                context = this.f75987a.f75966d;
                 String a2 = com.sdk.base.framework.f.k.a.a(context, String.valueOf(t));
                 if (a2 == null) {
-                    this.f75952a.a(1, "SDK解密异常", 302001, a2, str2);
+                    this.f75987a.a(1, "SDK解密异常", 302001, a2, str2);
                     return;
                 }
                 str3 = a2;
             } else {
                 str3 = t;
             }
-            this.f75952a.a(i2, str, i3, str3, str2);
+            this.f75987a.a(i2, str, i3, str3, str2);
         }
     }
 }

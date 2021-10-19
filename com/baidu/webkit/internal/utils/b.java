@@ -14,10 +14,10 @@ public final class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f64144a = false;
+    public static boolean f64179a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f64145b = -1;
+    public static int f64180b = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,13 +54,13 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (b.class) {
-                if (!f64144a) {
+                if (!f64179a) {
                     File filesDir = WebViewFactory.getContext().getFilesDir();
                     StringBuilder sb = new StringBuilder();
                     sb.append(WebKitFactory.getProcessTypeString());
                     sb.append("zeus_init_model_opt");
-                    f64145b = new File(filesDir, sb.toString()).exists() ? 1 : -1;
-                    f64144a = true;
+                    f64180b = new File(filesDir, sb.toString()).exists() ? 1 : -1;
+                    f64179a = true;
                 }
             }
             return 1;

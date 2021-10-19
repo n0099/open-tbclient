@@ -8,7 +8,7 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f74761a = "a";
+    public static final String f74796a = "a";
 
     public static com.meizu.cloud.pushsdk.c.a.c a(Context context) {
         com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
@@ -18,10 +18,10 @@ public class a {
         Map<String, Object> c3 = c2.c();
         Map<String, Object> d2 = c2.d();
         if (a2.size() > 0) {
-            cVar.a(b.f74780a, a2);
+            cVar.a(b.f74815a, a2);
         }
         if (b2.size() > 0) {
-            cVar.a(b.f74785f, b2);
+            cVar.a(b.f74820f, b2);
         }
         if (c3.size() > 0) {
             cVar.a(b.o, c3);

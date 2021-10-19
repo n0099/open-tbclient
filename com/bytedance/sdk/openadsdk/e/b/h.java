@@ -13,13 +13,13 @@ public class h implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f68023a;
+    public long f68058a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f68024b;
+    public long f68059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f68025c;
+    public int f68060c;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -38,21 +38,21 @@ public class h implements c {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f68023a = j2;
+            this.f68058a = j2;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f68024b = j2;
+            this.f68059b = j2;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f68025c = i2;
+            this.f68060c = i2;
         }
     }
 
@@ -63,9 +63,9 @@ public class h implements c {
             return;
         }
         try {
-            jSONObject.put("video_start_duration", this.f68023a);
-            jSONObject.put(VideoCloudSetting.PREF_KEY_VIDEO_CACHE_SIZE, this.f68024b);
-            jSONObject.put("is_auto_play", this.f68025c);
+            jSONObject.put("video_start_duration", this.f68058a);
+            jSONObject.put(VideoCloudSetting.PREF_KEY_VIDEO_CACHE_SIZE, this.f68059b);
+            jSONObject.put("is_auto_play", this.f68060c);
         } catch (Throwable th) {
             th.printStackTrace();
         }

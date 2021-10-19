@@ -9,7 +9,7 @@ import c.a.e.e.p.j;
 import c.a.e.e.p.l;
 import c.a.q0.s.f0.n.a;
 import c.a.q0.s.f0.n.c;
-import c.a.r0.x3.h;
+import c.a.r0.y3.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
@@ -32,13 +32,13 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f56250e;
+    public TBSpecificationBtn f56184e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBSpecificationBtn f56251f;
+    public TBSpecificationBtn f56185f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f56252g;
+    public String f56186g;
     public View.OnClickListener mOutClickListener;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,21 +66,21 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), getLayoutR(), this);
-            this.f56250e = (TBSpecificationBtn) findViewById(R.id.play);
-            this.f56251f = (TBSpecificationBtn) findViewById(R.id.free_flow);
+            this.f56184e = (TBSpecificationBtn) findViewById(R.id.play);
+            this.f56185f = (TBSpecificationBtn) findViewById(R.id.free_flow);
             c cVar = new c();
-            cVar.r();
+            cVar.s();
             cVar.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
             cVar.g(l.g(getContext(), R.dimen.tbds32));
-            this.f56250e.setText(getResources().getString(R.string.video_flow_play));
-            this.f56250e.setTextSize(R.dimen.tbds36);
-            this.f56250e.setConfig(cVar);
+            this.f56184e.setText(getResources().getString(R.string.video_flow_play));
+            this.f56184e.setTextSize(R.dimen.tbds36);
+            this.f56184e.setConfig(cVar);
             a aVar = new a();
-            this.f56251f.setText(getResources().getString(R.string.video_open_free_data));
-            this.f56251f.setTextSize(R.dimen.tbds36);
-            this.f56251f.setConfig(aVar);
-            this.f56250e.setOnClickListener(this);
-            this.f56251f.setOnClickListener(this);
+            this.f56185f.setText(getResources().getString(R.string.video_open_free_data));
+            this.f56185f.setTextSize(R.dimen.tbds36);
+            this.f56185f.setConfig(aVar);
+            this.f56184e.setOnClickListener(this);
+            this.f56185f.setOnClickListener(this);
             setOnClickListener(this);
         }
     }
@@ -88,7 +88,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     public void changeViewLayout(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f56251f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f56185f.getLayoutParams();
             if (z && !z2) {
                 setOrientation(1);
                 layoutParams.leftMargin = 0;
@@ -98,7 +98,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
                 layoutParams.leftMargin = (int) getResources().getDimension(R.dimen.tbds52);
                 layoutParams.topMargin = 0;
             }
-            this.f56251f.setLayoutParams(layoutParams);
+            this.f56185f.setLayoutParams(layoutParams);
         }
     }
 
@@ -126,14 +126,14 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             return;
         }
         if (view.getId() == R.id.free_flow) {
-            c.a.q0.m.a.u(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+            c.a.q0.m.a.w(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
         } else if (view.getId() == R.id.play) {
             setHasAgreeToPlay(true);
             View.OnClickListener onClickListener = this.mOutClickListener;
             if (onClickListener != null) {
                 onClickListener.onClick(view);
             }
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_FLOW_PLAY_CLICK).param("obj_locate", 2).param("tid", this.f56252g));
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_FLOW_PLAY_CLICK).param("obj_locate", 2).param("tid", this.f56186g));
         }
     }
 
@@ -154,7 +154,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     public void setTid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f56252g = str;
+            this.f56186g = str;
         }
     }
 
@@ -169,7 +169,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         if (!(interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) || j2 <= 0) {
             return;
         }
-        this.f56250e.setText(String.format(getResources().getString(R.string.video_data), StringHelper.getFormatSize(j2)));
+        this.f56184e.setText(String.format(getResources().getString(R.string.video_data), StringHelper.getFormatSize(j2)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

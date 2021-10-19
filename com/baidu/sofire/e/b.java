@@ -11,13 +11,13 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f45415a;
+    public JSONObject f45327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45416b;
+    public String f45328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45417c;
+    public int f45329c;
 
     public b(JSONObject jSONObject, String str, int i2) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class b {
                 return;
             }
         }
-        this.f45415a = jSONObject;
-        this.f45416b = str;
-        this.f45417c = i2;
+        this.f45327a = jSONObject;
+        this.f45328b = str;
+        this.f45329c = i2;
     }
 }

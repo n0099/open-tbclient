@@ -10,10 +10,10 @@ public final class ek implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f60011a;
+    public final /* synthetic */ FeedbackInputActivity f60046a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ ej f60012b;
+    public final /* synthetic */ ej f60047b;
 
     public ek(ej ejVar, FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -30,15 +30,15 @@ public final class ek implements Runnable {
                 return;
             }
         }
-        this.f60012b = ejVar;
-        this.f60011a = feedbackInputActivity;
+        this.f60047b = ejVar;
+        this.f60046a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f60011a.n = false;
+            this.f60046a.n = false;
         }
     }
 }

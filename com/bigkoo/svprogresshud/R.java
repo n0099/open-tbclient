@@ -66,12 +66,12 @@ public final class R {
     /* loaded from: classes9.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int bgColor_overlay = 0x7f060344;
-        public static final int bgColor_overlay_black = 0x7f060345;
-        public static final int bgColor_svprogressdefaultview = 0x7f060346;
-        public static final int roundColor_svprogresshuddefault = 0x7f0608ca;
-        public static final int roundProgressColor_svprogresshuddefault = 0x7f0608cb;
-        public static final int textColor_svprogresshuddefault_msg = 0x7f060a9f;
+        public static final int bgColor_overlay = 0x7f06038a;
+        public static final int bgColor_overlay_black = 0x7f06038b;
+        public static final int bgColor_svprogressdefaultview = 0x7f06038c;
+        public static final int roundColor_svprogresshuddefault = 0x7f06090f;
+        public static final int roundProgressColor_svprogresshuddefault = 0x7f060910;
+        public static final int textColor_svprogresshuddefault_msg = 0x7f060ae4;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -147,11 +147,11 @@ public final class R {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FILL = 0x7f09000b;
         public static final int STROKE = 0x7f090019;
-        public static final int circleProgressBar = 0x7f0906d2;
-        public static final int ivBigLoading = 0x7f0910db;
-        public static final int ivSmallLoading = 0x7f0910dc;
-        public static final int sv_outmost_container = 0x7f091e5f;
-        public static final int tvMsg = 0x7f092294;
+        public static final int circleProgressBar = 0x7f0906dd;
+        public static final int ivBigLoading = 0x7f0910e8;
+        public static final int ivSmallLoading = 0x7f0910e9;
+        public static final int sv_outmost_container = 0x7f091e74;
+        public static final int tvMsg = 0x7f0922b9;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -193,8 +193,8 @@ public final class R {
     /* loaded from: classes9.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int layout_svprogresshud = 0x7f0c04ba;
-        public static final int view_svprogressdefault = 0x7f0c0851;
+        public static final int layout_svprogresshud = 0x7f0c04be;
+        public static final int view_svprogressdefault = 0x7f0c0858;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {

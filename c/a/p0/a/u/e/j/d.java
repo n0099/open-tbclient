@@ -198,7 +198,7 @@ public class d {
         NetRequest n0;
         NetRequestSettings netRequestSettings;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, swanAppConfigData) == null) || !b() || swanAppConfigData == null || (aVar = swanAppConfigData.f46662h) == null || (i2 = aVar.f4605b) <= 0 || (P = c.a.p0.a.h0.u.g.N().P()) == null || !(P.g() instanceof c.a.p0.a.l0.a) || (n0 = ((c.a.p0.a.l0.a) P.g()).n0()) == null || (netRequestSettings = n0.getNetRequestSettings()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, swanAppConfigData) == null) || !b() || swanAppConfigData == null || (aVar = swanAppConfigData.f46574h) == null || (i2 = aVar.f4605b) <= 0 || (P = c.a.p0.a.h0.u.g.N().P()) == null || !(P.g() instanceof c.a.p0.a.l0.a) || (n0 = ((c.a.p0.a.l0.a) P.g()).n0()) == null || (netRequestSettings = n0.getNetRequestSettings()) == null) {
             return;
         }
         netRequestSettings.mTimeout = i2;

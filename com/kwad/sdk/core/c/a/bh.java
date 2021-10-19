@@ -33,8 +33,8 @@ public class bh implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.g> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, gVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        gVar.f72104a = jSONObject.optString("feedAdH5Version");
-        gVar.f72105b = jSONObject.optString("feedAdH5Url");
+        gVar.f72139a = jSONObject.optString("feedAdH5Version");
+        gVar.f72140b = jSONObject.optString("feedAdH5Url");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,8 +46,8 @@ public class bh implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.g> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "feedAdH5Version", gVar.f72104a);
-            com.kwad.sdk.utils.q.a(jSONObject, "feedAdH5Url", gVar.f72105b);
+            com.kwad.sdk.utils.q.a(jSONObject, "feedAdH5Version", gVar.f72139a);
+            com.kwad.sdk.utils.q.a(jSONObject, "feedAdH5Url", gVar.f72140b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

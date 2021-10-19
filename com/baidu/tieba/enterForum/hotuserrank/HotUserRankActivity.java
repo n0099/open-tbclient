@@ -4,8 +4,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import c.a.e.e.m.e;
-import c.a.r0.n0.i.c.d;
-import c.a.r0.n0.i.d.a;
+import c.a.r0.o0.i.c.d;
+import c.a.r0.o0.i.d.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
@@ -35,7 +35,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     public String mInputCategory;
     public int mJumpPosition;
     public Runnable mLoadDataRunnable;
-    public c.a.r0.n0.i.d.a mModel;
+    public c.a.r0.o0.i.d.a mModel;
     public a.b mOnDataResListener;
     public String mRuleUrl;
     public List<d> mTabDataList;
@@ -46,7 +46,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankActivity f50312e;
+        public final /* synthetic */ HotUserRankActivity f50239e;
 
         public a(HotUserRankActivity hotUserRankActivity) {
             Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f50312e = hotUserRankActivity;
+            this.f50239e = hotUserRankActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f50312e.mHotUserRankView.l(this.f50312e.mTabDataList, this.f50312e.mForumId, this.f50312e.mJumpPosition, this.f50312e.mRuleUrl);
+                this.f50239e.mHotUserRankView.l(this.f50239e.mTabDataList, this.f50239e.mForumId, this.f50239e.mJumpPosition, this.f50239e.mRuleUrl);
             }
         }
     }
@@ -81,7 +81,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankActivity f50313e;
+        public final /* synthetic */ HotUserRankActivity f50240e;
 
         public b(HotUserRankActivity hotUserRankActivity) {
             Interceptable interceptable = $ic;
@@ -98,14 +98,14 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f50313e = hotUserRankActivity;
+            this.f50240e = hotUserRankActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f50313e.mHotUserRankView.o(8);
+                this.f50240e.mHotUserRankView.o(8);
             }
         }
     }
@@ -116,7 +116,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankActivity f50314a;
+        public final /* synthetic */ HotUserRankActivity f50241a;
 
         public c(HotUserRankActivity hotUserRankActivity) {
             Interceptable interceptable = $ic;
@@ -133,52 +133,52 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f50314a = hotUserRankActivity;
+            this.f50241a = hotUserRankActivity;
         }
 
-        @Override // c.a.r0.n0.i.d.a.b
-        public void a(c.a.r0.n0.i.c.c cVar) {
+        @Override // c.a.r0.o0.i.d.a.b
+        public void a(c.a.r0.o0.i.c.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                HotUserRankActivity hotUserRankActivity = this.f50314a;
+                HotUserRankActivity hotUserRankActivity = this.f50241a;
                 hotUserRankActivity.hideLoadingView(hotUserRankActivity.mHotUserRankView.i());
-                if (cVar == null || cVar.f22644a == null) {
+                if (cVar == null || cVar.f22828a == null) {
                     return;
                 }
-                this.f50314a.mRuleUrl = cVar.f22647d;
-                if (this.f50314a.mForumId > 0) {
-                    e.a().post(this.f50314a.mLoadDataRunnable);
+                this.f50241a.mRuleUrl = cVar.f22831d;
+                if (this.f50241a.mForumId > 0) {
+                    e.a().post(this.f50241a.mLoadDataRunnable);
                     return;
                 }
-                TiebaFieldsInfo tiebaFieldsInfo = cVar.f22644a.f22635f;
+                TiebaFieldsInfo tiebaFieldsInfo = cVar.f22828a.f22819f;
                 if (tiebaFieldsInfo != null && !ListUtils.isEmpty(tiebaFieldsInfo.tieba_fields)) {
-                    List<String> list = cVar.f22644a.f22635f.tieba_fields;
-                    this.f50314a.mTabDataList.clear();
+                    List<String> list = cVar.f22828a.f22819f.tieba_fields;
+                    this.f50241a.mTabDataList.clear();
                     for (int i2 = 0; i2 < list.size(); i2++) {
                         String str = list.get(i2);
-                        if (str != null && str.equals(this.f50314a.mInputCategory)) {
-                            this.f50314a.mJumpPosition = i2;
+                        if (str != null && str.equals(this.f50241a.mInputCategory)) {
+                            this.f50241a.mJumpPosition = i2;
                         }
                         d dVar = new d();
-                        dVar.f22652b = str;
-                        dVar.f22651a = str;
-                        this.f50314a.mTabDataList.add(dVar);
+                        dVar.f22836b = str;
+                        dVar.f22835a = str;
+                        this.f50241a.mTabDataList.add(dVar);
                     }
-                    e.a().post(this.f50314a.mLoadDataRunnable);
+                    e.a().post(this.f50241a.mLoadDataRunnable);
                     return;
                 }
-                HotUserRankActivity hotUserRankActivity2 = this.f50314a;
-                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), this.f50314a.getString(R.string.neterror), true);
+                HotUserRankActivity hotUserRankActivity2 = this.f50241a;
+                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), this.f50241a.getString(R.string.neterror), true);
             }
         }
 
-        @Override // c.a.r0.n0.i.d.a.b
+        @Override // c.a.r0.o0.i.d.a.b
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                HotUserRankActivity hotUserRankActivity = this.f50314a;
+                HotUserRankActivity hotUserRankActivity = this.f50241a;
                 hotUserRankActivity.hideLoadingView(hotUserRankActivity.mHotUserRankView.i());
-                HotUserRankActivity hotUserRankActivity2 = this.f50314a;
+                HotUserRankActivity hotUserRankActivity2 = this.f50241a;
                 hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), str, true);
             }
         }
@@ -268,7 +268,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             HotUserRankView hotUserRankView = new HotUserRankView(this);
             this.mHotUserRankView = hotUserRankView;
             setContentView(hotUserRankView.i());
-            c.a.r0.n0.i.d.a aVar = new c.a.r0.n0.i.d.a(getUniqueId());
+            c.a.r0.o0.i.d.a aVar = new c.a.r0.o0.i.d.a(getUniqueId());
             this.mModel = aVar;
             aVar.n(this.mOnDataResListener);
             parseIntent();

@@ -1,6 +1,5 @@
 package kotlin.text;
 
-import com.baidu.media.duplayer.LibsInfoDef;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
@@ -166,13 +165,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return destination;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final List<String> chunked(CharSequence chunked, int i2) {
         Intrinsics.checkNotNullParameter(chunked, "$this$chunked");
         return windowed(chunked, i2, i2, true);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final Sequence<String> chunkedSequence(CharSequence chunkedSequence, int i2) {
         Intrinsics.checkNotNullParameter(chunkedSequence, "$this$chunkedSequence");
         return chunkedSequence(chunkedSequence, i2, StringsKt___StringsKt$chunkedSequence$1.INSTANCE);
@@ -1703,7 +1702,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return SetsKt__SetsKt.emptySet();
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final List<String> windowed(CharSequence windowed, int i2, int i3, boolean z) {
         Intrinsics.checkNotNullParameter(windowed, "$this$windowed");
         return windowed(windowed, i2, i3, z, StringsKt___StringsKt$windowed$1.INSTANCE);
@@ -1719,7 +1718,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return windowed(charSequence, i2, i3, z);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final Sequence<String> windowedSequence(CharSequence windowedSequence, int i2, int i3, boolean z) {
         Intrinsics.checkNotNullParameter(windowedSequence, "$this$windowedSequence");
         return windowedSequence(windowedSequence, i2, i3, z, StringsKt___StringsKt$windowedSequence$1.INSTANCE);
@@ -1752,7 +1751,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return arrayList;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <R> List<R> zipWithNext(CharSequence zipWithNext, Function2<? super Character, ? super Character, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(zipWithNext, "$this$zipWithNext");
         Intrinsics.checkNotNullParameter(transform, "transform");
@@ -1780,14 +1779,14 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return false;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <R> List<R> chunked(CharSequence chunked, int i2, Function1<? super CharSequence, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(chunked, "$this$chunked");
         Intrinsics.checkNotNullParameter(transform, "transform");
         return windowed(chunked, i2, i2, true, transform);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <R> Sequence<R> chunkedSequence(CharSequence chunkedSequence, int i2, Function1<? super CharSequence, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(chunkedSequence, "$this$chunkedSequence");
         Intrinsics.checkNotNullParameter(transform, "transform");
@@ -1894,7 +1893,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return null;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <R> List<R> windowed(CharSequence windowed, int i2, int i3, boolean z, Function1<? super CharSequence, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(windowed, "$this$windowed");
         Intrinsics.checkNotNullParameter(transform, "transform");
@@ -1926,7 +1925,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return windowed(charSequence, i2, i3, z, function1);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <R> Sequence<R> windowedSequence(CharSequence windowedSequence, int i2, int i3, boolean z, Function1<? super CharSequence, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(windowedSequence, "$this$windowedSequence");
         Intrinsics.checkNotNullParameter(transform, "transform");
@@ -2196,7 +2195,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return takeWhile;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final List<Pair<Character, Character>> zipWithNext(CharSequence zipWithNext) {
         Intrinsics.checkNotNullParameter(zipWithNext, "$this$zipWithNext");
         int length = zipWithNext.length() - 1;

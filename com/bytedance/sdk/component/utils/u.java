@@ -21,11 +21,11 @@ public class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, u> f65570a;
+    public static Map<String, u> f65605a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f65571b;
+    public SharedPreferences f65606b;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class u {
                 return;
             }
         }
-        f65570a = new HashMap();
+        f65605a = new HashMap();
     }
 
     public u(String str, Context context) {
@@ -59,7 +59,7 @@ public class u {
             }
         }
         if (context != null) {
-            this.f65571b = context.getApplicationContext().getSharedPreferences(str, 0);
+            this.f65606b = context.getApplicationContext().getSharedPreferences(str, 0);
         }
     }
 
@@ -70,10 +70,10 @@ public class u {
             if (TextUtils.isEmpty(str)) {
                 str = "tt_ad_sdk_sp";
             }
-            u uVar = f65570a.get(str);
+            u uVar = f65605a.get(str);
             if (uVar == null) {
                 u uVar2 = new u(str, context);
-                f65570a.put(str, uVar2);
+                f65605a.put(str, uVar2);
                 return uVar2;
             }
             return uVar;
@@ -86,7 +86,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
             try {
-                return this.f65571b.getString(str, str2);
+                return this.f65606b.getString(str, str2);
             } catch (Throwable unused) {
                 return str2;
             }
@@ -99,7 +99,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) {
             try {
-                return this.f65571b.getInt(str, i2);
+                return this.f65606b.getInt(str, i2);
             } catch (Throwable unused) {
                 return i2;
             }
@@ -112,7 +112,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j2)) == null) {
             try {
-                return this.f65571b.getLong(str, j2);
+                return this.f65606b.getLong(str, j2);
             } catch (Throwable unused) {
                 return j2;
             }
@@ -125,7 +125,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048583, this, str, f2)) == null) {
             try {
-                return this.f65571b.getFloat(str, f2);
+                return this.f65606b.getFloat(str, f2);
             } catch (Throwable unused) {
                 return f2;
             }
@@ -137,7 +137,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
             try {
-                this.f65571b.edit().putString(str, str2).apply();
+                this.f65606b.edit().putString(str, str2).apply();
             } catch (Throwable unused) {
             }
         }
@@ -148,7 +148,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048589, this, str, z)) == null) {
             try {
-                return this.f65571b.getBoolean(str, z);
+                return this.f65606b.getBoolean(str, z);
             } catch (Throwable unused) {
                 return z;
             }
@@ -174,7 +174,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, set)) == null) {
             try {
-                return this.f65571b.getStringSet(str, set);
+                return this.f65606b.getStringSet(str, set);
             } catch (Throwable unused) {
                 return set;
             }
@@ -186,7 +186,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
             try {
-                this.f65571b.edit().putInt(str, i2).apply();
+                this.f65606b.edit().putInt(str, i2).apply();
             } catch (Throwable unused) {
             }
         }
@@ -196,7 +196,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             try {
-                this.f65571b.edit().remove(str).apply();
+                this.f65606b.edit().remove(str).apply();
             } catch (Throwable unused) {
             }
         }
@@ -206,7 +206,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j2) == null) {
             try {
-                this.f65571b.edit().putLong(str, j2).apply();
+                this.f65606b.edit().putLong(str, j2).apply();
             } catch (Throwable unused) {
             }
         }
@@ -216,7 +216,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f2) == null) {
             try {
-                this.f65571b.edit().putFloat(str, f2).apply();
+                this.f65606b.edit().putFloat(str, f2).apply();
             } catch (Throwable unused) {
             }
         }
@@ -226,7 +226,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) {
             try {
-                this.f65571b.edit().putBoolean(str, z).apply();
+                this.f65606b.edit().putBoolean(str, z).apply();
             } catch (Throwable unused) {
             }
         }
@@ -236,7 +236,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, set) == null) {
             try {
-                this.f65571b.edit().putStringSet(str, set).apply();
+                this.f65606b.edit().putStringSet(str, set).apply();
             } catch (Throwable unused) {
             }
         }

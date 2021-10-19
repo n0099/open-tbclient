@@ -15,7 +15,7 @@ public class d extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f31352e;
+    public final Context f31356e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context, y1 y1Var) {
@@ -36,7 +36,7 @@ public class d extends s1 {
                 return;
             }
         }
-        this.f31352e = context;
+        this.f31356e = context;
     }
 
     @Override // c.b.a.s1

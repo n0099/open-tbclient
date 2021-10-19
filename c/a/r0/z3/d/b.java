@@ -1,45 +1,121 @@
 package c.a.r0.z3.d;
 
-import android.text.TextUtils;
-import c.a.r0.z3.c.d;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.k;
+import c.a.e.e.p.l;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.videoplay.VideoPlayView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.switchs.ShareSwitch;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes4.dex */
-public class b {
+public class b implements c.a.r0.z3.d.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29807a;
+    public c.a.r0.z3.c.a f29875a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29808b;
+    public c.a.r0.z3.b f29876b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f29809c;
+    public TbPageContext<?> f29877c;
 
-    /* renamed from: d  reason: collision with root package name */
-    public VideoPlayView.e f29810d;
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f29811e;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ ShareItem f29878e;
 
-    /* renamed from: f  reason: collision with root package name */
-    public Set<String> f29812f;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ b f29879f;
 
-    public b() {
+        public a(b bVar, ShareItem shareItem) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, shareItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f29879f = bVar;
+            this.f29878e = shareItem;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                c.a.e.e.p.a.a(this.f29878e.t);
+                l.M(this.f29879f.f29877c.getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+            }
+        }
+    }
+
+    /* renamed from: c.a.r0.z3.d.b$b  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public class DialogInterface$OnDismissListenerC1390b implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ b f29880e;
+
+        public DialogInterface$OnDismissListenerC1390b(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f29880e = bVar;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.f29880e.h();
+            }
+        }
+    }
+
+    public b(TbPageContext<?> tbPageContext, c.a.r0.z3.b bVar, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bVar, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -49,63 +125,124 @@ public class b {
                 return;
             }
         }
-        this.f29807a = 0;
-        this.f29808b = 0;
-        this.f29812f = new HashSet();
+        this.f29877c = tbPageContext;
+        this.f29876b = bVar;
+        c.a.r0.z3.c.b bVar2 = new c.a.r0.z3.c.b();
+        this.f29875a = bVar2;
+        bVar2.b(intent);
+        this.f29875a.e(tbPageContext.getUniqueId());
     }
 
+    @Override // c.a.r0.z3.d.a
     public void a() {
+        c.a.r0.z3.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f29811e = Math.min(7, TbConfig.PREFETCH_NEXT_VIDEO_NUM);
-            this.f29808b = this.f29807a + 1;
-            b();
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f29876b) == null) {
+            return;
         }
+        bVar.showErrorView();
     }
 
+    @Override // c.a.r0.z3.d.a
     public void b() {
+        c.a.r0.z3.c.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f29809c == null || this.f29811e <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f29875a) == null) {
             return;
         }
-        while (this.f29808b < this.f29809c.k()) {
-            VideoItemData s = this.f29809c.s(this.f29808b);
-            this.f29808b++;
-            if (s != null && !TextUtils.isEmpty(s.video_url)) {
-                this.f29811e--;
-                if (!this.f29812f.contains(s.video_url)) {
-                    CyberPlayerManager.prefetch(s.video_url, null, null, TbConfig.PREFETCH_NEXT_VIDEO_SIZE, null);
-                    this.f29812f.add(s.video_url);
-                }
-                if (this.f29811e <= 0) {
-                    break;
-                }
-            }
-        }
-        if (this.f29811e <= 0 || this.f29810d == null || this.f29809c.k() - this.f29807a >= 10) {
+        c.a.q0.s.d0.b.j().t(c.a.q0.s.d0.b.n(aVar.c()), false);
+    }
+
+    @Override // c.a.r0.z3.d.a
+    public void c() {
+        c.a.r0.z3.c.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f29875a) == null || this.f29876b == null) {
             return;
         }
-        this.f29810d.a();
+        this.f29876b.rePlayVideo(aVar.getVideoUrl());
     }
 
-    public void c(int i2) {
+    @Override // c.a.r0.z3.d.a
+    public void d() {
+        c.a.r0.z3.b bVar;
+        c.a.r0.z3.c.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f29807a = i2;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.f29876b) == null || (aVar = this.f29875a) == null) {
+            return;
+        }
+        bVar.showDialog(aVar.a(), this.f29875a.g());
+    }
+
+    @Override // c.a.r0.z3.d.a
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f29877c == null) {
+            return;
+        }
+        if (ShareSwitch.isOn() || ViewHelper.checkUpIsLogin(this.f29877c.getPageActivity())) {
+            i();
         }
     }
 
-    public void d(d dVar) {
+    public final void h() {
+        c.a.r0.z3.c.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            this.f29809c = dVar;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f29875a) == null || this.f29876b == null) {
+            return;
+        }
+        this.f29876b.startPlayVideo(aVar.getVideoUrl());
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f29875a == null || this.f29877c == null) {
+            return;
+        }
+        ShareItem shareItem = new ShareItem();
+        shareItem.r = this.f29875a.d();
+        shareItem.s = this.f29875a.i();
+        shareItem.t = this.f29875a.f();
+        shareItem.u = this.f29875a.f();
+        if (!k.isEmpty(this.f29875a.h())) {
+            shareItem.v = Uri.parse(this.f29875a.h());
+        }
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.f29877c.getPageActivity(), shareItem, true, true);
+        shareDialogConfig.setIsCopyLink(true);
+        shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
+        shareDialogConfig.setOnDismissListener(new DialogInterface$OnDismissListenerC1390b(this));
+        this.f29877c.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+    }
+
+    @Override // c.a.r0.z3.d.a
+    public void onClose() {
+        c.a.r0.z3.b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bVar = this.f29876b) == null) {
+            return;
+        }
+        bVar.finishActivity();
+    }
+
+    @Override // c.a.r0.z3.d.a
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
-    public void e(VideoPlayView.e eVar) {
+    @Override // c.a.r0.z3.d.a
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            this.f29810d = eVar;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // c.a.r0.z3.d.a
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            h();
         }
     }
 }

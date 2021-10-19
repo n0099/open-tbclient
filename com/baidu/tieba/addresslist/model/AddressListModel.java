@@ -3,7 +3,7 @@ package com.baidu.tieba.addresslist.model;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
 import c.a.q0.t.f.c;
-import c.a.r0.s.d.a;
+import c.a.r0.t.d.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,7 +21,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f49419e;
+    public a f49346e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
@@ -41,7 +41,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f49419e = a.d();
+        this.f49346e = a.d();
     }
 
     public void A() {
@@ -58,29 +58,29 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void C(a.InterfaceC1137a interfaceC1137a) {
+    public void C(a.InterfaceC1146a interfaceC1146a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1137a) == null) {
-            this.f49419e.f(interfaceC1137a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1146a) == null) {
+            this.f49346e.f(interfaceC1146a);
         }
     }
 
     public void D(List<c.a.q0.t.f.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f49419e.g(list);
+            this.f49346e.g(list);
         }
     }
 
-    public void E(a.InterfaceC1137a interfaceC1137a) {
+    public void E(a.InterfaceC1146a interfaceC1146a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1137a) == null) {
-            this.f49419e.h(interfaceC1137a);
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1146a) == null) {
+            this.f49346e.h(interfaceC1146a);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -90,7 +90,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -102,7 +102,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public void w(c.a.q0.t.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f49419e.a(aVar);
+            this.f49346e.a(aVar);
         }
     }
 
@@ -111,7 +111,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         List<c.a.q0.t.f.a> c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (c.a(str) && (c2 = this.f49419e.c()) != null) {
+            if (c.a(str) && (c2 = this.f49346e.c()) != null) {
                 for (c.a.q0.t.f.a aVar : c2) {
                     if (str.equals(aVar.a())) {
                         return c2.indexOf(aVar);
@@ -127,13 +127,13 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public void y(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.f49419e.b(j2);
+            this.f49346e.b(j2);
         }
     }
 
     public List<c.a.q0.t.f.a> z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f49419e.c() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f49346e.c() : (List) invokeV.objValue;
     }
 }

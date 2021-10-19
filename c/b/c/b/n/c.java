@@ -14,7 +14,7 @@ public final class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f31636e;
+    public Context f31640e;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class c implements Runnable {
                 return;
             }
         }
-        this.f31636e = context;
+        this.f31640e = context;
     }
 
     public static void a(Context context) {
@@ -60,7 +60,7 @@ public final class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                new c.b.c.b.h.e(this.f31636e).c(l.j.c(this.f31636e));
+                new c.b.c.b.h.e(this.f31640e).c(l.j.c(this.f31640e));
             } finally {
                 try {
                 } finally {

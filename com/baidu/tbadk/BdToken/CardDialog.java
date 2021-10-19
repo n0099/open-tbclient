@@ -27,22 +27,22 @@ public class CardDialog extends Dialog implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47389e;
+    public Context f47301e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f47390f;
+    public f f47302f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f47391g;
+    public float f47303g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f47392h;
+    public ViewGroup f47304h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RoundRelativeLayout f47393i;
+    public RoundRelativeLayout f47305i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f47394j;
+    public View f47306j;
     public ImageView k;
     public ImageView l;
     public Drawable m;
@@ -66,15 +66,15 @@ public class CardDialog extends Dialog implements View.OnClickListener {
                 return;
             }
         }
-        this.f47391g = 0.33f;
-        this.f47390f = fVar;
-        this.f47389e = fVar.getPageActivity();
+        this.f47303g = 0.33f;
+        this.f47302f = fVar;
+        this.f47301e = fVar.getPageActivity();
     }
 
     public void dismissDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g.b(this, this.f47390f);
+            g.b(this, this.f47302f);
         }
     }
 
@@ -93,29 +93,29 @@ public class CardDialog extends Dialog implements View.OnClickListener {
             super.onCreate(bundle);
             requestWindowFeature(1);
             setContentView(R.layout.dialog_card_main);
-            Display defaultDisplay = ((WindowManager) this.f47389e.getSystemService("window")).getDefaultDisplay();
+            Display defaultDisplay = ((WindowManager) this.f47301e.getSystemService("window")).getDefaultDisplay();
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.width = defaultDisplay.getWidth();
             attributes.height = defaultDisplay.getHeight();
             getWindow().setAttributes(attributes);
             getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.f47391g);
+            getWindow().setDimAmount(this.f47303g);
             getWindow().setGravity(80);
             getWindow().setWindowAnimations(0);
             setCanceledOnTouchOutside(true);
             setCancelable(true);
-            this.f47392h = (ViewGroup) findViewById(R.id.card_root_layout);
+            this.f47304h = (ViewGroup) findViewById(R.id.card_root_layout);
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
-            this.f47393i = roundRelativeLayout;
+            this.f47305i = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(b.d(TbadkCoreApplication.getInst().getString(R.string.J_X06), 31.0f));
-            ViewGroup.LayoutParams layoutParams = this.f47394j.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f47306j.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = -1;
                 layoutParams.width = -1;
             } else {
                 layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             }
-            this.f47393i.addView(this.f47394j, layoutParams);
+            this.f47305i.addView(this.f47306j, layoutParams);
             ImageView imageView = (ImageView) findViewById(R.id.img_bg);
             this.k = imageView;
             imageView.setImageDrawable(this.m);
@@ -135,7 +135,7 @@ public class CardDialog extends Dialog implements View.OnClickListener {
     public void setRealView(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, viewGroup) == null) {
-            this.f47394j = viewGroup;
+            this.f47306j = viewGroup;
         }
     }
 
@@ -143,9 +143,9 @@ public class CardDialog extends Dialog implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (isShowing()) {
-                g.b(this, this.f47390f);
+                g.b(this, this.f47302f);
             }
-            g.j(this, this.f47390f);
+            g.j(this, this.f47302f);
         }
     }
 }

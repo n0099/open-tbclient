@@ -13,19 +13,19 @@ public class p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14724a;
+    public String f14748a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14725b;
+    public String f14749b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14726c;
+    public String f14750c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14727d;
+    public String f14751d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14728e;
+    public int f14752e;
 
     public p() {
         Interceptable interceptable = $ic;
@@ -44,41 +44,41 @@ public class p {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14724a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14748a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14726c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14750c : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14725b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14749b : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14727d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14751d : (String) invokeV.objValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14728e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14752e : invokeV.intValue;
     }
 
     public void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            this.f14724a = jSONObject.optString("icon");
-            this.f14725b = jSONObject.optString("tab_code");
-            this.f14726c = jSONObject.optString("pop_text");
-            this.f14727d = jSONObject.optString("thread_id");
-            this.f14728e = jSONObject.optInt("version");
+            this.f14748a = jSONObject.optString("icon");
+            this.f14749b = jSONObject.optString("tab_code");
+            this.f14750c = jSONObject.optString("pop_text");
+            this.f14751d = jSONObject.optString("thread_id");
+            this.f14752e = jSONObject.optInt("version");
         }
     }
 }

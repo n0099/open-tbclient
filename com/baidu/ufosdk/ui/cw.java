@@ -11,7 +11,7 @@ public final class cw implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cg f59930a;
+    public final /* synthetic */ cg f59965a;
 
     public cw(cg cgVar) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class cw implements View.OnClickListener {
                 return;
             }
         }
-        this.f59930a = cgVar;
+        this.f59965a = cgVar;
     }
 
     @Override // android.view.View.OnClickListener

@@ -1,6 +1,6 @@
 package com.baidu.tieba.easterEgg;
 
-import c.a.r0.k0.e.a;
+import c.a.r0.l0.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

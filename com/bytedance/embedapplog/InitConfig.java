@@ -17,34 +17,34 @@ public class InitConfig {
     public ISensitiveInfoProvider B;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64360a;
+    public String f64395a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64361b;
+    public String f64396b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64362c;
+    public String f64397c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f64363d;
+    public String f64398d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f64364e;
+    public String f64399e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f64365f;
+    public String f64400f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IPicker f64366g;
+    public IPicker f64401g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f64367h;
+    public boolean f64402h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f64368i;
+    public int f64403i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f64369j;
+    public String f64404j;
     public String k;
     public UriConfig l;
     public String m;
@@ -77,11 +77,11 @@ public class InitConfig {
                 return;
             }
         }
-        this.f64368i = 0;
+        this.f64403i = 0;
         this.y = true;
         this.z = true;
-        this.f64360a = str;
-        this.f64361b = str2;
+        this.f64395a = str;
+        this.f64396b = str2;
     }
 
     public String getAbClient() {
@@ -111,13 +111,13 @@ public class InitConfig {
     public String getAid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64360a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64395a : (String) invokeV.objValue;
     }
 
     public String getAliyunUdid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64365f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64400f : (String) invokeV.objValue;
     }
 
     public String getAppImei() {
@@ -135,19 +135,19 @@ public class InitConfig {
     public String getChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f64361b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f64396b : (String) invokeV.objValue;
     }
 
     public String getGoogleAid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f64362c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f64397c : (String) invokeV.objValue;
     }
 
     public String getLanguage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f64363d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f64398d : (String) invokeV.objValue;
     }
 
     public String getManifestVersion() {
@@ -165,25 +165,25 @@ public class InitConfig {
     public IPicker getPicker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f64366g : (IPicker) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f64401g : (IPicker) invokeV.objValue;
     }
 
     public int getProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f64368i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f64403i : invokeV.intValue;
     }
 
     public String getRegion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f64364e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f64399e : (String) invokeV.objValue;
     }
 
     public String getReleaseBuild() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f64369j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f64404j : (String) invokeV.objValue;
     }
 
     public ISensitiveInfoProvider getSensitiveInfoProvider() {
@@ -249,7 +249,7 @@ public class InitConfig {
     public boolean isPlayEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f64367h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f64402h : invokeV.booleanValue;
     }
 
     public InitConfig setAbClient(String str) {
@@ -296,7 +296,7 @@ public class InitConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, str)) == null) {
-            this.f64365f = str;
+            this.f64400f = str;
             return this;
         }
         return (InitConfig) invokeL.objValue;
@@ -324,7 +324,7 @@ public class InitConfig {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048611, this, z)) == null) {
-            this.f64367h = z;
+            this.f64402h = z;
             return this;
         }
         return (InitConfig) invokeZ.objValue;
@@ -335,7 +335,7 @@ public class InitConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, str)) == null) {
-            this.f64362c = str;
+            this.f64397c = str;
             return this;
         }
         return (InitConfig) invokeL.objValue;
@@ -353,7 +353,7 @@ public class InitConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
-            this.f64363d = str;
+            this.f64398d = str;
             return this;
         }
         return (InitConfig) invokeL.objValue;
@@ -391,7 +391,7 @@ public class InitConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, iPicker)) == null) {
-            this.f64366g = iPicker;
+            this.f64401g = iPicker;
             return this;
         }
         return (InitConfig) invokeL.objValue;
@@ -402,7 +402,7 @@ public class InitConfig {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048619, this, z)) == null) {
-            this.f64368i = z ? 1 : 2;
+            this.f64403i = z ? 1 : 2;
             return this;
         }
         return (InitConfig) invokeZ.objValue;
@@ -413,7 +413,7 @@ public class InitConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, str)) == null) {
-            this.f64364e = str;
+            this.f64399e = str;
             return this;
         }
         return (InitConfig) invokeL.objValue;
@@ -424,7 +424,7 @@ public class InitConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, str)) == null) {
-            this.f64369j = str;
+            this.f64404j = str;
             return this;
         }
         return (InitConfig) invokeL.objValue;

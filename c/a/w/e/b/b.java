@@ -18,10 +18,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ThreadLocal<Matrix> f30522a;
+    public static final ThreadLocal<Matrix> f30569a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ThreadLocal<RectF> f30523b;
+    public static final ThreadLocal<RectF> f30570b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,8 +37,8 @@ public class b {
                 return;
             }
         }
-        f30522a = new ThreadLocal<>();
-        f30523b = new ThreadLocal<>();
+        f30569a = new ThreadLocal<>();
+        f30570b = new ThreadLocal<>();
     }
 
     public static void a(ViewGroup viewGroup, View view, Rect rect) {
@@ -69,18 +69,18 @@ public class b {
     public static void c(ViewGroup viewGroup, View view, Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, viewGroup, view, rect) == null) {
-            Matrix matrix = f30522a.get();
+            Matrix matrix = f30569a.get();
             if (matrix == null) {
                 matrix = new Matrix();
-                f30522a.set(matrix);
+                f30569a.set(matrix);
             } else {
                 matrix.reset();
             }
             b(viewGroup, view, matrix);
-            RectF rectF = f30523b.get();
+            RectF rectF = f30570b.get();
             if (rectF == null) {
                 rectF = new RectF();
-                f30523b.set(rectF);
+                f30570b.set(rectF);
             }
             rectF.set(rect);
             matrix.mapRect(rectF);

@@ -14,7 +14,7 @@ public final class x<T> implements h.c<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a<T> f79053e;
+    public final d.a<T> f79088e;
 
     /* loaded from: classes10.dex */
     public static final class a<T> extends i.j<T> {
@@ -22,13 +22,13 @@ public final class x<T> implements h.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final i.i<? super T> f79054e;
+        public final i.i<? super T> f79089e;
 
         /* renamed from: f  reason: collision with root package name */
-        public T f79055f;
+        public T f79090f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f79056g;
+        public int f79091g;
 
         public a(i.i<? super T> iVar) {
             Interceptable interceptable = $ic;
@@ -45,21 +45,21 @@ public final class x<T> implements h.c<T> {
                     return;
                 }
             }
-            this.f79054e = iVar;
+            this.f79089e = iVar;
         }
 
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f79056g;
+                int i2 = this.f79091g;
                 if (i2 == 0) {
-                    this.f79054e.b(new NoSuchElementException());
+                    this.f79089e.b(new NoSuchElementException());
                 } else if (i2 == 1) {
-                    this.f79056g = 2;
-                    T t = this.f79055f;
-                    this.f79055f = null;
-                    this.f79054e.c(t);
+                    this.f79091g = 2;
+                    T t = this.f79090f;
+                    this.f79090f = null;
+                    this.f79089e.c(t);
                 }
             }
         }
@@ -68,12 +68,12 @@ public final class x<T> implements h.c<T> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.f79056g == 2) {
+                if (this.f79091g == 2) {
                     i.r.c.j(th);
                     return;
                 }
-                this.f79055f = null;
-                this.f79054e.b(th);
+                this.f79090f = null;
+                this.f79089e.b(th);
             }
         }
 
@@ -81,13 +81,13 @@ public final class x<T> implements h.c<T> {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                int i2 = this.f79056g;
+                int i2 = this.f79091g;
                 if (i2 == 0) {
-                    this.f79056g = 1;
-                    this.f79055f = t;
+                    this.f79091g = 1;
+                    this.f79090f = t;
                 } else if (i2 == 1) {
-                    this.f79056g = 2;
-                    this.f79054e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
+                    this.f79091g = 2;
+                    this.f79089e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
                 }
             }
         }
@@ -108,7 +108,7 @@ public final class x<T> implements h.c<T> {
                 return;
             }
         }
-        this.f79053e = aVar;
+        this.f79088e = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -119,7 +119,7 @@ public final class x<T> implements h.c<T> {
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
             a aVar = new a(iVar);
             iVar.a(aVar);
-            this.f79053e.call(aVar);
+            this.f79088e.call(aVar);
         }
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener u;
+    public View.OnClickListener v;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoFullscreenLikeBtn(Context context) {
@@ -41,7 +41,7 @@ public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             setText(this.mStrAlreadyFollowed);
             setClickable(false);
-            View.OnClickListener onClickListener = this.u;
+            View.OnClickListener onClickListener = this.v;
             if (onClickListener != null) {
                 onClickListener.onClick(view);
             }
@@ -51,7 +51,7 @@ public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
     public void setOnclickEvent(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.u = onClickListener;
+            this.v = onClickListener;
         }
     }
 

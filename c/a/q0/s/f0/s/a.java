@@ -18,33 +18,33 @@ public abstract class a<T extends a> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f13896h = 1;
+    public static int f13916h = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f13897a;
+    public final int f13917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13898b;
+    public boolean f13918b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Editable f13899c;
+    public Editable f13919c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13900d;
+    public int f13920d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13901e;
+    public int f13921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13902f;
+    public int f13922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public InterfaceC0682a f13903g;
+    public InterfaceC0684a f13923g;
 
     /* renamed from: c.a.q0.s.f0.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0682a {
+    public interface InterfaceC0684a {
         void a(int i2, boolean z);
     }
 
@@ -76,100 +76,100 @@ public abstract class a<T extends a> {
                 return;
             }
         }
-        int i4 = f13896h;
-        f13896h = i4 + 1;
-        this.f13897a = i4;
+        int i4 = f13916h;
+        f13916h = i4 + 1;
+        this.f13917a = i4;
     }
 
     public void a(Editable editable, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i2, i3, i4) == null) {
-            this.f13899c = editable;
-            this.f13900d = i2;
-            this.f13901e = i3;
-            this.f13902f = i4;
+            this.f13919c = editable;
+            this.f13920d = i2;
+            this.f13921e = i3;
+            this.f13922f = i4;
         }
     }
 
     public void b(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.f13898b = t.h();
-            this.f13899c = t.g();
-            this.f13900d = t.f();
-            this.f13901e = t.c();
-            this.f13902f = t.d();
+            this.f13918b = t.h();
+            this.f13919c = t.g();
+            this.f13920d = t.f();
+            this.f13921e = t.c();
+            this.f13922f = t.d();
         }
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13901e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13921e : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13902f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13922f : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13897a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13917a : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13900d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13920d : invokeV.intValue;
     }
 
     public Editable g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13899c : (Editable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13919c : (Editable) invokeV.objValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13898b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13918b : invokeV.booleanValue;
     }
 
     public void i(@NonNull CharSequence charSequence) {
         Editable editable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence) == null) || (editable = this.f13899c) == null || charSequence == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence) == null) || (editable = this.f13919c) == null || charSequence == null) {
             return;
         }
         try {
-            editable.replace(this.f13900d, this.f13901e, charSequence);
+            editable.replace(this.f13920d, this.f13921e, charSequence);
         } catch (Exception e2) {
             BdLog.e(e2);
         }
-        this.f13901e = this.f13900d + charSequence.length();
+        this.f13921e = this.f13920d + charSequence.length();
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f13901e = i2;
+            this.f13921e = i2;
         }
     }
 
-    public void k(InterfaceC0682a interfaceC0682a) {
+    public void k(InterfaceC0684a interfaceC0684a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, interfaceC0682a) == null) {
-            this.f13903g = interfaceC0682a;
+        if (interceptable == null || interceptable.invokeL(1048586, this, interfaceC0684a) == null) {
+            this.f13923g = interfaceC0684a;
         }
     }
 
     public void l(Object obj, int i2, int i3, int i4) {
         Editable editable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(1048587, this, obj, i2, i3, i4) == null) || (editable = this.f13899c) == null) {
+        if (!(interceptable == null || interceptable.invokeLIII(1048587, this, obj, i2, i3, i4) == null) || (editable = this.f13919c) == null) {
             return;
         }
         editable.setSpan(obj, i2, i3, i4);
@@ -178,27 +178,27 @@ public abstract class a<T extends a> {
     public void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f13900d = i2;
+            this.f13920d = i2;
         }
     }
 
     public void n(Editable editable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, editable) == null) {
-            this.f13899c = editable;
+            this.f13919c = editable;
         }
     }
 
     public void o(boolean z) {
-        InterfaceC0682a interfaceC0682a;
+        InterfaceC0684a interfaceC0684a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            boolean z2 = this.f13898b;
-            this.f13898b = z;
-            if (z2 == z || (interfaceC0682a = this.f13903g) == null) {
+            boolean z2 = this.f13918b;
+            this.f13918b = z;
+            if (z2 == z || (interfaceC0684a = this.f13923g) == null) {
                 return;
             }
-            interfaceC0682a.a(this.f13897a, z);
+            interfaceC0684a.a(this.f13917a, z);
         }
     }
 

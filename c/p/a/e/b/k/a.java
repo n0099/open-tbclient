@@ -13,13 +13,13 @@ public class a implements ThreadFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f35261e;
+    public final String f35265e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicInteger f35262f;
+    public final AtomicInteger f35266f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f35263g;
+    public final boolean f35267g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(String str) {
@@ -47,9 +47,9 @@ public class a implements ThreadFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            int incrementAndGet = this.f35262f.incrementAndGet();
-            Thread thread = new Thread(runnable, this.f35261e + "-" + incrementAndGet);
-            if (!this.f35263g) {
+            int incrementAndGet = this.f35266f.incrementAndGet();
+            Thread thread = new Thread(runnable, this.f35265e + "-" + incrementAndGet);
+            if (!this.f35267g) {
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }
@@ -77,8 +77,8 @@ public class a implements ThreadFactory {
                 return;
             }
         }
-        this.f35262f = new AtomicInteger();
-        this.f35261e = str;
-        this.f35263g = z;
+        this.f35266f = new AtomicInteger();
+        this.f35265e = str;
+        this.f35267g = z;
     }
 }

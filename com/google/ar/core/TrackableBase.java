@@ -12,10 +12,10 @@ public class TrackableBase implements c.i.c.a.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f70580a;
+    public final long f70615a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Session f70581b;
+    public final Session f70616b;
 
     public TrackableBase(long j2, Session session) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class TrackableBase implements c.i.c.a.b {
                 return;
             }
         }
-        this.f70581b = session;
-        this.f70580a = j2;
+        this.f70616b = session;
+        this.f70615a = j2;
     }
 
     private native long nativeCreateAnchor(long j2, long j3, c.i.c.a.a aVar);
@@ -49,13 +49,13 @@ public class TrackableBase implements c.i.c.a.b {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == getClass() && ((TrackableBase) obj).f70580a == this.f70580a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == getClass() && ((TrackableBase) obj).f70615a == this.f70615a : invokeL.booleanValue;
     }
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j2 = this.f70580a;
+            long j2 = this.f70615a;
             if (j2 != 0) {
                 nativeReleaseTrackable(j2);
             }
@@ -66,6 +66,6 @@ public class TrackableBase implements c.i.c.a.b {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f70580a).hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f70615a).hashCode() : invokeV.intValue;
     }
 }

@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.c.f.b;
-import c.a.r0.j3.i0.n;
+import c.a.r0.k3.i0.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -160,7 +160,7 @@ public class FlutterStatic {
             FlutterBoost.ConfigBuilder configBuilder = new FlutterBoost.ConfigBuilder(TbadkCoreApplication.getInst(), iNativeRouter);
             configBuilder.isDebug(isDebugMode());
             configBuilder.whenEngineStart(FlutterBoost.ConfigBuilder.FLUTTER_ACTIVITY_CREATED);
-            configBuilder.renderMode(FlutterView.RenderMode.texture);
+            configBuilder.renderMode(FlutterView.RenderMode.surface);
             configBuilder.lifecycleListener(boostLifecycleListener);
             FlutterBoost.instance().init(configBuilder.build());
         }

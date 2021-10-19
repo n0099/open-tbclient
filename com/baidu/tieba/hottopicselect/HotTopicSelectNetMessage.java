@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopicselect;
 import GetSugTopic.DataReq;
 import GetSugTopic.GetSugTopicReqIdl;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -19,9 +19,10 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f52945common;
+    public CommonReq f52876common;
     public long fid;
     public String firstDir;
+    public boolean isVideoTopic;
     public String prefix;
     public String secondDir;
 
@@ -67,8 +68,9 @@ public class HotTopicSelectNetMessage extends NetMessage {
             if (str3 != null) {
                 builder.second_dir = str3;
             }
+            builder.is_video_topic = Integer.valueOf(this.isVideoTopic ? 1 : 0);
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             GetSugTopicReqIdl.Builder builder2 = new GetSugTopicReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -80,7 +82,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52945common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52876common : (CommonReq) invokeV.objValue;
     }
 
     public long getFid() {
@@ -107,38 +109,51 @@ public class HotTopicSelectNetMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.secondDir : (String) invokeV.objValue;
     }
 
+    public boolean isVideoTopic() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.isVideoTopic : invokeV.booleanValue;
+    }
+
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, commonReq) == null) {
-            this.f52945common = commonReq;
+        if (interceptable == null || interceptable.invokeL(1048583, this, commonReq) == null) {
+            this.f52876common = commonReq;
         }
     }
 
     public void setFid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
             this.fid = j2;
         }
     }
 
     public void setFirstDir(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             this.firstDir = str;
         }
     }
 
     public void setPrefix(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.prefix = str;
         }
     }
 
     public void setSecondDir(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.secondDir = str;
+        }
+    }
+
+    public void setVideoTopic(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.isVideoTopic = z;
         }
     }
 }

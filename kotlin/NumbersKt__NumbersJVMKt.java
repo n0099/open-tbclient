@@ -1,6 +1,5 @@
 package kotlin;
 
-import com.baidu.media.duplayer.LibsInfoDef;
 import kotlin.internal.InlineOnly;
 import kotlin.jvm.internal.DoubleCompanionObject;
 import kotlin.jvm.internal.FloatCompanionObject;
@@ -28,7 +27,7 @@ public class NumbersKt__NumbersJVMKt extends NumbersKt__BigIntegersKt {
         return Integer.numberOfTrailingZeros(i2);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @InlineOnly
     public static final double fromBits(DoubleCompanionObject doubleCompanionObject, long j2) {
         return Double.longBitsToDouble(j2);
@@ -77,13 +76,13 @@ public class NumbersKt__NumbersJVMKt extends NumbersKt__BigIntegersKt {
         return Integer.lowestOneBit(i2);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @InlineOnly
     public static final long toBits(double d2) {
         return Double.doubleToLongBits(d2);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @InlineOnly
     public static final long toRawBits(double d2) {
         return Double.doubleToRawLongBits(d2);
@@ -110,7 +109,7 @@ public class NumbersKt__NumbersJVMKt extends NumbersKt__BigIntegersKt {
         return Long.numberOfTrailingZeros(j2);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @InlineOnly
     public static final float fromBits(FloatCompanionObject floatCompanionObject, int i2) {
         return Float.intBitsToFloat(i2);
@@ -159,13 +158,13 @@ public class NumbersKt__NumbersJVMKt extends NumbersKt__BigIntegersKt {
         return Long.lowestOneBit(j2);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @InlineOnly
     public static final int toBits(float f2) {
         return Float.floatToIntBits(f2);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @InlineOnly
     public static final int toRawBits(float f2) {
         return Float.floatToRawIntBits(f2);

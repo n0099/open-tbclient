@@ -28,7 +28,7 @@ public class PatchReplaceMethodHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DexFile f36409a;
+        public final /* synthetic */ DexFile f36413a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ClassLoader classLoader, DexFile dexFile) {
@@ -48,7 +48,7 @@ public class PatchReplaceMethodHelper {
                     return;
                 }
             }
-            this.f36409a = dexFile;
+            this.f36413a = dexFile;
         }
 
         @Override // java.lang.ClassLoader
@@ -56,7 +56,7 @@ public class PatchReplaceMethodHelper {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                Class<?> loadClass = this.f36409a.loadClass(str, this);
+                Class<?> loadClass = this.f36413a.loadClass(str, this);
                 if (loadClass == null && str.startsWith("com.baidu.adp.plugin.PluginPatchAnnotation")) {
                     return Class.forName(str);
                 }

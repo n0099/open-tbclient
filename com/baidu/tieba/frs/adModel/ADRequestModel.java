@@ -19,10 +19,10 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f51102e;
+    public b f51029e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.e.c.g.a f51103f;
+    public final c.a.e.c.g.a f51030f;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -30,7 +30,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ADRequestModel f51104a;
+        public final /* synthetic */ ADRequestModel f51031a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ADRequestModel aDRequestModel, int i2, int i3) {
@@ -51,7 +51,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
                     return;
                 }
             }
-            this.f51104a = aDRequestModel;
+            this.f51031a = aDRequestModel;
         }
 
         @Override // c.a.e.c.g.a
@@ -61,11 +61,11 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
             boolean z = responsedMessage instanceof ADSocketResponseMessage;
-            if ((z || (responsedMessage instanceof ADHttpResponseMessage)) && this.f51104a.f51102e != null) {
+            if ((z || (responsedMessage instanceof ADHttpResponseMessage)) && this.f51031a.f51029e != null) {
                 if (z) {
-                    this.f51104a.f51102e.a((ADSocketResponseMessage) responsedMessage);
+                    this.f51031a.f51029e.a((ADSocketResponseMessage) responsedMessage);
                 } else if (responsedMessage instanceof ADHttpResponseMessage) {
-                    this.f51104a.f51102e.b((ADHttpResponseMessage) responsedMessage);
+                    this.f51031a.f51029e.b((ADHttpResponseMessage) responsedMessage);
                 }
             }
         }
@@ -96,14 +96,14 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f51103f = new a(this, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
-        c.a.r0.j3.e0.a.h(309611, ADSocketResponseMessage.class, false, false);
-        c.a.r0.j3.e0.a.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
-        registerListener(this.f51103f);
+        this.f51030f = new a(this, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
+        c.a.r0.k3.e0.a.h(309611, ADSocketResponseMessage.class, false, false);
+        c.a.r0.k3.e0.a.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
+        registerListener(this.f51030f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -113,7 +113,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -125,7 +125,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f51103f);
+            MessageManager.getInstance().unRegisterListener(this.f51030f);
         }
     }
 
@@ -144,7 +144,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     public void y(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f51102e = bVar;
+            this.f51029e = bVar;
         }
     }
 }

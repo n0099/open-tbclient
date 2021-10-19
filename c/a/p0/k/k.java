@@ -53,10 +53,10 @@ public final class k {
     public static final int aiapp_menu_text_night_mode = 2131689700;
     public static final int aiapp_menu_text_share = 2131689701;
     public static final int app_name = 2131690142;
-    public static final int search_menu_title = 2131693986;
-    public static final int status_bar_notification_info_overflow = 2131694266;
-    public static final int swan_app_menu_setting = 2131694334;
-    public static final int swanapp_menu_font_setting = 2131694441;
-    public static final int swanapp_menu_play_tts = 2131694442;
+    public static final int search_menu_title = 2131693993;
+    public static final int status_bar_notification_info_overflow = 2131694279;
+    public static final int swan_app_menu_setting = 2131694347;
+    public static final int swanapp_menu_font_setting = 2131694454;
+    public static final int swanapp_menu_play_tts = 2131694455;
     public transient /* synthetic */ FieldHolder $fh;
 }

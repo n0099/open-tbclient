@@ -1,72 +1,68 @@
 package c.a.q0.d1;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
+import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.collection.ArrayMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
-public class e0 extends Thread {
+public class e0<KEY> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f12929e;
+    /* renamed from: a  reason: collision with root package name */
+    public ArrayMap<KEY, Long> f12938a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f12930f;
+    /* renamed from: b  reason: collision with root package name */
+    public long f12939b;
 
-    /* renamed from: g  reason: collision with root package name */
-    public String f12931g;
-
-    public e0(int i2, int i3) {
+    public e0(int i2, @NonNull TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i2), timeUnit};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f12929e = 0;
-        this.f12930f = 0;
-        this.f12931g = null;
-        this.f12929e = i2;
-        this.f12930f = i3;
+        this.f12938a = new ArrayMap<>();
+        this.f12939b = timeUnit.toMillis(i2);
     }
 
-    public void a(String str) {
+    public static <T> e0<T> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f12931g = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new e0<>(1000, TimeUnit.MILLISECONDS) : (e0) invokeV.objValue;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public synchronized boolean a(@NonNull KEY key) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.run();
-            if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
+            synchronized (this) {
+                Long l = this.f12938a.get(key);
+                long uptimeMillis = SystemClock.uptimeMillis();
+                if (l == null) {
+                    this.f12938a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else if (uptimeMillis - l.longValue() > this.f12939b) {
+                    this.f12938a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else {
+                    return false;
+                }
             }
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            netWork.addPostData("img_num", String.valueOf(this.f12929e));
-            netWork.addPostData("img_total", String.valueOf(this.f12930f));
-            String str = this.f12931g;
-            if (str != null) {
-                netWork.addPostData("img_type", str);
-            }
-            netWork.postNetData();
         }
+        return invokeL.booleanValue;
     }
 }

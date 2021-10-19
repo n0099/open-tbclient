@@ -11,10 +11,10 @@ public abstract class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Runnable f74555a;
+    public Runnable f74590a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f74556b;
+    public final String f74591b;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public abstract class b {
                 return;
             }
         }
-        this.f74555a = null;
-        this.f74556b = str;
+        this.f74590a = null;
+        this.f74591b = str;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74556b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74591b : (String) invokeV.objValue;
     }
 }

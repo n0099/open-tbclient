@@ -1,6 +1,5 @@
 package kotlin.jvm.internal;
 
-import com.baidu.media.duplayer.LibsInfoDef;
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 import java.lang.annotation.Annotation;
@@ -30,7 +29,7 @@ public abstract class CallableReference implements KCallable, Serializable {
     @SinceKotlin(version = "1.4")
     public final String signature;
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     /* loaded from: classes2.dex */
     public static class NoReceiver implements Serializable {
         public static final NoReceiver INSTANCE = new NoReceiver();

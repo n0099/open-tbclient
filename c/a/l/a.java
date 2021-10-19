@@ -29,7 +29,7 @@ public abstract class a<T extends c.a.q0.s.q.a> implements q, p<T> {
     public Boolean f3784g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.a0.b0<T> f3785h;
+    public c.a.r0.b0.c0<T> f3785h;
 
     /* renamed from: i  reason: collision with root package name */
     public InterfaceC0093a f3786i;
@@ -71,10 +71,10 @@ public abstract class a<T extends c.a.q0.s.q.a> implements q, p<T> {
         }
     }
 
-    public c.a.r0.a0.b0<T> c() {
+    public c.a.r0.b0.c0<T> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3785h : (c.a.r0.a0.b0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3785h : (c.a.r0.b0.c0) invokeV.objValue;
     }
 
     public final ThreadCardView d(View view, int i2) {
@@ -131,10 +131,10 @@ public abstract class a<T extends c.a.q0.s.q.a> implements q, p<T> {
         }
     }
 
-    public void k(c.a.r0.a0.b0<T> b0Var) {
+    public void k(c.a.r0.b0.c0<T> c0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, b0Var) == null) {
-            this.f3785h = b0Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, c0Var) == null) {
+            this.f3785h = c0Var;
         }
     }
 
@@ -145,7 +145,7 @@ public abstract class a<T extends c.a.q0.s.q.a> implements q, p<T> {
             return;
         }
         c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(d2);
-        d3.o(R.string.J_X06);
+        d3.n(R.string.J_X06);
         d3.f(R.color.CAM_X0205);
     }
 

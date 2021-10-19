@@ -25,7 +25,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f74674a;
+    public static boolean f74709a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
             synchronized (b.class) {
-                if (f74674a) {
+                if (f74709a) {
                     return;
                 }
                 j.a().a(context, new c.a().a("sodler").a(3).a(false).a());
@@ -100,7 +100,7 @@ public class b {
                         }
                     }
                 });
-                f74674a = true;
+                f74709a = true;
             }
         }
     }

@@ -43,22 +43,22 @@ public class b implements c.f.a.g.d.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f32315a;
+    public Context f32319a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32316b;
+    public String f32320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RestUrlConnectionRequest f32317c;
+    public RestUrlConnectionRequest f32321c;
 
     /* renamed from: d  reason: collision with root package name */
-    public URLConnection f32318d;
+    public URLConnection f32322d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f32319e;
+    public boolean f32323e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f32320f;
+    public boolean f32324f;
 
     /* loaded from: classes4.dex */
     public class a implements HostnameVerifier {
@@ -107,10 +107,10 @@ public class b implements c.f.a.g.d.c {
                 return;
             }
         }
-        this.f32320f = false;
-        this.f32315a = context.getApplicationContext();
-        this.f32316b = str;
-        this.f32320f = z;
+        this.f32324f = false;
+        this.f32319a = context.getApplicationContext();
+        this.f32320b = str;
+        this.f32324f = z;
     }
 
     @Override // c.f.a.g.d.c
@@ -118,29 +118,29 @@ public class b implements c.f.a.g.d.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
-            this.f32317c = (RestUrlConnectionRequest) dVar;
+            this.f32321c = (RestUrlConnectionRequest) dVar;
             String b2 = dVar.b();
-            if (this.f32317c.k()) {
+            if (this.f32321c.k()) {
                 b2 = d(b2);
             }
             URL url = new URL(b2);
-            this.f32318d = url.openConnection();
+            this.f32322d = url.openConnection();
             if ("https".equalsIgnoreCase(url.getProtocol())) {
                 if (RestDebugConfig.getInstance().isQAEnv()) {
                     SSLContext sSLContext = SSLContext.getInstance("TLS");
                     sSLContext.init(null, new TrustManager[]{new c.f.a.g.d.h.a()}, null);
-                    ((HttpsURLConnection) this.f32318d).setSSLSocketFactory(sSLContext.getSocketFactory());
-                    ((HttpsURLConnection) this.f32318d).setHostnameVerifier(new a(this));
+                    ((HttpsURLConnection) this.f32322d).setSSLSocketFactory(sSLContext.getSocketFactory());
+                    ((HttpsURLConnection) this.f32322d).setHostnameVerifier(new a(this));
                 } else {
-                    f((HttpsURLConnection) this.f32318d);
-                    i((HttpsURLConnection) this.f32318d);
+                    f((HttpsURLConnection) this.f32322d);
+                    i((HttpsURLConnection) this.f32322d);
                 }
             }
-            LogUtil.v(ApollonConstants.APOLLON_REST_TAG, "con url: " + url + ", host: " + this.f32318d.getURL().getHost());
-            if (this.f32317c.j()) {
+            LogUtil.v(ApollonConstants.APOLLON_REST_TAG, "con url: " + url + ", host: " + this.f32322d.getURL().getHost());
+            if (this.f32321c.j()) {
                 return b(url);
             }
-            if (this.f32317c.k()) {
+            if (this.f32321c.k()) {
                 return g(url);
             }
             return null;
@@ -152,9 +152,9 @@ public class b implements c.f.a.g.d.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, url)) == null) {
-            e(this.f32318d);
-            h(this.f32318d);
-            return c(url, this.f32318d, "POST");
+            e(this.f32322d);
+            h(this.f32322d);
+            return c(url, this.f32322d, "POST");
         }
         return (e) invokeL.objValue;
     }
@@ -173,7 +173,7 @@ public class b implements c.f.a.g.d.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            RestUrlConnectionRequest restUrlConnectionRequest = this.f32317c;
+            RestUrlConnectionRequest restUrlConnectionRequest = this.f32321c;
             if (restUrlConnectionRequest != null) {
                 String processedParams = restUrlConnectionRequest.getProcessedParams();
                 if (TextUtils.isEmpty(processedParams)) {
@@ -192,12 +192,12 @@ public class b implements c.f.a.g.d.c {
     public final void e(URLConnection uRLConnection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, uRLConnection) == null) {
-            if (this.f32319e) {
-                uRLConnection.setConnectTimeout(this.f32317c.i() > 0 ? this.f32317c.i() : 30000);
-                uRLConnection.setReadTimeout(this.f32317c.i() > 0 ? this.f32317c.i() : 30000);
+            if (this.f32323e) {
+                uRLConnection.setConnectTimeout(this.f32321c.i() > 0 ? this.f32321c.i() : 30000);
+                uRLConnection.setReadTimeout(this.f32321c.i() > 0 ? this.f32321c.i() : 30000);
             } else {
-                uRLConnection.setConnectTimeout(this.f32317c.i() > 0 ? this.f32317c.i() : 30000);
-                uRLConnection.setReadTimeout(this.f32317c.i() > 0 ? this.f32317c.i() : 30000);
+                uRLConnection.setConnectTimeout(this.f32321c.i() > 0 ? this.f32321c.i() : 30000);
+                uRLConnection.setReadTimeout(this.f32321c.i() > 0 ? this.f32321c.i() : 30000);
             }
             if (Integer.parseInt(Build.VERSION.SDK) < 8) {
                 System.setProperty("http.keepAlive", "false");
@@ -211,11 +211,11 @@ public class b implements c.f.a.g.d.c {
                 uRLConnection.setRequestProperty("Accept-Encoding", "");
                 return;
             }
-            uRLConnection.setRequestProperty("User-Agent", this.f32316b);
-            for (Map.Entry<String, List<String>> entry : this.f32317c.a().entrySet()) {
+            uRLConnection.setRequestProperty("User-Agent", this.f32320b);
+            for (Map.Entry<String, List<String>> entry : this.f32321c.a().entrySet()) {
                 uRLConnection.setRequestProperty(entry.getKey(), (String) Collections.unmodifiableList(entry.getValue()).get(0));
             }
-            if (this.f32320f) {
+            if (this.f32324f) {
                 k();
             }
         }
@@ -241,8 +241,8 @@ public class b implements c.f.a.g.d.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, url)) == null) {
-            e(this.f32318d);
-            return c(url, this.f32318d, "GET");
+            e(this.f32322d);
+            return c(url, this.f32322d, "GET");
         }
         return (e) invokeL.objValue;
     }
@@ -252,11 +252,11 @@ public class b implements c.f.a.g.d.c {
         RestUrlConnectionRequest restUrlConnectionRequest;
         DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uRLConnection) == null) || (restUrlConnectionRequest = this.f32317c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uRLConnection) == null) || (restUrlConnectionRequest = this.f32321c) == null) {
             return;
         }
         String processedParams = restUrlConnectionRequest.getProcessedParams();
-        RestMultipartEntity g2 = this.f32317c.g();
+        RestMultipartEntity g2 = this.f32321c.g();
         uRLConnection.setDoOutput(true);
         uRLConnection.setDoInput(true);
         if (g2 != null) {
@@ -309,16 +309,16 @@ public class b implements c.f.a.g.d.c {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, httpsURLConnection) == null) || httpsURLConnection == null) {
             return;
         }
-        httpsURLConnection.setHostnameVerifier(c.f.a.g.d.a.f32303a);
+        httpsURLConnection.setHostnameVerifier(c.f.a.g.d.a.f32307a);
     }
 
     public final boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f32317c != null) {
-                a.InterfaceC1468a a2 = c.f.a.g.a.a();
-                String f2 = this.f32317c.f();
+            if (this.f32321c != null) {
+                a.InterfaceC1470a a2 = c.f.a.g.a.a();
+                String f2 = this.f32321c.f();
                 return (TextUtils.isEmpty(f2) || a2 == null || !a2.a(f2)) ? false : true;
             }
             return false;
@@ -330,7 +330,7 @@ public class b implements c.f.a.g.d.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             try {
-                Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f32315a.getDir("appcache", 0), "http"), 10485760L);
+                Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f32319a.getDir("appcache", 0), "http"), 10485760L);
             } catch (Exception unused) {
             }
         }
@@ -350,16 +350,16 @@ public class b implements c.f.a.g.d.c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            URLConnection uRLConnection = this.f32318d;
+            URLConnection uRLConnection = this.f32322d;
             if (uRLConnection != null) {
                 if (uRLConnection instanceof HttpsURLConnection) {
                     ((HttpsURLConnection) uRLConnection).disconnect();
                 } else if (uRLConnection instanceof HttpURLConnection) {
                     ((HttpURLConnection) uRLConnection).disconnect();
                 }
-                this.f32318d = null;
+                this.f32322d = null;
             }
-            if (this.f32320f) {
+            if (this.f32324f) {
                 l();
             }
         }

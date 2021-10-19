@@ -23,22 +23,22 @@ public class r {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f69190a;
+            public final /* synthetic */ View f69225a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f69191b;
+            public final /* synthetic */ long f69226b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ View.OnLongClickListener f69192c;
+            public final /* synthetic */ View.OnLongClickListener f69227c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f69193d;
+            public int f69228d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f69194e;
+            public int f69229e;
 
             /* renamed from: f  reason: collision with root package name */
-            public Runnable f69195f;
+            public Runnable f69230f;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -55,15 +55,15 @@ public class r {
                         return;
                     }
                 }
-                this.f69190a = view;
-                this.f69191b = j2;
-                this.f69192c = onLongClickListener;
-                this.f69195f = new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.q.r.1.1
+                this.f69225a = view;
+                this.f69226b = j2;
+                this.f69227c = onLongClickListener;
+                this.f69230f = new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.q.r.1.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass1 f69196a;
+                    public final /* synthetic */ AnonymousClass1 f69231a;
 
                     {
                         Interceptable interceptable3 = $ic;
@@ -80,7 +80,7 @@ public class r {
                                 return;
                             }
                         }
-                        this.f69196a = this;
+                        this.f69231a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -88,10 +88,10 @@ public class r {
                         AnonymousClass1 anonymousClass1;
                         View.OnLongClickListener onLongClickListener2;
                         Interceptable interceptable3 = $ic;
-                        if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || (onLongClickListener2 = (anonymousClass1 = this.f69196a).f69192c) == null) {
+                        if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || (onLongClickListener2 = (anonymousClass1 = this.f69231a).f69227c) == null) {
                             return;
                         }
-                        onLongClickListener2.onLongClick(anonymousClass1.f69190a);
+                        onLongClickListener2.onLongClick(anonymousClass1.f69225a);
                     }
                 };
             }
@@ -101,7 +101,7 @@ public class r {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                    Handler handler = this.f69190a.getHandler();
+                    Handler handler = this.f69225a.getHandler();
                     if (handler == null) {
                         return false;
                     }
@@ -109,16 +109,16 @@ public class r {
                     int y = (int) motionEvent.getY();
                     int action = motionEvent.getAction();
                     if (action == 0) {
-                        handler.removeCallbacks(this.f69195f);
-                        this.f69193d = x;
-                        this.f69194e = y;
-                        handler.postDelayed(this.f69195f, this.f69191b);
+                        handler.removeCallbacks(this.f69230f);
+                        this.f69228d = x;
+                        this.f69229e = y;
+                        handler.postDelayed(this.f69230f, this.f69226b);
                     } else if (action != 1) {
-                        if (action == 2 && (Math.abs(this.f69193d - x) > 50 || Math.abs(this.f69194e - y) > 50)) {
-                            handler.removeCallbacks(this.f69195f);
+                        if (action == 2 && (Math.abs(this.f69228d - x) > 50 || Math.abs(this.f69229e - y) > 50)) {
+                            handler.removeCallbacks(this.f69230f);
                         }
                     } else {
-                        handler.removeCallbacks(this.f69195f);
+                        handler.removeCallbacks(this.f69230f);
                     }
                     return true;
                 }
@@ -135,10 +135,10 @@ public class r {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f69197a;
+                public final /* synthetic */ View f69232a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f69198b;
+                public final /* synthetic */ String f69233b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -155,8 +155,8 @@ public class r {
                             return;
                         }
                     }
-                    this.f69197a = view;
-                    this.f69198b = str;
+                    this.f69232a = view;
+                    this.f69233b = str;
                 }
 
                 @Override // android.view.View.OnLongClickListener
@@ -164,9 +164,9 @@ public class r {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) {
-                        View view3 = this.f69197a;
+                        View view3 = this.f69232a;
                         if (view3 != null) {
-                            c.b(view3.getContext(), this.f69198b);
+                            c.b(view3.getContext(), this.f69233b);
                             return false;
                         }
                         return false;

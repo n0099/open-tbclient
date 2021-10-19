@@ -284,7 +284,7 @@ public final class a {
                 return null;
             }
             extensionCore.extensionCoreVersionCode = 4294967297L;
-            extensionCore.extensionCoreVersionName = com.baidu.fsg.face.base.b.b.f39824e;
+            extensionCore.extensionCoreVersionName = com.baidu.fsg.face.base.b.b.f39828e;
             return extensionCore;
         }
         return (ExtensionCore) invokeL.objValue;

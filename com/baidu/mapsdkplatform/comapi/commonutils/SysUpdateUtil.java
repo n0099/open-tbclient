@@ -20,16 +20,16 @@ public class SysUpdateUtil implements SysUpdateObserver {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a f42191a;
+    public static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a f42195a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f42192b;
+    public static boolean f42196b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f42193c;
+    public static String f42197c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f42194d;
+    public static int f42198d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,10 +45,10 @@ public class SysUpdateUtil implements SysUpdateObserver {
                 return;
             }
         }
-        f42191a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
-        f42192b = false;
-        f42193c = "";
-        f42194d = 0;
+        f42195a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
+        f42196b = false;
+        f42197c = "";
+        f42198d = 0;
     }
 
     public SysUpdateUtil() {
@@ -69,11 +69,11 @@ public class SysUpdateUtil implements SysUpdateObserver {
     public void init() {
         com.baidu.mapsdkplatform.comjni.map.commonmemcache.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = f42191a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = f42195a) == null) {
             return;
         }
         aVar.a();
-        f42191a.b();
+        f42195a.b();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
@@ -102,46 +102,46 @@ public class SysUpdateUtil implements SysUpdateObserver {
         String lowerCase = activeNetworkInfo.getTypeName().toLowerCase();
         if (lowerCase.equals("wifi") && activeNetworkInfo.isConnected()) {
             AppEngine.SetProxyInfo(null, 0);
-            f42192b = false;
+            f42196b = false;
         } else if (!lowerCase.equals("mobile") && (!lowerCase.equals("wifi") || NetworkUtil.isWifiConnected(activeNetworkInfo))) {
         } else {
             String extraInfo = activeNetworkInfo.getExtraInfo();
-            f42192b = false;
+            f42196b = false;
             if (extraInfo != null) {
                 String lowerCase2 = extraInfo.toLowerCase();
                 if (lowerCase2.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase2.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase2.startsWith(ConectivityUtils.APN_3GWAP)) {
-                    f42193c = "10.0.0.172";
+                    f42197c = "10.0.0.172";
                 } else {
                     if (!lowerCase2.startsWith(ConectivityUtils.APN_CTWAP)) {
                         if (lowerCase2.startsWith(ConectivityUtils.APN_CMNET) || lowerCase2.startsWith(ConectivityUtils.APN_UNINET) || lowerCase2.startsWith(ConectivityUtils.APN_CTNET) || lowerCase2.startsWith(ConectivityUtils.APN_3GNET)) {
-                            f42192b = false;
+                            f42196b = false;
                         }
-                        if (f42192b) {
-                            AppEngine.SetProxyInfo(f42193c, f42194d);
+                        if (f42196b) {
+                            AppEngine.SetProxyInfo(f42197c, f42198d);
                             return;
                         } else {
                             AppEngine.SetProxyInfo(null, 0);
                             return;
                         }
                     }
-                    f42193c = "10.0.0.200";
+                    f42197c = "10.0.0.200";
                 }
             } else {
                 String defaultHost = Proxy.getDefaultHost();
                 int defaultPort = Proxy.getDefaultPort();
                 if (defaultHost != null && defaultHost.length() > 0) {
                     if ("10.0.0.172".equals(defaultHost.trim())) {
-                        f42193c = "10.0.0.172";
-                        f42194d = defaultPort;
-                        f42192b = true;
+                        f42197c = "10.0.0.172";
+                        f42198d = defaultPort;
+                        f42196b = true;
                     }
                 }
-                if (f42192b) {
+                if (f42196b) {
                 }
             }
-            f42194d = 80;
-            f42192b = true;
-            if (f42192b) {
+            f42198d = 80;
+            f42196b = true;
+            if (f42196b) {
             }
         }
     }
@@ -150,7 +150,7 @@ public class SysUpdateUtil implements SysUpdateObserver {
     public void updatePhoneInfo() {
         com.baidu.mapsdkplatform.comjni.map.commonmemcache.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = f42191a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = f42195a) == null) {
             return;
         }
         aVar.b();

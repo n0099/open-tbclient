@@ -173,16 +173,16 @@ public class PayActivityStatic {
         }
         initYYPaySDK();
         createUIKit();
-        yyPayResultCallback = fVar.f13653e;
-        Object obj = fVar.f13649a;
+        yyPayResultCallback = fVar.f13673e;
+        Object obj = fVar.f13669a;
         if (!(obj instanceof Activity)) {
             obj = getCurrentActivity();
         }
         IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-        if (!TextUtils.isEmpty(fVar.f13651c)) {
-            viewParams.payAmountDialogTitle = fVar.f13651c;
+        if (!TextUtils.isEmpty(fVar.f13671c)) {
+            viewParams.payAmountDialogTitle = fVar.f13671c;
         }
-        Long l = fVar.f13652d;
+        Long l = fVar.f13672d;
         if (l != null) {
             viewParams.targetAmount = l.intValue();
         }
@@ -240,19 +240,19 @@ public class PayActivityStatic {
                     }
                     g gVar = new g();
                     CurrencyChargeMessage currencyChargeMessage = (CurrencyChargeMessage) obj2;
-                    gVar.f13660g = currencyChargeMessage.status;
-                    gVar.f13655b = currencyChargeMessage.appid;
-                    gVar.f13661h = Long.valueOf(currencyChargeMessage.uid);
-                    gVar.f13662i = currencyChargeMessage.usedChannel;
-                    gVar.f13657d = currencyChargeMessage.currencyType;
-                    gVar.f13654a = Long.valueOf(currencyChargeMessage.amount);
-                    gVar.f13656c = Long.valueOf(currencyChargeMessage.currencyAmount);
-                    gVar.f13659f = currencyChargeMessage.orderId;
-                    gVar.f13658e = currencyChargeMessage.expand;
+                    gVar.f13680g = currencyChargeMessage.status;
+                    gVar.f13675b = currencyChargeMessage.appid;
+                    gVar.f13681h = Long.valueOf(currencyChargeMessage.uid);
+                    gVar.f13682i = currencyChargeMessage.usedChannel;
+                    gVar.f13677d = currencyChargeMessage.currencyType;
+                    gVar.f13674a = Long.valueOf(currencyChargeMessage.amount);
+                    gVar.f13676c = Long.valueOf(currencyChargeMessage.currencyAmount);
+                    gVar.f13679f = currencyChargeMessage.orderId;
+                    gVar.f13678e = currencyChargeMessage.expand;
                     PayActivityStatic.yyPayResultCallback.a(gVar);
                 }
             };
-            if (fVar.f13650b == 0) {
+            if (fVar.f13670b == 0) {
                 yyPayUIKit.startPayDialog((Activity) obj, null, iPayCallback);
             } else {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);

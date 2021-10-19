@@ -21,7 +21,7 @@ public class b extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f68985a;
+    public static volatile b f69020a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,15 +49,15 @@ public class b extends SQLiteOpenHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f68985a == null) {
+            if (f69020a == null) {
                 synchronized (b.class) {
-                    if (f68985a == null) {
+                    if (f69020a == null) {
                         Context applicationContext = context.getApplicationContext();
-                        f68985a = new b(applicationContext, "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
+                        f69020a = new b(applicationContext, "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
                     }
                 }
             }
-            return f68985a;
+            return f69020a;
         }
         return (b) invokeL.objValue;
     }

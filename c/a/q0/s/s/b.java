@@ -34,34 +34,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14393a;
+    public String f14413a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<CharSequence> f14394b;
+    public List<CharSequence> f14414b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f14395c;
+    public c f14415c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Activity f14396d;
+    public final Activity f14416d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ViewGroup f14397e;
+    public final ViewGroup f14417e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ViewGroup f14398f;
+    public final ViewGroup f14418f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TextView f14399g;
+    public final TextView f14419g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final View f14400h;
+    public final View f14420h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14401i;
+    public int f14421i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f14402j;
+    public int f14422j;
     public int k;
     public int l;
     public boolean m;
@@ -75,13 +75,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f14403e;
+        public final /* synthetic */ int f14423e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TextView f14404f;
+        public final /* synthetic */ TextView f14424f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f14405g;
+        public final /* synthetic */ b f14425g;
 
         public a(b bVar, int i2, TextView textView) {
             Interceptable interceptable = $ic;
@@ -98,27 +98,27 @@ public class b {
                     return;
                 }
             }
-            this.f14405g = bVar;
-            this.f14403e = i2;
-            this.f14404f = textView;
+            this.f14425g = bVar;
+            this.f14423e = i2;
+            this.f14424f = textView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f14405g.f14395c.a(this.f14405g, this.f14403e, this.f14404f);
+                this.f14425g.f14415c.a(this.f14425g, this.f14423e, this.f14424f);
             }
         }
     }
 
     /* renamed from: c.a.q0.s.s.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C0694b {
+    public static final class C0696b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f14406a;
+        public static final int f14426a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -134,7 +134,7 @@ public class b {
                     return;
                 }
             }
-            f14406a = R.style.dialog_ani_b2t;
+            f14426a = R.style.dialog_ani_b2t;
         }
     }
 
@@ -177,18 +177,18 @@ public class b {
                 return;
             }
         }
-        this.f14402j = -1;
+        this.f14422j = -1;
         this.k = -1;
         this.l = -1;
         this.m = false;
         this.o = -1;
-        this.f14396d = activity;
+        this.f14416d = activity;
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(activity).inflate(R.layout.dialog_bdlist, (ViewGroup) null);
-        this.f14397e = viewGroup;
-        this.f14399g = (TextView) viewGroup.findViewById(R.id.dialog_title_list);
-        this.f14398f = (ViewGroup) this.f14397e.findViewById(R.id.dialog_content);
-        this.f14400h = this.f14397e.findViewById(R.id.line_bg);
-        this.f14401i = R.layout.dialog_bdlist_item;
+        this.f14417e = viewGroup;
+        this.f14419g = (TextView) viewGroup.findViewById(R.id.dialog_title_list);
+        this.f14418f = (ViewGroup) this.f14417e.findViewById(R.id.dialog_content);
+        this.f14420h = this.f14417e.findViewById(R.id.line_bg);
+        this.f14421i = R.layout.dialog_bdlist_item;
     }
 
     public void b(c.a.e.a.f<?> fVar) {
@@ -198,9 +198,9 @@ public class b {
             if (fVar instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) fVar;
                 tbPageContext.getLayoutMode().k(skinType == 1);
-                tbPageContext.getLayoutMode().j(this.f14397e);
+                tbPageContext.getLayoutMode().j(this.f14417e);
             }
-            this.f14397e.setBackgroundResource(R.drawable.transparent_bg);
+            this.f14417e.setBackgroundResource(R.drawable.transparent_bg);
         }
     }
 
@@ -212,17 +212,17 @@ public class b {
                 return this;
             }
             this.m = true;
-            if (!TextUtils.isEmpty(this.f14393a)) {
-                this.f14399g.setText(this.f14393a);
-                this.f14399g.setVisibility(0);
-                this.f14400h.setVisibility(0);
+            if (!TextUtils.isEmpty(this.f14413a)) {
+                this.f14419g.setText(this.f14413a);
+                this.f14419g.setVisibility(0);
+                this.f14420h.setVisibility(0);
             } else {
-                this.f14399g.setVisibility(8);
-                this.f14400h.setVisibility(8);
+                this.f14419g.setVisibility(8);
+                this.f14420h.setVisibility(8);
             }
-            List<CharSequence> list = this.f14394b;
+            List<CharSequence> list = this.f14414b;
             if (list != null && list.size() > 0) {
-                int size = this.f14394b.size();
+                int size = this.f14414b.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     d(i2);
                 }
@@ -237,7 +237,7 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            View inflate = LayoutInflater.from(this.f14396d).inflate(this.f14401i, this.f14398f, false);
+            View inflate = LayoutInflater.from(this.f14416d).inflate(this.f14421i, this.f14418f, false);
             LinearLayout linearLayout = (LinearLayout) inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.dialog_item_btn);
             LinearLayout.LayoutParams layoutParams = this.p;
@@ -253,26 +253,26 @@ public class b {
                 textView.setGravity(this.o);
             }
             View findViewById = inflate.findViewById(R.id.line);
-            CharSequence charSequence = this.f14394b.get(i2);
+            CharSequence charSequence = this.f14414b.get(i2);
             if (charSequence.length() <= 0) {
                 charSequence = "";
             }
             textView.setText(charSequence);
-            if (i2 == this.f14394b.size() - 1) {
+            if (i2 == this.f14414b.size() - 1) {
                 findViewById.setVisibility(8);
                 SkinManager.setBackgroundResource(inflate, R.drawable.dialog_single_button_bg_selector);
-            } else if (this.f14394b.size() == 1) {
+            } else if (this.f14414b.size() == 1) {
                 findViewById.setVisibility(8);
                 SkinManager.setBackgroundResource(inflate, R.drawable.dialog_single_button_only_one_bg_selector);
-            } else if (i2 == 0 && StringUtils.isNull(this.f14393a)) {
+            } else if (i2 == 0 && StringUtils.isNull(this.f14413a)) {
                 SkinManager.setBackgroundResource(inflate, R.drawable.dialog_single_button_first_bg_selector);
             } else {
                 SkinManager.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
             }
-            if (this.f14395c != null) {
+            if (this.f14415c != null) {
                 linearLayout.setOnClickListener(new a(this, i2, textView));
             }
-            this.f14398f.addView(inflate);
+            this.f14418f.addView(inflate);
             return inflate;
         }
         return (View) invokeI.objValue;
@@ -284,14 +284,14 @@ public class b {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (alertDialog = this.n) == null) {
             return;
         }
-        c.a.e.e.m.g.a(alertDialog, this.f14396d);
+        c.a.e.e.m.g.a(alertDialog, this.f14416d);
     }
 
     public View f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            ViewGroup viewGroup = this.f14398f;
+            ViewGroup viewGroup = this.f14418f;
             if (viewGroup == null) {
                 return null;
             }
@@ -299,7 +299,7 @@ public class b {
             if (i2 < 0 || i2 > childCount - 1) {
                 return null;
             }
-            return this.f14398f.getChildAt(i2);
+            return this.f14418f.getChildAt(i2);
         }
         return (View) invokeI.objValue;
     }
@@ -308,7 +308,7 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.f14402j = i2;
+            this.f14422j = i2;
             return this;
         }
         return (b) invokeI.objValue;
@@ -329,9 +329,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, list, cVar)) == null) {
             if (list != null && list.size() > 0) {
-                this.f14394b = list;
+                this.f14414b = list;
                 if (cVar != null) {
-                    this.f14395c = cVar;
+                    this.f14415c = cVar;
                 }
             }
             return this;
@@ -355,7 +355,7 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            l(this.f14396d.getResources().getString(i2));
+            l(this.f14416d.getResources().getString(i2));
             return this;
         }
         return (b) invokeI.objValue;
@@ -365,7 +365,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            this.f14393a = str;
+            this.f14413a = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -378,16 +378,16 @@ public class b {
             if (this.m) {
                 AlertDialog alertDialog = this.n;
                 if (alertDialog != null) {
-                    c.a.e.e.m.g.i(alertDialog, this.f14396d);
+                    c.a.e.e.m.g.i(alertDialog, this.f14416d);
                     return this;
                 }
-                AlertDialog create = new AlertDialog.Builder(this.f14396d, R.style.NoBackDimEnableDialog).create();
+                AlertDialog create = new AlertDialog.Builder(this.f14416d, R.style.NoBackDimEnableDialog).create();
                 this.n = create;
                 create.setCanceledOnTouchOutside(true);
-                if (c.a.e.e.m.g.i(this.n, this.f14396d)) {
+                if (c.a.e.e.m.g.i(this.n, this.f14416d)) {
                     Window window = this.n.getWindow();
-                    if (this.f14402j == -1) {
-                        this.f14402j = C0694b.f14406a;
+                    if (this.f14422j == -1) {
+                        this.f14422j = C0696b.f14426a;
                     }
                     if (this.k == -1) {
                         this.k = 17;
@@ -396,7 +396,7 @@ public class b {
                     attributes.dimAmount = 0.5f;
                     window.setAttributes(attributes);
                     window.setGravity(this.k);
-                    window.setContentView(this.f14397e);
+                    window.setContentView(this.f14417e);
                     return this;
                 }
                 return this;

@@ -12,11 +12,11 @@ public interface a {
 
     /* renamed from: c.a.w.b.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1408a {
+    public static final class C1411a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ C1408a f30484a;
+        public static final /* synthetic */ C1411a f30531a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -32,10 +32,10 @@ public interface a {
                     return;
                 }
             }
-            f30484a = new C1408a();
+            f30531a = new C1411a();
         }
 
-        public C1408a() {
+        public C1411a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,6 +51,6 @@ public interface a {
     }
 
     static {
-        C1408a c1408a = C1408a.f30484a;
+        C1411a c1411a = C1411a.f30531a;
     }
 }

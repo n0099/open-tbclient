@@ -33,22 +33,22 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f73229a;
+    public a.b f73264a;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f73230f;
+    public TextView f73265f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RatioFrameLayout f73231g;
+    public RatioFrameLayout f73266g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f73232h;
+    public ImageView f73267h;
 
     /* renamed from: i  reason: collision with root package name */
-    public KsLogoView f73233i;
+    public KsLogoView f73268i;
 
     /* renamed from: j  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f73234j;
+    public com.kwad.sdk.core.download.b.b f73269j;
     public ImageView k;
     public List<Integer> l;
     public com.kwad.sdk.core.video.videoview.b m;
@@ -57,7 +57,7 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
     public boolean p;
     public volatile boolean q;
     public com.kwad.sdk.widget.d r;
-    public final a.InterfaceC2000a s;
+    public final a.InterfaceC2002a s;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(@NonNull Context context) {
@@ -84,7 +84,7 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f73235a;
+            public final /* synthetic */ a f73270a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -101,23 +101,23 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
                         return;
                     }
                 }
-                this.f73235a = this;
+                this.f73270a = this;
             }
 
             @Override // com.kwad.sdk.widget.d
             public void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    com.kwad.sdk.utils.j.c(((com.kwad.sdk.feed.widget.base.a) this.f73235a).f73248b);
+                    com.kwad.sdk.utils.j.c(((com.kwad.sdk.feed.widget.base.a) this.f73270a).f73283b);
                 }
             }
         };
-        this.f73229a = new a.b(this) { // from class: com.kwad.sdk.feed.widget.a.2
+        this.f73264a = new a.b(this) { // from class: com.kwad.sdk.feed.widget.a.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f73236a;
+            public final /* synthetic */ a f73271a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -134,19 +134,19 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
                         return;
                     }
                 }
-                this.f73236a = this;
+                this.f73271a = this;
             }
 
             @Override // com.kwad.sdk.core.video.videoview.a.b
             public void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f73236a.q = false;
-                    com.kwad.sdk.core.report.a.i(((com.kwad.sdk.feed.widget.base.a) this.f73236a).f73248b);
-                    if (this.f73236a.m == null || this.f73236a.m.getParent() != this.f73236a.f73231g) {
+                    this.f73271a.q = false;
+                    com.kwad.sdk.core.report.a.i(((com.kwad.sdk.feed.widget.base.a) this.f73271a).f73283b);
+                    if (this.f73271a.m == null || this.f73271a.m.getParent() != this.f73271a.f73266g) {
                         return;
                     }
-                    this.f73236a.m.setVideoSoundEnable(this.f73236a.p);
+                    this.f73271a.m.setVideoSoundEnable(this.f73271a.p);
                 }
             }
 
@@ -154,34 +154,34 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
             public void a(long j2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                    this.f73236a.a(j2);
+                    this.f73271a.a(j2);
                 }
             }
 
             @Override // com.kwad.sdk.core.video.videoview.a.b
             public void b() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f73236a.q) {
+                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f73271a.q) {
                     return;
                 }
-                this.f73236a.q = true;
-                com.kwad.sdk.core.report.d.a(((com.kwad.sdk.feed.widget.base.a) this.f73236a).f73248b, System.currentTimeMillis(), 1);
+                this.f73271a.q = true;
+                com.kwad.sdk.core.report.d.a(((com.kwad.sdk.feed.widget.base.a) this.f73271a).f73283b, System.currentTimeMillis(), 1);
             }
 
             @Override // com.kwad.sdk.core.video.videoview.a.b
             public void c() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                    com.kwad.sdk.core.report.a.j(((com.kwad.sdk.feed.widget.base.a) this.f73236a).f73248b);
+                    com.kwad.sdk.core.report.a.j(((com.kwad.sdk.feed.widget.base.a) this.f73271a).f73283b);
                 }
             }
         };
-        this.s = new a.InterfaceC2000a(this) { // from class: com.kwad.sdk.feed.widget.a.3
+        this.s = new a.InterfaceC2002a(this) { // from class: com.kwad.sdk.feed.widget.a.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f73237a;
+            public final /* synthetic */ a f73272a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -198,14 +198,14 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
                         return;
                     }
                 }
-                this.f73237a = this;
+                this.f73272a = this;
             }
 
-            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC2000a
+            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC2002a
             public void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f73237a.l();
+                    this.f73272a.l();
                 }
             }
         };
@@ -223,7 +223,7 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
             Iterator<Integer> it = this.l.iterator();
             while (it.hasNext()) {
                 if (ceil >= it.next().intValue()) {
-                    com.kwad.sdk.core.report.a.b(((com.kwad.sdk.feed.widget.base.a) this).f73248b, ceil, null);
+                    com.kwad.sdk.core.report.a.b(((com.kwad.sdk.feed.widget.base.a) this).f73283b, ceil, null);
                     it.remove();
                     return;
                 }
@@ -237,15 +237,15 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
         if (!(interceptable == null || interceptable.invokeLZ(65539, this, bVar, z) == null) || bVar == null) {
             return;
         }
-        String a2 = com.kwad.sdk.core.response.b.a.a(((com.kwad.sdk.feed.widget.base.a) this).f73249c);
+        String a2 = com.kwad.sdk.core.response.b.a.a(((com.kwad.sdk.feed.widget.base.a) this).f73284c);
         this.n.setAutoRelease(false);
         AdVideoPlayerViewCache.a().a(a2, this.m);
-        com.kwad.sdk.core.download.b.a.b(av.a(this), ((com.kwad.sdk.feed.widget.base.a) this).f73248b, new a.InterfaceC1990a(this) { // from class: com.kwad.sdk.feed.widget.a.5
+        com.kwad.sdk.core.download.b.a.b(av.a(this), ((com.kwad.sdk.feed.widget.base.a) this).f73283b, new a.InterfaceC1992a(this) { // from class: com.kwad.sdk.feed.widget.a.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f73239a;
+            public final /* synthetic */ a f73274a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -262,17 +262,17 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
                         return;
                     }
                 }
-                this.f73239a = this;
+                this.f73274a = this;
             }
 
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1990a
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1992a
             public void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f73239a.k();
+                    this.f73274a.k();
                 }
             }
-        }, this.f73234j, z);
+        }, this.f73269j, z);
     }
 
     private void d() {
@@ -281,8 +281,8 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
             findViewById(R.id.ksad_ad_h5_container).setVisibility(0);
             findViewById(R.id.ksad_ad_download_container).setVisibility(8);
             TextView textView = (TextView) findViewById(R.id.ksad_h5_open_btn);
-            ((TextView) findViewById(R.id.ksad_h5_desc)).setText(com.kwad.sdk.core.response.b.a.m(((com.kwad.sdk.feed.widget.base.a) this).f73249c));
-            textView.setText(com.kwad.sdk.core.response.b.a.u(((com.kwad.sdk.feed.widget.base.a) this).f73249c));
+            ((TextView) findViewById(R.id.ksad_h5_desc)).setText(com.kwad.sdk.core.response.b.a.m(((com.kwad.sdk.feed.widget.base.a) this).f73284c));
+            textView.setText(com.kwad.sdk.core.response.b.a.u(((com.kwad.sdk.feed.widget.base.a) this).f73284c));
             findViewById(R.id.ksad_h5_open_cover).setOnClickListener(this);
             textView.setOnClickListener(this);
         }
@@ -294,14 +294,14 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
             findViewById(R.id.ksad_ad_download_container).setVisibility(0);
             findViewById(R.id.ksad_ad_h5_container).setVisibility(8);
             ImageView imageView = (ImageView) findViewById(R.id.ksad_app_icon);
-            ((TextView) findViewById(R.id.ksad_app_title)).setText(com.kwad.sdk.core.response.b.a.o(((com.kwad.sdk.feed.widget.base.a) this).f73249c));
+            ((TextView) findViewById(R.id.ksad_app_title)).setText(com.kwad.sdk.core.response.b.a.o(((com.kwad.sdk.feed.widget.base.a) this).f73284c));
             imageView.setImageResource(R.drawable.ksad_default_app_icon);
-            KSImageLoader.loadAppIcon(imageView, com.kwad.sdk.core.response.b.a.n(((com.kwad.sdk.feed.widget.base.a) this).f73249c), ((com.kwad.sdk.feed.widget.base.a) this).f73248b, 8);
-            ((TextView) findViewById(R.id.ksad_app_desc)).setText(com.kwad.sdk.core.response.b.a.m(((com.kwad.sdk.feed.widget.base.a) this).f73249c));
-            this.o.a(((com.kwad.sdk.feed.widget.base.a) this).f73248b);
+            KSImageLoader.loadAppIcon(imageView, com.kwad.sdk.core.response.b.a.n(((com.kwad.sdk.feed.widget.base.a) this).f73284c), ((com.kwad.sdk.feed.widget.base.a) this).f73283b, 8);
+            ((TextView) findViewById(R.id.ksad_app_desc)).setText(com.kwad.sdk.core.response.b.a.m(((com.kwad.sdk.feed.widget.base.a) this).f73284c));
+            this.o.a(((com.kwad.sdk.feed.widget.base.a) this).f73283b);
             this.o.setOnClickListener(this);
-            com.kwad.sdk.core.download.b.b bVar = new com.kwad.sdk.core.download.b.b(((com.kwad.sdk.feed.widget.base.a) this).f73248b, null, this.o.getAppDownloadListener());
-            this.f73234j = bVar;
+            com.kwad.sdk.core.download.b.b bVar = new com.kwad.sdk.core.download.b.b(((com.kwad.sdk.feed.widget.base.a) this).f73283b, null, this.o.getAppDownloadListener());
+            this.f73269j = bVar;
             bVar.c(this.o.getAppDownloadListener());
         }
     }
@@ -320,48 +320,48 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksAdVideoPlayConfig) == null) {
             this.p = ksAdVideoPlayConfig.isVideoSoundEnable();
-            String a2 = com.kwad.sdk.core.response.b.a.T(((com.kwad.sdk.feed.widget.base.a) this).f73249c).a();
+            String a2 = com.kwad.sdk.core.response.b.a.T(((com.kwad.sdk.feed.widget.base.a) this).f73284c).a();
             if (TextUtils.isEmpty(a2)) {
                 imageView = this.k;
                 i2 = 8;
             } else {
                 this.k.setImageDrawable(null);
-                KSImageLoader.loadImage(this.k, a2, ((com.kwad.sdk.feed.widget.base.a) this).f73248b);
+                KSImageLoader.loadImage(this.k, a2, ((com.kwad.sdk.feed.widget.base.a) this).f73283b);
                 imageView = this.k;
                 i2 = 0;
             }
             imageView.setVisibility(i2);
-            this.l = com.kwad.sdk.core.response.b.a.I(((com.kwad.sdk.feed.widget.base.a) this).f73249c);
-            com.kwad.sdk.core.video.videoview.b bVar = new com.kwad.sdk.core.video.videoview.b(((com.kwad.sdk.feed.widget.base.a) this).f73251e);
+            this.l = com.kwad.sdk.core.response.b.a.I(((com.kwad.sdk.feed.widget.base.a) this).f73284c);
+            com.kwad.sdk.core.video.videoview.b bVar = new com.kwad.sdk.core.video.videoview.b(((com.kwad.sdk.feed.widget.base.a) this).f73286e);
             this.m = bVar;
             bVar.setVisibleListener(this.r);
             this.m.setTag(this.l);
-            String a3 = com.kwad.sdk.core.response.b.a.a(((com.kwad.sdk.feed.widget.base.a) this).f73249c);
+            String a3 = com.kwad.sdk.core.response.b.a.a(((com.kwad.sdk.feed.widget.base.a) this).f73284c);
             if (TextUtils.isEmpty(a3)) {
                 return;
             }
-            this.m.a(new c.a().a(a3).b(com.kwad.sdk.core.response.b.e.b(com.kwad.sdk.core.response.b.c.j(((com.kwad.sdk.feed.widget.base.a) this).f73248b))).a(((com.kwad.sdk.feed.widget.base.a) this).f73248b.mVideoPlayerStatus).a(com.kwad.sdk.contentalliance.detail.video.b.a(((com.kwad.sdk.feed.widget.base.a) this).f73248b)).a(), (Map<String, String>) null);
+            this.m.a(new c.a().a(a3).b(com.kwad.sdk.core.response.b.e.b(com.kwad.sdk.core.response.b.c.j(((com.kwad.sdk.feed.widget.base.a) this).f73283b))).a(((com.kwad.sdk.feed.widget.base.a) this).f73283b.mVideoPlayerStatus).a(com.kwad.sdk.contentalliance.detail.video.b.a(((com.kwad.sdk.feed.widget.base.a) this).f73283b)).a(), (Map<String, String>) null);
             this.m.setVideoSoundEnable(this.p);
-            j jVar = new j(((com.kwad.sdk.feed.widget.base.a) this).f73251e, ((com.kwad.sdk.feed.widget.base.a) this).f73248b, this.m);
+            j jVar = new j(((com.kwad.sdk.feed.widget.base.a) this).f73286e, ((com.kwad.sdk.feed.widget.base.a) this).f73283b, this.m);
             this.n = jVar;
-            jVar.setVideoPlayCallback(this.f73229a);
+            jVar.setVideoPlayCallback(this.f73264a);
             this.n.setVideoClickListener(this.s);
             this.n.setDataFlowAutoStart(ksAdVideoPlayConfig.isDataFlowAutoStart());
             this.m.setController(this.n);
-            if (this.f73231g.getTag() != null) {
-                RatioFrameLayout ratioFrameLayout = this.f73231g;
+            if (this.f73266g.getTag() != null) {
+                RatioFrameLayout ratioFrameLayout = this.f73266g;
                 ratioFrameLayout.removeView((View) ratioFrameLayout.getTag());
-                this.f73231g.setTag(null);
+                this.f73266g.setTag(null);
             }
-            this.f73231g.addView(this.m);
-            this.f73231g.setTag(this.m);
-            this.f73231g.setClickable(true);
-            this.f73231g.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.feed.widget.a.4
+            this.f73266g.addView(this.m);
+            this.f73266g.setTag(this.m);
+            this.f73266g.setClickable(true);
+            this.f73266g.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.feed.widget.a.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f73238a;
+                public final /* synthetic */ a f73273a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -378,21 +378,21 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
                             return;
                         }
                     }
-                    this.f73238a = this;
+                    this.f73273a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (!this.f73238a.m.d()) {
-                            a aVar = this.f73238a;
+                        if (!this.f73273a.m.d()) {
+                            a aVar = this.f73273a;
                             aVar.a(aVar.m, false);
                             return;
                         }
-                        com.kwad.sdk.utils.j.b(((com.kwad.sdk.feed.widget.base.a) this.f73238a).f73248b);
-                        this.f73238a.m.setKsPlayLogParam(com.kwad.sdk.contentalliance.detail.video.b.a(((com.kwad.sdk.feed.widget.base.a) this.f73238a).f73248b));
-                        this.f73238a.m.a();
+                        com.kwad.sdk.utils.j.b(((com.kwad.sdk.feed.widget.base.a) this.f73273a).f73283b);
+                        this.f73273a.m.setKsPlayLogParam(com.kwad.sdk.contentalliance.detail.video.b.a(((com.kwad.sdk.feed.widget.base.a) this.f73273a).f73283b));
+                        this.f73273a.m.a();
                     }
                 }
             });
@@ -404,14 +404,14 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adTemplate) == null) {
             super.a(adTemplate);
-            this.f73230f.setText(com.kwad.sdk.core.response.b.a.m(((com.kwad.sdk.feed.widget.base.a) this).f73249c));
-            this.f73233i.a(adTemplate);
-            if (com.kwad.sdk.core.response.b.a.v(((com.kwad.sdk.feed.widget.base.a) this).f73249c)) {
+            this.f73265f.setText(com.kwad.sdk.core.response.b.a.m(((com.kwad.sdk.feed.widget.base.a) this).f73284c));
+            this.f73268i.a(adTemplate);
+            if (com.kwad.sdk.core.response.b.a.v(((com.kwad.sdk.feed.widget.base.a) this).f73284c)) {
                 g();
             } else {
                 d();
             }
-            this.f73232h.setOnClickListener(this);
+            this.f73267h.setOnClickListener(this);
             setOnClickListener(this);
         }
     }
@@ -421,7 +421,7 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.b();
-            com.kwad.sdk.utils.j.a(((com.kwad.sdk.feed.widget.base.a) this).f73248b);
+            com.kwad.sdk.utils.j.a(((com.kwad.sdk.feed.widget.base.a) this).f73283b);
         }
     }
 
@@ -429,13 +429,13 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f73230f = (TextView) findViewById(R.id.ksad_ad_desc);
+            this.f73265f = (TextView) findViewById(R.id.ksad_ad_desc);
             RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.ksad_video_container);
-            this.f73231g = ratioFrameLayout;
+            this.f73266g = ratioFrameLayout;
             ratioFrameLayout.setRatio(0.56f);
-            this.f73232h = (ImageView) findViewById(R.id.ksad_ad_dislike);
+            this.f73267h = (ImageView) findViewById(R.id.ksad_ad_dislike);
             this.k = (ImageView) findViewById(R.id.ksad_video_first_frame_container);
-            this.f73233i = (KsLogoView) findViewById(R.id.ksad_ad_dislike_logo);
+            this.f73268i = (KsLogoView) findViewById(R.id.ksad_ad_dislike_logo);
             this.o = (DownloadProgressView) findViewById(R.id.ksad_app_download_btn);
         }
     }
@@ -459,7 +459,7 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
-            if (view == this.f73232h) {
+            if (view == this.f73267h) {
                 m();
             } else {
                 a(this.m, view == this.o);
@@ -477,18 +477,18 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
                 return;
             }
             ViewGroup viewGroup = (ViewGroup) bVar.getParent();
-            if (this.m.getParent() != this.f73231g) {
+            if (this.m.getParent() != this.f73266g) {
                 viewGroup.removeView(this.m);
-                if (this.f73231g.getTag() != null) {
-                    RatioFrameLayout ratioFrameLayout = this.f73231g;
+                if (this.f73266g.getTag() != null) {
+                    RatioFrameLayout ratioFrameLayout = this.f73266g;
                     ratioFrameLayout.removeView((View) ratioFrameLayout.getTag());
-                    this.f73231g.setTag(null);
+                    this.f73266g.setTag(null);
                 }
-                this.f73231g.addView(this.m);
-                this.f73231g.setTag(this.m);
-                String a2 = com.kwad.sdk.core.response.b.a.a(((com.kwad.sdk.feed.widget.base.a) this).f73249c);
+                this.f73266g.addView(this.m);
+                this.f73266g.setTag(this.m);
+                String a2 = com.kwad.sdk.core.response.b.a.a(((com.kwad.sdk.feed.widget.base.a) this).f73284c);
                 this.m.setVideoSoundEnable(this.p);
-                this.n.setVideoPlayCallback(this.f73229a);
+                this.n.setVideoPlayCallback(this.f73264a);
                 this.n.setVideoClickListener(this.s);
                 this.n.o();
                 this.n.setAutoRelease(true);

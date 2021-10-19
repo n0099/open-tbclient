@@ -19,16 +19,16 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f45451a;
+    public static final byte[] f45363a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f45452b;
+    public static final byte[] f45364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f45453c;
+    public static final byte[] f45365c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte[] f45454d;
+    public static final byte[] f45366d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,10 +44,10 @@ public final class b {
                 return;
             }
         }
-        f45451a = "ftyp".getBytes();
-        f45452b = MediaDataBox.TYPE.getBytes();
-        f45453c = MovieBox.TYPE.getBytes();
-        f45454d = "free".getBytes();
+        f45363a = "ftyp".getBytes();
+        f45364b = MediaDataBox.TYPE.getBytes();
+        f45365c = MovieBox.TYPE.getBytes();
+        f45366d = "free".getBytes();
     }
 
     public static int a(byte[] bArr, int i2, int i3, byte[] bArr2, int i4) {

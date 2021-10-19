@@ -32,11 +32,11 @@ public class a extends m {
                 return;
             }
         }
-        this.f15095d = R.drawable.icon_pure_post_at24;
-        this.f15097f = R.drawable.icon_pure_post_more_at64;
-        this.f15098g = false;
-        this.f15099h = true;
-        this.f15100i = true;
+        this.f15126d = R.drawable.icon_pure_post_at24;
+        this.f15128f = R.drawable.icon_pure_post_more_at64;
+        this.f15129g = false;
+        this.f15130h = true;
+        this.f15131i = true;
         this.n = new int[]{16};
     }
 }

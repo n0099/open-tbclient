@@ -20,23 +20,23 @@ public abstract class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final t f43951a;
+    public static final t f43863a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final t f43952b;
+    public static final t f43864b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final t f43953c;
+    public static final t f43865c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final t f43954d;
+    public static final t f43866d;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ t[] f43955f;
+    public static final /* synthetic */ t[] f43867f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43956e;
+    public int f43868e;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public abstract class t {
                 return;
             }
         }
-        f43951a = new t("SERVICE", 0, 1) { // from class: com.baidu.mobstat.t.1
+        f43863a = new t("SERVICE", 0, 1) { // from class: com.baidu.mobstat.t.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -90,7 +90,7 @@ public abstract class t {
                 }
             }
         };
-        f43952b = new t("NO_SERVICE", 1, 2) { // from class: com.baidu.mobstat.t.2
+        f43864b = new t("NO_SERVICE", 1, 2) { // from class: com.baidu.mobstat.t.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -122,14 +122,14 @@ public abstract class t {
                     Context applicationContext = context.getApplicationContext();
                     a a2 = u.a(context);
                     ac acVar = new ac();
-                    acVar.f43230a = false;
-                    acVar.f43231b = "M";
-                    acVar.f43232c = false;
+                    acVar.f43142a = false;
+                    acVar.f43143b = "M";
+                    acVar.f43144c = false;
                     a2.a(applicationContext, acVar.a());
                 }
             }
         };
-        f43953c = new t("RECEIVER", 2, 3) { // from class: com.baidu.mobstat.t.3
+        f43865c = new t("RECEIVER", 2, 3) { // from class: com.baidu.mobstat.t.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -161,9 +161,9 @@ public abstract class t {
                     Context applicationContext = context.getApplicationContext();
                     a a2 = u.a(context);
                     ac acVar = new ac();
-                    acVar.f43230a = false;
-                    acVar.f43231b = "R";
-                    acVar.f43232c = false;
+                    acVar.f43142a = false;
+                    acVar.f43143b = "R";
+                    acVar.f43144c = false;
                     a2.a(applicationContext, acVar.a());
                 }
             }
@@ -200,15 +200,15 @@ public abstract class t {
                     Context applicationContext = context.getApplicationContext();
                     a a2 = u.a(context);
                     ac acVar = new ac();
-                    acVar.f43230a = false;
-                    acVar.f43231b = "E";
-                    acVar.f43232c = false;
+                    acVar.f43142a = false;
+                    acVar.f43143b = "E";
+                    acVar.f43144c = false;
                     a2.a(applicationContext, acVar.a());
                 }
             }
         };
-        f43954d = tVar;
-        f43955f = new t[]{f43951a, f43952b, f43953c, tVar};
+        f43866d = tVar;
+        f43867f = new t[]{f43863a, f43864b, f43865c, tVar};
     }
 
     public static t a(int i2) {
@@ -217,11 +217,11 @@ public abstract class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
             for (t tVar : values()) {
-                if (tVar.f43956e == i2) {
+                if (tVar.f43868e == i2) {
                     return tVar;
                 }
             }
-            return f43952b;
+            return f43864b;
         }
         return (t) invokeI.objValue;
     }
@@ -268,7 +268,7 @@ public abstract class t {
     public static t[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? (t[]) f43955f.clone() : (t[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? (t[]) f43867f.clone() : (t[]) invokeV.objValue;
     }
 
     public abstract void a(Context context);
@@ -277,7 +277,7 @@ public abstract class t {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(this.f43956e) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(this.f43868e) : (String) invokeV.objValue;
     }
 
     public t(String str, int i2, int i3) {
@@ -298,6 +298,6 @@ public abstract class t {
                 return;
             }
         }
-        this.f43956e = i3;
+        this.f43868e = i3;
     }
 }

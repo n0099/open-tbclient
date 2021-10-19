@@ -27,19 +27,19 @@ public class LoadingDialog extends Dialog implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f45003a;
+        public Context f44915a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f45004b;
+        public String f44916b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f45005c;
+        public boolean f44917c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f45006d;
+        public boolean f44918d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f45007e;
+        public boolean f44919e;
 
         public Builder(Context context) {
             Interceptable interceptable = $ic;
@@ -56,27 +56,27 @@ public class LoadingDialog extends Dialog implements NoProguard {
                     return;
                 }
             }
-            this.f45005c = true;
-            this.f45006d = false;
-            this.f45007e = false;
-            this.f45003a = context;
+            this.f44917c = true;
+            this.f44918d = false;
+            this.f44919e = false;
+            this.f44915a = context;
         }
 
         public LoadingDialog createDialog() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                View inflate = LayoutInflater.from(this.f45003a).inflate(f.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
-                LoadingDialog loadingDialog = new LoadingDialog(this.f45003a, h.sapi_sdk_loading_dialog);
+                View inflate = LayoutInflater.from(this.f44915a).inflate(f.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
+                LoadingDialog loadingDialog = new LoadingDialog(this.f44915a, h.sapi_sdk_loading_dialog);
                 TextView textView = (TextView) inflate.findViewById(e.tipTextView);
-                if (this.f45005c) {
-                    textView.setText(this.f45004b);
+                if (this.f44917c) {
+                    textView.setText(this.f44916b);
                 } else {
                     textView.setVisibility(8);
                 }
                 loadingDialog.setContentView(inflate);
-                loadingDialog.setCancelable(this.f45006d);
-                loadingDialog.setCanceledOnTouchOutside(this.f45007e);
+                loadingDialog.setCancelable(this.f44918d);
+                loadingDialog.setCanceledOnTouchOutside(this.f44919e);
                 return loadingDialog;
             }
             return (LoadingDialog) invokeV.objValue;
@@ -86,7 +86,7 @@ public class LoadingDialog extends Dialog implements NoProguard {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.f45007e = z;
+                this.f44919e = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -96,7 +96,7 @@ public class LoadingDialog extends Dialog implements NoProguard {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f45006d = z;
+                this.f44918d = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -106,7 +106,7 @@ public class LoadingDialog extends Dialog implements NoProguard {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f45004b = str;
+                this.f44916b = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -116,7 +116,7 @@ public class LoadingDialog extends Dialog implements NoProguard {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f45005c = z;
+                this.f44917c = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;

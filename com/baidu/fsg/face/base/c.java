@@ -12,13 +12,13 @@ public class c extends d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39880a = "1.3.7";
+    public static final String f39884a = "1.3.7";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39881b = 32;
+    public static final int f39885b = 32;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f39882c;
+    public static c f39886c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -39,14 +39,14 @@ public class c extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f39882c == null) {
+            if (f39886c == null) {
                 synchronized (c.class) {
-                    if (f39882c == null) {
-                        f39882c = new c();
+                    if (f39886c == null) {
+                        f39886c = new c();
                     }
                 }
             }
-            return f39882c;
+            return f39886c;
         }
         return (c) invokeV.objValue;
     }
@@ -59,7 +59,7 @@ public class c extends d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f39883a;
+            public final /* synthetic */ c f39887a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -76,7 +76,7 @@ public class c extends d {
                         return;
                     }
                 }
-                this.f39883a = this;
+                this.f39887a = this;
             }
 
             @Override // com.baidu.fsg.face.base.b

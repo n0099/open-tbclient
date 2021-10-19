@@ -12,24 +12,24 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f32402a;
+    public AtomicBoolean f32406a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32403b;
+    public long f32407b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f32404c;
+    public Runnable f32408c;
 
     /* renamed from: c.h.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1476a implements Runnable {
+    public class RunnableC1478a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f32405e;
+        public final /* synthetic */ a f32409e;
 
-        public RunnableC1476a(a aVar) {
+        public RunnableC1478a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,16 +44,16 @@ public abstract class a {
                     return;
                 }
             }
-            this.f32405e = aVar;
+            this.f32409e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f32405e.b();
-                if (this.f32405e.f32402a.get()) {
-                    e.a().postDelayed(this.f32405e.f32404c, this.f32405e.f32403b);
+                this.f32409e.b();
+                if (this.f32409e.f32406a.get()) {
+                    e.a().postDelayed(this.f32409e.f32408c, this.f32409e.f32407b);
                 }
             }
         }
@@ -74,28 +74,28 @@ public abstract class a {
                 return;
             }
         }
-        this.f32402a = new AtomicBoolean(false);
-        this.f32404c = new RunnableC1476a(this);
-        this.f32403b = 0 == j2 ? 300L : j2;
+        this.f32406a = new AtomicBoolean(false);
+        this.f32408c = new RunnableC1478a(this);
+        this.f32407b = 0 == j2 ? 300L : j2;
     }
 
     public abstract void b();
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f32402a.get()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f32406a.get()) {
             return;
         }
-        this.f32402a.set(true);
-        e.a().removeCallbacks(this.f32404c);
-        e.a().postDelayed(this.f32404c, c.f().j());
+        this.f32406a.set(true);
+        e.a().removeCallbacks(this.f32408c);
+        e.a().postDelayed(this.f32408c, c.f().j());
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f32402a.get()) {
-            this.f32402a.set(false);
-            e.a().removeCallbacks(this.f32404c);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f32406a.get()) {
+            this.f32406a.set(false);
+            e.a().removeCallbacks(this.f32408c);
         }
     }
 }

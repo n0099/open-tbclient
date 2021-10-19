@@ -19,14 +19,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f68264a;
+    public static volatile b f68299a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f68265b;
+    public Context f68300b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f68266c;
+    public AtomicBoolean f68301c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class b {
                 return;
             }
         }
-        this.f68266c = new AtomicBoolean(false);
+        this.f68301c = new AtomicBoolean(false);
         b();
     }
 
@@ -49,36 +49,36 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f68264a == null) {
+            if (f68299a == null) {
                 synchronized (b.class) {
-                    if (f68264a == null) {
-                        f68264a = new b();
+                    if (f68299a == null) {
+                        f68299a = new b();
                     }
                 }
             }
-            return f68264a;
+            return f68299a;
         }
         return (b) invokeV.objValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f68266c.get() || o.a() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f68301c.get() || o.a() == null) {
             return;
         }
-        this.f68265b = o.a();
-        this.f68266c.set(true);
+        this.f68300b = o.a();
+        this.f68301c.set(true);
     }
 
     public synchronized void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                if (!this.f68266c.get()) {
+                if (!this.f68301c.get()) {
                     b();
                 } else {
                     try {
-                        com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f68265b, "logstats", "retry >=?", new String[]{String.valueOf(5)});
+                        com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f68300b, "logstats", "retry >=?", new String[]{String.valueOf(5)});
                     } catch (Throwable unused) {
                     }
                 }
@@ -104,11 +104,11 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 LinkedList linkedList = new LinkedList();
-                if (!this.f68266c.get()) {
+                if (!this.f68301c.get()) {
                     b();
                     return linkedList;
                 }
-                Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f68265b, "logstats", new String[]{"id", "value"}, "retry <?", new String[]{String.valueOf(5)}, null, null, null);
+                Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f68300b, "logstats", new String[]{"id", "value"}, "retry <?", new String[]{String.valueOf(5)}, null, null, null);
                 if (a2 != null) {
                     while (a2.moveToNext()) {
                         try {

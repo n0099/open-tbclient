@@ -13,16 +13,16 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f64419a;
+    public Context f64454a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64420b;
+    public String f64455b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f64421c;
+    public g f64456c;
 
     /* renamed from: d  reason: collision with root package name */
-    public x f64422d;
+    public x f64457d;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -42,6 +42,6 @@ public class f {
     public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64419a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64454a : (Context) invokeV.objValue;
     }
 }

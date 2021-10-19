@@ -68,7 +68,7 @@ public class YYPayUIKit implements d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYPayUIKit f80248a;
+        public final /* synthetic */ YYPayUIKit f80285a;
 
         public a(YYPayUIKit yYPayUIKit) {
             Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class YYPayUIKit implements d {
                     return;
                 }
             }
-            this.f80248a = yYPayUIKit;
+            this.f80285a = yYPayUIKit;
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.payapi.AppPayServiceListener, com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
@@ -93,7 +93,7 @@ public class YYPayUIKit implements d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, currencyChargeMessage) == null) {
                 super.onCurrencyChargeMessage(currencyChargeMessage);
-                this.f80248a.notifyYYPayListener(currencyChargeMessage);
+                this.f80285a.notifyYYPayListener(currencyChargeMessage);
             }
         }
     }

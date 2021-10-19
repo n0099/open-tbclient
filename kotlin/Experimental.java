@@ -1,6 +1,5 @@
 package kotlin;
 
-import com.baidu.media.duplayer.LibsInfoDef;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -8,7 +7,7 @@ import java.lang.annotation.Target;
 import kotlin.annotation.AnnotationRetention;
 import kotlin.annotation.AnnotationTarget;
 @Target({ElementType.ANNOTATION_TYPE})
-@SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+@SinceKotlin(version = "1.2")
 @Deprecated(message = "Please use RequiresOptIn instead.")
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.ANNOTATION_CLASS})
 @Retention(RetentionPolicy.CLASS)

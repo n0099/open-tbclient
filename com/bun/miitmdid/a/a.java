@@ -19,27 +19,27 @@ public class a implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public C1873a f64251a;
+    public C1875a f64286a;
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1873a {
+    public class C1875a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bun.miitmdid.a.a.a f64252a;
+        public com.bun.miitmdid.a.a.a f64287a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bun.miitmdid.a.a.b f64253b;
+        public com.bun.miitmdid.a.a.b f64288b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f64254c;
+        public c f64289c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f64255d;
+        public final /* synthetic */ a f64290d;
 
-        public C1873a(a aVar) {
+        public C1875a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,7 +54,7 @@ public class a implements b {
                     return;
                 }
             }
-            this.f64255d = aVar;
+            this.f64290d = aVar;
         }
     }
 
@@ -71,7 +71,7 @@ public class a implements b {
                 return;
             }
         }
-        this.f64251a = new C1873a(this);
+        this.f64286a = new C1875a(this);
     }
 
     public static a a(Context context) {
@@ -117,9 +117,9 @@ public class a implements b {
                 return false;
             }
             if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-                aVar.f64251a.f64252a = new com.bun.miitmdid.a.a.a();
+                aVar.f64286a.f64287a = new com.bun.miitmdid.a.a.a();
             }
-            return aVar.f64251a.f64252a != null;
+            return aVar.f64286a.f64287a != null;
         }
         return invokeLL.booleanValue;
     }
@@ -132,9 +132,9 @@ public class a implements b {
                 return false;
             }
             if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-                aVar.f64251a.f64254c = new c();
+                aVar.f64286a.f64289c = new c();
             }
-            return aVar.f64251a.f64254c != null;
+            return aVar.f64286a.f64289c != null;
         }
         return invokeLL.booleanValue;
     }
@@ -149,10 +149,10 @@ public class a implements b {
             JSONObject optJSONObject = jSONObject.optJSONObject(RomUtils.MANUFACTURER_VIVO);
             com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
             if (optJSONObject != null) {
-                bVar.f64256a = optJSONObject.optString("appid");
-                aVar.f64251a.f64253b = bVar;
+                bVar.f64291a = optJSONObject.optString("appid");
+                aVar.f64286a.f64288b = bVar;
             }
-            return aVar.f64251a.f64253b != null;
+            return aVar.f64286a.f64288b != null;
         }
         return invokeLL.booleanValue;
     }
@@ -164,8 +164,8 @@ public class a implements b {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            C1873a c1873a = this.f64251a;
-            return (c1873a == null || (bVar = c1873a.f64253b) == null || (str = bVar.f64256a) == null) ? "" : str;
+            C1875a c1875a = this.f64286a;
+            return (c1875a == null || (bVar = c1875a.f64288b) == null || (str = bVar.f64291a) == null) ? "" : str;
         }
         return (String) invokeV.objValue;
     }

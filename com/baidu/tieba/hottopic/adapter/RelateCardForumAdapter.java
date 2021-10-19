@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.e.l.e.a;
-import c.a.r0.i1.c.n;
+import c.a.r0.j1.c.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,11 +29,11 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f52782a;
-        public c.a.r0.i1.f.a mCardView;
+        public int f52713a;
+        public c.a.r0.j1.f.a mCardView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, c.a.r0.i1.f.a aVar) {
+        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, c.a.r0.j1.f.a aVar) {
             super(aVar.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -50,20 +50,20 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
                     return;
                 }
             }
-            this.f52782a = 3;
+            this.f52713a = 3;
             this.mCardView = aVar;
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f52782a == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f52713a == i2) {
                 return;
             }
-            c.a.r0.i1.f.a aVar = this.mCardView;
+            c.a.r0.j1.f.a aVar = this.mCardView;
             if (aVar != null) {
                 aVar.l(aVar.i(), i2);
             }
-            this.f52782a = i2;
+            this.f52713a = i2;
         }
     }
 
@@ -105,7 +105,7 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            c.a.r0.i1.f.a aVar = new c.a.r0.i1.f.a(this.m.getPageContext());
+            c.a.r0.j1.f.a aVar = new c.a.r0.j1.f.a(this.m.getPageContext());
             aVar.n(h0());
             aVar.setFrom("home");
             this.n = true;
@@ -119,7 +119,7 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     /* renamed from: j0 */
     public View a0(int i2, View view, ViewGroup viewGroup, n nVar, CardGroupRelateForumHolder cardGroupRelateForumHolder) {
         InterceptResult invokeCommon;
-        c.a.r0.i1.f.a aVar;
+        c.a.r0.j1.f.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, nVar, cardGroupRelateForumHolder})) == null) {
             if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.mCardView) == null) {

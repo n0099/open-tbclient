@@ -15,14 +15,14 @@ public final class BdCore {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static BdCore f38560c;
+    public static BdCore f38564c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f38561a;
+    public Context f38565a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38562b;
+    public boolean f38566b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -104,7 +104,7 @@ public final class BdCore {
             }
         }
         EditTextType editTextType = EditTextType.DEFAULT;
-        this.f38562b = false;
+        this.f38566b = false;
     }
 
     public static synchronized BdCore b() {
@@ -113,10 +113,10 @@ public final class BdCore {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (BdCore.class) {
-                if (f38560c == null) {
-                    f38560c = new BdCore();
+                if (f38564c == null) {
+                    f38564c = new BdCore();
                 }
-                bdCore = f38560c;
+                bdCore = f38564c;
             }
             return bdCore;
         }
@@ -127,7 +127,7 @@ public final class BdCore {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Context context = this.f38561a;
+            Context context = this.f38565a;
             if (context != null) {
                 return context;
             }
@@ -138,11 +138,11 @@ public final class BdCore {
 
     public void c(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, z) == null) || this.f38562b) {
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, z) == null) || this.f38566b) {
             return;
         }
         BdLog.f(z);
-        this.f38561a = context.getApplicationContext();
-        this.f38562b = true;
+        this.f38565a = context.getApplicationContext();
+        this.f38566b = true;
     }
 }

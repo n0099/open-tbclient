@@ -31,10 +31,10 @@ public class MercatorModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f57275a;
+    public boolean f57209a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a.c f57276b;
+    public final a.c f57210b;
 
     /* loaded from: classes7.dex */
     public static class MercatorData extends OrmObject {
@@ -42,19 +42,19 @@ public class MercatorModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f57277e;
+        public String f57211e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f57278f;
+        public String f57212f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f57279g;
+        public String f57213g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f57280h;
+        public int f57214h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f57281i;
+        public long f57215i;
 
         public MercatorData() {
             Interceptable interceptable = $ic;
@@ -73,31 +73,31 @@ public class MercatorModel {
         public long A() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57281i : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57215i : invokeV.longValue;
         }
 
         public int w() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57280h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57214h : invokeV.intValue;
         }
 
         public String x() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f57278f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f57212f : (String) invokeV.objValue;
         }
 
         public String y() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f57277e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f57211e : (String) invokeV.objValue;
         }
 
         public String z() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57279g : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57213g : (String) invokeV.objValue;
         }
 
         public MercatorData(String str, String str2, String str3, int i2, long j2) {
@@ -115,11 +115,11 @@ public class MercatorModel {
                     return;
                 }
             }
-            this.f57277e = str;
-            this.f57278f = str2;
-            this.f57279g = str3;
-            this.f57280h = i2;
-            this.f57281i = j2;
+            this.f57211e = str;
+            this.f57212f = str2;
+            this.f57213g = str3;
+            this.f57214h = i2;
+            this.f57215i = j2;
         }
     }
 
@@ -167,7 +167,7 @@ public class MercatorModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MercatorModel f57282a;
+        public final /* synthetic */ MercatorModel f57216a;
 
         public a(MercatorModel mercatorModel) {
             Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public class MercatorModel {
                     return;
                 }
             }
-            this.f57282a = mercatorModel;
+            this.f57216a = mercatorModel;
         }
 
         @Override // c.a.e.e.i.a.c
@@ -192,19 +192,19 @@ public class MercatorModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, address) == null) {
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                if (i2 != 0 || address == null || inst == null || this.f57282a.f57275a) {
+                if (i2 != 0 || address == null || inst == null || this.f57216a.f57209a) {
                     return;
                 }
-                this.f57282a.f57275a = true;
+                this.f57216a.f57209a = true;
                 String valueOf = String.valueOf(address.getLatitude());
                 String valueOf2 = String.valueOf(address.getLongitude());
                 String locString = BDLocManager.getInstance(inst).getLocString();
                 String version = TbConfig.getVersion();
                 String cuid = TbadkCoreApplication.getInst().getCuid();
                 String clientIP = UtilHelper.getClientIP();
-                c.a.r0.y2.j0.a.e().i(valueOf);
-                c.a.r0.y2.j0.a.e().j(valueOf2);
-                c.a.r0.y2.j0.a.e().k(System.currentTimeMillis());
+                c.a.r0.z2.j0.a.e().i(valueOf);
+                c.a.r0.z2.j0.a.e().j(valueOf2);
+                c.a.r0.z2.j0.a.e().k(System.currentTimeMillis());
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MERCATOR);
                 httpMessage.addParam("cuid", cuid);
                 httpMessage.addParam("cip", clientIP);
@@ -213,7 +213,7 @@ public class MercatorModel {
                 httpMessage.addParam("longitude", valueOf2);
                 httpMessage.addParam("latitude", valueOf);
                 MessageManager.getInstance().sendMessage(httpMessage);
-                this.f57282a.f57275a = false;
+                this.f57216a.f57209a = false;
             }
         }
     }
@@ -223,7 +223,7 @@ public class MercatorModel {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final MercatorModel f57283a;
+        public static final MercatorModel f57217a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -239,7 +239,7 @@ public class MercatorModel {
                     return;
                 }
             }
-            f57283a = new MercatorModel(null);
+            f57217a = new MercatorModel(null);
         }
     }
 
@@ -250,7 +250,7 @@ public class MercatorModel {
     public static MercatorModel d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f57283a : (MercatorModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f57217a : (MercatorModel) invokeV.objValue;
     }
 
     public static void g(MercatorData mercatorData) {
@@ -274,7 +274,7 @@ public class MercatorModel {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.e.e.i.a.l().i(true, this.f57276b);
+            c.a.e.e.i.a.l().i(true, this.f57210b);
         }
     }
 
@@ -291,8 +291,8 @@ public class MercatorModel {
                 return;
             }
         }
-        this.f57275a = false;
-        this.f57276b = new a(this);
+        this.f57209a = false;
+        this.f57210b = new a(this);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MERCATOR, TbConfig.SERVER_ADDRESS + TbConfig.MERCATOR_LOCATION_URL);
         tbHttpMessageTask.setResponsedClass(MercatorLocationResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

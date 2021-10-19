@@ -17,17 +17,17 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Lock> f69070a;
+    public static final Map<String, Lock> f69105a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ReentrantLock f69071b;
+    public static ReentrantLock f69106b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f69072c;
+    public String f69107c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FileLock f69073d;
+    public FileLock f69108d;
 
     static {
         InterceptResult invokeClinit;
@@ -42,8 +42,8 @@ public class b {
                 return;
             }
         }
-        f69070a = new HashMap();
-        f69071b = new ReentrantLock();
+        f69105a = new HashMap();
+        f69106b = new ReentrantLock();
     }
 
     public b(String str, FileLock fileLock) {
@@ -61,26 +61,26 @@ public class b {
                 return;
             }
         }
-        this.f69072c = str;
-        this.f69073d = fileLock;
+        this.f69107c = str;
+        this.f69108d = fileLock;
     }
 
     public static b a(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            f69071b.lock();
+            f69106b.lock();
             try {
                 FileLock a2 = FileLock.a(str);
-                Lock lock = f69070a.get(str);
+                Lock lock = f69105a.get(str);
                 if (lock == null) {
                     lock = new ReentrantLock();
-                    f69070a.put(str, lock);
+                    f69105a.put(str, lock);
                 }
                 lock.lock();
                 return new b(str, a2);
             } catch (Exception e2) {
-                f69071b.unlock();
+                f69106b.unlock();
                 throw e2;
             }
         }
@@ -91,15 +91,15 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.f69073d.a();
-                this.f69073d.b();
-                Lock lock = f69070a.get(this.f69072c);
+                this.f69108d.a();
+                this.f69108d.b();
+                Lock lock = f69105a.get(this.f69107c);
                 if (lock == null) {
                     return;
                 }
                 lock.unlock();
             } finally {
-                f69071b.unlock();
+                f69106b.unlock();
             }
         }
     }

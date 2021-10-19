@@ -50,13 +50,13 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final Iterator<Range<C>> f70837g;
+            public final Iterator<Range<C>> f70872g;
 
             /* renamed from: h  reason: collision with root package name */
-            public Iterator<C> f70838h;
+            public Iterator<C> f70873h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ AsSet f70839i;
+            public final /* synthetic */ AsSet f70874i;
 
             public a(AsSet asSet) {
                 Interceptable interceptable = $ic;
@@ -73,9 +73,9 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
                         return;
                     }
                 }
-                this.f70839i = asSet;
-                this.f70837g = this.f70839i.this$0.ranges.iterator();
-                this.f70838h = Iterators.i();
+                this.f70874i = asSet;
+                this.f70872g = this.f70874i.this$0.ranges.iterator();
+                this.f70873h = Iterators.i();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -85,14 +85,14 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    while (!this.f70838h.hasNext()) {
-                        if (this.f70837g.hasNext()) {
-                            this.f70838h = ContiguousSet.create(this.f70837g.next(), this.f70839i.domain).iterator();
+                    while (!this.f70873h.hasNext()) {
+                        if (this.f70872g.hasNext()) {
+                            this.f70873h = ContiguousSet.create(this.f70872g.next(), this.f70874i.domain).iterator();
                         } else {
                             return (C) b();
                         }
                     }
-                    return this.f70838h.next();
+                    return this.f70873h.next();
                 }
                 return (C) invokeV.objValue;
             }
@@ -104,13 +104,13 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final Iterator<Range<C>> f70840g;
+            public final Iterator<Range<C>> f70875g;
 
             /* renamed from: h  reason: collision with root package name */
-            public Iterator<C> f70841h;
+            public Iterator<C> f70876h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ AsSet f70842i;
+            public final /* synthetic */ AsSet f70877i;
 
             public b(AsSet asSet) {
                 Interceptable interceptable = $ic;
@@ -127,9 +127,9 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
                         return;
                     }
                 }
-                this.f70842i = asSet;
-                this.f70840g = this.f70842i.this$0.ranges.reverse().iterator();
-                this.f70841h = Iterators.i();
+                this.f70877i = asSet;
+                this.f70875g = this.f70877i.this$0.ranges.reverse().iterator();
+                this.f70876h = Iterators.i();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -139,14 +139,14 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    while (!this.f70841h.hasNext()) {
-                        if (this.f70840g.hasNext()) {
-                            this.f70841h = ContiguousSet.create(this.f70840g.next(), this.f70842i.domain).descendingIterator();
+                    while (!this.f70876h.hasNext()) {
+                        if (this.f70875g.hasNext()) {
+                            this.f70876h = ContiguousSet.create(this.f70875g.next(), this.f70877i.domain).descendingIterator();
                         } else {
                             return (C) b();
                         }
                     }
-                    return this.f70841h.next();
+                    return this.f70876h.next();
                 }
                 return (C) invokeV.objValue;
             }
@@ -488,7 +488,7 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<Range<C>> f70843a;
+        public final List<Range<C>> f70878a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -503,7 +503,7 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
                     return;
                 }
             }
-            this.f70843a = Lists.i();
+            this.f70878a = Lists.i();
         }
 
         public a<C> a(Range<C> range) {
@@ -511,7 +511,7 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, range)) == null) {
                 n.k(!range.isEmpty(), "range must not be empty, but was %s", range);
-                this.f70843a.add(range);
+                this.f70878a.add(range);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -533,9 +533,9 @@ public final class ImmutableRangeSet<C extends Comparable> extends f<C> implemen
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                ImmutableList.a aVar = new ImmutableList.a(this.f70843a.size());
-                Collections.sort(this.f70843a, Range.rangeLexOrdering());
-                x0 s = Iterators.s(this.f70843a.iterator());
+                ImmutableList.a aVar = new ImmutableList.a(this.f70878a.size());
+                Collections.sort(this.f70878a, Range.rangeLexOrdering());
+                x0 s = Iterators.s(this.f70878a.iterator());
                 while (s.hasNext()) {
                     Range range = (Range) s.next();
                     while (s.hasNext()) {

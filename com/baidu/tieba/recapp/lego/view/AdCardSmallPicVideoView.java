@@ -26,10 +26,10 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public XfremodeRoundLayout f56482i;
+    public XfremodeRoundLayout f56416i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbImageView f56483j;
+    public TbImageView f56417j;
     public TextView mVideoDuration;
     public ImageView mVideoPlayIcon;
     public DistributeVideoView mVideoView;
@@ -40,10 +40,10 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCard f56484e;
+        public final /* synthetic */ AdCard f56418e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdCardSmallPicVideoView f56485f;
+        public final /* synthetic */ AdCardSmallPicVideoView f56419f;
 
         public a(AdCardSmallPicVideoView adCardSmallPicVideoView, AdCard adCard) {
             Interceptable interceptable = $ic;
@@ -60,22 +60,22 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
                     return;
                 }
             }
-            this.f56485f = adCardSmallPicVideoView;
-            this.f56484e = adCard;
+            this.f56419f = adCardSmallPicVideoView;
+            this.f56418e = adCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AdCardSmallPicVideoView adCardSmallPicVideoView = this.f56485f;
+                AdCardSmallPicVideoView adCardSmallPicVideoView = this.f56419f;
                 if (adCardSmallPicVideoView.mVideoView == null) {
-                    adCardSmallPicVideoView.m(this.f56484e);
+                    adCardSmallPicVideoView.m(this.f56418e);
                 }
-                DistributeVideoView distributeVideoView = this.f56485f.mVideoView;
+                DistributeVideoView distributeVideoView = this.f56419f.mVideoView;
                 int jump2DownloadDetailPage = distributeVideoView != null ? distributeVideoView.jump2DownloadDetailPage() : 0;
-                if (this.f56485f.afterClickSchemeListener != null) {
-                    this.f56485f.afterClickSchemeListener.a(jump2DownloadDetailPage, null);
+                if (this.f56419f.afterClickSchemeListener != null) {
+                    this.f56419f.afterClickSchemeListener.a(jump2DownloadDetailPage, null);
                 }
             }
         }
@@ -120,7 +120,7 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
                 String str = videoInfo.thumbnail_url;
                 if (!TextUtils.isEmpty(str)) {
                     this.mCustomRoot.setVisibility(0);
-                    this.f56483j.startLoad(str, 17, false);
+                    this.f56417j.startLoad(str, 17, false);
                 }
                 AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
                 if (advertAppInfo != null && advertAppInfo.P4()) {
@@ -153,12 +153,12 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             float dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.f56482i = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
-            this.f56483j = (TbImageView) view.findViewById(R.id.ad_img);
+            this.f56416i = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+            this.f56417j = (TbImageView) view.findViewById(R.id.ad_img);
             this.mVideoDuration = (TextView) view.findViewById(R.id.ad_video_duration);
             this.mVideoPlayIcon = (ImageView) view.findViewById(R.id.video_play_icon);
-            this.f56483j.setPlaceHolder(3);
-            this.f56482i.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+            this.f56417j.setPlaceHolder(3);
+            this.f56416i.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
         }
     }
 
@@ -178,8 +178,8 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
                 String pageTypeByBusiness = getPageTypeByBusiness();
                 e eVar = advertAppInfo.g4;
                 if (eVar != null) {
-                    i2 = eVar.f14144b;
-                    pageTypeByBusiness = eVar.f14143a;
+                    i2 = eVar.f14167b;
+                    pageTypeByBusiness = eVar.f14166a;
                 }
                 this.mVideoView.setStatisticInfo(advertAppInfo, i2, pageTypeByBusiness);
             }

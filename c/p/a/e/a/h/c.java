@@ -21,13 +21,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f35030e;
+        public final /* synthetic */ Context f35034e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f35031f;
+        public final /* synthetic */ DownloadInfo f35035f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f35032g;
+        public final /* synthetic */ int f35036g;
 
         public a(Context context, DownloadInfo downloadInfo, int i2) {
             Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public class c {
                     return;
                 }
             }
-            this.f35030e = context;
-            this.f35031f = downloadInfo;
-            this.f35032g = i2;
+            this.f35034e = context;
+            this.f35035f = downloadInfo;
+            this.f35036g = i2;
         }
 
         @Override // java.lang.Runnable
@@ -54,21 +54,21 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 d.f u = c.p.a.e.a.e.G().u();
-                c.p.a.e.b.f.e i2 = c.p.a.e.b.g.a.H(this.f35030e).i(this.f35031f.getId());
+                c.p.a.e.b.f.e i2 = c.p.a.e.b.g.a.H(this.f35034e).i(this.f35035f.getId());
                 if (u == null && i2 == null) {
                     return;
                 }
-                File file = new File(this.f35031f.getSavePath(), this.f35031f.getName());
+                File file = new File(this.f35035f.getSavePath(), this.f35035f.getName());
                 if (file.exists()) {
                     try {
-                        PackageInfo i3 = c.p.a.e.a.d.i(this.f35031f, file);
+                        PackageInfo i3 = c.p.a.e.a.d.i(this.f35035f, file);
                         if (i3 != null) {
-                            String packageName = (this.f35032g == 1 || TextUtils.isEmpty(this.f35031f.getPackageName())) ? i3.packageName : this.f35031f.getPackageName();
+                            String packageName = (this.f35036g == 1 || TextUtils.isEmpty(this.f35035f.getPackageName())) ? i3.packageName : this.f35035f.getPackageName();
                             if (u != null) {
-                                u.b(this.f35031f.getId(), 1, packageName, -3, this.f35031f.getDownloadTime());
+                                u.b(this.f35035f.getId(), 1, packageName, -3, this.f35035f.getDownloadTime());
                             }
                             if (i2 != null) {
-                                i2.a(1, this.f35031f, packageName, "");
+                                i2.a(1, this.f35035f, packageName, "");
                             }
                         }
                     } catch (Exception e2) {

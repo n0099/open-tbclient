@@ -28,22 +28,22 @@ public class BdTimePicker extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46353e;
+    public int f46265e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46354f;
+    public int f46266f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WheelView3d f46355g;
+    public WheelView3d f46267g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WheelView3d f46356h;
+    public WheelView3d f46268h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f46357i;
+    public LinearLayout f46269i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f46358j;
+    public int f46270j;
     public int k;
     public int l;
     public int m;
@@ -60,7 +60,7 @@ public class BdTimePicker extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdTimePicker f46359a;
+        public final /* synthetic */ BdTimePicker f46271a;
 
         public a(BdTimePicker bdTimePicker) {
             Interceptable interceptable = $ic;
@@ -77,16 +77,16 @@ public class BdTimePicker extends LinearLayout {
                     return;
                 }
             }
-            this.f46359a = bdTimePicker;
+            this.f46271a = bdTimePicker;
         }
 
         @Override // c.a.p0.a.z1.a.e.c.b
         public void a(WheelView3d wheelView3d, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i2) == null) {
-                BdTimePicker bdTimePicker = this.f46359a;
-                bdTimePicker.f46353e = i2 + bdTimePicker.f46358j;
-                this.f46359a.i();
+                BdTimePicker bdTimePicker = this.f46271a;
+                bdTimePicker.f46265e = i2 + bdTimePicker.f46270j;
+                this.f46271a.i();
             }
         }
     }
@@ -97,7 +97,7 @@ public class BdTimePicker extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdTimePicker f46360a;
+        public final /* synthetic */ BdTimePicker f46272a;
 
         public b(BdTimePicker bdTimePicker) {
             Interceptable interceptable = $ic;
@@ -114,15 +114,15 @@ public class BdTimePicker extends LinearLayout {
                     return;
                 }
             }
-            this.f46360a = bdTimePicker;
+            this.f46272a = bdTimePicker;
         }
 
         @Override // c.a.p0.a.z1.a.e.c.b
         public void a(WheelView3d wheelView3d, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i2) == null) {
-                BdTimePicker bdTimePicker = this.f46360a;
-                bdTimePicker.f46354f = i2 + bdTimePicker.l;
+                BdTimePicker bdTimePicker = this.f46272a;
+                bdTimePicker.f46266f = i2 + bdTimePicker.l;
             }
         }
     }
@@ -149,8 +149,8 @@ public class BdTimePicker extends LinearLayout {
                 return;
             }
         }
-        this.f46353e = 0;
-        this.f46354f = 0;
+        this.f46265e = 0;
+        this.f46266f = 0;
         this.p = 15;
         f(context);
     }
@@ -160,7 +160,7 @@ public class BdTimePicker extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            canvas.drawText(":", getWidth() / 2, (getHeight() / 2.0f) + (this.f46355g.getCenterContentOffset() * 2.0f), this.s);
+            canvas.drawText(":", getWidth() / 2, (getHeight() / 2.0f) + (this.f46267g.getCenterContentOffset() * 2.0f), this.s);
         }
     }
 
@@ -173,33 +173,33 @@ public class BdTimePicker extends LinearLayout {
             this.q = n0.f(context, 16.0f);
             this.r = n0.f(context, 14.0f);
             j();
-            this.f46357i = (LinearLayout) findViewById(f.timepicker_root);
+            this.f46269i = (LinearLayout) findViewById(f.timepicker_root);
             WheelView3d wheelView3d = (WheelView3d) findViewById(f.wheel_hour);
-            this.f46355g = wheelView3d;
+            this.f46267g = wheelView3d;
             wheelView3d.setLineSpacingMultiplier(3.0f);
-            this.f46355g.setCenterTextSize(this.q);
-            this.f46355g.setOuterTextSize(this.r);
-            this.f46355g.setTextColorCenter(-16777216);
-            this.f46355g.setTextColorOut(-16777216);
-            this.f46355g.setVisibleItem(7);
-            this.f46355g.setGravityOffset(this.p);
-            this.f46355g.setGravity(5);
-            this.f46355g.setDividerType(WheelView3d.DividerType.FILL);
-            this.f46355g.setDividerColor(0);
-            this.f46355g.setOnItemSelectedListener(new a(this));
+            this.f46267g.setCenterTextSize(this.q);
+            this.f46267g.setOuterTextSize(this.r);
+            this.f46267g.setTextColorCenter(-16777216);
+            this.f46267g.setTextColorOut(-16777216);
+            this.f46267g.setVisibleItem(7);
+            this.f46267g.setGravityOffset(this.p);
+            this.f46267g.setGravity(5);
+            this.f46267g.setDividerType(WheelView3d.DividerType.FILL);
+            this.f46267g.setDividerColor(0);
+            this.f46267g.setOnItemSelectedListener(new a(this));
             WheelView3d wheelView3d2 = (WheelView3d) findViewById(f.wheel_minute);
-            this.f46356h = wheelView3d2;
+            this.f46268h = wheelView3d2;
             wheelView3d2.setLineSpacingMultiplier(3.0f);
-            this.f46356h.setCenterTextSize(this.q);
-            this.f46356h.setOuterTextSize(this.r);
-            this.f46356h.setTextColorCenter(-16777216);
-            this.f46356h.setTextColorOut(-16777216);
-            this.f46356h.setGravityOffset(this.p);
-            this.f46356h.setGravity(3);
-            this.f46356h.setDividerType(WheelView3d.DividerType.FILL);
-            this.f46356h.setDividerColor(0);
-            this.f46356h.setVisibleItem(7);
-            this.f46356h.setOnItemSelectedListener(new b(this));
+            this.f46268h.setCenterTextSize(this.q);
+            this.f46268h.setOuterTextSize(this.r);
+            this.f46268h.setTextColorCenter(-16777216);
+            this.f46268h.setTextColorOut(-16777216);
+            this.f46268h.setGravityOffset(this.p);
+            this.f46268h.setGravity(3);
+            this.f46268h.setDividerType(WheelView3d.DividerType.FILL);
+            this.f46268h.setDividerColor(0);
+            this.f46268h.setVisibleItem(7);
+            this.f46268h.setOnItemSelectedListener(new b(this));
             g();
         }
     }
@@ -208,8 +208,8 @@ public class BdTimePicker extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Calendar calendar = Calendar.getInstance();
-            this.f46353e = calendar.get(11);
-            this.f46354f = calendar.get(12);
+            this.f46265e = calendar.get(11);
+            this.f46266f = calendar.get(12);
             updateDatas();
         }
     }
@@ -217,13 +217,13 @@ public class BdTimePicker extends LinearLayout {
     public int getHour() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46353e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46265e : invokeV.intValue;
     }
 
     public int getMinute() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f46354f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f46266f : invokeV.intValue;
     }
 
     public final void h() {
@@ -231,24 +231,24 @@ public class BdTimePicker extends LinearLayout {
         if (interceptable != null && interceptable.invokeV(1048581, this) != null) {
             return;
         }
-        this.f46358j = 0;
+        this.f46270j = 0;
         this.k = 23;
         Date date = this.n;
         if (date != null) {
-            this.f46358j = date.getHours();
+            this.f46270j = date.getHours();
         }
         Date date2 = this.o;
         if (date2 != null) {
             this.k = date2.getHours();
         }
-        ArrayList arrayList = new ArrayList((this.k - this.f46358j) + 1);
-        int i2 = this.f46358j;
+        ArrayList arrayList = new ArrayList((this.k - this.f46270j) + 1);
+        int i2 = this.f46270j;
         while (true) {
             int i3 = this.k;
             if (i2 > i3) {
-                this.f46355g.setAdapter(new c.a.p0.a.z1.a.e.a.b(this.f46358j, i3));
-                k(this.f46355g, this.f46358j, this.k);
-                setHour(this.f46353e);
+                this.f46267g.setAdapter(new c.a.p0.a.z1.a.e.a.b(this.f46270j, i3));
+                k(this.f46267g, this.f46270j, this.k);
+                setHour(this.f46265e);
                 return;
             }
             arrayList.add(String.format("%02d", Integer.valueOf(i2)));
@@ -264,11 +264,11 @@ public class BdTimePicker extends LinearLayout {
         this.l = 0;
         this.m = 59;
         Date date = this.n;
-        if (date != null && this.f46353e == this.f46358j) {
+        if (date != null && this.f46265e == this.f46270j) {
             this.l = date.getMinutes();
         }
         Date date2 = this.o;
-        if (date2 != null && this.f46353e == this.k) {
+        if (date2 != null && this.f46265e == this.k) {
             this.m = date2.getMinutes();
         }
         ArrayList arrayList = new ArrayList((this.m - this.l) + 1);
@@ -276,9 +276,9 @@ public class BdTimePicker extends LinearLayout {
         while (true) {
             int i3 = this.m;
             if (i2 > i3) {
-                this.f46356h.setAdapter(new c.a.p0.a.z1.a.e.a.b(this.l, i3));
-                k(this.f46356h, this.l, this.m);
-                setMinute(this.f46354f);
+                this.f46268h.setAdapter(new c.a.p0.a.z1.a.e.a.b(this.l, i3));
+                k(this.f46268h, this.l, this.m);
+                setMinute(this.f46266f);
                 return;
             }
             arrayList.add(String.format("%02d", Integer.valueOf(i2)));
@@ -308,20 +308,20 @@ public class BdTimePicker extends LinearLayout {
     public void setDisabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f46355g.setIsOptions(z);
-            this.f46356h.setIsOptions(z);
+            this.f46267g.setIsOptions(z);
+            this.f46268h.setIsOptions(z);
         }
     }
 
     public void setHour(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            int i3 = this.f46358j;
+            int i3 = this.f46270j;
             if (i2 < i3 || i2 > (i3 = this.k)) {
                 i2 = i3;
             }
-            this.f46353e = i2;
-            this.f46355g.setCurrentItem(i2 - this.f46358j);
+            this.f46265e = i2;
+            this.f46267g.setCurrentItem(i2 - this.f46270j);
         }
     }
 
@@ -332,8 +332,8 @@ public class BdTimePicker extends LinearLayout {
             if (i2 < i3 || i2 > (i3 = this.m)) {
                 i2 = i3;
             }
-            this.f46354f = i2;
-            this.f46356h.setCurrentItem(i2 - this.l);
+            this.f46266f = i2;
+            this.f46268h.setCurrentItem(i2 - this.l);
         }
     }
 
@@ -346,8 +346,8 @@ public class BdTimePicker extends LinearLayout {
     public void setScrollCycle(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f46356h.setCyclic(z);
-            this.f46355g.setCyclic(z);
+            this.f46268h.setCyclic(z);
+            this.f46267g.setCyclic(z);
         }
     }
 
@@ -392,8 +392,8 @@ public class BdTimePicker extends LinearLayout {
                 return;
             }
         }
-        this.f46353e = 0;
-        this.f46354f = 0;
+        this.f46265e = 0;
+        this.f46266f = 0;
         this.p = 15;
         f(context);
     }
@@ -419,8 +419,8 @@ public class BdTimePicker extends LinearLayout {
                 return;
             }
         }
-        this.f46353e = 0;
-        this.f46354f = 0;
+        this.f46265e = 0;
+        this.f46266f = 0;
         this.p = 15;
         f(context);
     }

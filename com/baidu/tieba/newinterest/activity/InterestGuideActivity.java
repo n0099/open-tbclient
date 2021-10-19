@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.activity;
 import android.os.Bundle;
 import c.a.q0.b.d;
 import c.a.q0.s.d0.b;
-import c.a.r0.f2.h.a;
+import c.a.r0.g2.h.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;

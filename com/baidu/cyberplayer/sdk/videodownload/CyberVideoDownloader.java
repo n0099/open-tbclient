@@ -51,7 +51,7 @@ public class CyberVideoDownloader {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CyberVideoDownloader f39313a;
+        public final /* synthetic */ CyberVideoDownloader f39317a;
 
         public DownloadOperation(CyberVideoDownloader cyberVideoDownloader) {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class CyberVideoDownloader {
                     return;
                 }
             }
-            this.f39313a = cyberVideoDownloader;
+            this.f39317a = cyberVideoDownloader;
         }
     }
 
@@ -81,7 +81,7 @@ public class CyberVideoDownloader {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CyberVideoDownloader f39314a;
+        public final /* synthetic */ CyberVideoDownloader f39318a;
 
         public DownloadSubStatus(CyberVideoDownloader cyberVideoDownloader) {
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class CyberVideoDownloader {
                     return;
                 }
             }
-            this.f39314a = cyberVideoDownloader;
+            this.f39318a = cyberVideoDownloader;
         }
     }
 
@@ -119,7 +119,7 @@ public class CyberVideoDownloader {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CyberVideoDownloader f39315a;
+        public final /* synthetic */ CyberVideoDownloader f39319a;
 
         public DownloadTaskStatus(CyberVideoDownloader cyberVideoDownloader) {
             Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class CyberVideoDownloader {
                     return;
                 }
             }
-            this.f39315a = cyberVideoDownloader;
+            this.f39319a = cyberVideoDownloader;
         }
     }
 

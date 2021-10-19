@@ -15,7 +15,7 @@ public class HtmlDataCache {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f70217a;
+    public String f70252a;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -28,7 +28,7 @@ public class HtmlDataCache {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static HtmlDataCache f70218a;
+        public static HtmlDataCache f70253a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,7 +44,7 @@ public class HtmlDataCache {
                     return;
                 }
             }
-            f70218a = new HtmlDataCache(null);
+            f70253a = new HtmlDataCache(null);
         }
     }
 
@@ -55,26 +55,26 @@ public class HtmlDataCache {
     public static HtmlDataCache getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f70218a : (HtmlDataCache) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f70253a : (HtmlDataCache) invokeV.objValue;
     }
 
     public void clearData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f70217a = null;
+            this.f70252a = null;
         }
     }
 
     public String getHtml() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70217a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70252a : (String) invokeV.objValue;
     }
 
     public void setHtml(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f70217a = str;
+            this.f70252a = str;
         }
     }
 

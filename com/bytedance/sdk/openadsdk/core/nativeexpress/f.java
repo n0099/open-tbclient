@@ -24,10 +24,10 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.e.m f67190a;
+    public com.bytedance.sdk.openadsdk.core.e.m f67225a;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f67191h;
+    public boolean f67226h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Context context, w wVar, com.bytedance.sdk.openadsdk.core.e.m mVar, com.bytedance.sdk.openadsdk.e.j jVar, boolean z) {
@@ -48,8 +48,8 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.e {
                 return;
             }
         }
-        this.f67190a = mVar;
-        this.f67191h = z;
+        this.f67225a = mVar;
+        this.f67226h = z;
     }
 
     private WebResourceResponse a(WebView webView, String str) {
@@ -61,8 +61,8 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.e {
                 return null;
             }
             e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
-            if (a2 != e.a.f67759d) {
-                Iterator<com.bytedance.sdk.openadsdk.core.e.l> it = this.f67190a.ad().iterator();
+            if (a2 != e.a.f67794d) {
+                Iterator<com.bytedance.sdk.openadsdk.core.e.l> it = this.f67225a.ad().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -80,7 +80,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.e {
                     }
                 }
             }
-            if (a2 == e.a.f67759d) {
+            if (a2 == e.a.f67794d) {
                 return a(str, "");
             }
             if (lVar != null) {
@@ -95,7 +95,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.e {
     public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-            this.f67781f = false;
+            this.f67816f = false;
             super.onPageFinished(webView, str);
         }
     }
@@ -104,7 +104,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.e {
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-            this.f67782g = false;
+            this.f67817g = false;
             super.onPageStarted(webView, str, bitmap);
         }
     }
@@ -155,7 +155,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.e {
             try {
                 InputStream a2 = ImageLoaderWrapper.a(str, str2);
                 if (a2 != null) {
-                    return new WebResourceResponse(e.a.f67759d.a(), "utf-8", a2);
+                    return new WebResourceResponse(e.a.f67794d.a(), "utf-8", a2);
                 }
                 return null;
             } catch (Throwable th) {
@@ -169,14 +169,14 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.e {
     private void a(long j2, long j3, String str, int i2) {
         com.bytedance.sdk.openadsdk.e.j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Integer.valueOf(i2)}) == null) || (jVar = this.f67780e) == null || jVar.b() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Integer.valueOf(i2)}) == null) || (jVar = this.f67815e) == null || jVar.b() == null) {
             return;
         }
         e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
-        if (a2 == e.a.f67756a) {
-            this.f67780e.b().a(str, j2, j3, i2);
-        } else if (a2 == e.a.f67758c) {
-            this.f67780e.b().b(str, j2, j3, i2);
+        if (a2 == e.a.f67791a) {
+            this.f67815e.b().a(str, j2, j3, i2);
+        } else if (a2 == e.a.f67793c) {
+            this.f67815e.b().b(str, j2, j3, i2);
         }
     }
 }

@@ -33,13 +33,13 @@ public class b extends e {
     private void a(BusLineSearchOption busLineSearchOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, busLineSearchOption) == null) {
-            this.f44367a.a("qt", "bsl");
-            this.f44367a.a("rt_info", "1");
-            this.f44367a.a("ie", "utf-8");
-            this.f44367a.a("oue", "0");
-            this.f44367a.a("c", busLineSearchOption.mCity);
-            this.f44367a.a("uid", busLineSearchOption.mUid);
-            com.baidu.platform.util.a aVar = this.f44367a;
+            this.f44279a.a("qt", "bsl");
+            this.f44279a.a("rt_info", "1");
+            this.f44279a.a("ie", "utf-8");
+            this.f44279a.a("oue", "0");
+            this.f44279a.a("c", busLineSearchOption.mCity);
+            this.f44279a.a("uid", busLineSearchOption.mUid);
+            com.baidu.platform.util.a aVar = this.f44279a;
             aVar.a("t", System.currentTimeMillis() + "");
         }
     }

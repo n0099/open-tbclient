@@ -16,19 +16,19 @@ public class VideoOption2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AutoPlayPolicy f75550a;
+    public AutoPlayPolicy f75585a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f75551b;
+    public boolean f75586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f75552c;
+    public boolean f75587c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f75553d;
+    public int f75588d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f75554e;
+    public int f75589e;
 
     /* renamed from: com.qq.e.ads.nativ.express2.VideoOption2$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -46,11 +46,11 @@ public class VideoOption2 {
         public static final AutoPlayPolicy WIFI;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ AutoPlayPolicy[] f75555b;
+        public static final /* synthetic */ AutoPlayPolicy[] f75590b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f75556a;
+        public int f75591a;
 
         static {
             InterceptResult invokeClinit;
@@ -69,7 +69,7 @@ public class VideoOption2 {
             ALWAYS = new AutoPlayPolicy("ALWAYS", 1, 1);
             AutoPlayPolicy autoPlayPolicy = new AutoPlayPolicy("NEVER", 2, 2);
             NEVER = autoPlayPolicy;
-            f75555b = new AutoPlayPolicy[]{WIFI, ALWAYS, autoPlayPolicy};
+            f75590b = new AutoPlayPolicy[]{WIFI, ALWAYS, autoPlayPolicy};
         }
 
         public AutoPlayPolicy(String str, int i2, int i3) {
@@ -90,7 +90,7 @@ public class VideoOption2 {
                     return;
                 }
             }
-            this.f75556a = i3;
+            this.f75591a = i3;
         }
 
         public static AutoPlayPolicy valueOf(String str) {
@@ -102,13 +102,13 @@ public class VideoOption2 {
         public static AutoPlayPolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AutoPlayPolicy[]) f75555b.clone() : (AutoPlayPolicy[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AutoPlayPolicy[]) f75590b.clone() : (AutoPlayPolicy[]) invokeV.objValue;
         }
 
         public final int getPolicy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75556a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75591a : invokeV.intValue;
         }
     }
 
@@ -118,19 +118,19 @@ public class VideoOption2 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AutoPlayPolicy f75557a;
+        public AutoPlayPolicy f75592a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f75558b;
+        public boolean f75593b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f75559c;
+        public boolean f75594c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f75560d;
+        public int f75595d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f75561e;
+        public int f75596e;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -145,9 +145,9 @@ public class VideoOption2 {
                     return;
                 }
             }
-            this.f75557a = AutoPlayPolicy.WIFI;
-            this.f75558b = true;
-            this.f75559c = false;
+            this.f75592a = AutoPlayPolicy.WIFI;
+            this.f75593b = true;
+            this.f75594c = false;
         }
 
         public VideoOption2 build() {
@@ -160,7 +160,7 @@ public class VideoOption2 {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.f75558b = z;
+                this.f75593b = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -171,7 +171,7 @@ public class VideoOption2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, autoPlayPolicy)) == null) {
                 if (autoPlayPolicy != null) {
-                    this.f75557a = autoPlayPolicy;
+                    this.f75592a = autoPlayPolicy;
                 }
                 return this;
             }
@@ -182,7 +182,7 @@ public class VideoOption2 {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.f75559c = z;
+                this.f75594c = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -192,7 +192,7 @@ public class VideoOption2 {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.f75560d = i2;
+                this.f75595d = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -202,7 +202,7 @@ public class VideoOption2 {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.f75561e = i2;
+                this.f75596e = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -224,11 +224,11 @@ public class VideoOption2 {
                 return;
             }
         }
-        this.f75550a = builder.f75557a;
-        this.f75551b = builder.f75558b;
-        this.f75552c = builder.f75559c;
-        this.f75553d = builder.f75560d;
-        this.f75554e = builder.f75561e;
+        this.f75585a = builder.f75592a;
+        this.f75586b = builder.f75593b;
+        this.f75587c = builder.f75594c;
+        this.f75588d = builder.f75595d;
+        this.f75589e = builder.f75596e;
     }
 
     public /* synthetic */ VideoOption2(Builder builder, byte b2) {
@@ -238,30 +238,30 @@ public class VideoOption2 {
     public AutoPlayPolicy getAutoPlayPolicy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75550a : (AutoPlayPolicy) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75585a : (AutoPlayPolicy) invokeV.objValue;
     }
 
     public int getMaxVideoDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75553d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75588d : invokeV.intValue;
     }
 
     public int getMinVideoDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75554e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75589e : invokeV.intValue;
     }
 
     public boolean isAutoPlayMuted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75551b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75586b : invokeV.booleanValue;
     }
 
     public boolean isDetailPageMuted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f75552c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f75587c : invokeV.booleanValue;
     }
 }

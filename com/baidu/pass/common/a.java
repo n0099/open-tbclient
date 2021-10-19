@@ -17,35 +17,35 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f44262a = "Security";
+    public static final String f44174a = "Security";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1690a {
+    public static class C1692a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f44263a = "UTF-8";
+        public static final String f44175a = "UTF-8";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f44264b = "AES/CBC/NoPadding";
+        public static final String f44176b = "AES/CBC/NoPadding";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f44265c = "AES";
+        public static final String f44177c = "AES";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f44266d;
+        public String f44178d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f44267e;
+        public String f44179e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f44268f;
+        public String f44180f;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public C1690a() {
+        public C1692a() {
             this("AES", "AES/CBC/NoPadding", "UTF-8");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -69,9 +69,9 @@ public class a {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
                 if (str != null && str.length() != 0) {
                     try {
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f44266d));
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f44268f);
-                        Cipher cipher = Cipher.getInstance(this.f44267e);
+                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f44178d));
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f44180f);
+                        Cipher cipher = Cipher.getInstance(this.f44179e);
                         cipher.init(1, secretKeySpec, ivParameterSpec);
                         return cipher.doFinal(a(str).getBytes());
                     } catch (NoSuchAlgorithmException e2) {
@@ -87,7 +87,7 @@ public class a {
             return (byte[]) invokeLLL.objValue;
         }
 
-        public C1690a(String str, String str2, String str3) {
+        public C1692a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,12 +102,12 @@ public class a {
                     return;
                 }
             }
-            this.f44266d = "UTF-8";
-            this.f44267e = "AES/CBC/NoPadding";
-            this.f44268f = "AES";
-            this.f44268f = str;
-            this.f44267e = str2;
-            this.f44266d = str3;
+            this.f44178d = "UTF-8";
+            this.f44179e = "AES/CBC/NoPadding";
+            this.f44180f = "AES";
+            this.f44180f = str;
+            this.f44179e = str2;
+            this.f44178d = str3;
         }
 
         public byte[] a(byte[] bArr, String str, String str2) throws Exception {
@@ -117,9 +117,9 @@ public class a {
                 if (bArr != null && bArr.length != 0) {
                     byte[] bArr2 = new byte[0];
                     try {
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f44266d));
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f44268f);
-                        Cipher cipher = Cipher.getInstance(this.f44267e);
+                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f44178d));
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f44180f);
+                        Cipher cipher = Cipher.getInstance(this.f44179e);
                         cipher.init(2, secretKeySpec, ivParameterSpec);
                         return cipher.doFinal(bArr);
                     } catch (Throwable th) {
@@ -194,7 +194,7 @@ public class a {
                     sb.append(str);
                 }
             } catch (Exception unused) {
-                Log.e(f44262a, "toHexString is error");
+                Log.e(f44174a, "toHexString is error");
             }
             return sb.toString();
         }

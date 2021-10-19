@@ -11,7 +11,7 @@ public class r extends ae {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f73494j;
+    public boolean f73529j;
     public String k;
     public String l;
 
@@ -34,7 +34,7 @@ public class r extends ae {
                 return;
             }
         }
-        this.f73494j = false;
+        this.f73529j = false;
         this.k = "";
         this.l = "";
     }
@@ -47,7 +47,7 @@ public class r extends ae {
             int i2 = 0;
             int i3 = 0;
             while (true) {
-                byte[] bArr = dVar.f73462d;
+                byte[] bArr = dVar.f73497d;
                 if (i2 >= bArr.length) {
                     break;
                 }
@@ -66,20 +66,20 @@ public class r extends ae {
             if (i3 != 3) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Bad formed PngChunkITXT chunk"));
             }
-            ((ae) this).f73449h = b.a(dVar.f73462d, 0, iArr[0]);
+            ((ae) this).f73484h = b.a(dVar.f73497d, 0, iArr[0]);
             int i4 = iArr[0] + 1;
-            boolean z = dVar.f73462d[i4] != 0;
-            this.f73494j = z;
+            boolean z = dVar.f73497d[i4] != 0;
+            this.f73529j = z;
             int i5 = i4 + 1;
-            if (z && dVar.f73462d[i5] != 0) {
+            if (z && dVar.f73497d[i5] != 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Bad formed PngChunkITXT chunk - bad compression method "));
             }
-            this.k = b.a(dVar.f73462d, i5, iArr[1] - i5);
-            this.l = b.b(dVar.f73462d, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
+            this.k = b.a(dVar.f73497d, i5, iArr[1] - i5);
+            this.l = b.b(dVar.f73497d, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
             int i6 = iArr[2] + 1;
-            boolean z2 = this.f73494j;
-            byte[] bArr2 = dVar.f73462d;
-            this.f73450i = z2 ? b.b(b.a(bArr2, i6, bArr2.length - i6, false)) : b.b(bArr2, i6, bArr2.length - i6);
+            boolean z2 = this.f73529j;
+            byte[] bArr2 = dVar.f73497d;
+            this.f73485i = z2 ? b.b(b.a(bArr2, i6, bArr2.length - i6, false)) : b.b(bArr2, i6, bArr2.length - i6);
         }
     }
 }

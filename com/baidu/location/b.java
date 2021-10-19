@@ -18,7 +18,7 @@ public class b implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ LocationClient f41051a;
+    public final /* synthetic */ LocationClient f41055a;
 
     public b(LocationClient locationClient) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class b implements ServiceConnection {
                 return;
             }
         }
-        this.f41051a = locationClient;
+        this.f41055a = locationClient;
     }
 
     @Override // android.content.ServiceConnection
@@ -45,27 +45,27 @@ public class b implements ServiceConnection {
         Boolean bool;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.f41051a.f41037g = new Messenger(iBinder);
-            if (this.f41051a.f41037g == null) {
+            this.f41055a.f41041g = new Messenger(iBinder);
+            if (this.f41055a.f41041g == null) {
                 return;
             }
-            this.f41051a.f41035e = true;
-            z = this.f41051a.x;
+            this.f41055a.f41039e = true;
+            z = this.f41055a.x;
             if (z) {
-                this.f41051a.f41038h.obtainMessage(2).sendToTarget();
+                this.f41055a.f41042h.obtainMessage(2).sendToTarget();
                 return;
             }
             try {
                 Message obtain = Message.obtain((Handler) null, 11);
-                obtain.replyTo = this.f41051a.f41039i;
-                c2 = this.f41051a.c();
+                obtain.replyTo = this.f41055a.f41043i;
+                c2 = this.f41055a.c();
                 obtain.setData(c2);
-                this.f41051a.f41037g.send(obtain);
-                this.f41051a.f41035e = true;
-                if (this.f41051a.f41033c != null) {
-                    bool = this.f41051a.A;
+                this.f41055a.f41041g.send(obtain);
+                this.f41055a.f41039e = true;
+                if (this.f41055a.f41037c != null) {
+                    bool = this.f41055a.A;
                     bool.booleanValue();
-                    this.f41051a.f41038h.obtainMessage(4).sendToTarget();
+                    this.f41055a.f41042h.obtainMessage(4).sendToTarget();
                 }
             } catch (Exception unused) {
             }
@@ -76,8 +76,8 @@ public class b implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f41051a.f41037g = null;
-            this.f41051a.f41035e = false;
+            this.f41055a.f41041g = null;
+            this.f41055a.f41039e = false;
         }
     }
 }

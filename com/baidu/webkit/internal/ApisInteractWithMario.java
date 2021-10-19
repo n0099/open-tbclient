@@ -64,7 +64,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ ValueCallback f64061a;
+                        public final /* synthetic */ ValueCallback f64096a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -81,14 +81,14 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                                     return;
                                 }
                             }
-                            this.f64061a = valueCallback;
+                            this.f64096a = valueCallback;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                ApisInteractWithMario.addOnCronetThreadInitializedListener(this.f64061a);
+                                ApisInteractWithMario.addOnCronetThreadInitializedListener(this.f64096a);
                             }
                         }
                     });
@@ -114,7 +114,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ String f64060a;
+                        public final /* synthetic */ String f64095a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -131,14 +131,14 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                                     return;
                                 }
                             }
-                            this.f64060a = str;
+                            this.f64095a = str;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                ApisInteractWithMario.clearCrashKey(this.f64060a);
+                                ApisInteractWithMario.clearCrashKey(this.f64095a);
                             }
                         }
                     });
@@ -193,10 +193,10 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ String f64058a;
+                        public final /* synthetic */ String f64093a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f64059b;
+                        public final /* synthetic */ String f64094b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -213,15 +213,15 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                                     return;
                                 }
                             }
-                            this.f64058a = str;
-                            this.f64059b = str2;
+                            this.f64093a = str;
+                            this.f64094b = str2;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                ApisInteractWithMario.setCrashKeyValue(this.f64058a, this.f64059b);
+                                ApisInteractWithMario.setCrashKeyValue(this.f64093a, this.f64094b);
                             }
                         }
                     });
@@ -247,7 +247,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ long f64057a;
+                        public final /* synthetic */ long f64092a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -264,14 +264,14 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                                     return;
                                 }
                             }
-                            this.f64057a = j2;
+                            this.f64092a = j2;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                ApisInteractWithMario.setMessageChannalFunctoinTable(this.f64057a);
+                                ApisInteractWithMario.setMessageChannalFunctoinTable(this.f64092a);
                             }
                         }
                     });

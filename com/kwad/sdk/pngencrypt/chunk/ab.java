@@ -36,16 +36,16 @@ public class ab extends ae {
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
             int i2 = 0;
             while (true) {
-                byte[] bArr = dVar.f73462d;
+                byte[] bArr = dVar.f73497d;
                 if (i2 >= bArr.length || bArr[i2] == 0) {
                     break;
                 }
                 i2++;
             }
-            ((ae) this).f73449h = b.a(dVar.f73462d, 0, i2);
+            ((ae) this).f73484h = b.a(dVar.f73497d, 0, i2);
             int i3 = i2 + 1;
-            byte[] bArr2 = dVar.f73462d;
-            this.f73450i = i3 < bArr2.length ? b.a(bArr2, i3, bArr2.length - i3) : "";
+            byte[] bArr2 = dVar.f73497d;
+            this.f73485i = i3 < bArr2.length ? b.a(bArr2, i3, bArr2.length - i3) : "";
         }
     }
 }

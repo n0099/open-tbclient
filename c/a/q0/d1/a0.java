@@ -1,124 +1,160 @@
 package c.a.q0.d1;
 
-import android.os.Build;
-import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class a0 {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final byte[] f12908b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static a0 f12909c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Object obj, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, obj, z) == null) {
-            b(obj, z, false);
+    /* renamed from: a  reason: collision with root package name */
+    public CustomMessageListener f12910a;
+
+    /* loaded from: classes3.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a0 f12911a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(a0 a0Var, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a0Var, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12911a = a0Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+                this.f12911a.d();
+            }
         }
     }
 
-    public static void b(Object obj, boolean z, boolean z2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1214542580, "Lc/a/q0/d1/a0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1214542580, "Lc/a/q0/d1/a0;");
+                return;
+            }
+        }
+        f12908b = new byte[1];
+    }
+
+    public a0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            c(obj, z, z2, false);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        c.a.e.e.p.j.r();
+    }
+
+    public static a0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (f12909c == null) {
+                synchronized (f12908b) {
+                    if (f12909c == null) {
+                        f12909c = new a0();
+                    }
+                }
+            }
+            return f12909c;
+        }
+        return (a0) invokeV.objValue;
+    }
+
+    public final CustomMessageListener c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this, 2000994) : (CustomMessageListener) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                boolean z = c.a.e.e.p.j.z();
+                if (z) {
+                    if (c.a.e.e.p.j.H()) {
+                        TbImageHelper.getInstance().setNetworkIsWifi(true);
+                        c.a.r0.z2.j0.a.e().f();
+                    } else if (c.a.e.e.p.j.x()) {
+                        TbImageHelper.getInstance().setNetworkIsWifi(false);
+                    }
+                }
+                NoNetworkView.setIsHasNetwork(z);
+                CompatibleUtile.dealWebView(null);
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+            }
         }
     }
 
-    public static void c(Object obj, boolean z, boolean z2, boolean z3) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || obj == null) {
-            return;
-        }
-        try {
-            Field field = obj.getClass().getField("common");
-            int i2 = 1;
-            if (!field.isAccessible()) {
-                field.setAccessible(true);
-            }
-            CommonReq.Builder builder = new CommonReq.Builder();
-            builder._client_type = 2;
-            builder._client_version = TbConfig.getVersion();
-            builder._client_id = TbadkCoreApplication.getClientId();
-            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                builder.subapp_type = TbConfig.getSubappType();
-            }
-            if (!TbadkCoreApplication.getInst().isOfficial()) {
-                builder.apid = "sw";
-            }
-            builder._phone_imei = TbadkCoreApplication.getInst().getImei();
-            builder.from = TbadkCoreApplication.getFrom();
-            builder.cuid = TbadkCoreApplication.getInst().getCuid();
-            builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
-            builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
-            builder._timestamp = Long.valueOf(System.currentTimeMillis());
-            builder.model = Build.MODEL;
-            builder._os_version = Build.VERSION.RELEASE;
-            builder.brand = Build.BRAND;
-            if (z) {
-                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.BDUSS = c.a.q0.j0.f.b();
-                    if (!StringUtils.isNull(c.a.q0.j0.f.e())) {
-                        builder.stoken = c.a.q0.j0.f.e();
-                    }
-                } else {
-                    AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                    if (currentAccountInfo != null) {
-                        builder.BDUSS = currentAccountInfo.getBDUSS();
-                        String a2 = c.a.q0.s.l.e.a(currentAccountInfo);
-                        if (!StringUtils.isNull(a2)) {
-                            builder.stoken = a2;
-                        }
-                    }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                if (this.f12910a == null) {
+                    this.f12910a = c();
+                    MessageManager.getInstance().registerListener(this.f12910a);
                 }
-            }
-            if (z2) {
-                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.tbs = c.a.q0.j0.f.f();
-                } else {
-                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
-                }
-            }
-            if (z3) {
-                builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
-            }
-            builder.pversion = "1.0.3";
-            builder.lego_lib_version = TbConfig.getLegoLibVersion();
-            if (c.a.q0.s.d0.b.j().k("android_safe_sdk_open", 0) == 1) {
-                builder.z_id = TbadkCoreApplication.getInst().getZid();
-            }
-            builder.net_type = Integer.valueOf(c.a.e.e.p.j.I());
-            builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-            builder.sample_id = TbSingleton.getInstance().getSampleId();
-            builder.is_teenager = Integer.valueOf(c.a.q0.g1.b.c.d() ? 1 : 0);
-            builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
-            builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
-            builder.swan_game_ver = TbadkCoreApplication.getInst().getSwan_game_ver();
-            builder.q_type = Integer.valueOf(c.a.q0.s.k.c().e());
-            builder.scr_h = Integer.valueOf(c.a.e.e.p.l.i(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(c.a.e.e.p.l.k(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(c.a.e.e.p.l.h(TbadkCoreApplication.getInst()));
-            builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
-            builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
-            builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
-            builder.event_day = TbSingleton.getInstance().getData();
-            builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
-            if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                i2 = 2;
-            }
-            builder.cmode = Integer.valueOf(i2);
-            field.set(obj, builder.build(false));
-        } catch (Throwable th) {
-            if (BdLog.isDebugMode()) {
-                th.printStackTrace();
+            } catch (Exception e2) {
+                this.f12910a = null;
+                BdLog.e(e2.getMessage());
             }
         }
     }

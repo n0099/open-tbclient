@@ -29,16 +29,16 @@ public class SwanAppComponentContainerView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f45945e;
+    public View f45857e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f45946f;
+    public b f45858f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Path f45947g;
+    public Path f45859g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ScrollView f45948h;
+    public ScrollView f45860h;
 
     static {
         InterceptResult invokeClinit;
@@ -80,26 +80,26 @@ public class SwanAppComponentContainerView extends FrameLayout {
     public final void a(Canvas canvas) {
         Path path;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || Build.VERSION.SDK_INT < 21 || (path = this.f45947g) == null || this.f45945e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || Build.VERSION.SDK_INT < 21 || (path = this.f45859g) == null || this.f45857e == null) {
             return;
         }
-        b bVar = this.f45946f;
+        b bVar = this.f45858f;
         if (bVar instanceof c.a.p0.a.c0.c.e.c.b) {
             c.a.p0.a.c0.c.e.c.b bVar2 = (c.a.p0.a.c0.c.e.c.b) bVar;
             if (bVar2.r > 0) {
                 path.reset();
-                Path path2 = this.f45947g;
-                float left = this.f45945e.getLeft();
-                float top = this.f45945e.getTop();
-                float right = this.f45945e.getRight();
-                float bottom = this.f45945e.getBottom();
+                Path path2 = this.f45859g;
+                float left = this.f45857e.getLeft();
+                float top = this.f45857e.getTop();
+                float right = this.f45857e.getRight();
+                float bottom = this.f45857e.getBottom();
                 int i2 = bVar2.r;
                 path2.addRoundRect(left, top, right, bottom, i2, i2, Path.Direction.CW);
                 if (DEBUG) {
                     String str = "SwanAppComponentContainerView  model.borderRadius =" + bVar2.r;
                 }
                 canvas.save();
-                canvas.clipPath(this.f45947g);
+                canvas.clipPath(this.f45859g);
                 canvas.restore();
             }
         }
@@ -108,7 +108,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
     public ScrollView getScrollView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45948h : (ScrollView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45860h : (ScrollView) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -124,7 +124,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
     public void setHidden(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            View view = this.f45948h;
+            View view = this.f45860h;
             if (view == null) {
                 view = this;
             }
@@ -135,14 +135,14 @@ public class SwanAppComponentContainerView extends FrameLayout {
     public void setModel(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f45946f = bVar;
+            this.f45858f = bVar;
         }
     }
 
     public void setScrollView(ScrollView scrollView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, scrollView) == null) {
-            this.f45948h = scrollView;
+            this.f45860h = scrollView;
         }
     }
 
@@ -156,18 +156,18 @@ public class SwanAppComponentContainerView extends FrameLayout {
     public void setTargetView(@NonNull View view, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, view, i2) == null) {
-            if (this.f45945e == view) {
+            if (this.f45857e == view) {
                 d.l("Component-ContainerView", "repeat setTargetView with the same view");
                 return;
             }
-            if (this.f45947g == null) {
-                this.f45947g = new Path();
+            if (this.f45859g == null) {
+                this.f45859g = new Path();
             }
-            if (this.f45945e != null) {
+            if (this.f45857e != null) {
                 a.a("Component-ContainerView", "repeat setTargetView with the different view");
-                removeView(this.f45945e);
+                removeView(this.f45857e);
             }
-            this.f45945e = view;
+            this.f45857e = view;
             addView(view, i2, generateDefaultLayoutParams());
         }
     }

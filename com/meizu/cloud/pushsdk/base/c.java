@@ -18,17 +18,17 @@ import java.util.Scanner;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f75045a = "";
+    public static String f75080a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f75046b = "";
+    public static String f75081b = "";
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f75046b)) {
-            f75046b = !a() ? c(context) : d(context);
-            return f75046b;
+        if (TextUtils.isEmpty(f75081b)) {
+            f75081b = !a() ? c(context) : d(context);
+            return f75081b;
         }
-        return f75046b;
+        return f75081b;
     }
 
     public static String a(String str) {
@@ -74,7 +74,7 @@ public class c {
         String str;
         WifiInfo connectionInfo;
         String macAddress;
-        if (TextUtils.isEmpty(f75045a)) {
+        if (TextUtils.isEmpty(f75080a)) {
             try {
                 str = null;
             } catch (Exception unused) {
@@ -86,8 +86,8 @@ public class c {
                     macAddress = connectionInfo.getMacAddress();
                     str = macAddress;
                 }
-                f75045a = str;
-                return f75045a;
+                f75080a = str;
+                return f75080a;
             }
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager != null) {
@@ -103,12 +103,12 @@ public class c {
                     str = macAddress;
                 }
             }
-            f75045a = str;
-            return f75045a;
+            f75080a = str;
+            return f75080a;
             c.l.a.a.a.b(DeviceUtils.TAG, "get address exception ");
-            return f75045a;
+            return f75080a;
         }
-        return f75045a;
+        return f75080a;
     }
 
     public static String c(Context context) {
@@ -129,6 +129,6 @@ public class c {
 
     public static String d(Context context) {
         com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.telephony.MzTelephonyManager").a("getDeviceId", new Class[0]).a(new Object[0]);
-        return a2.f75028a ? (String) a2.f75029b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        return a2.f75063a ? (String) a2.f75064b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
     }
 }

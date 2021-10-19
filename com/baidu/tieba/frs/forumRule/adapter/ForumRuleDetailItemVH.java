@@ -22,10 +22,10 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f51240a;
+    public Context f51167a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f51241b;
+    public View f51168b;
     public TbRichTextView mContent;
     public boolean mCurrentStatus;
     public EMTextView mTitle;
@@ -48,8 +48,8 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f51240a = context;
-        this.f51241b = view;
+        this.f51167a = context;
+        this.f51168b = view;
         initView(view);
     }
 
@@ -78,14 +78,14 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.mCurrentStatus) {
                 c d2 = c.d(this.mTitle);
-                d2.B(R.string.F_X02);
-                d2.w(R.color.CAM_X0301);
+                d2.A(R.string.F_X02);
+                d2.v(R.color.CAM_X0301);
                 this.mContent.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 return;
             }
             c d3 = c.d(this.mTitle);
-            d3.B(R.string.F_X02);
-            d3.w(R.color.CAM_X0105);
+            d3.A(R.string.F_X02);
+            d3.v(R.color.CAM_X0105);
             this.mContent.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }

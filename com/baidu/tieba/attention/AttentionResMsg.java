@@ -56,19 +56,19 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
             JSONObject optJSONObject2 = jSONArray.optJSONObject(i2);
             if (optJSONObject2 != null) {
                 i iVar = new i();
-                iVar.f15036a = optJSONObject2.optString("id");
-                iVar.f15037b = optJSONObject2.optString("avatar");
-                iVar.f15038c = optJSONObject2.optString("name");
-                iVar.f15039d = optJSONObject2.optInt("level_id");
-                iVar.f15040e = optJSONObject2.optInt("this_week_post") == 1;
+                iVar.f15059a = optJSONObject2.optString("id");
+                iVar.f15060b = optJSONObject2.optString("avatar");
+                iVar.f15061c = optJSONObject2.optString("name");
+                iVar.f15062d = optJSONObject2.optInt("level_id");
+                iVar.f15063e = optJSONObject2.optInt("this_week_post") == 1;
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("block_pop_info");
                 if (optJSONObject3 != null) {
-                    iVar.f15041f = optJSONObject3.optInt("can_post") == 1;
-                    iVar.f15042g = optJSONObject3.optString("block_info");
+                    iVar.f15064f = optJSONObject3.optInt("can_post") == 1;
+                    iVar.f15065g = optJSONObject3.optString("block_info");
                 }
                 JSONArray optJSONArray = optJSONObject2.optJSONArray("tab_info");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    iVar.f15043h = new ArrayList();
+                    iVar.f15066h = new ArrayList();
                     for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                         JSONObject optJSONObject4 = optJSONArray.optJSONObject(i3);
                         if (optJSONObject4 != null) {
@@ -83,14 +83,14 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                             builder.tab_code = optJSONObject4.optString("tab_code");
                             builder.tab_version = Integer.valueOf(optJSONObject4.optInt("tab_version"));
                             builder.is_default = Integer.valueOf(optJSONObject4.optInt(AddressField.KEY_IS_DEFAULT));
-                            iVar.f15043h.add(new FrsTabItemData(builder.build(true)));
+                            iVar.f15066h.add(new FrsTabItemData(builder.build(true)));
                         }
                     }
                 }
-                iVar.f15045j = optJSONObject2.optInt("is_forum_business_account") == 1;
+                iVar.f15068j = optJSONObject2.optInt("is_forum_business_account") == 1;
                 if (optJSONObject2.optInt("has_postpre") == 1 && (optJSONObject = optJSONObject2.optJSONObject("post_prefix")) != null) {
                     PostPrefixData postPrefixData = new PostPrefixData();
-                    iVar.f15044i = postPrefixData;
+                    iVar.f15067i = postPrefixData;
                     postPrefixData.parserJson(optJSONObject);
                 }
                 this.mSelectForumDataList.add(iVar);

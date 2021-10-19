@@ -14,10 +14,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetWork f13769a;
+    public NetWork f13789a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NewErrorData f13770b;
+    public NewErrorData f13790b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -32,22 +32,22 @@ public class d {
                 return;
             }
         }
-        this.f13769a = null;
-        this.f13770b = null;
-        this.f13769a = new NetWork();
+        this.f13789a = null;
+        this.f13790b = null;
+        this.f13789a = new NetWork();
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.f13769a.addPostData(str, str2);
+            this.f13789a.addPostData(str, str2);
         }
     }
 
     public void b() {
         NetWork netWork;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (netWork = this.f13769a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (netWork = this.f13789a) == null) {
             return;
         }
         netWork.cancelNetConnect();
@@ -57,7 +57,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NetWork netWork = this.f13769a;
+            NetWork netWork = this.f13789a;
             if (netWork != null) {
                 return netWork.getErrorString();
             }
@@ -70,9 +70,9 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String postNetData = this.f13769a.postNetData();
+            String postNetData = this.f13789a.postNetData();
             NewErrorData newErrorData = new NewErrorData();
-            this.f13770b = newErrorData;
+            this.f13790b = newErrorData;
             newErrorData.parserJson(postNetData);
             return postNetData;
         }
@@ -83,7 +83,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            NetWork netWork = this.f13769a;
+            NetWork netWork = this.f13789a;
             if (netWork != null) {
                 return netWork.getNetContext().getResponse().isRequestSuccess();
             }
@@ -95,7 +95,7 @@ public class d {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f13769a.setUrl(str);
+            this.f13789a.setUrl(str);
         }
     }
 }

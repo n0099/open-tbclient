@@ -29,7 +29,7 @@ public abstract class a {
     public c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.f68297f : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.f68332f : (c) invokeV.objValue;
     }
 
     public void a(String str, JSONObject jSONObject) {

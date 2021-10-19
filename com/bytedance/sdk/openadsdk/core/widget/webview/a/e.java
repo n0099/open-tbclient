@@ -26,23 +26,23 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f67756a;
+        public static final a f67791a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f67757b;
+        public static final a f67792b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f67758c;
+        public static final a f67793c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f67759d;
+        public static final a f67794d;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ a[] f67760f;
+        public static final /* synthetic */ a[] f67795f;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f67761e;
+        public String f67796e;
 
         static {
             InterceptResult invokeClinit;
@@ -57,12 +57,12 @@ public class e {
                     return;
                 }
             }
-            f67756a = new a("HTML", 0, SapiWebView.DATA_MIME_TYPE);
-            f67757b = new a("CSS", 1, "text/css");
-            f67758c = new a("JS", 2, "application/x-javascript");
+            f67791a = new a("HTML", 0, SapiWebView.DATA_MIME_TYPE);
+            f67792b = new a("CSS", 1, "text/css");
+            f67793c = new a("JS", 2, "application/x-javascript");
             a aVar = new a("IMAGE", 3, BdUploadHandler.IMAGE_MIME_TYPE);
-            f67759d = aVar;
-            f67760f = new a[]{f67756a, f67757b, f67758c, aVar};
+            f67794d = aVar;
+            f67795f = new a[]{f67791a, f67792b, f67793c, aVar};
         }
 
         public a(String str, int i2, String str2) {
@@ -83,7 +83,7 @@ public class e {
                     return;
                 }
             }
-            this.f67761e = str2;
+            this.f67796e = str2;
         }
 
         public static a valueOf(String str) {
@@ -95,13 +95,13 @@ public class e {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f67760f.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f67795f.clone() : (a[]) invokeV.objValue;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67761e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67796e : (String) invokeV.objValue;
         }
     }
 
@@ -110,7 +110,7 @@ public class e {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            a aVar2 = a.f67759d;
+            a aVar2 = a.f67794d;
             if (TextUtils.isEmpty(str)) {
                 return aVar2;
             }
@@ -118,17 +118,17 @@ public class e {
                 String path = Uri.parse(str).getPath();
                 if (path != null) {
                     if (path.endsWith(FileHelper.FILE_CACHE_CSS)) {
-                        aVar = a.f67757b;
+                        aVar = a.f67792b;
                     } else if (path.endsWith(".js")) {
-                        aVar = a.f67758c;
+                        aVar = a.f67793c;
                     } else {
                         if (!path.endsWith(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX) && !path.endsWith(".gif") && !path.endsWith(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) && !path.endsWith(".jpeg") && !path.endsWith(".webp") && !path.endsWith(".bmp") && !path.endsWith(".ico")) {
                             if (!path.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
                                 return aVar2;
                             }
-                            aVar = a.f67756a;
+                            aVar = a.f67791a;
                         }
-                        aVar = a.f67759d;
+                        aVar = a.f67794d;
                     }
                     return aVar;
                 }

@@ -16,10 +16,10 @@ public final class e extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35727c;
+    public int f35731c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f35728d;
+    public Object f35732d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(int i2, String str, Object obj) {
@@ -40,14 +40,14 @@ public final class e extends b {
                 return;
             }
         }
-        this.f35727c = i2;
+        this.f35731c = i2;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.a.f
     public final void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            this.f35728d = obj;
+            this.f35732d = obj;
         }
     }
 
@@ -59,19 +59,19 @@ public final class e extends b {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
                 ArrayList arrayList = new ArrayList();
-                if (this.f35728d != null) {
-                    arrayList.add(new BasicNameValuePair("extParam", com.alipay.a.a.f.a(this.f35728d)));
+                if (this.f35732d != null) {
+                    arrayList.add(new BasicNameValuePair("extParam", com.alipay.a.a.f.a(this.f35732d)));
                 }
-                arrayList.add(new BasicNameValuePair("operationType", this.f35725a));
+                arrayList.add(new BasicNameValuePair("operationType", this.f35729a));
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f35727c);
+                sb.append(this.f35731c);
                 arrayList.add(new BasicNameValuePair("id", sb.toString()));
-                new StringBuilder("mParams is:").append(this.f35726b);
-                arrayList.add(new BasicNameValuePair("requestData", this.f35726b == null ? "[]" : com.alipay.a.a.f.a(this.f35726b)));
+                new StringBuilder("mParams is:").append(this.f35730b);
+                arrayList.add(new BasicNameValuePair("requestData", this.f35730b == null ? "[]" : com.alipay.a.a.f.a(this.f35730b)));
                 return URLEncodedUtils.format(arrayList, "utf-8").getBytes();
             } catch (Exception e2) {
                 StringBuilder sb2 = new StringBuilder("request  =");
-                sb2.append(this.f35726b);
+                sb2.append(this.f35730b);
                 sb2.append(":");
                 sb2.append(e2);
                 throw new RpcException(9, sb2.toString() == null ? "" : e2.getMessage(), e2);

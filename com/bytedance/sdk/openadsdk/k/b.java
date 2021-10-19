@@ -16,10 +16,10 @@ public class b implements ILoaderListener<Bitmap> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f68283a;
+    public boolean f68318a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.j.a.c f68284b;
+    public com.bytedance.sdk.openadsdk.j.a.c f68319b;
 
     public b(boolean z) {
         Interceptable interceptable = $ic;
@@ -36,16 +36,16 @@ public class b implements ILoaderListener<Bitmap> {
                 return;
             }
         }
-        this.f68283a = z;
+        this.f68318a = z;
         if (z) {
-            this.f68284b = com.bytedance.sdk.openadsdk.j.a.c.b();
+            this.f68319b = com.bytedance.sdk.openadsdk.j.a.c.b();
         }
     }
 
     public void a(String str) {
         com.bytedance.sdk.openadsdk.j.a.c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.f68283a && (cVar = this.f68284b) != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.f68318a && (cVar = this.f68319b) != null) {
             cVar.c(str);
         }
     }
@@ -53,7 +53,7 @@ public class b implements ILoaderListener<Bitmap> {
     public void b(String str) {
         com.bytedance.sdk.openadsdk.j.a.c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.f68283a && (cVar = this.f68284b) != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.f68318a && (cVar = this.f68319b) != null) {
             cVar.f(str);
         }
     }
@@ -61,7 +61,7 @@ public class b implements ILoaderListener<Bitmap> {
     public void c(String str) {
         com.bytedance.sdk.openadsdk.j.a.c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.f68283a && (cVar = this.f68284b) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.f68318a && (cVar = this.f68319b) != null) {
             cVar.d(str);
         }
     }
@@ -69,7 +69,7 @@ public class b implements ILoaderListener<Bitmap> {
     public void d(String str) {
         com.bytedance.sdk.openadsdk.j.a.c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.f68283a && (cVar = this.f68284b) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.f68318a && (cVar = this.f68319b) != null) {
             cVar.h(str);
         }
     }
@@ -78,19 +78,19 @@ public class b implements ILoaderListener<Bitmap> {
     public void onFailed(int i2, String str, @Nullable Throwable th) {
         com.bytedance.sdk.openadsdk.j.a.c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(1048581, this, i2, str, th) == null) && this.f68283a && (cVar = this.f68284b) != null) {
+        if ((interceptable == null || interceptable.invokeILL(1048581, this, i2, str, th) == null) && this.f68318a && (cVar = this.f68319b) != null) {
             cVar.b(201).g(g.a(201));
-            com.bytedance.sdk.openadsdk.j.a.a().k(this.f68284b);
+            com.bytedance.sdk.openadsdk.j.a.a().k(this.f68319b);
         }
     }
 
     @Override // com.bytedance.sdk.component.image.ILoaderListener
     public void onSuccess(ImageResponse<Bitmap> imageResponse) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, imageResponse) == null) && this.f68283a && this.f68284b != null) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, imageResponse) == null) && this.f68318a && this.f68319b != null) {
             if (imageResponse == null || imageResponse.getResult() == null) {
-                this.f68284b.b(202).g(g.a(202));
-                com.bytedance.sdk.openadsdk.j.a.a().k(this.f68284b);
+                this.f68319b.b(202).g(g.a(202));
+                com.bytedance.sdk.openadsdk.j.a.a().k(this.f68319b);
             }
         }
     }
@@ -98,7 +98,7 @@ public class b implements ILoaderListener<Bitmap> {
     public void a(int i2) {
         com.bytedance.sdk.openadsdk.j.a.c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && this.f68283a && (cVar = this.f68284b) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && this.f68318a && (cVar = this.f68319b) != null) {
             cVar.a(i2);
         }
     }

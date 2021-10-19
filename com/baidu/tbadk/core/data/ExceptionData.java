@@ -10,7 +10,7 @@ import java.util.Map;
 public class ExceptionData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> appendInfo;
+    public Map<String, String> appendInfoMap;
     public String info;
     public Throwable mExcep;
 
@@ -27,13 +27,13 @@ public class ExceptionData {
                 return;
             }
         }
-        this.appendInfo = new HashMap();
+        this.appendInfoMap = new HashMap();
     }
 
     public void appendInfo(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.appendInfo.put(str, str2);
+            this.appendInfoMap.put(str, str2);
         }
     }
 }

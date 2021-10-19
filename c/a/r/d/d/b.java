@@ -18,16 +18,16 @@ public class b extends c.a.r.d.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile g f15286g;
+    public volatile g f15309g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile c.a.r.d.c.a f15287h;
+    public volatile c.a.r.d.c.a f15310h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f15288i;
+    public volatile boolean f15311i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f15289j;
+    public volatile boolean f15312j;
     public volatile boolean k;
     public volatile Future<Boolean> l;
     public volatile Future<Boolean> m;
@@ -42,7 +42,7 @@ public class b extends c.a.r.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15290e;
+        public final /* synthetic */ b f15313e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class b extends c.a.r.d.a {
                     return;
                 }
             }
-            this.f15290e = bVar;
+            this.f15313e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,10 +69,10 @@ public class b extends c.a.r.d.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f15290e.f15287h = new c.a.r.d.c.a();
-                this.f15290e.f15287h.b(this.f15290e.f15245e);
-                this.f15290e.f15287h.c(this.f15290e.f15246f);
-                this.f15290e.f15289j = true;
+                this.f15313e.f15310h = new c.a.r.d.c.a();
+                this.f15313e.f15310h.b(this.f15313e.f15268e);
+                this.f15313e.f15310h.c(this.f15313e.f15269f);
+                this.f15313e.f15312j = true;
                 return Boolean.TRUE;
             }
             return (Boolean) invokeV.objValue;
@@ -81,14 +81,14 @@ public class b extends c.a.r.d.a {
 
     /* renamed from: c.a.r.d.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class CallableC0727b implements Callable<Boolean> {
+    public class CallableC0729b implements Callable<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15291e;
+        public final /* synthetic */ b f15314e;
 
-        public CallableC0727b(b bVar) {
+        public CallableC0729b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class b extends c.a.r.d.a {
                     return;
                 }
             }
-            this.f15291e = bVar;
+            this.f15314e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,18 +113,18 @@ public class b extends c.a.r.d.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                b bVar = this.f15291e;
-                bVar.f15286g = new g(bVar, bVar.o);
-                this.f15291e.f15286g.b(this.f15291e.f15245e);
-                this.f15291e.f15286g.c(this.f15291e.f15246f);
-                this.f15291e.k = true;
-                if (this.f15291e.f15286g.n()) {
-                    this.f15291e.n = true;
+                b bVar = this.f15314e;
+                bVar.f15309g = new g(bVar, bVar.o);
+                this.f15314e.f15309g.b(this.f15314e.f15268e);
+                this.f15314e.f15309g.c(this.f15314e.f15269f);
+                this.f15314e.k = true;
+                if (this.f15314e.f15309g.n()) {
+                    this.f15314e.n = true;
                     return Boolean.TRUE;
                 }
-                this.f15291e.n = false;
-                this.f15291e.f15288i = false;
-                this.f15291e.p();
+                this.f15314e.n = false;
+                this.f15314e.f15311i = false;
+                this.f15314e.p();
                 return Boolean.FALSE;
             }
             return (Boolean) invokeV.objValue;
@@ -148,8 +148,8 @@ public class b extends c.a.r.d.a {
         }
         this.p = new Object();
         this.q = new Object();
-        this.f15288i = true;
-        this.f15289j = false;
+        this.f15311i = true;
+        this.f15312j = false;
         this.o = str;
     }
 
@@ -157,15 +157,15 @@ public class b extends c.a.r.d.a {
     public void a(String str, Bundle bundle, a.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
-            if (this.f15288i) {
+            if (this.f15311i) {
                 s();
                 if (this.n) {
-                    this.f15286g.a(str, bundle, cVar);
+                    this.f15309g.a(str, bundle, cVar);
                     return;
                 }
             }
             m();
-            this.f15287h.a(str, bundle, cVar);
+            this.f15310h.a(str, bundle, cVar);
         }
     }
 
@@ -174,14 +174,14 @@ public class b extends c.a.r.d.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.f15288i) {
+            if (this.f15311i) {
                 s();
                 if (this.n) {
-                    return this.f15286g.d(str);
+                    return this.f15309g.d(str);
                 }
             }
             m();
-            return this.f15287h.d(str);
+            return this.f15310h.d(str);
         }
         return invokeL.booleanValue;
     }
@@ -190,7 +190,7 @@ public class b extends c.a.r.d.a {
     public void e(a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            if (this.f15288i) {
+            if (this.f15311i) {
                 synchronized (this.p) {
                     v();
                 }
@@ -207,18 +207,18 @@ public class b extends c.a.r.d.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, bundle)) == null) {
-            if (this.f15288i) {
+            if (this.f15311i) {
                 s();
                 if (this.n) {
-                    a.d f2 = this.f15286g.f(str, bundle);
+                    a.d f2 = this.f15309g.f(str, bundle);
                     if (f2.b()) {
                         return f2;
                     }
-                    this.f15288i = false;
+                    this.f15311i = false;
                 }
             }
             m();
-            return this.f15287h.f(str, bundle);
+            return this.f15310h.f(str, bundle);
         }
         return (a.d) invokeLL.objValue;
     }
@@ -226,14 +226,14 @@ public class b extends c.a.r.d.a {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f15288i = false;
+            this.f15311i = false;
             p();
         }
     }
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f15288i || this.f15289j) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f15311i || this.f15312j) {
             return;
         }
         synchronized (this.q) {
@@ -247,14 +247,14 @@ public class b extends c.a.r.d.a {
 
     public final void p() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.f15289j && this.m == null) {
-            this.m = this.f15245e.f15250d.submit(new a(this));
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.f15312j && this.m == null) {
+            this.m = this.f15268e.f15273d.submit(new a(this));
         }
     }
 
     public final void s() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f15288i) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f15311i) {
             if (!this.k) {
                 synchronized (this.p) {
                     v();
@@ -270,7 +270,7 @@ public class b extends c.a.r.d.a {
     public final void v() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && !this.k && this.l == null) {
-            this.l = this.f15245e.f15250d.submit(new CallableC0727b(this));
+            this.l = this.f15268e.f15273d.submit(new CallableC0729b(this));
         }
     }
 }

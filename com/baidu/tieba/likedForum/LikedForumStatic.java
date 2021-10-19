@@ -1,6 +1,6 @@
 package com.baidu.tieba.likedForum;
 
-import c.a.r0.j3.e0.a;
+import c.a.r0.k3.e0.a;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;

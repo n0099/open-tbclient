@@ -14,17 +14,17 @@ public class ag extends d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f42266h = "ag";
+    public static final String f42270h = "ag";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bundle f42267e;
+    public Bundle f42271e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42268f;
+    public String f42272f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42269g;
+    public int f42273g;
 
     static {
         InterceptResult invokeClinit;
@@ -58,26 +58,26 @@ public class ag extends d {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42268f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42272f : (String) invokeV.objValue;
     }
 
     public void a(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            this.f42267e = bundle;
+            this.f42271e = bundle;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f42268f = str;
+            this.f42272f = str;
         }
     }
 
     public Bundle b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42267e : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42271e : (Bundle) invokeV.objValue;
     }
 }

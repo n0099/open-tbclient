@@ -33,22 +33,22 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f57453e;
+    public boolean f57387e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f57454f;
+    public ViewGroup f57388f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f57455g;
+    public Bitmap f57389g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NewUserGuideActivity f57456h;
+    public NewUserGuideActivity f57390h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f57457i;
+    public ImageView f57391i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f57458j;
+    public ImageView f57392j;
     public ImageView k;
     public GoOnAnimView l;
     public Handler m;
@@ -59,7 +59,7 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideIntroduceFragment f57459a;
+        public final /* synthetic */ NewUserGuideIntroduceFragment f57393a;
 
         public a(NewUserGuideIntroduceFragment newUserGuideIntroduceFragment) {
             Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f57459a = newUserGuideIntroduceFragment;
+            this.f57393a = newUserGuideIntroduceFragment;
         }
 
         @Override // android.os.Handler
@@ -85,10 +85,10 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == 0) {
-                    this.f57459a.startGoOnAnim();
+                    this.f57393a.startGoOnAnim();
                 } else if (i2 != 1) {
                 } else {
-                    this.f57459a.g();
+                    this.f57393a.g();
                 }
             }
         }
@@ -100,7 +100,7 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideIntroduceFragment f57460e;
+        public final /* synthetic */ NewUserGuideIntroduceFragment f57394e;
 
         public b(NewUserGuideIntroduceFragment newUserGuideIntroduceFragment) {
             Interceptable interceptable = $ic;
@@ -117,20 +117,20 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f57460e = newUserGuideIntroduceFragment;
+            this.f57394e = newUserGuideIntroduceFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f57460e.f57456h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f57394e.f57390h == null) {
                 return;
             }
-            if (this.f57460e.f57456h.getNewUserGuideModel().z()) {
-                this.f57460e.f57456h.startMainTabEnterFourm();
+            if (this.f57394e.f57390h.getNewUserGuideModel().z()) {
+                this.f57394e.f57390h.startMainTabEnterFourm();
                 return;
             }
-            RightSlideViewPager viewPager = this.f57460e.f57456h.getViewPager();
+            RightSlideViewPager viewPager = this.f57394e.f57390h.getViewPager();
             if (viewPager != null) {
                 viewPager.setCurrentItem(1, true);
             }
@@ -150,8 +150,8 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
                 return;
             }
         }
-        this.f57453e = false;
-        this.f57455g = null;
+        this.f57387e = false;
+        this.f57389g = null;
         this.m = new a(this);
     }
 
@@ -170,30 +170,30 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f57457i.setImageResource(R.drawable.pic_startpage1_one);
-            this.f57458j.setImageResource(R.drawable.pic_startpage1_two);
+            this.f57391i.setImageResource(R.drawable.pic_startpage1_one);
+            this.f57392j.setImageResource(R.drawable.pic_startpage1_two);
             this.k.setImageResource(R.drawable.pic_startpage1_three);
-            c(this.f57457i, true, 0L);
-            c(this.f57458j, false, 100L);
+            c(this.f57391i, true, 0L);
+            c(this.f57392j, false, 100L);
             c(this.k, true, 250L);
         }
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f57453e) {
-            this.f57454f.setBackgroundDrawable(null);
-            Bitmap bitmap = this.f57455g;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f57387e) {
+            this.f57388f.setBackgroundDrawable(null);
+            Bitmap bitmap = this.f57389g;
             if (bitmap != null) {
                 if (!bitmap.isRecycled()) {
-                    this.f57455g.recycle();
+                    this.f57389g.recycle();
                 }
-                this.f57455g = null;
+                this.f57389g = null;
             }
-            this.f57457i.clearAnimation();
-            this.f57457i.setImageDrawable(null);
-            this.f57458j.clearAnimation();
-            this.f57458j.setImageDrawable(null);
+            this.f57391i.clearAnimation();
+            this.f57391i.setImageDrawable(null);
+            this.f57392j.clearAnimation();
+            this.f57392j.setImageDrawable(null);
             this.k.clearAnimation();
             this.k.setImageDrawable(null);
             GoOnAnimView goOnAnimView = this.l;
@@ -210,7 +210,7 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f57456h = (NewUserGuideActivity) getBaseFragmentActivity();
+            this.f57390h = (NewUserGuideActivity) getBaseFragmentActivity();
         }
     }
 
@@ -221,15 +221,15 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
             try {
                 ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.guide_introduce, (ViewGroup) null);
-                this.f57453e = true;
-                this.f57454f = (ViewGroup) viewGroup2.findViewById(R.id.root_view);
-                this.f57457i = (ImageView) viewGroup2.findViewById(R.id.image_tip_1);
-                this.f57458j = (ImageView) viewGroup2.findViewById(R.id.image_tip_2);
+                this.f57387e = true;
+                this.f57388f = (ViewGroup) viewGroup2.findViewById(R.id.root_view);
+                this.f57391i = (ImageView) viewGroup2.findViewById(R.id.image_tip_1);
+                this.f57392j = (ImageView) viewGroup2.findViewById(R.id.image_tip_2);
                 this.k = (ImageView) viewGroup2.findViewById(R.id.image_tip_3);
-                Bitmap resBitmap = BitmapHelper.getResBitmap(this.f57456h.getPageContext().getPageActivity(), R.drawable.pic_bg_startpage);
-                this.f57455g = resBitmap;
+                Bitmap resBitmap = BitmapHelper.getResBitmap(this.f57390h.getPageContext().getPageActivity(), R.drawable.pic_bg_startpage);
+                this.f57389g = resBitmap;
                 if (resBitmap != null) {
-                    this.f57454f.setBackgroundDrawable(new BitmapDrawable(this.f57456h.getResources(), this.f57455g));
+                    this.f57388f.setBackgroundDrawable(new BitmapDrawable(this.f57390h.getResources(), this.f57389g));
                 }
                 this.l = (GoOnAnimView) viewGroup2.findViewById(R.id.tip_go_on);
                 this.m.removeMessages(0);
@@ -239,10 +239,10 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
                 this.l.setOnClickListener(new b(this));
                 return viewGroup2;
             } catch (InflateException e2) {
-                this.f57453e = false;
+                this.f57387e = false;
                 if (!TbadkApplication.getInst().isDebugMode()) {
                     BdLog.e(e2);
-                    this.f57456h.startMainTabEnterFourm();
+                    this.f57390h.startMainTabEnterFourm();
                     TbadkApplication.getInst().onAppMemoryLow();
                     return new FrameLayout(layoutInflater.getContext());
                 }

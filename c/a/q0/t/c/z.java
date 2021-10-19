@@ -1,7 +1,11 @@
 package c.a.q0.t.c;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.homepage.tabfeed.h5.TabWebFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
@@ -11,16 +15,22 @@ public class z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f14772a;
+    public int f14794a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14773b;
+    public String f14795b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14774c;
+    public String f14796c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14775d;
+    public String f14797d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f14798e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f14799f;
 
     public z() {
         Interceptable interceptable = $ic;
@@ -32,23 +42,25 @@ public class z {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f14772a = 0;
-        this.f14773b = 0;
-        this.f14774c = 0;
-        this.f14775d = 0;
     }
 
-    public void a(JSONObject jSONObject) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.isEmpty(this.f14795b) || this.f14794a <= 0 : invokeV.booleanValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null || jSONObject == null) {
             return;
         }
-        this.f14772a = jSONObject.optInt("days_new_user", 0);
-        this.f14773b = jSONObject.optInt("days_low_active", 0);
-        this.f14774c = jSONObject.optInt("limit_day", 0);
-        this.f14775d = jSONObject.optInt("limit_count", 0);
+        this.f14794a = jSONObject.optInt("tab_type");
+        this.f14795b = jSONObject.optString("tab_name");
+        this.f14796c = jSONObject.optString("tab_code");
+        this.f14797d = jSONObject.optString(TabWebFragment.TAB_URL);
+        this.f14798e = jSONObject.optString("tab_version");
     }
 }

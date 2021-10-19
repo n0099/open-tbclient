@@ -128,7 +128,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
             setContentView(R.layout.person_new_fragment_view);
             this.mFragment = new PersonPolymericFragment();
             getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.mFragment).commit();
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.f().h("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.g().i("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {

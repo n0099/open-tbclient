@@ -11,19 +11,19 @@ public class w implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f41763a;
+    public final /* synthetic */ int f41767a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f41764b;
+    public final /* synthetic */ int f41768b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f41765c;
+    public final /* synthetic */ int f41769c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f41766d;
+    public final /* synthetic */ String f41770d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ TileOverlay f41767e;
+    public final /* synthetic */ TileOverlay f41771e;
 
     public w(TileOverlay tileOverlay, int i2, int i3, int i4, String str) {
         Interceptable interceptable = $ic;
@@ -40,11 +40,11 @@ public class w implements Runnable {
                 return;
             }
         }
-        this.f41767e = tileOverlay;
-        this.f41763a = i2;
-        this.f41764b = i3;
-        this.f41765c = i4;
-        this.f41766d = str;
+        this.f41771e = tileOverlay;
+        this.f41767a = i2;
+        this.f41768b = i3;
+        this.f41769c = i4;
+        this.f41770d = str;
     }
 
     @Override // java.lang.Runnable
@@ -54,15 +54,15 @@ public class w implements Runnable {
         String unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tileProvider = this.f41767e.f41696g;
-            Tile tile = ((FileTileProvider) tileProvider).getTile(this.f41763a, this.f41764b, this.f41765c);
+            tileProvider = this.f41771e.f41700g;
+            Tile tile = ((FileTileProvider) tileProvider).getTile(this.f41767a, this.f41768b, this.f41769c);
             if (tile != null && tile.width == 256 && tile.height == 256) {
-                this.f41767e.a(this.f41763a + "_" + this.f41764b + "_" + this.f41765c, tile);
+                this.f41771e.a(this.f41767a + "_" + this.f41768b + "_" + this.f41769c, tile);
             } else {
-                unused = TileOverlay.f41690b;
+                unused = TileOverlay.f41694b;
             }
-            hashSet = this.f41767e.f41695e;
-            hashSet.remove(this.f41766d);
+            hashSet = this.f41771e.f41699e;
+            hashSet.remove(this.f41770d);
         }
     }
 }

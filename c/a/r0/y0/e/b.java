@@ -1,250 +1,145 @@
 package c.a.r0.y0.e;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import c.a.e.l.e.n;
-import c.a.q0.b.d;
-import c.a.q0.s.q.c2;
-import c.a.q0.s.q.d2;
-import c.a.r0.j3.i0.o;
-import c.a.r0.x0.d.c;
-import c.a.r0.y2.p;
-import c.a.r0.y2.t;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.funad.adapter.FunAdNativeViewHolder;
-import com.baidu.tieba.funad.view.FunAbsAdView;
-import com.baidu.tieba.funad.view.FunAdNativeCommentView;
-import com.baidu.tieba.funad.view.FunAdNativeFrsView;
-import com.baidu.tieba.funad.view.FunAdNativePbView;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.compatible.EditorHelper;
+import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class b extends c.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
+public class b {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile b f28513b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragmentActivity m;
-    public String n;
-    public Set<String> o;
-    public String p;
-    public String q;
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: a  reason: collision with root package name */
+    public Map<String, FunAdSidConfigData> f28514a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f29282e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FunAdNativeViewHolder f29283f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f29284g;
-
-        public a(b bVar, o oVar, FunAdNativeViewHolder funAdNativeViewHolder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, oVar, funAdNativeViewHolder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f29284g = bVar;
-            this.f29282e = oVar;
-            this.f29283f = funAdNativeViewHolder;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f29282e.m(true);
-                this.f29284g.P();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f29283f.getFunAdNativeView().getPageType()).param(TiebaStatic.Params.RESOURCE_ID, this.f29284g.h0()).param("obj_locate", 0));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        super(baseFragmentActivity, bdUniqueId);
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = new HashSet();
-        this.m = baseFragmentActivity;
+        HashMap hashMap = new HashMap();
+        this.f28514a = hashMap;
+        hashMap.clear();
+        this.f28514a.putAll(c());
     }
 
-    public String h0() {
+    public static b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "pb".equals(this.p) ? this.f2961h == AdvertAppInfo.D4 ? "2" : "1" : "" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.l.e.a
-    /* renamed from: i0 */
-    public FunAdNativeViewHolder U(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        FunAbsAdView funAdNativePbView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            BdUniqueId bdUniqueId = this.f2961h;
-            if (bdUniqueId == AdvertAppInfo.D4) {
-                funAdNativePbView = new FunAdNativeCommentView(this.m);
-            } else if (bdUniqueId == AdvertAppInfo.C4) {
-                funAdNativePbView = new FunAdNativeFrsView(this.m);
-            } else {
-                funAdNativePbView = new FunAdNativePbView(this.m);
-            }
-            FunAdNativeViewHolder funAdNativeViewHolder = new FunAdNativeViewHolder(funAdNativePbView, this.m, this.f2961h);
-            funAdNativeViewHolder.setSid(this.n);
-            funAdNativeViewHolder.setSceneKey(this.q);
-            return funAdNativeViewHolder;
-        }
-        return (FunAdNativeViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.l.e.a
-    /* renamed from: j0 */
-    public View a0(int i2, View view, ViewGroup viewGroup, n nVar, FunAdNativeViewHolder funAdNativeViewHolder) {
-        InterceptResult invokeCommon;
-        long j2;
-        o oVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, nVar, funAdNativeViewHolder})) == null) {
-            if (nVar instanceof c2) {
-                d2 d2Var = ((c2) nVar).w;
-                oVar = d2Var.K2;
-                j2 = d2Var.T();
-            } else if (nVar instanceof d2) {
-                d2 d2Var2 = (d2) nVar;
-                oVar = d2Var2.K2;
-                j2 = d2Var2.T();
-            } else {
-                j2 = 0;
-                oVar = nVar instanceof PostData ? ((PostData) nVar).s0 : null;
-            }
-            if (oVar == null) {
-                funAdNativeViewHolder.getFunAdNativeView().hideOrShowView(8);
-                return funAdNativeViewHolder.getView();
-            }
-            if (!"personalize".equals(this.p) && !AdvertAppInfo.D4.equals(this.f2961h)) {
-                this.n = c.e().d(this.q);
-            }
-            BdUniqueId bdUniqueId = this.f2961h;
-            if (bdUniqueId == AdvertAppInfo.C4) {
-                if ("frs".equals(this.p)) {
-                    c.a.r0.x0.a.i().C(this.m, this.n, c.a.r0.x0.a.b(this.p, d.p() ? "1" : "0"), String.valueOf(j2));
-                } else if ("personalize".equals(this.p)) {
-                    c.a.r0.x0.a.i().B(this.m, this.n, c.a.r0.x0.a.b(this.p, d.I() ? "1" : "0"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f28513b == null) {
+                synchronized (b.class) {
+                    if (f28513b == null) {
+                        f28513b = new b();
+                    }
                 }
-            } else if (bdUniqueId == AdvertAppInfo.D4) {
-                c.a.r0.x0.a.i().D(this.m, this.n, c.a.r0.x0.a.b(this.p, d.F() ? "1" : "0"), oVar.e(), oVar.c());
             }
-            funAdNativeViewHolder.setFeedBackListener(new a(this, oVar, funAdNativeViewHolder));
-            funAdNativeViewHolder.getFunAdNativeView().onChangedSkinType();
-            funAdNativeViewHolder.setPage(this.p);
-            funAdNativeViewHolder.setSid(this.n);
-            this.o.add(this.n);
-            funAdNativeViewHolder.showNativeAd(oVar, nVar instanceof c.a.q0.s.q.a ? ((c.a.q0.s.q.a) nVar).position + 1 : -1);
-            return funAdNativeViewHolder.getView();
+            return f28513b;
         }
-        return (View) invokeCommon.objValue;
+        return (b) invokeV.objValue;
     }
 
-    @Override // c.a.r0.y2.t
-    public void k(boolean z) {
+    public final FunAdSidConfigData a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    public void k0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.p = str;
-        }
-    }
-
-    public void l0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.q = str;
-        }
-    }
-
-    public void m0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.n = str;
-        }
-    }
-
-    @Override // c.a.r0.y2.p
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            V v = this.k;
-            if (v != 0 && ((FunAdNativeViewHolder) v).getFunAdNativeView() != null) {
-                ((FunAdNativeViewHolder) this.k).getFunAdNativeView().destroyDownloadButton();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            for (String str : this.o) {
-                c.a.r0.x0.a.i().c(str);
-            }
+            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
+            funAdSidConfigData.parserJson(jSONObject);
+            return funAdSidConfigData;
         }
+        return (FunAdSidConfigData) invokeL.objValue;
     }
 
-    @Override // c.a.r0.y2.p
-    public void onPause() {
-        V v;
+    public FunAdSidConfigData b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (v = this.k) == 0 || ((FunAdNativeViewHolder) v).getFunAdNativeView() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.f28514a == null || TextUtils.isEmpty(str) || !this.f28514a.containsKey(str)) {
+                return null;
+            }
+            return this.f28514a.get(str);
+        }
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public final Map<String, FunAdSidConfigData> c() {
+        InterceptResult invokeV;
+        FunAdSidConfigData d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap hashMap = new HashMap();
+            for (String str : c.e().c()) {
+                if (!TextUtils.isEmpty(str) && (d2 = d(str)) != null) {
+                    hashMap.put(str, d2);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final FunAdSidConfigData d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            JSONObject jSONObject = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String string = c.g().getString(str, "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                jSONObject = new JSONObject(string);
+            } catch (JSONException e2) {
+                BdLog.detailException(e2);
+            }
+            return a(jSONObject);
+        }
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) || this.f28514a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        ((FunAdNativeViewHolder) this.k).getFunAdNativeView().destroyDownloadButton();
+        this.f28514a.put(str, funAdSidConfigData);
+        g(str);
     }
 
-    @Override // c.a.r0.y2.p
-    public void onResume() {
+    public final void g(String str) {
+        FunAdSidConfigData funAdSidConfigData;
+        JSONObject json;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f28514a == null || TextUtils.isEmpty(str) || !this.f28514a.containsKey(str) || (funAdSidConfigData = this.f28514a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
+            return;
         }
+        EditorHelper.putString(c.g(), str, json.toString());
     }
 }

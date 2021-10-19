@@ -10,19 +10,19 @@ public class a implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f39390a;
+    public final /* synthetic */ int f39394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Object f39391b;
+    public final /* synthetic */ Object f39395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f39392c;
+    public final /* synthetic */ String f39396c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f39393d;
+    public final /* synthetic */ String f39397d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ BeanActivity f39394e;
+    public final /* synthetic */ BeanActivity f39398e;
 
     public a(BeanActivity beanActivity, int i2, Object obj, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -39,21 +39,21 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f39394e = beanActivity;
-        this.f39390a = i2;
-        this.f39391b = obj;
-        this.f39392c = str;
-        this.f39393d = str2;
+        this.f39398e = beanActivity;
+        this.f39394a = i2;
+        this.f39395b = obj;
+        this.f39396c = str;
+        this.f39397d = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BeanActivity beanActivity = this.f39394e;
+            BeanActivity beanActivity = this.f39398e;
             if (beanActivity.mAct != null) {
-                beanActivity.handleResponse(this.f39390a, this.f39391b, this.f39392c);
-                this.f39394e.handleResponse(this.f39390a, this.f39391b, this.f39392c, this.f39393d);
+                beanActivity.handleResponse(this.f39394a, this.f39395b, this.f39396c);
+                this.f39398e.handleResponse(this.f39394a, this.f39395b, this.f39396c, this.f39397d);
             }
         }
     }

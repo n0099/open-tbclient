@@ -30,10 +30,10 @@ public class b extends BaseBean<BindCardResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f62666a;
+    public BindFastRequest f62701a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PwdRequest f62667b;
+    public PwdRequest f62702b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> b(Context context) {
@@ -53,16 +53,16 @@ public class b extends BaseBean<BindCardResponse> {
                 return;
             }
         }
-        this.f62666a = null;
-        this.f62667b = null;
-        this.f62666a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
-        this.f62667b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f62701a = null;
+        this.f62702b = null;
+        this.f62701a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
+        this.f62702b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bindFastRequest) == null) {
-            this.f62666a = bindFastRequest;
+            this.f62701a = bindFastRequest;
         }
     }
 
@@ -79,46 +79,46 @@ public class b extends BaseBean<BindCardResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f62666a != null) {
+            if (this.f62701a != null) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62666a.getmBankCard())));
-                arrayList.add(new RestNameValuePair("request_type", this.f62666a.getCardRequestType()));
+                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62701a.getmBankCard())));
+                arrayList.add(new RestNameValuePair("request_type", this.f62701a.getCardRequestType()));
                 arrayList.add(new RestNameValuePair("source_flag", "3"));
-                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f62666a.getServiceType()));
-                if (!TextUtils.isEmpty(this.f62666a.getmName())) {
-                    arrayList.add(new RestNameValuePair(BindCardProtocolActivity.TRUE_NAME, this.f62666a.getmName()));
+                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f62701a.getServiceType()));
+                if (!TextUtils.isEmpty(this.f62701a.getmName())) {
+                    arrayList.add(new RestNameValuePair(BindCardProtocolActivity.TRUE_NAME, this.f62701a.getmName()));
                 }
-                if (!TextUtils.isEmpty(this.f62666a.getCertificateType())) {
-                    arrayList.add(new RestNameValuePair(BindCardProtocolActivity.IDENTITY_TYPE, this.f62666a.getCertificateType()));
+                if (!TextUtils.isEmpty(this.f62701a.getCertificateType())) {
+                    arrayList.add(new RestNameValuePair(BindCardProtocolActivity.IDENTITY_TYPE, this.f62701a.getCertificateType()));
                 }
-                if (!TextUtils.isEmpty(this.f62666a.getmIdCard())) {
-                    arrayList.add(new RestNameValuePair("identity_code", PayUtils.encrypt("identity_code", this.f62666a.getmIdCard())));
+                if (!TextUtils.isEmpty(this.f62701a.getmIdCard())) {
+                    arrayList.add(new RestNameValuePair("identity_code", PayUtils.encrypt("identity_code", this.f62701a.getmIdCard())));
                 }
-                if (!TextUtils.isEmpty(this.f62666a.getmPhone())) {
-                    arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f62666a.getmPhone())));
+                if (!TextUtils.isEmpty(this.f62701a.getmPhone())) {
+                    arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f62701a.getmPhone())));
                 }
-                arrayList.add(new RestNameValuePair("vcode", this.f62666a.getmSmsVCode()));
-                PwdRequest pwdRequest = this.f62667b;
-                if (pwdRequest != null && !TextUtils.isEmpty(pwdRequest.mPayPass) && !TextUtils.isEmpty(this.f62667b.mConfirmPayPass)) {
-                    String handlePwdSimple = PasswordController.handlePwdSimple(this.f62667b.mPayPass);
+                arrayList.add(new RestNameValuePair("vcode", this.f62701a.getmSmsVCode()));
+                PwdRequest pwdRequest = this.f62702b;
+                if (pwdRequest != null && !TextUtils.isEmpty(pwdRequest.mPayPass) && !TextUtils.isEmpty(this.f62702b.mConfirmPayPass)) {
+                    String handlePwdSimple = PasswordController.handlePwdSimple(this.f62702b.mPayPass);
                     String seed = PasswordController.getSeed();
-                    String handlePwd = PasswordController.handlePwd(this.f62667b.mConfirmPayPass, seed);
+                    String handlePwd = PasswordController.handlePwd(this.f62702b.mConfirmPayPass, seed);
                     arrayList.add(new RestNameValuePair("mobile_pass", SecurePay.getInstance().encryptProxy(handlePwdSimple)));
                     arrayList.add(new RestNameValuePair("mobile_pass_confirm", handlePwd));
-                    arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f62667b.mConfirmPayPass)));
+                    arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f62702b.mConfirmPayPass)));
                     arrayList.add(new RestNameValuePair("seed", SecurePay.getInstance().encryptProxy(seed)));
                 }
-                if (!TextUtils.isEmpty(this.f62666a.getmValidDate())) {
-                    arrayList.add(new RestNameValuePair("valid_date", PayUtils.encrypt("valid_date", this.f62666a.getmValidDate())));
+                if (!TextUtils.isEmpty(this.f62701a.getmValidDate())) {
+                    arrayList.add(new RestNameValuePair("valid_date", PayUtils.encrypt("valid_date", this.f62701a.getmValidDate())));
                 }
-                if (!TextUtils.isEmpty(this.f62666a.getmCvv())) {
-                    arrayList.add(new RestNameValuePair("cvv2", PayUtils.encrypt("cvv2", this.f62666a.getmCvv())));
+                if (!TextUtils.isEmpty(this.f62701a.getmCvv())) {
+                    arrayList.add(new RestNameValuePair("cvv2", PayUtils.encrypt("cvv2", this.f62701a.getmCvv())));
                 }
-                if (!TextUtils.isEmpty(this.f62666a.getChannelNo())) {
-                    arrayList.add(new RestNameValuePair("channel_no", this.f62666a.getChannelNo()));
+                if (!TextUtils.isEmpty(this.f62701a.getChannelNo())) {
+                    arrayList.add(new RestNameValuePair("channel_no", this.f62701a.getChannelNo()));
                 }
-                if (!TextUtils.isEmpty(this.f62666a.getSubBankCode())) {
-                    arrayList.add(new RestNameValuePair("sub_bank_code", this.f62666a.getSubBankCode()));
+                if (!TextUtils.isEmpty(this.f62701a.getSubBankCode())) {
+                    arrayList.add(new RestNameValuePair("sub_bank_code", this.f62701a.getSubBankCode()));
                 }
                 PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
                 if (payRequest != null && BaiduPay.PAY_FROM_BIND_CARD.equals(payRequest.getPayFrom())) {
@@ -127,7 +127,7 @@ public class b extends BaseBean<BindCardResponse> {
                         arrayList.add(new RestNameValuePair("order_no", payRequest.mOrderNo));
                     }
                 }
-                if ((this.f62666a.getmBindFrom() == 0 || this.f62666a.getmBindFrom() == 2) && payRequest != null) {
+                if ((this.f62701a.getmBindFrom() == 0 || this.f62701a.getmBindFrom() == 2) && payRequest != null) {
                     if (!TextUtils.isEmpty(payRequest.mSpNO)) {
                         arrayList.add(new RestNameValuePair("sp_no", payRequest.mSpNO));
                     }
@@ -135,15 +135,15 @@ public class b extends BaseBean<BindCardResponse> {
                         arrayList.add(new RestNameValuePair("order_no", payRequest.mOrderNo));
                     }
                 }
-                BindFastRequest bindFastRequest = this.f62666a;
-                if (bindFastRequest != null && bindFastRequest.getmBindFrom() == 1 && !TextUtils.isEmpty(this.f62666a.getSp_no())) {
-                    arrayList.add(new RestNameValuePair("sp_no", this.f62666a.getSp_no()));
+                BindFastRequest bindFastRequest = this.f62701a;
+                if (bindFastRequest != null && bindFastRequest.getmBindFrom() == 1 && !TextUtils.isEmpty(this.f62701a.getSp_no())) {
+                    arrayList.add(new RestNameValuePair("sp_no", this.f62701a.getSp_no()));
                 }
-                BindFastRequest bindFastRequest2 = this.f62666a;
+                BindFastRequest bindFastRequest2 = this.f62701a;
                 if (bindFastRequest2 != null && !TextUtils.isEmpty(bindFastRequest2.mSecurityParams)) {
-                    arrayList.add(new RestNameValuePair("security_sdk_param", this.f62666a.mSecurityParams));
+                    arrayList.add(new RestNameValuePair("security_sdk_param", this.f62701a.mSecurityParams));
                 }
-                BindFastRequest bindFastRequest3 = this.f62666a;
+                BindFastRequest bindFastRequest3 = this.f62701a;
                 if (bindFastRequest3 != null) {
                     arrayList.add(new RestNameValuePair("session_id", bindFastRequest3.getSessionId()));
                 }

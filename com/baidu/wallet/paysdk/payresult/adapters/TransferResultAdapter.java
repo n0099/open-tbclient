@@ -45,18 +45,18 @@ public class TransferResultAdapter extends PayResultAdapter {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             TransferRequest transferRequest = (TransferRequest) PayRequestCache.getInstance().getBeanRequestFromCache("request_id_transfer");
             if (transferRequest != null && transferRequest.mTransferType == 1) {
-                PayResultContent payResultContent = this.f62884c;
+                PayResultContent payResultContent = this.f62919c;
                 if (payResultContent != null && !TextUtils.isEmpty(payResultContent.expected_time)) {
-                    return this.f62884c.expected_time;
+                    return this.f62919c.expected_time;
                 }
             } else if (transferRequest != null && transferRequest.mTransferType == 2) {
                 if (!"3".equals(transferRequest.mPayee_type) && !"2".equals(transferRequest.mPayee_type)) {
-                    PayResultContent payResultContent2 = this.f62884c;
+                    PayResultContent payResultContent2 = this.f62919c;
                     if (payResultContent2 != null && !TextUtils.isEmpty(payResultContent2.expected_time)) {
-                        return this.f62884c.expected_time;
+                        return this.f62919c.expected_time;
                     }
                 } else {
-                    return ResUtils.getString(this.f62882a.get(), "ebpay_none_passid_tips");
+                    return ResUtils.getString(this.f62917a.get(), "ebpay_none_passid_tips");
                 }
             }
             return "";

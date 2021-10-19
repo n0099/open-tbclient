@@ -13,10 +13,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f69492a;
+    public static final c f69527a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f69493b;
+    public static boolean f69528b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,8 +32,8 @@ public class c {
                 return;
             }
         }
-        f69492a = new c();
-        f69493b = false;
+        f69527a = new c();
+        f69528b = false;
     }
 
     public c() {
@@ -53,13 +53,13 @@ public class c {
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            f69493b = z;
+            f69528b = z;
         }
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f69493b) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f69528b) {
             String str3 = "CMCC-SDK:" + str;
             String str4 = "" + str2;
         }
@@ -67,7 +67,7 @@ public class c {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f69493b) {
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f69528b) {
             String str3 = "CMCC-SDK:" + str;
             String str4 = "" + str2;
         }

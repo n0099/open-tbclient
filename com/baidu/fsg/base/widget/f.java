@@ -11,7 +11,7 @@ public class f implements View.OnFocusChangeListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardPopupWindow f39793a;
+    public final /* synthetic */ SafeKeyBoardPopupWindow f39797a;
 
     public f(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class f implements View.OnFocusChangeListener {
                 return;
             }
         }
-        this.f39793a = safeKeyBoardPopupWindow;
+        this.f39797a = safeKeyBoardPopupWindow;
     }
 
     @Override // android.view.View.OnFocusChangeListener

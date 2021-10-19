@@ -31,7 +31,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f69456a;
+    public static a f69491a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,14 +67,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f69456a == null) {
+            if (f69491a == null) {
                 synchronized (a.class) {
-                    if (f69456a == null) {
-                        f69456a = new a();
+                    if (f69491a == null) {
+                        f69491a = new a();
                     }
                 }
             }
-            return f69456a;
+            return f69491a;
         }
         return (a) invokeV.objValue;
     }
@@ -139,7 +139,7 @@ public class a {
                 bVar.a("defendEOF", "0");
             } else {
                 e eVar = new e();
-                eVar.a(aVar.a(b.a.f69400a));
+                eVar.a(aVar.a(b.a.f69435a));
                 eVar.a(hVar);
                 eVar.a(false);
                 aVar.a("isCloseIpv4", q.b());
@@ -148,9 +148,9 @@ public class a {
                 if (aVar.b("use2048PublicKey", false)) {
                     com.cmic.sso.sdk.d.c.a(BaseRequest.TAG, "使用2对应的编码");
                     eVar.b("2");
-                    a2 = i.a().b(aVar.a(b.a.f69400a));
+                    a2 = i.a().b(aVar.a(b.a.f69435a));
                 } else {
-                    a2 = i.a().a(aVar.a(b.a.f69400a));
+                    a2 = i.a().a(aVar.a(b.a.f69435a));
                 }
                 eVar.c(a2);
                 bVar = new b(str, eVar, "POST", aVar.b("traceId"));
@@ -200,16 +200,16 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f69457a;
+                public final /* synthetic */ c f69492a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.cmic.sso.sdk.a f69458b;
+                public final /* synthetic */ com.cmic.sso.sdk.a f69493b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ d f69459c;
+                public final /* synthetic */ d f69494c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f69460d;
+                public final /* synthetic */ a f69495d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -226,17 +226,17 @@ public class a {
                             return;
                         }
                     }
-                    this.f69460d = this;
-                    this.f69457a = cVar;
-                    this.f69458b = aVar;
-                    this.f69459c = dVar;
+                    this.f69495d = this;
+                    this.f69492a = cVar;
+                    this.f69493b = aVar;
+                    this.f69494c = dVar;
                 }
 
                 @Override // com.cmic.sso.sdk.b.d.c
                 public void a(com.cmic.sso.sdk.b.d.b bVar) {
                     String string;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && this.f69457a.g()) {
+                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && this.f69492a.g()) {
                         try {
                             a();
                             JSONObject jSONObject = new JSONObject(bVar.c());
@@ -245,8 +245,8 @@ public class a {
                             } else {
                                 string = jSONObject.getString(MiPushCommandMessage.KEY_RESULT_CODE);
                             }
-                            s.b(this.f69458b, string);
-                            this.f69459c.a(string, jSONObject.optString("desc"), jSONObject);
+                            s.b(this.f69493b, string);
+                            this.f69494c.a(string, jSONObject.optString("desc"), jSONObject);
                         } catch (Exception e2) {
                             e2.printStackTrace();
                             a(com.cmic.sso.sdk.b.d.a.a(102223));
@@ -257,19 +257,19 @@ public class a {
                 @Override // com.cmic.sso.sdk.b.d.c
                 public void a(com.cmic.sso.sdk.b.d.a aVar3) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) && this.f69457a.g()) {
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) && this.f69492a.g()) {
                         a();
-                        s.b(this.f69458b, String.valueOf(aVar3.a()));
-                        this.f69459c.a(String.valueOf(aVar3.a()), aVar3.b(), com.cmic.sso.sdk.auth.c.a(String.valueOf(aVar3.a()), aVar3.b()));
+                        s.b(this.f69493b, String.valueOf(aVar3.a()));
+                        this.f69494c.a(String.valueOf(aVar3.a()), aVar3.b(), com.cmic.sso.sdk.auth.c.a(String.valueOf(aVar3.a()), aVar3.b()));
                     }
                 }
 
                 private void a() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(65537, this) == null) || this.f69457a.a().contains("uniConfig")) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(65537, this) == null) || this.f69492a.a().contains("uniConfig")) {
                         return;
                     }
-                    s.c(this.f69458b, String.valueOf(SystemClock.elapsedRealtime() - this.f69457a.i()));
+                    s.c(this.f69493b, String.valueOf(SystemClock.elapsedRealtime() - this.f69492a.i()));
                 }
             }, aVar);
         }

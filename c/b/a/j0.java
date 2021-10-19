@@ -12,7 +12,7 @@ public abstract class j0<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile T f31375a;
+    public volatile T f31379a;
 
     public j0() {
         Interceptable interceptable = $ic;
@@ -34,14 +34,14 @@ public abstract class j0<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
-            if (this.f31375a == null) {
+            if (this.f31379a == null) {
                 synchronized (this) {
-                    if (this.f31375a == null) {
-                        this.f31375a = a(objArr);
+                    if (this.f31379a == null) {
+                        this.f31379a = a(objArr);
                     }
                 }
             }
-            return this.f31375a;
+            return this.f31379a;
         }
         return (T) invokeL.objValue;
     }

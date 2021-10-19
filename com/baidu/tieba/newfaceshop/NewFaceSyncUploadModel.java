@@ -1,6 +1,6 @@
 package com.baidu.tieba.newfaceshop;
 
-import c.a.r0.e2.d;
+import c.a.r0.f2.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,22 +35,22 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP);
+            return true;
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP);
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
     }

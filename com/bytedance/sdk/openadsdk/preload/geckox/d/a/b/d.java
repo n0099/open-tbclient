@@ -17,7 +17,7 @@ public class d extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<com.bytedanc
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.b f69033d;
+    public com.bytedance.sdk.openadsdk.preload.geckox.b f69068d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class d extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<com.bytedanc
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) {
             super.a(objArr);
-            this.f69033d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
+            this.f69068d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
         }
     }
 
@@ -67,7 +67,7 @@ public class d extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<com.bytedanc
                     try {
                         BsPatch.a(file2, f2, file3.getParentFile(), file3.getName());
                         com.bytedance.sdk.openadsdk.preload.geckox.utils.d.a(f2);
-                        com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.f69033d.a(), file3, file3.length());
+                        com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.f69068d.a(), file3, file3.length());
                         try {
                             return bVar.a((com.bytedance.sdk.openadsdk.preload.b.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>>) new Pair<>(a2, updatePackage));
                         } finally {

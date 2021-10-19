@@ -18,34 +18,34 @@ public class a {
     public int B;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f66977a;
+    public String f67012a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f66978b;
+    public int f67013b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f66979c;
+    public int f67014c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f66980d;
+    public int f67015d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f66981e;
+    public int f67016e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f66982f;
+    public int f67017f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f66983g;
+    public int f67018g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f66984h;
+    public int f67019h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f66985i;
+    public int f67020i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f66986j;
+    public int f67021j;
     public int k;
     public int l;
     public int m;
@@ -76,15 +76,15 @@ public class a {
                 return;
             }
         }
-        this.f66978b = 1;
-        this.f66979c = 1;
-        this.f66980d = 2;
-        this.f66981e = 1;
-        this.f66982f = 100;
-        this.f66983g = 0;
-        this.f66984h = 2;
-        this.f66985i = 1;
-        this.f66986j = 3;
+        this.f67013b = 1;
+        this.f67014c = 1;
+        this.f67015d = 2;
+        this.f67016e = 1;
+        this.f67017f = 100;
+        this.f67018g = 0;
+        this.f67019h = 2;
+        this.f67020i = 1;
+        this.f67021j = 3;
         this.k = -1;
         this.l = -1;
         this.m = -1;
@@ -224,7 +224,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            this.f66986j = i2;
+            this.f67021j = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -234,7 +234,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            this.f66978b = i2;
+            this.f67013b = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -244,7 +244,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-            this.f66979c = i2;
+            this.f67014c = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -254,7 +254,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
-            this.f66980d = i2;
+            this.f67015d = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -264,7 +264,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            this.f66981e = i2;
+            this.f67016e = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -274,7 +274,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
-            this.f66982f = i2;
+            this.f67017f = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -284,7 +284,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
-            this.f66983g = i2;
+            this.f67018g = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -294,7 +294,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-            this.f66984h = i2;
+            this.f67019h = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -304,7 +304,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
-            this.f66985i = i2;
+            this.f67020i = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -364,7 +364,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f66977a = str;
+            this.f67012a = str;
             return this;
         }
         return (a) invokeL.objValue;

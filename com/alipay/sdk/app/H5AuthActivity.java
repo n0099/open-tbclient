@@ -27,7 +27,7 @@ public class H5AuthActivity extends H5PayActivity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Object obj = AuthTask.f35866c;
+            Object obj = AuthTask.f35870c;
             synchronized (obj) {
                 try {
                     obj.notify();

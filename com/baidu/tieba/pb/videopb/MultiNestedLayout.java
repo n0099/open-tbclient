@@ -25,22 +25,22 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f55676e;
+    public View f55610e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NestedScrollingParentHelper f55677f;
+    public NestedScrollingParentHelper f55611f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NestedScrollingChildHelper f55678g;
+    public NestedScrollingChildHelper f55612g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55679h;
+    public int f55613h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int[] f55680i;
+    public final int[] f55614i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f55681j;
+    public int f55615j;
     public int k;
     public c l;
     public a m;
@@ -91,12 +91,12 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f55676e == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f55610e == null) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
                 if (childAt instanceof NestedScrollingChild) {
-                    this.f55676e = childAt;
-                    this.f55679h = childAt.getTop();
+                    this.f55610e = childAt;
+                    this.f55613h = childAt.getTop();
                     return;
                 }
             }
@@ -106,8 +106,8 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f55678g = new NestedScrollingChildHelper(this);
-            this.f55677f = new NestedScrollingParentHelper(this);
+            this.f55612g = new NestedScrollingChildHelper(this);
+            this.f55611f = new NestedScrollingParentHelper(this);
             setNestedScrollingEnabled(true);
         }
     }
@@ -115,49 +115,49 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55676e != null && this.f55679h > -10000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55610e != null && this.f55613h > -10000 : invokeV.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedFling(float f2, float f3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? this.f55678g.dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? this.f55612g.dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreFling(float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.f55678g.dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.f55612g.dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreScroll(int i2, int i3, int[] iArr, int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iArr, iArr2})) == null) ? this.f55678g.dispatchNestedPreScroll(i2, i3, iArr, iArr2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iArr, iArr2})) == null) ? this.f55612g.dispatchNestedPreScroll(i2, i3, iArr, iArr2) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedScroll(int i2, int i3, int i4, int i5, int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) ? this.f55678g.dispatchNestedScroll(i2, i3, i4, i5, iArr) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) ? this.f55612g.dispatchNestedScroll(i2, i3, i4, i5, iArr) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean hasNestedScrollingParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f55678g.hasNestedScrollingParent() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f55612g.hasNestedScrollingParent() : invokeV.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean isNestedScrollingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f55678g.isNestedScrollingEnabled() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f55612g.isNestedScrollingEnabled() : invokeV.booleanValue;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
@@ -165,9 +165,9 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            View view = this.f55676e;
+            View view = this.f55610e;
             if (view != null) {
-                this.f55679h = view.getTop();
+                this.f55613h = view.getTop();
             }
         }
     }
@@ -177,10 +177,10 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (this.f55676e == null) {
+            if (this.f55610e == null) {
                 a();
             }
-            View view = this.f55676e;
+            View view = this.f55610e;
             if (view == null) {
                 return;
             }
@@ -206,7 +206,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     public void onNestedPreScroll(View view, int i2, int i3, int[] iArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) && c()) {
-            int[] iArr2 = this.f55680i;
+            int[] iArr2 = this.f55614i;
             if (i3 > 0 && dispatchNestedPreScroll(i2, i3, iArr2, null)) {
                 iArr[0] = iArr[0] + iArr2[0];
                 iArr[1] = iArr[1] + iArr2[1];
@@ -214,11 +214,11 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
                 i3 -= iArr2[1];
             }
             if (i3 >= 0) {
-                int i5 = this.f55679h;
-                int i6 = this.f55681j;
+                int i5 = this.f55613h;
+                int i6 = this.f55615j;
                 if (i5 - i6 > i3) {
                     iArr[1] = iArr[1] + i3;
-                    this.f55681j = i6 + i3;
+                    this.f55615j = i6 + i3;
                     if (i3 > 0) {
                         this.k = 2;
                         b bVar = this.n;
@@ -228,7 +228,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
                     }
                 } else {
                     iArr[1] = iArr[1] + (i5 - i6);
-                    this.f55681j = i5;
+                    this.f55615j = i5;
                     this.k = 1;
                     c cVar = this.l;
                     if (cVar != null) {
@@ -239,17 +239,17 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
                         bVar2.a(this.k);
                     }
                 }
-            } else if (this.f55681j > Math.abs(i3)) {
+            } else if (this.f55615j > Math.abs(i3)) {
                 iArr[1] = iArr[1] + i3;
-                this.f55681j += i3;
+                this.f55615j += i3;
                 this.k = 2;
                 b bVar3 = this.n;
                 if (bVar3 != null) {
                     bVar3.a(2);
                 }
             } else {
-                iArr[1] = iArr[1] + (-this.f55681j);
-                this.f55681j = 0;
+                iArr[1] = iArr[1] + (-this.f55615j);
+                this.f55615j = 0;
                 this.k = 0;
                 a aVar = this.m;
                 if (aVar != null) {
@@ -260,7 +260,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
                     bVar4.a(this.k);
                 }
             }
-            setTargetOffsetTopAndBottom(-this.f55681j);
+            setTargetOffsetTopAndBottom(-this.f55615j);
         }
     }
 
@@ -276,7 +276,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     public void onNestedScrollAccepted(View view, View view2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048591, this, view, view2, i2) == null) {
-            this.f55677f.onNestedScrollAccepted(view, view2, i2);
+            this.f55611f.onNestedScrollAccepted(view, view2, i2);
             startNestedScroll(i2 & 2);
         }
     }
@@ -299,7 +299,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     public void setMaxOffset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            setOffset(this.f55679h);
+            setOffset(this.f55613h);
         }
     }
 
@@ -314,17 +314,17 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     public void setNestedScrollingEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f55678g.setNestedScrollingEnabled(z);
+            this.f55612g.setNestedScrollingEnabled(z);
         }
     }
 
     public void setOffset(int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048597, this, i2) == null) && c()) {
-            this.f55681j = i2;
+            this.f55615j = i2;
             setTargetOffsetTopAndBottom(-i2);
-            int i3 = this.f55681j;
-            if (i3 == this.f55679h) {
+            int i3 = this.f55615j;
+            if (i3 == this.f55613h) {
                 this.k = 1;
                 c cVar = this.l;
                 if (cVar != null) {
@@ -371,14 +371,14 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     public boolean startNestedScroll(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) ? this.f55678g.startNestedScroll(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) ? this.f55612g.startNestedScroll(i2) : invokeI.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void stopNestedScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            this.f55678g.stopNestedScroll();
+            this.f55612g.stopNestedScroll();
         }
     }
 
@@ -422,9 +422,9 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
                 return;
             }
         }
-        this.f55679h = Integer.MIN_VALUE;
-        this.f55680i = new int[2];
-        this.f55681j = 0;
+        this.f55613h = Integer.MIN_VALUE;
+        this.f55614i = new int[2];
+        this.f55615j = 0;
         this.k = 0;
         this.l = null;
         this.m = null;

@@ -26,28 +26,28 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f66250a;
+    public View f66285a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f66251b;
+    public ImageView f66286b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f66252c;
+    public TextView f66287c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f66253d;
+    public View f66288d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f66254e;
+    public boolean f66289e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f66255f;
+    public b f66290f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CharSequence f66256g;
+    public CharSequence f66291g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CharSequence f66257h;
+    public CharSequence f66292h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TopLayoutImpl(@NonNull Context context) {
@@ -73,14 +73,14 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            View view = this.f66250a;
+            View view = this.f66285a;
             if (view != null) {
                 view.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutImpl.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ TopLayoutImpl f66258a;
+                    public final /* synthetic */ TopLayoutImpl f66293a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -97,27 +97,27 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
                                 return;
                             }
                         }
-                        this.f66258a = this;
+                        this.f66293a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || this.f66258a.f66255f == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || this.f66293a.f66290f == null) {
                             return;
                         }
-                        this.f66258a.f66255f.c(view2);
+                        this.f66293a.f66290f.c(view2);
                     }
                 });
             }
-            ImageView imageView = this.f66251b;
+            ImageView imageView = this.f66286b;
             if (imageView != null) {
                 imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutImpl.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ TopLayoutImpl f66259a;
+                    public final /* synthetic */ TopLayoutImpl f66294a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -134,31 +134,31 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
                                 return;
                             }
                         }
-                        this.f66259a = this;
+                        this.f66294a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            TopLayoutImpl topLayoutImpl = this.f66259a;
-                            topLayoutImpl.f66254e = !topLayoutImpl.f66254e;
-                            this.f66259a.f66251b.setImageResource(this.f66259a.f66254e ? t.d(this.f66259a.getContext(), "tt_mute") : t.d(this.f66259a.getContext(), "tt_unmute"));
-                            if (this.f66259a.f66255f != null) {
-                                this.f66259a.f66255f.b(view2);
+                            TopLayoutImpl topLayoutImpl = this.f66294a;
+                            topLayoutImpl.f66289e = !topLayoutImpl.f66289e;
+                            this.f66294a.f66286b.setImageResource(this.f66294a.f66289e ? t.d(this.f66294a.getContext(), "tt_mute") : t.d(this.f66294a.getContext(), "tt_unmute"));
+                            if (this.f66294a.f66290f != null) {
+                                this.f66294a.f66290f.b(view2);
                             }
                         }
                     }
                 });
             }
-            TextView textView = this.f66252c;
+            TextView textView = this.f66287c;
             if (textView != null) {
                 textView.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutImpl.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ TopLayoutImpl f66260a;
+                    public final /* synthetic */ TopLayoutImpl f66295a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -175,27 +175,27 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
                                 return;
                             }
                         }
-                        this.f66260a = this;
+                        this.f66295a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || this.f66260a.f66255f == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || this.f66295a.f66290f == null) {
                             return;
                         }
-                        this.f66260a.f66255f.a(view2);
+                        this.f66295a.f66290f.a(view2);
                     }
                 });
             }
-            View view2 = this.f66253d;
+            View view2 = this.f66288d;
             if (view2 != null) {
                 view2.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.top.TopLayoutImpl.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ TopLayoutImpl f66261a;
+                    public final /* synthetic */ TopLayoutImpl f66296a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -212,16 +212,16 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
                                 return;
                             }
                         }
-                        this.f66261a = this;
+                        this.f66296a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view3) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) || this.f66261a.f66255f == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) || this.f66296a.f66290f == null) {
                             return;
                         }
-                        this.f66261a.f66255f.d(view3);
+                        this.f66296a.f66290f.d(view3);
                     }
                 });
             }
@@ -232,7 +232,7 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f66257h = "";
+            this.f66292h = "";
         }
     }
 
@@ -241,14 +241,14 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             LayoutInflater.from(getContext()).inflate(t.f(getContext(), "tt_top_reward_dislike_2"), (ViewGroup) this, true);
-            this.f66250a = findViewById(t.e(getContext(), "tt_top_dislike"));
-            this.f66251b = (ImageView) findViewById(t.e(getContext(), "tt_top_mute"));
-            this.f66252c = (TextView) findViewById(t.e(getContext(), "tt_top_skip"));
-            this.f66253d = findViewById(t.e(getContext(), "tt_video_ad_close_layout"));
-            this.f66252c.setVisibility(0);
-            this.f66252c.setText("");
-            this.f66252c.setEnabled(false);
-            this.f66252c.setClickable(false);
+            this.f66285a = findViewById(t.e(getContext(), "tt_top_dislike"));
+            this.f66286b = (ImageView) findViewById(t.e(getContext(), "tt_top_mute"));
+            this.f66287c = (TextView) findViewById(t.e(getContext(), "tt_top_skip"));
+            this.f66288d = findViewById(t.e(getContext(), "tt_video_ad_close_layout"));
+            this.f66287c.setVisibility(0);
+            this.f66287c.setText("");
+            this.f66287c.setEnabled(false);
+            this.f66287c.setClickable(false);
             f();
             return this;
         }
@@ -259,14 +259,14 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
     public View getCloseButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f66253d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f66288d : (View) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setCloseButtonAlpha(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            s.a(this.f66253d, f2);
+            s.a(this.f66288d, f2);
         }
     }
 
@@ -274,7 +274,7 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
     public void setListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f66255f = bVar;
+            this.f66290f = bVar;
         }
     }
 
@@ -282,7 +282,7 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
     public void setShowClose(boolean z) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (view = this.f66253d) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (view = this.f66288d) == null) {
             return;
         }
         view.setVisibility(z ? 0 : 4);
@@ -292,7 +292,7 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
     public void setShowDislike(boolean z) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (view = this.f66250a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (view = this.f66285a) == null) {
             return;
         }
         view.setVisibility(z ? 0 : 8);
@@ -302,23 +302,23 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
     public void setShowSkip(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (textView = this.f66252c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (textView = this.f66287c) == null) {
             return;
         }
         if (!z) {
             textView.setText("");
         }
-        if (this.f66252c.getVisibility() == 4) {
+        if (this.f66287c.getVisibility() == 4) {
             return;
         }
-        this.f66252c.setVisibility(z ? 0 : 8);
+        this.f66287c.setVisibility(z ? 0 : 8);
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowSound(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (imageView = this.f66251b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (imageView = this.f66286b) == null) {
             return;
         }
         imageView.setVisibility(z ? 0 : 8);
@@ -328,11 +328,11 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
     public void setSkipEnable(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (textView = this.f66252c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (textView = this.f66287c) == null) {
             return;
         }
         textView.setEnabled(z);
-        this.f66252c.setClickable(z);
+        this.f66287c.setClickable(z);
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
@@ -340,13 +340,13 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
         int d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f66254e = z;
+            this.f66289e = z;
             if (z) {
                 d2 = t.d(getContext(), "tt_mute");
             } else {
                 d2 = t.d(getContext(), "tt_unmute");
             }
-            this.f66251b.setImageResource(d2);
+            this.f66286b.setImageResource(d2);
         }
     }
 
@@ -375,7 +375,7 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
     public void b() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (view = this.f66253d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (view = this.f66288d) == null) {
             return;
         }
         view.performClick();
@@ -385,7 +385,7 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
     public void c() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (imageView = this.f66251b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (imageView = this.f66286b) == null) {
             return;
         }
         imageView.performClick();
@@ -410,8 +410,8 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
                 return;
             }
         }
-        this.f66256g = "";
-        this.f66257h = "";
+        this.f66291g = "";
+        this.f66292h = "";
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
@@ -419,17 +419,17 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, charSequence2) == null) {
             if (!TextUtils.isEmpty(charSequence)) {
-                this.f66256g = charSequence;
+                this.f66291g = charSequence;
             }
             if (!TextUtils.isEmpty(charSequence2)) {
-                this.f66257h = charSequence2;
+                this.f66292h = charSequence2;
             }
-            if (this.f66252c != null) {
-                String str = ((Object) this.f66256g) + "s";
-                if (!TextUtils.isEmpty(this.f66257h)) {
-                    str = ((Object) str) + " | " + ((Object) this.f66257h);
+            if (this.f66287c != null) {
+                String str = ((Object) this.f66291g) + "s";
+                if (!TextUtils.isEmpty(this.f66292h)) {
+                    str = ((Object) str) + " | " + ((Object) this.f66292h);
                 }
-                this.f66252c.setText(str);
+                this.f66287c.setText(str);
             }
         }
     }
@@ -438,7 +438,7 @@ public class TopLayoutImpl extends FrameLayout implements a<TopLayoutImpl> {
     public void a() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (textView = this.f66252c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (textView = this.f66287c) == null) {
             return;
         }
         textView.performClick();

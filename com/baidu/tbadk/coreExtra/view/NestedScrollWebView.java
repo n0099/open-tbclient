@@ -26,16 +26,16 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int[] f48294g;
+    public final int[] f48218g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int[] f48295h;
+    public final int[] f48219h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f48296i;
+    public int f48220i;
 
     /* renamed from: j  reason: collision with root package name */
-    public VelocityTracker f48297j;
+    public VelocityTracker f48221j;
     public int k;
     public int l;
     public OverScroller m;
@@ -75,26 +75,26 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
                 return;
             }
         }
-        this.f48294g = new int[2];
-        this.f48295h = new int[2];
+        this.f48218g = new int[2];
+        this.f48219h = new int[2];
         init();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f48297j == null) {
-            this.f48297j = VelocityTracker.obtain();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f48221j == null) {
+            this.f48221j = VelocityTracker.obtain();
         }
     }
 
     public final void b() {
         VelocityTracker velocityTracker;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.f48297j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.f48221j) == null) {
             return;
         }
         velocityTracker.recycle();
-        this.f48297j = null;
+        this.f48221j = null;
     }
 
     @Override // android.webkit.WebView, android.view.View
@@ -223,11 +223,11 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
                 if (action != 1) {
                     if (action == 2) {
                         int rawY = (int) motionEvent.getRawY();
-                        int i3 = this.f48296i - rawY;
-                        if (dispatchNestedPreScroll(0, i3, this.f48294g, this.f48295h)) {
-                            obtain.offsetLocation(0.0f, this.f48294g[1]);
+                        int i3 = this.f48220i - rawY;
+                        if (dispatchNestedPreScroll(0, i3, this.f48218g, this.f48219h)) {
+                            obtain.offsetLocation(0.0f, this.f48218g[1]);
                         }
-                        this.f48296i = rawY;
+                        this.f48220i = rawY;
                         int scrollY = getScrollY();
                         if (scrollY == 0) {
                             i2 = i3;
@@ -240,13 +240,13 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
                                 i2 = 0;
                             }
                         }
-                        this.f48297j.addMovement(obtain);
+                        this.f48221j.addMovement(obtain);
                         boolean onTouchEvent = super.onTouchEvent(obtain);
-                        dispatchNestedScroll(0, i3 - i2, 0, i2, this.f48295h);
+                        dispatchNestedScroll(0, i3 - i2, 0, i2, this.f48219h);
                         return onTouchEvent;
                     }
                 }
-                VelocityTracker velocityTracker = this.f48297j;
+                VelocityTracker velocityTracker = this.f48221j;
                 velocityTracker.computeCurrentVelocity(1000, this.l);
                 int yVelocity = (int) velocityTracker.getYVelocity();
                 if (Math.abs(yVelocity) > this.k) {
@@ -255,9 +255,9 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
                 stopNestedScroll();
                 b();
             } else {
-                this.f48296i = (int) motionEvent.getRawY();
+                this.f48220i = (int) motionEvent.getRawY();
                 startNestedScroll(2);
-                this.f48297j.addMovement(obtain);
+                this.f48221j.addMovement(obtain);
                 this.m.computeScrollOffset();
                 if (!this.m.isFinished()) {
                     this.m.abortAnimation();
@@ -347,8 +347,8 @@ public class NestedScrollWebView extends ScrollBridgeWebview implements NestedSc
                 return;
             }
         }
-        this.f48294g = new int[2];
-        this.f48295h = new int[2];
+        this.f48218g = new int[2];
+        this.f48219h = new int[2];
         init();
     }
 }

@@ -33,29 +33,29 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static h f13509h;
+    public static h f13528h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13510a;
+    public boolean f13529a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Class<? extends c.a.q0.j0.a>, c.a.q0.j0.b> f13511b;
+    public final Map<Class<? extends c.a.q0.j0.a>, c.a.q0.j0.b> f13530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<Class<? extends c.a.q0.j0.a>, LinkedList<i>> f13512c;
+    public final Map<Class<? extends c.a.q0.j0.a>, LinkedList<i>> f13531c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f13513d;
+    public final Handler f13532d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f13514e;
+    public d f13533e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.q0.j0.c f13515f;
+    public final c.a.q0.j0.c f13534f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a.q0.n.g f13516g;
+    public final c.a.q0.n.g f13535g;
 
     /* loaded from: classes3.dex */
     public class a implements c.a.q0.j0.c {
@@ -63,7 +63,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f13517a;
+        public final /* synthetic */ h f13536a;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class h {
                     return;
                 }
             }
-            this.f13517a = hVar;
+            this.f13536a = hVar;
         }
 
         @Override // c.a.q0.j0.c
         public void a(c.a.q0.j0.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f13517a.d(aVar);
+                this.f13536a.d(aVar);
             }
         }
     }
@@ -98,10 +98,10 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.j0.a f13518e;
+        public final /* synthetic */ c.a.q0.j0.a f13537e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f13519f;
+        public final /* synthetic */ h f13538f;
 
         public b(h hVar, c.a.q0.j0.a aVar) {
             Interceptable interceptable = $ic;
@@ -118,15 +118,15 @@ public class h {
                     return;
                 }
             }
-            this.f13519f = hVar;
-            this.f13518e = aVar;
+            this.f13538f = hVar;
+            this.f13537e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13519f.c(this.f13518e);
+                this.f13538f.c(this.f13537e);
             }
         }
     }
@@ -137,7 +137,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f13520e;
+        public final /* synthetic */ h f13539e;
 
         public c(h hVar) {
             Interceptable interceptable = $ic;
@@ -154,14 +154,14 @@ public class h {
                     return;
                 }
             }
-            this.f13520e = hVar;
+            this.f13539e = hVar;
         }
 
         @Override // c.a.q0.n.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && (activity instanceof TbPageContextSupport)) {
-                this.f13520e.n(((TbPageContextSupport) activity).getPageContext().getUniqueId());
+                this.f13539e.n(((TbPageContextSupport) activity).getPageContext().getUniqueId());
             }
         }
     }
@@ -194,26 +194,26 @@ public class h {
                 return;
             }
         }
-        this.f13510a = false;
-        this.f13513d = new Handler(Looper.getMainLooper());
-        this.f13515f = new a(this);
-        this.f13516g = new c(this);
-        this.f13511b = new HashMap();
-        this.f13512c = new HashMap();
+        this.f13529a = false;
+        this.f13532d = new Handler(Looper.getMainLooper());
+        this.f13534f = new a(this);
+        this.f13535g = new c(this);
+        this.f13530b = new HashMap();
+        this.f13531c = new HashMap();
     }
 
     public static h f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f13509h == null) {
+            if (f13528h == null) {
                 synchronized (h.class) {
-                    if (f13509h == null) {
-                        f13509h = new h();
+                    if (f13528h == null) {
+                        f13528h = new h();
                     }
                 }
             }
-            return f13509h;
+            return f13528h;
         }
         return (h) invokeV.objValue;
     }
@@ -232,7 +232,7 @@ public class h {
         }
         Class<?> cls = aVar.getClass();
         try {
-            c.a.q0.j0.b bVar = this.f13511b.get(cls);
+            c.a.q0.j0.b bVar = this.f13530b.get(cls);
             if (bVar != null) {
                 bVar.onEvent(aVar);
             }
@@ -240,7 +240,7 @@ public class h {
             BdLog.detailException(cls.getName(), e2);
         }
         try {
-            LinkedList<i> linkedList = this.f13512c.get(cls);
+            LinkedList<i> linkedList = this.f13531c.get(cls);
             if (ListUtils.isEmpty(linkedList)) {
                 return;
             }
@@ -265,7 +265,7 @@ public class h {
             if (l.C()) {
                 c(aVar);
             } else {
-                this.f13513d.post(new b(this, aVar));
+                this.f13532d.post(new b(this, aVar));
             }
         }
     }
@@ -286,16 +286,16 @@ public class h {
 
     public void g(@NonNull Application application) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, application) == null) || this.f13510a) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, application) == null) || this.f13529a) {
             return;
         }
         f.g();
         k(application);
         e eVar = new e(application);
-        this.f13514e = eVar;
-        eVar.c(this.f13515f);
-        this.f13514e.a();
-        this.f13510a = true;
+        this.f13533e = eVar;
+        eVar.c(this.f13534f);
+        this.f13533e.a();
+        this.f13529a = true;
     }
 
     public void h(@NonNull c.a.q0.j0.a aVar) {
@@ -319,7 +319,7 @@ public class h {
     public final void j(c.a.q0.j0.a aVar) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || (dVar = this.f13514e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || (dVar = this.f13533e) == null) {
             return;
         }
         dVar.b(aVar);
@@ -329,7 +329,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, application) == null) {
             try {
-                application.registerActivityLifecycleCallbacks(this.f13516g);
+                application.registerActivityLifecycleCallbacks(this.f13535g);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -339,21 +339,21 @@ public class h {
     public void l(@NonNull Class<? extends c.a.q0.j0.a> cls, @NonNull c.a.q0.j0.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, cls, bVar) == null) {
-            if (this.f13511b.containsKey(cls)) {
+            if (this.f13530b.containsKey(cls)) {
                 BdLog.e(cls + " has existed, Please unRegister old listener first！");
                 return;
             }
-            this.f13511b.put(cls, bVar);
+            this.f13530b.put(cls, bVar);
         }
     }
 
     public void m(@NonNull Class<? extends c.a.q0.j0.a> cls, @NonNull i iVar, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, iVar, bdUniqueId) == null) {
-            LinkedList<i> linkedList = this.f13512c.get(cls);
+            LinkedList<i> linkedList = this.f13531c.get(cls);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
-                this.f13512c.put(cls, linkedList);
+                this.f13531c.put(cls, linkedList);
             }
             if (linkedList.contains(iVar)) {
                 BdLog.e("listener has existed, Please unRegister old listener first！");
@@ -370,7 +370,7 @@ public class h {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) || bdUniqueId == null) {
             return;
         }
-        for (Map.Entry<Class<? extends c.a.q0.j0.a>, LinkedList<i>> entry : this.f13512c.entrySet()) {
+        for (Map.Entry<Class<? extends c.a.q0.j0.a>, LinkedList<i>> entry : this.f13531c.entrySet()) {
             LinkedList<i> value = entry.getValue();
             if (!ListUtils.isEmpty(value)) {
                 Iterator<i> it = value.iterator();

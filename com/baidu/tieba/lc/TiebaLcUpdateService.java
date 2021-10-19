@@ -3,7 +3,7 @@ package com.baidu.tieba.lc;
 import android.content.Intent;
 import android.os.IBinder;
 import androidx.annotation.Nullable;
-import c.a.r0.o1.b;
+import c.a.r0.p1.b;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;

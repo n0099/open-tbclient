@@ -16,7 +16,7 @@ public final class y0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SharedPreferences f31472a;
+    public final SharedPreferences f31476a;
 
     @WorkerThread
     public y0(Context context) {
@@ -34,7 +34,7 @@ public final class y0 {
                 return;
             }
         }
-        this.f31472a = context.getSharedPreferences("device_register_oaid_refine", 0);
+        this.f31476a = context.getSharedPreferences("device_register_oaid_refine", 0);
     }
 
     @Nullable
@@ -42,7 +42,7 @@ public final class y0 {
     public x0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? x0.a(this.f31472a.getString("oaid", "")) : (x0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? x0.a(this.f31476a.getString("oaid", "")) : (x0) invokeV.objValue;
     }
 
     @WorkerThread
@@ -51,6 +51,6 @@ public final class y0 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x0Var) == null) || x0Var == null) {
             return;
         }
-        this.f31472a.edit().putString("oaid", x0Var.c().toString()).apply();
+        this.f31476a.edit().putString("oaid", x0Var.c().toString()).apply();
     }
 }

@@ -12,13 +12,13 @@ public class o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30100a;
+    public String f30147a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30101b;
+    public String f30148b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30102c;
+    public boolean f30149c;
 
     public o(String str, String str2, String str3, boolean z) {
         Interceptable interceptable = $ic;
@@ -35,27 +35,27 @@ public class o {
                 return;
             }
         }
-        this.f30102c = false;
-        this.f30100a = str;
-        this.f30101b = str2;
-        this.f30102c = z;
+        this.f30149c = false;
+        this.f30147a = str;
+        this.f30148b = str2;
+        this.f30149c = z;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30100a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30147a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30101b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30148b : (String) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30102c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30149c : invokeV.booleanValue;
     }
 }

@@ -44,13 +44,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public QRCodeWhiteListResponse f63946a;
+    public QRCodeWhiteListResponse f63981a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f63947b;
+    public Handler f63982b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f63948c;
+    public b f63983c;
 
     /* renamed from: com.baidu.wallet.qrcodescanner.a.a$2  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -59,13 +59,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f63954a;
+        public final /* synthetic */ String f63989a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f63955b;
+        public final /* synthetic */ Context f63990b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f63956c;
+        public final /* synthetic */ a f63991c;
 
         public AnonymousClass2(a aVar, String str, Context context) {
             Interceptable interceptable = $ic;
@@ -82,27 +82,27 @@ public class a {
                     return;
                 }
             }
-            this.f63956c = aVar;
-            this.f63954a = str;
-            this.f63955b = context;
+            this.f63991c = aVar;
+            this.f63989a = str;
+            this.f63990b = context;
         }
 
         @Override // com.baidu.apollon.beans.IBeanResponseCallback
         public void onBeanExecFailure(int i2, int i3, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-                if (this.f63956c.f63947b == null) {
-                    this.f63956c.f63947b = new Handler(Looper.getMainLooper());
+                if (this.f63991c.f63982b == null) {
+                    this.f63991c.f63982b = new Handler(Looper.getMainLooper());
                 }
-                this.f63956c.f63947b.post(new Runnable(this, i3) { // from class: com.baidu.wallet.qrcodescanner.a.a.2.2
+                this.f63991c.f63982b.post(new Runnable(this, i3) { // from class: com.baidu.wallet.qrcodescanner.a.a.2.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ int f63959a;
+                    public final /* synthetic */ int f63994a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass2 f63960b;
+                    public final /* synthetic */ AnonymousClass2 f63995b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -119,21 +119,21 @@ public class a {
                                 return;
                             }
                         }
-                        this.f63960b = this;
-                        this.f63959a = i3;
+                        this.f63995b = this;
+                        this.f63994a = i3;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (this.f63959a == 5003) {
-                                WalletLoginHelper.getInstance().login(new LoginBackListenerProxy(this.f63960b.f63955b, new ILoginBackListener(this) { // from class: com.baidu.wallet.qrcodescanner.a.a.2.2.1
+                            if (this.f63994a == 5003) {
+                                WalletLoginHelper.getInstance().login(new LoginBackListenerProxy(this.f63995b.f63990b, new ILoginBackListener(this) { // from class: com.baidu.wallet.qrcodescanner.a.a.2.2.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ RunnableC18702 f63961a;
+                                    public final /* synthetic */ RunnableC18722 f63996a;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -150,34 +150,34 @@ public class a {
                                                 return;
                                             }
                                         }
-                                        this.f63961a = this;
+                                        this.f63996a = this;
                                     }
 
                                     @Override // com.baidu.wallet.api.ILoginBackListener
                                     public void onFail(int i4, String str2) {
                                         Interceptable interceptable3 = $ic;
-                                        if (!(interceptable3 == null || interceptable3.invokeIL(1048576, this, i4, str2) == null) || this.f63961a.f63960b.f63956c.f63948c == null) {
+                                        if (!(interceptable3 == null || interceptable3.invokeIL(1048576, this, i4, str2) == null) || this.f63996a.f63995b.f63991c.f63983c == null) {
                                             return;
                                         }
-                                        this.f63961a.f63960b.f63956c.f63948c.onResultFail(this.f63961a.f63960b.f63954a, str2);
-                                        this.f63961a.f63960b.f63956c.f63948c = null;
+                                        this.f63996a.f63995b.f63991c.f63983c.onResultFail(this.f63996a.f63995b.f63989a, str2);
+                                        this.f63996a.f63995b.f63991c.f63983c = null;
                                     }
 
                                     @Override // com.baidu.wallet.api.ILoginBackListener
                                     public void onSuccess(int i4, String str2) {
                                         Interceptable interceptable3 = $ic;
-                                        if (!(interceptable3 == null || interceptable3.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, str2) == null) || this.f63961a.f63960b.f63956c.f63948c == null) {
+                                        if (!(interceptable3 == null || interceptable3.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, str2) == null) || this.f63996a.f63995b.f63991c.f63983c == null) {
                                             return;
                                         }
-                                        this.f63961a.f63960b.f63956c.f63948c.onResultFail(this.f63961a.f63960b.f63954a, "");
-                                        this.f63961a.f63960b.f63956c.f63948c = null;
+                                        this.f63996a.f63995b.f63991c.f63983c.onResultFail(this.f63996a.f63995b.f63989a, "");
+                                        this.f63996a.f63995b.f63991c.f63983c = null;
                                     }
                                 }));
                                 return;
                             }
-                            AnonymousClass2 anonymousClass2 = this.f63960b;
-                            a aVar = anonymousClass2.f63956c;
-                            aVar.a(anonymousClass2.f63955b, anonymousClass2.f63954a, aVar.f63948c, false, false);
+                            AnonymousClass2 anonymousClass2 = this.f63995b;
+                            a aVar = anonymousClass2.f63991c;
+                            aVar.a(anonymousClass2.f63990b, anonymousClass2.f63989a, aVar.f63983c, false, false);
                         }
                     }
                 });
@@ -192,18 +192,18 @@ public class a {
                 if (qRCodeShortUrlResponse == null || !qRCodeShortUrlResponse.checkResponseValidity()) {
                     return;
                 }
-                if (this.f63956c.f63947b == null) {
-                    this.f63956c.f63947b = new Handler(Looper.getMainLooper());
+                if (this.f63991c.f63982b == null) {
+                    this.f63991c.f63982b = new Handler(Looper.getMainLooper());
                 }
-                this.f63956c.f63947b.post(new Runnable(this, qRCodeShortUrlResponse) { // from class: com.baidu.wallet.qrcodescanner.a.a.2.1
+                this.f63991c.f63982b.post(new Runnable(this, qRCodeShortUrlResponse) { // from class: com.baidu.wallet.qrcodescanner.a.a.2.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ QRCodeShortUrlResponse f63957a;
+                    public final /* synthetic */ QRCodeShortUrlResponse f63992a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass2 f63958b;
+                    public final /* synthetic */ AnonymousClass2 f63993b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -220,31 +220,31 @@ public class a {
                                 return;
                             }
                         }
-                        this.f63958b = this;
-                        this.f63957a = qRCodeShortUrlResponse;
+                        this.f63993b = this;
+                        this.f63992a = qRCodeShortUrlResponse;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if ("500".equals(this.f63957a.type) || "3".equals(this.f63957a.type) || "501".equals(this.f63957a.type)) {
-                                if (this.f63958b.f63956c.f63948c != null) {
+                            if ("500".equals(this.f63992a.type) || "3".equals(this.f63992a.type) || "501".equals(this.f63992a.type)) {
+                                if (this.f63993b.f63991c.f63983c != null) {
                                     b.a aVar = new b.a();
-                                    QRCodeShortUrlResponse qRCodeShortUrlResponse2 = this.f63957a;
-                                    aVar.f63963a = qRCodeShortUrlResponse2.type;
-                                    aVar.f63964b = qRCodeShortUrlResponse2.link_addr;
-                                    aVar.f63965c = qRCodeShortUrlResponse2.params;
-                                    aVar.f63966d = qRCodeShortUrlResponse2.err;
-                                    this.f63958b.f63956c.f63948c.onResultSuccessCallBack(this.f63958b.f63954a, aVar, true);
-                                    this.f63958b.f63956c.f63948c = null;
+                                    QRCodeShortUrlResponse qRCodeShortUrlResponse2 = this.f63992a;
+                                    aVar.f63998a = qRCodeShortUrlResponse2.type;
+                                    aVar.f63999b = qRCodeShortUrlResponse2.link_addr;
+                                    aVar.f64000c = qRCodeShortUrlResponse2.params;
+                                    aVar.f64001d = qRCodeShortUrlResponse2.err;
+                                    this.f63993b.f63991c.f63983c.onResultSuccessCallBack(this.f63993b.f63989a, aVar, true);
+                                    this.f63993b.f63991c.f63983c = null;
                                     return;
                                 }
                                 return;
                             }
-                            AnonymousClass2 anonymousClass2 = this.f63958b;
-                            a aVar2 = anonymousClass2.f63956c;
-                            aVar2.a(anonymousClass2.f63955b, this.f63957a.link_addr, aVar2.f63948c, false, false);
+                            AnonymousClass2 anonymousClass2 = this.f63993b;
+                            a aVar2 = anonymousClass2.f63991c;
+                            aVar2.a(anonymousClass2.f63990b, this.f63992a.link_addr, aVar2.f63983c, false, false);
                         }
                     }
                 });
@@ -254,11 +254,11 @@ public class a {
 
     /* renamed from: com.baidu.wallet.qrcodescanner.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1871a {
+    public static class C1873a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f63962a;
+        public static a f63997a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -274,7 +274,7 @@ public class a {
                     return;
                 }
             }
-            f63962a = new a();
+            f63997a = new a();
         }
     }
 
@@ -282,10 +282,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, str)) == null) {
-            if (this.f63946a == null || TextUtils.isEmpty(str)) {
+            if (this.f63981a == null || TextUtils.isEmpty(str)) {
                 return false;
             }
-            for (QRCodeWhiteListResponse.Group group : this.f63946a.getDataGroup()) {
+            for (QRCodeWhiteListResponse.Group group : this.f63981a.getDataGroup()) {
                 if (a(str, group.blacklist_preg)) {
                     return true;
                 }
@@ -308,14 +308,14 @@ public class a {
                 return;
             }
         }
-        this.f63947b = new Handler(Looper.getMainLooper());
+        this.f63982b = new Handler(Looper.getMainLooper());
     }
 
     private boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, str)) == null) {
-            for (QRCodeWhiteListResponse.Group group : this.f63946a.getDataGroup()) {
+            for (QRCodeWhiteListResponse.Group group : this.f63981a.getDataGroup()) {
                 if (a(str, group.lightapp_outer_open_preg)) {
                     return true;
                 }
@@ -329,10 +329,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (this.f63946a == null || TextUtils.isEmpty(str)) {
+            if (this.f63981a == null || TextUtils.isEmpty(str)) {
                 return false;
             }
-            for (QRCodeWhiteListResponse.Group group : this.f63946a.getDataGroup()) {
+            for (QRCodeWhiteListResponse.Group group : this.f63981a.getDataGroup()) {
                 if (a(str, group.url_preg)) {
                     return true;
                 }
@@ -345,7 +345,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1871a.f63962a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1873a.f63997a : (a) invokeV.objValue;
     }
 
     public void b() {
@@ -364,14 +364,14 @@ public class a {
         }
         BeanManager.getInstance().removeAllBeans("QRCodeScannerGetWhiteList");
         com.baidu.wallet.qrcodescanner.beans.b bVar3 = (com.baidu.wallet.qrcodescanner.beans.b) QRCodeScannerBeanFactory.getInstance().getBean(context, QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, "QRCodeScannerGetWhiteList");
-        if (this.f63946a == null) {
-            this.f63946a = a(context);
+        if (this.f63981a == null) {
+            this.f63981a = a(context);
         }
-        QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f63946a;
+        QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f63981a;
         if (qRCodeWhiteListResponse != null) {
             a(qRCodeWhiteListResponse, bVar, bVar2);
         }
-        QRCodeWhiteListResponse qRCodeWhiteListResponse2 = this.f63946a;
+        QRCodeWhiteListResponse qRCodeWhiteListResponse2 = this.f63981a;
         if (qRCodeWhiteListResponse2 != null && (category = qRCodeWhiteListResponse2.whitelist) != null) {
             bVar3.a(category.fingerprint);
         }
@@ -380,16 +380,16 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f63949a;
+            public final /* synthetic */ Context f63984a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f63950b;
+            public final /* synthetic */ b f63985b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ b f63951c;
+            public final /* synthetic */ b f63986c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ a f63952d;
+            public final /* synthetic */ a f63987d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -406,10 +406,10 @@ public class a {
                         return;
                     }
                 }
-                this.f63952d = this;
-                this.f63949a = context;
-                this.f63950b = bVar;
-                this.f63951c = bVar2;
+                this.f63987d = this;
+                this.f63984a = context;
+                this.f63985b = bVar;
+                this.f63986c = bVar2;
             }
 
             @Override // com.baidu.apollon.beans.IBeanResponseCallback
@@ -425,14 +425,14 @@ public class a {
                 if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
                     QRCodeWhiteListResponse qRCodeWhiteListResponse3 = obj instanceof QRCodeWhiteListResponse ? (QRCodeWhiteListResponse) obj : null;
                     if (qRCodeWhiteListResponse3 != null && qRCodeWhiteListResponse3.checkResponseValidity() && qRCodeWhiteListResponse3.hasData()) {
-                        this.f63952d.f63946a = qRCodeWhiteListResponse3;
-                        this.f63952d.f63946a.doStoreResponse(this.f63949a);
-                        this.f63952d.f63947b.post(new Runnable(this) { // from class: com.baidu.wallet.qrcodescanner.a.a.1.1
+                        this.f63987d.f63981a = qRCodeWhiteListResponse3;
+                        this.f63987d.f63981a.doStoreResponse(this.f63984a);
+                        this.f63987d.f63982b.post(new Runnable(this) { // from class: com.baidu.wallet.qrcodescanner.a.a.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f63953a;
+                            public final /* synthetic */ AnonymousClass1 f63988a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -449,17 +449,17 @@ public class a {
                                         return;
                                     }
                                 }
-                                this.f63953a = this;
+                                this.f63988a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    a aVar = this.f63953a.f63952d;
-                                    QRCodeWhiteListResponse qRCodeWhiteListResponse4 = aVar.f63946a;
-                                    AnonymousClass1 anonymousClass1 = this.f63953a;
-                                    aVar.a(qRCodeWhiteListResponse4, anonymousClass1.f63950b, anonymousClass1.f63951c);
+                                    a aVar = this.f63988a.f63987d;
+                                    QRCodeWhiteListResponse qRCodeWhiteListResponse4 = aVar.f63981a;
+                                    AnonymousClass1 anonymousClass1 = this.f63988a;
+                                    aVar.a(qRCodeWhiteListResponse4, anonymousClass1.f63985b, anonymousClass1.f63986c);
                                 }
                             }
                         });
@@ -474,7 +474,7 @@ public class a {
     public void a(QRCodeWhiteListResponse qRCodeWhiteListResponse, b bVar, b bVar2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65546, this, qRCodeWhiteListResponse, bVar, bVar2) == null) && qRCodeWhiteListResponse != null && qRCodeWhiteListResponse.hasData()) {
-            QRCodeWhiteListResponse.Group group = this.f63946a.whitelist.data[0];
+            QRCodeWhiteListResponse.Group group = this.f63981a.whitelist.data[0];
             if (bVar2 != null) {
                 bVar2.onResultSuccessCallBack(group.title_value, null, false);
             }
@@ -482,8 +482,8 @@ public class a {
                 return;
             }
             b.a aVar = new b.a();
-            aVar.f63963a = group.title_type;
-            aVar.f63964b = group.title_link_addr;
+            aVar.f63998a = group.title_type;
+            aVar.f63999b = group.title_link_addr;
             String str = group.start_time;
             String str2 = group.end_time;
             try {
@@ -856,13 +856,13 @@ public class a {
         QRCodeWhiteListResponse qRCodeWhiteListResponse;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, bVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f63948c = bVar;
-            if (this.f63946a == null) {
-                this.f63946a = a(context);
+            this.f63983c = bVar;
+            if (this.f63981a == null) {
+                this.f63981a = a(context);
             }
-            if (TextUtils.isEmpty(str) || (qRCodeWhiteListResponse = this.f63946a) == null) {
+            if (TextUtils.isEmpty(str) || (qRCodeWhiteListResponse = this.f63981a) == null) {
                 bVar.onResultFail(str, "");
-                this.f63948c = null;
+                this.f63983c = null;
             } else if (z) {
                 a(str, false);
             } else {
@@ -875,28 +875,28 @@ public class a {
                     }
                 }
                 if (d(str)) {
-                    if (this.f63948c != null) {
+                    if (this.f63983c != null) {
                         b.a aVar = new b.a();
-                        aVar.f63963a = "600";
-                        aVar.f63964b = str;
-                        this.f63948c.onResultSuccessCallBack(str, aVar, true);
+                        aVar.f63998a = "600";
+                        aVar.f63999b = str;
+                        this.f63983c.onResultSuccessCallBack(str, aVar, true);
                     }
                 } else if (b(str)) {
                     if (a(str)) {
                         a(str, true);
-                    } else if (this.f63948c != null) {
+                    } else if (this.f63983c != null) {
                         b.a aVar2 = new b.a();
-                        aVar2.f63963a = "300";
-                        aVar2.f63964b = str;
-                        this.f63948c.onResultSuccessCallBack(str, aVar2, true);
+                        aVar2.f63998a = "300";
+                        aVar2.f63999b = str;
+                        this.f63983c.onResultSuccessCallBack(str, aVar2, true);
                     }
-                } else if (this.f63948c != null) {
+                } else if (this.f63983c != null) {
                     b.a aVar3 = new b.a();
-                    aVar3.f63963a = "100";
-                    aVar3.f63964b = str;
-                    this.f63948c.onResultSuccessCallBack(str, aVar3, true);
+                    aVar3.f63998a = "100";
+                    aVar3.f63999b = str;
+                    this.f63983c.onResultSuccessCallBack(str, aVar3, true);
                 }
-                this.f63948c = null;
+                this.f63983c = null;
             }
         }
     }
@@ -905,19 +905,19 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
             if (c(str)) {
-                if (this.f63948c != null) {
+                if (this.f63983c != null) {
                     b.a aVar = new b.a();
-                    aVar.f63963a = "2";
-                    aVar.f63964b = str;
-                    this.f63948c.onResultSuccessCallBack(str, aVar, z);
+                    aVar.f63998a = "2";
+                    aVar.f63999b = str;
+                    this.f63983c.onResultSuccessCallBack(str, aVar, z);
                 }
-            } else if (this.f63948c != null) {
+            } else if (this.f63983c != null) {
                 b.a aVar2 = new b.a();
-                aVar2.f63963a = "1";
-                aVar2.f63964b = str;
-                this.f63948c.onResultSuccessCallBack(str, aVar2, z);
+                aVar2.f63998a = "1";
+                aVar2.f63999b = str;
+                this.f63983c.onResultSuccessCallBack(str, aVar2, z);
             }
-            this.f63948c = null;
+            this.f63983c = null;
         }
     }
 
@@ -925,7 +925,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f63946a;
+            QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f63981a;
             if (qRCodeWhiteListResponse != null) {
                 for (QRCodeWhiteListResponse.Item item : qRCodeWhiteListResponse.getWhiteLists()) {
                     if (a(str, item.whitelist_preg)) {
@@ -967,7 +967,7 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65544, this, context, str) == null) {
             BeanManager.getInstance().removeAllBeans("QRCodeScannerParseShortUrl");
             com.baidu.wallet.qrcodescanner.beans.a aVar = (com.baidu.wallet.qrcodescanner.beans.a) QRCodeScannerBeanFactory.getInstance().getBean(context, QRCodeScannerBeanFactory.QRCODE_SHORT_URL, "QRCodeScannerParseShortUrl");
-            QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f63946a;
+            QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f63981a;
             if (qRCodeWhiteListResponse != null) {
                 for (QRCodeWhiteListResponse.Group group : qRCodeWhiteListResponse.getDataGroup()) {
                     if (a(str, group.shorturl_preg_new)) {

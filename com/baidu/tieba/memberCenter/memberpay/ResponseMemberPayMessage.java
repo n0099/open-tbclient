@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.memberpay;
 
-import c.a.r0.x1.f.f;
+import c.a.r0.y1.f.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

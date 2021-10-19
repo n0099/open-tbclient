@@ -1,6 +1,5 @@
 package kotlin.jvm;
 
-import com.baidu.media.duplayer.LibsInfoDef;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -11,7 +10,7 @@ import kotlin.annotation.AnnotationRetention;
 import kotlin.annotation.AnnotationTarget;
 import kotlin.annotation.MustBeDocumented;
 @Target({})
-@SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+@SinceKotlin(version = "1.2")
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.FILE})
 @Retention(RetentionPolicy.SOURCE)
 @kotlin.annotation.Retention(AnnotationRetention.SOURCE)

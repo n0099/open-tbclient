@@ -2,8 +2,8 @@ package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.p1.o.j.c;
-import c.a.r0.p1.o.k.b;
+import c.a.r0.q1.o.j.c;
+import c.a.r0.q1.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.lego.card.exception.CardParseException;
@@ -39,34 +39,34 @@ public class HorRankCard extends BaseCardInfo {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f53923a;
+        public int f53854a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53924b;
+        public String f53855b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f53925c;
+        public String f53856c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f53926d;
+        public String f53857d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f53927e;
+        public String f53858e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f53928f;
+        public String f53859f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f53929g;
+        public boolean f53860g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f53930h;
+        public String f53861h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f53931i;
+        public String f53862i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f53932j;
+        public String f53863j;
         public int k;
         public int l;
         public HorRankCard m;
@@ -125,16 +125,16 @@ public class HorRankCard extends BaseCardInfo {
         for (int i4 = 0; i4 < length; i4++) {
             a aVar = new a();
             JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
-            aVar.f53923a = optJSONObject.optInt("rank");
-            aVar.f53924b = optJSONObject.optString("picUrl");
-            aVar.f53925c = optJSONObject.optString("picIcon");
-            aVar.f53926d = optJSONObject.optString("title");
-            aVar.f53927e = optJSONObject.optString("subTitle");
-            aVar.f53928f = optJSONObject.optString("postUrl");
-            aVar.f53929g = optJSONObject.optInt("isDone") == 1;
-            aVar.f53930h = optJSONObject.optString("btnText");
-            aVar.f53931i = optJSONObject.optString("btnDone");
-            aVar.f53932j = optJSONObject.optString("picScheme");
+            aVar.f53854a = optJSONObject.optInt("rank");
+            aVar.f53855b = optJSONObject.optString("picUrl");
+            aVar.f53856c = optJSONObject.optString("picIcon");
+            aVar.f53857d = optJSONObject.optString("title");
+            aVar.f53858e = optJSONObject.optString("subTitle");
+            aVar.f53859f = optJSONObject.optString("postUrl");
+            aVar.f53860g = optJSONObject.optInt("isDone") == 1;
+            aVar.f53861h = optJSONObject.optString("btnText");
+            aVar.f53862i = optJSONObject.optString("btnDone");
+            aVar.f53863j = optJSONObject.optString("picScheme");
             aVar.k = b.b(optJSONObject.optString("bgColor", ""));
             aVar.l = b.b(optJSONObject.optString("bgColorNight", ""));
             optJSONObject.optLong("resourceId");
@@ -224,8 +224,8 @@ public class HorRankCard extends BaseCardInfo {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) {
             boolean z2 = false;
             for (a aVar : this.rankInfoList) {
-                if (!TextUtils.isEmpty(aVar.f53928f) && !TextUtils.isEmpty(aVar.f53930h) && !TextUtils.isEmpty(aVar.f53931i) && TextUtils.equals(str, getFidFromPostUrl(aVar.f53928f))) {
-                    aVar.f53929g = z;
+                if (!TextUtils.isEmpty(aVar.f53859f) && !TextUtils.isEmpty(aVar.f53861h) && !TextUtils.isEmpty(aVar.f53862i) && TextUtils.equals(str, getFidFromPostUrl(aVar.f53859f))) {
+                    aVar.f53860g = z;
                     z2 = true;
                 }
             }
@@ -241,8 +241,8 @@ public class HorRankCard extends BaseCardInfo {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048589, this, str, z)) == null) {
             boolean z2 = false;
             for (a aVar : this.rankInfoList) {
-                if (!TextUtils.isEmpty(aVar.f53928f) && !TextUtils.isEmpty(aVar.f53930h) && !TextUtils.isEmpty(aVar.f53931i) && TextUtils.equals(getTouidFromPostUrl(aVar.f53928f), str)) {
-                    aVar.f53929g = z;
+                if (!TextUtils.isEmpty(aVar.f53859f) && !TextUtils.isEmpty(aVar.f53861h) && !TextUtils.isEmpty(aVar.f53862i) && TextUtils.equals(getTouidFromPostUrl(aVar.f53859f), str)) {
+                    aVar.f53860g = z;
                     z2 = true;
                 }
             }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.video.a.c.a;
 /* loaded from: classes9.dex */
-public abstract class b implements a.InterfaceC1895a {
+public abstract class b implements a.InterfaceC1897a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,7 +24,7 @@ public abstract class b implements a.InterfaceC1895a {
         }
     }
 
-    @Override // com.bytedance.sdk.component.video.a.c.a.InterfaceC1895a
+    @Override // com.bytedance.sdk.component.video.a.c.a.InterfaceC1897a
     public void b(com.bytedance.sdk.component.video.b.a aVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) {

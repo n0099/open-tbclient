@@ -17,22 +17,22 @@ public class b implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f75965a;
+    public int f76000a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f75966b;
+    public int f76001b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f75967c;
+    public String f76002c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f75968d;
+    public int f76003d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f75969e;
+    public String f76004e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f75970f;
+    public String f76005f;
 
     /* loaded from: classes10.dex */
     public static class a implements Parcelable.Creator<b> {
@@ -101,9 +101,9 @@ public class b implements Parcelable {
                 return;
             }
         }
-        this.f75967c = "";
-        this.f75969e = "";
-        this.f75970f = "";
+        this.f76002c = "";
+        this.f76004e = "";
+        this.f76005f = "";
     }
 
     @Override // android.os.Parcelable
@@ -125,12 +125,12 @@ public class b implements Parcelable {
             }
             if (obj != null && b.class == obj.getClass()) {
                 b bVar = (b) obj;
-                if (this.f75965a == bVar.f75965a && this.f75966b == bVar.f75966b) {
-                    String str = this.f75967c;
+                if (this.f76000a == bVar.f76000a && this.f76001b == bVar.f76001b) {
+                    String str = this.f76002c;
                     if (str != null) {
-                        return str.equals(bVar.f75967c);
+                        return str.equals(bVar.f76002c);
                     }
-                    if (bVar.f75967c == null) {
+                    if (bVar.f76002c == null) {
                         return true;
                     }
                 }
@@ -144,8 +144,8 @@ public class b implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = ((this.f75965a * 31) + this.f75966b) * 31;
-            String str = this.f75967c;
+            int i2 = ((this.f76000a * 31) + this.f76001b) * 31;
+            String str = this.f76002c;
             return i2 + (str != null ? str.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -161,12 +161,12 @@ public class b implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
-            parcel.writeInt(this.f75965a);
-            parcel.writeInt(this.f75966b);
-            parcel.writeString(this.f75967c);
-            parcel.writeString(this.f75969e);
-            parcel.writeString(this.f75970f);
-            parcel.writeInt(this.f75968d);
+            parcel.writeInt(this.f76000a);
+            parcel.writeInt(this.f76001b);
+            parcel.writeString(this.f76002c);
+            parcel.writeString(this.f76004e);
+            parcel.writeString(this.f76005f);
+            parcel.writeInt(this.f76003d);
         }
     }
 
@@ -185,14 +185,14 @@ public class b implements Parcelable {
                 return;
             }
         }
-        this.f75967c = "";
-        this.f75969e = "";
-        this.f75970f = "";
-        this.f75965a = parcel.readInt();
-        this.f75966b = parcel.readInt();
-        this.f75967c = parcel.readString();
-        this.f75969e = parcel.readString();
-        this.f75970f = parcel.readString();
-        this.f75968d = parcel.readInt();
+        this.f76002c = "";
+        this.f76004e = "";
+        this.f76005f = "";
+        this.f76000a = parcel.readInt();
+        this.f76001b = parcel.readInt();
+        this.f76002c = parcel.readString();
+        this.f76004e = parcel.readString();
+        this.f76005f = parcel.readString();
+        this.f76003d = parcel.readInt();
     }
 }

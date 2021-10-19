@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.n0;
+import c.a.q0.d1.m0;
 import c.a.q0.s.q.d2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -97,8 +97,8 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         } else {
             str = alaUserInfoData != null ? alaUserInfoData.user_name : "";
         }
-        if (n0.d(str) > 10) {
-            str = n0.m(str, 10) + "...";
+        if (m0.d(str) > 10) {
+            str = m0.m(str, 10) + "...";
         }
         if (alaUserInfoData != null) {
             this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);

@@ -33,34 +33,34 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedList<ImMessageCenterPojo> f14786a;
+    public final LinkedList<ImMessageCenterPojo> f14810a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14787b;
+    public int f14811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14788c;
+    public int f14812c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14789d;
+    public int f14813d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14790e;
+    public int f14814e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14791f;
+    public int f14815f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14792g;
+    public boolean f14816g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14793h;
+    public int f14817h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f14794i;
+    public boolean f14818i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final CustomMessageListener f14795j;
+    public final CustomMessageListener f14819j;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -68,7 +68,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f14796a;
+        public final /* synthetic */ c f14820a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2) {
@@ -88,7 +88,7 @@ public class c {
                     return;
                 }
             }
-            this.f14796a = cVar;
+            this.f14820a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -99,19 +99,19 @@ public class c {
                 return;
             }
             if (customResponsedMessage.getCmd() == 2001120) {
-                this.f14796a.p(customResponsedMessage);
+                this.f14820a.p(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016002) {
-                this.f14796a.o(customResponsedMessage);
+                this.f14820a.o(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016004) {
-                this.f14796a.m(customResponsedMessage);
+                this.f14820a.m(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016007) {
-                this.f14796a.q(customResponsedMessage);
+                this.f14820a.q(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016001) {
-                this.f14796a.n(customResponsedMessage);
+                this.f14820a.n(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016010) {
-                this.f14796a.s();
+                this.f14820a.s();
             } else if (customResponsedMessage.getCmd() == 2016011) {
-                this.f14796a.r();
+                this.f14820a.r();
             }
         }
     }
@@ -129,16 +129,16 @@ public class c {
                 return;
             }
         }
-        this.f14786a = new LinkedList<>();
-        this.f14787b = 0;
-        this.f14788c = 0;
-        this.f14789d = 0;
-        this.f14790e = 0;
-        this.f14791f = 0;
-        this.f14792g = false;
-        this.f14793h = 0;
-        this.f14794i = false;
-        this.f14795j = new a(this, 0);
+        this.f14810a = new LinkedList<>();
+        this.f14811b = 0;
+        this.f14812c = 0;
+        this.f14813d = 0;
+        this.f14814e = 0;
+        this.f14815f = 0;
+        this.f14816g = false;
+        this.f14817h = 0;
+        this.f14818i = false;
+        this.f14819j = new a(this, 0);
     }
 
     public static c k() {
@@ -171,7 +171,7 @@ public class c {
                 if (imMessageCenterPojo.getCustomGroupType() != -4 && imMessageCenterPojo.getCustomGroupType() != -3 && imMessageCenterPojo.getCustomGroupType() != -7) {
                     if (imMessageCenterPojo.getCustomGroupType() == 1) {
                         if (d.d().n()) {
-                            GroupSettingItemData a2 = c.a.r0.k1.t.b.k().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            GroupSettingItemData a2 = c.a.r0.l1.t.b.k().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (a2 != null) {
                                 if (a2.isAcceptNotify()) {
                                     unread_count = imMessageCenterPojo.getUnread_count();
@@ -183,7 +183,7 @@ public class c {
                         }
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
                         if (d.d().p()) {
-                            PersonalSettingItemData a3 = c.a.r0.k1.t.e.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            PersonalSettingItemData a3 = c.a.r0.l1.t.e.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (a3 != null) {
                                 if (a3.isAcceptNotify()) {
                                     unread_count = imMessageCenterPojo.getUnread_count();
@@ -210,8 +210,8 @@ public class c {
             i2 = 0;
         }
         boolean z2 = i2 > 0 ? z : false;
-        this.f14793h = i2;
-        this.f14794i = z2;
+        this.f14817h = i2;
+        this.f14818i = z2;
     }
 
     public final void i(int i2, int i3, int i4, int i5) {
@@ -231,12 +231,12 @@ public class c {
             if (d.d().e() == 0) {
                 i6 = 0;
             }
-            this.f14792g = i6 > 0 ? z : false;
-            this.f14791f = i6;
-            this.f14787b = i2;
-            this.f14788c = i3;
-            this.f14789d = i4;
-            this.f14790e = i5;
+            this.f14816g = i6 > 0 ? z : false;
+            this.f14815f = i6;
+            this.f14811b = i2;
+            this.f14812c = i3;
+            this.f14813d = i4;
+            this.f14814e = i5;
         }
     }
 
@@ -268,13 +268,13 @@ public class c {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             u();
             MessageManager.getInstance().registerStickyMode(2921002);
-            MessageManager.getInstance().registerListener(2001120, this.f14795j);
-            MessageManager.getInstance().registerListener(2016002, this.f14795j);
-            MessageManager.getInstance().registerListener(2016004, this.f14795j);
-            MessageManager.getInstance().registerListener(2016001, this.f14795j);
-            MessageManager.getInstance().registerListener(2016007, this.f14795j);
-            MessageManager.getInstance().registerListener(2016011, this.f14795j);
-            MessageManager.getInstance().registerListener(2016010, this.f14795j);
+            MessageManager.getInstance().registerListener(2001120, this.f14819j);
+            MessageManager.getInstance().registerListener(2016002, this.f14819j);
+            MessageManager.getInstance().registerListener(2016004, this.f14819j);
+            MessageManager.getInstance().registerListener(2016001, this.f14819j);
+            MessageManager.getInstance().registerListener(2016007, this.f14819j);
+            MessageManager.getInstance().registerListener(2016011, this.f14819j);
+            MessageManager.getInstance().registerListener(2016010, this.f14819j);
         }
     }
 
@@ -286,22 +286,22 @@ public class c {
             return;
         }
         if (memoryChangedMessage.getType() == 1) {
-            t(this.f14786a, data);
+            t(this.f14810a, data);
             if (j(data)) {
-                this.f14786a.add(data);
+                this.f14810a.add(data);
             }
         } else if (memoryChangedMessage.getType() == 2) {
-            t(this.f14786a, data);
+            t(this.f14810a, data);
         }
-        h(this.f14786a);
+        h(this.f14810a);
         v();
     }
 
     public final void n(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, customResponsedMessage) == null) {
-            this.f14786a.clear();
-            h(this.f14786a);
+            this.f14810a.clear();
+            h(this.f14810a);
             v();
         }
     }
@@ -335,13 +335,13 @@ public class c {
             if (responsedMemoryListMessage.getType() != 1 || data == null) {
                 return;
             }
-            this.f14786a.clear();
+            this.f14810a.clear();
             for (ImMessageCenterPojo imMessageCenterPojo : data) {
                 if (imMessageCenterPojo != null && j(imMessageCenterPojo)) {
-                    this.f14786a.add(imMessageCenterPojo);
+                    this.f14810a.add(imMessageCenterPojo);
                 }
             }
-            h(this.f14786a);
+            h(this.f14810a);
             v();
         }
     }
@@ -349,8 +349,8 @@ public class c {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            i(this.f14787b, this.f14788c, this.f14789d, this.f14790e);
-            h(this.f14786a);
+            i(this.f14811b, this.f14812c, this.f14813d, this.f14814e);
+            h(this.f14810a);
             v();
         }
     }
@@ -358,8 +358,8 @@ public class c {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            i(this.f14787b, this.f14788c, this.f14789d, this.f14790e);
-            h(this.f14786a);
+            i(this.f14811b, this.f14812c, this.f14813d, this.f14814e);
+            h(this.f14810a);
             v();
         }
     }
@@ -381,17 +381,17 @@ public class c {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f14786a.clear();
-            this.f14787b = 0;
-            this.f14788c = 0;
-            this.f14789d = 0;
-            this.f14790e = 0;
-            this.f14791f = 0;
-            this.f14792g = false;
-            this.f14793h = 0;
-            this.f14794i = false;
-            this.f14793h = 0;
-            this.f14794i = false;
+            this.f14810a.clear();
+            this.f14811b = 0;
+            this.f14812c = 0;
+            this.f14813d = 0;
+            this.f14814e = 0;
+            this.f14815f = 0;
+            this.f14816g = false;
+            this.f14817h = 0;
+            this.f14818i = false;
+            this.f14817h = 0;
+            this.f14818i = false;
         }
     }
 
@@ -399,14 +399,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             NewsRemindMessage newsRemindMessage = new NewsRemindMessage();
-            newsRemindMessage.setMsgAgreeCount(this.f14787b);
-            newsRemindMessage.setMsgAtCount(this.f14788c);
-            newsRemindMessage.setMsgReplyCount(this.f14789d);
-            newsRemindMessage.setMsgFansCount(this.f14790e);
-            newsRemindMessage.setMsgCount(this.f14791f);
-            newsRemindMessage.setHasMsgRemind(this.f14792g);
-            newsRemindMessage.setChatCount(this.f14793h);
-            newsRemindMessage.setHasChatRemind(this.f14794i);
+            newsRemindMessage.setMsgAgreeCount(this.f14811b);
+            newsRemindMessage.setMsgAtCount(this.f14812c);
+            newsRemindMessage.setMsgReplyCount(this.f14813d);
+            newsRemindMessage.setMsgFansCount(this.f14814e);
+            newsRemindMessage.setMsgCount(this.f14815f);
+            newsRemindMessage.setHasMsgRemind(this.f14816g);
+            newsRemindMessage.setChatCount(this.f14817h);
+            newsRemindMessage.setHasChatRemind(this.f14818i);
             MessageManager.getInstance().dispatchResponsedMessage(newsRemindMessage);
         }
     }

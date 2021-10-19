@@ -74,17 +74,17 @@ public class FH {
         b a2;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || (a2 = b.a()) == null || (aVar = a2.f45286b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || (a2 = b.a()) == null || (aVar = a2.f45198b) == null) {
             return;
         }
         try {
-            aVar.f45259f = true;
-            callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, aVar.f45258e, Boolean.TRUE, "");
+            aVar.f45171f = true;
+            callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, aVar.f45170e, Boolean.TRUE, "");
             aVar.a(-6);
         } catch (Throwable unused) {
             c.a();
         }
-        a2.f45286b = null;
+        a2.f45198b = null;
     }
 
     public static String gd(Context context) {
@@ -100,7 +100,7 @@ public class FH {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65546, null, i2, i3)) == null) {
             try {
-                if (com.baidu.sofire.core.c.f45340b != null && v.a(com.baidu.sofire.core.c.f45340b) && i3 == 1 && i2 > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
+                if (com.baidu.sofire.core.c.f45252b != null && v.a(com.baidu.sofire.core.c.f45252b) && i3 == 1 && i2 > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
                     for (ApkInfo apkInfo : b2) {
                         if (apkInfo.key == i2) {
                             return apkInfo.versionName == null ? "" : apkInfo.versionName;
@@ -185,8 +185,8 @@ public class FH {
                 if (!TextUtils.isEmpty(optString) && !"init".equals(optString) && !"initDelay".equals(optString) && !NotificationCompat.CATEGORY_CALL.equals(optString)) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("p");
                     if ("callSync".equals(optString)) {
-                        if (com.baidu.sofire.core.c.f45340b == null && context != null) {
-                            com.baidu.sofire.core.c.f45340b = context.getApplicationContext();
+                        if (com.baidu.sofire.core.c.f45252b == null && context != null) {
+                            com.baidu.sofire.core.c.f45252b = context.getApplicationContext();
                         }
                         if (optJSONArray != null && optJSONArray.length() == 2) {
                             method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
@@ -256,7 +256,7 @@ public class FH {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i2)) == null) {
-            Context context = com.baidu.sofire.core.c.f45340b;
+            Context context = com.baidu.sofire.core.c.f45252b;
             if (context == null || !v.a(context)) {
                 return false;
             }
@@ -391,8 +391,8 @@ public class FH {
                             if (cls.equals(Context.class)) {
                                 if (context != null) {
                                     objArr[i4] = context;
-                                } else if (com.baidu.sofire.core.c.f45340b != null) {
-                                    objArr[i4] = com.baidu.sofire.core.c.f45340b;
+                                } else if (com.baidu.sofire.core.c.f45252b != null) {
+                                    objArr[i4] = com.baidu.sofire.core.c.f45252b;
                                 } else {
                                     throw new IllegalArgumentException("method request context");
                                 }
@@ -529,7 +529,7 @@ public class FH {
     public static void setFaceLicenseId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65569, null, str) == null) {
-            b.f45283d = str;
+            b.f45195d = str;
         }
     }
 
@@ -537,11 +537,11 @@ public class FH {
         b a2;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65570, null, z) == null) || (a2 = b.a()) == null || (aVar = a2.f45286b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65570, null, z) == null) || (a2 = b.a()) == null || (aVar = a2.f45198b) == null) {
             return;
         }
         try {
-            if (aVar.f45254a && !aVar.f45259f) {
+            if (aVar.f45166a && !aVar.f45171f) {
                 if (aVar.p != null) {
                     aVar.p.setLivenessStrategySoundEnable(z);
                 }

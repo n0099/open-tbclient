@@ -18,7 +18,7 @@ public class p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f78707a;
+    public final Executor f78742a;
 
     /* loaded from: classes10.dex */
     public static class a implements Callable<SharedPreferences> {
@@ -26,13 +26,13 @@ public class p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Context f78708e;
+        public final Context f78743e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f78709f;
+        public final String f78744f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final b f78710g;
+        public final b f78745g;
 
         public a(Context context, String str, b bVar) {
             Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public class p {
                     return;
                 }
             }
-            this.f78708e = context;
-            this.f78709f = str;
-            this.f78710g = bVar;
+            this.f78743e = context;
+            this.f78744f = str;
+            this.f78745g = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,8 +61,8 @@ public class p {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                SharedPreferences sharedPreferences = this.f78708e.getSharedPreferences(this.f78709f, 0);
-                b bVar = this.f78710g;
+                SharedPreferences sharedPreferences = this.f78743e.getSharedPreferences(this.f78744f, 0);
+                b bVar = this.f78745g;
                 if (bVar != null) {
                     bVar.a(sharedPreferences);
                 }
@@ -90,7 +90,7 @@ public class p {
                 return;
             }
         }
-        this.f78707a = Executors.newSingleThreadExecutor();
+        this.f78742a = Executors.newSingleThreadExecutor();
     }
 
     public Future<SharedPreferences> a(Context context, String str, b bVar) {
@@ -98,7 +98,7 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, bVar)) == null) {
             FutureTask futureTask = new FutureTask(new a(context, str, bVar));
-            this.f78707a.execute(futureTask);
+            this.f78742a.execute(futureTask);
             return futureTask;
         }
         return (Future) invokeLLL.objValue;

@@ -23,28 +23,28 @@ public abstract class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f36043c = "msp-gzip";
+    public static final String f36047c = "msp-gzip";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36044d = "Msp-Param";
+    public static final String f36048d = "Msp-Param";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f36045e = "Operation-Type";
+    public static final String f36049e = "Operation-Type";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f36046f = "content-type";
+    public static final String f36050f = "content-type";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f36047g = "Version";
+    public static final String f36051g = "Version";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f36048h = "AppId";
+    public static final String f36052h = "AppId";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f36049i = "des-mode";
+    public static final String f36053i = "des-mode";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f36050j = "namespace";
+    public static final String f36054j = "namespace";
     public static final String k = "api_name";
     public static final String l = "api_version";
     public static final String m = "data";
@@ -57,10 +57,10 @@ public abstract class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f36051a;
+    public boolean f36055a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36052b;
+    public boolean f36056b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -75,8 +75,8 @@ public abstract class e {
                 return;
             }
         }
-        this.f36051a = true;
-        this.f36052b = true;
+        this.f36055a = true;
+        this.f36056b = true;
     }
 
     public Map<String, String> a(boolean z, String str) {
@@ -84,13 +84,13 @@ public abstract class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(1048582, this, z, str)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put(f36043c, String.valueOf(z));
-            hashMap.put(f36045e, "alipay.msp.cashier.dispatch.bytes");
+            hashMap.put(f36047c, String.valueOf(z));
+            hashMap.put(f36049e, "alipay.msp.cashier.dispatch.bytes");
             hashMap.put("content-type", "application/octet-stream");
-            hashMap.put(f36047g, "2.0");
-            hashMap.put(f36048h, "TAOBAO");
-            hashMap.put(f36044d, a.a(str));
-            hashMap.put(f36049i, "CBC");
+            hashMap.put(f36051g, "2.0");
+            hashMap.put(f36052h, "TAOBAO");
+            hashMap.put(f36048d, a.a(str));
+            hashMap.put(f36053i, "CBC");
             return hashMap;
         }
         return (Map) invokeZL.objValue;
@@ -140,14 +140,14 @@ public abstract class e {
             com.alipay.sdk.tid.a a2 = com.alipay.sdk.tid.a.a(d2.b());
             JSONObject a3 = com.alipay.sdk.util.b.a(new JSONObject(), jSONObject);
             try {
-                a3.put(com.alipay.sdk.cons.b.f35970d, str);
+                a3.put(com.alipay.sdk.cons.b.f35974d, str);
                 a3.put("tid", a2.d());
-                a3.put(com.alipay.sdk.cons.b.f35968b, d2.a().a(aVar, a2));
-                a3.put(com.alipay.sdk.cons.b.f35971e, l.b(aVar, d2.b(), com.alipay.sdk.app.a.f35926d));
-                a3.put(com.alipay.sdk.cons.b.f35972f, l.i(d2.b()));
-                a3.put("app_key", com.alipay.sdk.cons.a.f35962f);
-                a3.put(com.alipay.sdk.cons.b.f35973g, d2.c());
-                a3.put(com.alipay.sdk.cons.b.f35976j, a2.c());
+                a3.put(com.alipay.sdk.cons.b.f35972b, d2.a().a(aVar, a2));
+                a3.put(com.alipay.sdk.cons.b.f35975e, l.b(aVar, d2.b(), com.alipay.sdk.app.a.f35930d));
+                a3.put(com.alipay.sdk.cons.b.f35976f, l.i(d2.b()));
+                a3.put("app_key", com.alipay.sdk.cons.a.f35966f);
+                a3.put(com.alipay.sdk.cons.b.f35977g, d2.c());
+                a3.put(com.alipay.sdk.cons.b.f35980j, a2.c());
                 a3.put(com.alipay.sdk.cons.b.k, com.alipay.sdk.data.b.b(d2.b()));
             } catch (Throwable th) {
                 com.alipay.sdk.app.statistic.a.a(aVar, "biz", "BodyErr", th);
@@ -161,7 +161,7 @@ public abstract class e {
     public static boolean a(a.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bVar)) == null) ? Boolean.valueOf(a(bVar, f36043c)).booleanValue() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bVar)) == null) ? Boolean.valueOf(a(bVar, f36047c)).booleanValue() : invokeL.booleanValue;
     }
 
     public static String a(a.b bVar, String str) {
@@ -170,7 +170,7 @@ public abstract class e {
         List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bVar, str)) == null) {
-            if (bVar == null || str == null || (map = bVar.f36034a) == null || (list = map.get(str)) == null) {
+            if (bVar == null || str == null || (map = bVar.f36038a) == null || (list = map.get(str)) == null) {
                 return null;
             }
             return TextUtils.join(",", list);
@@ -251,13 +251,13 @@ public abstract class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{aVar, context, str, str2, Boolean.valueOf(z)})) == null) {
             com.alipay.sdk.util.c.b(com.alipay.sdk.cons.a.x, "Packet: " + str2);
-            c cVar = new c(this.f36052b);
+            c cVar = new c(this.f36056b);
             b bVar = new b(b(), a(aVar, str, a()));
             Map<String, String> a2 = a(false, str);
-            d a3 = cVar.a(bVar, this.f36051a, a2.get("iSr"));
-            a.b a4 = com.alipay.sdk.net.a.a(context, new a.C1565a(str2, a(a3.b(), str), a3.a()));
+            d a3 = cVar.a(bVar, this.f36055a, a2.get("iSr"));
+            a.b a4 = com.alipay.sdk.net.a.a(context, new a.C1567a(str2, a(a3.b(), str), a3.a()));
             if (a4 != null) {
-                b a5 = cVar.a(new d(a(a4), a4.f36036c), a2.get("iSr"));
+                b a5 = cVar.a(new d(a(a4), a4.f36040c), a2.get("iSr"));
                 return (a5 != null && a(a5.b()) && z) ? a(aVar, context, str, str2, false) : a5;
             }
             throw new RuntimeException("Response is null.");

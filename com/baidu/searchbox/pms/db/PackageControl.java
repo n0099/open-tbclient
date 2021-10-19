@@ -597,8 +597,8 @@ public class PackageControl {
         return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0056 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0066 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0055 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0065 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0048 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.Object, com.baidu.searchbox.pms.db.PackageControl] */

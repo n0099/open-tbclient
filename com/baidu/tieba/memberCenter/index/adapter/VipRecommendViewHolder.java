@@ -4,7 +4,7 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.TextView;
-import c.a.r0.x1.c.j.i;
+import c.a.r0.y1.c.j.i;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,22 +27,22 @@ public class VipRecommendViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragmentActivity f54409a;
+    public BaseFragmentActivity f54340a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f54410b;
+    public TextView f54341b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f54411c;
+    public TextView f54342c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f54412d;
+    public View f54343d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f54413e;
+    public View f54344e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f54414f;
+    public String f54345f;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -50,7 +50,7 @@ public class VipRecommendViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VipRecommendViewHolder f54415e;
+        public final /* synthetic */ VipRecommendViewHolder f54346e;
 
         public a(VipRecommendViewHolder vipRecommendViewHolder) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class VipRecommendViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f54415e = vipRecommendViewHolder;
+            this.f54346e = vipRecommendViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
@@ -81,10 +81,10 @@ public class VipRecommendViewHolder extends TypeAdapter.ViewHolder {
                     i2 = 1;
                 }
                 TiebaStatic.log(new StatisticItem("c11215").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", i2));
-                if (StringUtils.isNull(this.f54415e.f54414f)) {
+                if (StringUtils.isNull(this.f54346e.f54345f)) {
                     return;
                 }
-                MemberCenterStatic.a(this.f54415e.f54409a.getPageContext(), new String[]{this.f54415e.f54414f});
+                MemberCenterStatic.a(this.f54346e.f54340a.getPageContext(), new String[]{this.f54346e.f54345f});
             }
         }
     }
@@ -107,12 +107,12 @@ public class VipRecommendViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f54409a = baseFragmentActivity;
-        this.f54413e = view;
-        this.f54410b = (TextView) view.findViewById(R.id.speed_desc);
-        this.f54411c = (TextView) this.f54413e.findViewById(R.id.speed_up);
-        this.f54412d = this.f54413e.findViewById(R.id.divider_sp_line);
-        this.f54411c.setOnClickListener(new a(this));
+        this.f54340a = baseFragmentActivity;
+        this.f54344e = view;
+        this.f54341b = (TextView) view.findViewById(R.id.speed_desc);
+        this.f54342c = (TextView) this.f54344e.findViewById(R.id.speed_up);
+        this.f54343d = this.f54344e.findViewById(R.id.divider_sp_line);
+        this.f54342c.setOnClickListener(new a(this));
     }
 
     public void fillView(i iVar) {
@@ -120,30 +120,30 @@ public class VipRecommendViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) || iVar == null) {
             return;
         }
-        if (iVar.f28490e) {
-            this.f54412d.setVisibility(0);
+        if (iVar.f28666e) {
+            this.f54343d.setVisibility(0);
         } else {
-            this.f54412d.setVisibility(8);
+            this.f54343d.setVisibility(8);
         }
-        this.f54414f = iVar.h();
-        this.f54410b.setText(getSpannableString(iVar));
+        this.f54345f = iVar.h();
+        this.f54341b.setText(getSpannableString(iVar));
         if (!StringUtils.isNull(iVar.b())) {
-            this.f54411c.setText(iVar.b());
-            this.f54411c.setVisibility(0);
+            this.f54342c.setText(iVar.b());
+            this.f54342c.setVisibility(0);
         } else {
-            this.f54411c.setVisibility(8);
+            this.f54342c.setVisibility(8);
         }
         if (TbadkCoreApplication.isLogin()) {
-            SkinManager.setBackgroundResource(this.f54411c, R.drawable.member_center_orange_btn_bg);
+            SkinManager.setBackgroundResource(this.f54342c, R.drawable.member_center_orange_btn_bg);
         } else {
-            SkinManager.setBackgroundResource(this.f54411c, R.drawable.member_center_blue_btn_bg);
+            SkinManager.setBackgroundResource(this.f54342c, R.drawable.member_center_blue_btn_bg);
         }
-        if (iVar.f28490e) {
-            this.f54412d.setVisibility(0);
+        if (iVar.f28666e) {
+            this.f54343d.setVisibility(0);
         } else {
-            this.f54412d.setVisibility(8);
+            this.f54343d.setVisibility(8);
         }
-        c.a.q0.w0.a.a(this.f54409a.getPageContext(), this.f54413e);
+        c.a.q0.w0.a.a(this.f54340a.getPageContext(), this.f54344e);
     }
 
     public SpannableString getSpannableString(i iVar) {

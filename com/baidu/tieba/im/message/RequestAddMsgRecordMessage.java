@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -52,7 +52,7 @@ public class RequestAddMsgRecordMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.records = this.msgRecords;
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             AddMsgRecordReqIdl.Builder builder2 = new AddMsgRecordReqIdl.Builder();
             builder2.data = builder.build(false);

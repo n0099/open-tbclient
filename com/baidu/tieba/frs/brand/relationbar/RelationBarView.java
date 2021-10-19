@@ -26,13 +26,13 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51151e;
+    public int f51078e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f51152f;
+    public RecyclerView f51079f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelationBarAdapter f51153g;
+    public RelationBarAdapter f51080g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RelationBarView(Context context) {
@@ -52,7 +52,7 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
         }
-        this.f51151e = 3;
+        this.f51078e = 3;
         a(context);
     }
 
@@ -61,14 +61,14 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_layout, (ViewGroup) this, true);
             setOrientation(1);
-            this.f51152f = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
+            this.f51079f = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
             RelationBarAdapter relationBarAdapter = new RelationBarAdapter(context);
-            this.f51153g = relationBarAdapter;
-            this.f51152f.setAdapter(relationBarAdapter);
-            this.f51152f.setLayoutManager(new LinearLayoutManager(context, 0, false));
-            this.f51152f.setItemAnimator(new DefaultItemAnimator());
+            this.f51080g = relationBarAdapter;
+            this.f51079f.setAdapter(relationBarAdapter);
+            this.f51079f.setLayoutManager(new LinearLayoutManager(context, 0, false));
+            this.f51079f.setItemAnimator(new DefaultItemAnimator());
             int g2 = l.g(context, R.dimen.tbds44);
-            this.f51152f.addItemDecoration(new RelationSpaceItemDecoration(g2, l.g(context, R.dimen.tbds26), g2));
+            this.f51079f.addItemDecoration(new RelationSpaceItemDecoration(g2, l.g(context, R.dimen.tbds26), g2));
             onChangeSkinType();
         }
     }
@@ -76,12 +76,12 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f51151e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f51078e) {
             return;
         }
-        this.f51151e = skinType;
+        this.f51078e = skinType;
         SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
-        this.f51153g.notifyDataSetChanged();
+        this.f51080g.notifyDataSetChanged();
     }
 
     public void setData(List<OriForumInfo> list) {
@@ -92,8 +92,8 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
             setVisibility(0);
-            this.f51153g.setData(list);
-            this.f51153g.notifyDataSetChanged();
+            this.f51080g.setData(list);
+            this.f51080g.notifyDataSetChanged();
         }
     }
 
@@ -116,7 +116,7 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
         }
-        this.f51151e = 3;
+        this.f51078e = 3;
         a(context);
     }
 
@@ -139,7 +139,7 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
         }
-        this.f51151e = 3;
+        this.f51078e = 3;
         a(context);
     }
 }

@@ -15,7 +15,7 @@ public class a implements ParamBuilder<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f44404a;
+    public Map<String, String> f44316a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,10 +35,10 @@ public class a implements ParamBuilder<a> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.f44404a == null) {
-                this.f44404a = new LinkedHashMap();
+            if (this.f44316a == null) {
+                this.f44316a = new LinkedHashMap();
             }
-            this.f44404a.put(str, str2);
+            this.f44316a.put(str, str2);
             return this;
         }
         return (a) invokeLL.objValue;
@@ -49,14 +49,14 @@ public class a implements ParamBuilder<a> {
         StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Map<String, String> map = this.f44404a;
+            Map<String, String> map = this.f44316a;
             if (map == null || map.isEmpty()) {
                 return null;
             }
             String str = new String();
             int i2 = 0;
-            for (String str2 : this.f44404a.keySet()) {
-                String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.f44404a.get(str2));
+            for (String str2 : this.f44316a.keySet()) {
+                String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.f44316a.get(str2));
                 if (i2 == 0) {
                     sb = new StringBuilder();
                 } else {

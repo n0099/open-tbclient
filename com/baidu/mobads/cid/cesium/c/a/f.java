@@ -10,13 +10,13 @@ public abstract class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f42904b;
+    public final b f42816b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f42905c;
+    public final int f42817c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f42906d;
+    public byte[] f42818d;
 
     public f(b bVar) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public abstract class f {
                 return;
             }
         }
-        this.f42904b = bVar;
-        this.f42905c = bVar.a();
+        this.f42816b = bVar;
+        this.f42817c = bVar.a();
     }
 
     public abstract void a();

@@ -1,22 +1,13 @@
 package c.a.q0.i0.d;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import c.a.q0.s.q.d2;
-import com.baidu.tbadk.core.data.MetaData;
-import java.util.List;
-import java.util.Map;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
-public interface b {
+public interface b extends c.a.q0.i0.a {
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a();
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f13508a = "c.a.q0.i0.d.b";
 
-        void b(@NonNull List<d2> list, @Nullable Map<String, Object> map);
-    }
-
-    void a(@Nullable a aVar);
-
-    void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5);
+    @NonNull
+    a b(@NonNull TbPageContext tbPageContext);
 }

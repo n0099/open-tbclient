@@ -33,7 +33,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYSSOLoginActivity f44905a;
+        public final /* synthetic */ YYSSOLoginActivity f44817a;
 
         public a(YYSSOLoginActivity yYSSOLoginActivity) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            this.f44905a = yYSSOLoginActivity;
+            this.f44817a = yYSSOLoginActivity;
         }
 
         @Override // c.s.b.b
@@ -58,8 +58,8 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Log.d(YYSSOLoginActivity.q, "YY授权登录 已取消");
-                YYSSOLoginActivity yYSSOLoginActivity = this.f44905a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44872g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
+                YYSSOLoginActivity yYSSOLoginActivity = this.f44817a;
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44784g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
             }
         }
 
@@ -70,18 +70,18 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                 Log.d(YYSSOLoginActivity.q, "onComplete " + jSONObject.toString());
                 if (jSONObject != null) {
                     if (jSONObject.has("access_code")) {
-                        this.f44905a.o = jSONObject.optString("access_code");
+                        this.f44817a.o = jSONObject.optString("access_code");
                     } else if (jSONObject.has("token")) {
-                        this.f44905a.o = jSONObject.optString("token");
+                        this.f44817a.o = jSONObject.optString("token");
                     }
                 }
-                if (!TextUtils.isEmpty(this.f44905a.o)) {
-                    Log.d(YYSSOLoginActivity.q, "accessCode=" + this.f44905a.o);
-                    this.f44905a.d();
+                if (!TextUtils.isEmpty(this.f44817a.o)) {
+                    Log.d(YYSSOLoginActivity.q, "accessCode=" + this.f44817a.o);
+                    this.f44817a.d();
                     return;
                 }
-                YYSSOLoginActivity yYSSOLoginActivity = this.f44905a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44872g, -1, "未知错误");
+                YYSSOLoginActivity yYSSOLoginActivity = this.f44817a;
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44784g, -1, "未知错误");
             }
         }
 
@@ -89,9 +89,9 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
         public void onError(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-                Log.d(YYSSOLoginActivity.q, "onError " + dVar.f35597a + " " + dVar.f35598b);
-                YYSSOLoginActivity yYSSOLoginActivity = this.f44905a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44872g, dVar.f35597a, dVar.f35598b);
+                Log.d(YYSSOLoginActivity.q, "onError " + dVar.f35601a + " " + dVar.f35602b);
+                YYSSOLoginActivity yYSSOLoginActivity = this.f44817a;
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44784g, dVar.f35601a, dVar.f35602b);
             }
         }
     }
@@ -142,7 +142,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                 b2.a(this, this.p);
                 return;
             }
-            a(((BaseSSOLoginActivity) this).f44872g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
+            a(((BaseSSOLoginActivity) this).f44784g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
         }
     }
 

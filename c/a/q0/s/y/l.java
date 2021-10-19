@@ -14,10 +14,10 @@ public abstract class l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WebView f14549a;
+    public final WebView f14569a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f14550b;
+    public final b f14570b;
 
     public l(WebView webView, b bVar) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public abstract class l {
                 return;
             }
         }
-        this.f14549a = webView;
-        this.f14550b = bVar;
+        this.f14569a = webView;
+        this.f14570b = bVar;
     }
 
     public abstract void c(m mVar);
@@ -52,6 +52,6 @@ public abstract class l {
     public final Context f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14549a.getContext() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14569a.getContext() : (Context) invokeV.objValue;
     }
 }

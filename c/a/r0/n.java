@@ -1,172 +1,110 @@
 package c.a.r0;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import c.a.r0.j3.a0;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import c.a.e.e.p.q;
+import c.a.e.e.p.s;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.coreExtra.data.CombineDownload;
-import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.Date;
-import java.util.Iterator;
+import java.io.File;
+import java.io.FileInputStream;
+import java.security.PublicKey;
 /* loaded from: classes3.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                String versionName = TbadkCoreApplication.getInst().getVersionName();
-                String p = c.a.q0.s.d0.b.j().p("version_name", "");
-                if (TextUtils.isEmpty(versionName)) {
-                    return null;
-                }
-                if (versionName.equals(p)) {
-                    return c.a.q0.s.d0.b.j().p("apk_md5", "");
-                }
-                c.a.q0.s.d0.b.j().x("version_name", versionName);
-                String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-                c.a.q0.s.d0.b.j().x("apk_md5", aPKMd5);
-                return aPKMd5;
-            } catch (PackageManager.NameNotFoundException e2) {
-                BdLog.detailException(e2);
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void b(Context context, VersionData versionData) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, versionData) == null) {
-            try {
-                str = TbMd5.creatSignInt(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
-            } catch (PackageManager.NameNotFoundException e2) {
-                BdLog.detailException(e2);
-                str = "-1";
-                Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
-                intent.setFlags(268435488);
-                intent.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-                intent.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
-                intent.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
-                Bundle bundle = new Bundle();
-                bundle.putInt("versioncode", versionData.getNewVersionCode());
-                bundle.putLong("patch_size", c.a.e.e.m.b.g(versionData.getPatchSize(), 0L));
-                bundle.putString("patch_url", versionData.getPatch());
-                bundle.putString("sname", context.getString(R.string.app_name));
-                bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
-                bundle.putString("downurl", versionData.getUrl());
-                bundle.putString("versionname", versionData.getNewVersion());
-                bundle.putString("iconurl", versionData.getTiebaIconUrl());
-                bundle.putString("updatetime", c.a.e.e.p.k.getDateStringDay(new Date(System.currentTimeMillis())));
-                bundle.putString("size", versionData.getSize());
-                bundle.putString("signmd5", str);
-                bundle.putString("tj", str + context.getString(R.string.app_name));
-                intent.putExtra("extra_client_downloadinfo", bundle);
-                context.startActivity(intent);
-            } catch (NumberFormatException e3) {
-                BdLog.detailException(e3);
-                str = "-1";
-                Intent intent2 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
-                intent2.setFlags(268435488);
-                intent2.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-                intent2.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
-                intent2.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
-                Bundle bundle2 = new Bundle();
-                bundle2.putInt("versioncode", versionData.getNewVersionCode());
-                bundle2.putLong("patch_size", c.a.e.e.m.b.g(versionData.getPatchSize(), 0L));
-                bundle2.putString("patch_url", versionData.getPatch());
-                bundle2.putString("sname", context.getString(R.string.app_name));
-                bundle2.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
-                bundle2.putString("downurl", versionData.getUrl());
-                bundle2.putString("versionname", versionData.getNewVersion());
-                bundle2.putString("iconurl", versionData.getTiebaIconUrl());
-                bundle2.putString("updatetime", c.a.e.e.p.k.getDateStringDay(new Date(System.currentTimeMillis())));
-                bundle2.putString("size", versionData.getSize());
-                bundle2.putString("signmd5", str);
-                bundle2.putString("tj", str + context.getString(R.string.app_name));
-                intent2.putExtra("extra_client_downloadinfo", bundle2);
-                context.startActivity(intent2);
-            }
-            Intent intent22 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
-            intent22.setFlags(268435488);
-            intent22.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-            intent22.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
-            intent22.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
-            Bundle bundle22 = new Bundle();
-            bundle22.putInt("versioncode", versionData.getNewVersionCode());
-            bundle22.putLong("patch_size", c.a.e.e.m.b.g(versionData.getPatchSize(), 0L));
-            bundle22.putString("patch_url", versionData.getPatch());
-            bundle22.putString("sname", context.getString(R.string.app_name));
-            bundle22.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
-            bundle22.putString("downurl", versionData.getUrl());
-            bundle22.putString("versionname", versionData.getNewVersion());
-            bundle22.putString("iconurl", versionData.getTiebaIconUrl());
-            bundle22.putString("updatetime", c.a.e.e.p.k.getDateStringDay(new Date(System.currentTimeMillis())));
-            bundle22.putString("size", versionData.getSize());
-            bundle22.putString("signmd5", str);
-            bundle22.putString("tj", str + context.getString(R.string.app_name));
-            intent22.putExtra("extra_client_downloadinfo", bundle22);
-            context.startActivity(intent22);
-        }
-    }
-
-    public static boolean c(PackageManager packageManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, packageManager)) == null) {
-            Iterator<PackageInfo> it = packageManager.getInstalledPackages(8192).iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                PackageInfo next = it.next();
-                if (next != null) {
-                    String str = next.packageName;
-                    if (!TextUtils.isEmpty(str) && str.equals("com.baidu.appsearch")) {
-                        if (next.versionCode >= 16782633) {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(Context context, CombineDownload combineDownload) {
+    public static boolean a(String str, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, combineDownload)) == null) ? (combineDownload == null || a0.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, file)) == null) {
+            if (!TextUtils.isEmpty(str) && file != null && file.exists()) {
+                try {
+                    PublicKey e2 = s.e(c.a.e.e.p.c.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
+                    if (e2 == null) {
+                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "publicKeyCode is null").param("obj_source", file.getName()));
+                        return false;
+                    }
+                    byte[] b2 = b(str);
+                    if (b2 != null && b2.length > 0) {
+                        byte[] b3 = s.b(e2, b2);
+                        if (b3 != null && b3.length > 0) {
+                            String trim = new String(b3, "UTF-8").trim();
+                            String b4 = q.b(new FileInputStream(file));
+                            if (b4 != null) {
+                                b4 = b4.trim();
+                            }
+                            if (!TextUtils.isEmpty(b4) && !TextUtils.isEmpty(trim)) {
+                                if (b4.equalsIgnoreCase(trim)) {
+                                    return true;
+                                }
+                                TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 != serverMD5").param("obj_source", file.getName()));
+                                BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
+                                return false;
+                            }
+                            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 or serverMD5 is null").param("obj_source", file.getName()));
+                            return false;
+                        }
+                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "des is null").param("obj_source", file.getName()));
+                        return false;
+                    }
+                    TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "server_data is null").param("obj_source", file.getName()));
+                    return false;
+                } catch (Exception e3) {
+                    StatisticItem statisticItem = new StatisticItem("c10836");
+                    TiebaStatic.log(statisticItem.param("obj_type", "exception:" + e3.getMessage()).param("obj_source", file.getName()));
+                    BdLog.e("download MD5 RSA ERROR！Exception:" + e3.getMessage() + " ; file:" + file.getName());
+                    return false;
+                }
+            }
+            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "checkRSA input args is null"));
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
-    public static void e() {
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || TbSingleton.getInstance().getSyncModel() == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null) {
+                char[] charArray = str.toCharArray();
+                int length = charArray.length / 2;
+                byte[] bArr = new byte[length];
+                if (charArray.length % 2 != 0) {
+                    return null;
+                }
+                int i2 = 0;
+                int i3 = 0;
+                while (true) {
+                    int i4 = i2 + 1;
+                    if (i4 >= charArray.length || i3 >= length) {
+                        break;
+                    }
+                    bArr[i3] = (byte) ((c(charArray[i2]) << 4) | c(charArray[i4]));
+                    i3++;
+                    i2 = i4 + 1;
+                }
+                return bArr;
+            }
+            throw new IllegalArgumentException("binary string is null");
         }
-        c.a.q0.t.e.e syncModel = TbSingleton.getInstance().getSyncModel();
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), TbSingleton.getInstance().getSyncModel().s(), syncModel.j())));
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static int c(char c2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c2)})) == null) {
+            int digit = Character.digit(c2, 16);
+            if (digit != -1) {
+                return digit;
+            }
+            throw new RuntimeException("Illegal hexadecimal character " + c2);
+        }
+        return invokeCommon.intValue;
     }
 }

@@ -22,7 +22,7 @@ public class EMTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f47604e;
+    public a f47524e;
 
     /* loaded from: classes6.dex */
     public static class a implements LineHeightSpan {
@@ -30,22 +30,22 @@ public class EMTextView extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f47605e;
+        public int f47525e;
 
         /* renamed from: f  reason: collision with root package name */
-        public WeakReference<TextView> f47606f;
+        public WeakReference<TextView> f47526f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ViewGroup.MarginLayoutParams f47607g;
+        public ViewGroup.MarginLayoutParams f47527g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f47608h;
+        public int f47528h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f47609i;
+        public int f47529i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f47610j;
+        public int f47530j;
         public int k;
 
         public a(TextView textView) {
@@ -63,11 +63,11 @@ public class EMTextView extends TextView {
                     return;
                 }
             }
-            this.f47608h = 0;
-            this.f47609i = 0;
-            this.f47610j = 0;
+            this.f47528h = 0;
+            this.f47529i = 0;
+            this.f47530j = 0;
             this.k = 0;
-            this.f47606f = new WeakReference<>(textView);
+            this.f47526f = new WeakReference<>(textView);
             d();
         }
 
@@ -77,12 +77,12 @@ public class EMTextView extends TextView {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, fontMetricsInt) == null) || (b2 = b()) == null) {
                 return;
             }
-            this.f47608h = b2.topMargin;
-            this.f47609i = b2.bottomMargin;
-            this.f47610j = fontMetricsInt.top - fontMetricsInt.ascent;
+            this.f47528h = b2.topMargin;
+            this.f47529i = b2.bottomMargin;
+            this.f47530j = fontMetricsInt.top - fontMetricsInt.ascent;
             int dimenPixelSize = (fontMetricsInt.descent - fontMetricsInt.bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
             this.k = dimenPixelSize;
-            b2.topMargin += this.f47610j;
+            b2.topMargin += this.f47530j;
             b2.bottomMargin += dimenPixelSize;
         }
 
@@ -107,11 +107,11 @@ public class EMTextView extends TextView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                WeakReference<TextView> weakReference = this.f47606f;
+                WeakReference<TextView> weakReference = this.f47526f;
                 if (weakReference == null || weakReference.get() == null) {
                     return null;
                 }
-                return this.f47606f.get();
+                return this.f47526f.get();
             }
             return (TextView) invokeV.objValue;
         }
@@ -121,7 +121,7 @@ public class EMTextView extends TextView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), fontMetricsInt}) == null) {
                 f();
-                c.a.q0.s.u.e.a.a(fontMetricsInt, this.f47605e);
+                c.a.q0.s.u.e.a.a(fontMetricsInt, this.f47525e);
                 TextView c2 = c();
                 if (c2 == null || (c2.getGravity() & 112) != 16) {
                     a(fontMetricsInt);
@@ -134,15 +134,15 @@ public class EMTextView extends TextView {
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 TextView c2 = c();
                 if (c2 != null) {
-                    this.f47605e = (int) c2.getTextSize();
+                    this.f47525e = (int) c2.getTextSize();
                 }
                 ViewGroup.MarginLayoutParams b2 = b();
-                this.f47607g = b2;
+                this.f47527g = b2;
                 if (b2 != null) {
-                    this.f47608h = b2.topMargin;
-                    this.f47609i = b2.bottomMargin;
+                    this.f47528h = b2.topMargin;
+                    this.f47529i = b2.bottomMargin;
                 }
-                this.f47610j = 0;
+                this.f47530j = 0;
                 this.k = 0;
             }
         }
@@ -152,9 +152,9 @@ public class EMTextView extends TextView {
             ViewGroup.MarginLayoutParams b2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (this.f47607g != null && (b2 = b()) != null && this.f47607g == b2) {
-                    boolean z = this.f47608h + this.f47610j == b2.topMargin;
-                    boolean z2 = this.f47609i + this.k == b2.bottomMargin;
+                if (this.f47527g != null && (b2 = b()) != null && this.f47527g == b2) {
+                    boolean z = this.f47528h + this.f47530j == b2.topMargin;
+                    boolean z2 = this.f47529i + this.k == b2.bottomMargin;
                     if (z && z2) {
                         return false;
                     }
@@ -175,13 +175,13 @@ public class EMTextView extends TextView {
                 if (b2 == null) {
                     return;
                 }
-                b2.topMargin -= this.f47610j;
+                b2.topMargin -= this.f47530j;
                 b2.bottomMargin -= this.k;
                 TextView c2 = c();
                 if (c2 != null) {
-                    this.f47605e = (int) c2.getTextSize();
+                    this.f47525e = (int) c2.getTextSize();
                 }
-                this.f47610j = 0;
+                this.f47530j = 0;
                 this.k = 0;
             }
         }
@@ -231,10 +231,10 @@ public class EMTextView extends TextView {
             } else {
                 spannableStringBuilder = new SpannableStringBuilder(charSequence);
             }
-            if (this.f47604e == null) {
-                this.f47604e = new a(this);
+            if (this.f47524e == null) {
+                this.f47524e = new a(this);
             }
-            spannableStringBuilder.setSpan(this.f47604e, 0, charSequence.length(), 33);
+            spannableStringBuilder.setSpan(this.f47524e, 0, charSequence.length(), 33);
             super.setText(spannableStringBuilder, bufferType);
         }
     }

@@ -32,7 +32,7 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f78550a = 1;
+    public static int f78585a = 1;
 
     /* renamed from: a  reason: collision with other field name */
     public static BlockingQueue<Runnable> f974a = null;
@@ -44,10 +44,10 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public static boolean f976a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f78551b = 1;
+    public static int f78586b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f78552c = 2;
+    public static int f78587c = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with other field name */
@@ -67,7 +67,7 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
             }
         }
         f974a = new LinkedBlockingQueue();
-        f975a = new ThreadPoolExecutor(f78550a, f78551b, f78552c, TimeUnit.SECONDS, f974a);
+        f975a = new ThreadPoolExecutor(f78585a, f78586b, f78587c, TimeUnit.SECONDS, f974a);
         f976a = false;
     }
 
@@ -126,22 +126,22 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                 an.a(context).m111c();
             }
             if (bg.b(context)) {
-                if ("syncing".equals(ae.a(context).a(at.f77608a))) {
+                if ("syncing".equals(ae.a(context).a(at.f77643a))) {
                     MiPushClient.disablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f77609b))) {
+                if ("syncing".equals(ae.a(context).a(at.f77644b))) {
                     MiPushClient.enablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f77610c))) {
+                if ("syncing".equals(ae.a(context).a(at.f77645c))) {
                     MiPushClient.syncAssemblePushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f77611d))) {
+                if ("syncing".equals(ae.a(context).a(at.f77646d))) {
                     MiPushClient.syncAssembleFCMPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f77612e))) {
+                if ("syncing".equals(ae.a(context).a(at.f77647e))) {
                     MiPushClient.syncAssembleCOSPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f77613f))) {
+                if ("syncing".equals(ae.a(context).a(at.f77648f))) {
                     MiPushClient.syncAssembleFTOSPushToken(context);
                 }
                 if (HWPushHelper.needConnect() && HWPushHelper.shouldTryConnect(context)) {

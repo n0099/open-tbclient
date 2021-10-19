@@ -71,7 +71,7 @@ public class q0 extends c.a.l.a<c.a.q0.s.q.a> {
                 this.f3857a.c().a(this.f3857a.m, this.f3857a.n);
             }
             String f0 = this.f3857a.n.getThreadData().f0();
-            c.a.r0.a0.m.a(f0);
+            c.a.r0.b0.m.a(f0);
             this.f3857a.r(f0);
             this.f3857a.f3782e.o(new a.C0095a(1));
         }
@@ -133,10 +133,10 @@ public class q0 extends c.a.l.a<c.a.q0.s.q.a> {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.r0.a0.b0<c.a.q0.s.q.a> b0Var) {
+    public void k(c.a.r0.b0.c0<c.a.q0.s.q.a> c0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b0Var) == null) {
-            super.k(b0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0Var) == null) {
+            super.k(c0Var);
         }
     }
 
@@ -165,9 +165,9 @@ public class q0 extends c.a.l.a<c.a.q0.s.q.a> {
     public final void r(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            c.a.r0.a0.m.l(this.k, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            c.a.r0.a0.m.l(this.l, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.m.setReadState(c.a.r0.a0.m.k(str));
+            c.a.r0.b0.m.l(this.k, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            c.a.r0.b0.m.l(this.l, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.m.setReadState(c.a.r0.b0.m.k(str));
         }
     }
 

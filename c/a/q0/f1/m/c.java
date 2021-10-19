@@ -25,22 +25,22 @@ public class c extends ReplacementSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13261e;
+    public int f13266e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13262f;
+    public int f13267f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13263g;
+    public int f13268g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13264h;
+    public int f13269h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13265i;
+    public int f13270i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f13266j;
+    public int f13271j;
     public int k;
     public int l;
     public int m;
@@ -79,23 +79,23 @@ public class c extends ReplacementSpan {
                 return;
             }
         }
-        this.f13261e = TbadkCoreApplication.getInst().getResources().getColor(R.color.white_alpha100);
-        this.f13262f = R.color.CAM_X0305;
-        this.f13263g = n;
-        this.f13264h = o;
-        this.f13265i = q;
-        this.f13266j = 0;
+        this.f13266e = TbadkCoreApplication.getInst().getResources().getColor(R.color.white_alpha100);
+        this.f13267f = R.color.CAM_X0305;
+        this.f13268g = n;
+        this.f13269h = o;
+        this.f13270i = q;
+        this.f13271j = 0;
         this.k = p;
         this.l = 0;
         if (bVar != null) {
-            this.f13261e = bVar.f13251a;
-            this.f13262f = bVar.f13252b;
-            this.f13263g = bVar.f13253c;
-            this.f13265i = bVar.f13254d;
-            this.f13264h = bVar.f13255e;
-            this.f13266j = bVar.f13256f;
-            this.k = bVar.f13257g;
-            this.l = bVar.f13258h;
+            this.f13266e = bVar.f13256a;
+            this.f13267f = bVar.f13257b;
+            this.f13268g = bVar.f13258c;
+            this.f13270i = bVar.f13259d;
+            this.f13269h = bVar.f13260e;
+            this.f13271j = bVar.f13261f;
+            this.k = bVar.f13262g;
+            this.l = bVar.f13263h;
         }
     }
 
@@ -105,15 +105,15 @@ public class c extends ReplacementSpan {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) {
             canvas.save();
             canvas.translate(0.0f, this.l);
-            paint.setColor(SkinManager.getColor(this.f13262f));
+            paint.setColor(SkinManager.getColor(this.f13267f));
             paint.setAntiAlias(true);
-            float descent = this.f13265i - (paint.descent() - paint.ascent());
+            float descent = this.f13270i - (paint.descent() - paint.ascent());
             float f3 = i5;
-            RectF rectF = new RectF(this.f13266j + f2, (paint.ascent() + f3) - descent, this.f13266j + f2 + this.m + (this.f13264h * 2), paint.descent() + f3);
-            int i7 = this.f13263g;
+            RectF rectF = new RectF(this.f13271j + f2, (paint.ascent() + f3) - descent, this.f13271j + f2 + this.m + (this.f13269h * 2), paint.descent() + f3);
+            int i7 = this.f13268g;
             canvas.drawRoundRect(rectF, i7, i7, paint);
-            paint.setColor(this.f13261e);
-            canvas.drawText(charSequence, i2, i3, this.f13264h + f2 + this.f13266j, f3 - (descent / 2.0f), paint);
+            paint.setColor(this.f13266e);
+            canvas.drawText(charSequence, i2, i3, this.f13269h + f2 + this.f13271j, f3 - (descent / 2.0f), paint);
             canvas.restore();
         }
     }
@@ -125,7 +125,7 @@ public class c extends ReplacementSpan {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) {
             int measureText = (int) paint.measureText(charSequence, i2, i3);
             this.m = measureText;
-            return measureText + (this.f13264h * 2) + this.f13266j + this.k;
+            return measureText + (this.f13269h * 2) + this.f13271j + this.k;
         }
         return invokeCommon.intValue;
     }

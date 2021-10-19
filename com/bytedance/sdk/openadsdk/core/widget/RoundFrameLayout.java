@@ -26,16 +26,16 @@ public class RoundFrameLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Path f67556a;
+    public Path f67591a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f67557b;
+    public Paint f67592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RectF f67558c;
+    public RectF f67593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float[] f67559d;
+    public float[] f67594d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundFrameLayout(@NonNull Context context) {
@@ -61,7 +61,7 @@ public class RoundFrameLayout extends FrameLayout {
     public void a(float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            float[] fArr = this.f67559d;
+            float[] fArr = this.f67594d;
             fArr[0] = f2;
             fArr[1] = f2;
             fArr[2] = f3;
@@ -83,9 +83,9 @@ public class RoundFrameLayout extends FrameLayout {
                 canvas.clipPath(a());
                 super.dispatchDraw(canvas);
             } else {
-                canvas.saveLayer(this.f67558c, null, 31);
+                canvas.saveLayer(this.f67593c, null, 31);
                 super.dispatchDraw(canvas);
-                canvas.drawPath(a(), this.f67557b);
+                canvas.drawPath(a(), this.f67592b);
             }
             canvas.restore();
         }
@@ -100,9 +100,9 @@ public class RoundFrameLayout extends FrameLayout {
                 canvas.clipPath(a());
                 super.draw(canvas);
             } else {
-                canvas.saveLayer(this.f67558c, null, 31);
+                canvas.saveLayer(this.f67593c, null, 31);
                 super.draw(canvas);
-                canvas.drawPath(a(), this.f67557b);
+                canvas.drawPath(a(), this.f67592b);
             }
             canvas.restore();
         }
@@ -113,14 +113,14 @@ public class RoundFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f67558c.set(0.0f, 0.0f, i2, i3);
+            this.f67593c.set(0.0f, 0.0f, i2, i3);
         }
     }
 
     public void setBottomLeftRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            float[] fArr = this.f67559d;
+            float[] fArr = this.f67594d;
             fArr[6] = f2;
             fArr[7] = f2;
             postInvalidate();
@@ -130,7 +130,7 @@ public class RoundFrameLayout extends FrameLayout {
     public void setBottomRightRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            float[] fArr = this.f67559d;
+            float[] fArr = this.f67594d;
             fArr[5] = f2;
             fArr[6] = f2;
             postInvalidate();
@@ -140,7 +140,7 @@ public class RoundFrameLayout extends FrameLayout {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            Arrays.fill(this.f67559d, f2);
+            Arrays.fill(this.f67594d, f2);
             postInvalidate();
         }
     }
@@ -148,7 +148,7 @@ public class RoundFrameLayout extends FrameLayout {
     public void setTopLeftRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            float[] fArr = this.f67559d;
+            float[] fArr = this.f67594d;
             fArr[0] = f2;
             fArr[1] = f2;
             postInvalidate();
@@ -158,7 +158,7 @@ public class RoundFrameLayout extends FrameLayout {
     public void setTopRightRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
-            float[] fArr = this.f67559d;
+            float[] fArr = this.f67594d;
             fArr[2] = f2;
             fArr[3] = f2;
             postInvalidate();
@@ -205,13 +205,13 @@ public class RoundFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f67556a = new Path();
-        this.f67558c = new RectF();
+        this.f67591a = new Path();
+        this.f67593c = new RectF();
         Paint paint = new Paint();
-        this.f67557b = paint;
+        this.f67592b = paint;
         paint.setAntiAlias(true);
-        this.f67557b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-        this.f67559d = new float[8];
+        this.f67592b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        this.f67594d = new float[8];
     }
 
     private Path a() {
@@ -219,11 +219,11 @@ public class RoundFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             try {
-                this.f67556a.reset();
+                this.f67591a.reset();
             } catch (ArrayIndexOutOfBoundsException unused) {
             }
-            this.f67556a.addRoundRect(this.f67558c, this.f67559d, Path.Direction.CW);
-            return this.f67556a;
+            this.f67591a.addRoundRect(this.f67593c, this.f67594d, Path.Direction.CW);
+            return this.f67591a;
         }
         return (Path) invokeV.objValue;
     }

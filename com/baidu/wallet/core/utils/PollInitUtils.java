@@ -20,14 +20,14 @@ public class PollInitUtils implements ActLifecycleCbs.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Boolean f61132a;
+    public Boolean f61167a;
 
     /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final PollInitUtils f61133a;
+        public static final PollInitUtils f61168a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +43,7 @@ public class PollInitUtils implements ActLifecycleCbs.a {
                     return;
                 }
             }
-            f61133a = new PollInitUtils();
+            f61168a = new PollInitUtils();
         }
 
         public a() {
@@ -89,13 +89,13 @@ public class PollInitUtils implements ActLifecycleCbs.a {
                 return;
             }
         }
-        this.f61132a = Boolean.TRUE;
+        this.f61167a = Boolean.TRUE;
     }
 
     public static final PollInitUtils getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61133a : (PollInitUtils) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61168a : (PollInitUtils) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.core.ActLifecycleCbs.a
@@ -103,7 +103,7 @@ public class PollInitUtils implements ActLifecycleCbs.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, from)) == null) {
-            if (this.f61132a.booleanValue()) {
+            if (this.f61167a.booleanValue()) {
                 LogUtil.d(TAG, "pollinit-触发请求init接口");
                 BdWalletUtils.getInitForPoll(context);
                 return true;
@@ -133,9 +133,9 @@ public class PollInitUtils implements ActLifecycleCbs.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (!TextUtils.isEmpty(str) && "false".equals(str)) {
-                this.f61132a = Boolean.FALSE;
+                this.f61167a = Boolean.FALSE;
             } else {
-                this.f61132a = Boolean.TRUE;
+                this.f61167a = Boolean.TRUE;
             }
         }
     }

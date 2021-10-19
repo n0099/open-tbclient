@@ -11,22 +11,22 @@ public class e1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14155a;
+    public String f14178a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14156b;
+    public String f14179b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14157c;
+    public int f14180c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14158d;
+    public String f14181d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14159e;
+    public String f14182e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14160f;
+    public String f14183f;
 
     public e1() {
         Interceptable interceptable = $ic;
@@ -47,12 +47,12 @@ public class e1 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, newsInfo) == null) || newsInfo == null) {
             return;
         }
-        this.f14155a = newsInfo.news_link;
-        this.f14156b = newsInfo.summary;
+        this.f14178a = newsInfo.news_link;
+        this.f14179b = newsInfo.summary;
         newsInfo.position.intValue();
-        this.f14157c = newsInfo.news_type.intValue();
-        this.f14158d = newsInfo.news_icon;
-        this.f14159e = newsInfo.subtitle;
-        this.f14160f = newsInfo.button_text;
+        this.f14180c = newsInfo.news_type.intValue();
+        this.f14181d = newsInfo.news_icon;
+        this.f14182e = newsInfo.subtitle;
+        this.f14183f = newsInfo.button_text;
     }
 }

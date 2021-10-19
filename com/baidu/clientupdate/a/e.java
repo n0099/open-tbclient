@@ -13,10 +13,10 @@ public class e extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ byte[] f38922a;
+    public final /* synthetic */ byte[] f38926a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f38923b;
+    public final /* synthetic */ d f38927b;
 
     public e(d dVar, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class e extends Thread {
                 return;
             }
         }
-        this.f38923b = dVar;
-        this.f38922a = bArr;
+        this.f38927b = dVar;
+        this.f38926a = bArr;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -44,9 +44,9 @@ public class e extends Thread {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.run();
             try {
-                this.f38923b.a();
-                bVar = this.f38923b.f38921d;
-                bVar.a(this.f38922a);
+                this.f38927b.a();
+                bVar = this.f38927b.f38925d;
+                bVar.a(this.f38926a);
             } catch (Exception e2) {
                 LogUtil.logE(LogUtils.TAG, Log.getStackTraceString(e2));
             }

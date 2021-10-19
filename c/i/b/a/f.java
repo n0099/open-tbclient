@@ -18,17 +18,17 @@ public class f implements u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f33642a;
+    public final Context f33646a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.i.b.a.z.a<c.i.b.a.z.c> f33643b;
+    public final c.i.b.a.z.a<c.i.b.a.z.c> f33647b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f33644c;
+    public final int f33648c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f33645d;
+    public final long f33649d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public f(Context context, @Nullable c.i.b.a.z.a<c.i.b.a.z.c> aVar) {
@@ -57,11 +57,11 @@ public class f implements u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, handler, eVar, dVar, jVar, dVar2)) == null) {
             ArrayList<r> arrayList = new ArrayList<>();
-            g(this.f33642a, this.f33643b, this.f33645d, handler, eVar, this.f33644c, arrayList);
-            c(this.f33642a, this.f33643b, b(), handler, dVar, this.f33644c, arrayList);
-            f(this.f33642a, jVar, handler.getLooper(), this.f33644c, arrayList);
-            d(this.f33642a, dVar2, handler.getLooper(), this.f33644c, arrayList);
-            e(this.f33642a, handler, this.f33644c, arrayList);
+            g(this.f33646a, this.f33647b, this.f33649d, handler, eVar, this.f33648c, arrayList);
+            c(this.f33646a, this.f33647b, b(), handler, dVar, this.f33648c, arrayList);
+            f(this.f33646a, jVar, handler.getLooper(), this.f33648c, arrayList);
+            d(this.f33646a, dVar2, handler.getLooper(), this.f33648c, arrayList);
+            e(this.f33646a, handler, this.f33648c, arrayList);
             return (r[]) arrayList.toArray(new r[arrayList.size()]);
         }
         return (r[]) invokeLLLLL.objValue;
@@ -84,7 +84,7 @@ public class f implements u {
         if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, aVar, audioProcessorArr, handler, dVar, Integer.valueOf(i2), arrayList}) != null) {
             return;
         }
-        arrayList.add(new c.i.b.a.x.g(c.i.b.a.b0.b.f33003a, aVar, true, handler, dVar, c.i.b.a.x.c.a(context), audioProcessorArr));
+        arrayList.add(new c.i.b.a.x.g(c.i.b.a.b0.b.f33007a, aVar, true, handler, dVar, c.i.b.a.x.c.a(context), audioProcessorArr));
         if (i2 == 0) {
             return;
         }
@@ -154,7 +154,7 @@ public class f implements u {
         if (interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{context, aVar, Long.valueOf(j2), handler, eVar, Integer.valueOf(i2), arrayList}) != null) {
             return;
         }
-        arrayList.add(new c.i.b.a.j0.c(context, c.i.b.a.b0.b.f33003a, j2, aVar, false, handler, eVar, 50));
+        arrayList.add(new c.i.b.a.j0.c(context, c.i.b.a.b0.b.f33007a, j2, aVar, false, handler, eVar, 50));
         if (i2 == 0) {
             return;
         }
@@ -206,9 +206,9 @@ public class f implements u {
                 return;
             }
         }
-        this.f33642a = context;
-        this.f33643b = aVar;
-        this.f33644c = i2;
-        this.f33645d = j2;
+        this.f33646a = context;
+        this.f33647b = aVar;
+        this.f33648c = i2;
+        this.f33649d = j2;
     }
 }

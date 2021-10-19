@@ -17,7 +17,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f37617a;
+    public static int f37621a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +43,7 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f37618a;
+                public final /* synthetic */ Context f37622a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -64,14 +64,14 @@ public class c {
                             return;
                         }
                     }
-                    this.f37618a = context;
+                    this.f37622a = context;
                 }
 
                 @Override // com.baidu.android.pushservice.h.c
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        c.b(this.f37618a, false);
+                        c.b(this.f37622a, false);
                     }
                 }
             });
@@ -79,8 +79,8 @@ public class c {
     }
 
     public static /* synthetic */ int b() {
-        int i2 = f37617a;
-        f37617a = i2 + 1;
+        int i2 = f37621a;
+        f37621a = i2 + 1;
         return i2;
     }
 
@@ -89,7 +89,7 @@ public class c {
         if (interceptable == null || interceptable.invokeLL(65543, null, context, aVar) == null) {
             aVar.a();
             e.a(context).f();
-            f37617a = 0;
+            f37621a = 0;
         }
     }
 
@@ -106,13 +106,13 @@ public class c {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ boolean f37619a;
+                    public final /* synthetic */ boolean f37623a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Context f37620b;
+                    public final /* synthetic */ Context f37624b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f37621c;
+                    public final /* synthetic */ a f37625c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -129,37 +129,37 @@ public class c {
                                 return;
                             }
                         }
-                        this.f37619a = z;
-                        this.f37620b = context;
-                        this.f37621c = aVar;
+                        this.f37623a = z;
+                        this.f37624b = context;
+                        this.f37625c = aVar;
                     }
 
                     @Override // com.baidu.android.pushservice.i.c
                     public void a(int i2, String str) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.f37619a) {
+                        if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.f37623a) {
                             return;
                         }
-                        PushSettings.l(this.f37620b);
+                        PushSettings.l(this.f37624b);
                         if (i2 == 0) {
-                            c.b(this.f37620b, this.f37621c);
-                            int unused = c.f37617a = 0;
+                            c.b(this.f37624b, this.f37625c);
+                            int unused = c.f37621a = 0;
                             return;
                         }
                         int i3 = 1;
-                        if (c.f37617a < 1) {
-                            c.b(this.f37620b, false);
+                        if (c.f37621a < 1) {
+                            c.b(this.f37624b, false);
                             c.b();
                             return;
                         }
-                        int unused2 = c.f37617a = 0;
-                        int n = PushSettings.n(this.f37620b);
+                        int unused2 = c.f37621a = 0;
+                        int n = PushSettings.n(this.f37624b);
                         if (n >= 3) {
-                            c.b(this.f37620b, this.f37621c);
+                            c.b(this.f37624b, this.f37625c);
                         } else {
                             i3 = 1 + n;
                         }
-                        PushSettings.b(this.f37620b, i3);
+                        PushSettings.b(this.f37624b, i3);
                     }
                 });
             }

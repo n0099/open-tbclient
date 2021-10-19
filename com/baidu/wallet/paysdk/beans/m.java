@@ -22,7 +22,7 @@ public class m extends BaseBean<FindPWDFromOldCardSendSmsResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f62695a;
+    public BindFastRequest f62730a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> m(Context context) {
@@ -42,13 +42,13 @@ public class m extends BaseBean<FindPWDFromOldCardSendSmsResponse> {
                 return;
             }
         }
-        this.f62695a = null;
+        this.f62730a = null;
     }
 
     public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bindFastRequest) == null) {
-            this.f62695a = bindFastRequest;
+            this.f62730a = bindFastRequest;
         }
     }
 
@@ -65,10 +65,10 @@ public class m extends BaseBean<FindPWDFromOldCardSendSmsResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f62695a != null) {
+            if (this.f62730a != null) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62695a.getmBankCard())));
-                arrayList.add(new RestNameValuePair("account_bank_code", this.f62695a.getSubBankCode()));
+                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62730a.getmBankCard())));
+                arrayList.add(new RestNameValuePair("account_bank_code", this.f62730a.getSubBankCode()));
                 arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
                 return arrayList;
             }

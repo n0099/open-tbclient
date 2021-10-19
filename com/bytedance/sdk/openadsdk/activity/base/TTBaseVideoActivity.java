@@ -69,38 +69,38 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
     public int H;
     public int I;
     public boolean J;
-    public final a.InterfaceC1899a K;
+    public final a.InterfaceC1901a K;
     public DownloadListener L;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65745a;
+    public final String f65780a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f65746b;
+    public Context f65781b;
 
     /* renamed from: c  reason: collision with root package name */
-    public m f65747c;
+    public m f65782c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f65748d;
+    public int f65783d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f65749e;
+    public String f65784e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f65750f;
+    public String f65785f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ProgressBar f65751g;
+    public ProgressBar f65786g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TTAdDislike f65752h;
+    public TTAdDislike f65787h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f65753i;
+    public c f65788i;
 
     /* renamed from: j  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.component.reward.view.a f65754j;
+    public com.bytedance.sdk.openadsdk.component.reward.view.a f65789j;
     public com.bytedance.sdk.openadsdk.component.reward.b.c k;
     public com.bytedance.sdk.openadsdk.component.reward.b.e l;
     public a m;
@@ -131,9 +131,9 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 return;
             }
         }
-        this.f65745a = x() ? "rewarded_video" : "fullscreen_interstitial_ad";
-        this.f65753i = new c(this);
-        this.f65754j = new com.bytedance.sdk.openadsdk.component.reward.view.a(this);
+        this.f65780a = x() ? "rewarded_video" : "fullscreen_interstitial_ad";
+        this.f65788i = new c(this);
+        this.f65789j = new com.bytedance.sdk.openadsdk.component.reward.view.a(this);
         this.k = new com.bytedance.sdk.openadsdk.component.reward.b.c(this);
         this.l = new com.bytedance.sdk.openadsdk.component.reward.b.e(this);
         this.m = new a(this);
@@ -148,12 +148,12 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
         this.y = false;
         this.G = 1;
         this.J = true;
-        this.K = new a.InterfaceC1899a(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.1
+        this.K = new a.InterfaceC1901a(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TTBaseVideoActivity f65755a;
+            public final /* synthetic */ TTBaseVideoActivity f65790a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -170,22 +170,22 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                         return;
                     }
                 }
-                this.f65755a = this;
+                this.f65790a = this;
             }
 
-            @Override // com.bytedance.sdk.openadsdk.component.reward.b.a.InterfaceC1899a
+            @Override // com.bytedance.sdk.openadsdk.component.reward.b.a.InterfaceC1901a
             public void a(String str, JSONObject jSONObject) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-                    this.f65755a.a(str, jSONObject);
+                    this.f65790a.a(str, jSONObject);
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.component.reward.b.a.InterfaceC1899a
+            @Override // com.bytedance.sdk.openadsdk.component.reward.b.a.InterfaceC1901a
             public void a(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f65755a.a(view);
+                    this.f65790a.a(view);
                 }
             }
         };
@@ -194,7 +194,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TTBaseVideoActivity f65768a;
+            public final /* synthetic */ TTBaseVideoActivity f65803a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -211,14 +211,14 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                         return;
                     }
                 }
-                this.f65768a = this;
+                this.f65803a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.i.e
             public void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f65768a.o();
+                    this.f65803a.o();
                 }
             }
         };
@@ -227,7 +227,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TTBaseVideoActivity f65769a;
+            public final /* synthetic */ TTBaseVideoActivity f65804a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -244,15 +244,15 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                         return;
                     }
                 }
-                this.f65769a = this;
+                this.f65804a = this;
             }
 
             @Override // android.webkit.DownloadListener
             public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
-                    this.f65769a.m.a(str);
-                    this.f65769a.B();
+                    this.f65804a.m.a(str);
+                    this.f65804a.B();
                 }
             }
         };
@@ -265,12 +265,12 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
             if (x()) {
                 return;
             }
-            com.bytedance.sdk.openadsdk.component.reward.c.a a2 = com.bytedance.sdk.openadsdk.component.reward.c.b.a(this, this.f65747c, this.H, this.I, this.G, this.F);
+            com.bytedance.sdk.openadsdk.component.reward.c.a a2 = com.bytedance.sdk.openadsdk.component.reward.c.b.a(this, this.f65782c, this.H, this.I, this.G, this.F);
             this.z = a2;
             if (a2 != null) {
                 k.b("TTBaseVideoActivity", "initAdType end, type : " + this.z.getClass().getSimpleName());
                 this.z.a(this.k, this.n, this.l);
-                this.z.a(this.f65753i);
+                this.z.a(this.f65788i);
                 this.z.a(this.D);
                 this.z.d();
             }
@@ -281,7 +281,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
     public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f65747c.ap() == 15 || this.f65747c.ap() == 5 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f65782c.ap() == 15 || this.f65782c.ap() == 5 : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -294,10 +294,10 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 if (y()) {
                     hashMap.put("dynamic_show_type", Integer.valueOf(this.p.h() ? 1 : 0));
                 }
-                if (!TextUtils.isEmpty(this.f65750f)) {
-                    hashMap.put("rit_scene", this.f65750f);
+                if (!TextUtils.isEmpty(this.f65785f)) {
+                    hashMap.put("rit_scene", this.f65785f);
                 }
-                com.bytedance.sdk.openadsdk.e.d.a(this.f65746b, this.f65747c, this.f65745a, hashMap);
+                com.bytedance.sdk.openadsdk.e.d.a(this.f65781b, this.f65782c, this.f65780a, hashMap);
                 A();
                 return;
             }
@@ -318,7 +318,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            m mVar = this.f65747c;
+            m mVar = this.f65782c;
             return mVar == null || mVar.A() != 1;
         }
         return invokeV.booleanValue;
@@ -327,11 +327,11 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
     private void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            com.bytedance.sdk.openadsdk.e.d.a(this.f65747c, this);
-            this.f65748d = q.d(this.f65747c.ao());
-            this.u = o.h().c(this.f65748d);
-            this.F = this.f65747c.aJ();
-            this.G = this.f65747c.aI();
+            com.bytedance.sdk.openadsdk.e.d.a(this.f65782c, this);
+            this.f65783d = q.d(this.f65782c.ao());
+            this.u = o.h().c(this.f65783d);
+            this.F = this.f65782c.aJ();
+            this.G = this.f65782c.aI();
         }
     }
 
@@ -345,7 +345,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ TTBaseVideoActivity f65759a;
+                        public final /* synthetic */ TTBaseVideoActivity f65794a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -362,7 +362,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                                     return;
                                 }
                             }
-                            this.f65759a = this;
+                            this.f65794a = this;
                         }
 
                         @Override // java.lang.Runnable
@@ -370,10 +370,10 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
-                                    if (Math.abs(s.g(this.f65759a.f65746b) - this.f65759a.getWindow().getDecorView().getHeight()) == 0) {
-                                        View decorView = this.f65759a.getWindow().getDecorView();
+                                    if (Math.abs(s.g(this.f65794a.f65781b) - this.f65794a.getWindow().getDecorView().getHeight()) == 0) {
+                                        View decorView = this.f65794a.getWindow().getDecorView();
                                         if (decorView.isAttachedToWindow()) {
-                                            decorView.setPadding(decorView.getPaddingLeft(), decorView.getPaddingTop() + ((int) s.i(this.f65759a.f65746b)), decorView.getPaddingRight(), decorView.getPaddingBottom());
+                                            decorView.setPadding(decorView.getPaddingLeft(), decorView.getPaddingTop() + ((int) s.i(this.f65794a.f65781b)), decorView.getPaddingRight(), decorView.getPaddingBottom());
                                         }
                                     }
                                 } catch (Throwable unused) {
@@ -391,13 +391,13 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
     private float I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? s.c(this.f65746b, s.g(this.f65746b)) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? s.c(this.f65781b, s.g(this.f65781b)) : invokeV.floatValue;
     }
 
     private float J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? s.c(this.f65746b, s.h(this.f65746b)) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? s.c(this.f65781b, s.h(this.f65781b)) : invokeV.floatValue;
     }
 
     private float[] K() {
@@ -425,7 +425,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
     private String L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.n.a() ? "video_player" : com.bytedance.sdk.openadsdk.core.e.o.a(this.f65747c) ? this.o.n() : "endcard" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.n.a() ? "video_player" : com.bytedance.sdk.openadsdk.core.e.o.a(this.f65782c) ? this.o.n() : "endcard" : (String) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -456,26 +456,26 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 setTheme(t.g(this, "tt_full_screen_interaction"));
                 s.d((Activity) this);
             }
-            setContentView(this.f65753i.a(this.f65747c));
+            setContentView(this.f65788i.a(this.f65782c));
             k();
             h();
-            this.f65753i.a(this.f65747c, this.f65745a, this.G, x(), f());
-            c cVar = this.f65753i;
+            this.f65788i.a(this.f65782c, this.f65780a, this.G, x(), f());
+            c cVar = this.f65788i;
             com.bytedance.sdk.openadsdk.core.b.e eVar = this.D;
             cVar.a(eVar, eVar, this.E);
             this.k.a();
-            this.k.a(this.f65747c.aM());
+            this.k.a(this.f65782c.aM());
             this.k.b(this.u);
             z();
-            this.f65754j.a(this.f65747c, f(), this.G);
-            this.f65754j.a(this.D);
-            this.l.a(this.k, this.f65747c, this.f65745a, this.G, this.H, this.I, this.F, x(), this.f65750f);
+            this.f65789j.a(this.f65782c, f(), this.G);
+            this.f65789j.a(this.D);
+            this.l.a(this.k, this.f65782c, this.f65780a, this.G, this.H, this.I, this.F, x(), this.f65785f);
             this.l.a(this.B, this.C, this.L);
-            this.o.a(this.l, this.f65747c, this.f65745a, this.k);
-            if (com.bytedance.sdk.openadsdk.core.e.o.a(this.f65747c)) {
+            this.o.a(this.l, this.f65782c, this.f65780a, this.k);
+            if (com.bytedance.sdk.openadsdk.core.e.o.a(this.f65782c)) {
                 this.o.a(this.D);
-                if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65747c)) {
-                    this.f65753i.d();
+                if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65782c)) {
+                    this.f65788i.d();
                 }
             }
             this.v = (int) this.n.B();
@@ -488,7 +488,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTBaseVideoActivity f65776a;
+                public final /* synthetic */ TTBaseVideoActivity f65811a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -505,7 +505,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                             return;
                         }
                     }
-                    this.f65776a = this;
+                    this.f65811a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.component.reward.b.a.b
@@ -513,9 +513,9 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
                         if (z) {
-                            this.f65776a.l.a(1, 0);
+                            this.f65811a.l.a(1, 0);
                         }
-                        this.f65776a.a("点击开始下载");
+                        this.f65811a.a("点击开始下载");
                     }
                 }
 
@@ -524,9 +524,9 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
                         if (z) {
-                            this.f65776a.l.a(j3, j2, 4);
+                            this.f65811a.l.a(j3, j2, 4);
                         }
-                        this.f65776a.a(PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
+                        this.f65811a.a(PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
                     }
                 }
 
@@ -535,9 +535,9 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
                         if (z) {
-                            this.f65776a.l.a(j3, j2, 2);
+                            this.f65811a.l.a(j3, j2, 2);
                         }
-                        this.f65776a.a("下载暂停");
+                        this.f65811a.a("下载暂停");
                     }
                 }
 
@@ -546,9 +546,9 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2), str, str2}) == null) {
                         if (z) {
-                            this.f65776a.l.a(5, 100);
+                            this.f65811a.l.a(5, 100);
                         }
-                        this.f65776a.a("点击安装");
+                        this.f65811a.a("点击安装");
                     }
                 }
 
@@ -557,9 +557,9 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
                         if (z) {
-                            this.f65776a.l.a(6, 100);
+                            this.f65811a.l.a(6, 100);
                         }
-                        this.f65776a.a("点击打开");
+                        this.f65811a.a("点击打开");
                     }
                 }
             });
@@ -570,14 +570,14 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            m mVar = this.f65747c;
+            m mVar = this.f65782c;
             if (mVar == null) {
                 return "立即下载";
             }
             if (TextUtils.isEmpty(mVar.aj())) {
-                return this.f65747c.X() != 4 ? "查看详情" : "立即下载";
+                return this.f65782c.X() != 4 ? "查看详情" : "立即下载";
             }
-            return this.f65747c.aj();
+            return this.f65782c.aj();
         }
         return (String) invokeV.objValue;
     }
@@ -586,7 +586,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             k.b("TTBaseVideoActivity", "startBindAd");
-            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65747c)) {
+            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65782c)) {
                 this.l.a();
                 a(false);
                 this.o.h();
@@ -597,7 +597,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 this.l.a();
                 com.bytedance.sdk.openadsdk.component.reward.c.a aVar = this.z;
                 if (aVar != null) {
-                    aVar.a(this.f65753i.e());
+                    aVar.a(this.f65788i.e());
                 }
                 E();
             }
@@ -607,12 +607,12 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            com.bytedance.sdk.openadsdk.core.b.e eVar = new com.bytedance.sdk.openadsdk.core.b.e(this, this, this.f65747c, this.f65745a, x() ? 7 : 5) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.9
+            com.bytedance.sdk.openadsdk.core.b.e eVar = new com.bytedance.sdk.openadsdk.core.b.e(this, this, this.f65782c, this.f65780a, x() ? 7 : 5) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTBaseVideoActivity f65777a;
+                public final /* synthetic */ TTBaseVideoActivity f65812a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -633,7 +633,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                             return;
                         }
                     }
-                    this.f65777a = this;
+                    this.f65812a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.b.e
@@ -641,20 +641,20 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
                         k.b("TTBaseVideoActivity", "onRewardBarClick");
-                        this.f65777a.a(view, i2, i3, i4, i5);
-                        TTBaseVideoActivity tTBaseVideoActivity = this.f65777a;
+                        this.f65812a.a(view, i2, i3, i4, i5);
+                        TTBaseVideoActivity tTBaseVideoActivity = this.f65812a;
                         tTBaseVideoActivity.m.a(view, tTBaseVideoActivity.K);
-                        if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65777a.f65747c) && view.getId() == t.e(this.f65777a, "tt_playable_play")) {
-                            this.f65777a.o.l();
+                        if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65812a.f65782c) && view.getId() == t.e(this.f65812a, "tt_playable_play")) {
+                            this.f65812a.o.l();
                         }
                     }
                 }
             };
             this.D = eVar;
-            eVar.a(this.f65753i.a());
-            if (!TextUtils.isEmpty(this.f65750f)) {
+            eVar.a(this.f65788i.a());
+            if (!TextUtils.isEmpty(this.f65785f)) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("rit_scene", this.f65750f);
+                hashMap.put("rit_scene", this.f65785f);
                 this.D.a(hashMap);
             }
             this.E = new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.10
@@ -662,7 +662,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTBaseVideoActivity f65756a;
+                public final /* synthetic */ TTBaseVideoActivity f65791a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -679,7 +679,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                             return;
                         }
                     }
-                    this.f65756a = this;
+                    this.f65791a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -687,7 +687,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         try {
-                            this.f65756a.a(view);
+                            this.f65791a.a(view);
                         } catch (Exception e2) {
                             k.f("TTBaseVideoActivity", "onClickReport error :" + e2.getMessage());
                         }
@@ -723,12 +723,12 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             HashMap hashMap = new HashMap();
-            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65747c)) {
+            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65782c)) {
                 this.o.a(hashMap);
             }
-            Context context = this.f65746b;
-            m mVar = this.f65747c;
-            String str = this.f65745a;
+            Context context = this.f65781b;
+            m mVar = this.f65782c;
+            String str = this.f65780a;
             if (x()) {
                 hashMap = null;
             }
@@ -758,7 +758,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 min = Math.min(J, I);
                 max = Math.max(J, I);
             }
-            Context context = this.f65746b;
+            Context context = this.f65781b;
             int c2 = s.c(context, s.i(context));
             if (this.G != 2) {
                 if (s.b((Activity) this)) {
@@ -849,7 +849,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTBaseVideoActivity f65760a;
+                public final /* synthetic */ TTBaseVideoActivity f65795a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -866,7 +866,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                             return;
                         }
                     }
-                    this.f65760a = this;
+                    this.f65795a = this;
                 }
 
                 @Override // android.view.View.OnSystemUiVisibilityChangeListener
@@ -874,15 +874,15 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) && i2 == 0) {
                         try {
-                            if (this.f65760a.isFinishing()) {
+                            if (this.f65795a.isFinishing()) {
                                 return;
                             }
-                            this.f65760a.getWindow().getDecorView().postDelayed(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.13.1
+                            this.f65795a.getWindow().getDecorView().postDelayed(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.13.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass13 f65761a;
+                                public final /* synthetic */ AnonymousClass13 f65796a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -899,14 +899,14 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                                             return;
                                         }
                                     }
-                                    this.f65761a = this;
+                                    this.f65796a = this;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        s.a((Activity) this.f65761a.f65760a);
+                                        s.a((Activity) this.f65796a.f65795a);
                                     }
                                 }
                             }, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
@@ -922,7 +922,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
     @Override // android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && m.c(this.f65747c)) {
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && m.c(this.f65782c)) {
             this.l.p();
         }
     }
@@ -944,7 +944,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
             if (bundle != null && bundle.getLong("video_current") > 0) {
                 this.n.a(bundle.getLong("video_current", 0L));
             }
-            this.f65746b = this;
+            this.f65781b = this;
             if (a(bundle)) {
                 G();
                 e();
@@ -964,7 +964,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
             if (bVar != null) {
                 bVar.f();
             }
-            TTAdDislike tTAdDislike = this.f65752h;
+            TTAdDislike tTAdDislike = this.f65787h;
             if (tTAdDislike != null) {
                 tTAdDislike.resetDislikeStatus();
             }
@@ -999,7 +999,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
             this.m.e();
             this.o.d();
             this.l.c();
-            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65747c)) {
+            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65782c)) {
                 this.w.removeMessages(600);
             }
         }
@@ -1013,12 +1013,12 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
             k.b("TTBaseVideoActivity", "onResume");
             H();
             if (this.q.get()) {
-                this.k.a(this.f65747c.aM());
+                this.k.a(this.f65782c.aM());
             }
             this.l.b();
             this.n.b(this.q.get() || u(), this);
             this.m.d();
-            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65747c)) {
+            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65782c)) {
                 this.o.a("return_foreground");
                 com.bytedance.sdk.openadsdk.core.widget.d dVar = this.x;
                 if (dVar == null || !dVar.isShowing()) {
@@ -1041,12 +1041,12 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 bundle = new Bundle();
             }
             try {
-                bundle.putString("material_meta", this.f65747c != null ? this.f65747c.aP().toString() : null);
-                bundle.putString("multi_process_meta_md5", this.f65749e);
+                bundle.putString("material_meta", this.f65782c != null ? this.f65782c.aP().toString() : null);
+                bundle.putString("multi_process_meta_md5", this.f65784e);
                 bundle.putString("video_cache_url", this.n.y());
                 bundle.putLong("video_current", this.n.o());
                 bundle.putBoolean("is_mute", this.u);
-                bundle.putString("rit_scene", this.f65750f);
+                bundle.putString("rit_scene", this.f65785f);
                 bundle.putBoolean("has_show_skip_btn", this.r.get());
             } catch (Throwable unused) {
             }
@@ -1071,7 +1071,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
             k.b("TTBaseVideoActivity", MissionEvent.MESSAGE_STOP);
             this.l.k();
             this.l.d();
-            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65747c)) {
+            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65782c)) {
                 this.o.j();
                 this.w.removeMessages(600);
                 this.o.a("go_background");
@@ -1094,13 +1094,13 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 k.b("TTBaseVideoActivity", "get root view size error, so run backup");
                 fArr = K();
             }
-            this.p.a(this.f65747c, new AdSlot.Builder().setCodeId(String.valueOf(q.d(this.f65747c.ao()))).setExpressViewAcceptedSize(fArr[0], fArr[1]).build(), this.f65745a);
+            this.p.a(this.f65782c, new AdSlot.Builder().setCodeId(String.valueOf(q.d(this.f65782c.ao()))).setExpressViewAcceptedSize(fArr[0], fArr[1]).build(), this.f65780a);
             this.p.a(new i(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTBaseVideoActivity f65770a;
+                public final /* synthetic */ TTBaseVideoActivity f65805a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1117,14 +1117,14 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                             return;
                         }
                     }
-                    this.f65770a = this;
+                    this.f65805a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.i
                 public void a(boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                        TTBaseVideoActivity tTBaseVideoActivity = this.f65770a;
+                        TTBaseVideoActivity tTBaseVideoActivity = this.f65805a;
                         if (tTBaseVideoActivity.u != z) {
                             tTBaseVideoActivity.k.d();
                         }
@@ -1135,7 +1135,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                        this.f65770a.k.c();
+                        this.f65805a.k.c();
                     }
                 }
 
@@ -1144,8 +1144,8 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
-                        k.f("TTBaseVideoActivity", "onGetCurrentPlayTime mVideoCurrent:" + this.f65770a.n.C());
-                        return this.f65770a.n.C();
+                        k.f("TTBaseVideoActivity", "onGetCurrentPlayTime mVideoCurrent:" + this.f65805a.n.C());
+                        return this.f65805a.n.C();
                     }
                     return invokeV.longValue;
                 }
@@ -1155,19 +1155,19 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048581, this)) == null) {
-                        if (this.f65770a.p.c()) {
+                        if (this.f65805a.p.c()) {
                             return 4;
                         }
-                        if (this.f65770a.p.d()) {
+                        if (this.f65805a.p.d()) {
                             return 5;
                         }
-                        if (this.f65770a.n.c()) {
+                        if (this.f65805a.n.c()) {
                             return 1;
                         }
-                        if (this.f65770a.n.a()) {
+                        if (this.f65805a.n.a()) {
                             return 2;
                         }
-                        if (this.f65770a.n.b()) {
+                        if (this.f65805a.n.b()) {
                         }
                         return 3;
                     }
@@ -1178,7 +1178,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 public void e() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048582, this) == null) {
-                        this.f65770a.v();
+                        this.f65805a.v();
                     }
                 }
 
@@ -1186,7 +1186,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 public void f() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048583, this) == null) {
-                        this.f65770a.M();
+                        this.f65805a.M();
                     }
                 }
 
@@ -1194,7 +1194,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f65770a.k.b();
+                        this.f65805a.k.b();
                     }
                 }
 
@@ -1205,23 +1205,23 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                         boolean z = false;
                         if (i2 != 1) {
                             if (i2 == 2) {
-                                this.f65770a.n.z();
+                                this.f65805a.n.z();
                                 return;
                             } else if (i2 == 3) {
-                                TTBaseVideoActivity tTBaseVideoActivity = this.f65770a;
-                                tTBaseVideoActivity.n.a((tTBaseVideoActivity.q.get() || this.f65770a.u()) ? true : true, this.f65770a);
+                                TTBaseVideoActivity tTBaseVideoActivity = this.f65805a;
+                                tTBaseVideoActivity.n.a((tTBaseVideoActivity.q.get() || this.f65805a.u()) ? true : true, this.f65805a);
                                 return;
                             } else if (i2 == 4) {
-                                this.f65770a.n.h();
+                                this.f65805a.n.h();
                                 return;
                             } else if (i2 != 5) {
                                 return;
                             }
                         }
-                        if (this.f65770a.n.a() || this.f65770a.n.b()) {
+                        if (this.f65805a.n.a() || this.f65805a.n.b()) {
                             return;
                         }
-                        this.f65770a.a(0L, false);
+                        this.f65805a.a(0L, false);
                     }
                 }
             });
@@ -1230,7 +1230,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTBaseVideoActivity f65771a;
+                public final /* synthetic */ TTBaseVideoActivity f65806a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1247,7 +1247,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                             return;
                         }
                     }
-                    this.f65771a = this;
+                    this.f65806a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -1268,14 +1268,14 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 public void onRenderFail(View view, String str, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view, str, i2) == null) {
-                        this.f65771a.l.a();
+                        this.f65806a.l.a();
                         k.b("TTBaseVideoActivity", "onRenderFail、、、code:" + i2);
-                        this.f65771a.p.e().post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.4.1
+                        this.f65806a.p.e().post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.4.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass4 f65772a;
+                            public final /* synthetic */ AnonymousClass4 f65807a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -1292,14 +1292,14 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                                         return;
                                     }
                                 }
-                                this.f65772a = this;
+                                this.f65807a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.f65772a.f65771a.a(false);
+                                    this.f65807a.f65806a.a(false);
                                 }
                             }
                         });
@@ -1309,41 +1309,41 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
                 public void onRenderSuccess(View view, float f2, float f3) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) || com.bytedance.sdk.openadsdk.core.e.o.j(this.f65771a.f65747c)) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) || com.bytedance.sdk.openadsdk.core.e.o.j(this.f65806a.f65782c)) {
                         return;
                     }
-                    if (this.f65771a.p.h()) {
-                        this.f65771a.b(true);
+                    if (this.f65806a.p.h()) {
+                        this.f65806a.b(true);
                     }
-                    this.f65771a.d(8);
-                    this.f65771a.l.a();
-                    if (this.f65771a.p.h()) {
-                        TTBaseVideoActivity tTBaseVideoActivity = this.f65771a;
+                    this.f65806a.d(8);
+                    this.f65806a.l.a();
+                    if (this.f65806a.p.h()) {
+                        TTBaseVideoActivity tTBaseVideoActivity = this.f65806a;
                         if (tTBaseVideoActivity.z != null) {
                             tTBaseVideoActivity.p.b().setBackgroundColor(-16777216);
-                            TTBaseVideoActivity tTBaseVideoActivity2 = this.f65771a;
+                            TTBaseVideoActivity tTBaseVideoActivity2 = this.f65806a;
                             com.bytedance.sdk.openadsdk.component.reward.c.a aVar = tTBaseVideoActivity2.z;
                             if (aVar != null) {
-                                aVar.a(tTBaseVideoActivity2.f65753i.e());
+                                aVar.a(tTBaseVideoActivity2.f65788i.e());
                             }
-                            this.f65771a.E();
+                            this.f65806a.E();
                         }
                     }
-                    if (this.f65771a.f65747c.V() != null && this.f65771a.D()) {
-                        this.f65771a.A = true;
+                    if (this.f65806a.f65782c.V() != null && this.f65806a.D()) {
+                        this.f65806a.A = true;
                     }
-                    this.f65771a.E();
+                    this.f65806a.E();
                 }
             });
-            Context context = this.f65746b;
-            m mVar = this.f65747c;
-            String str = this.f65745a;
+            Context context = this.f65781b;
+            m mVar = this.f65782c;
+            String str = this.f65780a;
             com.bytedance.sdk.openadsdk.core.nativeexpress.e eVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.e(this, context, mVar, str, q.a(str)) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTBaseVideoActivity f65773a;
+                public final /* synthetic */ TTBaseVideoActivity f65808a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1364,7 +1364,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                             return;
                         }
                     }
-                    this.f65773a = this;
+                    this.f65808a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.b.b, com.bytedance.sdk.openadsdk.core.b.c
@@ -1372,24 +1372,24 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
                         super.a(view, i2, i3, i4, i5);
-                        this.f65773a.a(view, i2, i3, i4, i5);
+                        this.f65808a.a(view, i2, i3, i4, i5);
                     }
                 }
             };
-            if (!TextUtils.isEmpty(this.f65750f)) {
+            if (!TextUtils.isEmpty(this.f65785f)) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("rit_scene", this.f65750f);
+                hashMap.put("rit_scene", this.f65785f);
                 eVar.a(hashMap);
             }
-            Context context2 = this.f65746b;
-            m mVar2 = this.f65747c;
-            String str2 = this.f65745a;
+            Context context2 = this.f65781b;
+            m mVar2 = this.f65782c;
+            String str2 = this.f65780a;
             com.bytedance.sdk.openadsdk.core.nativeexpress.d dVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.d(this, context2, mVar2, str2, q.a(str2)) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTBaseVideoActivity f65774a;
+                public final /* synthetic */ TTBaseVideoActivity f65809a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1410,7 +1410,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                             return;
                         }
                     }
-                    this.f65774a = this;
+                    this.f65809a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.b.a, com.bytedance.sdk.openadsdk.core.b.b, com.bytedance.sdk.openadsdk.core.b.c
@@ -1418,19 +1418,19 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
                         super.a(view, i2, i3, i4, i5);
-                        this.f65774a.a(view, i2, i3, i4, i5);
+                        this.f65809a.a(view, i2, i3, i4, i5);
                     }
                 }
             };
-            if (!TextUtils.isEmpty(this.f65750f)) {
+            if (!TextUtils.isEmpty(this.f65785f)) {
                 HashMap hashMap2 = new HashMap();
-                hashMap2.put("rit_scene", this.f65750f);
+                hashMap2.put("rit_scene", this.f65785f);
                 dVar.a(hashMap2);
             }
-            this.p.a(eVar, dVar, this.f65754j);
+            this.p.a(eVar, dVar, this.f65789j);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            this.f65753i.e().addView(this.p.a(), layoutParams);
+            this.f65788i.e().addView(this.p.a(), layoutParams);
             if (!this.p.h()) {
                 b(false);
             }
@@ -1460,14 +1460,14 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? o.h().j(String.valueOf(this.f65748d)) != 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? o.h().j(String.valueOf(this.f65783d)) != 1 : invokeV.booleanValue;
     }
 
     public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
-            TTAdDislike tTAdDislike = this.f65752h;
+            TTAdDislike tTAdDislike = this.f65787h;
             if (tTAdDislike != null) {
                 return tTAdDislike.isShow();
             }
@@ -1481,15 +1481,15 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
         if (!(interceptable == null || interceptable.invokeV(1048621, this) == null) || isFinishing()) {
             return;
         }
-        if (this.f65752h == null) {
-            com.bytedance.sdk.openadsdk.dislike.ui.a aVar = new com.bytedance.sdk.openadsdk.dislike.ui.a(this, this.f65747c.aG(), this.f65745a, true);
-            this.f65752h = aVar;
+        if (this.f65787h == null) {
+            com.bytedance.sdk.openadsdk.dislike.ui.a aVar = new com.bytedance.sdk.openadsdk.dislike.ui.a(this, this.f65782c.aG(), this.f65780a, true);
+            this.f65787h = aVar;
             aVar.setDislikeInteractionCallback(new TTAdDislike.DislikeInteractionCallback(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTBaseVideoActivity f65775a;
+                public final /* synthetic */ TTBaseVideoActivity f65810a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1506,36 +1506,36 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                             return;
                         }
                     }
-                    this.f65775a = this;
+                    this.f65810a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
                 public void onCancel() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f65775a.n.b()) {
-                        this.f65775a.n.k();
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f65810a.n.b()) {
+                        this.f65810a.n.k();
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
                 public void onSelected(int i2, String str, boolean z) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) && this.f65775a.n.b()) {
-                        this.f65775a.n.k();
+                    if ((interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) && this.f65810a.n.b()) {
+                        this.f65810a.n.k();
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
                 public void onShow() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f65775a.n.a()) {
-                        this.f65775a.n.l();
+                    if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f65810a.n.a()) {
+                        this.f65810a.n.l();
                     }
                 }
             });
         }
-        this.f65752h.setDislikeSource(L());
-        this.f65752h.showDislikeDialog();
+        this.f65787h.setDislikeSource(L());
+        this.f65787h.showDislikeDialog();
     }
 
     public boolean w() {
@@ -1593,10 +1593,10 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
             aVar.b(this.n.p());
             aVar.e(3);
             aVar.f(this.n.q());
-            com.bytedance.sdk.openadsdk.e.a.a.f(this.f65746b, this.n.D(), aVar);
+            com.bytedance.sdk.openadsdk.e.a.a.f(this.f65781b, this.n.D(), aVar);
             HashMap hashMap = new HashMap();
-            if (!TextUtils.isEmpty(this.f65750f)) {
-                hashMap.put("rit_scene", this.f65750f);
+            if (!TextUtils.isEmpty(this.f65785f)) {
+                hashMap.put("rit_scene", this.f65785f);
             }
             hashMap.put("play_type", Integer.valueOf(this.n.f()));
             this.n.j();
@@ -1616,18 +1616,18 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
     private void b(View view) {
         HashMap hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65554, this, view) == null) || F() || this.f65747c == null || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(65554, this, view) == null) || F() || this.f65782c == null || view == null) {
             return;
         }
         if (view.getId() == t.e(this, "tt_rb_score") || view.getId() == t.e(this, "tt_comment_vertical") || view.getId() == t.e(this, "tt_reward_ad_appname") || view.getId() == t.e(this, "tt_reward_ad_icon") || view.getId() == t.e(this, "tt_video_reward_bar") || view.getId() == t.e(this, "tt_click_lower_non_content_layout") || view.getId() == t.e(this, "tt_click_upper_non_content_layout") || view.getId() == t.e(this, "tt_reward_ad_download") || view.getId() == t.e(this, "tt_video_reward_container") || view.getId() == t.e(this, "tt_reward_ad_download_backup")) {
-            if (TextUtils.isEmpty(this.f65750f)) {
+            if (TextUtils.isEmpty(this.f65785f)) {
                 hashMap = null;
             } else {
                 HashMap hashMap2 = new HashMap();
-                hashMap2.put("rit_scene", this.f65750f);
+                hashMap2.put("rit_scene", this.f65785f);
                 hashMap = hashMap2;
             }
-            com.bytedance.sdk.openadsdk.e.d.a(this.f65746b, "click_other", this.f65747c, new f.a().e(0).d(0).c(0).b(0).b(System.currentTimeMillis()).a(0L).b(s.a(this.f65753i.a())).a(s.a((View) null)).c(s.c(this.f65753i.a())).d(s.c((View) null)).f(1).g(-1).h(0).a((SparseArray<c.a>) null).a(h.d().b() ? 1 : 2).a(), this.f65745a, true, (Map<String, Object>) hashMap);
+            com.bytedance.sdk.openadsdk.e.d.a(this.f65781b, "click_other", this.f65782c, new f.a().e(0).d(0).c(0).b(0).b(System.currentTimeMillis()).a(0L).b(s.a(this.f65788i.a())).a(s.a((View) null)).c(s.c(this.f65788i.a())).d(s.c((View) null)).f(1).g(-1).h(0).a((SparseArray<c.a>) null).a(h.d().b() ? 1 : 2).a(), this.f65780a, true, (Map<String, Object>) hashMap);
         }
     }
 
@@ -1668,33 +1668,33 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 Intent intent = getIntent();
                 if (intent != null && (stringExtra = intent.getStringExtra(TTAdConstant.MULTI_PROCESS_MATERIALMETA)) != null) {
                     try {
-                        this.f65747c = com.bytedance.sdk.openadsdk.core.b.a(new JSONObject(stringExtra));
+                        this.f65782c = com.bytedance.sdk.openadsdk.core.b.a(new JSONObject(stringExtra));
                     } catch (Exception e2) {
                         k.c("TTBaseVideoActivity", "initData MultiGlobalInfo throws ", e2);
                     }
                 }
             } else {
-                this.f65747c = com.bytedance.sdk.openadsdk.core.t.a().c();
+                this.f65782c = com.bytedance.sdk.openadsdk.core.t.a().c();
             }
-            this.m.a(this.f65747c, this.f65745a);
+            this.m.a(this.f65782c, this.f65780a);
             if (!com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.core.t.a().g();
             }
             if (bundle != null) {
                 try {
-                    this.f65747c = com.bytedance.sdk.openadsdk.core.b.a(new JSONObject(bundle.getString("material_meta")));
+                    this.f65782c = com.bytedance.sdk.openadsdk.core.b.a(new JSONObject(bundle.getString("material_meta")));
                     this.r.set(bundle.getBoolean("has_show_skip_btn"));
                     if (this.r.get()) {
                         this.k.d(true);
-                        this.k.a(null, getString(t.b(this.f65746b, "tt_reward_screen_skip_tx")));
+                        this.k.a(null, getString(t.b(this.f65781b, "tt_reward_screen_skip_tx")));
                         this.k.f(true);
                     }
                 } catch (Throwable unused) {
                 }
                 this.m.a();
             }
-            com.bytedance.sdk.openadsdk.core.d.a().a(this.f65747c);
-            if (this.f65747c == null) {
+            com.bytedance.sdk.openadsdk.core.d.a().a(this.f65782c);
+            if (this.f65782c == null) {
                 k.f("TTBaseVideoActivity", "mMaterialMeta is null , no data to display ,the TTBaseVideoActivity finished !!");
                 finish();
                 return false;
@@ -1720,15 +1720,15 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            if (this.f65751g == null) {
-                this.f65751g = new ProgressBar(this);
+            if (this.f65786g == null) {
+                this.f65786g = new ProgressBar(this);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(120, 120);
                 layoutParams.gravity = 17;
-                this.f65751g.setLayoutParams(layoutParams);
-                this.f65751g.setIndeterminateDrawable(getResources().getDrawable(t.d(this, "tt_video_loading_progress_bar")));
-                this.f65753i.e().addView(this.f65751g);
+                this.f65786g.setLayoutParams(layoutParams);
+                this.f65786g.setIndeterminateDrawable(getResources().getDrawable(t.d(this, "tt_video_loading_progress_bar")));
+                this.f65788i.e().addView(this.f65786g);
             }
-            this.f65751g.setVisibility(i2);
+            this.f65786g.setVisibility(i2);
         }
     }
 
@@ -1739,16 +1739,16 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
             if ((Build.VERSION.SDK_INT >= 17 && isDestroyed()) || isFinishing() || this.q.getAndSet(true)) {
                 return;
             }
-            if (com.bytedance.sdk.openadsdk.core.e.o.a(this.f65747c)) {
+            if (com.bytedance.sdk.openadsdk.core.e.o.a(this.f65782c)) {
                 this.o.b();
             }
             k.b("TTBaseVideoActivity", "showEndCard execute");
             this.o.a(this.u);
             this.l.j();
-            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65747c)) {
+            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65782c)) {
                 return;
             }
-            TTAdDislike tTAdDislike = this.f65752h;
+            TTAdDislike tTAdDislike = this.f65787h;
             if (tTAdDislike != null) {
                 tTAdDislike.resetDislikeStatus();
             }
@@ -1756,15 +1756,15 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
             if (dVar != null && dVar.isShowing()) {
                 this.x.dismiss();
             }
-            if (y() && com.bytedance.sdk.openadsdk.core.e.o.a(this.f65747c)) {
+            if (y() && com.bytedance.sdk.openadsdk.core.e.o.a(this.f65782c)) {
                 this.k.c(true);
                 if (z) {
                     this.k.d(true);
                 }
             }
-            this.f65753i.a(8);
+            this.f65788i.a(8);
             if (this.l.q()) {
-                if (!m.d(this.f65747c) && !com.bytedance.sdk.openadsdk.core.e.o.a(this.f65747c)) {
+                if (!m.d(this.f65782c) && !com.bytedance.sdk.openadsdk.core.e.o.a(this.f65782c)) {
                     k.b("TTBaseVideoActivity", "TimeTrackLog report Success from Android");
                     this.l.a(true, 0, (String) null);
                 }
@@ -1773,18 +1773,18 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 return;
             }
             k.b("TTBaseVideoActivity", "showEndCard isEndCardLoadSuc=" + this.l.r() + " so load back up end card");
-            if (!m.d(this.f65747c)) {
+            if (!m.d(this.f65782c)) {
                 k.b("TTBaseVideoActivity", "TimeTrackLog report 408 from backup page");
                 this.l.a(false, 408, "end_card_timeout");
             }
             this.l.m();
             this.l.o();
             this.l.F();
-            this.f65754j.a();
+            this.f65789j.a();
             this.k.e(true);
             this.k.c(false);
             this.k.d(false);
-            this.k.a(this.f65747c.aM());
+            this.k.a(this.f65782c.aM());
             this.n.i();
         }
     }
@@ -1806,8 +1806,8 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
             this.k.d(false);
             this.k.e(false);
         } else {
-            this.k.a(this.f65747c.aM());
-            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65747c) || D()) {
+            this.k.a(this.f65782c.aM());
+            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f65782c) || D()) {
                 this.k.c(true);
             }
             if (!D() && (!(this.z instanceof com.bytedance.sdk.openadsdk.component.reward.c.c) || !y())) {
@@ -1817,17 +1817,17 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
             }
         }
         if (z) {
-            if (!x() && (this.F != FullRewardExpressView.f66263c || !D())) {
-                this.f65753i.b(8);
-                this.f65753i.a(8);
+            if (!x() && (this.F != FullRewardExpressView.f66298c || !D())) {
+                this.f65788i.b(8);
+                this.f65788i.a(8);
                 return;
             }
-            this.f65753i.b(0);
-            this.f65753i.a(0);
+            this.f65788i.b(0);
+            this.f65788i.a(0);
             return;
         }
-        this.f65753i.b(4);
-        this.f65753i.a(8);
+        this.f65788i.b(4);
+        this.f65788i.a(8);
     }
 
     public void b(Bundle bundle) {
@@ -1835,10 +1835,10 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) || bundle == null) {
             return;
         }
-        this.f65749e = bundle.getString("multi_process_meta_md5");
+        this.f65784e = bundle.getString("multi_process_meta_md5");
         this.n.a(bundle.getString("video_cache_url"));
         this.u = bundle.getBoolean("is_mute");
-        this.f65750f = bundle.getString("rit_scene");
+        this.f65785f = bundle.getString("rit_scene");
     }
 
     public boolean a(long j2, boolean z, Map<String, Object> map) {
@@ -1853,8 +1853,8 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 }
                 boolean a2 = this.n.a(j2, this.u);
                 if (a2 && !z) {
-                    k.e("AdEvent", "pangolin ad show " + q.a(this.f65747c, (View) null));
-                    com.bytedance.sdk.openadsdk.e.d.a(this.f65746b, this.f65747c, this.f65745a, map);
+                    k.e("AdEvent", "pangolin ad show " + q.a(this.f65782c, (View) null));
+                    com.bytedance.sdk.openadsdk.e.d.a(this.f65781b, this.f65782c, this.f65780a, map);
                     A();
                 }
                 return a2;
@@ -1872,10 +1872,10 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f65757a;
+                public final /* synthetic */ String f65792a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ TTBaseVideoActivity f65758b;
+                public final /* synthetic */ TTBaseVideoActivity f65793b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1892,17 +1892,17 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                             return;
                         }
                     }
-                    this.f65758b = this;
-                    this.f65757a = str;
+                    this.f65793b = this;
+                    this.f65792a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f65757a)) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f65792a)) {
                         return;
                     }
-                    this.f65758b.f65754j.a(this.f65757a);
+                    this.f65793b.f65789j.a(this.f65792a);
                 }
             });
         }
@@ -1940,9 +1940,9 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
     public void a(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, this, str, jSONObject) == null) {
-            Context context = this.f65746b;
-            m mVar = this.f65747c;
-            String str2 = this.f65745a;
+            Context context = this.f65781b;
+            m mVar = this.f65782c;
+            String str2 = this.f65780a;
             if (!x()) {
                 jSONObject = null;
             }
@@ -1967,7 +1967,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 this.n.j();
                 a(false);
             } else if (i2 == 500) {
-                if (!com.bytedance.sdk.openadsdk.core.e.o.a(this.f65747c)) {
+                if (!com.bytedance.sdk.openadsdk.core.e.o.a(this.f65782c)) {
                     this.k.c(false);
                 }
                 this.l.f();
@@ -2012,22 +2012,22 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f65762a;
+                public final /* synthetic */ String f65797a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f65763b;
+                public final /* synthetic */ long f65798b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f65764c;
+                public final /* synthetic */ long f65799c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f65765d;
+                public final /* synthetic */ String f65800d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f65766e;
+                public final /* synthetic */ String f65801e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ TTBaseVideoActivity f65767f;
+                public final /* synthetic */ TTBaseVideoActivity f65802f;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -2047,12 +2047,12 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                             return;
                         }
                     }
-                    this.f65767f = this;
-                    this.f65762a = str;
-                    this.f65763b = j2;
-                    this.f65764c = j3;
-                    this.f65765d = str2;
-                    this.f65766e = str3;
+                    this.f65802f = this;
+                    this.f65797a = str;
+                    this.f65798b = j2;
+                    this.f65799c = j3;
+                    this.f65800d = str2;
+                    this.f65801e = str3;
                 }
 
                 @Override // java.lang.Runnable
@@ -2060,7 +2060,7 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f65767f.b(3).executeAppDownloadCallback(this.f65767f.f65749e, this.f65762a, this.f65763b, this.f65764c, this.f65765d, this.f65766e);
+                            this.f65802f.b(3).executeAppDownloadCallback(this.f65802f.f65784e, this.f65797a, this.f65798b, this.f65799c, this.f65800d, this.f65801e);
                         } catch (Throwable th) {
                             k.c("TTBaseVideoActivity", "executeAppDownloadCallback execute throw Exception : ", th);
                         }
@@ -2075,9 +2075,9 @@ public abstract class TTBaseVideoActivity extends Activity implements w.a, b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, intent) == null) || intent == null) {
             return;
         }
-        this.f65753i.a(intent.getBooleanExtra("show_download_bar", true));
-        this.f65750f = intent.getStringExtra("rit_scene");
+        this.f65788i.a(intent.getBooleanExtra("show_download_bar", true));
+        this.f65785f = intent.getStringExtra("rit_scene");
         this.n.a(intent.getStringExtra("video_cache_url"));
-        this.f65749e = intent.getStringExtra("multi_process_meta_md5");
+        this.f65784e = intent.getStringExtra("multi_process_meta_md5");
     }
 }

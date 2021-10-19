@@ -12,7 +12,7 @@ public class p extends AnimatorListenerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f41753a;
+    public final /* synthetic */ SwipeDismissTouchListener f41757a;
 
     public p(SwipeDismissTouchListener swipeDismissTouchListener) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class p extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.f41753a = swipeDismissTouchListener;
+        this.f41757a = swipeDismissTouchListener;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
     public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            this.f41753a.a();
+            this.f41757a.a();
         }
     }
 }

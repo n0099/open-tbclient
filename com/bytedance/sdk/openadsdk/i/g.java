@@ -21,28 +21,28 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68227a;
+    public int f68262a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f68228b;
+    public f f68263b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f68229c;
+    public a f68264c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f68230d;
+    public Context f68265d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AudioManager f68231e;
+    public AudioManager f68266e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f68232f;
+    public boolean f68267f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f68233g;
+    public boolean f68268g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f68234h;
+    public int f68269h;
 
     /* loaded from: classes9.dex */
     public static class a extends BroadcastReceiver {
@@ -50,7 +50,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<g> f68235a;
+        public WeakReference<g> f68270a;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class g {
                     return;
                 }
             }
-            this.f68235a = new WeakReference<>(gVar);
+            this.f68270a = new WeakReference<>(gVar);
         }
 
         @Override // android.content.BroadcastReceiver
@@ -79,7 +79,7 @@ public class g {
                 try {
                     if (VideoReceiver.ACTION_VOLUME_CHANGED.equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
                         k.b("VolumeChangeObserver", "媒体音量改变通.......");
-                        g gVar = this.f68235a.get();
+                        g gVar = this.f68270a.get();
                         if (gVar == null || (e2 = gVar.e()) == null || (d2 = gVar.d()) == gVar.a()) {
                             return;
                         }
@@ -110,29 +110,29 @@ public class g {
                 return;
             }
         }
-        this.f68227a = -1;
-        this.f68232f = false;
-        this.f68233g = false;
-        this.f68234h = -1;
-        this.f68230d = context;
-        this.f68231e = (AudioManager) context.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        this.f68262a = -1;
+        this.f68267f = false;
+        this.f68268g = false;
+        this.f68269h = -1;
+        this.f68265d = context;
+        this.f68266e = (AudioManager) context.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68234h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68269h : invokeV.intValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                this.f68229c = new a(this);
+                this.f68264c = new a(this);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction(VideoReceiver.ACTION_VOLUME_CHANGED);
-                this.f68230d.registerReceiver(this.f68229c, intentFilter);
-                this.f68232f = true;
+                this.f68265d.registerReceiver(this.f68264c, intentFilter);
+                this.f68267f = true;
             } catch (Throwable th) {
                 k.a("VolumeChangeObserver", "registerReceiverError: ", th);
             }
@@ -141,11 +141,11 @@ public class g {
 
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f68232f) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f68267f) {
             try {
-                this.f68230d.unregisterReceiver(this.f68229c);
-                this.f68228b = null;
-                this.f68232f = false;
+                this.f68265d.unregisterReceiver(this.f68264c);
+                this.f68263b = null;
+                this.f68267f = false;
             } catch (Throwable th) {
                 k.a("VolumeChangeObserver", "unregisterReceiverError: ", th);
             }
@@ -157,8 +157,8 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                if (this.f68231e != null) {
-                    return this.f68231e.getStreamVolume(3);
+                if (this.f68266e != null) {
+                    return this.f68266e.getStreamVolume(3);
                 }
                 return -1;
             } catch (Throwable th) {
@@ -172,20 +172,20 @@ public class g {
     public f e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68228b : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68263b : (f) invokeV.objValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f68234h = i2;
+            this.f68269h = i2;
         }
     }
 
     public void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
-            this.f68228b = fVar;
+            this.f68263b = fVar;
         }
     }
 }

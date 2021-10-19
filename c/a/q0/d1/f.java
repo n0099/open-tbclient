@@ -29,16 +29,16 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static JSONObject f12932a;
+    public static JSONObject f12940a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<Long> f12933b;
+    public static ArrayList<Long> f12941b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> f12934c;
+    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> f12942c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f12935d;
+    public static boolean f12943d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -47,7 +47,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12936e;
+        public final /* synthetic */ String f12944e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class f {
                     return;
                 }
             }
-            this.f12936e = str;
+            this.f12944e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,7 +74,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 String p = c.a.q0.s.d0.b.j().p("old_sniff_url", "");
-                if (TextUtils.isEmpty(this.f12936e) || this.f12936e.equals(p)) {
+                if (TextUtils.isEmpty(this.f12944e) || this.f12944e.equals(p)) {
                     f.q(false);
                     return;
                 }
@@ -82,7 +82,7 @@ public class f {
                 if (!file.exists()) {
                     file.mkdir();
                 }
-                if (d.c().a(new File(file, "sniff.json"), this.f12936e) > 0) {
+                if (d.c().a(new File(file, "sniff.json"), this.f12944e) > 0) {
                     c.a.q0.s.d0.b.j().x("old_sniff_url", "");
                 }
                 f.q(true);
@@ -96,7 +96,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f12937e;
+        public final /* synthetic */ boolean f12945e;
 
         public b(boolean z) {
             Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class f {
                     return;
                 }
             }
-            this.f12937e = z;
+            this.f12945e = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,7 +122,7 @@ public class f {
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (f.f12932a == null || this.f12937e) {
+                if (f.f12940a == null || this.f12945e) {
                     f.h();
                 }
                 f.p();
@@ -136,10 +136,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final X f12938a;
+        public final X f12946a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Y f12939b;
+        public final Y f12947b;
 
         public c(X x, Y y) {
             Interceptable interceptable = $ic;
@@ -156,8 +156,8 @@ public class f {
                     return;
                 }
             }
-            this.f12938a = x;
-            this.f12939b = y;
+            this.f12946a = x;
+            this.f12947b = y;
         }
     }
 
@@ -174,9 +174,9 @@ public class f {
                 return;
             }
         }
-        f12933b = new ArrayList<>();
-        f12934c = new Hashtable<>();
-        f12935d = true;
+        f12941b = new ArrayList<>();
+        f12942c = new Hashtable<>();
+        f12943d = true;
     }
 
     public f() {
@@ -197,7 +197,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f12933b.size() > 0) {
+            if (f12941b.size() > 0) {
                 return j();
             }
             return g();
@@ -227,7 +227,7 @@ public class f {
                 for (String str : p.split(",")) {
                     arrayList.add(Long.valueOf(str));
                 }
-                f12933b = arrayList;
+                f12941b = arrayList;
             } else {
                 q(false);
             }
@@ -249,7 +249,7 @@ public class f {
                     }
                     synchronized (f.class) {
                         try {
-                            f12932a = new JSONObject(readFileData);
+                            f12940a = new JSONObject(readFileData);
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
@@ -270,7 +270,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            ArrayList<Long> arrayList = f12933b;
+            ArrayList<Long> arrayList = f12941b;
             if (arrayList == null || arrayList.size() == 0) {
                 return "";
             }
@@ -287,7 +287,7 @@ public class f {
     public static void k(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65548, null, i2, i3) == null) {
-            ArrayList<Long> arrayList = f12933b;
+            ArrayList<Long> arrayList = f12941b;
             if (i2 < arrayList.size()) {
                 arrayList.set(i2, Long.valueOf(arrayList.get(i2).longValue() | (1 << i3)));
             }
@@ -297,7 +297,7 @@ public class f {
     public static void l(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65549, null, i2, i3) == null) {
-            ArrayList<Long> arrayList = f12933b;
+            ArrayList<Long> arrayList = f12941b;
             if (i2 < arrayList.size()) {
                 arrayList.set(i2, Long.valueOf(arrayList.get(i2).longValue() & (~(1 << i3))));
             }
@@ -320,7 +320,7 @@ public class f {
 
     public static void o(int i2, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65552, null, i2, jSONArray) == null) || i2 >= f12933b.size()) {
+        if (!(interceptable == null || interceptable.invokeIL(65552, null, i2, jSONArray) == null) || i2 >= f12941b.size()) {
             return;
         }
         PackageManager packageManager = BdBaseApplication.getInst().getApp().getApplicationContext().getPackageManager();
@@ -330,12 +330,12 @@ public class f {
             String optString = jSONArray.optString(i3);
             i3++;
             c<Integer, Integer> cVar = new c<>(Integer.valueOf(i2), Integer.valueOf(i3));
-            ArrayList<c<Integer, Integer>> arrayList = f12934c.get(optString);
+            ArrayList<c<Integer, Integer>> arrayList = f12942c.get(optString);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
             }
             arrayList.add(cVar);
-            f12934c.put(optString, arrayList);
+            f12942c.put(optString, arrayList);
             f(packageManager, optString, i2, i3);
         }
         n(i2);
@@ -346,29 +346,29 @@ public class f {
         JSONObject jSONObject;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65553, null) == null) || (jSONObject = f12932a) == null || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65553, null) == null) || (jSONObject = f12940a) == null || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
             return;
         }
         int length = optJSONArray.length();
-        int size = f12933b.size();
+        int size = f12941b.size();
         ArrayList<Long> arrayList = new ArrayList<>();
         for (int i2 = 0; i2 < length; i2++) {
             if (i2 < size) {
-                arrayList.add(f12933b.get(i2));
+                arrayList.add(f12941b.get(i2));
             } else {
                 arrayList.add(0L);
             }
         }
-        f12933b = arrayList;
+        f12941b = arrayList;
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
             if (optJSONObject == null) {
                 return;
             }
-            r(i3, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), f12935d);
+            r(i3, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), f12943d);
         }
-        if (f12935d) {
-            f12935d = false;
+        if (f12943d) {
+            f12943d = false;
         }
     }
 
@@ -405,7 +405,7 @@ public class f {
         }
         String substring = intent.getDataString().length() > 8 ? intent.getDataString().substring(8) : "";
         String action = intent.getAction();
-        ArrayList<c<Integer, Integer>> arrayList = f12934c.get(substring);
+        ArrayList<c<Integer, Integer>> arrayList = f12942c.get(substring);
         if (arrayList == null || arrayList.size() == 0) {
             return;
         }
@@ -413,8 +413,8 @@ public class f {
         while (it.hasNext()) {
             c<Integer, Integer> next = it.next();
             if (next != null) {
-                int intValue = next.f12938a.intValue();
-                int intValue2 = next.f12939b.intValue();
+                int intValue = next.f12946a.intValue();
+                int intValue2 = next.f12947b.intValue();
                 if (PackageChangedReceiver.ACTION_INSTALL.equals(action)) {
                     k(intValue, intValue2);
                 } else {

@@ -267,7 +267,7 @@ public class b implements a {
             } else {
                 this.C = "";
             }
-            String optString2 = jSONObject.optString(a.f61068b);
+            String optString2 = jSONObject.optString(a.f61103b);
             if (!TextUtils.isEmpty(optString2) && B.matcher(optString2).matches()) {
                 this.D = optString2;
             } else {
@@ -287,13 +287,13 @@ public class b implements a {
                 this.F = "";
                 com.baidu.apollon.heartbeat.a.c().b("https://www.baifubao.com");
             }
-            String optString5 = jSONObject.optString(a.f61071e);
+            String optString5 = jSONObject.optString(a.f61106e);
             if (!TextUtils.isEmpty(optString5) && B.matcher(optString5).matches()) {
                 this.G = optString5;
             } else {
                 this.G = "";
             }
-            String optString6 = jSONObject.optString(a.f61072f);
+            String optString6 = jSONObject.optString(a.f61107f);
             if (!TextUtils.isEmpty(optString6) && B.matcher(optString6).matches()) {
                 this.H = optString6;
             } else {
@@ -311,13 +311,13 @@ public class b implements a {
             } else {
                 this.J = "";
             }
-            String optString9 = jSONObject.optString(a.f61075i);
+            String optString9 = jSONObject.optString(a.f61110i);
             if (!TextUtils.isEmpty(optString9) && B.matcher(optString9).matches()) {
                 this.K = optString9;
             } else {
                 this.K = "";
             }
-            String optString10 = jSONObject.optString(a.f61076j);
+            String optString10 = jSONObject.optString(a.f61111j);
             if (!TextUtils.isEmpty(optString10) && B.matcher(optString10).matches()) {
                 this.L = optString10;
             } else {

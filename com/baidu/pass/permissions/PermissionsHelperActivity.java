@@ -17,23 +17,23 @@ public class PermissionsHelperActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f44318a = 8000;
+    public static final int f44230a = 8000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f44319b = 8001;
+    public static final int f44231b = 8001;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public PermissionsDTO f44320c;
+    public PermissionsDTO f44232c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PermissionsCallback f44321d;
+    public PermissionsCallback f44233d;
 
     /* renamed from: e  reason: collision with root package name */
-    public StringBuilder f44322e;
+    public StringBuilder f44234e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f44323f;
+    public boolean f44235f;
 
     public PermissionsHelperActivity() {
         Interceptable interceptable = $ic;
@@ -56,9 +56,9 @@ public class PermissionsHelperActivity extends Activity {
             super.onActivityResult(i2, i3, intent);
             if (i2 == 8000) {
                 if (PassPermissions.getInstance().a(PassPermissions.getInstance().getPermissionsDTO().permissions)) {
-                    this.f44321d.onSuccess();
+                    this.f44233d.onSuccess();
                 } else {
-                    this.f44321d.onFailure(-1);
+                    this.f44233d.onFailure(-1);
                 }
                 finish();
             }
@@ -70,27 +70,27 @@ public class PermissionsHelperActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f44320c = PassPermissions.getInstance().getPermissionsDTO();
+            this.f44232c = PassPermissions.getInstance().getPermissionsDTO();
             PermissionsCallback permissionsCallback = PassPermissions.getInstance().getPermissionsCallback();
-            this.f44321d = permissionsCallback;
-            if (this.f44320c == null) {
+            this.f44233d = permissionsCallback;
+            if (this.f44232c == null) {
                 if (permissionsCallback != null) {
                     permissionsCallback.onFailure(-1);
                 }
                 finish();
                 return;
             }
-            this.f44322e = new StringBuilder();
-            for (String str : this.f44320c.permissions) {
-                this.f44322e.append(str);
+            this.f44234e = new StringBuilder();
+            for (String str : this.f44232c.permissions) {
+                this.f44234e.append(str);
             }
             SharedPreferencesUtil.getInstance(this);
-            if (!((Boolean) SharedPreferencesUtil.get(this.f44322e.toString(), Boolean.FALSE)).booleanValue() && !TextUtils.isEmpty(this.f44320c.dialogTitle)) {
-                new CommonDialog.Builder(this).setTitle(this.f44320c.dialogTitle).setMessage(this.f44320c.dialogMsg).setDarkMode(this.f44320c.isDarkMode).setPositiveBtn(this.f44320c.okBtnTxt, new b(this)).setNegativeButton(this.f44320c.cancleBtnTxt, new a(this)).build().show();
-                this.f44323f = true;
+            if (!((Boolean) SharedPreferencesUtil.get(this.f44234e.toString(), Boolean.FALSE)).booleanValue() && !TextUtils.isEmpty(this.f44232c.dialogTitle)) {
+                new CommonDialog.Builder(this).setTitle(this.f44232c.dialogTitle).setMessage(this.f44232c.dialogMsg).setDarkMode(this.f44232c.isDarkMode).setPositiveBtn(this.f44232c.okBtnTxt, new b(this)).setNegativeButton(this.f44232c.cancleBtnTxt, new a(this)).build().show();
+                this.f44235f = true;
                 return;
             }
-            requestPermissions(this.f44320c.permissions, f44319b);
+            requestPermissions(this.f44232c.permissions, f44231b);
         }
     }
 
@@ -107,8 +107,8 @@ public class PermissionsHelperActivity extends Activity {
             for (int i3 = 0; i3 < strArr.length; i3++) {
                 if (iArr[i3] == 0) {
                     Log.i(PassPermissions.TAG, "Permission check result is permission granted");
-                } else if (TextUtils.isEmpty(this.f44320c.dialogMsg)) {
-                    this.f44321d.onFailure(-1);
+                } else if (TextUtils.isEmpty(this.f44232c.dialogMsg)) {
+                    this.f44233d.onFailure(-1);
                     finish();
                     return;
                 } else {
@@ -118,13 +118,13 @@ public class PermissionsHelperActivity extends Activity {
                     z2 = false;
                 }
             }
-            if (z && !this.f44323f && this.f44320c.showExplainDialogAfterForbid) {
-                new CommonDialog.Builder(this).setTitle(this.f44320c.dialogTitle).setMessage(this.f44320c.dialogMsg).setPositiveBtn(this.f44320c.okBtnTxt, new d(this)).setNegativeButton(this.f44320c.cancleBtnTxt, new c(this)).build().show();
+            if (z && !this.f44235f && this.f44232c.showExplainDialogAfterForbid) {
+                new CommonDialog.Builder(this).setTitle(this.f44232c.dialogTitle).setMessage(this.f44232c.dialogMsg).setPositiveBtn(this.f44232c.okBtnTxt, new d(this)).setNegativeButton(this.f44232c.cancleBtnTxt, new c(this)).build().show();
             } else if (z2) {
-                this.f44321d.onSuccess();
+                this.f44233d.onSuccess();
                 finish();
             } else {
-                this.f44321d.onFailure(-1);
+                this.f44233d.onFailure(-1);
                 finish();
             }
         }

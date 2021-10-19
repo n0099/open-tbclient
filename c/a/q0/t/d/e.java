@@ -47,11 +47,11 @@ public class e implements c.a.q0.t.d.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f14807b;
+    public static final long f14831b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.q0.f1.p.a.f.b f14808a;
+    public c.a.q0.f1.p.a.f.b f14832a;
 
     /* loaded from: classes3.dex */
     public class a implements c.a.q0.f1.p.a.d.f {
@@ -59,16 +59,16 @@ public class e implements c.a.q0.t.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f14809a;
+        public final /* synthetic */ Activity f14833a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f14810b;
+        public final /* synthetic */ TbPageContext f14834b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f14811c;
+        public final /* synthetic */ ViewGroup f14835c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ e f14812d;
+        public final /* synthetic */ e f14836d;
 
         public a(e eVar, Activity activity, TbPageContext tbPageContext, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -85,10 +85,10 @@ public class e implements c.a.q0.t.d.a {
                     return;
                 }
             }
-            this.f14812d = eVar;
-            this.f14809a = activity;
-            this.f14810b = tbPageContext;
-            this.f14811c = viewGroup;
+            this.f14836d = eVar;
+            this.f14833a = activity;
+            this.f14834b = tbPageContext;
+            this.f14835c = viewGroup;
         }
 
         @Override // c.a.q0.f1.p.a.d.f
@@ -98,20 +98,20 @@ public class e implements c.a.q0.t.d.a {
                 return;
             }
             boolean z = false;
-            if ("frs.FrsActivity".equals(this.f14809a.getLocalClassName()) && c.a.q0.s.d0.b.j().g("first_call_attention", true)) {
+            if ("frs.FrsActivity".equals(this.f14833a.getLocalClassName()) && c.a.q0.s.d0.b.j().g("first_call_attention", true)) {
                 c.a.q0.s.d0.b.j().t("first_call_attention", false);
-                if (!NotificationManagerCompat.from(this.f14810b.getPageActivity()).areNotificationsEnabled()) {
+                if (!NotificationManagerCompat.from(this.f14834b.getPageActivity()).areNotificationsEnabled()) {
                     z = true;
                 }
             }
             if (z) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001223, date));
-                c.a.q0.t.h.a.f(this.f14810b, new boolean[]{true, false}, 2);
+                c.a.q0.t.h.a.f(this.f14834b, new boolean[]{true, false}, 2);
                 return;
             }
-            this.f14812d.i(true);
+            this.f14836d.i(true);
             d.d().S(date.getHours(), date.getMinutes());
-            this.f14812d.e(this.f14809a, this.f14811c);
+            this.f14836d.e(this.f14833a, this.f14835c);
         }
     }
 
@@ -121,10 +121,10 @@ public class e implements c.a.q0.t.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f14813a;
+        public final /* synthetic */ TbPageContext f14837a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f14814b;
+        public final /* synthetic */ e f14838b;
 
         /* loaded from: classes3.dex */
         public class a implements View.OnTouchListener {
@@ -160,14 +160,14 @@ public class e implements c.a.q0.t.d.a {
 
         /* renamed from: c.a.q0.t.d.e$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0700b implements View.OnClickListener {
+        public class View$OnClickListenerC0702b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f14815e;
+            public final /* synthetic */ b f14839e;
 
-            public View$OnClickListenerC0700b(b bVar) {
+            public View$OnClickListenerC0702b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -182,22 +182,22 @@ public class e implements c.a.q0.t.d.a {
                         return;
                     }
                 }
-                this.f14815e = bVar;
+                this.f14839e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    if (this.f14815e.f14814b.f14808a != null) {
-                        this.f14815e.f14814b.f14808a.A();
-                        this.f14815e.f14814b.f14808a.f();
+                    if (this.f14839e.f14838b.f14832a != null) {
+                        this.f14839e.f14838b.f14832a.A();
+                        this.f14839e.f14838b.f14832a.f();
                     }
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_OK_CLICK);
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                     TiebaStatic.log(statisticItem);
                     if (c.a.q0.t.h.a.e(TbadkCoreApplication.getInst(), 0)) {
-                        c.a.q0.t.h.a.g(this.f14815e.f14813a, 5, 0L);
+                        c.a.q0.t.h.a.g(this.f14839e.f14837a, 5, 0L);
                     }
                 }
             }
@@ -209,7 +209,7 @@ public class e implements c.a.q0.t.d.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f14816e;
+            public final /* synthetic */ b f14840e;
 
             public c(b bVar) {
                 Interceptable interceptable = $ic;
@@ -226,15 +226,15 @@ public class e implements c.a.q0.t.d.a {
                         return;
                     }
                 }
-                this.f14816e = bVar;
+                this.f14840e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    if (this.f14816e.f14814b.f14808a != null) {
-                        this.f14816e.f14814b.f14808a.f();
+                    if (this.f14840e.f14838b.f14832a != null) {
+                        this.f14840e.f14838b.f14832a.f();
                     }
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_CLOSE_CLICK);
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -258,8 +258,8 @@ public class e implements c.a.q0.t.d.a {
                     return;
                 }
             }
-            this.f14814b = eVar;
-            this.f14813a = tbPageContext;
+            this.f14838b = eVar;
+            this.f14837a = tbPageContext;
         }
 
         @Override // c.a.q0.f1.p.a.d.a
@@ -284,7 +284,7 @@ public class e implements c.a.q0.t.d.a {
                 a aVar = new a(this);
                 findViewById.setOnTouchListener(aVar);
                 findViewById4.setOnTouchListener(aVar);
-                textView.setOnClickListener(new View$OnClickListenerC0700b(this));
+                textView.setOnClickListener(new View$OnClickListenerC0702b(this));
                 imageView.setOnClickListener(new c(this));
             }
         }
@@ -303,7 +303,7 @@ public class e implements c.a.q0.t.d.a {
                 return;
             }
         }
-        f14807b = StringHelper.MS_TO_MIN * 1;
+        f14831b = StringHelper.MS_TO_MIN * 1;
     }
 
     public e() {
@@ -387,7 +387,7 @@ public class e implements c.a.q0.t.d.a {
             if (i2 > 0 && j2 > 0) {
                 calendar.set(calendar.get(1), calendar.get(2), calendar.get(5), i2, j2);
             } else {
-                calendar.setTimeInMillis(System.currentTimeMillis() + f14807b);
+                calendar.setTimeInMillis(System.currentTimeMillis() + f14831b);
             }
             c.a.q0.f1.p.a.b.a aVar = new c.a.q0.f1.p.a.b.a(pageActivity, fVar);
             aVar.g(calendar);
@@ -404,12 +404,12 @@ public class e implements c.a.q0.t.d.a {
             aVar.d(SkinManager.getColor(R.color.black_alpha30));
             aVar.e(SkinManager.getColor(R.color.CAM_X0211));
             c.a.q0.f1.p.a.f.b a2 = aVar.a();
-            this.f14808a = a2;
+            this.f14832a = a2;
             a2.u();
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SHOW);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
-            return this.f14808a.j();
+            return this.f14832a.j();
         }
         return (Dialog) invokeLL.objValue;
     }
@@ -513,7 +513,7 @@ public class e implements c.a.q0.t.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(System.currentTimeMillis() + f14807b);
+            calendar.setTimeInMillis(System.currentTimeMillis() + f14831b);
             g(calendar.get(11), calendar.get(12));
         }
     }

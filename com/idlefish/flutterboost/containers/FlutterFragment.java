@@ -198,6 +198,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.delegate.getFlutterView() : (XFlutterView) invokeV.objValue;
     }
 
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     @NonNull
     public FlutterView.RenderMode getRenderMode() {
         InterceptResult invokeV;
@@ -568,7 +569,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
             }
             this.shellArgs = null;
             this.renderMode = FlutterView.RenderMode.surface;
-            this.transparencyMode = FlutterView.TransparencyMode.transparent;
+            this.transparencyMode = FlutterView.TransparencyMode.opaque;
             this.url = "";
             this.params = new HashMap();
             this.isUseTabHost = false;
@@ -672,7 +673,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
             }
             this.shellArgs = null;
             this.renderMode = FlutterView.RenderMode.surface;
-            this.transparencyMode = FlutterView.TransparencyMode.transparent;
+            this.transparencyMode = FlutterView.TransparencyMode.opaque;
             this.url = "";
             this.params = new HashMap();
             this.isUseTabHost = false;

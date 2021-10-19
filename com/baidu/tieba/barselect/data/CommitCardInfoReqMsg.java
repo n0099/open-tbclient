@@ -1,6 +1,6 @@
 package com.baidu.tieba.barselect.data;
 
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public class CommitCardInfoReqMsg extends NetMessage {
             builder.card_type = Integer.valueOf(this.card_type);
             builder.image_info = this.image_info;
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             CommitCardInfoReqIdl.Builder builder2 = new CommitCardInfoReqIdl.Builder();
             builder2.data = builder.build(false);

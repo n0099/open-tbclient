@@ -11,7 +11,7 @@ public class L0 implements ViewTreeObserver.OnDrawListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ViewTreeObserver f77131a;
+    public final /* synthetic */ ViewTreeObserver f77166a;
 
     public L0(O0 o0, ViewTreeObserver viewTreeObserver) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class L0 implements ViewTreeObserver.OnDrawListener {
                 return;
             }
         }
-        this.f77131a = viewTreeObserver;
+        this.f77166a = viewTreeObserver;
     }
 
     @Override // android.view.ViewTreeObserver.OnDrawListener
     public void onDraw() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = "onDraw:" + this.f77131a.isAlive();
+            String str = "onDraw:" + this.f77166a.isAlive();
         }
     }
 }

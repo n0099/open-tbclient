@@ -20,6 +20,7 @@ public class YyExtData implements Serializable, Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isYyGame;
     public String liveId;
+    public String mRankShow;
     public String mSid;
     public String mSsid;
     public String mTemplateId;
@@ -113,6 +114,7 @@ public class YyExtData implements Serializable, Parcelable {
         this.mTemplateId = yyExt.template_id;
         this.mYyUid = yyExt.yy_uid;
         this.isYyGame = yyExt.is_yy_game.intValue() == 1;
+        this.mRankShow = yyExt.rank_show;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -125,6 +127,7 @@ public class YyExtData implements Serializable, Parcelable {
         this.mTemplateId = jSONObject.optString("template_id");
         this.mYyUid = jSONObject.optString("yy_uid");
         this.isYyGame = jSONObject.optInt("is_yy_game") == 1;
+        this.mRankShow = jSONObject.optString("rank_show");
     }
 
     @Override // android.os.Parcelable
@@ -136,6 +139,7 @@ public class YyExtData implements Serializable, Parcelable {
             parcel.writeString(this.mTemplateId);
             parcel.writeString(this.mYyUid);
             parcel.writeByte(this.isYyGame ? (byte) 1 : (byte) 0);
+            parcel.writeString(this.mRankShow);
         }
     }
 
@@ -159,5 +163,6 @@ public class YyExtData implements Serializable, Parcelable {
         this.mTemplateId = parcel.readString();
         this.mYyUid = parcel.readString();
         this.isYyGame = parcel.readByte() == 1;
+        this.mRankShow = parcel.readString();
     }
 }

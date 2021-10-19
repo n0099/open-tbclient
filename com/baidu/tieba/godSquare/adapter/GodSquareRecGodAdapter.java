@@ -3,9 +3,9 @@ package com.baidu.tieba.godSquare.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.r0.a0.b0;
-import c.a.r0.a0.d0.h;
-import c.a.r0.b1.d.b;
+import c.a.r0.b0.c0;
+import c.a.r0.b0.e0.h;
+import c.a.r0.c1.d.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -26,7 +26,7 @@ public class GodSquareRecGodAdapter extends c.a.e.l.e.a<h, ViewHolder> {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
     public b n;
-    public b0 o;
+    public c0 o;
 
     /* loaded from: classes7.dex */
     public class ViewHolder extends TypeAdapter.ViewHolder {
@@ -57,12 +57,12 @@ public class GodSquareRecGodAdapter extends c.a.e.l.e.a<h, ViewHolder> {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends b0 {
+    public class a extends c0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GodSquareRecGodAdapter f52094b;
+        public final /* synthetic */ GodSquareRecGodAdapter f52021b;
 
         public a(GodSquareRecGodAdapter godSquareRecGodAdapter) {
             Interceptable interceptable = $ic;
@@ -79,31 +79,31 @@ public class GodSquareRecGodAdapter extends c.a.e.l.e.a<h, ViewHolder> {
                     return;
                 }
             }
-            this.f52094b = godSquareRecGodAdapter;
+            this.f52021b = godSquareRecGodAdapter;
         }
 
-        @Override // c.a.r0.a0.b0
+        @Override // c.a.r0.b0.c0
         public void a(View view, BaseCardInfo baseCardInfo) {
             h hVar;
             MetaData metaData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || view == null || this.f52094b.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f15588e) == null || StringUtils.isNull(metaData.getUserId())) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || view == null || this.f52021b.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f15738e) == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
-            if (view.getId() != this.f52094b.n.m.getId()) {
-                if (view.getId() == this.f52094b.n.j().getId() || view.getId() == this.f52094b.n.o.getId()) {
-                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f15588e.getUserId()));
+            if (view.getId() != this.f52021b.n.m.getId()) {
+                if (view.getId() == this.f52021b.n.j().getId() || view.getId() == this.f52021b.n.o.getId()) {
+                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f15738e.getUserId()));
                     return;
                 }
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f15588e.getUserId()));
+            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f15738e.getUserId()));
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GodSquareRecGodAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.f15587i);
+        super(tbPageContext.getPageActivity(), h.f15737i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

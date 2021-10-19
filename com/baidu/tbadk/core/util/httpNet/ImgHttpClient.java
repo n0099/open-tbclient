@@ -13,7 +13,7 @@ import c.a.e.e.n.a;
 import c.a.e.e.p.g;
 import c.a.e.e.p.j;
 import c.a.e.e.p.k;
-import c.a.q0.d1.s;
+import c.a.q0.d1.r;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
@@ -287,7 +287,7 @@ public class ImgHttpClient implements b.a {
                             }
                         }
                     }
-                    if (s.d(str)) {
+                    if (r.d(str)) {
                         String a2 = d.a(str);
                         c b2 = c.a.e.e.j.a.j.b.a().b(a2);
                         this.mHttpDnsResult = b2;
@@ -514,37 +514,37 @@ public class ImgHttpClient implements b.a {
         r0 = e;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1261:0x1cfd, code lost:
-        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a) goto L270;
+        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a) goto L270;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1262:0x1cff, code lost:
         r3 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1338:0x1ed9, code lost:
-        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a) goto L726;
+        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a) goto L726;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1339:0x1edb, code lost:
         r3 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1411:0x209f, code lost:
-        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a) goto L654;
+        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a) goto L654;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1412:0x20a1, code lost:
         r3 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1484:0x2262, code lost:
-        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a) goto L800;
+        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a) goto L800;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1485:0x2264, code lost:
         r3 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1557:0x2425, code lost:
-        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a) goto L583;
+        if (r26 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a) goto L583;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1558:0x2427, code lost:
         r3 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1635:0x261b, code lost:
-        if (r2 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a) goto L508;
+        if (r2 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a) goto L508;
      */
     /* JADX WARN: Code restructure failed: missing block: B:1636:0x261d, code lost:
         r2 = true;
@@ -556,7 +556,7 @@ public class ImgHttpClient implements b.a {
         r7 = r35;
      */
     /* JADX WARN: Code restructure failed: missing block: B:255:0x054c, code lost:
-        if (r2 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a) goto L1374;
+        if (r2 > com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a) goto L1374;
      */
     /* JADX WARN: Code restructure failed: missing block: B:256:0x054e, code lost:
         r2 = true;
@@ -565,7 +565,7 @@ public class ImgHttpClient implements b.a {
         if (r37 != false) goto L206;
      */
     /* JADX WARN: Code restructure failed: missing block: B:769:0x107b, code lost:
-        if (c.a.q0.d1.s.d(r9) == false) goto L206;
+        if (c.a.q0.d1.r.d(r9) == false) goto L206;
      */
     /* JADX WARN: Code restructure failed: missing block: B:771:0x1081, code lost:
         if (c.a.e.e.p.j.A() == false) goto L206;
@@ -598,7 +598,7 @@ public class ImgHttpClient implements b.a {
         if (r6 != (r5 - 1)) goto L165;
      */
     /* JADX WARN: Code restructure failed: missing block: B:783:0x10a3, code lost:
-        if (c.a.q0.d1.s.d(r9) == false) goto L165;
+        if (c.a.q0.d1.r.d(r9) == false) goto L165;
      */
     /* JADX WARN: Code restructure failed: missing block: B:784:0x10a5, code lost:
         r3 = com.baidu.tbadk.core.util.ImageLogger.getLogItem();
@@ -1851,12 +1851,12 @@ public class ImgHttpClient implements b.a {
                             str24 = str9;
                             str19 = str8;
                             str32 = str10;
-                            z16 = z && s.d(f2) && j.A();
+                            z16 = z && r.d(f2) && j.A();
                             this.mUseDnsIp = z16;
                             if (z16 && (cVar9 = this.mHttpDnsResult) != null) {
                                 cVar9.m(this.netContext.c().f2329c);
                             }
-                            if (!z && i4 == i3 - 1 && s.d(f2)) {
+                            if (!z && i4 == i3 - 1 && r.d(f2)) {
                                 a logItem22 = ImageLogger.getLogItem();
                                 logItem22.b("netException", dVar.f2313h);
                                 logItem22.b(str32, f2);
@@ -1891,16 +1891,16 @@ public class ImgHttpClient implements b.a {
                                 if (!H4 && dVar.k == null && !z) {
                                     if (i4 < i3 - 1) {
                                         z17 = false;
-                                        if (z17 && s.a(f2) && str3 != null) {
+                                        if (z17 && r.a(f2) && str3 != null) {
                                             long currentTimeMillis5 = System.currentTimeMillis() - currentTimeMillis;
-                                            ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z, H4 ? !(!j.t() ? currentTimeMillis5 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13618b) : currentTimeMillis5 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13619c)) : currentTimeMillis5 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a), H4);
+                                            ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z, H4 ? !(!j.t() ? currentTimeMillis5 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13638b) : currentTimeMillis5 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13639c)) : currentTimeMillis5 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a), H4);
                                         }
                                     }
                                 }
                                 z17 = true;
                                 if (z17) {
                                     long currentTimeMillis52 = System.currentTimeMillis() - currentTimeMillis;
-                                    ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z, H4 ? !(!j.t() ? currentTimeMillis52 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13618b) : currentTimeMillis52 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13619c)) : currentTimeMillis52 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a), H4);
+                                    ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z, H4 ? !(!j.t() ? currentTimeMillis52 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13638b) : currentTimeMillis52 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13639c)) : currentTimeMillis52 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a), H4);
                                 }
                             }
                             throw th2;
@@ -1971,12 +1971,12 @@ public class ImgHttpClient implements b.a {
                     }
                     if (str20 == 0) {
                         if (this.mIsInterrupte) {
-                            boolean z23 = !z22 && s.d(f2) && j.A();
+                            boolean z23 = !z22 && r.d(f2) && j.A();
                             this.mUseDnsIp = z23;
                             if (z23 && (cVar11 = this.mHttpDnsResult) != null) {
                                 cVar11.m(this.netContext.c().f2329c);
                             }
-                            if (!z22 && i4 == i3 - 1 && s.d(f2)) {
+                            if (!z22 && i4 == i3 - 1 && r.d(f2)) {
                                 a logItem3 = ImageLogger.getLogItem();
                                 logItem3.b("netException", dVar.f2313h);
                                 logItem3.b(str108, f2);
@@ -2002,9 +2002,9 @@ public class ImgHttpClient implements b.a {
                             this.netContext.f(dVar);
                             if ((str101 == null || str.length() == 0) && f2 != null) {
                                 boolean H5 = j.H();
-                                if ((!H5 || dVar.k != null || z22 || i4 >= i3 - 1) && s.a(f2) && str113 != null) {
+                                if ((!H5 || dVar.k != null || z22 || i4 >= i3 - 1) && r.a(f2) && str113 != null) {
                                     long currentTimeMillis6 = System.currentTimeMillis() - currentTimeMillis;
-                                    ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H5 ? !j.t() ? currentTimeMillis6 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13618b) : currentTimeMillis6 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13619c) : currentTimeMillis6 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a), H5);
+                                    ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H5 ? !j.t() ? currentTimeMillis6 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13638b) : currentTimeMillis6 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13639c) : currentTimeMillis6 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a), H5);
                                 }
                             }
                         } else {
@@ -4034,12 +4034,12 @@ public class ImgHttpClient implements b.a {
                                                                     this.mWapRetryConnt++;
                                                                     this.netContext.c().f2328b = 0;
                                                                     i4--;
-                                                                    boolean z24 = !z22 && s.d(f2) && j.A();
+                                                                    boolean z24 = !z22 && r.d(f2) && j.A();
                                                                     this.mUseDnsIp = z24;
                                                                     if (z24 && (cVar13 = this.mHttpDnsResult) != null) {
                                                                         cVar13.m(this.netContext.c().f2329c);
                                                                     }
-                                                                    if (!z22 && i4 == i3 - 1 && s.d(f2)) {
+                                                                    if (!z22 && i4 == i3 - 1 && r.d(f2)) {
                                                                         a logItem4 = ImageLogger.getLogItem();
                                                                         logItem4.b("netException", dVar.f2313h);
                                                                         logItem4.b(str108, f2);
@@ -4515,7 +4515,7 @@ public class ImgHttpClient implements b.a {
                                                                 }
                                                                 if ((str == null || str.length() == 0) && f2 != null) {
                                                                     boolean H6 = j.H();
-                                                                    if ((!H6 || dVar.k != null || z22 || i4 >= i3 + (-1)) && s.a(f2) && str3 != null) {
+                                                                    if ((!H6 || dVar.k != null || z22 || i4 >= i3 + (-1)) && r.a(f2) && str3 != null) {
                                                                         long currentTimeMillis7 = System.currentTimeMillis() - currentTimeMillis;
                                                                         if (H6) {
                                                                             str78 = str76;
@@ -4577,12 +4577,12 @@ public class ImgHttpClient implements b.a {
                                                                 bArr43 = bArr18;
                                                             } else {
                                                                 byte[] bArr47 = bArr43;
-                                                                boolean z25 = !z22 && s.d(f2) && j.A();
+                                                                boolean z25 = !z22 && r.d(f2) && j.A();
                                                                 this.mUseDnsIp = z25;
                                                                 if (z25 && (cVar12 = this.mHttpDnsResult) != null) {
                                                                     cVar12.m(this.netContext.c().f2329c);
                                                                 }
-                                                                if (!z22 && i4 == i3 - 1 && s.d(f2)) {
+                                                                if (!z22 && i4 == i3 - 1 && r.d(f2)) {
                                                                     a logItem5 = ImageLogger.getLogItem();
                                                                     logItem5.b("netException", dVar.f2313h);
                                                                     logItem5.b(str108, f2);
@@ -4617,9 +4617,9 @@ public class ImgHttpClient implements b.a {
                                                                 this.netContext.f(dVar);
                                                                 if ((str == null || str.length() == 0) && f2 != null) {
                                                                     boolean H7 = j.H();
-                                                                    if ((!H7 || dVar.k != null || z22 || i4 >= i3 - 1) && s.a(f2) && str3 != null) {
+                                                                    if ((!H7 || dVar.k != null || z22 || i4 >= i3 - 1) && r.a(f2) && str3 != null) {
                                                                         long currentTimeMillis8 = System.currentTimeMillis() - currentTimeMillis;
-                                                                        ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H7 ? !j.t() ? currentTimeMillis8 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13618b) : currentTimeMillis8 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13619c) : currentTimeMillis8 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a), H7);
+                                                                        ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H7 ? !j.t() ? currentTimeMillis8 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13638b) : currentTimeMillis8 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13639c) : currentTimeMillis8 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a), H7);
                                                                     }
                                                                 }
                                                                 bArr = bArr28;
@@ -4633,12 +4633,12 @@ public class ImgHttpClient implements b.a {
                                                             try {
                                                                 this.netContext.c().f2329c = -11;
                                                                 dVar.f2313h = this.mContext.getResources().getString(R.string.data_too_big);
-                                                                boolean z26 = !z22 && s.d(f2) && j.A();
+                                                                boolean z26 = !z22 && r.d(f2) && j.A();
                                                                 this.mUseDnsIp = z26;
                                                                 if (z26 && (cVar14 = this.mHttpDnsResult) != null) {
                                                                     cVar14.m(this.netContext.c().f2329c);
                                                                 }
-                                                                if (!z22 && i4 == i3 - 1 && s.d(f2)) {
+                                                                if (!z22 && i4 == i3 - 1 && r.d(f2)) {
                                                                     a logItem6 = ImageLogger.getLogItem();
                                                                     logItem6.b("netException", dVar.f2313h);
                                                                     logItem6.b(str108, f2);
@@ -4670,9 +4670,9 @@ public class ImgHttpClient implements b.a {
                                                                 this.netContext.f(dVar);
                                                                 if ((str == null || str.length() == 0) && f2 != null) {
                                                                     boolean H8 = j.H();
-                                                                    if ((!H8 || dVar.k != null || z22 || i4 >= i3 - 1) && s.a(f2) && str3 != null) {
+                                                                    if ((!H8 || dVar.k != null || z22 || i4 >= i3 - 1) && r.a(f2) && str3 != null) {
                                                                         long currentTimeMillis9 = System.currentTimeMillis() - currentTimeMillis;
-                                                                        ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H8 ? !j.t() ? currentTimeMillis9 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13618b) : currentTimeMillis9 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13619c) : currentTimeMillis9 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a), H8);
+                                                                        ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H8 ? !j.t() ? currentTimeMillis9 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13638b) : currentTimeMillis9 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13639c) : currentTimeMillis9 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a), H8);
                                                                         return;
                                                                     }
                                                                     return;
@@ -5156,12 +5156,12 @@ public class ImgHttpClient implements b.a {
                                                                                                         }
                                                                                                         dVar.f2315j = -9;
                                                                                                         if (this.mIsInterrupte) {
-                                                                                                            boolean z27 = !z22 && s.d(f2) && j.A();
+                                                                                                            boolean z27 = !z22 && r.d(f2) && j.A();
                                                                                                             this.mUseDnsIp = z27;
                                                                                                             if (z27 && (cVar15 = this.mHttpDnsResult) != null) {
                                                                                                                 cVar15.m(this.netContext.c().f2329c);
                                                                                                             }
-                                                                                                            if (!z22 && i4 == i3 - 1 && s.d(f2)) {
+                                                                                                            if (!z22 && i4 == i3 - 1 && r.d(f2)) {
                                                                                                                 a logItem7 = ImageLogger.getLogItem();
                                                                                                                 logItem7.b("netException", dVar.f2313h);
                                                                                                                 logItem7.b(str93, f2);
@@ -5197,9 +5197,9 @@ public class ImgHttpClient implements b.a {
                                                                                                             this.netContext.f(dVar);
                                                                                                             if ((str == null || str.length() == 0) && f2 != null) {
                                                                                                                 boolean H9 = j.H();
-                                                                                                                if ((!H9 || dVar.k != null || z22 || i4 >= i3 - 1) && s.a(f2) && str3 != null) {
+                                                                                                                if ((!H9 || dVar.k != null || z22 || i4 >= i3 - 1) && r.a(f2) && str3 != null) {
                                                                                                                     long currentTimeMillis10 = System.currentTimeMillis() - currentTimeMillis;
-                                                                                                                    ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H9 ? !j.t() ? currentTimeMillis10 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13618b) : currentTimeMillis10 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13619c) : currentTimeMillis10 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a), H9);
+                                                                                                                    ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z22, !H9 ? !j.t() ? currentTimeMillis10 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13638b) : currentTimeMillis10 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13639c) : currentTimeMillis10 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a), H9);
                                                                                                                 }
                                                                                                             }
                                                                                                             bArr = str94;
@@ -6894,12 +6894,12 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str25 = str10;
                                                                                                                 this.netContext.c().f2329c = -12;
                                                                                                                 dVar.f2313h = str15 + String.valueOf(this.netContext.c().f2329c) + str14 + socketException.getClass() + str14 + socketException.getMessage();
-                                                                                                                z11 = z22 && s.d(f2) && j.A();
+                                                                                                                z11 = z22 && r.d(f2) && j.A();
                                                                                                                 this.mUseDnsIp = z11;
                                                                                                                 if (z11 && (cVar5 = this.mHttpDnsResult) != null) {
                                                                                                                     cVar5.m(this.netContext.c().f2329c);
                                                                                                                 }
-                                                                                                                if (z22 && i4 == i3 - 1 && s.d(f2)) {
+                                                                                                                if (z22 && i4 == i3 - 1 && r.d(f2)) {
                                                                                                                     a logItem8 = ImageLogger.getLogItem();
                                                                                                                     logItem8.b("netException", dVar.f2313h);
                                                                                                                     logItem8.b(str25, f2);
@@ -6946,7 +6946,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 this.netContext.f(dVar);
                                                                                                                 if ((str != null || str.length() == 0) && f2 != null) {
                                                                                                                     H2 = j.H();
-                                                                                                                    if ((H2 || dVar.k != null || z22 || i4 >= i3 + (-1)) && s.a(f2) && str3 != null) {
+                                                                                                                    if ((H2 || dVar.k != null || z22 || i4 >= i3 + (-1)) && r.a(f2) && str3 != null) {
                                                                                                                         long currentTimeMillis112 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                         if (H2) {
                                                                                                                             bArr17 = bArr16;
@@ -7014,12 +7014,12 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str10 = str74;
                                                                                                                 this.netContext.c().f2329c = -13;
                                                                                                                 dVar.f2313h = str7 + String.valueOf(this.netContext.c().f2329c) + str6 + socketTimeoutException.getClass() + str6 + socketTimeoutException.getMessage();
-                                                                                                                z9 = z22 && s.d(f2) && j.A();
+                                                                                                                z9 = z22 && r.d(f2) && j.A();
                                                                                                                 this.mUseDnsIp = z9;
                                                                                                                 if (z9 && (cVar4 = this.mHttpDnsResult) != null) {
                                                                                                                     cVar4.m(this.netContext.c().f2329c);
                                                                                                                 }
-                                                                                                                if (z22 && i4 == i3 - 1 && s.d(f2)) {
+                                                                                                                if (z22 && i4 == i3 - 1 && r.d(f2)) {
                                                                                                                     a logItem9 = ImageLogger.getLogItem();
                                                                                                                     logItem9.b("netException", dVar.f2313h);
                                                                                                                     logItem9.b(str10, f2);
@@ -7066,7 +7066,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 this.netContext.f(dVar);
                                                                                                                 if ((str != null || str.length() == 0) && f2 != null) {
                                                                                                                     H = j.H();
-                                                                                                                    if ((H || dVar.k != null || z22 || i4 >= i3 + (-1)) && s.a(f2) && str3 != null) {
+                                                                                                                    if ((H || dVar.k != null || z22 || i4 >= i3 + (-1)) && r.a(f2) && str3 != null) {
                                                                                                                         long currentTimeMillis122 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                         if (H) {
                                                                                                                             str22 = str18;
@@ -7147,12 +7147,12 @@ public class ImgHttpClient implements b.a {
                                                                                                                 this.netContext.c().f2329c = -20;
                                                                                                                 dVar.f2313h = str7 + String.valueOf(this.netContext.c().f2329c) + str6 + sSLException.getClass() + str6 + sSLException.getMessage();
                                                                                                                 this.mDownToHttp = true;
-                                                                                                                z7 = z22 && s.d(f2) && j.A();
+                                                                                                                z7 = z22 && r.d(f2) && j.A();
                                                                                                                 this.mUseDnsIp = z7;
                                                                                                                 if (z7 && (cVar3 = this.mHttpDnsResult) != null) {
                                                                                                                     cVar3.m(this.netContext.c().f2329c);
                                                                                                                 }
-                                                                                                                if (z22 && i4 == i3 - 1 && s.d(f2)) {
+                                                                                                                if (z22 && i4 == i3 - 1 && r.d(f2)) {
                                                                                                                     a logItem10 = ImageLogger.getLogItem();
                                                                                                                     logItem10.b("netException", dVar.f2313h);
                                                                                                                     logItem10.b(str10, f2);
@@ -7199,7 +7199,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 this.netContext.f(dVar);
                                                                                                                 if ((str != null || str.length() == 0) && f2 != null) {
                                                                                                                     H = j.H();
-                                                                                                                    if ((H || dVar.k != null || z22 || i4 >= i3 + (-1)) && s.a(f2) && str3 != null) {
+                                                                                                                    if ((H || dVar.k != null || z22 || i4 >= i3 + (-1)) && r.a(f2) && str3 != null) {
                                                                                                                         long currentTimeMillis132 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                         if (H) {
                                                                                                                             str22 = str18;
@@ -7277,12 +7277,12 @@ public class ImgHttpClient implements b.a {
                                                                                                                 bArr13 = bArr2;
                                                                                                                 this.netContext.c().f2329c = -19;
                                                                                                                 dVar.f2313h = str7 + String.valueOf(this.netContext.c().f2329c) + str6 + iOException.getClass() + str6 + iOException.getMessage();
-                                                                                                                z5 = z22 && s.d(f2) && j.A();
+                                                                                                                z5 = z22 && r.d(f2) && j.A();
                                                                                                                 this.mUseDnsIp = z5;
                                                                                                                 if (z5 && (cVar2 = this.mHttpDnsResult) != null) {
                                                                                                                     cVar2.m(this.netContext.c().f2329c);
                                                                                                                 }
-                                                                                                                if (z22 && i4 == i3 - 1 && s.d(f2)) {
+                                                                                                                if (z22 && i4 == i3 - 1 && r.d(f2)) {
                                                                                                                     a logItem11 = ImageLogger.getLogItem();
                                                                                                                     logItem11.b("netException", dVar.f2313h);
                                                                                                                     logItem11.b(str10, f2);
@@ -7329,7 +7329,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 this.netContext.f(dVar);
                                                                                                                 if ((str != null || str.length() == 0) && f2 != null) {
                                                                                                                     H = j.H();
-                                                                                                                    if ((H || dVar.k != null || z22 || i4 >= i3 + (-1)) && s.a(f2) && str3 != null) {
+                                                                                                                    if ((H || dVar.k != null || z22 || i4 >= i3 + (-1)) && r.a(f2) && str3 != null) {
                                                                                                                         long currentTimeMillis142 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                         if (H) {
                                                                                                                             str22 = str18;
@@ -7408,12 +7408,12 @@ public class ImgHttpClient implements b.a {
                                                                                                                 str10 = str10;
                                                                                                                 this.netContext.c().f2329c = -18;
                                                                                                                 dVar.f2313h = str7 + String.valueOf(this.netContext.c().f2329c) + str6 + httpException.getClass() + str6 + httpException.getMessage();
-                                                                                                                z2 = z22 && s.d(f2) && j.A();
+                                                                                                                z2 = z22 && r.d(f2) && j.A();
                                                                                                                 this.mUseDnsIp = z2;
                                                                                                                 if (z2 && (cVar = this.mHttpDnsResult) != null) {
                                                                                                                     cVar.m(this.netContext.c().f2329c);
                                                                                                                 }
-                                                                                                                if (z22 && i4 == i3 - 1 && s.d(f2)) {
+                                                                                                                if (z22 && i4 == i3 - 1 && r.d(f2)) {
                                                                                                                     a logItem12 = ImageLogger.getLogItem();
                                                                                                                     logItem12.b("netException", dVar.f2313h);
                                                                                                                     logItem12.b(str10, f2);
@@ -7460,7 +7460,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                 this.netContext.f(dVar);
                                                                                                                 if ((str != null || str.length() == 0) && f2 != null) {
                                                                                                                     H = j.H();
-                                                                                                                    if ((H || dVar.k != null || z22 || i4 >= i3 + (-1)) && s.a(f2) && str3 != null) {
+                                                                                                                    if ((H || dVar.k != null || z22 || i4 >= i3 + (-1)) && r.a(f2) && str3 != null) {
                                                                                                                         long currentTimeMillis152 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                         if (H) {
                                                                                                                             str22 = str18;
@@ -7554,12 +7554,12 @@ public class ImgHttpClient implements b.a {
                                                                                                                         str35 = str34;
                                                                                                                         this.netContext.c().f2329c = -19;
                                                                                                                         dVar.f2313h = str7 + String.valueOf(this.netContext.c().f2329c) + str6 + illegalStateException.getClass() + str6 + illegalStateException.getMessage() + "|getcontent_illegal_error";
-                                                                                                                        z18 = z22 && s.d(f2) && j.A();
+                                                                                                                        z18 = z22 && r.d(f2) && j.A();
                                                                                                                         this.mUseDnsIp = z18;
                                                                                                                         if (z18 && (cVar10 = this.mHttpDnsResult) != null) {
                                                                                                                             cVar10.m(this.netContext.c().f2329c);
                                                                                                                         }
-                                                                                                                        if (z22 && i4 == i3 - 1 && s.d(f2)) {
+                                                                                                                        if (z22 && i4 == i3 - 1 && r.d(f2)) {
                                                                                                                             a logItem13 = ImageLogger.getLogItem();
                                                                                                                             logItem13.b("netException", dVar.f2313h);
                                                                                                                             logItem13.b(str10, f2);
@@ -7607,7 +7607,7 @@ public class ImgHttpClient implements b.a {
                                                                                                                         this.netContext.f(dVar);
                                                                                                                         if ((str != null || str.length() == 0) && f2 != null) {
                                                                                                                             H = j.H();
-                                                                                                                            if ((H || dVar.k != null || z22 || i4 >= i3 + (-1)) && s.a(f2) && str3 != null) {
+                                                                                                                            if ((H || dVar.k != null || z22 || i4 >= i3 + (-1)) && r.a(f2) && str3 != null) {
                                                                                                                                 long currentTimeMillis162 = System.currentTimeMillis() - currentTimeMillis;
                                                                                                                                 if (H) {
                                                                                                                                     str22 = str18;
@@ -10359,12 +10359,12 @@ public class ImgHttpClient implements b.a {
                                                     sb222222222222222.append(str124222222222222222);
                                                     sb222222222222222.append(th.getMessage());
                                                     dVar.f2313h = sb222222222222222.toString();
-                                                    z13 = z && s.d(f2) && j.A();
+                                                    z13 = z && r.d(f2) && j.A();
                                                     this.mUseDnsIp = z13;
                                                     if (z13 && (cVar7 = this.mHttpDnsResult) != null) {
                                                         cVar7.m(this.netContext.c().f2329c);
                                                     }
-                                                    if (!z && i4 == i3 - 1 && s.d(f2)) {
+                                                    if (!z && i4 == i3 - 1 && r.d(f2)) {
                                                         a logItem14 = ImageLogger.getLogItem();
                                                         logItem14.b("netException", dVar.f2313h);
                                                         logItem14.b(str29, f2);
@@ -10396,9 +10396,9 @@ public class ImgHttpClient implements b.a {
                                                     this.netContext.f(dVar);
                                                     if ((str != null || str.length() == 0) && f2 != null) {
                                                         H3 = j.H();
-                                                        if ((H3 || dVar.k != null || z || i4 >= i3 - 1) && s.a(f2) && str3 != null) {
+                                                        if ((H3 || dVar.k != null || z || i4 >= i3 - 1) && r.a(f2) && str3 != null) {
                                                             long currentTimeMillis42 = System.currentTimeMillis() - currentTimeMillis;
-                                                            if (H3 ? !(!j.t() ? currentTimeMillis42 <= ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13618b : currentTimeMillis42 <= ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13619c) : currentTimeMillis42 > ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a) {
+                                                            if (H3 ? !(!j.t() ? currentTimeMillis42 <= ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13638b : currentTimeMillis42 <= ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13639c) : currentTimeMillis42 > ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a) {
                                                                 z14 = true;
                                                             }
                                                             z15 = z14;
@@ -10844,9 +10844,9 @@ public class ImgHttpClient implements b.a {
         this.netContext.f(dVar);
         if ((str == null || str.length() == 0) && f2 != null) {
             H3 = j.H();
-            if ((!H3 || dVar.k != null || z || i4 >= i3 - 1) && s.a(f2) && str3 != null) {
+            if ((!H3 || dVar.k != null || z || i4 >= i3 - 1) && r.a(f2) && str3 != null) {
                 long currentTimeMillis17 = System.currentTimeMillis() - currentTimeMillis;
-                z15 = !H3 ? !j.t() ? currentTimeMillis17 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13618b) : currentTimeMillis17 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13619c) : currentTimeMillis17 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13617a);
+                z15 = !H3 ? !j.t() ? currentTimeMillis17 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13638b) : currentTimeMillis17 > ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13639c) : currentTimeMillis17 <= ((long) ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13637a);
                 ICDNIPDirectConnect.getInstance().result(f2, dVar.k, z, z15, H3);
             }
         }

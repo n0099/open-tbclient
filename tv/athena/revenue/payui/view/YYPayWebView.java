@@ -40,16 +40,16 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f80299e;
+    public c f80336e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WebView f80300f;
+    public WebView f80337f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f80301g;
+    public boolean f80338g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f80302h;
+    public Context f80339h;
     public boolean isEnableBackupDomain;
 
     /* loaded from: classes2.dex */
@@ -58,7 +58,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYPayWebView f80303a;
+        public final /* synthetic */ YYPayWebView f80340a;
 
         public a(YYPayWebView yYPayWebView) {
             Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
                     return;
                 }
             }
-            this.f80303a = yYPayWebView;
+            this.f80340a = yYPayWebView;
         }
 
         @Override // android.webkit.WebViewClient
@@ -83,7 +83,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, webView, i2, str, str2) == null) {
                 RLog.error("YYPayWebView", "onReceivedError: statusCode" + i2 + ", desc=" + str, new Object[0]);
-                this.f80303a.g();
+                this.f80340a.g();
             }
         }
 
@@ -106,19 +106,19 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
                 RLog.info("YYPayWebView", "shouldOverrideUrlLoading url:" + str);
                 try {
                     if (str.startsWith("upwrp://")) {
-                        this.f80303a.f80302h.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                        this.f80340a.f80339h.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                         return true;
                     } else if (str.endsWith("html/help/download.html")) {
                         try {
-                            this.f80303a.f80302h.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                            this.f80340a.f80339h.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                         } catch (Exception e2) {
                             RLog.error("YYPayWebView", "shouldOverrideUrlLoading exception:" + e2.getLocalizedMessage(), new Object[0]);
                         }
                         return true;
                     } else {
-                        this.f80303a.f80300f.loadUrl(str);
-                        if (this.f80303a.f80299e != null) {
-                            this.f80303a.f80299e.onUrlLoading(webView, str);
+                        this.f80340a.f80337f.loadUrl(str);
+                        if (this.f80340a.f80336e != null) {
+                            this.f80340a.f80336e.onUrlLoading(webView, str);
                         }
                         return true;
                     }
@@ -137,7 +137,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYPayWebView f80304a;
+        public final /* synthetic */ YYPayWebView f80341a;
 
         public b(YYPayWebView yYPayWebView) {
             Interceptable interceptable = $ic;
@@ -154,7 +154,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
                     return;
                 }
             }
-            this.f80304a = yYPayWebView;
+            this.f80341a = yYPayWebView;
         }
 
         @Override // android.webkit.WebChromeClient
@@ -207,7 +207,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Object[] objArr = j.a.a.e.j.a.f79411a;
+            Object[] objArr = j.a.a.e.j.a.f79446a;
             if (objArr == null || objArr.length <= 0 || str == null) {
                 return null;
             }
@@ -237,8 +237,8 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
             LayoutInflater.from(context).inflate(j.a.a.e.e.pay_ui_layout_pay_wallet_view, (ViewGroup) this, true);
             WebView webView = (WebView) findViewById(j.a.a.e.d.webview);
-            this.f80300f = webView;
-            this.f80302h = context;
+            this.f80337f = webView;
+            this.f80339h = context;
             WebSettings settings = webView.getSettings();
             if (settings != null) {
                 settings.setJavaScriptEnabled(true);
@@ -250,12 +250,12 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
                     settings.setMixedContentMode(0);
                 }
             }
-            this.f80300f.addJavascriptInterface(new j.a.a.e.p.b(this), "YYPaySdkJsInterface");
-            this.f80300f.setWebViewClient(new a(this));
+            this.f80337f.addJavascriptInterface(new j.a.a.e.p.b(this), "YYPaySdkJsInterface");
+            this.f80337f.setWebViewClient(new a(this));
             if (Build.VERSION.SDK_INT < 23) {
-                this.f80300f.setWebChromeClient(new b(this));
+                this.f80337f.setWebChromeClient(new b(this));
             }
-            j.a.a.e.p.a.a(this.f80300f);
+            j.a.a.e.p.a.a(this.f80337f);
             this.isEnableBackupDomain = !Env.instance().isTestEnv();
             RLog.info("YYPayWebView", "isEnableBackupDomain=" + this.isEnableBackupDomain);
         }
@@ -264,11 +264,11 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
     public final void g() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.isEnableBackupDomain) {
-            if (!this.f80301g) {
+            if (!this.f80338g) {
                 RLog.warn("YYPayWebView", "reloadWithBackupDomains: ignore, cur has detached from window");
                 return;
             }
-            WebView webView = this.f80300f;
+            WebView webView = this.f80337f;
             String url = webView != null ? webView.getUrl() : null;
             if (TextUtils.isEmpty(url)) {
                 RLog.warn("YYPayWebView", "reloadWithBackupDomains: ignore, invalid url");
@@ -282,8 +282,8 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
                     return;
                 }
                 RLog.info("YYPayWebView", "reloadWithBackupDomains: load empty page before retry");
-                this.f80300f.stopLoading();
-                this.f80300f.loadUrl("about:blank");
+                this.f80337f.stopLoading();
+                this.f80337f.loadUrl("about:blank");
                 loadUrl(e2 + str);
             } catch (Exception e3) {
                 RLog.error("YYPayWebView", "reloadWithBackupDomains: error=" + Log.getStackTraceString(e3), new Object[0]);
@@ -303,7 +303,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c cVar = this.f80299e;
+            c cVar = this.f80336e;
             if (cVar != null) {
                 return cVar.getToken();
             }
@@ -317,7 +317,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             RLog.info("YYPayWebView", "loadUrl: " + str);
-            this.f80300f.loadUrl(str);
+            this.f80337f.loadUrl(str);
         }
     }
 
@@ -326,7 +326,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onAttachedToWindow();
-            this.f80301g = true;
+            this.f80338g = true;
         }
     }
 
@@ -335,7 +335,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDetachedFromWindow();
-            this.f80301g = false;
+            this.f80338g = false;
         }
     }
 
@@ -348,7 +348,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
                 return;
             }
             RLog.debug("YYPayWebView", "onNativeOperation params: %s", nativeOperationParams);
-            c cVar = this.f80299e;
+            c cVar = this.f80336e;
             if (cVar != null) {
                 cVar.onNativeOperation(nativeOperationParams);
             }
@@ -364,8 +364,8 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
                 return;
             }
             RLog.debug("YYPayWebView", "onOpenUrl pageParams: %s", urlPageParams);
-            if (this.f80299e != null) {
-                this.f80299e.onOpenNewUrl(new e(urlPageParams.url, urlPageParams.pageType), new d(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
+            if (this.f80336e != null) {
+                this.f80336e.onOpenNewUrl(new e(urlPageParams.url, urlPageParams.pageType), new d(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
             }
         }
     }
@@ -379,7 +379,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
                 return;
             }
             RLog.debug("YYPayWebView", "onUpdateTopUi pageParams: %s", urlPageParams);
-            c cVar = this.f80299e;
+            c cVar = this.f80336e;
             if (cVar != null) {
                 cVar.onUpdateTopUi(new d(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
             }
@@ -396,7 +396,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
     public void setCallback(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.f80299e = cVar;
+            this.f80336e = cVar;
         }
     }
 
@@ -440,7 +440,7 @@ public class YYPayWebView extends LinearLayout implements j.a.a.e.o.a, b.f {
                 return;
             }
         }
-        this.f80301g = true;
+        this.f80338g = true;
         this.isEnableBackupDomain = true;
         f(context, attributeSet);
     }

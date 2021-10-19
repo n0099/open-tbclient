@@ -10,7 +10,7 @@ public final class c extends c.i.b.a.y.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f33005j;
+    public long f33009j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c() {

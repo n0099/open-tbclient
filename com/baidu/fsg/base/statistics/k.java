@@ -26,42 +26,42 @@ public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39575a = "k";
+    public static final String f39579a = "k";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39576b = "cu";
+    public static final String f39580b = "cu";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39577c = "cu2";
+    public static final String f39581c = "cu2";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39578d = "ua";
+    public static final String f39582d = "ua";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39579e = "op";
+    public static final String f39583e = "op";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39580f = "bs";
+    public static final String f39584f = "bs";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39581g = "bk";
+    public static final String f39585g = "bk";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39582h = "lc";
+    public static final String f39586h = "lc";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39583i = "sd";
+    public static final String f39587i = "sd";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Pattern f39584j;
+    public Pattern f39588j;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static k f39585a;
+        public static k f39589a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -77,7 +77,7 @@ public class k {
                     return;
                 }
             }
-            f39585a = new k(null);
+            f39589a = new k(null);
         }
 
         public a() {
@@ -123,7 +123,7 @@ public class k {
                 return;
             }
         }
-        this.f39584j = Pattern.compile("\\s*|\t|\r|\n");
+        this.f39588j = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public /* synthetic */ k(j jVar) {
@@ -133,7 +133,7 @@ public class k {
     public static k c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f39585a : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f39589a : (k) invokeV.objValue;
     }
 
     private String c(Context context) {
@@ -158,7 +158,7 @@ public class k {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context)) == null) {
             try {
                 try {
-                    return this.f39584j.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+                    return this.f39588j.matcher(PhoneUtils.getCUID(context)).replaceAll("");
                 } catch (Exception unused) {
                     return str;
                 }
@@ -176,7 +176,7 @@ public class k {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, context)) == null) {
             try {
                 try {
-                    return this.f39584j.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+                    return this.f39588j.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
                 } catch (Exception unused) {
                     return str;
                 }
@@ -220,13 +220,13 @@ public class k {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("ua", h(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f39576b, e(RimStatisticsUtil.getAppContext()));
-                jSONObject.put(f39577c, f(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f39580b, e(RimStatisticsUtil.getAppContext()));
+                jSONObject.put(f39581c, f(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("op", g(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("bs", c(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f39581g, d(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f39585g, d(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("sd", b(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f39582h, a(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f39586h, a(RimStatisticsUtil.getAppContext()));
             } catch (JSONException unused) {
             }
             return jSONObject.toString();
@@ -254,7 +254,7 @@ public class k {
             try {
                 return new JSONObject().toString();
             } catch (Throwable th) {
-                LogUtil.d(f39575a, th.toString());
+                LogUtil.d(f39579a, th.toString());
                 return null;
             }
         }

@@ -41,7 +41,7 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             if (!TextUtils.isEmpty(str) && !"Unknown".equals(str)) {
                 try {
-                    String optString = new JSONObject(str).optString(com.kwad.sdk.crash.c.f72965g);
+                    String optString = new JSONObject(str).optString(com.kwad.sdk.crash.c.f73000g);
                     if (!TextUtils.isEmpty(optString)) {
                         return optString;
                     }

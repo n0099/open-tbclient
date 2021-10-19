@@ -15,28 +15,28 @@ public class LoadConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IKeyGenerator f65397a;
+    public IKeyGenerator f65432a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f65398b;
+    public ExecutorService f65433b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IHttpClient f65399c;
+    public IHttpClient f65434c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IMemoryCache f65400d;
+    public IMemoryCache f65435d;
 
     /* renamed from: e  reason: collision with root package name */
-    public IRawCache f65401e;
+    public IRawCache f65436e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IDiskCache f65402f;
+    public IDiskCache f65437f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ILog f65403g;
+    public ILog f65438g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CacheConfig f65404h;
+    public CacheConfig f65439h;
 
     /* renamed from: com.bytedance.sdk.component.image.LoadConfig$1  reason: invalid class name */
     /* loaded from: classes9.dex */
@@ -51,28 +51,28 @@ public class LoadConfig {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IKeyGenerator f65405a;
+        public IKeyGenerator f65440a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ExecutorService f65406b;
+        public ExecutorService f65441b;
 
         /* renamed from: c  reason: collision with root package name */
-        public IHttpClient f65407c;
+        public IHttpClient f65442c;
 
         /* renamed from: d  reason: collision with root package name */
-        public IMemoryCache f65408d;
+        public IMemoryCache f65443d;
 
         /* renamed from: e  reason: collision with root package name */
-        public IRawCache f65409e;
+        public IRawCache f65444e;
 
         /* renamed from: f  reason: collision with root package name */
-        public IDiskCache f65410f;
+        public IDiskCache f65445f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ILog f65411g;
+        public ILog f65446g;
 
         /* renamed from: h  reason: collision with root package name */
-        public CacheConfig f65412h;
+        public CacheConfig f65447h;
 
         public ConfigBuilder() {
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class LoadConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cacheConfig)) == null) {
-                this.f65412h = cacheConfig;
+                this.f65447h = cacheConfig;
                 return this;
             }
             return (ConfigBuilder) invokeL.objValue;
@@ -108,7 +108,7 @@ public class LoadConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iDiskCache)) == null) {
-                this.f65410f = iDiskCache;
+                this.f65445f = iDiskCache;
                 return this;
             }
             return (ConfigBuilder) invokeL.objValue;
@@ -118,7 +118,7 @@ public class LoadConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iHttpClient)) == null) {
-                this.f65407c = iHttpClient;
+                this.f65442c = iHttpClient;
                 return this;
             }
             return (ConfigBuilder) invokeL.objValue;
@@ -128,7 +128,7 @@ public class LoadConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iKeyGenerator)) == null) {
-                this.f65405a = iKeyGenerator;
+                this.f65440a = iKeyGenerator;
                 return this;
             }
             return (ConfigBuilder) invokeL.objValue;
@@ -138,7 +138,7 @@ public class LoadConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, iLog)) == null) {
-                this.f65411g = iLog;
+                this.f65446g = iLog;
                 return this;
             }
             return (ConfigBuilder) invokeL.objValue;
@@ -148,7 +148,7 @@ public class LoadConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iMemoryCache)) == null) {
-                this.f65408d = iMemoryCache;
+                this.f65443d = iMemoryCache;
                 return this;
             }
             return (ConfigBuilder) invokeL.objValue;
@@ -158,7 +158,7 @@ public class LoadConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, iRawCache)) == null) {
-                this.f65409e = iRawCache;
+                this.f65444e = iRawCache;
                 return this;
             }
             return (ConfigBuilder) invokeL.objValue;
@@ -168,7 +168,7 @@ public class LoadConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, executorService)) == null) {
-                this.f65406b = executorService;
+                this.f65441b = executorService;
                 return this;
             }
             return (ConfigBuilder) invokeL.objValue;
@@ -188,49 +188,49 @@ public class LoadConfig {
     public CacheConfig getCacheConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65404h : (CacheConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65439h : (CacheConfig) invokeV.objValue;
     }
 
     public IDiskCache getDiskCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65402f : (IDiskCache) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65437f : (IDiskCache) invokeV.objValue;
     }
 
     public IHttpClient getHttpClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65399c : (IHttpClient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65434c : (IHttpClient) invokeV.objValue;
     }
 
     public IKeyGenerator getKeyGenerator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65397a : (IKeyGenerator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65432a : (IKeyGenerator) invokeV.objValue;
     }
 
     public ILog getLog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f65403g : (ILog) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f65438g : (ILog) invokeV.objValue;
     }
 
     public IMemoryCache getMemoryCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f65400d : (IMemoryCache) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f65435d : (IMemoryCache) invokeV.objValue;
     }
 
     public IRawCache getRawCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f65401e : (IRawCache) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f65436e : (IRawCache) invokeV.objValue;
     }
 
     public ExecutorService getThreadPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f65398b : (ExecutorService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f65433b : (ExecutorService) invokeV.objValue;
     }
 
     public LoadConfig(ConfigBuilder configBuilder) {
@@ -248,13 +248,13 @@ public class LoadConfig {
                 return;
             }
         }
-        this.f65397a = configBuilder.f65405a;
-        this.f65398b = configBuilder.f65406b;
-        this.f65399c = configBuilder.f65407c;
-        this.f65400d = configBuilder.f65408d;
-        this.f65401e = configBuilder.f65409e;
-        this.f65402f = configBuilder.f65410f;
-        this.f65404h = configBuilder.f65412h;
-        this.f65403g = configBuilder.f65411g;
+        this.f65432a = configBuilder.f65440a;
+        this.f65433b = configBuilder.f65441b;
+        this.f65434c = configBuilder.f65442c;
+        this.f65435d = configBuilder.f65443d;
+        this.f65436e = configBuilder.f65444e;
+        this.f65437f = configBuilder.f65445f;
+        this.f65439h = configBuilder.f65447h;
+        this.f65438g = configBuilder.f65446g;
     }
 }

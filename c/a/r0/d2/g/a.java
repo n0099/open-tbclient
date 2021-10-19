@@ -1,0 +1,682 @@
+package c.a.r0.d2.g;
+
+import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.d.l;
+import c.a.r0.d2.d;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public b f16659a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public c f16660b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public C0800a f16661c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ArrayList<MarkData> f16662d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f16663e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f16664f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f16665g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public d f16666h;
+
+    /* renamed from: c.a.r0.d2.g.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class C0800a extends BdAsyncTask<Boolean, Integer, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public NetWork f16667a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f16668b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f16669c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f16670d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public c.a.r0.d2.g.c f16671e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ a f16672f;
+
+        public C0800a(a aVar, String str, int i2, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, str, Integer.valueOf(i2), str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16672f = aVar;
+            this.f16667a = null;
+            this.f16668b = null;
+            this.f16669c = null;
+            this.f16670d = 0;
+            this.f16671e = null;
+            this.f16668b = str;
+            this.f16670d = i2;
+            this.f16669c = str2;
+            this.f16671e = new c.a.r0.d2.g.c();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(Boolean... boolArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
+                this.f16667a = netWork;
+                netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                this.f16667a.addPostData("tid", this.f16668b);
+                this.f16667a.addPostData("fid", this.f16669c);
+                this.f16671e.c(this.f16667a.postNetData());
+                if (this.f16667a.getNetContext().getResponse().isRequestSuccess() && this.f16671e.a() == 0) {
+                    return Boolean.TRUE;
+                }
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                super.cancel(true);
+                NetWork netWork = this.f16667a;
+                if (netWork != null) {
+                    netWork.cancelNetConnect();
+                }
+                this.f16672f.f16661c = null;
+                d dVar = this.f16672f.f16666h;
+                if (dVar != null) {
+                    dVar.a(2, Boolean.FALSE, null);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
+                String str = null;
+                this.f16672f.f16661c = null;
+                if (bool.booleanValue()) {
+                    if (this.f16670d < this.f16672f.f16662d.size()) {
+                        this.f16672f.f16662d.remove(this.f16670d);
+                        a.i(this.f16672f);
+                    }
+                } else if (this.f16667a.getNetContext().getResponse().isRequestSuccess()) {
+                    str = this.f16671e.b();
+                } else {
+                    str = this.f16667a.getErrorString();
+                }
+                d dVar = this.f16672f.f16666h;
+                if (dVar != null) {
+                    dVar.a(2, bool, str);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends BdAsyncTask<Boolean, String, a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public NetWork f16673a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f16674b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f16675c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public c.a.r0.d2.g.c f16676d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public Boolean f16677e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ a f16678f;
+
+        public b(a aVar, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16678f = aVar;
+            this.f16673a = null;
+            this.f16674b = null;
+            this.f16675c = 0;
+            this.f16676d = null;
+            this.f16677e = Boolean.FALSE;
+            this.f16675c = i2;
+            this.f16676d = new c.a.r0.d2.g.c();
+        }
+
+        public final void b(String str) {
+            String currentAccount;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (currentAccount = TbadkCoreApplication.getCurrentAccount()) == null) {
+                return;
+            }
+            c.a.q0.s.r.a.f();
+            l<String> g2 = c.a.q0.s.r.a.g("tb.my_bookmarks");
+            if (g2 != null) {
+                g2.e(currentAccount, str, 604800000L);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public a doInBackground(Boolean... boolArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, boolArr)) == null) {
+                this.f16677e = boolArr[0];
+                boolean booleanValue = (boolArr.length < 2 || boolArr[1] == null) ? true : boolArr[1].booleanValue();
+                a aVar = new a();
+                if (this.f16677e.booleanValue() && booleanValue) {
+                    c.a.q0.s.r.a.f();
+                    l<String> g2 = c.a.q0.s.r.a.g("tb.my_bookmarks");
+                    if (g2 != null) {
+                        publishProgress(g2.get(TbadkCoreApplication.getCurrentAccount()));
+                    }
+                    if (this.f16678f.f16662d == null) {
+                        this.f16678f.f16662d = new ArrayList();
+                    } else {
+                        this.f16678f.f16662d.clear();
+                    }
+                    this.f16678f.f16663e = 0;
+                }
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_GETSTORE);
+                this.f16673a = netWork;
+                netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                if (this.f16678f.f16665g) {
+                    this.f16673a.addPostData("offset", String.valueOf(0));
+                } else {
+                    this.f16673a.addPostData("offset", String.valueOf(this.f16675c));
+                }
+                this.f16673a.addPostData("rn", String.valueOf(20));
+                String postNetData = this.f16673a.postNetData();
+                this.f16674b = postNetData;
+                this.f16676d.c(postNetData);
+                if (this.f16673a.getNetContext().getResponse().isRequestSuccess()) {
+                    aVar.u(this.f16674b);
+                    if (this.f16675c == 0) {
+                        if (this.f16678f.f16662d == null) {
+                            this.f16678f.f16662d = new ArrayList();
+                        } else {
+                            this.f16678f.f16662d.clear();
+                        }
+                        this.f16678f.f16663e = 0;
+                        if (this.f16677e.booleanValue()) {
+                            b(this.f16674b);
+                        }
+                    }
+                }
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.cancel(true);
+                NetWork netWork = this.f16673a;
+                if (netWork != null) {
+                    netWork.cancelNetConnect();
+                }
+                this.f16678f.f16659a = null;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+                if (aVar == null) {
+                    aVar = new a();
+                }
+                c.a.r0.d2.g.c cVar = this.f16676d;
+                if (cVar != null) {
+                    c.a.q0.s.z.a.a("collection", 0L, 0, "collection_thread_list_result", cVar.a(), this.f16676d.b(), new Object[0]);
+                }
+                this.f16678f.f16663e = aVar.m();
+                ArrayList<MarkData> n = aVar.n();
+                if (this.f16677e.booleanValue()) {
+                    if (n != null && n.size() != 0) {
+                        this.f16678f.B(n);
+                    }
+                } else {
+                    this.f16678f.k(n);
+                }
+                Iterator<MarkData> it = n.iterator();
+                int i2 = 0;
+                while (it.hasNext()) {
+                    if (it.next().getNewCounts() > 0) {
+                        i2++;
+                        this.f16678f.C(i2);
+                    }
+                }
+                if (this.f16678f.f16666h != null) {
+                    if (this.f16673a.getNetContext().getResponse().isRequestSuccess()) {
+                        this.f16678f.f16666h.a(0, this.f16676d.a() != 0 ? this.f16676d.b() : null, Boolean.FALSE);
+                    } else {
+                        this.f16678f.f16666h.a(3, this.f16673a.getErrorString());
+                    }
+                }
+                this.f16678f.f16665g = false;
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onProgressUpdate(String... strArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, strArr) == null) {
+                super.onProgressUpdate((Object[]) strArr);
+                String str = strArr[0];
+                ArrayList<MarkData> arrayList = new ArrayList<>();
+                if (str != null) {
+                    arrayList = this.f16678f.t(str);
+                    if (this.f16677e.booleanValue()) {
+                        this.f16678f.B(arrayList);
+                    } else {
+                        this.f16678f.k(arrayList);
+                    }
+                } else {
+                    this.f16678f.B(arrayList);
+                }
+                if (ListUtils.isEmpty(arrayList)) {
+                    return;
+                }
+                this.f16678f.f16666h.a(0, null, Boolean.TRUE);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c extends BdAsyncTask<a, Integer, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f16659a = null;
+        this.f16660b = null;
+        this.f16661c = null;
+        this.f16663e = 0;
+        this.f16664f = 0;
+        this.f16665g = false;
+        this.f16666h = null;
+        this.f16662d = new ArrayList<>();
+        this.f16665g = true;
+    }
+
+    public static /* synthetic */ int i(a aVar) {
+        int i2 = aVar.f16664f;
+        aVar.f16664f = i2 - 1;
+        return i2;
+    }
+
+    public void A(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
+            this.f16666h = dVar;
+        }
+    }
+
+    public void B(ArrayList<MarkData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
+            this.f16662d = arrayList;
+        }
+    }
+
+    public void C(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.f16664f = i2;
+        }
+    }
+
+    public boolean D(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+            C0800a c0800a = this.f16661c;
+            if (c0800a != null) {
+                c0800a.cancel();
+            }
+            if (i2 >= this.f16662d.size() || this.f16662d.get(i2) == null || this.f16662d.get(i2).getId() == null) {
+                return false;
+            }
+            C0800a c0800a2 = new C0800a(this, this.f16662d.get(i2).getId(), i2, this.f16662d.get(i2).getForumId());
+            this.f16661c = c0800a2;
+            c0800a2.setPriority(2);
+            this.f16661c.execute(new Boolean[0]);
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public String E(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) {
+            ArrayList<MarkData> arrayList = this.f16662d;
+            if (arrayList == null) {
+                return null;
+            }
+            if (i2 >= arrayList.size()) {
+                i3 -= (i2 - this.f16662d.size()) - 1;
+                i2 = this.f16662d.size() - 1;
+            }
+            JSONArray jSONArray = new JSONArray();
+            int i4 = 0;
+            for (int i5 = i2; i5 >= 0 && i5 > i2 - i3; i5--) {
+                try {
+                    JSONObject json = this.f16662d.get(i5).toJson();
+                    if (json != null && i4 >= 0) {
+                        int i6 = i4 + 1;
+                        jSONArray.put(i4, json);
+                        i4 = i6;
+                    }
+                } catch (Exception e2) {
+                    BdLog.e(e2.toString());
+                    jSONArray = null;
+                }
+            }
+            if (jSONArray == null) {
+                return null;
+            }
+            return jSONArray.toString();
+        }
+        return (String) invokeII.objValue;
+    }
+
+    public void j(MarkData markData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, markData) == null) {
+            this.f16662d.add(markData);
+        }
+    }
+
+    public void k(ArrayList<MarkData> arrayList) {
+        ArrayList<MarkData> arrayList2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) || (arrayList2 = this.f16662d) == null || arrayList == null) {
+            return;
+        }
+        arrayList2.addAll(arrayList);
+        y();
+    }
+
+    public final void l(String str, int i2) {
+        ArrayList<MarkData> arrayList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, str, i2) == null) || (arrayList = this.f16662d) == null || ListUtils.getCount(arrayList) <= 0) {
+            return;
+        }
+        Iterator<MarkData> it = this.f16662d.iterator();
+        while (it.hasNext()) {
+            MarkData next = it.next();
+            if (next != null && next.getId().equals(str)) {
+                next.setReplyNum(i2);
+            }
+        }
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ArrayList<MarkData> arrayList = this.f16662d;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public ArrayList<MarkData> n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f16662d : (ArrayList) invokeV.objValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f16664f : invokeV.intValue;
+    }
+
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f16663e : invokeV.intValue;
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            ArrayList<MarkData> arrayList = this.f16662d;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f16663e > 0 : invokeV.booleanValue;
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            b bVar = this.f16659a;
+            if (bVar != null) {
+                bVar.cancel();
+            }
+            c cVar = this.f16660b;
+            if (cVar != null) {
+                cVar.cancel();
+            }
+            C0800a c0800a = this.f16661c;
+            if (c0800a != null) {
+                c0800a.cancel();
+            }
+        }
+    }
+
+    public final ArrayList<MarkData> t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            ArrayList<MarkData> arrayList = new ArrayList<>();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.optJSONObject("error").optString("errno").equals("0")) {
+                    JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        MarkData markData = new MarkData();
+                        markData.paserJson(optJSONArray.getJSONObject(i2));
+                        arrayList.add(markData);
+                    }
+                    return arrayList;
+                }
+                return null;
+            } catch (Exception e2) {
+                BdLog.e(e2.toString());
+                return null;
+            }
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            try {
+                v(new JSONObject(str));
+            } catch (Exception e2) {
+                BdLog.e(e2.toString());
+            }
+        }
+    }
+
+    public void v(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, jSONObject) == null) {
+            try {
+                if (jSONObject.optJSONObject("error").optString("errno").equals("0")) {
+                    JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        MarkData markData = new MarkData();
+                        markData.paserJson(optJSONArray.getJSONObject(i2));
+                        this.f16662d.add(markData);
+                    }
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2.toString());
+            }
+        }
+    }
+
+    public void w(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, bool) == null) {
+            x(bool, true);
+        }
+    }
+
+    public void x(Boolean bool, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048595, this, bool, z) == null) {
+            b bVar = this.f16659a;
+            if (bVar != null) {
+                bVar.cancel();
+            }
+            b bVar2 = new b(this, q());
+            this.f16659a = bVar2;
+            bVar2.setPriority(3);
+            this.f16659a.execute(bool, Boolean.valueOf(z));
+        }
+    }
+
+    public final void y() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f16662d == null) {
+            return;
+        }
+        HashSet hashSet = new HashSet();
+        Iterator<MarkData> it = this.f16662d.iterator();
+        while (it.hasNext()) {
+            MarkData next = it.next();
+            String id = next.getId();
+            int replyNum = next.getReplyNum();
+            if (!hashSet.add(id)) {
+                l(id, replyNum);
+                it.remove();
+            }
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.f16664f = 0;
+            this.f16663e = 0;
+            this.f16665g = true;
+        }
+    }
+}

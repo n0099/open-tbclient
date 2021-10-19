@@ -18,10 +18,10 @@ public class OfficialFeedHeadResponsedMessage extends CustomResponsedMessage<a> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<c.a.r0.k1.h.o.a> f53319a;
+        public List<c.a.r0.l1.h.o.a> f53250a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<ChatMessage> f53320b;
+        public List<ChatMessage> f53251b;
 
         public a() {
             Interceptable interceptable = $ic;

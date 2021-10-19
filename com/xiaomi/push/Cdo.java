@@ -11,7 +11,7 @@ public class Cdo implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ dn f77807a;
+    public final /* synthetic */ dn f77842a;
 
     public Cdo(dn dnVar) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class Cdo implements Runnable {
                 return;
             }
         }
-        this.f77807a = dnVar;
+        this.f77842a = dnVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f77807a.b();
+            this.f77842a.b();
         }
     }
 }

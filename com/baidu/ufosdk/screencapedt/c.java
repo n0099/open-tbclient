@@ -13,7 +13,7 @@ public final class c implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ScreenCapEditActivity f59762a;
+    public final /* synthetic */ ScreenCapEditActivity f59797a;
 
     public c(ScreenCapEditActivity screenCapEditActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class c implements View.OnClickListener {
                 return;
             }
         }
-        this.f59762a = screenCapEditActivity;
+        this.f59797a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -41,17 +41,17 @@ public final class c implements View.OnClickListener {
         RelativeLayout relativeLayout2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            ScreenCapEditActivity screenCapEditActivity = this.f59762a;
+            ScreenCapEditActivity screenCapEditActivity = this.f59797a;
             z = screenCapEditActivity.H;
             screenCapEditActivity.H = !z;
-            z2 = this.f59762a.H;
+            z2 = this.f59797a.H;
             if (z2) {
-                relativeLayout = this.f59762a.Q;
+                relativeLayout = this.f59797a.Q;
                 relativeLayout.setBackgroundColor(-16777216);
                 return;
             }
-            relativeLayout2 = this.f59762a.Q;
-            this.f59762a.getApplicationContext();
+            relativeLayout2 = this.f59797a.Q;
+            this.f59797a.getApplicationContext();
             relativeLayout2.setBackgroundDrawable(m.a(-16777216));
         }
     }

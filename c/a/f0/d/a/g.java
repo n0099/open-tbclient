@@ -81,7 +81,7 @@ public class g extends b {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 g gVar = this.f3457g;
                 Request request = this.f3455e;
-                gVar.h(0, request, request.f44486a, this.f3456f);
+                gVar.h(0, request, request.f44398a, this.f3456f);
             }
         }
     }
@@ -108,11 +108,11 @@ public class g extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, httpURLConnection, request) == null) {
             e(httpURLConnection, request);
-            Map<String, String> map = request.f44488c;
+            Map<String, String> map = request.f44400c;
             if (map == null || map.size() == 0) {
                 return;
             }
-            for (Map.Entry<String, String> entry : request.f44488c.entrySet()) {
+            for (Map.Entry<String, String> entry : request.f44400c.entrySet()) {
                 httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -124,14 +124,14 @@ public class g extends b {
         if (interceptable != null && interceptable.invokeLL(65539, null, httpURLConnection, request) != null) {
             return;
         }
-        Map<String, String> map = request.f44488c;
+        Map<String, String> map = request.f44400c;
         if (map != null && map.containsKey("Cookie")) {
             return;
         }
         try {
             CookieManager cookieManager = CookieManager.getInstance();
             if (cookieManager != null) {
-                String cookie = cookieManager.getCookie(request.f44486a.toString());
+                String cookie = cookieManager.getCookie(request.f44398a.toString());
                 if (TextUtils.isEmpty(cookie)) {
                     return;
                 }
@@ -223,8 +223,8 @@ public class g extends b {
                 return;
             }
             try {
-                byte[] bytes = request.f() ? g(request.f44489d, "utf-8").toString().getBytes() : null;
-                HttpURLConnection i3 = i(url, 30000, request.f(), request.f44487b, request.f44495j);
+                byte[] bytes = request.f() ? g(request.f44401d, "utf-8").toString().getBytes() : null;
+                HttpURLConnection i3 = i(url, 30000, request.f(), request.f44399b, request.f44407j);
                 if (i3 == null) {
                     kVar.a(new Exception("Unable to open connection"));
                     return;

@@ -70,7 +70,7 @@ public class f {
                                                     if (optJSONObject4 != null) {
                                                         e eVar = new e();
                                                         eVar.f3282a = z;
-                                                        eVar.f3284c = c.a.r0.p1.o.b.i(optJSONObject4.optJSONObject("lego_card").toString());
+                                                        eVar.f3284c = c.a.r0.q1.o.b.i(optJSONObject4.optJSONObject("lego_card").toString());
                                                         eVar.f3283b = str2;
                                                         return eVar;
                                                     }

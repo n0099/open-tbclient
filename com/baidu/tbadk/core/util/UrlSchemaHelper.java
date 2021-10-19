@@ -156,6 +156,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_TYPE_VIDEO_MIDDLE_PAGE = "tieba.baidu.com/videoMiddlePage";
     public static final String SCHEMA_TYPE_WEB = "web:";
     public static final String SCHEMA_TYPE_ZB = "zb:";
+    public static final String SCHEMA_VIDEO_CREATE_CENTER = "com.baidu.tieba://unidispatch/video_create_center";
     public static final String SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX = "bdtiebalive://video/yylive/joinlive?";
     public static final String SCHEME_TYPE_ACCOUNT_SAFE = "tieba://accountsafe";
     public static final String SCHEME_TYPE_ID_CARD = "tieba://idcard?";

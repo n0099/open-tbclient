@@ -27,33 +27,33 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f14926a;
+    public Context f14950a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageViewerBottomLayout f14927b;
+    public ImageViewerBottomLayout f14951b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AbsFloorImageTextView f14928c;
+    public AbsFloorImageTextView f14952c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f14929d;
+    public LinearLayout f14953d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14930e;
+    public boolean f14954e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ImageViewerBottomLayout.a f14931f;
+    public final ImageViewerBottomLayout.a f14955f;
 
     /* renamed from: c.a.q0.t.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0706a implements ImageViewerBottomLayout.a {
+    public class C0708a implements ImageViewerBottomLayout.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f14932a;
+        public final /* synthetic */ a f14956a;
 
-        public C0706a(a aVar) {
+        public C0708a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,16 +68,16 @@ public class a {
                     return;
                 }
             }
-            this.f14932a = aVar;
+            this.f14956a = aVar;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.a
         public void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, imageViewerBottomLayout, z) == null) {
-                this.f14932a.f14930e = z;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(this.f14932a.f14930e)));
-                this.f14932a.q(z);
+                this.f14956a.f14954e = z;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(this.f14956a.f14954e)));
+                this.f14956a.q(z);
             }
         }
     }
@@ -97,17 +97,17 @@ public class a {
                 return;
             }
         }
-        this.f14930e = true;
-        this.f14931f = new C0706a(this);
-        this.f14926a = context;
+        this.f14954e = true;
+        this.f14955f = new C0708a(this);
+        this.f14950a = context;
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f14929d = linearLayout;
+        this.f14953d = linearLayout;
         linearLayout.setOrientation(1);
-        this.f14929d.setVisibility(8);
-        SkinManager.setBackgroundColorToTransparent(this.f14929d, R.color.CAM_X0607, GradientDrawable.Orientation.BOTTOM_TOP);
+        this.f14953d.setVisibility(8);
+        SkinManager.setBackgroundColorToTransparent(this.f14953d, R.color.CAM_X0607, GradientDrawable.Orientation.BOTTOM_TOP);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        relativeLayout.addView(this.f14929d, layoutParams);
+        relativeLayout.addView(this.f14953d, layoutParams);
         d();
         e();
     }
@@ -116,8 +116,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ImageViewerBottomLayout imageViewerBottomLayout = this.f14927b;
-            if (imageViewerBottomLayout == null || this.f14928c == null) {
+            ImageViewerBottomLayout imageViewerBottomLayout = this.f14951b;
+            if (imageViewerBottomLayout == null || this.f14952c == null) {
                 return 0;
             }
             return imageViewerBottomLayout.getHeight() + AbsFloorImageTextView.TEXT_SIZE;
@@ -129,9 +129,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            FloorImageTextViewNew floorImageTextViewNew = new FloorImageTextViewNew(this.f14926a);
-            this.f14928c = floorImageTextViewNew;
-            this.f14929d.addView(floorImageTextViewNew, layoutParams);
+            FloorImageTextViewNew floorImageTextViewNew = new FloorImageTextViewNew(this.f14950a);
+            this.f14952c = floorImageTextViewNew;
+            this.f14953d.addView(floorImageTextViewNew, layoutParams);
         }
     }
 
@@ -139,23 +139,23 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.ImageViewerBottomHeight);
-            ImageViewerBottomLayout imageViewerBottomLayout = new ImageViewerBottomLayout(this.f14926a);
-            this.f14927b = imageViewerBottomLayout;
-            this.f14929d.addView(imageViewerBottomLayout, layoutParams);
-            this.f14927b.setExpandButtonListener(this.f14931f);
+            ImageViewerBottomLayout imageViewerBottomLayout = new ImageViewerBottomLayout(this.f14950a);
+            this.f14951b = imageViewerBottomLayout;
+            this.f14953d.addView(imageViewerBottomLayout, layoutParams);
+            this.f14951b.setExpandButtonListener(this.f14955f);
         }
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14930e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14954e : invokeV.booleanValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h(this.f14929d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h(this.f14953d) : invokeV.booleanValue;
     }
 
     public final boolean h(View view) {
@@ -167,11 +167,11 @@ public class a {
     public void i(ImageUrlData imageUrlData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, imageUrlData) == null) {
-            AbsFloorImageTextView absFloorImageTextView = this.f14928c;
+            AbsFloorImageTextView absFloorImageTextView = this.f14952c;
             if (absFloorImageTextView != null) {
                 absFloorImageTextView.updateTextView(imageUrlData);
             }
-            ImageViewerBottomLayout imageViewerBottomLayout = this.f14927b;
+            ImageViewerBottomLayout imageViewerBottomLayout = this.f14951b;
             if (imageViewerBottomLayout != null) {
                 imageViewerBottomLayout.updateData(imageUrlData);
             }
@@ -181,7 +181,7 @@ public class a {
     public void j(ImageViewerBottomLayout.b bVar) {
         ImageViewerBottomLayout imageViewerBottomLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || (imageViewerBottomLayout = this.f14927b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || (imageViewerBottomLayout = this.f14951b) == null) {
             return;
         }
         imageViewerBottomLayout.setOnDownloadImageListener(bVar);
@@ -190,7 +190,7 @@ public class a {
     public void k(View.OnClickListener onClickListener) {
         ImageViewerBottomLayout imageViewerBottomLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) || (imageViewerBottomLayout = this.f14927b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) || (imageViewerBottomLayout = this.f14951b) == null) {
             return;
         }
         imageViewerBottomLayout.setOnReplyClickListener(onClickListener);
@@ -199,7 +199,7 @@ public class a {
     public void l(ImageViewerBottomLayout.c cVar) {
         ImageViewerBottomLayout imageViewerBottomLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) || (imageViewerBottomLayout = this.f14927b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) || (imageViewerBottomLayout = this.f14951b) == null) {
             return;
         }
         imageViewerBottomLayout.setOnShareImageListener(cVar);
@@ -208,11 +208,11 @@ public class a {
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            AbsFloorImageTextView absFloorImageTextView = this.f14928c;
+            AbsFloorImageTextView absFloorImageTextView = this.f14952c;
             if (absFloorImageTextView != null) {
                 absFloorImageTextView.setUserId(str);
             }
-            ImageViewerBottomLayout imageViewerBottomLayout = this.f14927b;
+            ImageViewerBottomLayout imageViewerBottomLayout = this.f14951b;
             if (imageViewerBottomLayout != null) {
                 imageViewerBottomLayout.setUserId(str);
             }
@@ -222,20 +222,20 @@ public class a {
     public void n(int i2) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (linearLayout = this.f14929d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (linearLayout = this.f14953d) == null) {
             return;
         }
         linearLayout.clearAnimation();
-        this.f14929d.setVisibility(i2);
+        this.f14953d.setVisibility(i2);
     }
 
     public void o(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
             if (i2 == 0) {
-                c.a.r0.v3.a.c(this.f14929d, i3);
+                c.a.r0.w3.a.c(this.f14953d, i3);
             } else {
-                c.a.r0.v3.a.a(this.f14929d, i3);
+                c.a.r0.w3.a.a(this.f14953d, i3);
             }
         }
     }
@@ -243,7 +243,7 @@ public class a {
     public void p(boolean z) {
         ImageViewerBottomLayout imageViewerBottomLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (imageViewerBottomLayout = this.f14927b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (imageViewerBottomLayout = this.f14951b) == null) {
             return;
         }
         imageViewerBottomLayout.setYoungterCoverSomeView(z);
@@ -252,11 +252,11 @@ public class a {
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            AbsFloorImageTextView absFloorImageTextView = this.f14928c;
+            AbsFloorImageTextView absFloorImageTextView = this.f14952c;
             if (absFloorImageTextView != null) {
                 absFloorImageTextView.updateExpandState(z);
             }
-            ImageViewerBottomLayout imageViewerBottomLayout = this.f14927b;
+            ImageViewerBottomLayout imageViewerBottomLayout = this.f14951b;
             if (imageViewerBottomLayout != null) {
                 imageViewerBottomLayout.updateUnfoldState(!z);
             }

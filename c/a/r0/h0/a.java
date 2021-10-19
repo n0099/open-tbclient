@@ -1,11 +1,9 @@
 package c.a.r0.h0;
 
-import android.telephony.TelephonyManager;
-import c.a.e.e.p.j;
-import com.baidu.adp.lib.util.BdLog;
+import c.a.q0.s.q.d2;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,29 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
 /* loaded from: classes3.dex */
-public class a {
+public class a extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: c  reason: collision with root package name */
-    public static final String[] f18846c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String[] f18847d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String[] f18848e;
-
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f18849f;
+    public static final BdUniqueId f17922f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public volatile int f18850a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public volatile String f18851b;
+    /* renamed from: e  reason: collision with root package name */
+    public d2 f17923e;
 
     static {
         InterceptResult invokeClinit;
@@ -50,10 +35,7 @@ public class a {
                 return;
             }
         }
-        f18846c = new String[]{"119.75.222.62", "119.75.222.63"};
-        f18847d = new String[]{"111.13.100.247", "117.185.16.61"};
-        f18848e = new String[]{"111.206.37.190"};
-        f18849f = new String[]{"115.239.211.146", "180.97.33.196"};
+        f17922f = BdUniqueId.gen();
     }
 
     public a() {
@@ -70,53 +52,23 @@ public class a {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void g(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b();
-            if (j.H()) {
-                return f18849f[new Random().nextInt(f18849f.length)];
-            }
-            if (j.x()) {
-                if (this.f18850a == 1) {
-                    return f18846c[new Random().nextInt(f18846c.length)];
-                }
-                if (this.f18850a == 2) {
-                    return f18847d[new Random().nextInt(f18847d.length)];
-                }
-                if (this.f18850a == 3) {
-                    return f18848e[new Random().nextInt(f18848e.length)];
-                }
-            }
-            return "119.75.222.62";
+        if (interceptable == null || interceptable.invokeL(1048576, this, d2Var) == null) {
+            this.f17923e = d2Var;
         }
-        return (String) invokeV.objValue;
     }
 
-    public void b() {
+    public d2 getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            try {
-                this.f18851b = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
-            } catch (Exception e2) {
-                BdLog.e(e2);
-            }
-            this.f18850a = 0;
-            if (this.f18851b != null) {
-                if (!this.f18851b.startsWith("46000") && !this.f18851b.startsWith("46002") && !this.f18851b.startsWith("46007")) {
-                    if (!this.f18851b.startsWith("46001") && !this.f18851b.startsWith("46006")) {
-                        if (this.f18851b.startsWith("46003") || this.f18851b.startsWith("46005")) {
-                            this.f18850a = 3;
-                            return;
-                        }
-                        return;
-                    }
-                    this.f18850a = 2;
-                    return;
-                }
-                this.f18850a = 1;
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17923e : (d2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f17922f : (BdUniqueId) invokeV.objValue;
     }
 }
