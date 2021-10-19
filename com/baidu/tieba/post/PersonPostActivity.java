@@ -13,8 +13,8 @@ import androidx.viewpager.widget.ViewPager;
 import c.a.e.e.p.j;
 import c.a.e.e.p.l;
 import c.a.e.l.e.q;
-import c.a.r0.s2.d;
-import c.a.r0.s2.h;
+import c.a.r0.t2.d;
+import c.a.r0.t2.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -49,7 +49,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, d, c.a.r0.s2.b {
+public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, d, c.a.r0.t2.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CURRTABINDEX = "CurrTabIndex";
     public static final String KEY_EMPTYVIEW_TXT = "key_empty_view_text";
@@ -83,7 +83,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f56299e;
+        public final /* synthetic */ PersonPostActivity f56233e;
 
         public a(PersonPostActivity personPostActivity) {
             Interceptable interceptable = $ic;
@@ -100,14 +100,14 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     return;
                 }
             }
-            this.f56299e = personPostActivity;
+            this.f56233e = personPostActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56299e.finish();
+                this.f56233e.finish();
             }
         }
     }
@@ -118,7 +118,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f56300e;
+        public final /* synthetic */ PersonPostActivity f56234e;
 
         public b(PersonPostActivity personPostActivity) {
             Interceptable interceptable = $ic;
@@ -135,16 +135,16 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     return;
                 }
             }
-            this.f56300e = personPostActivity;
+            this.f56234e = personPostActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f56300e.mRecycleBinRedTip.getVisibility() == 0 ? "1" : "2").param("obj_locate", 1));
-                this.f56300e.showRecycleBinRedTip(false);
-                UrlManager.getInstance().dealOneLink(this.f56300e.getPageContext(), new String[]{PersonPostActivity.THREAD_RECYCLE_BIN_URL});
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f56234e.mRecycleBinRedTip.getVisibility() == 0 ? "1" : "2").param("obj_locate", 1));
+                this.f56234e.showRecycleBinRedTip(false);
+                UrlManager.getInstance().dealOneLink(this.f56234e.getPageContext(), new String[]{PersonPostActivity.THREAD_RECYCLE_BIN_URL});
             }
         }
     }
@@ -155,7 +155,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f56301a;
+        public final /* synthetic */ PersonPostActivity f56235a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PersonPostActivity personPostActivity, int i2) {
@@ -175,7 +175,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     return;
                 }
             }
-            this.f56301a = personPostActivity;
+            this.f56235a = personPostActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -189,7 +189,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(this.f56301a.getPageContext(), new String[]{str});
+            UrlManager.getInstance().dealOneLink(this.f56235a.getPageContext(), new String[]{str});
         }
     }
 
@@ -219,20 +219,20 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f47671c = fragment;
-        bVar.f47669a = i2;
+        bVar.f47591c = fragment;
+        bVar.f47589a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f47670b = fragmentTabIndicator;
+        bVar.f47590b = fragmentTabIndicator;
         this.mTabHost.addTabSpec(bVar);
     }
 
     private void initPersonPostTasks() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            c.a.r0.j3.e0.a.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, c.a.r0.j3.e0.a.a("c/u/feed/userpost", 303002));
+            c.a.r0.k3.e0.a.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, c.a.r0.k3.e0.a.a("c/u/feed/userpost", 303002));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -492,15 +492,15 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         return (q) invokeV.objValue;
     }
 
-    @Override // c.a.r0.s2.d
+    @Override // c.a.r0.t2.d
     public void onNoNetRefresh() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.mPersonPostAdapter == null) {
             return;
         }
         for (int i2 = 0; i2 < this.mPersonPostAdapter.getCount(); i2++) {
-            if (this.mPersonPostAdapter.getItem(i2) instanceof c.a.r0.s2.c) {
-                ((c.a.r0.s2.c) this.mPersonPostAdapter.getItem(i2)).fetchDataOnNoNetRefresh();
+            if (this.mPersonPostAdapter.getItem(i2) instanceof c.a.r0.t2.c) {
+                ((c.a.r0.t2.c) this.mPersonPostAdapter.getItem(i2)).fetchDataOnNoNetRefresh();
             }
         }
     }
@@ -607,7 +607,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
     }
 
-    @Override // c.a.r0.s2.b
+    @Override // c.a.r0.t2.b
     public void showRecycleBinRedTip(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;

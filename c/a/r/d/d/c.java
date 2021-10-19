@@ -15,7 +15,7 @@ public class c extends AbstractCursor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bundle f15292e;
+    public Bundle f15315e;
 
     public c(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class c extends AbstractCursor {
                 return;
             }
         }
-        this.f15292e = bundle;
+        this.f15315e = bundle;
     }
 
     @Override // android.database.AbstractCursor, android.database.Cursor
@@ -66,7 +66,7 @@ public class c extends AbstractCursor {
     public Bundle getExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15292e : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15315e : (Bundle) invokeV.objValue;
     }
 
     @Override // android.database.AbstractCursor, android.database.Cursor

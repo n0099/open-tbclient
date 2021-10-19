@@ -17,63 +17,63 @@ import kotlin.text.Typography;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f74880a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    public static final char[] f74915a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f74881b;
+    public final String f74916b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f74882c;
+    public final String f74917c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f74883d;
+    public final String f74918d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f74884e;
+    public final String f74919e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f74885f;
+    public final int f74920f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<String> f74886g;
+    public final List<String> f74921g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<String> f74887h;
+    public final List<String> f74922h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f74888i;
+    public final String f74923i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final String f74889j;
+    public final String f74924j;
 
     /* renamed from: com.meizu.cloud.pushsdk.b.c.f$1  reason: invalid class name */
     /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f74890a;
+        public static final /* synthetic */ int[] f74925a;
 
         static {
-            int[] iArr = new int[a.EnumC2040a.values().length];
-            f74890a = iArr;
+            int[] iArr = new int[a.EnumC2042a.values().length];
+            f74925a = iArr;
             try {
-                iArr[a.EnumC2040a.SUCCESS.ordinal()] = 1;
+                iArr[a.EnumC2042a.SUCCESS.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f74890a[a.EnumC2040a.INVALID_HOST.ordinal()] = 2;
+                f74925a[a.EnumC2042a.INVALID_HOST.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f74890a[a.EnumC2040a.UNSUPPORTED_SCHEME.ordinal()] = 3;
+                f74925a[a.EnumC2042a.UNSUPPORTED_SCHEME.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f74890a[a.EnumC2040a.MISSING_SCHEME.ordinal()] = 4;
+                f74925a[a.EnumC2042a.MISSING_SCHEME.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f74890a[a.EnumC2040a.INVALID_PORT.ordinal()] = 5;
+                f74925a[a.EnumC2042a.INVALID_PORT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -83,32 +83,32 @@ public class f {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f74891a;
+        public String f74926a;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f74894d;
+        public String f74929d;
 
         /* renamed from: f  reason: collision with root package name */
-        public final List<String> f74896f;
+        public final List<String> f74931f;
 
         /* renamed from: g  reason: collision with root package name */
-        public List<String> f74897g;
+        public List<String> f74932g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f74898h;
+        public String f74933h;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f74892b = "";
+        public String f74927b = "";
 
         /* renamed from: c  reason: collision with root package name */
-        public String f74893c = "";
+        public String f74928c = "";
 
         /* renamed from: e  reason: collision with root package name */
-        public int f74895e = -1;
+        public int f74930e = -1;
 
         /* renamed from: com.meizu.cloud.pushsdk.b.c.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public enum EnumC2040a {
+        public enum EnumC2042a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -118,7 +118,7 @@ public class f {
 
         public a() {
             ArrayList arrayList = new ArrayList();
-            this.f74896f = arrayList;
+            this.f74931f = arrayList;
             arrayList.add("");
         }
 
@@ -185,15 +185,15 @@ public class f {
                 if (r0 != r1) goto L13
                 goto L1e
             L13:
-                java.util.List<java.lang.String> r0 = r10.f74896f
+                java.util.List<java.lang.String> r0 = r10.f74931f
                 int r1 = r0.size()
                 int r1 = r1 - r3
                 r0.set(r1, r2)
                 goto L29
             L1e:
-                java.util.List<java.lang.String> r0 = r10.f74896f
+                java.util.List<java.lang.String> r0 = r10.f74931f
                 r0.clear()
-                java.util.List<java.lang.String> r0 = r10.f74896f
+                java.util.List<java.lang.String> r0 = r10.f74931f
                 r0.add(r2)
                 goto L41
             L29:
@@ -232,15 +232,15 @@ public class f {
                 c();
                 return;
             }
-            List<String> list = this.f74896f;
+            List<String> list = this.f74931f;
             if (list.get(list.size() - 1).isEmpty()) {
-                List<String> list2 = this.f74896f;
+                List<String> list2 = this.f74931f;
                 list2.set(list2.size() - 1, a2);
             } else {
-                this.f74896f.add(a2);
+                this.f74931f.add(a2);
             }
             if (z) {
-                this.f74896f.add("");
+                this.f74931f.add("");
             }
         }
 
@@ -324,12 +324,12 @@ public class f {
         }
 
         private void c() {
-            List<String> list = this.f74896f;
-            if (!list.remove(list.size() - 1).isEmpty() || this.f74896f.isEmpty()) {
-                this.f74896f.add("");
+            List<String> list = this.f74931f;
+            if (!list.remove(list.size() - 1).isEmpty() || this.f74931f.isEmpty()) {
+                this.f74931f.add("");
                 return;
             }
-            List<String> list2 = this.f74896f;
+            List<String> list2 = this.f74931f;
             list2.set(list2.size() - 1, "");
         }
 
@@ -471,34 +471,34 @@ public class f {
         }
 
         public int a() {
-            int i2 = this.f74895e;
-            return i2 != -1 ? i2 : f.a(this.f74891a);
+            int i2 = this.f74930e;
+            return i2 != -1 ? i2 : f.a(this.f74926a);
         }
 
-        public EnumC2040a a(f fVar, String str) {
+        public EnumC2042a a(f fVar, String str) {
             int a2;
             int i2;
             int a3 = m.a(str, 0, str.length());
             int b2 = m.b(str, a3, str.length());
             if (b(str, a3, b2) != -1) {
                 if (str.regionMatches(true, a3, UrlSchemaHelper.SCHEMA_TYPE_HTTPS, 0, 6)) {
-                    this.f74891a = "https";
+                    this.f74926a = "https";
                     a3 += 6;
                 } else if (!str.regionMatches(true, a3, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
-                    return EnumC2040a.UNSUPPORTED_SCHEME;
+                    return EnumC2042a.UNSUPPORTED_SCHEME;
                 } else {
-                    this.f74891a = "http";
+                    this.f74926a = "http";
                     a3 += 5;
                 }
             } else if (fVar == null) {
-                return EnumC2040a.MISSING_SCHEME;
+                return EnumC2042a.MISSING_SCHEME;
             } else {
-                this.f74891a = fVar.f74881b;
+                this.f74926a = fVar.f74916b;
             }
             int c2 = c(str, a3, b2);
             char c3 = '?';
             char c4 = '#';
-            if (c2 >= 2 || fVar == null || !fVar.f74881b.equals(this.f74891a)) {
+            if (c2 >= 2 || fVar == null || !fVar.f74916b.equals(this.f74926a)) {
                 int i3 = a3 + c2;
                 boolean z = false;
                 boolean z2 = false;
@@ -511,17 +511,17 @@ public class f {
                     if (charAt == '@') {
                         if (z) {
                             i2 = a2;
-                            this.f74893c += "%40" + f.a(str, i3, i2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
+                            this.f74928c += "%40" + f.a(str, i3, i2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
                         } else {
                             int a4 = m.a(str, i3, a2, ':');
                             i2 = a2;
                             String a5 = f.a(str, i3, a4, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
                             if (z2) {
-                                a5 = this.f74892b + "%40" + a5;
+                                a5 = this.f74927b + "%40" + a5;
                             }
-                            this.f74892b = a5;
+                            this.f74927b = a5;
                             if (a4 != i2) {
-                                this.f74893c = f.a(str, a4 + 1, i2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
+                                this.f74928c = f.a(str, a4 + 1, i2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
                                 z = true;
                             }
                             z2 = true;
@@ -533,27 +533,27 @@ public class f {
                 }
                 int d2 = d(str, i3, a2);
                 int i4 = d2 + 1;
-                this.f74894d = e(str, i3, d2);
+                this.f74929d = e(str, i3, d2);
                 if (i4 < a2) {
                     int g2 = g(str, i4, a2);
-                    this.f74895e = g2;
+                    this.f74930e = g2;
                     if (g2 == -1) {
-                        return EnumC2040a.INVALID_PORT;
+                        return EnumC2042a.INVALID_PORT;
                     }
                 } else {
-                    this.f74895e = f.a(this.f74891a);
+                    this.f74930e = f.a(this.f74926a);
                 }
-                if (this.f74894d == null) {
-                    return EnumC2040a.INVALID_HOST;
+                if (this.f74929d == null) {
+                    return EnumC2042a.INVALID_HOST;
                 }
                 a3 = a2;
             } else {
-                this.f74892b = fVar.b();
-                this.f74893c = fVar.c();
-                this.f74894d = fVar.f74884e;
-                this.f74895e = fVar.f74885f;
-                this.f74896f.clear();
-                this.f74896f.addAll(fVar.d());
+                this.f74927b = fVar.b();
+                this.f74928c = fVar.c();
+                this.f74929d = fVar.f74919e;
+                this.f74930e = fVar.f74920f;
+                this.f74931f.clear();
+                this.f74931f.addAll(fVar.d());
                 if (a3 == b2 || str.charAt(a3) == '#') {
                     a(fVar.e());
                 }
@@ -562,35 +562,35 @@ public class f {
             a(str, a3, a6);
             if (a6 < b2 && str.charAt(a6) == '?') {
                 int a7 = m.a(str, a6, b2, '#');
-                this.f74897g = f.b(f.a(str, a6 + 1, a7, " \"'<>#", true, false, true, true));
+                this.f74932g = f.b(f.a(str, a6 + 1, a7, " \"'<>#", true, false, true, true));
                 a6 = a7;
             }
             if (a6 < b2 && str.charAt(a6) == '#') {
-                this.f74898h = f.a(str, 1 + a6, b2, "", true, false, false, false);
+                this.f74933h = f.a(str, 1 + a6, b2, "", true, false, false, false);
             }
-            return EnumC2040a.SUCCESS;
+            return EnumC2042a.SUCCESS;
         }
 
         public a a(String str) {
-            this.f74897g = str != null ? f.b(f.a(str, " \"'<>#", true, false, true, true)) : null;
+            this.f74932g = str != null ? f.b(f.a(str, " \"'<>#", true, false, true, true)) : null;
             return this;
         }
 
         public a a(String str, String str2) {
             if (str != null) {
-                if (this.f74897g == null) {
-                    this.f74897g = new ArrayList();
+                if (this.f74932g == null) {
+                    this.f74932g = new ArrayList();
                 }
-                this.f74897g.add(f.a(str, " \"'<>#&=", false, false, true, true));
-                this.f74897g.add(str2 != null ? f.a(str2, " \"'<>#&=", false, false, true, true) : null);
+                this.f74932g.add(f.a(str, " \"'<>#&=", false, false, true, true));
+                this.f74932g.add(str2 != null ? f.a(str2, " \"'<>#&=", false, false, true, true) : null);
                 return this;
             }
             throw new IllegalArgumentException("name == null");
         }
 
         public f b() {
-            if (this.f74891a != null) {
-                if (this.f74894d != null) {
+            if (this.f74926a != null) {
+                if (this.f74929d != null) {
                     return new f(this, null);
                 }
                 throw new IllegalStateException("host == null");
@@ -600,53 +600,53 @@ public class f {
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f74891a);
+            sb.append(this.f74926a);
             sb.append("://");
-            if (!this.f74892b.isEmpty() || !this.f74893c.isEmpty()) {
-                sb.append(this.f74892b);
-                if (!this.f74893c.isEmpty()) {
+            if (!this.f74927b.isEmpty() || !this.f74928c.isEmpty()) {
+                sb.append(this.f74927b);
+                if (!this.f74928c.isEmpty()) {
                     sb.append(':');
-                    sb.append(this.f74893c);
+                    sb.append(this.f74928c);
                 }
                 sb.append('@');
             }
-            if (this.f74894d.indexOf(58) != -1) {
+            if (this.f74929d.indexOf(58) != -1) {
                 sb.append('[');
-                sb.append(this.f74894d);
+                sb.append(this.f74929d);
                 sb.append(']');
             } else {
-                sb.append(this.f74894d);
+                sb.append(this.f74929d);
             }
             int a2 = a();
-            if (a2 != f.a(this.f74891a)) {
+            if (a2 != f.a(this.f74926a)) {
                 sb.append(':');
                 sb.append(a2);
             }
-            f.a(sb, this.f74896f);
-            if (this.f74897g != null) {
+            f.a(sb, this.f74931f);
+            if (this.f74932g != null) {
                 sb.append('?');
-                f.b(sb, this.f74897g);
+                f.b(sb, this.f74932g);
             }
-            if (this.f74898h != null) {
+            if (this.f74933h != null) {
                 sb.append('#');
-                sb.append(this.f74898h);
+                sb.append(this.f74933h);
             }
             return sb.toString();
         }
     }
 
     public f(a aVar) {
-        this.f74881b = aVar.f74891a;
-        this.f74882c = a(aVar.f74892b, false);
-        this.f74883d = a(aVar.f74893c, false);
-        this.f74884e = aVar.f74894d;
-        this.f74885f = aVar.a();
-        this.f74886g = a(aVar.f74896f, false);
-        List<String> list = aVar.f74897g;
-        this.f74887h = list != null ? a(list, true) : null;
-        String str = aVar.f74898h;
-        this.f74888i = str != null ? a(str, false) : null;
-        this.f74889j = aVar.toString();
+        this.f74916b = aVar.f74926a;
+        this.f74917c = a(aVar.f74927b, false);
+        this.f74918d = a(aVar.f74928c, false);
+        this.f74919e = aVar.f74929d;
+        this.f74920f = aVar.a();
+        this.f74921g = a(aVar.f74931f, false);
+        List<String> list = aVar.f74932g;
+        this.f74922h = list != null ? a(list, true) : null;
+        String str = aVar.f74933h;
+        this.f74923i = str != null ? a(str, false) : null;
+        this.f74924j = aVar.toString();
     }
 
     public /* synthetic */ f(a aVar, AnonymousClass1 anonymousClass1) {
@@ -740,8 +740,8 @@ public class f {
                     while (!bVar2.c()) {
                         int f2 = bVar2.f() & 255;
                         bVar.b(37);
-                        bVar.b((int) f74880a[(f2 >> 4) & 15]);
-                        bVar.b((int) f74880a[f2 & 15]);
+                        bVar.b((int) f74915a[(f2 >> 4) & 15]);
+                        bVar.b((int) f74915a[f2 & 15]);
                     }
                 } else {
                     bVar.a(codePointAt);
@@ -819,7 +819,7 @@ public class f {
             }
             sb.append(str);
             if (str2 != null) {
-                sb.append(com.alipay.sdk.encrypt.a.f36022h);
+                sb.append(com.alipay.sdk.encrypt.a.f36026h);
                 sb.append(str2);
             }
         }
@@ -827,86 +827,86 @@ public class f {
 
     public static f c(String str) {
         a aVar = new a();
-        if (aVar.a((f) null, str) == a.EnumC2040a.SUCCESS) {
+        if (aVar.a((f) null, str) == a.EnumC2042a.SUCCESS) {
             return aVar.b();
         }
         return null;
     }
 
     public boolean a() {
-        return this.f74881b.equals("https");
+        return this.f74916b.equals("https");
     }
 
     public String b() {
-        if (this.f74882c.isEmpty()) {
+        if (this.f74917c.isEmpty()) {
             return "";
         }
-        int length = this.f74881b.length() + 3;
-        String str = this.f74889j;
-        return this.f74889j.substring(length, m.a(str, length, str.length(), ":@"));
+        int length = this.f74916b.length() + 3;
+        String str = this.f74924j;
+        return this.f74924j.substring(length, m.a(str, length, str.length(), ":@"));
     }
 
     public String c() {
-        if (this.f74883d.isEmpty()) {
+        if (this.f74918d.isEmpty()) {
             return "";
         }
-        int indexOf = this.f74889j.indexOf(64);
-        return this.f74889j.substring(this.f74889j.indexOf(58, this.f74881b.length() + 3) + 1, indexOf);
+        int indexOf = this.f74924j.indexOf(64);
+        return this.f74924j.substring(this.f74924j.indexOf(58, this.f74916b.length() + 3) + 1, indexOf);
     }
 
     public List<String> d() {
-        int indexOf = this.f74889j.indexOf(47, this.f74881b.length() + 3);
-        String str = this.f74889j;
+        int indexOf = this.f74924j.indexOf(47, this.f74916b.length() + 3);
+        String str = this.f74924j;
         int a2 = m.a(str, indexOf, str.length(), "?#");
         ArrayList arrayList = new ArrayList();
         while (indexOf < a2) {
             int i2 = indexOf + 1;
-            int a3 = m.a(this.f74889j, i2, a2, '/');
-            arrayList.add(this.f74889j.substring(i2, a3));
+            int a3 = m.a(this.f74924j, i2, a2, '/');
+            arrayList.add(this.f74924j.substring(i2, a3));
             indexOf = a3;
         }
         return arrayList;
     }
 
     public String e() {
-        if (this.f74887h == null) {
+        if (this.f74922h == null) {
             return null;
         }
-        int indexOf = this.f74889j.indexOf(63) + 1;
-        String str = this.f74889j;
-        return this.f74889j.substring(indexOf, m.a(str, indexOf + 1, str.length(), '#'));
+        int indexOf = this.f74924j.indexOf(63) + 1;
+        String str = this.f74924j;
+        return this.f74924j.substring(indexOf, m.a(str, indexOf + 1, str.length(), '#'));
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof f) && ((f) obj).f74889j.equals(this.f74889j);
+        return (obj instanceof f) && ((f) obj).f74924j.equals(this.f74924j);
     }
 
     public String f() {
-        if (this.f74888i == null) {
+        if (this.f74923i == null) {
             return null;
         }
-        return this.f74889j.substring(this.f74889j.indexOf(35) + 1);
+        return this.f74924j.substring(this.f74924j.indexOf(35) + 1);
     }
 
     public a g() {
         a aVar = new a();
-        aVar.f74891a = this.f74881b;
-        aVar.f74892b = b();
-        aVar.f74893c = c();
-        aVar.f74894d = this.f74884e;
-        aVar.f74895e = this.f74885f != a(this.f74881b) ? this.f74885f : -1;
-        aVar.f74896f.clear();
-        aVar.f74896f.addAll(d());
+        aVar.f74926a = this.f74916b;
+        aVar.f74927b = b();
+        aVar.f74928c = c();
+        aVar.f74929d = this.f74919e;
+        aVar.f74930e = this.f74920f != a(this.f74916b) ? this.f74920f : -1;
+        aVar.f74931f.clear();
+        aVar.f74931f.addAll(d());
         aVar.a(e());
-        aVar.f74898h = f();
+        aVar.f74933h = f();
         return aVar;
     }
 
     public int hashCode() {
-        return this.f74889j.hashCode();
+        return this.f74924j.hashCode();
     }
 
     public String toString() {
-        return this.f74889j;
+        return this.f74924j;
     }
 }

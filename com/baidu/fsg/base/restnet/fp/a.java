@@ -19,14 +19,14 @@ public class a extends BaseBean {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39466a = "/risk/init/v2/config";
+    public static final String f39470a = "/risk/init/v2/config";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39467b = 1;
+    public static final int f39471b = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39468c;
+    public String f39472c;
     public Context mContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,7 +54,7 @@ public class a extends BaseBean {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f39468c = str;
+            this.f39472c = str;
         }
     }
 
@@ -64,8 +64,8 @@ public class a extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!TextUtils.isEmpty(this.f39468c)) {
-                setSpParameter(this.f39468c);
+            if (!TextUtils.isEmpty(this.f39472c)) {
+                setSpParameter(this.f39472c);
             }
             arrayList.add(new RestNameValuePair("confSign", BdWalletUtils.getRimAllConfigChangesign(this.mContext)));
             return arrayList;
@@ -88,7 +88,7 @@ public class a extends BaseBean {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + f39466a;
+            return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + f39470a;
         }
         return (String) invokeV.objValue;
     }

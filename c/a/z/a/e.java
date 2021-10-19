@@ -1,499 +1,72 @@
 package c.a.z.a;
 
-import android.content.Context;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
-import com.baidu.cyberplayer.sdk.CyberVersion;
-import com.baidu.cyberplayer.sdk.SDKVersion;
-import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.cyberplayer.sdk.downloader.SilentDownloaderManager;
-import com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager;
-import com.baidu.media.duplayer.LibsInfoDef;
-import com.baidu.media.duplayer.Utils;
-import com.baidu.media.duplayer.d;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import dalvik.system.BaseDexClassLoader;
-import java.io.File;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes4.dex */
 public class e {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f31283a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f31284b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f31285c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f31286d;
+    public static int f31325a = 1;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f31287e;
-
-        public a(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f31287e = eVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            File[] listFiles;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    for (File file : new File(e.f31285c).listFiles()) {
-                        if (file.isFile()) {
-                            this.f31287e.h(file);
-                        } else if (file.getName().equals(e.f31284b)) {
-                            this.f31287e.n(file);
-                        } else {
-                            Utils.e(file);
-                        }
-                    }
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-899320769, "Lc/a/z/a/e;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-899320769, "Lc/a/z/a/e;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-899320769, "Lc/a/z/a/e;")) == null) {
+            return;
         }
-        f31286d = new LinkedHashSet();
-    }
-
-    public e() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-899320769, "Lc/a/z/a/e;");
         }
     }
 
-    public static synchronized e b() {
-        InterceptResult invokeV;
-        e eVar;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (e.class) {
-                if (f31283a == null) {
-                    f31284b = Utils.s();
-                    f31283a = new e();
-                }
-                eVar = f31283a;
-            }
-            return eVar;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || 7 - f31325a > 3) {
+            return;
         }
-        return (e) invokeV.objValue;
+        String str3 = "cyber-" + str;
     }
 
-    public boolean A(int i2) {
-        InterceptResult invokeI;
+    public static void b(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (i2 & 3584) == i2 : invokeI.booleanValue;
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
-                CyberCfgManager cyberCfgManager = CyberCfgManager.getInstance();
-                cyberCfgManager.setPrefStr("build_in_" + dVar.a(), dVar.d());
-            }
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || 7 - f31325a > 6) {
+            return;
         }
+        String str3 = "cyber-" + str;
     }
 
-    public boolean C(int i2) {
-        InterceptResult invokeI;
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? (i2 & 8192) == i2 : invokeI.booleanValue;
-    }
-
-    public final void D() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && SDKVersion.VERSION.equals(CyberVersion.getSDKVersionInternal())) {
-            for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
-                if (dVar != null && i(dVar)) {
-                    r(dVar);
-                    t(dVar);
-                    return;
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - f31325a > 4) {
+            return;
         }
+        String str3 = "cyber-" + str;
     }
 
-    public boolean E(int i2) {
-        InterceptResult invokeI;
+    public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? (i2 & 3) == i2 : invokeI.booleanValue;
-    }
-
-    public boolean F(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (49152 & i2) == i2 : invokeI.booleanValue;
-    }
-
-    public com.baidu.media.duplayer.d a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? LibsInfoDef.getAllGroupMap().get(Integer.valueOf(i2)) : (com.baidu.media.duplayer.d) invokeI.objValue;
-    }
-
-    public final String c(Context context, com.baidu.media.duplayer.d dVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, dVar)) == null) {
-            String str = null;
-            if (dVar.l() == d.a.f42694a) {
-                if (dVar.d().equals(d(dVar.a())) && c.a.z.b.a.e(context.getClassLoader())) {
-                    return "apk_internal_jar";
-                }
-                return f31285c + File.separator + dVar.a() + "_" + dVar.d() + ".jar";
-            } else if (dVar.l() == d.a.f42695b) {
-                if (dVar.d().equals(d(dVar.a())) && CyberCfgManager.getInstance().getCfgBoolValue("enable_libs_reuse", true)) {
-                    str = ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a());
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    dVar.i(true);
-                    return str;
-                }
-                String str2 = f31285c + File.separator + f31284b + File.separator + dVar.a() + "_" + dVar.d() + File.separator + "lib" + dVar.a() + ".so";
-                dVar.i(false);
-                return str2;
-            } else {
-                return null;
-            }
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - f31325a > 5) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        String str3 = "cyber-" + str;
     }
 
-    public final String d(String str) {
-        InterceptResult invokeL;
+    public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            CyberCfgManager cyberCfgManager = CyberCfgManager.getInstance();
-            return cyberCfgManager.getPrefStr("build_in_" + str, "");
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) || 7 - f31325a > 6) {
+            return;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public Map<String, String> e(CyberPlayerCoreProvider.LibsVersionType libsVersionType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, libsVersionType)) == null) {
-            HashMap hashMap = new HashMap();
-            if (CyberPlayerCoreProvider.LibsVersionType.ALL_VERSION == libsVersionType) {
-                for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
-                    hashMap.put(dVar.a(), dVar.d());
-                }
-            } else if (CyberPlayerCoreProvider.LibsVersionType.SUCCESS_LOADED_VERSION == libsVersionType) {
-                for (com.baidu.media.duplayer.d dVar2 : LibsInfoDef.getAllGroupMap().values()) {
-                    if (c.e(dVar2.g())) {
-                        hashMap.put(dVar2.a(), dVar2.d());
-                    }
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public void f(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, context, str) == null) {
-            if (SDKVersion.VERSION.equals(CyberVersion.getSDKVersionInternal())) {
-                B();
-            }
-            k(context, str);
-            D();
-        }
-    }
-
-    public final void h(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, file) == null) {
-            try {
-                if (!file.isFile() || file.getName().contains(SDKVersion.VERSION)) {
-                    return;
-                }
-                file.delete();
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public final boolean i(com.baidu.media.duplayer.d dVar) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, dVar)) == null) {
-            if (dVar != null && !"cyber-player".equals(dVar.a()) && !"cyber-sdl".equals(dVar.a())) {
-                String cfgValue = CyberCfgManager.getInstance().getCfgValue(dVar.a(), "");
-                if (!TextUtils.isEmpty(cfgValue) && (split = cfgValue.split(";")) != null && split.length == 3 && CyberCfgManager.getInstance().isAllowUpdate(dVar.a(), split[1], dVar.d())) {
-                    dVar.h(dVar.d());
-                    dVar.k(dVar.j());
-                    CyberCfgManager.getInstance();
-                    dVar.b(CyberCfgManager.keepMainProcessVersion(dVar.a(), split[1]));
-                    dVar.e(c(CyberPlayerManager.getApplicationContext(), dVar));
-                    dVar.f("1".equals(split[2]));
-                    dVar.c(true);
-                    l(dVar);
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int j(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            int i3 = (i2 & 2) == 2 ? 380 : 124;
-            if ((i2 & 4) == 4) {
-                i3 |= 128;
-            }
-            if ((i2 & 8) == 8) {
-                i3 |= 3584;
-            }
-            if ((i2 & 16) == 16) {
-                i3 |= 3;
-            }
-            if ((i2 & 32) == 32) {
-                i3 |= 8192;
-            }
-            return (i2 & 64) == 64 ? i3 | 49152 : i3;
-        }
-        return invokeI.intValue;
-    }
-
-    public final void k(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, context, str) == null) {
-            f31285c = str + File.separator + "libs";
-            for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
-                String c2 = c(context, dVar);
-                dVar.e(c2);
-                if (dVar.l() == d.a.f42695b) {
-                    File parentFile = new File(c2).getParentFile();
-                    if (!parentFile.exists() || parentFile.isFile()) {
-                        parentFile.mkdirs();
-                    }
-                    f31286d.add(parentFile.getAbsolutePath());
-                }
-            }
-        }
-    }
-
-    public final void l(com.baidu.media.duplayer.d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, dVar) == null) && Utils.r(CyberPlayerManager.getApplicationContext())) {
-            String prefStr = CyberCfgManager.getInstance().getPrefStr(CyberCfgManager.SP_KEY_UPDATE_TYPE, dVar.a());
-            String prefStr2 = CyberCfgManager.getInstance().getPrefStr("update_version", dVar.d());
-            if (dVar.a().equals(prefStr) && CyberCfgManager.compareVersion(dVar.d(), prefStr2) == -1) {
-                return;
-            }
-            CyberCfgManager.getInstance().setPrefStr(CyberCfgManager.SP_KEY_UPDATE_TYPE, dVar.a());
-            CyberCfgManager.getInstance().setPrefStr("update_version", dVar.d());
-        }
-    }
-
-    public final void n(File file) {
-        File[] listFiles;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, file) == null) {
-            try {
-                for (File file2 : file.listFiles()) {
-                    Iterator<String> it = f31286d.iterator();
-                    while (true) {
-                        if (it.hasNext()) {
-                            if (it.next().contains(file2.getAbsolutePath())) {
-                                z = false;
-                                break;
-                            }
-                        } else {
-                            z = true;
-                            break;
-                        }
-                    }
-                    if (z) {
-                        Utils.e(file2);
-                    }
-                }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public String[] o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            Set<String> set = f31286d;
-            return (String[]) set.toArray(new String[set.size()]);
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? f31284b : (String) invokeV.objValue;
-    }
-
-    public String q(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            com.baidu.media.duplayer.d a2 = a(i2);
-            if (a2 == null) {
-                return null;
-            }
-            return f31284b + "_" + a2.a() + "_" + a2.d() + ".zip";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public final boolean r(com.baidu.media.duplayer.d dVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, dVar)) == null) {
-            if (dVar == null || !dVar.q() || dVar.d().equals(dVar.n())) {
-                return false;
-            }
-            if (SilentDownloaderManager.getInstance().checkLibs(dVar.a(), dVar.d())) {
-                String latestLoadedVersion = CyberCoreLoaderManager.getLatestLoadedVersion(dVar.a());
-                if (CyberCfgManager.compareVersion(latestLoadedVersion, dVar.n()) != 1) {
-                    latestLoadedVersion = dVar.n();
-                }
-                dVar.b(latestLoadedVersion);
-                dVar.e(c(CyberPlayerManager.getApplicationContext(), dVar));
-                dVar.c(false);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            long prefLong = CyberCfgManager.getInstance().getPrefLong(CyberCfgManager.LAST_CHECK_UNUSED_LIBS_TIME, 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - prefLong > 432000000) {
-                CyberCfgManager.getInstance().setPrefLong(CyberCfgManager.LAST_CHECK_UNUSED_LIBS_TIME, currentTimeMillis);
-                CyberTaskExcutor.getInstance().execute(new a(this));
-            }
-        }
-    }
-
-    public final void t(com.baidu.media.duplayer.d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048598, this, dVar) == null) && dVar != null && dVar.l() == d.a.f42695b) {
-            try {
-                File parentFile = new File(dVar.j()).getParentFile();
-                if (!parentFile.exists() || parentFile.isFile()) {
-                    parentFile.mkdirs();
-                }
-                f31286d.add(parentFile.getAbsolutePath());
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public boolean u(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) ? (i2 & 124) == i2 : invokeI.booleanValue;
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            int size = LibsInfoDef.getAllGroupMap().size();
-            for (int i2 = 0; i2 <= size; i2++) {
-                com.baidu.media.duplayer.d a2 = a(1 << i2);
-                if (a2 != null && a2.m()) {
-                    if (a2.q()) {
-                        a2.b(a2.n());
-                        a2.e(a2.o());
-                        a2.c(false);
-                        return true;
-                    }
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean w(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) ? (i2 & 128) == i2 : invokeI.booleanValue;
-    }
-
-    public boolean y(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? (i2 & 256) == i2 : invokeI.booleanValue;
+        String str3 = "cyber-" + str;
     }
 }

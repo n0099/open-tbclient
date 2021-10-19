@@ -2,6 +2,8 @@ package c.a.q0.b.f;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.tieba.debugtool.annotation.UbsTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +12,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
+@ModifyClass
 /* loaded from: classes3.dex */
-public final class a0 extends a {
+public class a0 extends a {
     public static /* synthetic */ Interceptable $ic;
-    @JvmField
 
     /* renamed from: c  reason: collision with root package name */
     public static final BdUniqueId f12712c;
@@ -40,9 +40,7 @@ public final class a0 extends a {
                 return;
             }
         }
-        BdUniqueId gen = BdUniqueId.gen();
-        Intrinsics.checkExpressionValueIsNotNull(gen, "BdUniqueId.gen()");
-        f12712c = gen;
+        f12712c = BdUniqueId.gen();
     }
 
     public a0() {
@@ -58,12 +56,11 @@ public final class a0 extends a {
                 return;
             }
         }
-        ArrayList<String> arrayList = new ArrayList<>(2);
+        ArrayList<String> arrayList = new ArrayList<>(3);
         this.f12713a = arrayList;
-        arrayList.add("12_7_video_draw");
-        this.f12713a.add("12_7_video_draw_a");
-        this.f12713a.add("12_7_video_draw_b");
-        this.f12713a.add("12_7_video_draw_c");
+        arrayList.add("12_8_tiebaplus_download");
+        this.f12713a.add("12_8_tiebaplus_download_a");
+        this.f12713a.add("12_8_tiebaplus_download_b");
     }
 
     @Override // c.a.q0.b.f.a
@@ -74,6 +71,7 @@ public final class a0 extends a {
     }
 
     @Override // c.a.q0.b.f.a
+    @UbsTest(description = "贴+下载卡片样式AB测试")
     public c.a.q0.b.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

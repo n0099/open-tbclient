@@ -12,7 +12,7 @@ public final class b implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e.a f33320a;
+    public final e.a f33324a;
 
     public b(e.a aVar) {
         Interceptable interceptable = $ic;
@@ -29,13 +29,13 @@ public final class b implements e {
                 return;
             }
         }
-        this.f33320a = aVar;
+        this.f33324a = aVar;
     }
 
     @Override // c.i.b.a.d0.w.e
     public c.i.b.a.h0.e a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f33320a.a() : (c.i.b.a.h0.e) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f33324a.a() : (c.i.b.a.h0.e) invokeI.objValue;
     }
 }

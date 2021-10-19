@@ -16,16 +16,16 @@ public final class c extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f37927a;
+    public final e f37931a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f37928b;
+    public final int f37932b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f37929c;
+    public final b f37933c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37930d;
+    public boolean f37934d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, Looper looper, int i2) {
@@ -45,9 +45,9 @@ public final class c extends Handler {
                 return;
             }
         }
-        this.f37929c = bVar;
-        this.f37928b = i2;
-        this.f37927a = new e();
+        this.f37933c = bVar;
+        this.f37932b = i2;
+        this.f37931a = new e();
     }
 
     public void a(g gVar, EventBus.Event event) {
@@ -55,9 +55,9 @@ public final class c extends Handler {
         if (interceptable == null || interceptable.invokeLL(1048576, this, gVar, event) == null) {
             d a2 = d.a(gVar, event);
             synchronized (this) {
-                this.f37927a.a(a2);
-                if (!this.f37930d) {
-                    this.f37930d = true;
+                this.f37931a.a(a2);
+                if (!this.f37934d) {
+                    this.f37934d = true;
                     if (!sendMessage(obtainMessage())) {
                         throw new EventBusException("Could not send handler message");
                     }
@@ -73,25 +73,25 @@ public final class c extends Handler {
             try {
                 long uptimeMillis = SystemClock.uptimeMillis();
                 do {
-                    d a2 = this.f37927a.a();
+                    d a2 = this.f37931a.a();
                     if (a2 == null) {
                         synchronized (this) {
-                            a2 = this.f37927a.a();
+                            a2 = this.f37931a.a();
                             if (a2 == null) {
-                                this.f37930d = false;
+                                this.f37934d = false;
                                 return;
                             }
                         }
                     }
-                    this.f37929c.a(a2);
-                } while (SystemClock.uptimeMillis() - uptimeMillis < this.f37928b);
+                    this.f37933c.a(a2);
+                } while (SystemClock.uptimeMillis() - uptimeMillis < this.f37932b);
                 if (sendMessage(obtainMessage())) {
-                    this.f37930d = true;
+                    this.f37934d = true;
                     return;
                 }
                 throw new EventBusException("Could not send handler message");
             } finally {
-                this.f37930d = false;
+                this.f37934d = false;
             }
         }
     }

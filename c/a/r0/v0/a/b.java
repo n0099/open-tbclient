@@ -1,64 +1,108 @@
 package c.a.r0.v0.a;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class b extends c.a.e.l.e.a<c.a.r0.v0.c.a, CardViewHolder<c.a.r0.v0.d.b>> {
+import java.util.ArrayList;
+import tbclient.BawuRoleInfoPub;
+/* loaded from: classes3.dex */
+public class b implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext m;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
+    /* renamed from: a  reason: collision with root package name */
+    public ArrayList<BawuRoleInfoPub> f25377a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f25378b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f25379c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f25380d;
+
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = tbPageContext;
+        this.f25377a = new ArrayList<>();
+        this.f25378b = false;
+        this.f25379c = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.l.e.a
-    /* renamed from: h0 */
-    public CardViewHolder<c.a.r0.v0.d.b> U(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // c.a.r0.v0.a.i
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new c.a.r0.v0.d.b(this.m)) : (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.l.e.a
-    /* renamed from: i0 */
-    public View a0(int i2, View view, ViewGroup viewGroup, c.a.r0.v0.c.a aVar, CardViewHolder<c.a.r0.v0.d.b> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, aVar, cardViewHolder})) == null) {
-            cardViewHolder.getCardView().k(aVar);
-            return cardViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.intValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25379c : invokeV.booleanValue;
+    }
+
+    public ArrayList<BawuRoleInfoPub> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25377a : (ArrayList) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25380d : (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f25378b : invokeV.booleanValue;
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f25379c = z;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f25378b = z;
+        }
+    }
+
+    public void h(ArrayList<BawuRoleInfoPub> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
+            this.f25377a = arrayList;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.f25380d = str;
+        }
     }
 }

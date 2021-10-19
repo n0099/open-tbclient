@@ -30,13 +30,13 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(65537, null, hVar) == null) || hVar == null) {
             return;
         }
-        if (hVar.f14677b != 0) {
-            c.a.q0.s.d0.b.j().x("app_entrance_nologin", hVar.f14677b + "");
+        if (hVar.f14695b != 0) {
+            c.a.q0.s.d0.b.j().x("app_entrance_nologin", hVar.f14695b + "");
         }
-        if (hVar.f14676a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
+        if (hVar.f14694a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
             return;
         }
-        c.a.q0.s.d0.b.j().x("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), hVar.f14676a + "");
+        c.a.q0.s.d0.b.j().x("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), hVar.f14694a + "");
     }
 
     public int a() {

@@ -16,10 +16,10 @@ import java.util.zip.ZipOutputStream;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public File f75206a;
+    public File f75241a;
 
     public b(String str) {
-        this.f75206a = new File(str);
+        this.f75241a = new File(str);
     }
 
     private void a(File file, ZipOutputStream zipOutputStream, String str) throws Exception {
@@ -62,8 +62,8 @@ public class b {
     }
 
     public boolean a(List<String> list) throws Exception {
-        if (!this.f75206a.exists()) {
-            this.f75206a.getParentFile().mkdirs();
+        if (!this.f75241a.exists()) {
+            this.f75241a.getParentFile().mkdirs();
         }
         ArrayList arrayList = new ArrayList();
         String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -74,7 +74,7 @@ public class b {
                 arrayList.add(file);
             }
         }
-        a(arrayList, this.f75206a);
+        a(arrayList, this.f75241a);
         return true;
     }
 }

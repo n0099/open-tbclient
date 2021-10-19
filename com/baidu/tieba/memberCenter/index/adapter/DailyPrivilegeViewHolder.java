@@ -1,8 +1,8 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import c.a.r0.x1.c.d;
-import c.a.r0.x1.c.k.g;
+import c.a.r0.y1.c.d;
+import c.a.r0.y1.c.k.g;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ public class DailyPrivilegeViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f54392a;
+    public d f54323a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DailyPrivilegeViewHolder(View view, BaseFragmentActivity baseFragmentActivity, View.OnClickListener onClickListener) {
@@ -35,7 +35,7 @@ public class DailyPrivilegeViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f54392a = new d(baseFragmentActivity, view, onClickListener);
+        this.f54323a = new d(baseFragmentActivity, view, onClickListener);
     }
 
     public void fillView(g gVar) {
@@ -43,7 +43,7 @@ public class DailyPrivilegeViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) || gVar == null) {
             return;
         }
-        this.f54392a.a(gVar);
-        this.f54392a.c();
+        this.f54323a.a(gVar);
+        this.f54323a.c();
     }
 }

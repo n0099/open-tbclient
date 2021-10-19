@@ -4,8 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.q0.d.a;
-import c.a.q0.d1.d0;
-import c.a.q0.d1.f0;
+import c.a.q0.d1.c0;
+import c.a.q0.d1.e0;
 import c.a.q0.s.q.d2;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
@@ -25,10 +25,10 @@ public final class TiePlusStat {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final f0<Integer> f49069a;
+    public static final e0<Integer> f48996a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final f0<Integer> f49070b;
+    public static final e0<Integer> f48997b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -40,7 +40,6 @@ public final class TiePlusStat {
         public static final CardBtnType H5;
         public static final String STAT_KEY = "a_type";
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public String desc;
         public int statValue;
 
@@ -106,8 +105,9 @@ public final class TiePlusStat {
         public static final LandingType DIALOG_DOWNLOAD;
         public static final LandingType H5;
         public static final String STAT_KEY = "l_type";
+        public static final LandingType WECHAT;
+        public static final LandingType WECHAT_MINIAPP;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public String desc;
         public int statValue;
 
@@ -125,9 +125,11 @@ public final class TiePlusStat {
                 }
             }
             H5 = new LandingType("H5", 0, 1, "H5");
-            LandingType landingType = new LandingType("DIALOG_DOWNLOAD", 1, 2, "下载弹窗");
-            DIALOG_DOWNLOAD = landingType;
-            $VALUES = new LandingType[]{H5, landingType};
+            DIALOG_DOWNLOAD = new LandingType("DIALOG_DOWNLOAD", 1, 2, "下载弹窗");
+            WECHAT = new LandingType("WECHAT", 2, 3, "微信号");
+            LandingType landingType = new LandingType("WECHAT_MINIAPP", 3, 4, "微信小程序");
+            WECHAT_MINIAPP = landingType;
+            $VALUES = new LandingType[]{H5, DIALOG_DOWNLOAD, WECHAT, landingType};
         }
 
         public LandingType(String str, @NonNull int i2, int i3, String str2) {
@@ -158,17 +160,16 @@ public final class TiePlusStat {
             LandingType landingType;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-                if (i2 != 30) {
-                    if (i2 == 31 || i2 == 33) {
-                        landingType = DIALOG_DOWNLOAD;
-                    } else if (i2 != 50) {
-                        landingType = null;
-                    }
-                    d0.a(landingType);
-                    return landingType;
+                if (i2 == 1) {
+                    landingType = H5;
+                } else if (i2 == 2) {
+                    landingType = DIALOG_DOWNLOAD;
+                } else if (i2 != 3) {
+                    landingType = i2 != 4 ? null : WECHAT_MINIAPP;
+                } else {
+                    landingType = WECHAT;
                 }
-                landingType = H5;
-                d0.a(landingType);
+                c0.b(landingType);
                 return landingType;
             }
             return (LandingType) invokeI.objValue;
@@ -199,7 +200,6 @@ public final class TiePlusStat {
         public static final String STAT_KEY = "obj_locate";
         public static final Locate VIDEO_MIDDLE_COMMENT;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public String desc;
         public int statValue;
 
@@ -269,7 +269,6 @@ public final class TiePlusStat {
         public static final RichTextType LINK;
         public static final String STAT_KEY = "c_type";
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public String desc;
         public int statValue;
 
@@ -338,9 +337,7 @@ public final class TiePlusStat {
         public static final StatType EXPOSE;
         public transient /* synthetic */ FieldHolder $fh;
         public int billingTypeValue;
-        @NonNull
         public String desc;
-        @NonNull
         public String urlKey;
 
         static {
@@ -356,8 +353,8 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f12828h, "曝光");
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f12829i, "点击");
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f12834h, "曝光");
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f12835i, "点击");
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1, "弹窗曝光");
             StatType statType = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1, "弹窗下载点击");
             DIALOG_CLICK = statType;
@@ -410,7 +407,6 @@ public final class TiePlusStat {
         public static final ThreadType VIDEO_NORMAL;
         public static final ThreadType VIDEO_WORK;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public String desc;
         public int statValue;
 
@@ -497,8 +493,8 @@ public final class TiePlusStat {
                 return;
             }
         }
-        f49069a = new f0<>(3000, TimeUnit.MILLISECONDS);
-        f49070b = new f0<>(3000, TimeUnit.MILLISECONDS);
+        f48996a = new e0<>(3000, TimeUnit.MILLISECONDS);
+        f48997b = new e0<>(3000, TimeUnit.MILLISECONDS);
     }
 
     public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
@@ -518,6 +514,7 @@ public final class TiePlusStat {
             sb.append(tiebaPlusInfo.app_power);
             sb.append(tiebaPlusInfo.app_company);
             sb.append(tiebaPlusInfo.target_type);
+            sb.append(tiebaPlusInfo.jump_type);
             sb.append(tiebaPlusInfo.h5_jump_type);
             if (obj != null) {
                 sb.append(obj.hashCode());
@@ -530,7 +527,7 @@ public final class TiePlusStat {
     public static void b(int i2, @NonNull StatType statType, @NonNull Locate locate, @NonNull ThreadType threadType, @NonNull RichTextType richTextType, int i3, @NonNull LandingType landingType, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @Nullable CardBtnType cardBtnType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), statType, locate, threadType, richTextType, Integer.valueOf(i3), landingType, str, str2, str3, str4, cardBtnType}) == null) {
-            if (statType != StatType.EXPOSE || f49069a.a(Integer.valueOf(i2))) {
+            if (statType != StatType.EXPOSE || f48996a.a(Integer.valueOf(i2))) {
                 StatisticItem addParam = new StatisticItem(statType.urlKey).addParam("obj_locate", locate.statValue).addParam("obj_type", threadType.statValue).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("t_obj", i3).addParam(LandingType.STAT_KEY, landingType.statValue).addParam("tid", str).addParam(TiebaStatic.Params.FID_1, str2).addParam(TiebaStatic.Params.FID_2, str3).addParam("order_id", str4);
                 if (cardBtnType != null) {
                     addParam.addParam(CardBtnType.STAT_KEY, cardBtnType.statValue);
@@ -543,7 +540,7 @@ public final class TiePlusStat {
     public static void c(int i2, @NonNull StatType statType, @NonNull Locate locate, @NonNull String str, @NonNull String str2, @NonNull String str3, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), statType, locate, str, str2, str3, Integer.valueOf(i3)}) == null) {
-            if (statType != StatType.EXPOSE || f49070b.a(Integer.valueOf(i2))) {
+            if (statType != StatType.EXPOSE || f48997b.a(Integer.valueOf(i2))) {
                 a.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i3);
             }
         }

@@ -23,16 +23,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f30951a;
+    public long f30998a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30952b;
+    public String f30999b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30953c;
+    public int f31000c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30954d;
+    public int f31001d;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -49,8 +49,8 @@ public class a {
                 return;
             }
         }
-        this.f30951a = 88200L;
-        this.f30952b = str;
+        this.f30998a = 88200L;
+        this.f30999b = str;
     }
 
     public final void a(byte[] bArr, int i2) {
@@ -62,7 +62,7 @@ public class a {
                 if (i3 >= 13) {
                     i3 = 4;
                     break;
-                } else if (iArr[i3] == this.f30953c) {
+                } else if (iArr[i3] == this.f31000c) {
                     break;
                 } else {
                     i3++;
@@ -87,8 +87,8 @@ public class a {
             MediaFormat mediaFormat = new MediaFormat();
             mediaFormat.setString("mime", "audio/mp4a-latm");
             mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
-            mediaFormat.setInteger("channel-count", this.f30954d);
-            mediaFormat.setInteger("sample-rate", this.f30953c);
+            mediaFormat.setInteger("channel-count", this.f31001d);
+            mediaFormat.setInteger("sample-rate", this.f31000c);
             mediaFormat.setInteger("aac-profile", 2);
             createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
             return createEncoderByType;
@@ -124,14 +124,14 @@ public class a {
         MediaCodec mediaCodec = null;
         try {
             try {
-                if (this.f30953c == 0) {
-                    this.f30953c = MediaEncodeParams.AUDIO_SAMPLE_RATE;
+                if (this.f31000c == 0) {
+                    this.f31000c = MediaEncodeParams.AUDIO_SAMPLE_RATE;
                 }
-                if (this.f30954d == 0) {
-                    this.f30954d = 1;
+                if (this.f31001d == 0) {
+                    this.f31001d = 1;
                 }
-                this.f30951a = (this.f30953c * 16) / 8;
-                fileInputStream = new FileInputStream(this.f30952b);
+                this.f30998a = (this.f31000c * 16) / 8;
+                fileInputStream = new FileInputStream(this.f30999b);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return;
@@ -200,7 +200,7 @@ public class a {
                                 byteBufferArr = inputBuffers;
                                 mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, i2, j7, 0);
                                 i4 = i5;
-                                j7 = (long) (((i5 / 2.0d) * 1000000.0d) / this.f30951a);
+                                j7 = (long) (((i5 / 2.0d) * 1000000.0d) / this.f30998a);
                                 z2 = z;
                                 i3 = i2;
                                 j3 = 10000;
@@ -334,14 +334,14 @@ public class a {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f30954d = i2;
+            this.f31001d = i2;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f30953c = i2;
+            this.f31000c = i2;
         }
     }
 }

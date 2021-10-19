@@ -35,35 +35,35 @@ public class WalletMobileResultActivity extends BeanActivity implements View.OnC
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f61266a;
+    public static final String f61301a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ResultPageStateListener f61267b;
+    public static ResultPageStateListener f61302b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f61268c;
+    public TextView f61303c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f61269d;
+    public TextView f61304d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f61270e;
+    public Button f61305e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f61271f;
+    public ImageView f61306f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NetImageView f61272g;
+    public NetImageView f61307g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CharSequence f61273h;
+    public CharSequence f61308h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CharSequence f61274i;
+    public CharSequence f61309i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f61275j;
+    public boolean f61310j;
     public String k;
     public boolean l;
     public WalletChargeResultBannerResponse m;
@@ -82,7 +82,7 @@ public class WalletMobileResultActivity extends BeanActivity implements View.OnC
                 return;
             }
         }
-        f61266a = WalletMobileResultActivity.class.getSimpleName();
+        f61301a = WalletMobileResultActivity.class.getSimpleName();
     }
 
     public WalletMobileResultActivity() {
@@ -103,29 +103,29 @@ public class WalletMobileResultActivity extends BeanActivity implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, bundle) == null) {
             if (bundle != null) {
-                this.f61273h = bundle.getCharSequence("business_result_text");
-                this.f61274i = bundle.getCharSequence("business_result_desc");
+                this.f61308h = bundle.getCharSequence("business_result_text");
+                this.f61309i = bundle.getCharSequence("business_result_desc");
                 this.k = bundle.getString("business_result_order");
-                this.f61275j = bundle.getBoolean("business_result_ischarge", false);
+                this.f61310j = bundle.getBoolean("business_result_ischarge", false);
                 this.l = bundle.getBoolean("business_result_paying", false);
             } else {
                 Intent intent = getIntent();
                 if (intent != null) {
-                    this.f61273h = intent.getCharSequenceExtra("business_result_text");
-                    this.f61274i = intent.getCharSequenceExtra("business_result_desc");
+                    this.f61308h = intent.getCharSequenceExtra("business_result_text");
+                    this.f61309i = intent.getCharSequenceExtra("business_result_desc");
                     this.k = intent.getStringExtra("business_result_order");
-                    this.f61275j = intent.getBooleanExtra("business_result_ischarge", false);
+                    this.f61310j = intent.getBooleanExtra("business_result_ischarge", false);
                     this.l = intent.getBooleanExtra("business_result_paying", false);
                 }
             }
-            if (TextUtils.isEmpty(this.f61273h)) {
-                this.f61273h = ResUtils.getString(getActivity(), this.l ? "wallet_phone_charge_result_paying" : "wallet_phone_charge_result_desc");
+            if (TextUtils.isEmpty(this.f61308h)) {
+                this.f61308h = ResUtils.getString(getActivity(), this.l ? "wallet_phone_charge_result_paying" : "wallet_phone_charge_result_desc");
             }
-            if (TextUtils.isEmpty(this.f61274i)) {
-                if (this.f61275j) {
-                    this.f61274i = ResUtils.getString(getActivity(), "wallet_phone_charge_payresult_paydesc");
+            if (TextUtils.isEmpty(this.f61309i)) {
+                if (this.f61310j) {
+                    this.f61309i = ResUtils.getString(getActivity(), "wallet_phone_charge_payresult_paydesc");
                 } else {
-                    this.f61274i = ResUtils.getString(getActivity(), "wallet_phone_traffic_payresult_paydesc");
+                    this.f61309i = ResUtils.getString(getActivity(), "wallet_phone_traffic_payresult_paydesc");
                 }
             }
         }
@@ -134,7 +134,7 @@ public class WalletMobileResultActivity extends BeanActivity implements View.OnC
     public static void gotoBusniessResultPage(Context context, boolean z, String str, CharSequence charSequence, boolean z2, ResultPageStateListener resultPageStateListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Boolean.valueOf(z), str, charSequence, Boolean.valueOf(z2), resultPageStateListener}) == null) {
-            f61267b = resultPageStateListener;
+            f61302b = resultPageStateListener;
             Intent intent = new Intent(context, WalletMobileResultActivity.class);
             intent.putExtra("business_result_order", str);
             intent.putExtra("business_result_ischarge", z);
@@ -156,7 +156,7 @@ public class WalletMobileResultActivity extends BeanActivity implements View.OnC
     public static void setBusnessResultListener(ResultPageStateListener resultPageStateListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, resultPageStateListener) == null) {
-            f61267b = resultPageStateListener;
+            f61302b = resultPageStateListener;
         }
     }
 
@@ -175,11 +175,11 @@ public class WalletMobileResultActivity extends BeanActivity implements View.OnC
             this.m = walletChargeResultBannerResponse;
             WalletChargeResultBannerResponse.AdBanner adBanner = walletChargeResultBannerResponse.banner;
             if (adBanner != null && !TextUtils.isEmpty(adBanner.imgUrl)) {
-                this.f61272g.setVisibility(0);
-                this.f61272g.setImageUrl(this.m.banner.imgUrl);
+                this.f61307g.setVisibility(0);
+                this.f61307g.setImageUrl(this.m.banner.imgUrl);
                 return;
             }
-            this.f61272g.setVisibility(8);
+            this.f61307g.setVisibility(8);
         }
     }
 
@@ -196,14 +196,14 @@ public class WalletMobileResultActivity extends BeanActivity implements View.OnC
         WalletChargeResultBannerResponse.AdBanner adBanner;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            if (view == this.f61270e) {
-                ResultPageStateListener resultPageStateListener = f61267b;
+            if (view == this.f61305e) {
+                ResultPageStateListener resultPageStateListener = f61302b;
                 if (resultPageStateListener != null) {
                     resultPageStateListener.onConfirm();
                 }
                 finish();
             }
-            if (view != this.f61272g || (walletChargeResultBannerResponse = this.m) == null || (adBanner = walletChargeResultBannerResponse.banner) == null || TextUtils.isEmpty(adBanner.linkUrl)) {
+            if (view != this.f61307g || (walletChargeResultBannerResponse = this.m) == null || (adBanner = walletChargeResultBannerResponse.banner) == null || TextUtils.isEmpty(adBanner.linkUrl)) {
                 return;
             }
             BaiduWalletDelegate.getInstance().openH5Module(getActivity(), this.m.banner.linkUrl, true);
@@ -221,17 +221,17 @@ public class WalletMobileResultActivity extends BeanActivity implements View.OnC
             BdActionBar bdActionBar = (BdActionBar) findViewById(ResUtils.id(getActivity(), "bdactionbar"));
             this.n = bdActionBar;
             bdActionBar.hideLeftZone();
-            this.f61268c = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_text"));
-            this.f61269d = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_desc"));
+            this.f61303c = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_text"));
+            this.f61304d = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_desc"));
             Button button = (Button) findViewById(ResUtils.id(getActivity(), "wallet_business_result_confirm"));
-            this.f61270e = button;
+            this.f61305e = button;
             button.setOnClickListener(this);
-            this.f61271f = (ImageView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_image"));
+            this.f61306f = (ImageView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_image"));
             NetImageView netImageView = (NetImageView) findViewById(ResUtils.id(getActivity(), "wallet_business_result_ad_banner"));
-            this.f61272g = netImageView;
+            this.f61307g = netImageView;
             netImageView.setOnClickListener(this);
-            this.f61268c.setText(this.f61273h);
-            this.f61269d.setText(this.f61274i);
+            this.f61303c.setText(this.f61308h);
+            this.f61304d.setText(this.f61309i);
             a();
         }
     }
@@ -240,8 +240,8 @@ public class WalletMobileResultActivity extends BeanActivity implements View.OnC
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            BeanManager.getInstance().removeAllBeans(f61266a);
-            f61267b = null;
+            BeanManager.getInstance().removeAllBeans(f61301a);
+            f61302b = null;
             super.onDestroy();
         }
     }
@@ -250,10 +250,10 @@ public class WalletMobileResultActivity extends BeanActivity implements View.OnC
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            bundle.putCharSequence("business_result_text", this.f61273h);
-            bundle.putCharSequence("business_result_desc", this.f61274i);
+            bundle.putCharSequence("business_result_text", this.f61308h);
+            bundle.putCharSequence("business_result_desc", this.f61309i);
             bundle.putString("business_result_order", this.k);
-            bundle.putBoolean("business_result_ischarge", this.f61275j);
+            bundle.putBoolean("business_result_ischarge", this.f61310j);
             bundle.putBoolean("business_result_paying", this.l);
             super.onSaveInstanceState(bundle);
         }
@@ -262,8 +262,8 @@ public class WalletMobileResultActivity extends BeanActivity implements View.OnC
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            b bVar = (b) FastPayBeanFactory.getInstance().getBean((Context) getActivity(), FastPayBeanFactory.BEAN_ID_CHARGE_RESULT_BANNER, f61266a);
-            bVar.a(this.f61275j);
+            b bVar = (b) FastPayBeanFactory.getInstance().getBean((Context) getActivity(), FastPayBeanFactory.BEAN_ID_CHARGE_RESULT_BANNER, f61301a);
+            bVar.a(this.f61310j);
             bVar.a(this.k);
             bVar.setResponseCallback(this);
             bVar.execBean();

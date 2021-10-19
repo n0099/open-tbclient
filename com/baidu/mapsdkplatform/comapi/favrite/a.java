@@ -28,43 +28,43 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f42208b;
+    public static a f42212b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comjni.map.favorite.a f42209a;
+    public com.baidu.mapsdkplatform.comjni.map.favorite.a f42213a;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42210c;
+    public boolean f42214c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f42211d;
+    public boolean f42215d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Vector<String> f42212e;
+    public Vector<String> f42216e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Vector<String> f42213f;
+    public Vector<String> f42217f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f42214g;
+    public boolean f42218g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f42215h;
+    public c f42219h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f42216i;
+    public b f42220i;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1672a implements Comparator<String> {
+    public class C1674a implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f42217a;
+        public final /* synthetic */ a f42221a;
 
-        public C1672a(a aVar) {
+        public C1674a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public class a {
                     return;
                 }
             }
-            this.f42217a = aVar;
+            this.f42221a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -98,13 +98,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f42218a;
+        public final /* synthetic */ a f42222a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f42219b;
+        public long f42223b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f42220c;
+        public long f42224c;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public class a {
                     return;
                 }
             }
-            this.f42218a = aVar;
+            this.f42222a = aVar;
         }
 
         public /* synthetic */ b(a aVar, com.baidu.mapsdkplatform.comapi.favrite.b bVar) {
@@ -132,7 +132,7 @@ public class a {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-                this.f42219b = System.currentTimeMillis();
+                this.f42223b = System.currentTimeMillis();
             }
         }
 
@@ -140,7 +140,7 @@ public class a {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-                this.f42220c = System.currentTimeMillis();
+                this.f42224c = System.currentTimeMillis();
             }
         }
 
@@ -148,7 +148,7 @@ public class a {
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? this.f42220c - this.f42219b > 1000 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? this.f42224c - this.f42223b > 1000 : invokeV.booleanValue;
         }
     }
 
@@ -158,16 +158,16 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f42221a;
+        public final /* synthetic */ a f42225a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42222b;
+        public String f42226b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f42223c;
+        public long f42227c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f42224d;
+        public long f42228d;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -184,9 +184,9 @@ public class a {
                     return;
                 }
             }
-            this.f42221a = aVar;
-            this.f42223c = 5000L;
-            this.f42224d = 0L;
+            this.f42225a = aVar;
+            this.f42227c = 5000L;
+            this.f42228d = 0L;
         }
 
         public /* synthetic */ c(a aVar, com.baidu.mapsdkplatform.comapi.favrite.b bVar) {
@@ -197,15 +197,15 @@ public class a {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f42222b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f42226b : (String) invokeV.objValue;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
-                this.f42222b = str;
-                this.f42224d = System.currentTimeMillis();
+                this.f42226b = str;
+                this.f42228d = System.currentTimeMillis();
             }
         }
 
@@ -213,7 +213,7 @@ public class a {
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? TextUtils.isEmpty(this.f42222b) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? TextUtils.isEmpty(this.f42226b) : invokeV.booleanValue;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -255,30 +255,30 @@ public class a {
                 return;
             }
         }
-        this.f42209a = null;
-        this.f42210c = false;
-        this.f42211d = false;
-        this.f42212e = null;
-        this.f42213f = null;
-        this.f42214g = false;
-        this.f42215h = new c(this, null);
-        this.f42216i = new b(this, null);
+        this.f42213a = null;
+        this.f42214c = false;
+        this.f42215d = false;
+        this.f42216e = null;
+        this.f42217f = null;
+        this.f42218g = false;
+        this.f42219h = new c(this, null);
+        this.f42220i = new b(this, null);
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f42208b == null) {
+            if (f42212b == null) {
                 synchronized (a.class) {
-                    if (f42208b == null) {
+                    if (f42212b == null) {
                         a aVar = new a();
-                        f42208b = aVar;
+                        f42212b = aVar;
                         aVar.h();
                     }
                 }
             }
-            return f42208b;
+            return f42212b;
         }
         return (a) invokeV.objValue;
     }
@@ -288,8 +288,8 @@ public class a {
         com.baidu.mapsdkplatform.comjni.map.favorite.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            a aVar2 = f42208b;
-            return (aVar2 == null || (aVar = aVar2.f42209a) == null || !aVar.d()) ? false : true;
+            a aVar2 = f42212b;
+            return (aVar2 == null || (aVar = aVar2.f42213a) == null || !aVar.d()) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -298,11 +298,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            if (this.f42209a == null) {
+            if (this.f42213a == null) {
                 com.baidu.mapsdkplatform.comjni.map.favorite.a aVar = new com.baidu.mapsdkplatform.comjni.map.favorite.a();
-                this.f42209a = aVar;
+                this.f42213a = aVar;
                 if (aVar.a() == 0) {
-                    this.f42209a = null;
+                    this.f42213a = null;
                     return false;
                 }
                 j();
@@ -317,12 +317,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            if (this.f42209a == null) {
+            if (this.f42213a == null) {
                 return false;
             }
             String str = SysOSUtil.getModuleFileName() + "/";
-            this.f42209a.a(1);
-            return this.f42209a.a(str, "fav_poi", "fifo", 10, 501, -1);
+            this.f42213a.a(1);
+            return this.f42213a.a(str, "fav_poi", "fifo", 10, 501, -1);
         }
         return invokeV.booleanValue;
     }
@@ -330,8 +330,8 @@ public class a {
     private void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            this.f42210c = false;
-            this.f42211d = false;
+            this.f42214c = false;
+            this.f42215d = false;
         }
     }
 
@@ -340,7 +340,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, favSyncPoi)) == null) {
             synchronized (this) {
-                if (this.f42209a == null) {
+                if (this.f42213a == null) {
                     return 0;
                 }
                 if (str != null && !str.equals("") && favSyncPoi != null) {
@@ -353,33 +353,33 @@ public class a {
                         Iterator<String> it = e2.iterator();
                         while (it.hasNext()) {
                             FavSyncPoi b2 = b(it.next());
-                            if (b2 != null && str.equals(b2.f42199b)) {
+                            if (b2 != null && str.equals(b2.f42203b)) {
                                 return -1;
                             }
                         }
                     }
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        favSyncPoi.f42199b = str;
+                        favSyncPoi.f42203b = str;
                         String valueOf = String.valueOf(System.currentTimeMillis());
                         String str2 = valueOf + "_" + favSyncPoi.hashCode();
-                        favSyncPoi.f42205h = valueOf;
-                        favSyncPoi.f42198a = str2;
-                        jSONObject.put("bdetail", favSyncPoi.f42206i);
-                        jSONObject.put("uspoiname", favSyncPoi.f42199b);
+                        favSyncPoi.f42209h = valueOf;
+                        favSyncPoi.f42202a = str2;
+                        jSONObject.put("bdetail", favSyncPoi.f42210i);
+                        jSONObject.put("uspoiname", favSyncPoi.f42203b);
                         JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("x", favSyncPoi.f42200c.getmPtx());
-                        jSONObject2.put("y", favSyncPoi.f42200c.getmPty());
+                        jSONObject2.put("x", favSyncPoi.f42204c.getmPtx());
+                        jSONObject2.put("y", favSyncPoi.f42204c.getmPty());
                         jSONObject.put("pt", jSONObject2);
-                        jSONObject.put("ncityid", favSyncPoi.f42202e);
-                        jSONObject.put("npoitype", favSyncPoi.f42204g);
-                        jSONObject.put("uspoiuid", favSyncPoi.f42203f);
-                        jSONObject.put(DuPaBInfoMsg.B_ADDR, favSyncPoi.f42201d);
-                        jSONObject.put("addtimesec", favSyncPoi.f42205h);
+                        jSONObject.put("ncityid", favSyncPoi.f42206e);
+                        jSONObject.put("npoitype", favSyncPoi.f42208g);
+                        jSONObject.put("uspoiuid", favSyncPoi.f42207f);
+                        jSONObject.put(DuPaBInfoMsg.B_ADDR, favSyncPoi.f42205d);
+                        jSONObject.put("addtimesec", favSyncPoi.f42209h);
                         JSONObject jSONObject3 = new JSONObject();
                         jSONObject3.put("Fav_Sync", jSONObject);
-                        jSONObject3.put("Fav_Content", favSyncPoi.f42207j);
-                        if (!this.f42209a.a(str2, jSONObject3.toString())) {
+                        jSONObject3.put("Fav_Content", favSyncPoi.f42211j);
+                        if (!this.f42213a.a(str2, jSONObject3.toString())) {
                             g();
                             return 0;
                         }
@@ -402,13 +402,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             synchronized (this) {
-                if (this.f42209a == null) {
+                if (this.f42213a == null) {
                     return false;
                 }
                 if (str != null && !str.equals("")) {
                     if (c(str)) {
                         j();
-                        return this.f42209a.a(str);
+                        return this.f42213a.a(str);
                     }
                     return false;
                 }
@@ -422,26 +422,26 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.f42209a != null && str != null && !str.equals("")) {
+            if (this.f42213a != null && str != null && !str.equals("")) {
                 try {
                     if (c(str)) {
                         FavSyncPoi favSyncPoi = new FavSyncPoi();
-                        String b2 = this.f42209a.b(str);
+                        String b2 = this.f42213a.b(str);
                         if (b2 != null && !b2.equals("")) {
                             JSONObject jSONObject = new JSONObject(b2);
                             JSONObject optJSONObject = jSONObject.optJSONObject("Fav_Sync");
                             String optString = jSONObject.optString("Fav_Content");
-                            favSyncPoi.f42199b = optJSONObject.optString("uspoiname");
+                            favSyncPoi.f42203b = optJSONObject.optString("uspoiname");
                             JSONObject optJSONObject2 = optJSONObject.optJSONObject("pt");
-                            favSyncPoi.f42200c = new Point(optJSONObject2.optInt("x"), optJSONObject2.optInt("y"));
-                            favSyncPoi.f42202e = optJSONObject.optString("ncityid");
-                            favSyncPoi.f42203f = optJSONObject.optString("uspoiuid");
-                            favSyncPoi.f42204g = optJSONObject.optInt("npoitype");
-                            favSyncPoi.f42201d = optJSONObject.optString(DuPaBInfoMsg.B_ADDR);
-                            favSyncPoi.f42205h = optJSONObject.optString("addtimesec");
-                            favSyncPoi.f42206i = optJSONObject.optBoolean("bdetail");
-                            favSyncPoi.f42207j = optString;
-                            favSyncPoi.f42198a = str;
+                            favSyncPoi.f42204c = new Point(optJSONObject2.optInt("x"), optJSONObject2.optInt("y"));
+                            favSyncPoi.f42206e = optJSONObject.optString("ncityid");
+                            favSyncPoi.f42207f = optJSONObject.optString("uspoiuid");
+                            favSyncPoi.f42208g = optJSONObject.optInt("npoitype");
+                            favSyncPoi.f42205d = optJSONObject.optString(DuPaBInfoMsg.B_ADDR);
+                            favSyncPoi.f42209h = optJSONObject.optString("addtimesec");
+                            favSyncPoi.f42210i = optJSONObject.optBoolean("bdetail");
+                            favSyncPoi.f42211j = optString;
+                            favSyncPoi.f42202a = str;
                             return favSyncPoi;
                         }
                         return null;
@@ -462,15 +462,15 @@ public class a {
     public void b() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = f42208b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = f42212b) == null) {
             return;
         }
-        com.baidu.mapsdkplatform.comjni.map.favorite.a aVar2 = aVar.f42209a;
+        com.baidu.mapsdkplatform.comjni.map.favorite.a aVar2 = aVar.f42213a;
         if (aVar2 != null) {
             aVar2.b();
-            f42208b.f42209a = null;
+            f42212b.f42213a = null;
         }
-        f42208b = null;
+        f42212b = null;
     }
 
     public synchronized boolean b(String str, FavSyncPoi favSyncPoi) {
@@ -479,29 +479,29 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, favSyncPoi)) == null) {
             synchronized (this) {
                 boolean z = false;
-                if (this.f42209a != null && str != null && !str.equals("") && favSyncPoi != null) {
+                if (this.f42213a != null && str != null && !str.equals("") && favSyncPoi != null) {
                     if (c(str)) {
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("uspoiname", favSyncPoi.f42199b);
+                            jSONObject.put("uspoiname", favSyncPoi.f42203b);
                             JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("x", favSyncPoi.f42200c.getmPtx());
-                            jSONObject2.put("y", favSyncPoi.f42200c.getmPty());
+                            jSONObject2.put("x", favSyncPoi.f42204c.getmPtx());
+                            jSONObject2.put("y", favSyncPoi.f42204c.getmPty());
                             jSONObject.put("pt", jSONObject2);
-                            jSONObject.put("ncityid", favSyncPoi.f42202e);
-                            jSONObject.put("npoitype", favSyncPoi.f42204g);
-                            jSONObject.put("uspoiuid", favSyncPoi.f42203f);
-                            jSONObject.put(DuPaBInfoMsg.B_ADDR, favSyncPoi.f42201d);
+                            jSONObject.put("ncityid", favSyncPoi.f42206e);
+                            jSONObject.put("npoitype", favSyncPoi.f42208g);
+                            jSONObject.put("uspoiuid", favSyncPoi.f42207f);
+                            jSONObject.put(DuPaBInfoMsg.B_ADDR, favSyncPoi.f42205d);
                             String valueOf = String.valueOf(System.currentTimeMillis());
-                            favSyncPoi.f42205h = valueOf;
+                            favSyncPoi.f42209h = valueOf;
                             jSONObject.put("addtimesec", valueOf);
                             jSONObject.put("bdetail", false);
                             JSONObject jSONObject3 = new JSONObject();
                             jSONObject3.put("Fav_Sync", jSONObject);
-                            jSONObject3.put("Fav_Content", favSyncPoi.f42207j);
+                            jSONObject3.put("Fav_Content", favSyncPoi.f42211j);
                             j();
-                            if (this.f42209a != null) {
-                                if (this.f42209a.b(str, jSONObject3.toString())) {
+                            if (this.f42213a != null) {
+                                if (this.f42213a.b(str, jSONObject3.toString())) {
                                     z = true;
                                 }
                             }
@@ -523,11 +523,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                if (this.f42209a == null) {
+                if (this.f42213a == null) {
                     return false;
                 }
                 j();
-                boolean c2 = this.f42209a.c();
+                boolean c2 = this.f42213a.c();
                 g();
                 return c2;
             }
@@ -538,7 +538,7 @@ public class a {
     public boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? (this.f42209a == null || str == null || str.equals("") || !this.f42209a.c(str)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? (this.f42213a == null || str == null || str.equals("") || !this.f42213a.c(str)) ? false : true : invokeL.booleanValue;
     }
 
     public ArrayList<String> d() {
@@ -546,46 +546,46 @@ public class a {
         String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f42209a == null) {
+            if (this.f42213a == null) {
                 return null;
             }
-            if (!this.f42211d || this.f42213f == null) {
+            if (!this.f42215d || this.f42217f == null) {
                 try {
                     Bundle bundle = new Bundle();
-                    this.f42209a.a(bundle);
+                    this.f42213a.a(bundle);
                     String[] stringArray = bundle.getStringArray("rstString");
                     if (stringArray != null) {
-                        if (this.f42213f == null) {
-                            this.f42213f = new Vector<>();
+                        if (this.f42217f == null) {
+                            this.f42217f = new Vector<>();
                         } else {
-                            this.f42213f.clear();
+                            this.f42217f.clear();
                         }
                         for (int i2 = 0; i2 < stringArray.length; i2++) {
-                            if (!stringArray[i2].equals("data_version") && (b2 = this.f42209a.b(stringArray[i2])) != null && !b2.equals("")) {
-                                this.f42213f.add(stringArray[i2]);
+                            if (!stringArray[i2].equals("data_version") && (b2 = this.f42213a.b(stringArray[i2])) != null && !b2.equals("")) {
+                                this.f42217f.add(stringArray[i2]);
                             }
                         }
-                        if (this.f42213f.size() > 0) {
+                        if (this.f42217f.size() > 0) {
                             try {
-                                Collections.sort(this.f42213f, new C1672a(this));
+                                Collections.sort(this.f42217f, new C1674a(this));
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
-                            this.f42211d = true;
+                            this.f42215d = true;
                         }
-                    } else if (this.f42213f != null) {
-                        this.f42213f.clear();
-                        this.f42213f = null;
+                    } else if (this.f42217f != null) {
+                        this.f42217f.clear();
+                        this.f42217f = null;
                     }
-                    if (this.f42213f != null && !this.f42213f.isEmpty()) {
-                        return new ArrayList<>(this.f42213f);
+                    if (this.f42217f != null && !this.f42217f.isEmpty()) {
+                        return new ArrayList<>(this.f42217f);
                     }
                     return null;
                 } catch (Exception unused) {
                     return null;
                 }
             }
-            return new ArrayList<>(this.f42213f);
+            return new ArrayList<>(this.f42217f);
         }
         return (ArrayList) invokeV.objValue;
     }
@@ -594,47 +594,47 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f42209a == null) {
+            if (this.f42213a == null) {
                 return null;
             }
-            if (!this.f42210c || this.f42212e == null) {
+            if (!this.f42214c || this.f42216e == null) {
                 try {
                     Bundle bundle = new Bundle();
-                    this.f42209a.a(bundle);
+                    this.f42213a.a(bundle);
                     String[] stringArray = bundle.getStringArray("rstString");
                     if (stringArray != null) {
-                        if (this.f42212e == null) {
-                            this.f42212e = new Vector<>();
+                        if (this.f42216e == null) {
+                            this.f42216e = new Vector<>();
                         } else {
-                            this.f42212e.clear();
+                            this.f42216e.clear();
                         }
                         for (String str : stringArray) {
                             if (!str.equals("data_version")) {
-                                this.f42212e.add(str);
+                                this.f42216e.add(str);
                             }
                         }
-                        if (this.f42212e.size() > 0) {
+                        if (this.f42216e.size() > 0) {
                             try {
-                                Collections.sort(this.f42212e, new C1672a(this));
+                                Collections.sort(this.f42216e, new C1674a(this));
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
-                            this.f42210c = true;
+                            this.f42214c = true;
                         }
-                    } else if (this.f42212e != null) {
-                        this.f42212e.clear();
-                        this.f42212e = null;
+                    } else if (this.f42216e != null) {
+                        this.f42216e.clear();
+                        this.f42216e = null;
                     }
-                    Vector<String> vector = this.f42212e;
+                    Vector<String> vector = this.f42216e;
                     if (vector == null || vector.size() == 0) {
                         return null;
                     }
-                    return new ArrayList<>(this.f42212e);
+                    return new ArrayList<>(this.f42216e);
                 } catch (Exception unused) {
                     return null;
                 }
             }
-            return new ArrayList<>(this.f42212e);
+            return new ArrayList<>(this.f42216e);
         }
         return (ArrayList) invokeV.objValue;
     }
@@ -644,9 +644,9 @@ public class a {
         String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (!this.f42216i.c() || this.f42215h.c() || this.f42215h.b()) {
-                this.f42216i.a();
-                if (this.f42209a == null) {
+            if (!this.f42220i.c() || this.f42219h.c() || this.f42219h.b()) {
+                this.f42220i.a();
+                if (this.f42213a == null) {
                     return null;
                 }
                 ArrayList<String> d2 = d();
@@ -658,7 +658,7 @@ public class a {
                         Iterator<String> it = d2.iterator();
                         while (it.hasNext()) {
                             String next = it.next();
-                            if (next != null && !next.equals("data_version") && (b2 = this.f42209a.b(next)) != null && !b2.equals("")) {
+                            if (next != null && !next.equals("data_version") && (b2 = this.f42213a.b(next)) != null && !b2.equals("")) {
                                 JSONObject optJSONObject = new JSONObject(b2).optJSONObject("Fav_Sync");
                                 optJSONObject.put("key", next);
                                 jSONArray.put(i2, optJSONObject);
@@ -673,11 +673,11 @@ public class a {
                         return null;
                     }
                 }
-                this.f42216i.b();
-                this.f42215h.a(jSONObject.toString());
-                return this.f42215h.a();
+                this.f42220i.b();
+                this.f42219h.a(jSONObject.toString());
+                return this.f42219h.a();
             }
-            return this.f42215h.a();
+            return this.f42219h.a();
         }
         return (String) invokeV.objValue;
     }

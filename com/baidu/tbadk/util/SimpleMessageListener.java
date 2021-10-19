@@ -22,10 +22,10 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f48615e;
+    public CustomMessageListener f48544e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f48616f;
+    public boolean f48545f;
 
     /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
@@ -33,7 +33,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f48617a;
+        public final /* synthetic */ b f48546a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SimpleMessageListener simpleMessageListener, int i2, b bVar) {
@@ -53,7 +53,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
                     return;
                 }
             }
-            this.f48617a = bVar;
+            this.f48546a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +63,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f48617a.call(customResponsedMessage.getData());
+            this.f48546a.call(customResponsedMessage.getData());
         }
     }
 
@@ -87,8 +87,8 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
                 return;
             }
         }
-        this.f48616f = z;
-        this.f48615e = new a(this, i2, bVar);
+        this.f48545f = z;
+        this.f48544e = new a(this, i2, bVar);
     }
 
     public static <T> void sendMessage(int i2, @Nullable T t) {
@@ -101,42 +101,42 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
     public void bindPage(@NonNull TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.f48615e.setSelfListener(true);
-            this.f48615e.setTag(tbPageContext.getUniqueId());
+            this.f48544e.setSelfListener(true);
+            this.f48544e.setTag(tbPageContext.getUniqueId());
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public void onCreate() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f48616f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f48545f) {
             return;
         }
-        MessageManager.getInstance().registerListener(this.f48615e);
+        MessageManager.getInstance().registerListener(this.f48544e);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f48616f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f48545f) {
             return;
         }
-        MessageManager.getInstance().unRegisterListener(this.f48615e);
+        MessageManager.getInstance().unRegisterListener(this.f48544e);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void onPause() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f48616f) {
-            MessageManager.getInstance().unRegisterListener(this.f48615e);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f48545f) {
+            MessageManager.getInstance().unRegisterListener(this.f48544e);
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f48616f) {
-            MessageManager.getInstance().registerListener(this.f48615e);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f48545f) {
+            MessageManager.getInstance().registerListener(this.f48544e);
         }
     }
 

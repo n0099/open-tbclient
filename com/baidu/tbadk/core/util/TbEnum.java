@@ -147,7 +147,7 @@ public abstract class TbEnum {
         public static final int GROUP = 1;
         public static final int GROUP_UPDATE = -3;
         public static final int GROUP_VALIDATION = -4;
-        public static final int NOTIFY = 5;
+        public static final int NOTIFICATION = 5;
         public static final int OFFICIAL = 4;
         public static final int OFFICIAL_GROUP = -9;
         public static final int OFFICIAL_MERGE = -8;

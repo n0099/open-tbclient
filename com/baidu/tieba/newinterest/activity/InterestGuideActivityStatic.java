@@ -1,6 +1,6 @@
 package com.baidu.tieba.newinterest.activity;
 
-import c.a.r0.f2.g.b;
+import c.a.r0.g2.g.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;

@@ -145,9 +145,9 @@ public class k {
             List<e> h2 = this.f4048b.h(context);
             j jVar = null;
             if (h2 != null) {
-                String str = com.baidu.fsg.face.base.b.c.f39841g;
+                String str = com.baidu.fsg.face.base.b.c.f39845g;
                 File filesDir = context.getFilesDir();
-                if (!com.baidu.fsg.face.base.b.c.f39841g.equals(filesDir.getName())) {
+                if (!com.baidu.fsg.face.base.b.c.f39845g.equals(filesDir.getName())) {
                     String str2 = "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath();
                     str = filesDir.getName();
                 }

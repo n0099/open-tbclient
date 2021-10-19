@@ -16,10 +16,10 @@ public class EmptyView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47740e;
+    public int f47660e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47741f;
+    public int f47661f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EmptyView(Context context) {
@@ -39,8 +39,8 @@ public class EmptyView extends View {
                 return;
             }
         }
-        this.f47740e = 0;
-        this.f47741f = 0;
+        this.f47660e = 0;
+        this.f47661f = 0;
     }
 
     @Override // android.view.View
@@ -48,10 +48,10 @@ public class EmptyView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            int i4 = this.f47741f;
+            int i4 = this.f47661f;
             if (i4 == 0) {
-                setMeasuredDimension(i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK, this.f47740e);
-            } else if (this.f47740e == 0) {
+                setMeasuredDimension(i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK, this.f47660e);
+            } else if (this.f47660e == 0) {
                 setMeasuredDimension(i4, i3 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK);
             }
         }
@@ -60,28 +60,28 @@ public class EmptyView extends View {
     public void setHeightDip(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f47740e = l.e(getContext(), i2);
+            this.f47660e = l.e(getContext(), i2);
         }
     }
 
     public void setHeightPx(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f47740e = i2;
+            this.f47660e = i2;
         }
     }
 
     public void setWidthDip(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f47741f = l.e(getContext(), i2);
+            this.f47661f = l.e(getContext(), i2);
         }
     }
 
     public void setWidthPx(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f47741f = i2;
+            this.f47661f = i2;
         }
     }
 
@@ -104,8 +104,8 @@ public class EmptyView extends View {
                 return;
             }
         }
-        this.f47740e = 0;
-        this.f47741f = 0;
+        this.f47660e = 0;
+        this.f47661f = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -127,7 +127,7 @@ public class EmptyView extends View {
                 return;
             }
         }
-        this.f47740e = 0;
-        this.f47741f = 0;
+        this.f47660e = 0;
+        this.f47661f = 0;
     }
 }

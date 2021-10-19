@@ -12,7 +12,7 @@ public final class a extends ContentObserver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f45495a;
+    public c f45407a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(c cVar) {
@@ -32,16 +32,16 @@ public final class a extends ContentObserver {
                 return;
             }
         }
-        this.f45495a = cVar;
+        this.f45407a = cVar;
     }
 
     @Override // android.database.ContentObserver
     public final void onChange(boolean z) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (cVar = this.f45495a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (cVar = this.f45407a) == null) {
             return;
         }
-        cVar.f45498b = cVar.f45497a.a();
+        cVar.f45410b = cVar.f45409a.a();
     }
 }

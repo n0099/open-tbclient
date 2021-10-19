@@ -13,7 +13,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f12942a;
+    public static String f12949a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
@@ -45,13 +45,13 @@ public class g {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f12942a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f12949a : (String) invokeV.objValue;
     }
 
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            f12942a = str;
+            f12949a = str;
         }
     }
 }

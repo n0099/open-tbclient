@@ -351,8 +351,8 @@ public class b {
                 this.f1743b = Long.valueOf(parseLong2);
                 return d2;
             }
-            this.f1744c = new RandomAccessFile("/proc/stat", r.f42342a);
-            this.f1745d = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", r.f42342a);
+            this.f1744c = new RandomAccessFile("/proc/stat", r.f42346a);
+            this.f1745d = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", r.f42346a);
             String readLine3 = this.f1744c.readLine();
             String readLine22 = this.f1745d.readLine();
             String[] split3 = readLine3.split(" ");

@@ -60,7 +60,7 @@ public class ChannelAliPay extends AbstractChannelPay {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ChannelAliPay f36831a;
+            public final /* synthetic */ ChannelAliPay f36835a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -77,7 +77,7 @@ public class ChannelAliPay extends AbstractChannelPay {
                         return;
                     }
                 }
-                this.f36831a = this;
+                this.f36835a = this;
             }
 
             @Override // android.os.Handler
@@ -108,20 +108,20 @@ public class ChannelAliPay extends AbstractChannelPay {
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
                                 str = EventAlias.PayEventAlias.PAY_FAIL;
-                                this.f36831a.payError(Result.RESULT_FAILED, EventAlias.PayEventAlias.PAY_FAIL);
+                                this.f36835a.payError(Result.RESULT_FAILED, EventAlias.PayEventAlias.PAY_FAIL);
                                 str2 = Result.RESULT_FAILED;
                             }
                         }
                         if (Result.RESULT_SUCCESS.equals(str2)) {
-                            this.f36831a.paySuccess(str);
+                            this.f36835a.paySuccess(str);
                         } else if (Result.RESULT_CANCLE.equals(str2)) {
-                            this.f36831a.payCancel();
+                            this.f36835a.payCancel();
                         } else if ("8000".equals(str2)) {
-                            this.f36831a.paying();
+                            this.f36835a.paying();
                         } else if (Result.RESULT_NETWROK_ERROR.equals(str2)) {
-                            this.f36831a.payError(Result.RESULT_NETWROK_ERROR, "网络连接出错");
+                            this.f36835a.payError(Result.RESULT_NETWROK_ERROR, "网络连接出错");
                         } else {
-                            this.f36831a.payError(Result.RESULT_FAILED, str3);
+                            this.f36835a.payError(Result.RESULT_FAILED, str3);
                         }
                         collectData.add(str2);
                         if (TextUtils.isEmpty(str)) {
@@ -145,16 +145,16 @@ public class ChannelAliPay extends AbstractChannelPay {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f36832a;
+                public final /* synthetic */ Activity f36836a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PayDataBean f36833b;
+                public final /* synthetic */ PayDataBean f36837b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f36834c;
+                public final /* synthetic */ String f36838c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ ChannelAliPay f36835d;
+                public final /* synthetic */ ChannelAliPay f36839d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -171,10 +171,10 @@ public class ChannelAliPay extends AbstractChannelPay {
                             return;
                         }
                     }
-                    this.f36835d = this;
-                    this.f36832a = activity;
-                    this.f36833b = payDataBean;
-                    this.f36834c = str;
+                    this.f36839d = this;
+                    this.f36836a = activity;
+                    this.f36837b = payDataBean;
+                    this.f36838c = str;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -182,28 +182,28 @@ public class ChannelAliPay extends AbstractChannelPay {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         StatisticManager.onEventStart(StatServiceEvent.LBS_ALIPAY);
-                        PayTask payTask = new PayTask(this.f36832a);
+                        PayTask payTask = new PayTask(this.f36836a);
                         Message message = new Message();
                         List<String> collectData = StatHelper.collectData(StatHelper.getOrderId(), new String[0]);
                         HashMap hashMap = new HashMap();
                         hashMap.put("pay_amount", StatHelper.getPayAmount());
-                        PayDataBean payDataBean2 = this.f36833b;
+                        PayDataBean payDataBean2 = this.f36837b;
                         int i2 = 1;
                         if (payDataBean2 != null && 2 == payDataBean2.alipayVersion) {
                             LogUtil.d("alipay:", "alipayV2");
-                            int i3 = this.f36833b.alipayVersion;
-                            message.obj = new JSONObject(payTask.payV2(this.f36834c, true)).toString();
+                            int i3 = this.f36837b.alipayVersion;
+                            message.obj = new JSONObject(payTask.payV2(this.f36838c, true)).toString();
                             message.what = 101;
                             i2 = i3;
                         } else {
                             LogUtil.d("alipay:", "alipayV1");
-                            message.obj = payTask.pay(this.f36834c, true);
+                            message.obj = payTask.pay(this.f36838c, true);
                             message.what = 100;
                         }
                         collectData.add(i2 + "");
                         StatHelper.cacheAlipayVersion(i2 + "");
                         StatisticManager.onEventWithValues(PayStatServiceEvent.ALIPAY_ENTER, collectData, hashMap);
-                        this.f36835d.mAliPayChannelHandler.sendMessage(message);
+                        this.f36839d.mAliPayChannelHandler.sendMessage(message);
                     }
                 }
             }.start();

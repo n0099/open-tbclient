@@ -17,10 +17,10 @@ public class x1 extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f31470e;
+    public final Context f31474e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final y1 f31471f;
+    public final y1 f31475f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x1(Context context, y1 y1Var) {
@@ -41,8 +41,8 @@ public class x1 extends s1 {
                 return;
             }
         }
-        this.f31470e = context;
-        this.f31471f = y1Var;
+        this.f31474e = context;
+        this.f31475f = y1Var;
     }
 
     @Override // c.b.a.s1
@@ -52,23 +52,23 @@ public class x1 extends s1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
             jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, 336);
             jSONObject.put(HttpConstants.SDK_VERSION_NAME, "3.8.0-rc.2-embed");
-            jSONObject.put("channel", this.f31471f.L());
-            z1.g(jSONObject, "aid", this.f31471f.K());
-            z1.g(jSONObject, "release_build", this.f31471f.b0());
-            z1.g(jSONObject, "app_region", this.f31471f.O());
-            z1.g(jSONObject, "app_language", this.f31471f.N());
-            z1.g(jSONObject, com.alipay.sdk.cons.b.f35968b, this.f31471f.a());
-            z1.g(jSONObject, "ab_sdk_version", this.f31471f.Q());
-            z1.g(jSONObject, "ab_version", this.f31471f.U());
-            z1.g(jSONObject, "aliyun_uuid", this.f31471f.q());
-            String M = this.f31471f.M();
+            jSONObject.put("channel", this.f31475f.L());
+            z1.g(jSONObject, "aid", this.f31475f.K());
+            z1.g(jSONObject, "release_build", this.f31475f.b0());
+            z1.g(jSONObject, "app_region", this.f31475f.O());
+            z1.g(jSONObject, "app_language", this.f31475f.N());
+            z1.g(jSONObject, com.alipay.sdk.cons.b.f35972b, this.f31475f.a());
+            z1.g(jSONObject, "ab_sdk_version", this.f31475f.Q());
+            z1.g(jSONObject, "ab_version", this.f31475f.U());
+            z1.g(jSONObject, "aliyun_uuid", this.f31475f.q());
+            String M = this.f31475f.M();
             if (TextUtils.isEmpty(M)) {
-                M = c0.a(this.f31470e, this.f31471f);
+                M = c0.a(this.f31474e, this.f31475f);
             }
             if (!TextUtils.isEmpty(M)) {
                 z1.g(jSONObject, "google_aid", M);
             }
-            String a0 = this.f31471f.a0();
+            String a0 = this.f31475f.a0();
             if (!TextUtils.isEmpty(a0)) {
                 try {
                     jSONObject.put("app_track", new JSONObject(a0));
@@ -76,11 +76,11 @@ public class x1 extends s1 {
                     h0.b(th);
                 }
             }
-            String P = this.f31471f.P();
+            String P = this.f31475f.P();
             if (P != null && P.length() > 0) {
                 jSONObject.put(SchedulerSupport.CUSTOM, new JSONObject(P));
             }
-            z1.g(jSONObject, "user_unique_id", this.f31471f.R());
+            z1.g(jSONObject, "user_unique_id", this.f31475f.R());
             return true;
         }
         return invokeL.booleanValue;

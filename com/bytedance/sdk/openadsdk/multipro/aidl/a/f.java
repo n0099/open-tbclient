@@ -20,10 +20,10 @@ public class f extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f68364a;
+    public static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f68399a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile f f68365b;
+    public static volatile f f68400b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class f extends a {
                 return;
             }
         }
-        f68364a = Collections.synchronizedMap(new HashMap());
+        f68399a = Collections.synchronizedMap(new HashMap());
     }
 
     public f() {
@@ -60,14 +60,14 @@ public class f extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f68365b == null) {
+            if (f68400b == null) {
                 synchronized (f.class) {
-                    if (f68365b == null) {
-                        f68365b = new f();
+                    if (f68400b == null) {
+                        f68400b = new f();
                     }
                 }
             }
-            return f68365b;
+            return f68400b;
         }
         return (f) invokeV.objValue;
     }
@@ -87,7 +87,7 @@ public class f extends a {
             synchronized (this) {
                 RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList = new RemoteCallbackList<>();
                 remoteCallbackList.register(iRewardAdInteractionListener);
-                f68364a.put(str, remoteCallbackList);
+                f68399a.put(str, remoteCallbackList);
             }
         }
     }
@@ -98,11 +98,11 @@ public class f extends a {
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i2), str3, Integer.valueOf(i3), str4}) == null) {
             synchronized (this) {
                 try {
-                    if (f68364a != null) {
+                    if (f68399a != null) {
                         if ("recycleRes".equals(str2)) {
-                            remoteCallbackList = f68364a.remove(str);
+                            remoteCallbackList = f68399a.remove(str);
                         } else {
-                            remoteCallbackList = f68364a.get(str);
+                            remoteCallbackList = f68399a.get(str);
                         }
                         RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList2 = remoteCallbackList;
                         if (remoteCallbackList2 != null) {

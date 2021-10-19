@@ -17,21 +17,21 @@ import java.util.zip.ZipFile;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f75266a;
+    public final File f75301a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f75267b;
+    public final File f75302b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f75268c;
+    public String f75303c;
 
     public e(String str, String str2) {
-        this.f75266a = new File(str);
+        this.f75301a = new File(str);
         File file = new File(str2);
-        this.f75267b = file;
-        this.f75268c = file.getAbsolutePath();
-        c.l.a.a.a.d("ZipExtractTask", "Extract mInput file = " + this.f75266a.toString());
-        c.l.a.a.a.d("ZipExtractTask", "Extract mOutput file = " + this.f75267b.toString());
+        this.f75302b = file;
+        this.f75303c = file.getAbsolutePath();
+        c.l.a.a.a.d("ZipExtractTask", "Extract mInput file = " + this.f75301a.toString());
+        c.l.a.a.a.d("ZipExtractTask", "Extract mOutput file = " + this.f75302b.toString());
     }
 
     private int a(InputStream inputStream, OutputStream outputStream) {
@@ -103,11 +103,11 @@ public class e {
     private void b() {
         StringBuilder sb;
         String str;
-        File file = this.f75266a;
+        File file = this.f75301a;
         if (file == null || !file.exists()) {
             return;
         }
-        if (this.f75266a.delete()) {
+        if (this.f75301a.delete()) {
             sb = new StringBuilder();
             str = "Delete file:";
         } else {
@@ -115,7 +115,7 @@ public class e {
             str = "Can't delete file:";
         }
         sb.append(str);
-        sb.append(this.f75266a.toString());
+        sb.append(this.f75301a.toString());
         sb.append(" after extracted.");
         c.l.a.a.a.d("ZipExtractTask", sb.toString());
     }
@@ -125,7 +125,7 @@ public class e {
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0049, code lost:
         r7 = r13.split("/")[0];
-        c.l.a.a.a.d("ZipExtractTask", "Extract temp directory=" + r18.f75267b + "/" + r7);
+        c.l.a.a.a.d("ZipExtractTask", "Extract temp directory=" + r18.f75302b + "/" + r7);
      */
     /* JADX WARN: Removed duplicated region for block: B:74:0x01e8  */
     /*
@@ -150,7 +150,7 @@ public class e {
         long j3 = 0;
         try {
             try {
-                zipFile = new ZipFile(this.f75266a);
+                zipFile = new ZipFile(this.f75301a);
             } catch (Throwable th2) {
                 th = th2;
             }
@@ -176,7 +176,7 @@ public class e {
                     if (name != null && name.contains(Constants.PATH_PARENT)) {
                         throw new Exception("unsecurity zip file");
                     }
-                    File file = new File(this.f75267b, name);
+                    File file = new File(this.f75302b, name);
                     if (!file.getParentFile().exists()) {
                         if (file.getParentFile().mkdirs()) {
                             str2 = "Make Destination directory=" + file.getParentFile().getAbsolutePath();
@@ -189,9 +189,9 @@ public class e {
                     new FileOutputStream(file).close();
                 }
             }
-            String str4 = this.f75267b + "/" + str3;
-            if (!this.f75268c.equals(str4)) {
-                a.a(str4, this.f75268c);
+            String str4 = this.f75302b + "/" + str3;
+            if (!this.f75303c.equals(str4)) {
+                a.a(str4, this.f75303c);
                 z = true;
             }
             try {
@@ -217,7 +217,7 @@ public class e {
                     str3 = str;
                     j3 = j2;
                     long currentThreadTimeMillis2 = SystemClock.currentThreadTimeMillis();
-                    c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75266a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2 - currentThreadTimeMillis));
+                    c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75301a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2 - currentThreadTimeMillis));
                     if (z) {
                     }
                     b();
@@ -227,7 +227,7 @@ public class e {
             str3 = str;
             j3 = j2;
             long currentThreadTimeMillis22 = SystemClock.currentThreadTimeMillis();
-            c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75266a + ", UseTime =" + String.valueOf(currentThreadTimeMillis22 - currentThreadTimeMillis));
+            c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75301a + ", UseTime =" + String.valueOf(currentThreadTimeMillis22 - currentThreadTimeMillis));
             if (z) {
             }
             b();
@@ -250,7 +250,7 @@ public class e {
                     str3 = str;
                     j3 = j2;
                     long currentThreadTimeMillis222 = SystemClock.currentThreadTimeMillis();
-                    c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75266a + ", UseTime =" + String.valueOf(currentThreadTimeMillis222 - currentThreadTimeMillis));
+                    c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75301a + ", UseTime =" + String.valueOf(currentThreadTimeMillis222 - currentThreadTimeMillis));
                     if (z) {
                     }
                     b();
@@ -260,7 +260,7 @@ public class e {
             str3 = str;
             j3 = j2;
             long currentThreadTimeMillis2222 = SystemClock.currentThreadTimeMillis();
-            c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75266a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2222 - currentThreadTimeMillis));
+            c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75301a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2222 - currentThreadTimeMillis));
             if (z) {
             }
             b();
@@ -283,7 +283,7 @@ public class e {
                     str3 = str;
                     j3 = j2;
                     long currentThreadTimeMillis22222 = SystemClock.currentThreadTimeMillis();
-                    c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75266a + ", UseTime =" + String.valueOf(currentThreadTimeMillis22222 - currentThreadTimeMillis));
+                    c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75301a + ", UseTime =" + String.valueOf(currentThreadTimeMillis22222 - currentThreadTimeMillis));
                     if (z) {
                     }
                     b();
@@ -293,7 +293,7 @@ public class e {
             str3 = str;
             j3 = j2;
             long currentThreadTimeMillis222222 = SystemClock.currentThreadTimeMillis();
-            c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75266a + ", UseTime =" + String.valueOf(currentThreadTimeMillis222222 - currentThreadTimeMillis));
+            c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75301a + ", UseTime =" + String.valueOf(currentThreadTimeMillis222222 - currentThreadTimeMillis));
             if (z) {
             }
             b();
@@ -311,9 +311,9 @@ public class e {
             throw th;
         }
         long currentThreadTimeMillis2222222 = SystemClock.currentThreadTimeMillis();
-        c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75266a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2222222 - currentThreadTimeMillis));
+        c.l.a.a.a.d("ZipExtractTask", "Extract file " + this.f75301a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2222222 - currentThreadTimeMillis));
         if (z) {
-            a.b(this.f75267b + "/" + str3);
+            a.b(this.f75302b + "/" + str3);
         }
         b();
         return j3;

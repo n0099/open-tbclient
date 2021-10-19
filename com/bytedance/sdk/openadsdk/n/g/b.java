@@ -17,10 +17,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final MessageDigest f68606a;
+    public static final MessageDigest f68641a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f68607b;
+    public static final char[] f68642b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,8 +36,8 @@ public class b {
                 return;
             }
         }
-        f68606a = a();
-        f68607b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f68641a = a();
+        f68642b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public b() {
@@ -72,11 +72,11 @@ public class b {
         byte[] digest;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            MessageDigest messageDigest = f68606a;
+            MessageDigest messageDigest = f68641a;
             if (messageDigest == null || TextUtils.isEmpty(str)) {
                 return "";
             }
-            byte[] bytes = str.getBytes(d.f68613a);
+            byte[] bytes = str.getBytes(d.f68648a);
             synchronized (b.class) {
                 digest = messageDigest.digest(bytes);
             }
@@ -96,7 +96,7 @@ public class b {
             int i2 = 0;
             for (byte b2 : bArr) {
                 int i3 = i2 + 1;
-                char[] cArr2 = f68607b;
+                char[] cArr2 = f68642b;
                 cArr[i2] = cArr2[(b2 & 240) >> 4];
                 i2 = i3 + 1;
                 cArr[i3] = cArr2[b2 & 15];

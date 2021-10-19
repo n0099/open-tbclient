@@ -43,14 +43,14 @@ public class h {
     public static void c(TextView textView) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, textView) == null) && textView != null && c.a.q0.b.d.m()) {
-            c.a.q0.s.u.c.d(textView).w(R.color.CAM_X0107);
+            c.a.q0.s.u.c.d(textView).v(R.color.CAM_X0107);
         }
     }
 
     public static void d(TextView textView) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, textView) == null) && textView != null && c.a.q0.b.d.m()) {
-            c.a.q0.s.u.c.d(textView).A(R.dimen.tbds36);
+            c.a.q0.s.u.c.d(textView).z(R.dimen.tbds36);
         }
     }
 
@@ -58,8 +58,8 @@ public class h {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) && textView != null && c.a.q0.b.d.m()) {
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(textView);
-            d2.A(R.dimen.tbds36);
-            d2.w(R.color.CAM_X0107);
+            d2.z(R.dimen.tbds36);
+            d2.v(R.color.CAM_X0107);
         }
     }
 

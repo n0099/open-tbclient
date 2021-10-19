@@ -33,7 +33,7 @@ public class df implements LoggerInterface {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f77797a;
+    public static String f77832a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final SimpleDateFormat f235a;
@@ -49,10 +49,10 @@ public class df implements LoggerInterface {
     public Handler f238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f77798b;
+    public String f77833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f77799c;
+    public String f77834c;
 
     static {
         InterceptResult invokeClinit;
@@ -68,7 +68,7 @@ public class df implements LoggerInterface {
             }
         }
         f235a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
-        f77797a = "/MiPushLog";
+        f77832a = "/MiPushLog";
         f236a = Collections.synchronizedList(new ArrayList());
     }
 
@@ -87,12 +87,12 @@ public class df implements LoggerInterface {
                 return;
             }
         }
-        this.f77799c = "";
+        this.f77834c = "";
         this.f237a = context;
         if (context.getApplicationContext() != null) {
             this.f237a = context.getApplicationContext();
         }
-        this.f77798b = this.f237a.getPackageName();
+        this.f77833b = this.f237a.getPackageName();
         HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
         handlerThread.start();
         this.f238a = new Handler(handlerThread.getLooper());
@@ -111,10 +111,10 @@ public class df implements LoggerInterface {
         }
         BufferedWriter bufferedWriter = null;
         try {
-            if (TextUtils.isEmpty(this.f77799c) && (externalFilesDir = this.f237a.getExternalFilesDir(null)) != null) {
-                this.f77799c = externalFilesDir.getAbsolutePath() + "";
+            if (TextUtils.isEmpty(this.f77834c) && (externalFilesDir = this.f237a.getExternalFilesDir(null)) != null) {
+                this.f77834c = externalFilesDir.getAbsolutePath() + "";
             }
-            file = new File(this.f77799c + f77797a);
+            file = new File(this.f77834c + f77832a);
         } catch (Exception unused) {
             fileLock = null;
             randomAccessFile = null;
@@ -243,7 +243,7 @@ public class df implements LoggerInterface {
     public final void setTag(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f77798b = str;
+            this.f77833b = str;
         }
     }
 }

@@ -23,22 +23,22 @@ public class NHAssetItem extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f61559a;
+    public MaskTextView f61594a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f61560b;
+    public MaskTextView f61595b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f61561c;
+    public NetImageView f61596c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f61562d;
+    public LinearLayout f61597d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f61563e;
+    public MaskTextView f61598e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MaskTextView f61564f;
+    public MaskTextView f61599f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHAssetItem(Context context, AttributeSet attributeSet) {
@@ -67,8 +67,8 @@ public class NHAssetItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             boolean isShowRedDot = isShowRedDot();
-            this.f61561c.setVisibility(isShowRedDot ? 0 : 8);
-            this.f61561c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
+            this.f61596c.setVisibility(isShowRedDot ? 0 : 8);
+            this.f61596c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
             return isShowRedDot;
         }
         return invokeV.booleanValue;
@@ -78,12 +78,12 @@ public class NHAssetItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_asset_item"), this);
-            this.f61559a = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subtitle"));
-            this.f61560b = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_title"));
-            this.f61561c = (NetImageView) findViewById(ResUtils.id(getContext(), "asset_item_star"));
-            this.f61562d = (LinearLayout) findViewById(ResUtils.id(getContext(), "asset_item_desc_panel"));
-            this.f61563e = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subdesc"));
-            this.f61564f = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_desc"));
+            this.f61594a = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subtitle"));
+            this.f61595b = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_title"));
+            this.f61596c = (NetImageView) findViewById(ResUtils.id(getContext(), "asset_item_star"));
+            this.f61597d = (LinearLayout) findViewById(ResUtils.id(getContext(), "asset_item_desc_panel"));
+            this.f61598e = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subdesc"));
+            this.f61599f = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_desc"));
         }
     }
 
@@ -92,10 +92,10 @@ public class NHAssetItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onEyeMaskChanged();
-            this.f61559a.resetMaskText();
-            this.f61560b.resetMaskText();
-            this.f61563e.resetMaskText();
-            this.f61564f.resetMaskText();
+            this.f61594a.resetMaskText();
+            this.f61595b.resetMaskText();
+            this.f61598e.resetMaskText();
+            this.f61599f.resetMaskText();
         }
     }
 
@@ -104,14 +104,14 @@ public class NHAssetItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || getData() == null) {
             return;
         }
-        this.f61559a.setMaskText(getData().name);
-        this.f61560b.setMaskText(getData().value1);
+        this.f61594a.setMaskText(getData().name);
+        this.f61595b.setMaskText(getData().value1);
         if (TextUtils.isEmpty(getData().value3)) {
-            this.f61562d.setVisibility(8);
+            this.f61597d.setVisibility(8);
         } else {
-            this.f61562d.setVisibility(0);
-            this.f61563e.setMaskText(getData().value2);
-            this.f61564f.setMaskText(getData().value3);
+            this.f61597d.setVisibility(0);
+            this.f61598e.setMaskText(getData().value2);
+            this.f61599f.setMaskText(getData().value3);
         }
         handlePoint();
     }

@@ -16,35 +16,35 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f41309e;
+    public static String f41313e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f41310f;
+    public static String f41314f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f41311g;
+    public static String f41315g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f41312h;
+    public static String f41316h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f41313i;
+    public static int f41317i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static b f41314j;
+    public static b f41318j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41315a;
+    public String f41319a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41316b;
+    public String f41320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41317c;
+    public String f41321c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41318d;
+    public String f41322d;
     public boolean k;
 
     static {
@@ -75,10 +75,10 @@ public class b {
                 return;
             }
         }
-        this.f41315a = null;
-        this.f41316b = null;
-        this.f41317c = null;
-        this.f41318d = null;
+        this.f41319a = null;
+        this.f41320b = null;
+        this.f41321c = null;
+        this.f41322d = null;
         this.k = false;
         if (com.baidu.location.f.getServiceContext() != null) {
             a(com.baidu.location.f.getServiceContext());
@@ -89,10 +89,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f41314j == null) {
-                f41314j = new b();
+            if (f41318j == null) {
+                f41318j = new b();
             }
-            return f41314j;
+            return f41318j;
         }
         return (b) invokeV.objValue;
     }
@@ -120,18 +120,18 @@ public class b {
             stringBuffer.append("&sdk=");
             stringBuffer.append(7.93f);
             if (z) {
-                if (k.f41360g.equals("all")) {
+                if (k.f41364g.equals("all")) {
                     stringBuffer.append("&addr=allj");
                 }
-                if (k.f41362i) {
+                if (k.f41366i) {
                     stringBuffer.append("&adtp=n2");
                 }
-                if (k.f41361h || k.k || k.l || k.f41363j) {
+                if (k.f41365h || k.k || k.l || k.f41367j) {
                     stringBuffer.append("&sema=");
-                    if (k.f41361h) {
+                    if (k.f41365h) {
                         stringBuffer.append("aptag|");
                     }
-                    if (k.f41363j) {
+                    if (k.f41367j) {
                         stringBuffer.append("aptagd|");
                     }
                     if (k.k) {
@@ -154,18 +154,18 @@ public class b {
                     stringBuffer.append(j2);
                 }
             }
-            if (this.f41317c != null) {
+            if (this.f41321c != null) {
                 stringBuffer.append("&cu=");
-                stringBuffer.append(this.f41317c);
-                String str3 = this.f41315a;
-                str2 = (str3 == null || str3.equals("NULL") || this.f41317c.contains(new StringBuffer(this.f41315a).reverse().toString())) ? "&Aim=" : "&Aim=";
-                if (this.f41316b != null) {
+                stringBuffer.append(this.f41321c);
+                String str3 = this.f41319a;
+                str2 = (str3 == null || str3.equals("NULL") || this.f41321c.contains(new StringBuffer(this.f41319a).reverse().toString())) ? "&Aim=" : "&Aim=";
+                if (this.f41320b != null) {
                     stringBuffer.append("&snd=");
-                    stringBuffer.append(this.f41316b);
+                    stringBuffer.append(this.f41320b);
                 }
-                if (this.f41318d != null) {
+                if (this.f41322d != null) {
                     stringBuffer.append("&Aid=");
-                    stringBuffer.append(this.f41318d);
+                    stringBuffer.append(this.f41322d);
                 }
                 stringBuffer.append("&fw=");
                 stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -193,10 +193,10 @@ public class b {
             }
             str2 = "&im=";
             stringBuffer.append(str2);
-            stringBuffer.append(this.f41315a);
-            if (this.f41316b != null) {
+            stringBuffer.append(this.f41319a);
+            if (this.f41320b != null) {
             }
-            if (this.f41318d != null) {
+            if (this.f41322d != null) {
             }
             stringBuffer.append("&fw=");
             stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -223,24 +223,24 @@ public class b {
             return;
         }
         try {
-            this.f41317c = CommonParam.getCUID(context);
+            this.f41321c = CommonParam.getCUID(context);
         } catch (Exception unused) {
-            this.f41317c = null;
+            this.f41321c = null;
         }
         try {
-            f41309e = context.getPackageName();
+            f41313e = context.getPackageName();
         } catch (Exception unused2) {
-            f41309e = null;
+            f41313e = null;
         }
-        k.o = "" + this.f41317c;
+        k.o = "" + this.f41321c;
         this.k = true;
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            f41310f = str;
-            f41309e = str2;
+            f41314f = str;
+            f41313e = str2;
         }
     }
 }

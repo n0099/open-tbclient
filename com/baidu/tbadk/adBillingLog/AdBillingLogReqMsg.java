@@ -1,7 +1,7 @@
 package com.baidu.tbadk.adBillingLog;
 
 import c.a.q0.d.c;
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -44,19 +44,19 @@ public class AdBillingLogReqMsg extends NetMessage {
         if (!(interceptable == null || interceptable.invokeL(65537, this, builder) == null) || (cVar = this.mReqData) == null) {
             return;
         }
-        builder.token = cVar.f12834d;
-        int i2 = cVar.f12836f;
+        builder.token = cVar.f12840d;
+        int i2 = cVar.f12842f;
         if (i2 >= 0) {
             builder.da_locate = String.valueOf(i2);
         }
-        int i3 = this.mReqData.f12832b;
+        int i3 = this.mReqData.f12838b;
         if (i3 >= 0) {
             builder.da_from = Integer.valueOf(i3);
         }
         c cVar2 = this.mReqData;
-        builder.extra_param = cVar2.f12835e;
-        builder.order_id = cVar2.f12833c;
-        int i4 = cVar2.f12831a;
+        builder.extra_param = cVar2.f12841e;
+        builder.order_id = cVar2.f12839c;
+        int i4 = cVar2.f12837a;
         if (i4 >= 0) {
             builder.da_type = String.valueOf(i4);
         }
@@ -70,7 +70,7 @@ public class AdBillingLogReqMsg extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 fillReqData(builder);
-                a0.b(builder, true, true);
+                z.b(builder, true, true);
                 AdNewLogReqIdl.Builder builder2 = new AdNewLogReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

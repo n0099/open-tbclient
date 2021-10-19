@@ -31,31 +31,31 @@ public class p implements l {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static HashMap<String, Integer> f15381a;
+        public static HashMap<String, Integer> f15404a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static a f15382b;
+        public static a f15405b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c.a.r.f.a.p$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C0734a {
+        public static class C0736a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public String f15383a;
+            public String f15406a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f15384b;
+            public String f15407b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f15385c;
+            public String f15408c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f15386d;
+            public int f15409d;
 
-            public C0734a(Context context) {
+            public C0736a(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,15 +79,15 @@ public class p implements l {
                 if (interceptable == null || interceptable.invokeLL(1048576, this, context, networkInfo) == null) {
                     if (networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
                         if (lowerCase.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
-                            this.f15383a = lowerCase;
-                            this.f15384b = "10.0.0.172";
+                            this.f15406a = lowerCase;
+                            this.f15407b = "10.0.0.172";
                             return;
                         } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                            this.f15383a = lowerCase;
-                            this.f15384b = "10.0.0.200";
+                            this.f15406a = lowerCase;
+                            this.f15407b = "10.0.0.200";
                             return;
                         } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
-                            this.f15383a = lowerCase;
+                            this.f15406a = lowerCase;
                             return;
                         }
                     }
@@ -96,8 +96,8 @@ public class p implements l {
                     if (defaultHost == null || defaultHost.length() <= 0) {
                         return;
                     }
-                    this.f15384b = defaultHost;
-                    if ("10.0.0.172".equals(defaultHost.trim()) || "10.0.0.200".equals(this.f15384b.trim())) {
+                    this.f15407b = defaultHost;
+                    if ("10.0.0.172".equals(defaultHost.trim()) || "10.0.0.200".equals(this.f15407b.trim())) {
                         return;
                     }
                     Integer.toString(defaultPort);
@@ -116,12 +116,12 @@ public class p implements l {
                     }
                     if (networkInfo != null) {
                         if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
-                            this.f15385c = "wifi";
+                            this.f15408c = "wifi";
                         } else {
                             a(context, networkInfo);
-                            this.f15385c = this.f15383a;
+                            this.f15408c = this.f15406a;
                         }
-                        this.f15386d = networkInfo.getSubtype();
+                        this.f15409d = networkInfo.getSubtype();
                         networkInfo.getSubtypeName();
                     }
                 }
@@ -130,13 +130,13 @@ public class p implements l {
             public int c() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15386d : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15409d : invokeV.intValue;
             }
 
             public String d() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15385c : (String) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15408c : (String) invokeV.objValue;
             }
         }
 
@@ -154,17 +154,17 @@ public class p implements l {
                 }
             }
             HashMap<String, Integer> hashMap = new HashMap<>();
-            f15381a = hashMap;
+            f15404a = hashMap;
             hashMap.put(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1);
-            f15381a.put("3GNET", 21);
-            f15381a.put("3GWAP", 22);
-            f15381a.put("CMNET", 31);
-            f15381a.put("UNINET", 32);
-            f15381a.put("CTNET", 33);
-            f15381a.put("CMWAP", 41);
-            f15381a.put("UNIWAP", 42);
-            f15381a.put("CTWAP", 43);
-            f15382b = new a();
+            f15404a.put("3GNET", 21);
+            f15404a.put("3GWAP", 22);
+            f15404a.put("CMNET", 31);
+            f15404a.put("UNINET", 32);
+            f15404a.put("CTNET", 33);
+            f15404a.put("CMWAP", 41);
+            f15404a.put("UNIWAP", 42);
+            f15404a.put("CTWAP", 43);
+            f15405b = new a();
         }
 
         public a() {
@@ -184,7 +184,7 @@ public class p implements l {
         public static a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f15382b : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f15405b : (a) invokeV.objValue;
         }
 
         public String b(Context context) {
@@ -192,13 +192,13 @@ public class p implements l {
             StringBuilder sb;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                C0734a c0734a = new C0734a(context);
-                String d2 = c0734a.d();
-                int c2 = c0734a.c();
+                C0736a c0736a = new C0736a(context);
+                String d2 = c0736a.d();
+                int c2 = c0736a.c();
                 if (TextUtils.isEmpty(d2)) {
                     sb = new StringBuilder();
                 } else {
-                    Integer num = f15381a.get(d2.toUpperCase());
+                    Integer num = f15404a.get(d2.toUpperCase());
                     r3 = num != null ? num : 5;
                     sb = new StringBuilder();
                 }
@@ -216,14 +216,14 @@ public class p implements l {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: c  reason: collision with root package name */
-        public static b f15387c;
+        public static b f15410c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f15388a;
+        public String f15411a;
 
         /* renamed from: b  reason: collision with root package name */
-        public DisplayMetrics f15389b;
+        public DisplayMetrics f15412b;
 
         static {
             InterceptResult invokeClinit;
@@ -238,7 +238,7 @@ public class p implements l {
                     return;
                 }
             }
-            f15387c = new b();
+            f15410c = new b();
         }
 
         public b() {
@@ -258,7 +258,7 @@ public class p implements l {
         public static b a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f15387c : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f15410c : (b) invokeV.objValue;
         }
 
         public static String d(Context context) {
@@ -280,11 +280,11 @@ public class p implements l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
                 synchronized (b.class) {
-                    if (TextUtils.isEmpty(this.f15388a)) {
-                        this.f15388a = c(context);
+                    if (TextUtils.isEmpty(this.f15411a)) {
+                        this.f15411a = c(context);
                     }
                 }
-                return this.f15388a;
+                return this.f15411a;
             }
             return (String) invokeL.objValue;
         }
@@ -317,7 +317,7 @@ public class p implements l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
                 h(context);
-                DisplayMetrics displayMetrics = this.f15389b;
+                DisplayMetrics displayMetrics = this.f15412b;
                 if (displayMetrics != null) {
                     return displayMetrics.widthPixels;
                 }
@@ -331,7 +331,7 @@ public class p implements l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
                 h(context);
-                DisplayMetrics displayMetrics = this.f15389b;
+                DisplayMetrics displayMetrics = this.f15412b;
                 if (displayMetrics != null) {
                     return displayMetrics.heightPixels;
                 }
@@ -345,7 +345,7 @@ public class p implements l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
                 h(context);
-                DisplayMetrics displayMetrics = this.f15389b;
+                DisplayMetrics displayMetrics = this.f15412b;
                 if (displayMetrics != null) {
                     return displayMetrics.densityDpi;
                 }
@@ -356,8 +356,8 @@ public class p implements l {
 
         public final void h(Context context) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && context != null && this.f15389b == null) {
-                this.f15389b = context.getResources().getDisplayMetrics();
+            if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && context != null && this.f15412b == null) {
+                this.f15412b = context.getResources().getDisplayMetrics();
             }
         }
     }
@@ -367,20 +367,20 @@ public class p implements l {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static c f15390e;
+        public static c f15413e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f15391a;
+        public String f15414a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f15392b;
+        public String f15415b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f15393c;
+        public String f15416c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f15394d;
+        public String f15417d;
 
         static {
             InterceptResult invokeClinit;
@@ -395,7 +395,7 @@ public class p implements l {
                     return;
                 }
             }
-            f15390e = new c();
+            f15413e = new c();
         }
 
         public c() {
@@ -417,36 +417,36 @@ public class p implements l {
         public static c a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f15390e : (c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f15413e : (c) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15394d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15417d : (String) invokeV.objValue;
         }
 
         public final void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 String str = Build.MODEL;
-                this.f15391a = str;
+                this.f15414a = str;
                 if (TextUtils.isEmpty(str)) {
-                    this.f15391a = "NUL";
+                    this.f15414a = "NUL";
                 } else {
-                    this.f15391a = this.f15391a.replace("_", "-");
+                    this.f15414a = this.f15414a.replace("_", "-");
                 }
                 String str2 = Build.MANUFACTURER;
-                this.f15392b = str2;
+                this.f15415b = str2;
                 if (TextUtils.isEmpty(str2)) {
-                    this.f15392b = "NUL";
+                    this.f15415b = "NUL";
                 } else {
-                    this.f15392b = this.f15392b.replace("_", "-");
+                    this.f15415b = this.f15415b.replace("_", "-");
                 }
                 String str3 = Build.VERSION.RELEASE;
-                this.f15393c = str3;
-                this.f15393c = TextUtils.isEmpty(str3) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : this.f15393c.replace("_", "-");
-                this.f15394d = d();
+                this.f15416c = str3;
+                this.f15416c = TextUtils.isEmpty(str3) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : this.f15416c.replace("_", "-");
+                this.f15417d = d();
             }
         }
 
@@ -454,10 +454,10 @@ public class p implements l {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                String str = this.f15391a;
-                String str2 = this.f15393c;
+                String str = this.f15414a;
+                String str2 = this.f15416c;
                 int i2 = Build.VERSION.SDK_INT;
-                String str3 = this.f15392b;
+                String str3 = this.f15415b;
                 return str + "_" + str2 + "_" + i2 + "_" + str3;
             }
             return (String) invokeV.objValue;

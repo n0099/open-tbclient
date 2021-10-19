@@ -27,7 +27,7 @@ public class PushJobService extends JobService {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f37703a;
+    public Handler f37707a;
 
     /* loaded from: classes4.dex */
     public static class a extends Handler {
@@ -35,7 +35,7 @@ public class PushJobService extends JobService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final JobService f37704a;
+        public final JobService f37708a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(JobService jobService) {
@@ -55,7 +55,7 @@ public class PushJobService extends JobService {
                     return;
                 }
             }
-            this.f37704a = jobService;
+            this.f37708a = jobService;
         }
 
         @Override // android.os.Handler
@@ -64,12 +64,12 @@ public class PushJobService extends JobService {
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                 JobParameters jobParameters = (JobParameters) message.obj;
                 try {
-                    this.f37704a.jobFinished(jobParameters, true);
+                    this.f37708a.jobFinished(jobParameters, true);
                     if (jobParameters.getJobId() == 1) {
-                        com.baidu.android.pushservice.job.a.a(this.f37704a, false);
+                        com.baidu.android.pushservice.job.a.a(this.f37708a, false);
                     }
                 } catch (Throwable th) {
-                    new b.c(this.f37704a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
+                    new b.c(this.f37708a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
                 }
             }
         }
@@ -120,10 +120,10 @@ public class PushJobService extends JobService {
                 } catch (Exception unused) {
                 }
             }
-            if (this.f37703a == null) {
-                this.f37703a = new a(this);
+            if (this.f37707a == null) {
+                this.f37707a = new a(this);
             }
-            Handler handler = this.f37703a;
+            Handler handler = this.f37707a;
             handler.sendMessageDelayed(Message.obtain(handler, 1, jobParameters), 2000L);
             return true;
         }

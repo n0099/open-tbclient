@@ -1,45 +1,46 @@
 package c.a.q0.f1.m;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Item;
 /* loaded from: classes3.dex */
-public interface g {
-    c.a.e.e.k.b<GifView> getGifViewPool();
+public class g {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    c.a.e.e.k.b<ImageView> getImageViewPool();
+    /* renamed from: a  reason: collision with root package name */
+    public ItemData f13291a;
 
-    ListView getListView();
+    public g(Item item) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {item};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f13291a = null;
+        if (item != null) {
+            ItemData itemData = new ItemData();
+            this.f13291a = itemData;
+            itemData.parseProto(item);
+        }
+    }
 
-    c.a.e.e.k.b<RelativeLayout> getRelativeLayoutPool();
-
-    int getRichTextViewId();
-
-    c.a.e.e.k.b<TextView> getTextViewPool();
-
-    c.a.e.e.k.b<LinearLayout> getTextVoiceViewPool();
-
-    c.a.e.e.k.b<TiebaPlusRecommendCard> getTiejiaRecommendPool();
-
-    c.a.e.e.k.b<View> getVoiceViewPool();
-
-    void onAtClicked(Context context, String str);
-
-    void onLinkButtonClicked(Context context, String str);
-
-    void onLinkClicked(Context context, String str, boolean z);
-
-    void onPhoneClicked(Context context, String str, String str2);
-
-    void onSongClicked(Context context, String str);
-
-    void onVideoClicked(Context context, String str);
-
-    void onVideoP2PClicked(Context context, String str);
+    public ItemData a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13291a : (ItemData) invokeV.objValue;
+    }
 }

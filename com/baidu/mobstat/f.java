@@ -30,11 +30,11 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f43916a;
+    public static f f43828a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43917b;
+    public String f43829b;
 
     /* loaded from: classes5.dex */
     public static class a {
@@ -42,13 +42,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f43918a;
+        public String f43830a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f43919b;
+        public String f43831b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f43920c;
+        public String f43832c;
 
         public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -65,9 +65,9 @@ public class f {
                     return;
                 }
             }
-            this.f43918a = str == null ? "" : str;
-            this.f43919b = str2 == null ? "" : str2;
-            this.f43920c = str3 == null ? "" : str3;
+            this.f43830a = str == null ? "" : str;
+            this.f43831b = str2 == null ? "" : str2;
+            this.f43832c = str3 == null ? "" : str3;
         }
 
         public JSONObject a() {
@@ -76,9 +76,9 @@ public class f {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("n", this.f43918a);
-                    jSONObject.put("v", this.f43919b);
-                    jSONObject.put("w", this.f43920c);
+                    jSONObject.put("n", this.f43830a);
+                    jSONObject.put("v", this.f43831b);
+                    jSONObject.put("w", this.f43832c);
                     return jSONObject;
                 } catch (JSONException e2) {
                     bb.c().b(e2);
@@ -91,7 +91,7 @@ public class f {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43918a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43830a : (String) invokeV.objValue;
         }
     }
 
@@ -108,7 +108,7 @@ public class f {
                 return;
             }
         }
-        f43916a = new f();
+        f43828a = new f();
     }
 
     public f() {
@@ -124,7 +124,7 @@ public class f {
                 return;
             }
         }
-        this.f43917b = "";
+        this.f43829b = "";
     }
 
     private boolean a(int i2) {
@@ -206,8 +206,8 @@ public class f {
         }
         if (z) {
             String b2 = a2.get(0).b();
-            if (a(b2, this.f43917b)) {
-                this.f43917b = b2;
+            if (a(b2, this.f43829b)) {
+                this.f43829b = b2;
             }
         }
         a(context, a2, z);
@@ -228,7 +228,7 @@ public class f {
     private boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.f43917b)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.f43829b)) ? false : true : invokeLL.booleanValue;
     }
 
     private String a(Context context, String str) {
@@ -278,7 +278,7 @@ public class f {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f43937c.a(System.currentTimeMillis(), str);
+            k.f43849c.a(System.currentTimeMillis(), str);
         }
     }
 

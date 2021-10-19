@@ -19,16 +19,16 @@ public final class i implements c.i.b.a.e0.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<e> f33638e;
+    public final List<e> f33642e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f33639f;
+    public final int f33643f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long[] f33640g;
+    public final long[] f33644g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final long[] f33641h;
+    public final long[] f33645h;
 
     public i(List<e> list) {
         Interceptable interceptable = $ic;
@@ -45,20 +45,20 @@ public final class i implements c.i.b.a.e0.e {
                 return;
             }
         }
-        this.f33638e = list;
+        this.f33642e = list;
         int size = list.size();
-        this.f33639f = size;
-        this.f33640g = new long[size * 2];
-        for (int i4 = 0; i4 < this.f33639f; i4++) {
+        this.f33643f = size;
+        this.f33644g = new long[size * 2];
+        for (int i4 = 0; i4 < this.f33643f; i4++) {
             e eVar = list.get(i4);
             int i5 = i4 * 2;
-            long[] jArr = this.f33640g;
+            long[] jArr = this.f33644g;
             jArr[i5] = eVar.q;
             jArr[i5 + 1] = eVar.r;
         }
-        long[] jArr2 = this.f33640g;
+        long[] jArr2 = this.f33644g;
         long[] copyOf = Arrays.copyOf(jArr2, jArr2.length);
-        this.f33641h = copyOf;
+        this.f33645h = copyOf;
         Arrays.sort(copyOf);
     }
 
@@ -68,8 +68,8 @@ public final class i implements c.i.b.a.e0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             c.i.b.a.i0.a.a(i2 >= 0);
-            c.i.b.a.i0.a.a(i2 < this.f33641h.length);
-            return this.f33641h[i2];
+            c.i.b.a.i0.a.a(i2 < this.f33645h.length);
+            return this.f33645h[i2];
         }
         return invokeI.longValue;
     }
@@ -78,7 +78,7 @@ public final class i implements c.i.b.a.e0.e {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33641h.length : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33645h.length : invokeV.intValue;
     }
 
     @Override // c.i.b.a.e0.e
@@ -86,8 +86,8 @@ public final class i implements c.i.b.a.e0.e {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-            int b2 = v.b(this.f33641h, j2, false, false);
-            if (b2 < this.f33641h.length) {
+            int b2 = v.b(this.f33645h, j2, false, false);
+            if (b2 < this.f33645h.length) {
                 return b2;
             }
             return -1;
@@ -103,23 +103,23 @@ public final class i implements c.i.b.a.e0.e {
             SpannableStringBuilder spannableStringBuilder = null;
             e eVar = null;
             ArrayList arrayList = null;
-            for (int i2 = 0; i2 < this.f33639f; i2++) {
-                long[] jArr = this.f33640g;
+            for (int i2 = 0; i2 < this.f33643f; i2++) {
+                long[] jArr = this.f33644g;
                 int i3 = i2 * 2;
                 if (jArr[i3] <= j2 && j2 < jArr[i3 + 1]) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
-                    e eVar2 = this.f33638e.get(i2);
+                    e eVar2 = this.f33642e.get(i2);
                     if (!eVar2.a()) {
                         arrayList.add(eVar2);
                     } else if (eVar == null) {
                         eVar = eVar2;
                     } else if (spannableStringBuilder == null) {
                         spannableStringBuilder = new SpannableStringBuilder();
-                        spannableStringBuilder.append(eVar.f33456e).append((CharSequence) StringUtils.LF).append(eVar2.f33456e);
+                        spannableStringBuilder.append(eVar.f33460e).append((CharSequence) StringUtils.LF).append(eVar2.f33460e);
                     } else {
-                        spannableStringBuilder.append((CharSequence) StringUtils.LF).append(eVar2.f33456e);
+                        spannableStringBuilder.append((CharSequence) StringUtils.LF).append(eVar2.f33460e);
                     }
                 }
             }

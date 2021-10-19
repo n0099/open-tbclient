@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import c.a.r0.x3.l.h;
+import c.a.r0.y3.l.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -24,22 +24,22 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f57849e;
+    public ImageView f57783e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f57850f;
+    public ImageView f57784f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f57851g;
+    public ImageView f57785g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f57852h;
+    public ImageView f57786h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f57853i;
+    public LinearLayout f57787i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f57854j;
+    public LinearLayout f57788j;
     public LinearLayout k;
     public LinearLayout l;
     public a m;
@@ -81,18 +81,18 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.layout_video_effect_button, this);
-            this.f57853i = (LinearLayout) findViewById(R.id.layout_music);
-            this.f57854j = (LinearLayout) findViewById(R.id.layout_sticker);
+            this.f57787i = (LinearLayout) findViewById(R.id.layout_music);
+            this.f57788j = (LinearLayout) findViewById(R.id.layout_sticker);
             this.k = (LinearLayout) findViewById(R.id.layout_beauty);
             this.l = (LinearLayout) findViewById(R.id.layout_filter);
-            this.f57849e = (ImageView) findViewById(R.id.img_music);
-            this.f57850f = (ImageView) findViewById(R.id.img_sticker);
-            this.f57851g = (ImageView) findViewById(R.id.img_beauty);
-            this.f57852h = (ImageView) findViewById(R.id.img_filter);
-            this.f57849e.setOnClickListener(this);
-            this.f57850f.setOnClickListener(this);
-            this.f57851g.setOnClickListener(this);
-            this.f57852h.setOnClickListener(this);
+            this.f57783e = (ImageView) findViewById(R.id.img_music);
+            this.f57784f = (ImageView) findViewById(R.id.img_sticker);
+            this.f57785g = (ImageView) findViewById(R.id.img_beauty);
+            this.f57786h = (ImageView) findViewById(R.id.img_filter);
+            this.f57783e.setOnClickListener(this);
+            this.f57784f.setOnClickListener(this);
+            this.f57785g.setOnClickListener(this);
+            this.f57786h.setOnClickListener(this);
         }
     }
 
@@ -121,14 +121,14 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         TiebaStatic.log(statisticItem);
     }
 
-    @Override // c.a.r0.x3.l.h.b
+    @Override // c.a.r0.y3.l.h.b
     public void onStatusChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             if (i2 == 1) {
-                this.f57849e.setImageResource(R.drawable.icon_video_music);
+                this.f57783e.setImageResource(R.drawable.icon_video_music);
             } else {
-                this.f57849e.setImageResource(R.drawable.icon_video_music_disable);
+                this.f57783e.setImageResource(R.drawable.icon_video_music_disable);
             }
         }
     }
@@ -150,14 +150,14 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (i2 == 0) {
-                this.f57849e.setSelected(z);
+                this.f57783e.setSelected(z);
             } else if (i2 == 1) {
-                this.f57850f.setSelected(z);
+                this.f57784f.setSelected(z);
             } else if (i2 == 2) {
-                this.f57851g.setSelected(z);
+                this.f57785g.setSelected(z);
             } else if (i2 != 3) {
             } else {
-                this.f57852h.setSelected(z);
+                this.f57786h.setSelected(z);
             }
         }
     }
@@ -166,9 +166,9 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
             if (i2 == 0) {
-                this.f57853i.setVisibility(i3);
+                this.f57787i.setVisibility(i3);
             } else if (i2 == 1) {
-                this.f57854j.setVisibility(i3);
+                this.f57788j.setVisibility(i3);
             } else if (i2 == 2) {
                 this.k.setVisibility(i3);
             } else if (i2 != 3) {

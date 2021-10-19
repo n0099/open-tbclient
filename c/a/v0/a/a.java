@@ -18,7 +18,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30287a;
+    public static boolean f30334a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,8 +40,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (f30287a) {
-                return c.a.f30308a.f(str);
+            if (f30334a) {
+                return c.a.f30355a.f(str);
             }
             return SampleResult.OTHERE;
         }
@@ -58,21 +58,21 @@ public class a {
 
     public static void c(String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, map) == null) && f30287a && str != null) {
+        if ((interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, map) == null) && f30334a && str != null) {
             j.a(str, str2, str3, map);
         }
     }
 
     public static void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f30287a) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f30334a) {
             e.a().b(str);
         }
     }
 
     public static void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) && f30287a) {
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) && f30334a) {
             e.a().c(str);
         }
     }
@@ -80,7 +80,7 @@ public class a {
     public static void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
-            f30287a = z;
+            f30334a = z;
         }
     }
 }

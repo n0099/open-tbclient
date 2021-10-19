@@ -1,6 +1,6 @@
 package com.baidu.tieba.enterForum.home;
 
-import c.a.r0.n0.g.a;
+import c.a.r0.o0.g.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.VisitedForumData;
@@ -29,22 +29,22 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a.l().n();
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
+            a.l().n();
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -81,7 +81,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             a.l().r();
-            LoadData();
+            loadData();
         }
     }
 

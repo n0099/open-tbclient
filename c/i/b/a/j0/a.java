@@ -16,19 +16,19 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<byte[]> f33892a;
+    public final List<byte[]> f33896a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f33893b;
+    public final int f33897b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f33894c;
+    public final int f33898c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f33895d;
+    public final int f33899d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final float f33896e;
+    public final float f33900e;
 
     public a(List<byte[]> list, int i2, int i3, int i4, float f2) {
         Interceptable interceptable = $ic;
@@ -45,11 +45,11 @@ public final class a {
                 return;
             }
         }
-        this.f33892a = list;
-        this.f33893b = i2;
-        this.f33894c = i3;
-        this.f33895d = i4;
-        this.f33896e = f2;
+        this.f33896a = list;
+        this.f33897b = i2;
+        this.f33898c = i3;
+        this.f33899d = i4;
+        this.f33900e = f2;
     }
 
     public static byte[] a(l lVar) {
@@ -59,7 +59,7 @@ public final class a {
             int D = lVar.D();
             int c2 = lVar.c();
             lVar.K(D);
-            return c.i.b.a.i0.c.c(lVar.f33835a, c2, D);
+            return c.i.b.a.i0.c.c(lVar.f33839a, c2, D);
         }
         return (byte[]) invokeL.objValue;
     }
@@ -86,9 +86,9 @@ public final class a {
                     }
                     if (x2 > 0) {
                         j.b i6 = j.i((byte[]) arrayList.get(0), x, ((byte[]) arrayList.get(0)).length);
-                        int i7 = i6.f33822b;
-                        int i8 = i6.f33823c;
-                        f2 = i6.f33824d;
+                        int i7 = i6.f33826b;
+                        int i8 = i6.f33827c;
+                        f2 = i6.f33828d;
                         i2 = i7;
                         i3 = i8;
                     } else {

@@ -31,26 +31,26 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f44297a = "HttpStack";
+    public static final String f44209a = "HttpStack";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f44298b = "Set-Cookie";
+    public static final String f44210b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f44299c;
+    public static final char[] f44211c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f44300d = "User-Agent";
+    public static final String f44212d = "User-Agent";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f44301e = 15000;
+    public static final int f44213e = 15000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f44302f;
+    public String f44214f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f44303g;
+    public boolean f44215g;
 
     static {
         InterceptResult invokeClinit;
@@ -65,7 +65,7 @@ public class b {
                 return;
             }
         }
-        f44299c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        f44211c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
     public b() {
@@ -81,8 +81,8 @@ public class b {
                 return;
             }
         }
-        this.f44302f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
-        this.f44303g = false;
+        this.f44214f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
+        this.f44215g = false;
     }
 
     private HttpURLConnection b(PassHttpParamDTO passHttpParamDTO) throws IOException {
@@ -118,7 +118,7 @@ public class b {
             return;
         }
         a();
-        int i2 = a.f44296a[passHttpClientRequest.method.ordinal()];
+        int i2 = a.f44208a[passHttpClientRequest.method.ordinal()];
         OutputStream outputStream = null;
         if (i2 == 1) {
             a2 = a(passHttpClientRequest.paramDTO);
@@ -201,7 +201,7 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, httpURLConnection, passHttpParamDTO)) == null) {
             HttpHashMap httpHashMap = passHttpParamDTO.paramsMap;
             if (httpHashMap instanceof MultipartHashMap) {
-                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f44302f);
+                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f44214f);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 HttpHashMap httpHashMap2 = passHttpParamDTO.paramsMap;
                 if (httpHashMap2 != null) {
@@ -212,7 +212,7 @@ public class b {
                     }
                 }
                 MultipartHashMap.a aVar = ((MultipartHashMap) passHttpParamDTO.paramsMap).fileWrapper;
-                a(byteArrayOutputStream, aVar.f44283a, aVar.f44284b, aVar.f44286d, aVar.f44285c);
+                a(byteArrayOutputStream, aVar.f44195a, aVar.f44196b, aVar.f44198d, aVar.f44197c);
                 a(byteArrayOutputStream);
                 return byteArrayOutputStream.toByteArray();
             } else if (httpHashMap instanceof HttpHashMap) {
@@ -327,10 +327,10 @@ public class b {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
             for (int i2 = 0; i2 < 30; i2++) {
-                char[] cArr = f44299c;
+                char[] cArr = f44211c;
                 sb.append(cArr[random.nextInt(cArr.length)]);
             }
-            this.f44302f = sb.toString();
+            this.f44214f = sb.toString();
         }
     }
 
@@ -340,13 +340,13 @@ public class b {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
             for (int i2 = 0; i2 < 30; i2++) {
-                char[] cArr = f44299c;
+                char[] cArr = f44211c;
                 sb.append(cArr[random.nextInt(cArr.length)]);
             }
-            byte[] bytes = ("\r\n--" + this.f44302f + Part.CRLF).getBytes();
-            if (!this.f44303g) {
-                this.f44303g = true;
-                byteArrayOutputStream.write(("--" + this.f44302f + Part.CRLF).getBytes());
+            byte[] bytes = ("\r\n--" + this.f44214f + Part.CRLF).getBytes();
+            if (!this.f44215g) {
+                this.f44215g = true;
+                byteArrayOutputStream.write(("--" + this.f44214f + Part.CRLF).getBytes());
                 return;
             }
             byteArrayOutputStream.write(bytes);

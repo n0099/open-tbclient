@@ -11,7 +11,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f73018a;
+    public static Context f73053a;
     public transient /* synthetic */ FieldHolder $fh;
 
     @WorkerThread
@@ -19,8 +19,8 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long b2 = b(f73018a);
-            a(f73018a, 1 + b2);
+            long b2 = b(f73053a);
+            a(f73053a, 1 + b2);
             return b2;
         }
         return invokeV.longValue;
@@ -29,7 +29,7 @@ public class d {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            f73018a = context;
+            f73053a = context;
         }
     }
 

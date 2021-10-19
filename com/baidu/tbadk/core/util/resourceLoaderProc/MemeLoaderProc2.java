@@ -231,7 +231,7 @@ public class MemeLoaderProc2 implements e<a> {
             }
             int e2 = i2 == 0 ? l.e(TbadkCoreApplication.getInst().getApp(), 105.0f) : i2;
             int e3 = i3 == 0 ? l.e(TbadkCoreApplication.getInst().getApp(), 105.0f) : i3;
-            boolean z = false;
+            boolean z = true;
             if (!this.isShare) {
                 if (TbadkCoreApplication.getInst().getCapabilityOfWebp() && SwitchManager.getInstance().findType(WebpSwitch.WEBP_ENABLE) == 1) {
                     int indexOf = str.indexOf("hiphotos.baidu.com");
@@ -251,8 +251,12 @@ public class MemeLoaderProc2 implements e<a> {
             byte[] downloadImageBytes = webClient.downloadImageBytes(str4, !this.isFromCDN);
             boolean needCache = webClient.needCache();
             if (downloadImageBytes != null || webClient.getResponse().f2327a) {
-                c.a.q0.c0.c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
-                return storeBitmap(str4, str2, bVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), e2, e3), (webClient.isGif || l.B(downloadImageBytes)) ? true : true, webClient, downloadImageBytes, needCache);
+                c.a.q0.c0.c.k().i(TbConfig.getPbImageSize() + (downloadImageBytes != null ? downloadImageBytes.length : 0));
+                Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
+                if (!webClient.isGif && !l.B(downloadImageBytes)) {
+                    z = false;
+                }
+                return storeBitmap(str4, str2, bVar, null, checkBitmapSize(Bytes2Bitmap, e2, e3), z, webClient, downloadImageBytes, needCache);
             }
             return null;
         }

@@ -20,10 +20,10 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.b.b.b.a.a f66965a;
+    public c.b.b.b.a.a f67000a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f66966b;
+    public volatile boolean f67001b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class c extends a {
                 return;
             }
         }
-        this.f66966b = c();
+        this.f67001b = c();
     }
 
     private boolean c() {
@@ -55,8 +55,8 @@ public class c extends a {
                 aVar2.c(1);
                 c.b.b.b.a.b.b(a2, aVar2.e());
                 e();
-                if (this.f66965a != null) {
-                    this.f66965a.d(a3);
+                if (this.f67000a != null) {
+                    this.f67000a.d(a3);
                 }
                 return true;
             } catch (Throwable th) {
@@ -73,10 +73,10 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             synchronized (this) {
-                if (!this.f66966b) {
-                    this.f66966b = c();
+                if (!this.f67001b) {
+                    this.f67001b = c();
                 }
-                z = this.f66966b;
+                z = this.f67001b;
             }
             return z;
         }
@@ -85,8 +85,8 @@ public class c extends a {
 
     private void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f66965a == null) {
-            this.f66965a = c.b.b.b.a.b.a("1371");
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f67000a == null) {
+            this.f67000a = c.b.b.b.a.b.a("1371");
         }
     }
 
@@ -95,7 +95,7 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && d()) {
             e();
-            c.b.b.b.a.a aVar = this.f66965a;
+            c.b.b.b.a.a aVar = this.f67000a;
             if (aVar != null) {
                 aVar.d(str);
             }
@@ -107,7 +107,7 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && d()) {
             e();
-            c.b.b.b.a.a aVar = this.f66965a;
+            c.b.b.b.a.a aVar = this.f67000a;
             if (aVar != null) {
                 aVar.a(str);
             }
@@ -123,7 +123,7 @@ public class c extends a {
                 return new HashMap();
             }
             e();
-            c.b.b.b.a.a aVar = this.f66965a;
+            c.b.b.b.a.a aVar = this.f67000a;
             if (aVar != null) {
                 return aVar.c(str, bArr);
             }
@@ -139,7 +139,7 @@ public class c extends a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (d()) {
                 e();
-                c.b.b.b.a.a aVar = this.f66965a;
+                c.b.b.b.a.a aVar = this.f67000a;
                 return aVar != null ? aVar.b() : "";
             }
             return "";

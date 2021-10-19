@@ -1,61 +1,46 @@
 package c.a.r0.c4.k;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.fragment.app.Fragment;
+import android.text.TextUtils;
+import c.a.r0.q0.c.d.a;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.write.album.AlbumImageBrowseFragment;
-import com.baidu.tieba.write.album.ImageListFragment;
-import com.baidu.tieba.write.album.TbCameraView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.view.cloudmusic.MusicPlayer;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.view.cloudmusic.model.CloudMusicListModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes3.dex */
-public class a extends c.a.e.a.d<BaseFragmentActivity> {
+public class a implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f16715a;
+    public final CloudMusicListModel f16442a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f16716b;
+    public final f f16443b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f16717c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Fragment[] f16718d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String[] f16719e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageListFragment f16720f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public AlbumImageBrowseFragment f16721g;
+    public MusicPlayer f16444c;
 
     /* renamed from: c.a.r0.c4.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0804a implements TbCameraView.g {
+    public class C0785a implements c.a.r0.c4.k.j.a<CloudMusicData.MusicTagList> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbCameraView f16722a;
+        public final /* synthetic */ a f16445a;
 
-        public C0804a(a aVar, TbCameraView tbCameraView) {
+        public C0785a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, tbCameraView};
+                Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -65,267 +50,269 @@ public class a extends c.a.e.a.d<BaseFragmentActivity> {
                     return;
                 }
             }
-            this.f16722a = tbCameraView;
+            this.f16445a = aVar;
         }
 
-        @Override // com.baidu.tieba.write.album.TbCameraView.g
-        public void a() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // c.a.r0.c4.k.j.a
+        /* renamed from: b */
+        public void a(CloudMusicData.MusicTagList musicTagList) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f16722a.stopCamera();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, musicTagList) == null) {
+                this.f16445a.f16443b.displayLoadingMore(false);
+                if (!ListUtils.isEmpty(musicTagList.music_list) || musicTagList.page.pn != 1) {
+                    this.f16445a.f16443b.displayNoDataView(false);
+                    this.f16445a.f16443b.showMusicListData(musicTagList);
+                } else {
+                    this.f16445a.f16443b.displayNoDataView(true);
+                }
+                if (musicTagList.page.has_more == 0) {
+                    this.f16445a.f16443b.displayNoMore();
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(TbPageContext tbPageContext, e eVar) {
-        super(tbPageContext);
+    /* loaded from: classes3.dex */
+    public class b implements a.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f16446a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ int f16447b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ a f16448c;
+
+        /* renamed from: c.a.r0.c4.k.a$b$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C0786a implements MusicPlayer.b {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ String f16449a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ b f16450b;
+
+            public C0786a(b bVar, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, str};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f16450b = bVar;
+                this.f16449a = str;
+            }
+
+            @Override // com.baidu.tieba.view.cloudmusic.MusicPlayer.b
+            public void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.f16450b.f16448c.f16444c.f();
+                    if (this.f16449a.startsWith("/")) {
+                        File file = new File(this.f16449a);
+                        if (file.exists()) {
+                            file.delete();
+                        }
+                        c.a.r0.q0.c.d.a.h().e();
+                        b bVar = this.f16450b;
+                        bVar.f16448c.a(bVar.f16446a, bVar.f16447b);
+                    }
+                }
+            }
+        }
+
+        public b(a aVar, CloudMusicData.MusicTagList.MusicList musicList, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, musicList, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16448c = aVar;
+            this.f16446a = musicList;
+            this.f16447b = i2;
+        }
+
+        @Override // c.a.r0.q0.c.d.a.b
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.f16448c.f16443b.downloadError(this.f16447b);
+            }
+        }
+
+        @Override // c.a.r0.q0.c.d.a.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.f16448c.f16443b.downloadCancel(this.f16447b);
+            }
+        }
+
+        @Override // c.a.r0.q0.c.d.a.b
+        public void c(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+                if (!TextUtils.isEmpty(str2)) {
+                    str = str2;
+                }
+                this.f16448c.f16444c.e(str, this.f16446a, new C0786a(this, str));
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements MusicPlayer.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ String f16451a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f16452b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ int f16453c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ a f16454d;
+
+        public c(a aVar, String str, CloudMusicData.MusicTagList.MusicList musicList, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, str, musicList, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16454d = aVar;
+            this.f16451a = str;
+            this.f16452b = musicList;
+            this.f16453c = i2;
+        }
+
+        @Override // com.baidu.tieba.view.cloudmusic.MusicPlayer.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f16454d.f16444c.f();
+                if (this.f16451a.startsWith("/")) {
+                    File file = new File(this.f16451a);
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                    c.a.r0.q0.c.d.a.h().e();
+                    this.f16454d.a(this.f16452b, this.f16453c);
+                }
+            }
+        }
+    }
+
+    public a(CloudMusicListModel cloudMusicListModel, f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, eVar};
+            Object[] objArr = {cloudMusicListModel, fVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((c.a.e.a.f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f16715a = "tag_image";
-        this.f16716b = "tag_b_image";
-        this.f16717c = eVar;
+        this.f16442a = cloudMusicListModel;
+        this.f16443b = fVar;
+        fVar.setPresenter(this);
+        this.f16444c = MusicPlayer.c();
     }
 
-    public View c() {
-        InterceptResult invokeV;
+    @Override // c.a.r0.c4.k.e
+    public void a(CloudMusicData.MusicTagList.MusicList musicList, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AlbumImageBrowseFragment albumImageBrowseFragment = this.f16721g;
-            if (albumImageBrowseFragment == null) {
-                return null;
-            }
-            return albumImageBrowseFragment.getBackBtn();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ImageListFragment imageListFragment = this.f16720f;
-            if (imageListFragment == null) {
-                return null;
-            }
-            return imageListFragment.getBackBtn();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AlbumImageBrowseFragment albumImageBrowseFragment = this.f16721g;
-            if (albumImageBrowseFragment == null) {
-                return null;
-            }
-            return albumImageBrowseFragment.getBtnNext();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ImageListFragment imageListFragment = this.f16720f;
-            if (imageListFragment == null) {
-                return null;
-            }
-            return imageListFragment.getBtnNextStep();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public TbCameraView g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ImageListFragment imageListFragment = this.f16720f;
-            if (imageListFragment == null) {
-                return null;
-            }
-            return imageListFragment.getCameraView();
-        }
-        return (TbCameraView) invokeV.objValue;
-    }
-
-    public Fragment h(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            if (i2 < 0 || i2 > 1) {
-                return null;
-            }
-            return this.f16718d[i2];
-        }
-        return (Fragment) invokeI.objValue;
-    }
-
-    public String i(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (i2 < 0 || i2 > 1) {
-                return null;
-            }
-            return this.f16719e[i2];
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public ImageListFragment j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f16720f : (ImageListFragment) invokeV.objValue;
-    }
-
-    public View k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ImageListFragment imageListFragment = this.f16720f;
-            if (imageListFragment == null) {
-                return null;
-            }
-            return imageListFragment.getOriginSelectBtn();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            AlbumImageBrowseFragment albumImageBrowseFragment = this.f16721g;
-            if (albumImageBrowseFragment == null) {
-                return null;
-            }
-            return albumImageBrowseFragment.getOriginSelectBtn();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f16718d = new Fragment[2];
-            this.f16719e = new String[2];
-            ImageListFragment imageListFragment = new ImageListFragment();
-            this.f16720f = imageListFragment;
-            imageListFragment.setAlbumView(this.f16717c);
-            this.f16718d[0] = this.f16720f;
-            this.f16719e[0] = this.f16715a;
-            AlbumImageBrowseFragment albumImageBrowseFragment = new AlbumImageBrowseFragment();
-            this.f16721g = albumImageBrowseFragment;
-            albumImageBrowseFragment.setAlbumView(this.f16717c);
-            this.f16718d[1] = this.f16721g;
-            this.f16719e[1] = this.f16716b;
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            TbCameraView g2 = g();
-            if (g2 != null) {
-                g2.setOnOpenCameraFailedListener(new C0804a(this, g2));
-                g2.openCamera(false);
-                g2.setVisibility(0);
-            }
-            ImageListFragment imageListFragment = this.f16720f;
-            if (imageListFragment == null || imageListFragment.getGridView() == null) {
-                return;
-            }
-            this.f16720f.getGridView().smoothScroll();
-        }
-    }
-
-    public void onChangeSkinType(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeI(1048589, this, i2) != null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, musicList, i2) == null) || musicList == null || TextUtils.isEmpty(musicList.resource)) {
             return;
         }
-        int i3 = 0;
-        while (true) {
-            Fragment[] fragmentArr = this.f16718d;
-            if (i3 >= fragmentArr.length) {
-                return;
-            }
-            if (fragmentArr[i3] != null && (fragmentArr[i3] instanceof ImageListFragment)) {
-                ((ImageListFragment) fragmentArr[i3]).onChangeSkinType(i2);
-            }
-            i3++;
-        }
-    }
-
-    public void p() {
-        ImageListFragment imageListFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (imageListFragment = this.f16720f) == null) {
+        String g2 = c.a.r0.q0.c.d.a.h().g(musicList.resource);
+        if (TextUtils.isEmpty(g2)) {
+            this.f16443b.showMusicLoading(i2);
+            c.a.r0.q0.c.d.a.h().f(String.valueOf(musicList.music_id), musicList.resource, new b(this, musicList, i2));
             return;
         }
-        imageListFragment.loadAlbumMediaList();
+        this.f16444c.e(g2, musicList, new c(this, g2, musicList, i2));
     }
 
-    public void q(boolean z) {
+    @Override // c.a.r0.c4.k.e
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            AlbumImageBrowseFragment albumImageBrowseFragment = this.f16721g;
-            if (albumImageBrowseFragment != null) {
-                albumImageBrowseFragment.selectOriginalImg(z);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f16442a.A();
+        }
+    }
+
+    @Override // c.a.r0.c4.k.e
+    public void c(CloudMusicData.MusicTagList musicTagList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, musicTagList) == null) {
+            if (ListUtils.isEmpty(musicTagList.music_list)) {
+                this.f16443b.displayNoDataView(true);
+            } else {
+                this.f16443b.displayNoDataView(false);
+                this.f16443b.showMusicListData(musicTagList);
             }
-            ImageListFragment imageListFragment = this.f16720f;
-            if (imageListFragment != null) {
-                imageListFragment.selectOriginalImg(z);
+            if (musicTagList.page.has_more == 0) {
+                this.f16443b.displayNoMore();
             }
         }
     }
 
-    public void r(NavigationBar navigationBar) {
+    @Override // c.a.r0.c4.k.e
+    public void cancelLoadData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, navigationBar) == null) {
-            this.f16720f.setNavBar(navigationBar);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f16442a.cancelLoadData();
         }
     }
 
-    public void s(j jVar) {
-        ImageListFragment imageListFragment;
+    @Override // c.a.r0.c4.k.e
+    public void d(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, jVar) == null) || (imageListFragment = this.f16720f) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.f16443b.displayLoadingMore(true);
+            this.f16442a.y(i2, new C0785a(this));
         }
-        imageListFragment.setVideoCompressController(jVar);
-    }
-
-    public void t() {
-        TbCameraView g2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (g2 = g()) == null) {
-            return;
-        }
-        g2.stopCamera();
-        g2.setVisibility(4);
     }
 }

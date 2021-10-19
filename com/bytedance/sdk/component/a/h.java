@@ -18,7 +18,7 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l f64440a;
+    public l f64475a;
 
     public h(l lVar) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class h {
                 return;
             }
         }
-        this.f64440a = lVar;
+        this.f64475a = lVar;
     }
 
     public static h a(l lVar) {
@@ -51,7 +51,7 @@ public class h {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, type)) == null) {
             a(str);
             if (!type.equals(JSONObject.class) && (!(type instanceof Class) || !JSONObject.class.isAssignableFrom((Class) type))) {
-                return (T) this.f64440a.a(str, type);
+                return (T) this.f64475a.a(str, type);
             }
             return (T) new JSONObject(str);
         }
@@ -68,7 +68,7 @@ public class h {
                 return StringUtil.EMPTY_ARRAY;
             }
             if (!(t instanceof JSONObject) && !(t instanceof JSONArray)) {
-                obj = this.f64440a.a(t);
+                obj = this.f64475a.a(t);
             } else {
                 obj = t.toString();
             }

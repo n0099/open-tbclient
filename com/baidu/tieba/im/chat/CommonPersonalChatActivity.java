@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.k1.w.c;
+import c.a.r0.l1.w.c;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;

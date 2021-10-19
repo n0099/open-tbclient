@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.n0;
+import c.a.q0.d1.m0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
@@ -25,22 +25,22 @@ public class e implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f14418e;
+    public Activity f14438e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f14419f;
+    public View f14439f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f14420g;
+    public ViewGroup f14440g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f14421h;
+    public View f14441h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f14422i;
+    public TextView f14442i;
 
     /* renamed from: j  reason: collision with root package name */
-    public WindowManager f14423j;
+    public WindowManager f14443j;
     public WindowManager.LayoutParams k;
     public int l;
     public int m;
@@ -59,7 +59,7 @@ public class e implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f14424e;
+        public final /* synthetic */ e f14444e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -76,14 +76,14 @@ public class e implements View.OnClickListener {
                     return;
                 }
             }
-            this.f14424e = eVar;
+            this.f14444e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f14424e.e();
+                this.f14444e.e();
             }
         }
     }
@@ -109,29 +109,29 @@ public class e implements View.OnClickListener {
         if (activity == null) {
             return;
         }
-        this.f14418e = activity;
+        this.f14438e = activity;
         this.r = c.a.e.e.p.l.g(activity, R.dimen.tbds114);
         this.p = c.a.e.e.p.l.g(activity, R.dimen.tbds84);
         this.q = c.a.e.e.p.l.g(activity, R.dimen.tbds44);
         this.m = c.a.e.e.p.l.g(activity, R.dimen.tbds222);
         this.l = c.a.e.e.p.l.g(activity, R.dimen.tbds29);
         View inflate = LayoutInflater.from(activity).inflate(R.layout.text_toast_layout, (ViewGroup) null);
-        this.f14420g = (ViewGroup) inflate.findViewById(R.id.layout_container);
-        this.f14421h = inflate.findViewById(R.id.background);
-        this.f14422i = (TextView) inflate.findViewById(R.id.toast_tv);
-        this.f14419f = inflate;
-        this.f14421h.setBackgroundDrawable(b());
-        this.f14422i.setMaxLines(1);
-        this.f14422i.setGravity(17);
-        this.f14422i.setTextSize(0, c.a.e.e.p.l.g(activity, R.dimen.tbfontsize40));
-        this.f14422i.setTextColor(this.f14418e.getResources().getColor(R.color.CAM_X0101));
-        TextView textView = this.f14422i;
+        this.f14440g = (ViewGroup) inflate.findViewById(R.id.layout_container);
+        this.f14441h = inflate.findViewById(R.id.background);
+        this.f14442i = (TextView) inflate.findViewById(R.id.toast_tv);
+        this.f14439f = inflate;
+        this.f14441h.setBackgroundDrawable(b());
+        this.f14442i.setMaxLines(1);
+        this.f14442i.setGravity(17);
+        this.f14442i.setTextSize(0, c.a.e.e.p.l.g(activity, R.dimen.tbfontsize40));
+        this.f14442i.setTextColor(this.f14438e.getResources().getColor(R.color.CAM_X0101));
+        TextView textView = this.f14442i;
         int i4 = this.q;
         textView.setPadding(i4, 0, i4, 0);
-        this.f14423j = (WindowManager) this.f14418e.getSystemService("window");
+        this.f14443j = (WindowManager) this.f14438e.getSystemService("window");
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         this.k = layoutParams;
-        layoutParams.width = c.a.e.e.p.l.k(this.f14418e) - (this.l * 2);
+        layoutParams.width = c.a.e.e.p.l.k(this.f14438e) - (this.l * 2);
         WindowManager.LayoutParams layoutParams2 = this.k;
         layoutParams2.height = this.r;
         layoutParams2.type = 1000;
@@ -158,13 +158,13 @@ public class e implements View.OnClickListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f14418e != null && !TextUtils.isEmpty(str)) {
-                String e2 = n0.e(str, 34);
-                int t = c.a.e.e.p.l.t(this.f14422i.getPaint(), e2);
-                ViewGroup.LayoutParams layoutParams = this.f14420g.getLayoutParams();
+            if (this.f14438e != null && !TextUtils.isEmpty(str)) {
+                String e2 = m0.e(str, 34);
+                int t = c.a.e.e.p.l.t(this.f14442i.getPaint(), e2);
+                ViewGroup.LayoutParams layoutParams = this.f14440g.getLayoutParams();
                 layoutParams.width = t + (this.q * 2);
-                this.f14420g.setLayoutParams(layoutParams);
-                this.f14422i.setText(e2);
+                this.f14440g.setLayoutParams(layoutParams);
+                this.f14442i.setText(e2);
             }
             return this;
         }
@@ -187,7 +187,7 @@ public class e implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{c.a.r0.p1.o.k.b.b("#FF722B"), c.a.r0.p1.o.k.b.b("#FF2b5D")});
+            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{c.a.r0.q1.o.k.b.b("#FF722B"), c.a.r0.q1.o.k.b.b("#FF2b5D")});
             gradientDrawable.setCornerRadius(this.p);
             return gradientDrawable;
         }
@@ -197,15 +197,15 @@ public class e implements View.OnClickListener {
     public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m + UtilHelper.getNavigationBarHeight(this.f14418e) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m + UtilHelper.getNavigationBarHeight(this.f14438e) : invokeV.intValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             c.a.e.e.m.e.a().removeCallbacks(this.u);
-            if (this.f14419f.getWindowToken() != null) {
-                this.f14423j.removeView(this.f14419f);
+            if (this.f14439f.getWindowToken() != null) {
+                this.f14443j.removeView(this.f14439f);
             }
         }
     }
@@ -232,8 +232,8 @@ public class e implements View.OnClickListener {
     public void i(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-            this.f14420g.setTag(obj);
-            this.f14420g.setOnClickListener(this);
+            this.f14440g.setTag(obj);
+            this.f14440g.setOnClickListener(this);
         }
     }
 
@@ -242,11 +242,11 @@ public class e implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             c.a.e.e.m.e.a().removeCallbacks(this.u);
-            View view = this.f14419f;
+            View view = this.f14439f;
             if (view != null && view.getWindowToken() != null) {
-                this.f14423j.removeView(this.f14419f);
+                this.f14443j.removeView(this.f14439f);
             }
-            this.f14423j.addView(this.f14419f, this.k);
+            this.f14443j.addView(this.f14439f, this.k);
             c.a.e.e.m.e.a().postDelayed(this.u, this.o);
             return this;
         }

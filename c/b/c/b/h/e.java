@@ -22,7 +22,7 @@ public final class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f31586a;
+    public Context f31590a;
 
     /* loaded from: classes4.dex */
     public class a implements FilenameFilter {
@@ -68,7 +68,7 @@ public final class e {
                 return;
             }
         }
-        this.f31586a = context;
+        this.f31590a = context;
     }
 
     public final com.bytedance.tea.crash.c a(String str, JSONObject jSONObject) {
@@ -79,17 +79,17 @@ public final class e {
                 return null;
             }
             if (str.startsWith("launch_")) {
-                return com.bytedance.tea.crash.c.f69218a;
+                return com.bytedance.tea.crash.c.f69253a;
             }
             if (str.startsWith("anr_")) {
-                return com.bytedance.tea.crash.c.f69221d;
+                return com.bytedance.tea.crash.c.f69256d;
             }
             if (str.startsWith("java_")) {
                 if (jSONObject.optInt("is_dart") == 1) {
-                    return com.bytedance.tea.crash.c.f69224g;
+                    return com.bytedance.tea.crash.c.f69259g;
                 }
                 if (jSONObject.optInt("isJava") == 1) {
-                    return com.bytedance.tea.crash.c.f69219b;
+                    return com.bytedance.tea.crash.c.f69254b;
                 }
             }
             return null;
@@ -101,12 +101,12 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                SharedPreferences sharedPreferences = this.f31586a.getSharedPreferences("npth", 0);
+                SharedPreferences sharedPreferences = this.f31590a.getSharedPreferences("npth", 0);
                 long j2 = sharedPreferences.getLong("history_time", -1L);
                 if (j2 < 0) {
                     sharedPreferences.edit().putLong("history_time", System.currentTimeMillis()).apply();
                 } else if (System.currentTimeMillis() - j2 > 86400000) {
-                    l.e.f(l.i.c(this.f31586a));
+                    l.e.f(l.i.c(this.f31590a));
                     sharedPreferences.edit().putLong("history_time", System.currentTimeMillis()).apply();
                 }
             } catch (Exception e2) {
@@ -144,7 +144,7 @@ public final class e {
     public final void e() {
         File[] d2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (d2 = d(l.i.a(this.f31586a), ".npth")) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (d2 = d(l.i.a(this.f31590a), ".npth")) == null) {
             return;
         }
         Arrays.sort(d2, Collections.reverseOrder());

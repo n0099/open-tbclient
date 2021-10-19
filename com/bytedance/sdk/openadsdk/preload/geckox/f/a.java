@@ -20,22 +20,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f69056a;
+    public String f69091a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f69057b;
+    public String f69092b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile File f69058c;
+    public volatile File f69093c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile Long f69059d;
+    public volatile Long f69094d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.preload.geckox.f.a.a f69060e;
+    public volatile com.bytedance.sdk.openadsdk.preload.geckox.f.a.a f69095e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f69061f;
+    public AtomicBoolean f69096f;
 
     public a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -52,9 +52,9 @@ public class a {
                 return;
             }
         }
-        this.f69061f = new AtomicBoolean(false);
-        this.f69056a = str2;
-        this.f69057b = str3;
+        this.f69096f = new AtomicBoolean(false);
+        this.f69091a = str2;
+        this.f69092b = str3;
     }
 
     private synchronized com.bytedance.sdk.openadsdk.preload.geckox.f.a.a c(String str) throws Exception {
@@ -62,21 +62,21 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
             synchronized (this) {
-                if (this.f69060e != null) {
-                    return this.f69060e;
+                if (this.f69095e != null) {
+                    return this.f69095e;
                 }
                 File d2 = d(str);
                 if (d2 != null) {
                     File file = new File(d2, "res.macv");
                     File file2 = new File(d2, UriUtil.LOCAL_RESOURCE_SCHEME);
                     if (file2.exists() && file2.isDirectory()) {
-                        this.f69060e = new c(d2);
+                        this.f69095e = new c(d2);
                     } else if (file.exists() && file.isFile()) {
-                        this.f69060e = new com.bytedance.sdk.openadsdk.preload.geckox.f.a.b(d2);
+                        this.f69095e = new com.bytedance.sdk.openadsdk.preload.geckox.f.a.b(d2);
                     } else {
                         throw new RuntimeException("can not find res, dir:" + d2.getAbsolutePath());
                     }
-                    return this.f69060e;
+                    return this.f69095e;
                 }
                 throw new FileNotFoundException("channel no exist，channel:" + str);
             }
@@ -89,24 +89,24 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             synchronized (this) {
-                if (this.f69058c != null) {
-                    return this.f69058c;
+                if (this.f69093c != null) {
+                    return this.f69093c;
                 }
-                if (this.f69059d == null || this.f69059d.longValue() != -1) {
-                    com.bytedance.sdk.openadsdk.preload.geckox.g.b a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(this.f69056a + File.separator + str + File.separator + "select.lock");
-                    if (this.f69059d == null) {
-                        this.f69059d = k.a(new File(this.f69056a, str));
+                if (this.f69094d == null || this.f69094d.longValue() != -1) {
+                    com.bytedance.sdk.openadsdk.preload.geckox.g.b a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(this.f69091a + File.separator + str + File.separator + "select.lock");
+                    if (this.f69094d == null) {
+                        this.f69094d = k.a(new File(this.f69091a, str));
                     }
-                    if (this.f69059d == null) {
-                        this.f69059d = -1L;
+                    if (this.f69094d == null) {
+                        this.f69094d = -1L;
                         a2.a();
                         return null;
                     }
-                    String str2 = this.f69056a;
-                    File file = new File(str2, File.separator + str + File.separator + this.f69059d + File.separator + "using.lock");
-                    this.f69058c = file.getParentFile();
+                    String str2 = this.f69091a;
+                    File file = new File(str2, File.separator + str + File.separator + this.f69094d + File.separator + "using.lock");
+                    this.f69093c = file.getParentFile();
                     com.bytedance.sdk.openadsdk.preload.geckox.g.c.a(file.getAbsolutePath());
-                    File file2 = this.f69058c;
+                    File file2 = this.f69093c;
                     a2.a();
                     return file2;
                 }
@@ -119,13 +119,13 @@ public class a {
     public final InputStream a(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? c(this.f69057b).a(a(this.f69057b, str)) : (InputStream) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? c(this.f69092b).a(a(this.f69092b, str)) : (InputStream) invokeL.objValue;
     }
 
     public final boolean b(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? c(this.f69057b).b(a(this.f69057b, str)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? c(this.f69092b).b(a(this.f69092b, str)) : invokeL.booleanValue;
     }
 
     private String a(String str, String str2) {
@@ -137,15 +137,15 @@ public class a {
     private void b() throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            com.bytedance.sdk.openadsdk.preload.geckox.g.b a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(this.f69056a + File.separator + this.f69057b + File.separator + "select.lock");
+            com.bytedance.sdk.openadsdk.preload.geckox.g.b a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(this.f69091a + File.separator + this.f69092b + File.separator + "select.lock");
             com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-file-lock", "channel version loader clean");
             try {
-                if (this.f69058c == null) {
+                if (this.f69093c == null) {
                     return;
                 }
-                com.bytedance.sdk.openadsdk.preload.geckox.g.c.b(this.f69058c.getAbsolutePath() + File.separator + "using.lock");
+                com.bytedance.sdk.openadsdk.preload.geckox.g.c.b(this.f69093c.getAbsolutePath() + File.separator + "using.lock");
                 a2.a();
-                com.bytedance.sdk.openadsdk.preload.geckox.a.c.a(this.f69056a + File.separator + this.f69057b);
+                com.bytedance.sdk.openadsdk.preload.geckox.a.c.a(this.f69091a + File.separator + this.f69092b);
             } finally {
                 a2.a();
             }
@@ -154,7 +154,7 @@ public class a {
 
     public void a() throws Exception {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f69061f.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f69096f.getAndSet(true)) {
             return;
         }
         b();

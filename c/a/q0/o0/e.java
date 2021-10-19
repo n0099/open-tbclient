@@ -23,17 +23,17 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static e f13634d;
+    public static e f13654d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13635a;
+    public boolean f13655a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13636b;
+    public int f13656b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f13637c;
+    public boolean f13657c;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.q0.o0.b {
@@ -83,7 +83,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f13638a;
+        public final /* synthetic */ e f13658a;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -100,14 +100,14 @@ public class e {
                     return;
                 }
             }
-            this.f13638a = eVar;
+            this.f13658a = eVar;
         }
 
         @Override // c.a.q0.o0.b
         public int getMaxCost() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13638a.f13636b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13658a.f13656b : invokeV.intValue;
         }
 
         @Override // c.a.q0.o0.b
@@ -149,22 +149,22 @@ public class e {
                 return;
             }
         }
-        this.f13635a = false;
-        this.f13637c = false;
+        this.f13655a = false;
+        this.f13657c = false;
     }
 
     public static e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f13634d == null) {
+            if (f13654d == null) {
                 synchronized (e.class) {
-                    if (f13634d == null) {
-                        f13634d = new e();
+                    if (f13654d == null) {
+                        f13654d = new e();
                     }
                 }
             }
-            return f13634d;
+            return f13654d;
         }
         return (e) invokeV.objValue;
     }
@@ -176,7 +176,7 @@ public class e {
             if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
                 return c.a.q0.s.d0.b.j().k("page_stay_max_cost", 0);
             }
-            return this.f13636b;
+            return this.f13656b;
         }
         return invokeV.intValue;
     }
@@ -203,34 +203,34 @@ public class e {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13635a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13655a : invokeV.booleanValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13637c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13657c : invokeV.booleanValue;
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f13636b = i2;
-            c.a.q0.s.d0.b.j().v("page_stay_max_cost", this.f13636b);
+            this.f13656b = i2;
+            c.a.q0.s.d0.b.j().v("page_stay_max_cost", this.f13656b);
         }
     }
 
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f13635a = z;
+            this.f13655a = z;
         }
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f13637c = z;
+            this.f13657c = z;
         }
     }
 
@@ -239,7 +239,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, dVar, bVar) == null) || dVar == null || StringUtils.isNull(dVar.c())) {
             return;
         }
-        if (dVar.f13624a) {
+        if (dVar.f13644a) {
             if (bVar == null) {
                 bVar = new a(this);
             }
@@ -248,8 +248,8 @@ public class e {
                 statisticItem.param("obj_source", c.a(dVar.h()));
                 statisticItem.param("obj_locate", dVar.c());
                 statisticItem.param("obj_type", "0");
-                if (!StringUtils.isNull(dVar.f13632i)) {
-                    statisticItem.param("obj_id", dVar.f13632i);
+                if (!StringUtils.isNull(dVar.f13652i)) {
+                    statisticItem.param("obj_id", dVar.f13652i);
                 }
                 if (dVar.b() != 0) {
                     statisticItem.param("ad_source", dVar.b());
@@ -268,6 +268,12 @@ public class e {
             statisticItem2.param("obj_source", c.a(dVar.h()));
             statisticItem2.param("obj_type", dVar.c());
             statisticItem2.param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(dVar.i()));
+            if (!StringUtils.isNull(dVar.n())) {
+                statisticItem2.param("topic_id", dVar.n());
+            }
+            if (!StringUtils.isNull(dVar.o())) {
+                statisticItem2.param(TiebaStatic.Params.TOPIC_TYPE, dVar.o());
+            }
             if (dVar.d() > 0) {
                 statisticItem2.param("fid", String.valueOf(dVar.d()));
             }
@@ -289,14 +295,14 @@ public class e {
             if (!StringUtils.isNull(dVar.l)) {
                 statisticItem2.param(TiebaStatic.Params.IS_VERTICAL, dVar.l);
             }
-            if (!StringUtils.isNull(dVar.p)) {
-                statisticItem2.param("is_dynamic", dVar.p);
-            }
-            if (!StringUtils.isNull(dVar.q)) {
-                statisticItem2.param(TiebaStatic.Params.RESOURCE_ID, dVar.q);
-            }
             if (!StringUtils.isNull(dVar.r)) {
-                statisticItem2.param("resource_type", dVar.r);
+                statisticItem2.param("is_dynamic", dVar.r);
+            }
+            if (!StringUtils.isNull(dVar.s)) {
+                statisticItem2.param(TiebaStatic.Params.RESOURCE_ID, dVar.s);
+            }
+            if (!StringUtils.isNull(dVar.t)) {
+                statisticItem2.param("resource_type", dVar.t);
             }
             if (!k.isEmpty(dVar.j())) {
                 statisticItem2.param("task_id", String.valueOf(dVar.j()));
@@ -305,11 +311,11 @@ public class e {
                 statisticItem2.param("ab_tag", dVar.a());
             }
             if (g()) {
-                if (!StringUtils.isNull(dVar.f13632i)) {
-                    statisticItem2.param("obj_id", dVar.f13632i);
+                if (!StringUtils.isNull(dVar.f13652i)) {
+                    statisticItem2.param("obj_id", dVar.f13652i);
                 }
-                if (!StringUtils.isNull(dVar.f13633j)) {
-                    statisticItem2.param("obj_name", dVar.f13633j);
+                if (!StringUtils.isNull(dVar.f13653j)) {
+                    statisticItem2.param("obj_name", dVar.f13653j);
                 }
                 statisticItem2.param("obj_source", "a002");
             }

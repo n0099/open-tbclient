@@ -16,7 +16,7 @@ public class Anchor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f70540a;
+    public long f70575a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -138,7 +138,7 @@ public class Anchor {
                 return;
             }
         }
-        this.f70540a = 0L;
+        this.f70575a = 0L;
     }
 
     private native void nativeDetach(long j2, long j3);
@@ -156,13 +156,13 @@ public class Anchor {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == Anchor.class && ((Anchor) obj).f70540a == this.f70540a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == Anchor.class && ((Anchor) obj).f70575a == this.f70575a : invokeL.booleanValue;
     }
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j2 = this.f70540a;
+            long j2 = this.f70575a;
             if (j2 != 0) {
                 nativeReleaseAnchor(j2);
             }
@@ -173,6 +173,6 @@ public class Anchor {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f70540a).hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f70575a).hashCode() : invokeV.intValue;
     }
 }

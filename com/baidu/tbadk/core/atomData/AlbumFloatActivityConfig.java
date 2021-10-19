@@ -15,6 +15,8 @@ public class AlbumFloatActivityConfig extends AlbumActivityConfig {
     public static final String BAR_ID = "bar_id";
     public static final String BAR_NAME = "bar_name";
     public static final String CAN_CHANGE_BAR_NAME = "can_change_bar_name";
+    public static final String TOPIC = "topic";
+    public static final String TOPIC_ID = "topicId";
     public static final String VIDEO_ABSTRACT = "video_abstract";
     public static final String VIDEO_TITLE = "video_title";
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,16 +74,30 @@ public class AlbumFloatActivityConfig extends AlbumActivityConfig {
         getIntent().putExtra("anti_data", antiData);
     }
 
-    public void setVideoAbstract(String str) {
+    public void setTopic(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            getIntent().putExtra("topic", str);
+        }
+    }
+
+    public void setTopicId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            getIntent().putExtra("topicId", str);
+        }
+    }
+
+    public void setVideoAbstract(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             getIntent().putExtra(VIDEO_ABSTRACT, str);
         }
     }
 
     public void setVideoTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             getIntent().putExtra("video_title", str);
         }
     }

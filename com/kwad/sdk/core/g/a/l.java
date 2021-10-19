@@ -14,10 +14,10 @@ public class l implements com.kwad.sdk.core.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f72127a;
+    public long f72162a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f72128b;
+    public long f72163b;
 
     @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
@@ -32,8 +32,8 @@ public class l implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "photoId", this.f72127a);
-            q.a(jSONObject, URLPackage.KEY_AUTHOR_ID, this.f72128b);
+            q.a(jSONObject, "photoId", this.f72162a);
+            q.a(jSONObject, URLPackage.KEY_AUTHOR_ID, this.f72163b);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

@@ -100,7 +100,7 @@ public class c {
                     }
                     sb.append(aVar.f7269c);
                     if (aVar.f7270d != null) {
-                        sb.append(com.alipay.sdk.encrypt.a.f36022h);
+                        sb.append(com.alipay.sdk.encrypt.a.f36026h);
                         sb.append(aVar.f7270d);
                     }
                 }

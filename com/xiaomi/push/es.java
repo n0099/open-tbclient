@@ -20,7 +20,7 @@ public class es implements er.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile long f77899a;
+    public volatile long f77934a;
 
     /* renamed from: a  reason: collision with other field name */
     public PendingIntent f339a;
@@ -45,7 +45,7 @@ public class es implements er.a {
         }
         this.f339a = null;
         this.f340a = null;
-        this.f77899a = 0L;
+        this.f77934a = 0L;
         this.f340a = context;
     }
 
@@ -78,14 +78,14 @@ public class es implements er.a {
                 } catch (Throwable th) {
                     this.f339a = null;
                     com.xiaomi.channel.commonutils.logger.b.c("unregister timer");
-                    this.f77899a = 0L;
+                    this.f77934a = 0L;
                     throw th;
                 }
                 this.f339a = null;
                 com.xiaomi.channel.commonutils.logger.b.c("unregister timer");
-                this.f77899a = 0L;
+                this.f77934a = 0L;
             }
-            this.f77899a = 0L;
+            this.f77934a = 0L;
         }
     }
 
@@ -108,7 +108,7 @@ public class es implements er.a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x002e, code lost:
-        if (r7.f77899a < java.lang.System.currentTimeMillis()) goto L18;
+        if (r7.f77934a < java.lang.System.currentTimeMillis()) goto L18;
      */
     @Override // com.xiaomi.push.er.a
     /*
@@ -118,19 +118,19 @@ public class es implements er.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             long a2 = a();
-            if (z || this.f77899a != 0) {
+            if (z || this.f77934a != 0) {
                 if (z) {
                     a();
                 }
-                if (z || this.f77899a == 0) {
+                if (z || this.f77934a == 0) {
                     a2 -= SystemClock.elapsedRealtime() % a2;
                 } else {
-                    this.f77899a += a2;
+                    this.f77934a += a2;
                 }
-                this.f77899a = System.currentTimeMillis() + a2;
+                this.f77934a = System.currentTimeMillis() + a2;
                 Intent intent = new Intent(com.xiaomi.push.service.az.o);
                 intent.setPackage(this.f340a.getPackageName());
-                a(intent, this.f77899a);
+                a(intent, this.f77934a);
             }
         }
     }
@@ -139,6 +139,6 @@ public class es implements er.a {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f77899a != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f77934a != 0 : invokeV.booleanValue;
     }
 }

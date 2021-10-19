@@ -25,16 +25,16 @@ public class ProgressButton extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f44416e;
+    public TextView f44328e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f44417f;
+    public ImageView f44329f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f44418g;
+    public Animation f44330g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f44419h;
+    public boolean f44331h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ProgressButton(Context context) {
@@ -61,11 +61,11 @@ public class ProgressButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             LayoutInflater.from(context).inflate(g.button_progress, (ViewGroup) this, true);
-            this.f44416e = (TextView) findViewById(f.text_view);
-            this.f44417f = (ImageView) findViewById(f.progress_bar);
-            this.f44418g = AnimationUtils.loadAnimation(context, b.loading_rotate);
+            this.f44328e = (TextView) findViewById(f.text_view);
+            this.f44329f = (ImageView) findViewById(f.progress_bar);
+            this.f44330g = AnimationUtils.loadAnimation(context, b.loading_rotate);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, j.ProgressButton);
-            this.f44416e.setTextColor(obtainStyledAttributes.getColor(j.ProgressButton_textColor, -1));
+            this.f44328e.setTextColor(obtainStyledAttributes.getColor(j.ProgressButton_textColor, -1));
             obtainStyledAttributes.recycle();
         }
     }
@@ -74,7 +74,7 @@ public class ProgressButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             super.setEnabled(z);
-            this.f44419h = z;
+            this.f44331h = z;
         }
     }
 
@@ -83,7 +83,7 @@ public class ProgressButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             super.setPressed(z);
-            if (this.f44419h) {
+            if (this.f44331h) {
                 setAlpha(z ? 0.2f : 1.0f);
             } else {
                 setAlpha(0.2f);
@@ -94,18 +94,18 @@ public class ProgressButton extends FrameLayout {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f44416e.setText(str);
-            this.f44417f.setVisibility(4);
-            this.f44416e.setVisibility(0);
+            this.f44328e.setText(str);
+            this.f44329f.setVisibility(4);
+            this.f44328e.setVisibility(0);
         }
     }
 
     public void startLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f44417f.setVisibility(0);
-            this.f44417f.startAnimation(this.f44418g);
-            this.f44416e.setVisibility(4);
+            this.f44329f.setVisibility(0);
+            this.f44329f.startAnimation(this.f44330g);
+            this.f44328e.setVisibility(4);
         }
     }
 

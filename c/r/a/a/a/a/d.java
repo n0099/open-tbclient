@@ -12,7 +12,7 @@ public class d implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ b f35494a;
+    public /* synthetic */ b f35498a;
 
     public d(b bVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class d implements a {
                 return;
             }
         }
-        this.f35494a = bVar;
+        this.f35498a = bVar;
     }
 
     public static String b(String str, String str2) {
@@ -60,7 +60,7 @@ public class d implements a {
                 if (z || bVar != null) {
                     b2 = bVar.b();
                     if (!TextUtils.isEmpty(b2)) {
-                        b.f35484f = b2;
+                        b.f35488f = b2;
                     }
                 } else {
                     c.r.a.a.c.b.c.b("not support OAID");
@@ -72,9 +72,9 @@ public class d implements a {
                 try {
                     c.r.a.a.c.b.c.c(th);
                     try {
-                        if (!TextUtils.isEmpty(b.f35484f) && !b.f35484f.startsWith("KWE")) {
-                            eVar2 = this.f35494a.f35490e;
-                            eVar2.d(b.f35484f);
+                        if (!TextUtils.isEmpty(b.f35488f) && !b.f35488f.startsWith("KWE")) {
+                            eVar2 = this.f35498a.f35494e;
+                            eVar2.d(b.f35488f);
                         }
                         if (bVar != null) {
                             bVar.d();
@@ -83,9 +83,9 @@ public class d implements a {
                     }
                 } finally {
                     try {
-                        if (!TextUtils.isEmpty(b.f35484f) && !b.f35484f.startsWith("KWE")) {
-                            eVar = this.f35494a.f35490e;
-                            eVar.d(b.f35484f);
+                        if (!TextUtils.isEmpty(b.f35488f) && !b.f35488f.startsWith("KWE")) {
+                            eVar = this.f35498a.f35494e;
+                            eVar.d(b.f35488f);
                         }
                         if (bVar != null) {
                             bVar.d();

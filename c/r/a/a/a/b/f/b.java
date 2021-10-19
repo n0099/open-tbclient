@@ -15,7 +15,7 @@ public final class b implements c.r.a.a.a.b.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f35519e;
+    public Context f35523e;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class b implements c.r.a.a.a.b.b {
                 return;
             }
         }
-        this.f35519e = context;
+        this.f35523e = context;
     }
 
     @Override // c.r.a.a.a.b.b
@@ -63,7 +63,7 @@ public final class b implements c.r.a.a.a.b.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String d2 = a.a(this.f35519e).d();
+            String d2 = a.a(this.f35523e).d();
             return TextUtils.isEmpty(d2) ? "" : d2;
         }
         return (String) invokeV.objValue;
@@ -73,7 +73,7 @@ public final class b implements c.r.a.a.a.b.b {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.a(this.f35519e).c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.a(this.f35523e).c() : invokeV.booleanValue;
     }
 
     @Override // c.r.a.a.a.b.b

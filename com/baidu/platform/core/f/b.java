@@ -15,7 +15,7 @@ public class b extends com.baidu.platform.base.a implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetSuggestionResultListener f44402b;
+    public OnGetSuggestionResultListener f44314b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -30,16 +30,16 @@ public class b extends com.baidu.platform.base.a implements a {
                 return;
             }
         }
-        this.f44402b = null;
+        this.f44314b = null;
     }
 
     @Override // com.baidu.platform.core.f.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f44353a.lock();
-            this.f44402b = null;
-            this.f44353a.unlock();
+            this.f44265a.lock();
+            this.f44314b = null;
+            this.f44265a.unlock();
         }
     }
 
@@ -47,9 +47,9 @@ public class b extends com.baidu.platform.base.a implements a {
     public void a(OnGetSuggestionResultListener onGetSuggestionResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetSuggestionResultListener) == null) {
-            this.f44353a.lock();
-            this.f44402b = onGetSuggestionResultListener;
-            this.f44353a.unlock();
+            this.f44265a.lock();
+            this.f44314b = onGetSuggestionResultListener;
+            this.f44265a.unlock();
         }
     }
 
@@ -59,8 +59,8 @@ public class b extends com.baidu.platform.base.a implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, suggestionSearchOption)) == null) {
             c cVar = new c();
-            cVar.a(SearchType.f44348f);
-            return a(new d(suggestionSearchOption), this.f44402b, cVar);
+            cVar.a(SearchType.f44260f);
+            return a(new d(suggestionSearchOption), this.f44314b, cVar);
         }
         return invokeL.booleanValue;
     }

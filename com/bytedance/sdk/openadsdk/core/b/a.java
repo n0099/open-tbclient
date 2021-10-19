@@ -39,7 +39,7 @@ public class a extends b {
     public int H;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f66522a;
+    public boolean f66557a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(@NonNull Context context, @NonNull m mVar, @NonNull String str, int i2) {
@@ -60,7 +60,7 @@ public class a extends b {
                 return;
             }
         }
-        this.f66522a = true;
+        this.f66557a = true;
         this.E = false;
         this.F = false;
     }
@@ -77,8 +77,8 @@ public class a extends b {
         if (view instanceof NativeVideoTsView) {
             k.c("ClickCreativeListener", "NativeVideoTsView....");
             return true;
-        } else if (view.getId() != t.e(this.f66524b, "tt_video_ad_cover_center_layout") && view.getId() != t.e(this.f66524b, "tt_video_ad_logo_image") && view.getId() != t.e(this.f66524b, "tt_video_btn_ad_image_tv") && view.getId() != t.e(this.f66524b, "tt_video_ad_name") && view.getId() != t.e(this.f66524b, "tt_video_ad_button")) {
-            if (view.getId() != t.e(this.f66524b, "tt_root_view") && view.getId() != t.e(this.f66524b, "tt_video_play")) {
+        } else if (view.getId() != t.e(this.f66559b, "tt_video_ad_cover_center_layout") && view.getId() != t.e(this.f66559b, "tt_video_ad_logo_image") && view.getId() != t.e(this.f66559b, "tt_video_btn_ad_image_tv") && view.getId() != t.e(this.f66559b, "tt_video_ad_name") && view.getId() != t.e(this.f66559b, "tt_video_ad_button")) {
+            if (view.getId() != t.e(this.f66559b, "tt_root_view") && view.getId() != t.e(this.f66559b, "tt_video_play")) {
                 if (!(view instanceof ViewGroup)) {
                     return false;
                 }
@@ -107,8 +107,8 @@ public class a extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            m mVar = this.f66525c;
-            return mVar != null && mVar.h() == 1 && m.b(this.f66525c);
+            m mVar = this.f66560c;
+            return mVar != null && mVar.h() == 1 && m.b(this.f66560c);
         }
         return invokeV.booleanValue;
     }
@@ -123,11 +123,11 @@ public class a extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            if (this.f66525c == null || h() || !m.b(this.f66525c)) {
+            if (this.f66560c == null || h() || !m.b(this.f66560c)) {
                 return false;
             }
             if (this.H == 0) {
-                this.H = q.c(this.f66525c.ao());
+                this.H = q.c(this.f66560c.ao());
             }
             StringBuilder sb = new StringBuilder();
             sb.append("!isViewVisibility()=");
@@ -197,13 +197,13 @@ public class a extends b {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f66522a = z;
+            this.f66557a = z;
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.b.b, com.bytedance.sdk.openadsdk.core.b.c
     public void a(View view, int i2, int i3, int i4, int i5) {
-        b.InterfaceC1906b interfaceC1906b;
+        b.InterfaceC1908b interfaceC1908b;
         TTDrawFeedAd.DrawVideoListener drawVideoListener;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || a(2)) {
@@ -216,74 +216,74 @@ public class a extends b {
         }
         j();
         k.b("ClickCreativeListener", "走创意区域点击事件.....");
-        if (this.f66524b == null) {
-            this.f66524b = o.a();
+        if (this.f66559b == null) {
+            this.f66559b = o.a();
         }
-        if (this.f66524b == null) {
+        if (this.f66559b == null) {
             return;
         }
         long j2 = this.x;
         long j3 = this.y;
-        WeakReference<View> weakReference = this.f66528f;
+        WeakReference<View> weakReference = this.f66563f;
         View view2 = weakReference == null ? null : weakReference.get();
-        WeakReference<View> weakReference2 = this.f66529g;
-        this.f66530h = a(i2, i3, i4, i5, j2, j3, view2, weakReference2 == null ? null : weakReference2.get(), f());
-        int X = this.f66525c.X();
+        WeakReference<View> weakReference2 = this.f66564g;
+        this.f66565h = a(i2, i3, i4, i5, j2, j3, view2, weakReference2 == null ? null : weakReference2.get(), f());
+        int X = this.f66560c.X();
         if (X == 2 || X == 3) {
-            if (this.f66532j != null || this.E) {
-                com.bytedance.sdk.openadsdk.e.d.a(this.f66524b, "click_button", this.f66525c, this.f66530h, this.f66526d, true, this.n);
+            if (this.f66567j != null || this.E) {
+                com.bytedance.sdk.openadsdk.e.d.a(this.f66559b, "click_button", this.f66560c, this.f66565h, this.f66561d, true, this.n);
             }
             z.a(true);
-            Context context = this.f66524b;
-            m mVar = this.f66525c;
-            int i6 = this.f66527e;
-            boolean a2 = z.a(context, mVar, i6, this.f66532j, this.o, this.p, q.a(i6), this.m, true, this.n, this.r, b(this.f66526d));
-            if (this.f66522a) {
-                com.bytedance.sdk.openadsdk.e.d.a(this.f66524b, PrefetchEvent.STATE_CLICK, this.f66525c, this.f66530h, this.f66526d, a2, this.n);
+            Context context = this.f66559b;
+            m mVar = this.f66560c;
+            int i6 = this.f66562e;
+            boolean a2 = z.a(context, mVar, i6, this.f66567j, this.o, this.p, q.a(i6), this.m, true, this.n, this.r, b(this.f66561d));
+            if (this.f66557a) {
+                com.bytedance.sdk.openadsdk.e.d.a(this.f66559b, PrefetchEvent.STATE_CLICK, this.f66560c, this.f66565h, this.f66561d, a2, this.n);
             }
         } else if (X != 4) {
             if (X != 5) {
                 X = -1;
             } else {
-                String c2 = c(this.f66526d);
+                String c2 = c(this.f66561d);
                 if (!TextUtils.isEmpty(c2)) {
-                    com.bytedance.sdk.openadsdk.e.d.a(this.f66524b, "click_call", this.f66525c, this.f66530h, c2, true, this.n);
+                    com.bytedance.sdk.openadsdk.e.d.a(this.f66559b, "click_call", this.f66560c, this.f66565h, c2, true, this.n);
                 }
-                com.bytedance.sdk.openadsdk.e.d.a(this.f66524b, PrefetchEvent.STATE_CLICK, this.f66525c, this.f66530h, this.f66526d, q.d(view.getContext(), this.f66525c.ae()), this.n);
+                com.bytedance.sdk.openadsdk.e.d.a(this.f66559b, PrefetchEvent.STATE_CLICK, this.f66560c, this.f66565h, this.f66561d, q.d(view.getContext(), this.f66560c.ae()), this.n);
             }
-        } else if ((this.f66532j != null || this.o != null || this.p != null) && !"feed_video_middle_page".equals(this.f66526d) && com.bytedance.sdk.openadsdk.core.e.o.a(this.f66525c)) {
-            Context context2 = this.f66524b;
-            m mVar2 = this.f66525c;
-            int i7 = this.f66527e;
-            TTNativeAd tTNativeAd = this.f66532j;
+        } else if ((this.f66567j != null || this.o != null || this.p != null) && !"feed_video_middle_page".equals(this.f66561d) && com.bytedance.sdk.openadsdk.core.e.o.a(this.f66560c)) {
+            Context context2 = this.f66559b;
+            m mVar2 = this.f66560c;
+            int i7 = this.f66562e;
+            TTNativeAd tTNativeAd = this.f66567j;
             TTNativeExpressAd tTNativeExpressAd = this.o;
             TTSplashAd tTSplashAd = this.p;
-            String str = this.f66526d;
+            String str = this.f66561d;
             boolean a3 = z.a(context2, mVar2, i7, tTNativeAd, tTNativeExpressAd, tTSplashAd, str, this.m, true, this.n, this.r, b(str));
-            if (this.f66522a) {
-                com.bytedance.sdk.openadsdk.e.d.a(this.f66524b, PrefetchEvent.STATE_CLICK, this.f66525c, this.f66530h, this.f66526d, a3, this.n);
+            if (this.f66557a) {
+                com.bytedance.sdk.openadsdk.e.d.a(this.f66559b, PrefetchEvent.STATE_CLICK, this.f66560c, this.f66565h, this.f66561d, a3, this.n);
             }
         } else {
             com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.m;
             if (aVar != null) {
                 aVar.g();
-                if (this.f66522a) {
-                    com.bytedance.sdk.openadsdk.e.d.a(this.f66524b, PrefetchEvent.STATE_CLICK, this.f66525c, this.f66530h, this.f66526d, true, this.n);
+                if (this.f66557a) {
+                    com.bytedance.sdk.openadsdk.e.d.a(this.f66559b, PrefetchEvent.STATE_CLICK, this.f66560c, this.f66565h, this.f66561d, true, this.n);
                 }
             }
         }
-        b.a aVar2 = this.f66531i;
+        b.a aVar2 = this.f66566i;
         if (aVar2 != null) {
             aVar2.a(view, X);
         }
-        if (q.b(this.f66525c) && (drawVideoListener = this.G) != null) {
+        if (q.b(this.f66560c) && (drawVideoListener = this.G) != null) {
             drawVideoListener.onClick();
         }
         com.bytedance.sdk.openadsdk.downloadnew.core.a aVar3 = this.m;
-        if (!(aVar3 instanceof com.bytedance.sdk.openadsdk.downloadnew.a.d) || (interfaceC1906b = this.s) == null) {
+        if (!(aVar3 instanceof com.bytedance.sdk.openadsdk.downloadnew.a.d) || (interfaceC1908b = this.s) == null) {
             return;
         }
-        ((com.bytedance.sdk.openadsdk.downloadnew.a.d) aVar3).a(interfaceC1906b);
+        ((com.bytedance.sdk.openadsdk.downloadnew.a.d) aVar3).a(interfaceC1908b);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -355,21 +355,21 @@ public class a extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            m mVar = this.f66525c;
+            m mVar = this.f66560c;
             if (mVar == null) {
                 return true;
             }
             int d2 = o.h().d(q.d(mVar.ao()));
             if (d2 != 1) {
                 if (d2 == 2) {
-                    return n.e(this.f66524b) || n.d(this.f66524b) || n.f(this.f66524b);
+                    return n.e(this.f66559b) || n.d(this.f66559b) || n.f(this.f66559b);
                 } else if (d2 != 3) {
-                    return d2 != 5 || n.d(this.f66524b) || n.f(this.f66524b);
+                    return d2 != 5 || n.d(this.f66559b) || n.f(this.f66559b);
                 } else {
                     return false;
                 }
             }
-            return n.d(this.f66524b);
+            return n.d(this.f66559b);
         }
         return invokeV.booleanValue;
     }

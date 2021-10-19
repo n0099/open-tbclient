@@ -18,34 +18,34 @@ public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f70361a;
+    public static Context f70396a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f70362b;
+    public static boolean f70397b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static s f70363c;
+    public static s f70398c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Object f70364d;
+    public static Object f70399d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static HandlerThread f70365e;
+    public static HandlerThread f70400e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f70366f;
+    public static Handler f70401f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f70367g;
+    public static String f70402g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f70368h;
+    public static String f70403h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile q f70369i;
+    public static volatile q f70404i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static volatile o f70370j;
+    public static volatile o f70405j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,7 +61,7 @@ public class q {
                 return;
             }
         }
-        f70364d = new Object();
+        f70399d = new Object();
     }
 
     public q() {
@@ -89,13 +89,13 @@ public class q {
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     str = "0";
-                    f70362b = "1".equals(str);
+                    f70397b = "1".equals(str);
                 }
             } catch (Throwable unused) {
                 str = "0";
-                f70362b = "1".equals(str);
+                f70397b = "1".equals(str);
             }
-            f70362b = "1".equals(str);
+            f70397b = "1".equals(str);
         }
     }
 
@@ -103,24 +103,24 @@ public class q {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f70369i == null) {
+            if (f70404i == null) {
                 synchronized (q.class) {
-                    f70361a = context.getApplicationContext();
-                    f70369i = new q();
+                    f70396a = context.getApplicationContext();
+                    f70404i = new q();
                 }
             }
-            if (f70370j == null) {
+            if (f70405j == null) {
                 synchronized (q.class) {
-                    f70361a = context.getApplicationContext();
+                    f70396a = context.getApplicationContext();
                     HandlerThread handlerThread = new HandlerThread("SqlWorkThread");
-                    f70365e = handlerThread;
+                    f70400e = handlerThread;
                     handlerThread.start();
-                    f70366f = new p(f70365e.getLooper());
-                    f70370j = new o(f70361a);
+                    f70401f = new p(f70400e.getLooper());
+                    f70405j = new o(f70396a);
                     a();
                 }
             }
-            return f70369i;
+            return f70404i;
         }
         return (q) invokeL.objValue;
     }
@@ -128,8 +128,8 @@ public class q {
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            synchronized (f70364d) {
-                Message obtainMessage = f70366f.obtainMessage();
+            synchronized (f70399d) {
+                Message obtainMessage = f70401f.obtainMessage();
                 obtainMessage.what = 11;
                 Bundle bundle = new Bundle();
                 bundle.putInt("type", i2);
@@ -137,10 +137,10 @@ public class q {
                     bundle.putString("appid", str);
                 }
                 obtainMessage.setData(bundle);
-                f70366f.sendMessage(obtainMessage);
+                f70401f.sendMessage(obtainMessage);
                 long uptimeMillis = SystemClock.uptimeMillis();
                 try {
-                    f70364d.wait(2000L);
+                    f70399d.wait(2000L);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
@@ -150,14 +150,14 @@ public class q {
                             if (i2 != 2) {
                                 if (i2 != 4) {
                                 }
-                            } else if (f70367g != null) {
-                                f70367g = null;
+                            } else if (f70402g != null) {
+                                f70402g = null;
                             }
-                        } else if (f70367g != null) {
+                        } else if (f70402g != null) {
                         }
                     }
-                    f70368h = f70367g;
-                    f70367g = null;
+                    f70403h = f70402g;
+                    f70402g = null;
                 }
             }
         }

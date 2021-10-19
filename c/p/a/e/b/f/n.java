@@ -13,7 +13,7 @@ public abstract class n implements x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f35110a;
+    public boolean f35114a;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public abstract class n implements x {
                 return;
             }
         }
-        this.f35110a = false;
+        this.f35114a = false;
     }
 
     @Override // c.p.a.e.b.f.x
@@ -37,13 +37,13 @@ public abstract class n implements x {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null || list.isEmpty()) {
             return;
         }
-        this.f35110a = true;
+        this.f35114a = true;
     }
 
     @Override // c.p.a.e.b.f.x
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35110a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35114a : invokeV.booleanValue;
     }
 }

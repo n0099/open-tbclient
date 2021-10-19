@@ -1,6 +1,6 @@
 package com.baidu.tieba.userblock.message;
 
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -44,7 +44,7 @@ public class UserBlockInfoRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.black_uid = Long.valueOf(this.mBlockUserId);
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             GetUserBlackInfoReqIdl.Builder builder2 = new GetUserBlackInfoReqIdl.Builder();
             builder2.data = builder.build(false);

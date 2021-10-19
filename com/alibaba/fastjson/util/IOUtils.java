@@ -388,7 +388,7 @@ public class IOUtils {
     /* JADX WARN: Removed duplicated region for block: B:40:0x008a  */
     /* JADX WARN: Type inference failed for: r10v16, types: [int] */
     /* JADX WARN: Type inference failed for: r10v26 */
-    /* JADX WARN: Type inference failed for: r10v3, types: [char, int] */
+    /* JADX WARN: Type inference failed for: r10v3, types: [int, char] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -47,8 +47,8 @@ public class BannerExpressVideoView extends a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f66545a, this.f66548d, this.f66549e, this.f66554j);
-            this.f66546b = nativeExpressVideoView;
+            NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f66580a, this.f66583d, this.f66584e, this.f66589j);
+            this.f66581b = nativeExpressVideoView;
             addView(nativeExpressVideoView, new ViewGroup.LayoutParams(-1, -1));
         }
     }
@@ -87,7 +87,7 @@ public class BannerExpressVideoView extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            NativeExpressView nativeExpressView = this.f66546b;
+            NativeExpressView nativeExpressView = this.f66581b;
             if (nativeExpressView != null) {
                 return ((NativeExpressVideoView) nativeExpressView).getVideoModel();
             }
@@ -115,14 +115,14 @@ public class BannerExpressVideoView extends a {
     public void a(m mVar, AdSlot adSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar, adSlot) == null) {
-            NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f66545a, mVar, adSlot, this.f66554j);
-            this.f66547c = nativeExpressVideoView;
+            NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f66580a, mVar, adSlot, this.f66589j);
+            this.f66582c = nativeExpressVideoView;
             nativeExpressVideoView.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener(this) { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressVideoView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BannerExpressVideoView f66544a;
+                public final /* synthetic */ BannerExpressVideoView f66579a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -139,7 +139,7 @@ public class BannerExpressVideoView extends a {
                             return;
                         }
                     }
-                    this.f66544a = this;
+                    this.f66579a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -147,7 +147,7 @@ public class BannerExpressVideoView extends a {
                     BannerExpressVideoView bannerExpressVideoView;
                     TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) || (expressAdInteractionListener = (bannerExpressVideoView = this.f66544a).f66550f) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) || (expressAdInteractionListener = (bannerExpressVideoView = this.f66579a).f66585f) == null) {
                         return;
                     }
                     expressAdInteractionListener.onAdClicked(bannerExpressVideoView, i2);
@@ -171,13 +171,13 @@ public class BannerExpressVideoView extends a {
                 public void onRenderSuccess(View view, float f2, float f3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                        this.f66544a.a(f2, f3);
-                        this.f66544a.f();
+                        this.f66579a.a(f2, f3);
+                        this.f66579a.f();
                     }
                 }
             });
-            s.a((View) this.f66547c, 8);
-            addView(this.f66547c, new ViewGroup.LayoutParams(-1, -1));
+            s.a((View) this.f66582c, 8);
+            addView(this.f66582c, new ViewGroup.LayoutParams(-1, -1));
         }
     }
 }

@@ -10,34 +10,34 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f14166a;
+    public int f14189a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14167b;
+    public int f14190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14168c;
+    public int f14191c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14169d;
+    public int f14192d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14170e;
+    public int f14193e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14171f;
+    public int f14194f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14172g;
+    public int f14195g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14173h;
+    public int f14196h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14174i;
+    public int f14197i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f14175j;
+    public String f14198j;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -52,14 +52,14 @@ public class f {
                 return;
             }
         }
-        this.f14166a = 0;
-        this.f14167b = 0;
-        this.f14168c = 1;
-        this.f14169d = 1;
-        this.f14170e = 0;
-        this.f14171f = 0;
-        this.f14172g = 1;
-        this.f14173h = 0;
-        this.f14174i = 0;
+        this.f14189a = 0;
+        this.f14190b = 0;
+        this.f14191c = 1;
+        this.f14192d = 1;
+        this.f14193e = 0;
+        this.f14194f = 0;
+        this.f14195g = 1;
+        this.f14196h = 0;
+        this.f14197i = 0;
     }
 }

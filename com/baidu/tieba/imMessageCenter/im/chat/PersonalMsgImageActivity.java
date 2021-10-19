@@ -1,7 +1,7 @@
 package com.baidu.tieba.imMessageCenter.im.chat;
 
-import c.a.r0.k1.s.a;
-import c.a.r0.k1.s.c;
+import c.a.r0.l1.s.a;
+import c.a.r0.l1.s.c;
 import com.baidu.tieba.im.chat.AbsMsgImageActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

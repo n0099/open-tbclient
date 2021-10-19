@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.webkit.CookieManager;
 import c.a.e.e.p.j;
 import c.a.q0.d1.g;
-import c.a.r0.p1.o.k.a;
+import c.a.r0.q1.o.k.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.TbConfig;

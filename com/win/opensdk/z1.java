@@ -17,25 +17,25 @@ public class z1 implements View.OnClickListener, View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77547a;
+    public int f77582a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f77548b;
+    public int f77583b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f77549c;
+    public long f77584c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f77550d;
+    public int f77585d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f77551e;
+    public int f77586e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f77552f;
+    public long f77587f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ A1 f77553g;
+    public final /* synthetic */ A1 f77588g;
 
     public z1(A1 a1) {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class z1 implements View.OnClickListener, View.OnTouchListener {
                 return;
             }
         }
-        this.f77553g = a1;
+        this.f77588g = a1;
     }
 
     public HashMap a() {
@@ -60,13 +60,13 @@ public class z1 implements View.OnClickListener, View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.f77547a));
-            hashMap.put("dy", Integer.valueOf(this.f77548b));
-            hashMap.put("dts", Long.valueOf(this.f77549c));
-            hashMap.put("ux", Integer.valueOf(this.f77550d));
-            hashMap.put("uy", Integer.valueOf(this.f77551e));
-            hashMap.put("uts", Long.valueOf(this.f77552f));
-            A1 a1 = this.f77553g;
+            hashMap.put("dx", Integer.valueOf(this.f77582a));
+            hashMap.put("dy", Integer.valueOf(this.f77583b));
+            hashMap.put("dts", Long.valueOf(this.f77584c));
+            hashMap.put("ux", Integer.valueOf(this.f77585d));
+            hashMap.put("uy", Integer.valueOf(this.f77586e));
+            hashMap.put("uts", Long.valueOf(this.f77587f));
+            A1 a1 = this.f77588g;
             N.a(hashMap, a1.p, a1.q, a1.r, a1.s, a1.t, a1.u);
             return hashMap;
         }
@@ -87,35 +87,35 @@ public class z1 implements View.OnClickListener, View.OnTouchListener {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f77547a = (int) motionEvent.getRawX();
-                this.f77548b = (int) motionEvent.getRawY();
-                this.f77549c = System.currentTimeMillis();
-                this.f77553g.p = (int) motionEvent.getX();
-                this.f77553g.q = (int) motionEvent.getY();
-                A1.a(this.f77553g, view);
+                this.f77582a = (int) motionEvent.getRawX();
+                this.f77583b = (int) motionEvent.getRawY();
+                this.f77584c = System.currentTimeMillis();
+                this.f77588g.p = (int) motionEvent.getX();
+                this.f77588g.q = (int) motionEvent.getY();
+                A1.a(this.f77588g, view);
                 return false;
             } else if (action != 1) {
                 return false;
             } else {
-                this.f77550d = (int) motionEvent.getRawX();
-                this.f77551e = (int) motionEvent.getRawY();
-                this.f77552f = System.currentTimeMillis();
-                this.f77553g.r = (int) motionEvent.getX();
-                this.f77553g.s = (int) motionEvent.getY();
-                A1 a1 = this.f77553g;
-                Info info = a1.f77075c;
-                if (info == null || !Q1.a(info, a1.f77080h)) {
+                this.f77585d = (int) motionEvent.getRawX();
+                this.f77586e = (int) motionEvent.getRawY();
+                this.f77587f = System.currentTimeMillis();
+                this.f77588g.r = (int) motionEvent.getX();
+                this.f77588g.s = (int) motionEvent.getY();
+                A1 a1 = this.f77588g;
+                Info info = a1.f77110c;
+                if (info == null || !Q1.a(info, a1.f77115h)) {
                     return false;
                 }
-                this.f77553g.f77080h = System.currentTimeMillis();
-                A1 a12 = this.f77553g;
-                Context context = a12.f77073a;
-                String open = a12.f77075c.getOpen();
-                A1 a13 = this.f77553g;
-                Q1.a(context, open, a13.f77075c, a13.f77079g, a().toString());
-                Z0.a(this.f77553g.f77073a).a(new a1(this.f77553g.f77075c), (String) null).a("desc", a().toString()).a();
-                N.a(this.f77553g.f77075c, a().toString());
-                F f2 = this.f77553g.f77078f;
+                this.f77588g.f77115h = System.currentTimeMillis();
+                A1 a12 = this.f77588g;
+                Context context = a12.f77108a;
+                String open = a12.f77110c.getOpen();
+                A1 a13 = this.f77588g;
+                Q1.a(context, open, a13.f77110c, a13.f77114g, a().toString());
+                Z0.a(this.f77588g.f77108a).a(new a1(this.f77588g.f77110c), (String) null).a("desc", a().toString()).a();
+                N.a(this.f77588g.f77110c, a().toString());
+                F f2 = this.f77588g.f77113f;
                 if (f2 != null) {
                     f2.onClicked();
                     return false;

@@ -17,7 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
-import c.a.r0.o3.a;
+import c.a.r0.p3.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -82,6 +82,9 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
         @NonNull
         Lifecycle getLifecycle();
+
+        @NonNull
+        FlutterView.RenderMode getRenderMode();
 
         @NonNull
         FlutterView.TransparencyMode getTransparencyMode();
@@ -359,7 +362,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
             }
             this.mSyncer = FlutterBoost.instance().containerManager().generateSyncer(this);
             ensureAlive();
-            this.flutterView = new XFlutterView(this.host.getActivity(), FlutterBoost.instance().platform().renderMode(), this.host.getTransparencyMode());
+            this.flutterView = new XFlutterView(this.host.getActivity(), this.host.getRenderMode(), this.host.getTransparencyMode());
             FlutterSplashView flutterSplashView = new FlutterSplashView(this.host.getContext());
             this.flutterSplashView = flutterSplashView;
             if (Build.VERSION.SDK_INT >= 17) {
@@ -372,6 +375,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
             if (FlutterCrabReportEnableSwitch.isOn()) {
                 a.getInstance().setFlutterPath("onCreateView2");
             }
+            this.flutterSplashView.setContainerUrl(getContainerUrl());
             return this.flutterSplashView;
         }
         return (View) invokeLLL.objValue;

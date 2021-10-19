@@ -156,7 +156,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0027  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0071 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0073 A[RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

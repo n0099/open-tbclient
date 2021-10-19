@@ -42,29 +42,29 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static b f14030h;
+    public static b f14051h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.q0.s.n.a f14031a;
+    public c.a.q0.s.n.a f14052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.q0.s.n.a f14032b;
+    public c.a.q0.s.n.a f14053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SparseArray<Long> f14033c;
+    public SparseArray<Long> f14054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<c.a.q0.s.n.a> f14034d;
+    public ArrayList<c.a.q0.s.n.a> f14055d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f14035e;
+    public BdUniqueId f14056e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14036f;
+    public boolean f14057f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.e.c.g.a f14037g;
+    public c.a.e.c.g.a f14058g;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.c.g.a {
@@ -72,7 +72,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f14038a;
+        public final /* synthetic */ b f14059a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2, int i3) {
@@ -93,7 +93,7 @@ public class b {
                     return;
                 }
             }
-            this.f14038a = bVar;
+            this.f14059a = bVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -102,27 +102,27 @@ public class b {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.hasError()) {
                 return;
             }
-            this.f14038a.f14036f = true;
+            this.f14059a.f14057f = true;
             ArrayList<c.a.q0.s.n.a> arrayList = null;
             if (responsedMessage instanceof GetBigdayInfoSocketResMessage) {
                 arrayList = ((GetBigdayInfoSocketResMessage) responsedMessage).bigdayInfos;
             } else if (responsedMessage instanceof GetBigdayInfoHttpResMessage) {
                 arrayList = ((GetBigdayInfoHttpResMessage) responsedMessage).bigdayInfos;
             }
-            this.f14038a.m(arrayList);
+            this.f14059a.m(arrayList);
         }
     }
 
     /* renamed from: c.a.q0.s.n.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0690b extends BdAsyncTask<Void, Void, ArrayList<c.a.q0.s.n.a>> {
+    public class C0692b extends BdAsyncTask<Void, Void, ArrayList<c.a.q0.s.n.a>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f14039a;
+        public final /* synthetic */ b f14060a;
 
-        public C0690b(b bVar) {
+        public C0692b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class b {
                     return;
                 }
             }
-            this.f14039a = bVar;
+            this.f14060a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -184,7 +184,7 @@ public class b {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
                 super.onPostExecute(arrayList);
                 if (arrayList != null) {
-                    this.f14039a.l(arrayList);
+                    this.f14060a.l(arrayList);
                 }
             }
         }
@@ -196,7 +196,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f14040a;
+        public ArrayList<String> f14061a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(String str, String str2, DiskFileOperate.Action action, ArrayList<c.a.q0.s.n.a> arrayList) {
@@ -217,16 +217,16 @@ public class b {
                     return;
                 }
             }
-            this.f14040a = new ArrayList<>();
+            this.f14061a = new ArrayList<>();
             Iterator<c.a.q0.s.n.a> it = arrayList.iterator();
             while (it.hasNext()) {
                 c.a.q0.s.n.a next = it.next();
                 if (next != null) {
-                    String g2 = d.h().g(next.f14023a, 41);
+                    String g2 = d.h().g(next.f14044a, 41);
                     if (!StringUtils.isNULL(g2)) {
                         String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(g2);
                         if (!StringUtils.isNULL(nameMd5FromUrl)) {
-                            this.f14040a.add(nameMd5FromUrl);
+                            this.f14061a.add(nameMd5FromUrl);
                         }
                     }
                 }
@@ -237,7 +237,7 @@ public class b {
         public boolean compare(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? (file == null || StringUtils.isNULL(file.getName()) || this.f14040a.contains(file.getName())) ? false : true : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? (file == null || StringUtils.isNULL(file.getName()) || this.f14061a.contains(file.getName())) ? false : true : invokeL.booleanValue;
         }
     }
 
@@ -269,22 +269,22 @@ public class b {
                 return;
             }
         }
-        this.f14036f = false;
-        this.f14037g = new a(this, CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609);
-        c.a.r0.j3.e0.a.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
-        c.a.r0.j3.e0.a.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
-        MessageManager.getInstance().registerListener(this.f14037g);
-        this.f14033c = new SparseArray<>();
+        this.f14057f = false;
+        this.f14058g = new a(this, CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609);
+        c.a.r0.k3.e0.a.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
+        c.a.r0.k3.e0.a.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
+        MessageManager.getInstance().registerListener(this.f14058g);
+        this.f14054c = new SparseArray<>();
     }
 
     public static b i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f14030h == null) {
-                f14030h = new b();
+            if (f14051h == null) {
+                f14051h = new b();
             }
-            return f14030h;
+            return f14051h;
         }
         return (b) invokeV.objValue;
     }
@@ -294,8 +294,8 @@ public class b {
         if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
             ArrayList arrayList2 = new ArrayList();
             ListUtils.addAll(arrayList2, 0, arrayList);
-            ListUtils.add(arrayList2, this.f14031a);
-            ListUtils.add(arrayList2, this.f14032b);
+            ListUtils.add(arrayList2, this.f14052a);
+            ListUtils.add(arrayList2, this.f14053b);
             c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES, arrayList2);
             cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.setSdCard(false);
@@ -307,20 +307,20 @@ public class b {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f14037g);
+            MessageManager.getInstance().unRegisterListener(this.f14058g);
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || ListUtils.isEmpty(this.f14034d)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || ListUtils.isEmpty(this.f14055d)) {
             return;
         }
-        Iterator<c.a.q0.s.n.a> it = this.f14034d.iterator();
+        Iterator<c.a.q0.s.n.a> it = this.f14055d.iterator();
         while (it.hasNext()) {
             c.a.q0.s.n.a next = it.next();
-            if (!BigdayImageLoaderProc.isImageFileExist(next.f14023a)) {
-                d.h().m(next.f14023a, 41, null, this.f14035e);
+            if (!BigdayImageLoaderProc.isImageFileExist(next.f14044a)) {
+                d.h().m(next.f14044a, 41, null, this.f14056e);
             }
         }
     }
@@ -333,13 +333,13 @@ public class b {
                 return null;
             }
             for (c.a.q0.s.n.a aVar : list) {
-                if (aVar.a() && aVar.f14027e == i2) {
+                if (aVar.a() && aVar.f14048e == i2) {
                     long currentTimeMillis = System.currentTimeMillis() / 1000;
-                    long j2 = aVar.f14028f;
+                    long j2 = aVar.f14049f;
                     if (j2 > currentTimeMillis) {
-                        this.f14033c.put(i2, Long.valueOf(j2));
+                        this.f14054c.put(i2, Long.valueOf(j2));
                         return null;
-                    } else if (aVar.f14029g >= currentTimeMillis) {
+                    } else if (aVar.f14050g >= currentTimeMillis) {
                         return aVar;
                     }
                 }
@@ -355,28 +355,28 @@ public class b {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             if (i2 == 1) {
-                if (this.f14031a == null && this.f14033c.get(i2, 0L).longValue() != 0 && this.f14033c.get(i2, 0L).longValue() < currentTimeMillis) {
-                    this.f14031a = g(this.f14034d, 1);
+                if (this.f14052a == null && this.f14054c.get(i2, 0L).longValue() != 0 && this.f14054c.get(i2, 0L).longValue() < currentTimeMillis) {
+                    this.f14052a = g(this.f14055d, 1);
                 }
-                c.a.q0.s.n.a aVar = this.f14031a;
-                if (aVar != null && (currentTimeMillis < aVar.f14028f || currentTimeMillis > aVar.f14029g)) {
-                    this.f14031a = g(this.f14034d, 1);
+                c.a.q0.s.n.a aVar = this.f14052a;
+                if (aVar != null && (currentTimeMillis < aVar.f14049f || currentTimeMillis > aVar.f14050g)) {
+                    this.f14052a = g(this.f14055d, 1);
                 }
-                c.a.q0.s.n.a aVar2 = this.f14031a;
-                if (aVar2 != null && BigdayImageLoaderProc.isImageFileExist(aVar2.f14023a)) {
-                    return this.f14031a;
+                c.a.q0.s.n.a aVar2 = this.f14052a;
+                if (aVar2 != null && BigdayImageLoaderProc.isImageFileExist(aVar2.f14044a)) {
+                    return this.f14052a;
                 }
             } else if (i2 == 3) {
-                if (this.f14032b == null && this.f14033c.get(i2, 0L).longValue() != 0 && this.f14033c.get(i2, 0L).longValue() < currentTimeMillis) {
-                    this.f14031a = g(this.f14034d, 3);
+                if (this.f14053b == null && this.f14054c.get(i2, 0L).longValue() != 0 && this.f14054c.get(i2, 0L).longValue() < currentTimeMillis) {
+                    this.f14052a = g(this.f14055d, 3);
                 }
-                c.a.q0.s.n.a aVar3 = this.f14032b;
-                if (aVar3 != null && (currentTimeMillis < aVar3.f14028f || currentTimeMillis > aVar3.f14029g)) {
-                    this.f14032b = g(this.f14034d, 3);
+                c.a.q0.s.n.a aVar3 = this.f14053b;
+                if (aVar3 != null && (currentTimeMillis < aVar3.f14049f || currentTimeMillis > aVar3.f14050g)) {
+                    this.f14053b = g(this.f14055d, 3);
                 }
-                c.a.q0.s.n.a aVar4 = this.f14032b;
-                if (aVar4 != null && BigdayImageLoaderProc.isImageFileExist(aVar4.f14023a)) {
-                    return this.f14032b;
+                c.a.q0.s.n.a aVar4 = this.f14053b;
+                if (aVar4 != null && BigdayImageLoaderProc.isImageFileExist(aVar4.f14044a)) {
+                    return this.f14053b;
                 }
             }
             return null;
@@ -387,34 +387,34 @@ public class b {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            new C0690b(this).execute(new Void[0]);
+            new C0692b(this).execute(new Void[0]);
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f14036f = false;
+            this.f14057f = false;
             GetBigdayInfoReqMessage getBigdayInfoReqMessage = new GetBigdayInfoReqMessage();
-            getBigdayInfoReqMessage.setTag(this.f14035e);
+            getBigdayInfoReqMessage.setTag(this.f14056e);
             MessageManager.getInstance().sendMessage(getBigdayInfoReqMessage);
         }
     }
 
     public final void l(ArrayList<c.a.q0.s.n.a> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) || ListUtils.isEmpty(arrayList) || this.f14036f) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) || ListUtils.isEmpty(arrayList) || this.f14057f) {
             return;
         }
-        this.f14031a = g(arrayList, 1);
-        this.f14032b = g(arrayList, 3);
-        this.f14034d = arrayList;
+        this.f14052a = g(arrayList, 1);
+        this.f14053b = g(arrayList, 3);
+        this.f14055d = arrayList;
         f();
-        c.a.q0.s.n.a aVar = this.f14031a;
-        if (aVar == null || !BigdayImageLoaderProc.isImageFileExist(aVar.f14023a) || SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) != 1 || System.currentTimeMillis() <= c.a.q0.s.d0.b.j().l("key_bigday_next_showtime_home", 0L)) {
+        c.a.q0.s.n.a aVar = this.f14052a;
+        if (aVar == null || !BigdayImageLoaderProc.isImageFileExist(aVar.f14044a) || SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) != 1 || System.currentTimeMillis() <= c.a.q0.s.d0.b.j().l("key_bigday_next_showtime_home", 0L)) {
             return;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.f14031a));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.f14052a));
     }
 
     public final void m(ArrayList<c.a.q0.s.n.a> arrayList) {
@@ -423,19 +423,19 @@ public class b {
             c.a.q0.s.n.a g2 = g(arrayList, 1);
             c.a.q0.s.n.a g3 = g(arrayList, 3);
             d(arrayList);
-            this.f14034d = arrayList;
+            this.f14055d = arrayList;
             if (g2 != null && g2.a()) {
-                this.f14031a = g2;
+                this.f14052a = g2;
             }
             if (g3 != null && g3.a()) {
-                this.f14032b = g3;
+                this.f14053b = g3;
             }
             f();
-            c.a.q0.s.n.a aVar = this.f14031a;
-            if (aVar == null || !BigdayImageLoaderProc.isImageFileExist(aVar.f14023a) || SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) != 1 || System.currentTimeMillis() <= c.a.q0.s.d0.b.j().l("key_bigday_next_showtime_home", 0L)) {
+            c.a.q0.s.n.a aVar = this.f14052a;
+            if (aVar == null || !BigdayImageLoaderProc.isImageFileExist(aVar.f14044a) || SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) != 1 || System.currentTimeMillis() <= c.a.q0.s.d0.b.j().l("key_bigday_next_showtime_home", 0L)) {
                 return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.f14031a));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.f14052a));
         }
     }
 
@@ -448,7 +448,7 @@ public class b {
     public void o(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
-            this.f14035e = bdUniqueId;
+            this.f14056e = bdUniqueId;
         }
     }
 }

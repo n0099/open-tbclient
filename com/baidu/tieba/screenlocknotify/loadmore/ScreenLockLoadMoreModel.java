@@ -1,7 +1,7 @@
 package com.baidu.tieba.screenlocknotify.loadmore;
 
 import c.a.e.a.f;
-import c.a.r0.j3.e0.a;
+import c.a.r0.k3.e0.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -39,21 +39,21 @@ public class ScreenLockLoadMoreModel extends BdBaseModel<ScreenLockActivity> {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }

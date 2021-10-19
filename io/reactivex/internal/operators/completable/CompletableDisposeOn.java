@@ -26,7 +26,7 @@ public final class CompletableDisposeOn extends Completable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f79270d;
+        public Disposable f79305d;
         public volatile boolean disposed;
         public final CompletableObserver s;
         public final Scheduler scheduler;
@@ -90,8 +90,8 @@ public final class CompletableDisposeOn extends Completable {
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f79270d, disposable)) {
-                this.f79270d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f79305d, disposable)) {
+                this.f79305d = disposable;
                 this.s.onSubscribe(this);
             }
         }
@@ -100,8 +100,8 @@ public final class CompletableDisposeOn extends Completable {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f79270d.dispose();
-                this.f79270d = DisposableHelper.DISPOSED;
+                this.f79305d.dispose();
+                this.f79305d = DisposableHelper.DISPOSED;
             }
         }
     }

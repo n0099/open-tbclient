@@ -1,6 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
-import c.a.r0.l1.b.p.a;
+import c.a.r0.m1.b.p.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

@@ -1,168 +1,76 @@
 package c.a.r0.z1;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tbadk.core.util.FileHelper;
+import android.text.TextUtils;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.switchs.LoginPassV6Switch;
+import com.baidu.tbadk.switchs.LowVersionLoginPassV6Switch;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, str) == null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        File file = new File(str);
-        if (file.exists()) {
-            return;
-        }
-        file.mkdirs();
     }
 
-    public static void b(String str) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                b(new JSONObject(str));
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
         }
-        FileHelper.deleteFileOrDir(new File(f.f29735e + f.f29731a + str));
     }
 
-    public static void c(String str, JSONArray jSONArray) {
+    public void b(JSONObject jSONObject) {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, jSONArray) == null) || StringUtils.isNull(str) || jSONArray == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            JSONArray jSONArray2 = new JSONArray(str);
-            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                jSONArray.put(jSONArray2.optJSONObject(i2));
+            JSONObject optJSONObject = jSONObject.optJSONObject("config");
+            if (optJSONObject == null || (optJSONArray = optJSONObject.optJSONArray(SetImageWatermarkTypeReqMsg.SWITCH)) == null) {
+                return;
+            }
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                if (jSONObject2 != null) {
+                    String optString = jSONObject2.optString("name");
+                    Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
+                    if (LoginPassV6Switch.KEY.equals(optString)) {
+                        SwitchManager.getInstance().turn(optString, valueOf.intValue());
+                        c.a.q0.t.a.a.a();
+                    }
+                    if (TextUtils.equals(LowVersionLoginPassV6Switch.KEY, optString)) {
+                        SwitchManager.getInstance().turn(optString, valueOf.intValue());
+                        c.a.q0.t.a.a.a();
+                    }
+                }
             }
         } catch (Exception e2) {
-            e2.printStackTrace();
+            BdLog.e(e2.getMessage());
         }
-    }
-
-    public static JSONArray d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            if (StringUtils.isNull(str)) {
-                return jSONArray;
-            }
-            File file = new File(str);
-            if (file.exists()) {
-                String e2 = e(file);
-                String[] split = e2.split(org.apache.commons.lang3.StringUtils.LF);
-                if (split.length > 0) {
-                    for (String str2 : split) {
-                        c(str2, jSONArray);
-                    }
-                } else {
-                    c(e2, jSONArray);
-                }
-                FileHelper.deleteFile(file);
-                return jSONArray;
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    public static String e(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            StringBuilder sb = new StringBuilder();
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    sb.append(new String(bArr, 0, read));
-                }
-                c.a.e.e.m.a.c(fileInputStream);
-            } catch (Exception e3) {
-                e = e3;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                c.a.e.e.m.a.c(fileInputStream2);
-                return sb.toString();
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                c.a.e.e.m.a.c(fileInputStream2);
-                throw th;
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean f(File file, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, file, str)) == null) ? g(file, str, true) : invokeLL.booleanValue;
-    }
-
-    public static boolean g(File file, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, file, str, z)) == null) {
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    fileOutputStream = new FileOutputStream(file, z);
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                fileOutputStream.write(str.getBytes());
-                fileOutputStream.flush();
-                c.a.e.e.m.a.d(fileOutputStream);
-                return true;
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                c.a.e.e.m.a.d(fileOutputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                c.a.e.e.m.a.d(fileOutputStream2);
-                throw th;
-            }
-        }
-        return invokeLLZ.booleanValue;
     }
 }

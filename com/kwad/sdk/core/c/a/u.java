@@ -34,10 +34,10 @@ public class u implements com.kwad.sdk.core.d<h.a> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f72116a = jSONObject.optInt("streamType");
-        aVar.f72117b = jSONObject.optInt("maxVolume");
-        aVar.f72118c = jSONObject.optInt("minVolume");
-        aVar.f72119d = jSONObject.optInt("currentVolume");
+        aVar.f72151a = jSONObject.optInt("streamType");
+        aVar.f72152b = jSONObject.optInt("maxVolume");
+        aVar.f72153c = jSONObject.optInt("minVolume");
+        aVar.f72154d = jSONObject.optInt("currentVolume");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,10 +49,10 @@ public class u implements com.kwad.sdk.core.d<h.a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "streamType", aVar.f72116a);
-            com.kwad.sdk.utils.q.a(jSONObject, "maxVolume", aVar.f72117b);
-            com.kwad.sdk.utils.q.a(jSONObject, "minVolume", aVar.f72118c);
-            com.kwad.sdk.utils.q.a(jSONObject, "currentVolume", aVar.f72119d);
+            com.kwad.sdk.utils.q.a(jSONObject, "streamType", aVar.f72151a);
+            com.kwad.sdk.utils.q.a(jSONObject, "maxVolume", aVar.f72152b);
+            com.kwad.sdk.utils.q.a(jSONObject, "minVolume", aVar.f72153c);
+            com.kwad.sdk.utils.q.a(jSONObject, "currentVolume", aVar.f72154d);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

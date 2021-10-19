@@ -23,11 +23,11 @@ public class b {
 
     /* renamed from: c.d.a.a.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1450b {
+    public static final class C1452b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f31701a;
+        public static final b f31705a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +43,7 @@ public class b {
                     return;
                 }
             }
-            f31701a = new b(null);
+            f31705a = new b(null);
         }
     }
 
@@ -54,7 +54,7 @@ public class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1450b.f31701a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1452b.f31705a : (b) invokeV.objValue;
     }
 
     public String b(Context context) {

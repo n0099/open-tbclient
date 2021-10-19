@@ -13,13 +13,13 @@ public class t1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77495a;
+    public int f77530a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f77496b;
+    public String f77531b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f77497c;
+    public JSONObject f77532c;
 
     public t1() {
         Interceptable interceptable = $ic;
@@ -34,24 +34,24 @@ public class t1 {
                 return;
             }
         }
-        this.f77495a = 101;
+        this.f77530a = 101;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             JSONObject jSONObject = new JSONObject(str);
-            this.f77495a = jSONObject.optInt(Constants.KEYS.RET);
-            this.f77496b = jSONObject.optString("msg");
+            this.f77530a = jSONObject.optInt(Constants.KEYS.RET);
+            this.f77531b = jSONObject.optString("msg");
             String optString = jSONObject.optString("data");
             try {
                 optString = N.b(optString);
             } catch (Exception unused) {
             }
             if (TextUtils.isEmpty(optString)) {
-                this.f77497c = new JSONObject();
+                this.f77532c = new JSONObject();
             } else {
-                this.f77497c = new JSONObject(optString);
+                this.f77532c = new JSONObject(optString);
             }
         }
     }

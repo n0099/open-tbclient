@@ -229,7 +229,7 @@ public class ImageLoaderProc implements e<a> {
                                 String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2);
                                 c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
                                 boolean B = l.B(downloadImageBytes);
-                                NSGif f2 = (NSGif.f36291f && B) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
+                                NSGif f2 = (NSGif.f36295f && B) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
                                 if (f2 != null) {
                                     aVar = new a((c.a.e.d.b) f2, Bytes2Bitmap, true);
                                     aVar.y(needCache);

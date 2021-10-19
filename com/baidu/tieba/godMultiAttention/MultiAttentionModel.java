@@ -1,6 +1,6 @@
 package com.baidu.tieba.godMultiAttention;
 
-import c.a.r0.j3.e0.a;
+import c.a.r0.k3.e0.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -32,7 +32,7 @@ public class MultiAttentionModel extends BdBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -42,7 +42,7 @@ public class MultiAttentionModel extends BdBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

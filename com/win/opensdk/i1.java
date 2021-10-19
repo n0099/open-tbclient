@@ -12,10 +12,10 @@ public class i1 implements T0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f77373a;
+    public long f77408a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ m1 f77374b;
+    public final /* synthetic */ m1 f77409b;
 
     public i1(m1 m1Var) {
         Interceptable interceptable = $ic;
@@ -32,21 +32,21 @@ public class i1 implements T0 {
                 return;
             }
         }
-        this.f77374b = m1Var;
-        this.f77373a = 0L;
+        this.f77409b = m1Var;
+        this.f77408a = 0L;
     }
 
     @Override // com.win.opensdk.T0
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            Y0 a2 = Z0.a(this.f77374b.f77416a);
+            Y0 a2 = Z0.a(this.f77409b.f77451a);
             a1 a1Var = new a1(null);
-            a1Var.f77266a = this.f77374b.f77417b;
-            a2.a(a1Var, System.currentTimeMillis() - this.f77373a, i2, 0).a();
-            this.f77374b.f77425j.removeMessages(100101);
-            this.f77374b.f77419d = false;
-            this.f77374b.a(this.f77374b.a(i2));
+            a1Var.f77301a = this.f77409b.f77452b;
+            a2.a(a1Var, System.currentTimeMillis() - this.f77408a, i2, 0).a();
+            this.f77409b.f77460j.removeMessages(100101);
+            this.f77409b.f77454d = false;
+            this.f77409b.a(this.f77409b.a(i2));
         }
     }
 
@@ -54,9 +54,9 @@ public class i1 implements T0 {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f77373a = System.currentTimeMillis();
-            m1 m1Var = this.f77374b;
-            m1Var.f77425j.sendEmptyMessageDelayed(100101, m1Var.f77421f * 1000);
+            this.f77408a = System.currentTimeMillis();
+            m1 m1Var = this.f77409b;
+            m1Var.f77460j.sendEmptyMessageDelayed(100101, m1Var.f77456f * 1000);
         }
     }
 
@@ -65,29 +65,29 @@ public class i1 implements T0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             K k = (K) obj;
-            this.f77374b.f77425j.removeMessages(100101);
-            this.f77374b.f77419d = false;
-            int size = k.f77126a.size();
-            long currentTimeMillis = System.currentTimeMillis() - this.f77373a;
-            Info info = size > 0 ? (Info) k.f77126a.get(0) : null;
-            Y0 a2 = Z0.a(this.f77374b.f77416a);
+            this.f77409b.f77460j.removeMessages(100101);
+            this.f77409b.f77454d = false;
+            int size = k.f77161a.size();
+            long currentTimeMillis = System.currentTimeMillis() - this.f77408a;
+            Info info = size > 0 ? (Info) k.f77161a.get(0) : null;
+            Y0 a2 = Z0.a(this.f77409b.f77451a);
             a1 a1Var = new a1(info);
-            a1Var.f77266a = this.f77374b.f77417b;
+            a1Var.f77301a = this.f77409b.f77452b;
             a2.a(a1Var, currentTimeMillis, 200, size).a();
-            this.f77374b.a(k);
-            g1 g1Var = this.f77374b.f77418c;
+            this.f77409b.a(k);
+            g1 g1Var = this.f77409b.f77453c;
             if (g1Var != null && !g1Var.c()) {
-                m1 m1Var = this.f77374b;
-                if (m1Var.f77423h) {
+                m1 m1Var = this.f77409b;
+                if (m1Var.f77458h) {
                     return;
                 }
-                Info b2 = m1Var.f77418c.b();
+                Info b2 = m1Var.f77453c.b();
                 if (b2 != null) {
-                    this.f77374b.a(b2);
+                    this.f77409b.a(b2);
                     return;
                 }
             }
-            this.f77374b.a(PBError.NO_FILL);
+            this.f77409b.a(PBError.NO_FILL);
         }
     }
 }

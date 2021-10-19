@@ -39,23 +39,23 @@ public class ConstrainImageLayout extends ViewGroup {
     public boolean canCenterStart;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48803e;
+    public int f48732e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48804f;
+    public int f48733f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48805g;
+    public boolean f48734g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.q0.f1.j.d f48806h;
+    public c.a.q0.f1.j.d f48735h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f48807i;
+    public String f48736i;
     public c.a.e.e.k.b<TbImageView> imageObjectPool;
 
     /* renamed from: j  reason: collision with root package name */
-    public Paint f48808j;
+    public Paint f48737j;
     public Paint k;
     public Paint l;
     public double m;
@@ -77,7 +77,7 @@ public class ConstrainImageLayout extends ViewGroup {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ConstrainImageLayout f48809e;
+        public final /* synthetic */ ConstrainImageLayout f48738e;
 
         public a(ConstrainImageLayout constrainImageLayout) {
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class ConstrainImageLayout extends ViewGroup {
                     return;
                 }
             }
-            this.f48809e = constrainImageLayout;
+            this.f48738e = constrainImageLayout;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -108,10 +108,10 @@ public class ConstrainImageLayout extends ViewGroup {
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof TbImageView) && this.f48809e.imageObjectPool != null) {
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof TbImageView) && this.f48738e.imageObjectPool != null) {
                 TbImageView tbImageView = (TbImageView) view2;
                 tbImageView.reset();
-                this.f48809e.imageObjectPool.e(tbImageView);
+                this.f48738e.imageObjectPool.e(tbImageView);
             }
         }
     }
@@ -122,7 +122,7 @@ public class ConstrainImageLayout extends ViewGroup {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ConstrainImageLayout f48810a;
+        public final /* synthetic */ ConstrainImageLayout f48739a;
 
         public b(ConstrainImageLayout constrainImageLayout) {
             Interceptable interceptable = $ic;
@@ -139,7 +139,7 @@ public class ConstrainImageLayout extends ViewGroup {
                     return;
                 }
             }
-            this.f48810a = constrainImageLayout;
+            this.f48739a = constrainImageLayout;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.h
@@ -164,7 +164,7 @@ public class ConstrainImageLayout extends ViewGroup {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            c.a.e.l.d.a m = c.a.q0.c0.c.k().m(c.a.e.e.l.d.h().g(tbImageView.getUrl(), this.f48810a.f48805g ? 13 : 14));
+            c.a.e.l.d.a m = c.a.q0.c0.c.k().m(c.a.e.e.l.d.h().g(tbImageView.getUrl(), this.f48739a.f48734g ? 13 : 14));
             int i3 = 0;
             if (m != null) {
                 i3 = m.r();
@@ -241,7 +241,7 @@ public class ConstrainImageLayout extends ViewGroup {
                     f4 = 0.0f;
                 }
                 imageMatrix.setScale(f2, f2);
-                if (this.f48810a.canCenterStart && i2 > i3) {
+                if (this.f48739a.canCenterStart && i2 > i3) {
                     imageMatrix.postTranslate(f4, 0.0f);
                 } else {
                     imageMatrix.postTranslate(f4, f3);
@@ -261,16 +261,16 @@ public class ConstrainImageLayout extends ViewGroup {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f48811e;
+        public int f48740e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f48812f;
+        public boolean f48741f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f48813g;
+        public boolean f48742g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ConstrainImageLayout f48814h;
+        public final /* synthetic */ ConstrainImageLayout f48743h;
 
         public d(ConstrainImageLayout constrainImageLayout, int i2, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
@@ -287,26 +287,26 @@ public class ConstrainImageLayout extends ViewGroup {
                     return;
                 }
             }
-            this.f48814h = constrainImageLayout;
+            this.f48743h = constrainImageLayout;
             a(i2, z, z2);
         }
 
         public void a(int i2, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                this.f48811e = i2;
-                this.f48812f = z;
-                this.f48813g = z2;
+                this.f48740e = i2;
+                this.f48741f = z;
+                this.f48742g = z2;
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f48814h.f48806h == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f48743h.f48735h == null) {
                 return;
             }
-            this.f48814h.f48806h.a(view, this.f48811e, this.f48812f && this.f48813g);
+            this.f48743h.f48735h.a(view, this.f48740e, this.f48741f && this.f48742g);
         }
     }
 
@@ -328,8 +328,8 @@ public class ConstrainImageLayout extends ViewGroup {
                 return;
             }
         }
-        this.f48804f = -1;
-        this.f48805g = false;
+        this.f48733f = -1;
+        this.f48734g = false;
         this.canCenterStart = false;
         this.q = false;
         this.r = 0;
@@ -368,7 +368,7 @@ public class ConstrainImageLayout extends ViewGroup {
             canvas2.drawARGB(0, 0, 0, 0);
             float f2 = i5;
             RectF rectF2 = new RectF(-fArr[0], 0.0f, i4, f2);
-            if (c.a.q0.b.d.h0()) {
+            if (c.a.q0.b.d.k0()) {
                 i2 = SkinManager.getColor(R.color.CAM_X0601);
                 i3 = SkinManager.getColor(R.color.CAM_X0606);
             } else {
@@ -378,14 +378,14 @@ public class ConstrainImageLayout extends ViewGroup {
             this.k.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, f2, i2, i3, Shader.TileMode.CLAMP));
             canvas2.drawPath(c.a.q0.s.u.d.a.a(rectF2, fArr), this.k);
         }
-        canvas.drawBitmap(this.p, rectF.left, rectF.top, this.f48808j);
+        canvas.drawBitmap(this.p, rectF.left, rectF.top, this.f48737j);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
         int i6 = ((int) rectF.bottom) - dimenPixelSize;
-        int measureText = (((int) rectF.right) - dimenPixelSize2) - ((int) this.l.measureText(this.f48807i));
-        float[] D = c.a.q0.s.u.a.D(R.array.S_O_X001);
-        this.l.setShadowLayer(D[1], D[2], D[3], (int) D[0]);
-        canvas.drawText(this.f48807i, measureText, i6, this.l);
+        int measureText = (((int) rectF.right) - dimenPixelSize2) - ((int) this.l.measureText(this.f48736i));
+        float[] B = c.a.q0.s.u.a.B(R.array.S_O_X001);
+        this.l.setShadowLayer(B[1], B[2], B[3], (int) B[0]);
+        canvas.drawText(this.f48736i, measureText, i6, this.l);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -395,7 +395,7 @@ public class ConstrainImageLayout extends ViewGroup {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
             j();
-            if (StringUtils.isNull(this.f48807i) || (childCount = getChildCount()) <= 0 || getChildAt(childCount - 1) == null || this.f48807i == null) {
+            if (StringUtils.isNull(this.f48736i) || (childCount = getChildCount()) <= 0 || getChildAt(childCount - 1) == null || this.f48736i == null) {
                 return;
             }
             TbImageView tbImageView = null;
@@ -414,7 +414,7 @@ public class ConstrainImageLayout extends ViewGroup {
             if (e2 == null) {
                 return;
             }
-            d(canvas, e2, c.a.q0.s.u.a.A(R.string.J_X11));
+            d(canvas, e2, c.a.q0.s.u.a.y(R.string.J_X11));
         }
     }
 
@@ -463,7 +463,7 @@ public class ConstrainImageLayout extends ViewGroup {
             float f2 = fontMetrics.ascent;
             float f3 = fontMetrics.top;
             Paint paint2 = new Paint();
-            this.f48808j = paint2;
+            this.f48737j = paint2;
             paint2.setAntiAlias(true);
             Paint paint3 = new Paint();
             this.k = paint3;
@@ -496,14 +496,14 @@ public class ConstrainImageLayout extends ViewGroup {
     public final void i(TbImageView tbImageView, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{tbImageView, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (this.f48806h != null && tbImageView != null) {
+            if (this.f48735h != null && tbImageView != null) {
                 View.OnClickListener onClickListener = tbImageView.getOnClickListener();
                 if (onClickListener instanceof d) {
                     ((d) onClickListener).a(i2, z, z2);
                 } else {
                     tbImageView.setOnClickListener(new d(this, i2, z, z2));
                 }
-            } else if (this.f48806h != null || tbImageView == null) {
+            } else if (this.f48735h != null || tbImageView == null) {
             } else {
                 tbImageView.setClickable(false);
             }
@@ -548,7 +548,7 @@ public class ConstrainImageLayout extends ViewGroup {
                 View childAt = getChildAt(i6);
                 if (childAt != null) {
                     int measuredWidth = childAt.getMeasuredWidth();
-                    int i7 = (this.f48803e + measuredWidth) * i6;
+                    int i7 = (this.f48732e + measuredWidth) * i6;
                     childAt.layout(i7, 0, measuredWidth + i7, i5 - i3);
                 }
             }
@@ -568,9 +568,9 @@ public class ConstrainImageLayout extends ViewGroup {
             if (childCount <= 0) {
                 return;
             }
-            int max = Math.max(childCount, this.f48804f);
+            int max = Math.max(childCount, this.f48733f);
             int size = View.MeasureSpec.getSize(i2);
-            int i8 = this.f48803e;
+            int i8 = this.f48732e;
             int i9 = size - ((max - 1) * i8);
             if (!this.q) {
                 i4 = i9 / max;
@@ -586,17 +586,17 @@ public class ConstrainImageLayout extends ViewGroup {
                 }
                 MediaData mediaData = this.s;
                 if (mediaData == null || (i4 = mediaData.picWidth) <= 0 || (i5 = mediaData.picHeight) <= 0) {
-                    i4 = this.f48803e + (this.r * 2);
+                    i4 = this.f48732e + (this.r * 2);
                     i5 = i4;
                 } else {
                     if (i4 * 2 <= i5) {
                         int i11 = this.r;
-                        i6 = this.f48803e;
+                        i6 = this.f48732e;
                         i4 = ((int) (i11 * 1.5f)) + i6;
                         i7 = i11 * 2;
                     } else if (i5 * 2 <= i4) {
                         int i12 = this.r;
-                        i6 = this.f48803e;
+                        i6 = this.f48732e;
                         i4 = (i12 * 2) + i6;
                         i7 = (int) (i12 * 1.5f);
                     } else {
@@ -622,17 +622,17 @@ public class ConstrainImageLayout extends ViewGroup {
                                 int i15 = this.r;
                                 if (i14 >= i15) {
                                     if (i14 >= i15 && i14 < i15 * 2) {
-                                        i13 = (i15 * 2) + this.f48803e;
+                                        i13 = (i15 * 2) + this.f48732e;
                                         i5 = (i14 * i13) / mediaData2.picWidth;
                                     } else {
                                         MediaData mediaData3 = this.s;
                                         int i16 = mediaData3.picWidth;
                                         int i17 = mediaData3.picHeight;
                                         if (i16 < i17) {
-                                            i13 = (this.r * 2) + this.f48803e;
+                                            i13 = (this.r * 2) + this.f48732e;
                                             i4 = (i16 * i13) / i17;
                                         } else {
-                                            i13 = (this.r * 2) + this.f48803e;
+                                            i13 = (this.r * 2) + this.f48732e;
                                             i5 = (i17 * i13) / i16;
                                         }
                                     }
@@ -643,7 +643,7 @@ public class ConstrainImageLayout extends ViewGroup {
                             } else if (i5 < i13) {
                                 i4 = (i4 * i13) / i5;
                             } else if (i5 < i13 || i5 >= i13 * 2) {
-                                i5 = (this.r * 2) + this.f48803e;
+                                i5 = (this.r * 2) + this.f48732e;
                                 MediaData mediaData4 = this.s;
                                 i4 = (mediaData4.picWidth * i5) / mediaData4.picHeight;
                             }
@@ -702,7 +702,7 @@ public class ConstrainImageLayout extends ViewGroup {
     public void setExtraCenterText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f48807i = str;
+            this.f48736i = str;
         }
     }
 
@@ -722,7 +722,7 @@ public class ConstrainImageLayout extends ViewGroup {
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f48805g = z;
+            this.f48734g = z;
         }
     }
 
@@ -732,7 +732,7 @@ public class ConstrainImageLayout extends ViewGroup {
             if (dVar == null) {
                 setClickable(false);
             } else {
-                this.f48806h = dVar;
+                this.f48735h = dVar;
             }
         }
     }
@@ -741,9 +741,9 @@ public class ConstrainImageLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
             if (i2 > 0) {
-                this.f48804f = i2;
+                this.f48733f = i2;
             } else {
-                this.f48804f = -1;
+                this.f48733f = -1;
             }
         }
     }
@@ -751,7 +751,7 @@ public class ConstrainImageLayout extends ViewGroup {
     public void setImagePadding(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.f48803e = i2;
+            this.f48732e = i2;
         }
     }
 
@@ -822,7 +822,7 @@ public class ConstrainImageLayout extends ViewGroup {
         }
         h(count);
         int childCount = getChildCount();
-        int i3 = this.f48805g ? 13 : 14;
+        int i3 = this.f48734g ? 13 : 14;
         int i4 = 0;
         while (i4 < childCount) {
             View childAt = getChildAt(i4);
@@ -884,8 +884,8 @@ public class ConstrainImageLayout extends ViewGroup {
                 return;
             }
         }
-        this.f48804f = -1;
-        this.f48805g = false;
+        this.f48733f = -1;
+        this.f48734g = false;
         this.canCenterStart = false;
         this.q = false;
         this.r = 0;
@@ -914,8 +914,8 @@ public class ConstrainImageLayout extends ViewGroup {
                 return;
             }
         }
-        this.f48804f = -1;
-        this.f48805g = false;
+        this.f48733f = -1;
+        this.f48734g = false;
         this.canCenterStart = false;
         this.q = false;
         this.r = 0;

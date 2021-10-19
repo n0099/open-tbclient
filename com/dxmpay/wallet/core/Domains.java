@@ -38,7 +38,7 @@ public class Domains implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Domains f70098a;
+        public static final Domains f70133a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,7 +54,7 @@ public class Domains implements NoProguard {
                     return;
                 }
             }
-            f70098a = new Domains(null);
+            f70133a = new Domains(null);
         }
     }
 
@@ -91,7 +91,7 @@ public class Domains implements NoProguard {
     public static final Domains getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f70098a : (Domains) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f70133a : (Domains) invokeV.objValue;
     }
 
     public Map<String, EnumSet<Permission>> getDomainsPermissionConfig() {

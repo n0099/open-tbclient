@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class AlaEnterEffectCategoryAdapter extends a<c.a.r0.v.l.g.d.d.a, ViewHolder> {
+public class AlaEnterEffectCategoryAdapter extends a<c.a.r0.w.l.g.d.d.a, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,7 +54,7 @@ public class AlaEnterEffectCategoryAdapter extends a<c.a.r0.v.l.g.d.d.a, ViewHol
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, c.a.r0.v.l.g.d.d.a.f26271f);
+        super(context, c.a.r0.w.l.g.d.d.a.f26446f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,12 +95,12 @@ public class AlaEnterEffectCategoryAdapter extends a<c.a.r0.v.l.g.d.d.a, ViewHol
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.e.l.e.a
     /* renamed from: j0 */
-    public View a0(int i2, View view, ViewGroup viewGroup, c.a.r0.v.l.g.d.d.a aVar, ViewHolder viewHolder) {
+    public View a0(int i2, View view, ViewGroup viewGroup, c.a.r0.w.l.g.d.d.a aVar, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, aVar, viewHolder})) == null) {
             if (aVar != null) {
-                viewHolder.mCategoryName.setText(aVar.f26272e);
+                viewHolder.mCategoryName.setText(aVar.f26447e);
             }
             if (i2 == 0) {
                 viewHolder.mDevide.setVisibility(8);

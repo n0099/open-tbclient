@@ -14,10 +14,10 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f79776e;
+    public final int f79811e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f79777f;
+    public final int f79812f;
 
     /* loaded from: classes2.dex */
     public final class WindowSkipProducer extends AtomicBoolean implements f {
@@ -54,9 +54,9 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
                 } else if (i2 != 0) {
                     OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip = this.this$0;
                     if (get() || !compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowSkip.request(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f79777f));
+                        operatorWindowWithSize$WindowSkip.request(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f79812f));
                     } else {
-                        operatorWindowWithSize$WindowSkip.request(i.o.a.a.a(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f79776e), i.o.a.a.c(operatorWindowWithSize$WindowSkip.f79777f - operatorWindowWithSize$WindowSkip.f79776e, j2 - 1)));
+                        operatorWindowWithSize$WindowSkip.request(i.o.a.a.a(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f79811e), i.o.a.a.c(operatorWindowWithSize$WindowSkip.f79812f - operatorWindowWithSize$WindowSkip.f79811e, j2 - 1)));
                     }
                 }
             }

@@ -26,10 +26,10 @@ public class SelectClassDialogView extends ViewGroup implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f59318e;
+    public ViewGroup f59276e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c<String> f59319f;
+    public c<String> f59277f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SelectClassDialogView(ViewGroup viewGroup, Context context) {
@@ -49,26 +49,26 @@ public class SelectClassDialogView extends ViewGroup implements a {
                 return;
             }
         }
-        this.f59318e = viewGroup;
+        this.f59276e = viewGroup;
         a(context);
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.class_pickerview_options, this.f59318e, true);
-            c<String> cVar = new c<>(this.f59318e, true);
-            this.f59319f = cVar;
+            LayoutInflater.from(context).inflate(R.layout.class_pickerview_options, this.f59276e, true);
+            c<String> cVar = new c<>(this.f59276e, true);
+            this.f59277f = cVar;
             cVar.t(9);
-            this.f59319f.C(UtilHelper.getDimenPixelSize(R.dimen.T_X06) / 3);
-            this.f59319f.q(SkinManager.getColor(R.color.CAM_X0203));
-            this.f59319f.s(WheelView.DividerType.FILL);
-            this.f59319f.v(3.0f);
-            this.f59319f.B(SkinManager.getColor(R.color.CAM_X0611));
-            this.f59319f.z(SkinManager.getColor(R.color.CAM_X0611));
-            this.f59319f.m(Typeface.DEFAULT_BOLD);
-            this.f59319f.k(true);
-            this.f59319f.o(false);
+            this.f59277f.C(UtilHelper.getDimenPixelSize(R.dimen.T_X06) / 3);
+            this.f59277f.q(SkinManager.getColor(R.color.CAM_X0203));
+            this.f59277f.s(WheelView.DividerType.FILL);
+            this.f59277f.v(3.0f);
+            this.f59277f.B(SkinManager.getColor(R.color.CAM_X0611));
+            this.f59277f.z(SkinManager.getColor(R.color.CAM_X0611));
+            this.f59277f.m(Typeface.DEFAULT_BOLD);
+            this.f59277f.k(true);
+            this.f59277f.o(false);
         }
     }
 
@@ -96,7 +96,7 @@ public class SelectClassDialogView extends ViewGroup implements a {
     public boolean isOnViewTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59319f.i() == null || this.f59319f.i().length < 2 || this.f59319f.i()[0] <= 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59277f.i() == null || this.f59277f.i().length < 2 || this.f59277f.i()[0] <= 0 : invokeV.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -110,24 +110,24 @@ public class SelectClassDialogView extends ViewGroup implements a {
     public void onViewChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f59319f.q(SkinManager.getColor(R.color.CAM_X0203));
-            this.f59319f.B(SkinManager.getColor(R.color.CAM_X0105));
-            this.f59319f.z(SkinManager.getColor(R.color.CAM_X0105));
-            this.f59319f.j();
+            this.f59277f.q(SkinManager.getColor(R.color.CAM_X0203));
+            this.f59277f.B(SkinManager.getColor(R.color.CAM_X0105));
+            this.f59277f.z(SkinManager.getColor(R.color.CAM_X0105));
+            this.f59277f.j();
         }
     }
 
     public void setCurrentItems(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            this.f59319f.n(i2, i3, 0);
+            this.f59277f.n(i2, i3, 0);
         }
     }
 
     public void setOnOptionsSelectChangeListener(d dVar) {
         c<String> cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) || (cVar = this.f59319f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) || (cVar = this.f59277f) == null) {
             return;
         }
         cVar.w(dVar);
@@ -136,7 +136,7 @@ public class SelectClassDialogView extends ViewGroup implements a {
     public void setPicker(List<String> list, List<List<String>> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, list2) == null) {
-            this.f59319f.x(list, list2, null);
+            this.f59277f.x(list, list2, null);
         }
     }
 }

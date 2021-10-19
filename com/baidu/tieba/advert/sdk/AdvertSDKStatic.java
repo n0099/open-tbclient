@@ -52,7 +52,7 @@ public class AdvertSDKStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                c.a.r0.t.a.e.k();
+                c.a.r0.u.a.e.k();
             }
         }
     }
@@ -82,8 +82,8 @@ public class AdvertSDKStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && PermissionUtil.isAgreePrivacyPolicy()) {
-                    c.a.r0.t.a.h.a.c().g(customMessage.getData());
-                    return new CustomResponsedMessage<>(2016555, Long.valueOf(c.a.r0.t.a.j.a.e()));
+                    c.a.r0.u.a.h.a.c().g(customMessage.getData());
+                    return new CustomResponsedMessage<>(2016555, Long.valueOf(c.a.r0.u.a.j.a.e()));
                 }
                 return null;
             }
@@ -116,7 +116,7 @@ public class AdvertSDKStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (PermissionUtil.isAgreePrivacyPolicy()) {
-                    c.a.r0.t.a.h.a.c().f();
+                    c.a.r0.u.a.h.a.c().f();
                     return null;
                 }
                 return null;
@@ -152,7 +152,7 @@ public class AdvertSDKStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                c.a.r0.t.a.h.a.c().k(customMessage.getData());
+                c.a.r0.u.a.h.a.c().k(customMessage.getData());
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -184,7 +184,7 @@ public class AdvertSDKStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    c.a.r0.t.a.h.a.c().i(customMessage.getData().a(), false);
+                    c.a.r0.u.a.h.a.c().i(customMessage.getData().a(), false);
                 }
                 return null;
             }
@@ -279,7 +279,7 @@ public class AdvertSDKStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                c.a.r0.t.a.h.a.c().a();
+                c.a.r0.u.a.h.a.c().a();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -299,11 +299,11 @@ public class AdvertSDKStatic {
                 return;
             }
         }
-        new c.a.r0.t.a.a().g();
+        new c.a.r0.u.a.a().g();
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
         MobadsPermissionSettings.setPermissionAppList(true);
         if (PermissionUtil.isAgreePrivacyPolicy() && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            c.a.r0.t.a.e.k();
+            c.a.r0.u.a.e.k();
         }
         MessageManager.getInstance().registerListener(new a(2921554));
         CustomMessageTask customMessageTask = new CustomMessageTask(2016555, new b());

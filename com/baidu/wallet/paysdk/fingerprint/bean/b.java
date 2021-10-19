@@ -25,7 +25,7 @@ public class b extends BaseBean<OpenFingerprintResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PwdRequest f62841a;
+    public PwdRequest f62876a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -45,7 +45,7 @@ public class b extends BaseBean<OpenFingerprintResponse> {
                 return;
             }
         }
-        this.f62841a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f62876a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -62,11 +62,11 @@ public class b extends BaseBean<OpenFingerprintResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            PwdRequest pwdRequest = this.f62841a;
+            PwdRequest pwdRequest = this.f62876a;
             if (pwdRequest != null && !TextUtils.isEmpty(pwdRequest.mPayPass)) {
                 String seed = PasswordController.getSeed();
                 String encryptProxy = SecurePay.getInstance().encryptProxy(seed);
-                arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f62841a.mPayPass, seed)));
+                arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f62876a.mPayPass, seed)));
                 arrayList.add(new RestNameValuePair("seed", encryptProxy));
             }
             return arrayList;

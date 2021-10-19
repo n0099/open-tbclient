@@ -28,10 +28,10 @@ public class b implements com.bytedance.sdk.openadsdk.p.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f68648a;
+    public final Context f68683a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final f f68649b;
+    public final f f68684b;
 
     @SuppressLint({"StaticFieldLeak"})
     /* loaded from: classes9.dex */
@@ -40,13 +40,13 @@ public class b implements com.bytedance.sdk.openadsdk.p.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f68654a;
+        public final /* synthetic */ b f68689a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final e f68655b;
+        public final e f68690b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f68656c;
+        public final String f68691c;
 
         private String c(String str) {
             InterceptResult invokeL;
@@ -59,8 +59,8 @@ public class b implements com.bytedance.sdk.openadsdk.p.a {
                     long currentTimeMillis = System.currentTimeMillis();
                     str = str.replace("{TS}", String.valueOf(currentTimeMillis)).replace("__TS__", String.valueOf(currentTimeMillis));
                 }
-                if ((str.contains("{UID}") || str.contains("__UID__")) && !TextUtils.isEmpty(this.f68656c)) {
-                    str = str.replace("{UID}", this.f68656c).replace("__UID__", this.f68656c);
+                if ((str.contains("{UID}") || str.contains("__UID__")) && !TextUtils.isEmpty(this.f68691c)) {
+                    str = str.replace("{UID}", this.f68691c).replace("__UID__", this.f68691c);
                 }
                 String a2 = k.a();
                 return ((str.contains("{OAID}") || str.contains("__OAID__")) && !TextUtils.isEmpty(a2)) ? str.replace("{OAID}", a2).replace("__OAID__", a2) : str;
@@ -94,23 +94,23 @@ public class b implements com.bytedance.sdk.openadsdk.p.a {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && com.bytedance.sdk.openadsdk.core.j.g.a() && a(this.f68655b.b())) {
-                if (this.f68655b.d() == 0) {
-                    this.f68654a.f68649b.c(this.f68655b);
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && com.bytedance.sdk.openadsdk.core.j.g.a() && a(this.f68690b.b())) {
+                if (this.f68690b.d() == 0) {
+                    this.f68689a.f68684b.c(this.f68690b);
                     return;
                 }
-                while (this.f68655b.d() > 0) {
+                while (this.f68690b.d() > 0) {
                     try {
-                        if (this.f68655b.d() == 5) {
-                            this.f68654a.f68649b.a(this.f68655b);
+                        if (this.f68690b.d() == 5) {
+                            this.f68689a.f68684b.a(this.f68690b);
                         }
                     } catch (Throwable unused) {
                     }
-                    if (!n.a(this.f68654a.b())) {
+                    if (!n.a(this.f68689a.b())) {
                         return;
                     }
-                    String c2 = c(this.f68655b.b());
-                    if (this.f68655b.c()) {
+                    String c2 = c(this.f68690b.b());
+                    if (this.f68690b.c()) {
                         c2 = b(c2);
                     }
                     GetExecutor getExecutor = com.bytedance.sdk.openadsdk.k.d.b().c().getGetExecutor();
@@ -122,26 +122,26 @@ public class b implements com.bytedance.sdk.openadsdk.p.a {
                     } catch (Throwable unused2) {
                     }
                     if (netResponse != null && netResponse.isSuccess()) {
-                        this.f68654a.f68649b.c(this.f68655b);
+                        this.f68689a.f68684b.c(this.f68690b);
                         if (com.bytedance.sdk.component.utils.k.c()) {
-                            com.bytedance.sdk.component.utils.k.c("trackurl", "track success : " + this.f68655b.b());
+                            com.bytedance.sdk.component.utils.k.c("trackurl", "track success : " + this.f68690b.b());
                             return;
                         }
                         return;
                     }
                     if (com.bytedance.sdk.component.utils.k.c()) {
-                        com.bytedance.sdk.component.utils.k.c("trackurl", "track fail : " + this.f68655b.b());
+                        com.bytedance.sdk.component.utils.k.c("trackurl", "track fail : " + this.f68690b.b());
                     }
-                    this.f68655b.a(this.f68655b.d() - 1);
-                    if (this.f68655b.d() == 0) {
-                        this.f68654a.f68649b.c(this.f68655b);
+                    this.f68690b.a(this.f68690b.d() - 1);
+                    if (this.f68690b.d() == 0) {
+                        this.f68689a.f68684b.c(this.f68690b);
                         if (com.bytedance.sdk.component.utils.k.c()) {
-                            com.bytedance.sdk.component.utils.k.c("trackurl", "track fail and delete : " + this.f68655b.b());
+                            com.bytedance.sdk.component.utils.k.c("trackurl", "track fail and delete : " + this.f68690b.b());
                             return;
                         }
                         return;
                     }
-                    this.f68654a.f68649b.b(this.f68655b);
+                    this.f68689a.f68684b.b(this.f68690b);
                 }
             }
         }
@@ -164,9 +164,9 @@ public class b implements com.bytedance.sdk.openadsdk.p.a {
                     return;
                 }
             }
-            this.f68654a = bVar;
-            this.f68655b = eVar;
-            this.f68656c = str;
+            this.f68689a = bVar;
+            this.f68690b = eVar;
+            this.f68691c = str;
         }
     }
 
@@ -185,8 +185,8 @@ public class b implements com.bytedance.sdk.openadsdk.p.a {
                 return;
             }
         }
-        this.f68648a = context;
-        this.f68649b = fVar;
+        this.f68683a = context;
+        this.f68684b = fVar;
     }
 
     public static com.bytedance.sdk.openadsdk.p.a c() {
@@ -206,7 +206,7 @@ public class b implements com.bytedance.sdk.openadsdk.p.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Context context = this.f68648a;
+            Context context = this.f68683a;
             return context == null ? o.a() : context;
         }
         return (Context) invokeV.objValue;
@@ -231,10 +231,10 @@ public class b implements com.bytedance.sdk.openadsdk.p.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f68650a;
+                public final /* synthetic */ String f68685a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f68651b;
+                public final /* synthetic */ b f68686b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -254,23 +254,23 @@ public class b implements com.bytedance.sdk.openadsdk.p.a {
                             return;
                         }
                     }
-                    this.f68651b = this;
-                    this.f68650a = str;
+                    this.f68686b = this;
+                    this.f68685a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        new Handler(Looper.getMainLooper()).post(new Runnable(this, this.f68651b.f68649b.a()) { // from class: com.bytedance.sdk.openadsdk.p.b.1.1
+                        new Handler(Looper.getMainLooper()).post(new Runnable(this, this.f68686b.f68684b.a()) { // from class: com.bytedance.sdk.openadsdk.p.b.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ List f68652a;
+                            public final /* synthetic */ List f68687a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f68653b;
+                            public final /* synthetic */ AnonymousClass1 f68688b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -287,16 +287,16 @@ public class b implements com.bytedance.sdk.openadsdk.p.a {
                                         return;
                                     }
                                 }
-                                this.f68653b = this;
-                                this.f68652a = r7;
+                                this.f68688b = this;
+                                this.f68687a = r7;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    AnonymousClass1 anonymousClass1 = this.f68653b;
-                                    anonymousClass1.f68651b.a(this.f68652a, anonymousClass1.f68650a);
+                                    AnonymousClass1 anonymousClass1 = this.f68688b;
+                                    anonymousClass1.f68686b.a(this.f68687a, anonymousClass1.f68685a);
                                 }
                             }
                         });

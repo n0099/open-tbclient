@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class SoUtils implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -30,7 +30,7 @@ public final class SoUtils implements NoProGuard {
     public static String[] uris;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class SOLOG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SO_LOAD_LIBRARY = "SO_LOAD_LIBRARY";
@@ -55,7 +55,7 @@ public final class SoUtils implements NoProGuard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface SoUbcLoggable {
         void onEvent(String str, String str2);
     }

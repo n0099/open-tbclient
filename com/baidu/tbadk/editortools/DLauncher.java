@@ -29,22 +29,22 @@ public class DLauncher extends RelativeLayout implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48364e;
+    public int f48288e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f48365f;
+    public TextView f48289f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f48366g;
+    public TextView f48290g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48367h;
+    public int f48291h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f48368i;
+    public String f48292i;
 
     /* renamed from: j  reason: collision with root package name */
-    public m f48369j;
+    public m f48293j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DLauncher(Context context, m mVar) {
@@ -64,26 +64,26 @@ public class DLauncher extends RelativeLayout implements h {
                 return;
             }
         }
-        this.f48367h = 0;
+        this.f48291h = 0;
         if (mVar == null) {
             return;
         }
-        this.f48369j = mVar;
+        this.f48293j = mVar;
         setLayoutParams(new AbsListView.LayoutParams(-1, -2));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = getResources().getDimensionPixelOffset(R.dimen.M_H_X008);
         layoutParams.leftMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-        this.f48365f = new EMTextView(context);
-        setName(mVar.f15093b);
+        this.f48289f = new EMTextView(context);
+        setName(mVar.f15124b);
         setIcon();
-        setToolId(mVar.f15094c);
-        this.f48365f.setGravity(17);
-        c d2 = c.d(this.f48365f);
-        d2.A(R.dimen.T_X09);
-        d2.w(R.color.CAM_X0106);
+        setToolId(mVar.f15125c);
+        this.f48289f.setGravity(17);
+        c d2 = c.d(this.f48289f);
+        d2.z(R.dimen.T_X09);
+        d2.v(R.color.CAM_X0106);
         context.getResources().getDimensionPixelSize(R.dimen.ds12);
-        addView(this.f48365f, layoutParams);
+        addView(this.f48289f, layoutParams);
     }
 
     public final void a(String str) {
@@ -91,24 +91,24 @@ public class DLauncher extends RelativeLayout implements h {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f48368i = str;
-        if (this.f48366g == null) {
+        this.f48292i = str;
+        if (this.f48290g == null) {
             TextView textView = new TextView(getContext());
-            this.f48366g = textView;
+            this.f48290g = textView;
             addView(textView, new RelativeLayout.LayoutParams(-2, -2));
         }
-        SkinManager.setViewTextColor(this.f48366g, R.color.common_color_10225, 1, this.f48367h);
-        this.f48366g.setGravity(17);
+        SkinManager.setViewTextColor(this.f48290g, R.color.common_color_10225, 1, this.f48291h);
+        this.f48290g.setGravity(17);
         if (!str.equals(" ")) {
-            this.f48366g.setTextSize(1, 10.0f);
-            this.f48366g.setText(str);
-            SkinManager.setBackgroundResource(this.f48366g, R.drawable.icon_news_head_prompt_one, this.f48367h);
+            this.f48290g.setTextSize(1, 10.0f);
+            this.f48290g.setText(str);
+            SkinManager.setBackgroundResource(this.f48290g, R.drawable.icon_news_head_prompt_one, this.f48291h);
             return;
         }
-        this.f48366g.setWidth(0);
-        this.f48366g.setHeight(0);
-        this.f48366g.setText("");
-        SkinManager.setBackgroundResource(this.f48366g, R.drawable.icon_news_down_bar_one, this.f48367h);
+        this.f48290g.setWidth(0);
+        this.f48290g.setHeight(0);
+        this.f48290g.setText("");
+        SkinManager.setBackgroundResource(this.f48290g, R.drawable.icon_news_down_bar_one, this.f48291h);
     }
 
     @Override // c.a.q0.x.h
@@ -123,21 +123,21 @@ public class DLauncher extends RelativeLayout implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             a(str);
-            this.f48366g.setVisibility(0);
+            this.f48290g.setVisibility(0);
         }
     }
 
     public String getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48368i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48292i : (String) invokeV.objValue;
     }
 
     @Override // c.a.q0.x.h
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48364e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48288e : invokeV.intValue;
     }
 
     @Override // c.a.q0.x.h
@@ -151,8 +151,8 @@ public class DLauncher extends RelativeLayout implements h {
     public void hideNotice() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f48368i = null;
-            TextView textView = this.f48366g;
+            this.f48292i = null;
+            TextView textView = this.f48290g;
             if (textView != null) {
                 textView.setVisibility(8);
             }
@@ -169,8 +169,8 @@ public class DLauncher extends RelativeLayout implements h {
     @Override // c.a.q0.x.b
     public void onAction(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) && aVar != null && aVar.f15086a == 2) {
-            Object obj = aVar.f15088c;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) && aVar != null && aVar.f15109a == 2) {
+            Object obj = aVar.f15111c;
             if (obj == null) {
                 hideNotice();
             } else if (obj instanceof String) {
@@ -183,24 +183,24 @@ public class DLauncher extends RelativeLayout implements h {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f48367h = i2;
+            this.f48291h = i2;
             if (isEnabled()) {
                 SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, i2);
             }
-            c.d(this.f48365f).w(R.color.CAM_X0106);
-            if (this.f48369j == null) {
+            c.d(this.f48289f).v(R.color.CAM_X0106);
+            if (this.f48293j == null) {
                 return;
             }
             setIcon();
-            TextView textView = this.f48366g;
+            TextView textView = this.f48290g;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.common_color_10225, 1, i2);
-                if (!TextUtils.isEmpty(this.f48366g.getText())) {
-                    SkinManager.setBackgroundResource(this.f48366g, R.drawable.icon_news_head_prompt_one, i2);
+                if (!TextUtils.isEmpty(this.f48290g.getText())) {
+                    SkinManager.setBackgroundResource(this.f48290g, R.drawable.icon_news_head_prompt_one, i2);
                 } else {
-                    SkinManager.setBackgroundResource(this.f48366g, R.drawable.icon_news_down_bar_one, i2);
+                    SkinManager.setBackgroundResource(this.f48290g, R.drawable.icon_news_down_bar_one, i2);
                 }
-                this.f48366g.setPadding(0, 0, 0, 0);
+                this.f48290g.setPadding(0, 0, 0, 0);
             }
         }
     }
@@ -210,14 +210,14 @@ public class DLauncher extends RelativeLayout implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            if (this.f48366g != null) {
+            if (this.f48290g != null) {
                 if (getVisibility() == 0) {
-                    int right = this.f48365f.getRight() - (this.f48366g.getMeasuredWidth() / 2);
-                    int top = this.f48365f.getTop() - (this.f48366g.getMeasuredHeight() / 2);
-                    this.f48366g.layout(right, top, this.f48366g.getMeasuredWidth() + right, this.f48366g.getMeasuredHeight() + top);
+                    int right = this.f48289f.getRight() - (this.f48290g.getMeasuredWidth() / 2);
+                    int top = this.f48289f.getTop() - (this.f48290g.getMeasuredHeight() / 2);
+                    this.f48290g.layout(right, top, this.f48290g.getMeasuredWidth() + right, this.f48290g.getMeasuredHeight() + top);
                     return;
                 }
-                this.f48366g.layout(0, 0, 0, 0);
+                this.f48290g.layout(0, 0, 0, 0);
             }
         }
     }
@@ -228,13 +228,13 @@ public class DLauncher extends RelativeLayout implements h {
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             super.setEnabled(z);
             if (z) {
-                this.f48365f.setAlpha(1.0f);
-                this.f48365f.setEnabled(z);
+                this.f48289f.setAlpha(1.0f);
+                this.f48289f.setEnabled(z);
                 setPressed(true);
                 SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, TbadkCoreApplication.getInst().getSkinType());
             } else {
-                this.f48365f.setAlpha(0.33f);
-                this.f48365f.setEnabled(false);
+                this.f48289f.setAlpha(0.33f);
+                this.f48289f.setEnabled(false);
                 setPressed(false);
                 setBackground(null);
             }
@@ -246,34 +246,34 @@ public class DLauncher extends RelativeLayout implements h {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            m mVar = this.f48369j;
-            int i2 = mVar.f15097f;
+            m mVar = this.f48293j;
+            int i2 = mVar.f15128f;
             int i3 = mVar.p;
             if (i2 <= 0) {
-                i2 = mVar.f15095d;
+                i2 = mVar.f15126d;
             }
-            if (this.f48369j.f15098g) {
-                drawable = SvgManager.getInstance().getSeletableDrawableForEditorTools(i2, this.f48369j.f15096e, this.f48367h);
+            if (this.f48293j.f15129g) {
+                drawable = SvgManager.getInstance().getSeletableDrawableForEditorTools(i2, this.f48293j.f15127e, this.f48291h);
             } else {
-                drawable = SkinManager.getDrawable(this.f48367h, i2);
+                drawable = SkinManager.getDrawable(this.f48291h, i2);
             }
             if (drawable == null) {
                 return;
             }
-            Drawable drawable2 = i3 > 0 ? SkinManager.getDrawable(this.f48367h, i3) : null;
+            Drawable drawable2 = i3 > 0 ? SkinManager.getDrawable(this.f48291h, i3) : null;
             if (drawable2 != null) {
                 drawable = new LayerDrawable(new Drawable[]{drawable, drawable2});
             }
             if (drawable == null) {
                 return;
             }
-            if (TextUtils.isEmpty(this.f48365f.getText())) {
-                this.f48365f.setBackground(drawable);
+            if (TextUtils.isEmpty(this.f48289f.getText())) {
+                this.f48289f.setBackground(drawable);
                 return;
             }
             drawable.setBounds(0, 0, getResources().getDimensionPixelSize(R.dimen.tbds165), getResources().getDimensionPixelSize(R.dimen.tbds165));
-            this.f48365f.setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.M_H_X002));
-            this.f48365f.setCompoundDrawables(null, drawable, null, null);
+            this.f48289f.setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.M_H_X002));
+            this.f48289f.setCompoundDrawables(null, drawable, null, null);
         }
     }
 
@@ -281,14 +281,14 @@ public class DLauncher extends RelativeLayout implements h {
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f48365f.setText(str);
+            this.f48289f.setText(str);
         }
     }
 
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f48364e = i2;
+            this.f48288e = i2;
         }
     }
 }

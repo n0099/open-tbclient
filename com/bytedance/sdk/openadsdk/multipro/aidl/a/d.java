@@ -19,10 +19,10 @@ public class d extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, RemoteCallbackList<ICommonPermissionListener>> f68360a;
+    public static HashMap<String, RemoteCallbackList<ICommonPermissionListener>> f68395a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f68361b;
+    public static volatile d f68396b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class d extends a {
                 return;
             }
         }
-        f68360a = new HashMap<>();
+        f68395a = new HashMap<>();
     }
 
     public d() {
@@ -59,14 +59,14 @@ public class d extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f68361b == null) {
+            if (f68396b == null) {
                 synchronized (d.class) {
-                    if (f68361b == null) {
-                        f68361b = new d();
+                    if (f68396b == null) {
+                        f68396b = new d();
                     }
                 }
             }
-            return f68361b;
+            return f68396b;
         }
         return (d) invokeV.objValue;
     }
@@ -76,7 +76,7 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             k.b("MultiProcess", "00000 CommonPermissionListenerManagerImpl broadcastDialogListener: 00000" + String.valueOf(str) + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
-            RemoteCallbackList<ICommonPermissionListener> remove = f68360a.remove(str);
+            RemoteCallbackList<ICommonPermissionListener> remove = f68395a.remove(str);
             if (remove == null) {
                 return;
             }
@@ -106,6 +106,6 @@ public class d extends a {
         k.b("MultiProcess", "CommonPermissionListenerManagerImpl registerPermissionListener");
         RemoteCallbackList<ICommonPermissionListener> remoteCallbackList = new RemoteCallbackList<>();
         remoteCallbackList.register(iCommonPermissionListener);
-        f68360a.put(str, remoteCallbackList);
+        f68395a.put(str, remoteCallbackList);
     }
 }

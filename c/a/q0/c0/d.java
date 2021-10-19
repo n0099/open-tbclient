@@ -19,22 +19,22 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f12810a = "add_user_collect_emotoin";
+    public static String f12816a = "add_user_collect_emotoin";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f12811b = "image_url";
+    public static String f12817b = "image_url";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f12812c = "package_id";
+    public static String f12818c = "package_id";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f12813d = "#(meme,setting)";
+    public static String f12819d = "#(meme,setting)";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f12814e = "#(meme,collect_";
+    public static String f12820e = "#(meme,collect_";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f12815f = "meme,collect_";
+    public static String f12821f = "meme,collect_";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -43,10 +43,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12816a;
+        public String f12822a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12817b;
+        public String f12823b;
 
         public a() {
             Interceptable interceptable = $ic;

@@ -36,7 +36,7 @@ public class SwanAppGlobalJsBridge extends c.a.p0.a.d1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppGlobalJsBridge f46078e;
+        public final /* synthetic */ SwanAppGlobalJsBridge f45990e;
 
         public a(SwanAppGlobalJsBridge swanAppGlobalJsBridge) {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class SwanAppGlobalJsBridge extends c.a.p0.a.d1.a {
                     return;
                 }
             }
-            this.f46078e = swanAppGlobalJsBridge;
+            this.f45990e = swanAppGlobalJsBridge;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46078e.registerLaunchTrigger();
+                this.f45990e.registerLaunchTrigger();
             }
         }
     }
@@ -71,10 +71,10 @@ public class SwanAppGlobalJsBridge extends c.a.p0.a.d1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f46079g;
+        public final /* synthetic */ String f45991g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ SwanAppGlobalJsBridge f46080h;
+        public final /* synthetic */ SwanAppGlobalJsBridge f45992h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SwanAppGlobalJsBridge swanAppGlobalJsBridge, String str, String str2) {
@@ -94,16 +94,16 @@ public class SwanAppGlobalJsBridge extends c.a.p0.a.d1.a {
                     return;
                 }
             }
-            this.f46080h = swanAppGlobalJsBridge;
-            this.f46079g = str2;
+            this.f45992h = swanAppGlobalJsBridge;
+            this.f45991g = str2;
         }
 
         @Override // c.a.p0.a.o0.c
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SwanAppGlobalJsBridge swanAppGlobalJsBridge = this.f46080h;
-                swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f46079g);
+                SwanAppGlobalJsBridge swanAppGlobalJsBridge = this.f45992h;
+                swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f45991g);
             }
         }
     }
@@ -114,10 +114,10 @@ public class SwanAppGlobalJsBridge extends c.a.p0.a.d1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46081e;
+        public final /* synthetic */ String f45993e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppGlobalJsBridge f46082f;
+        public final /* synthetic */ SwanAppGlobalJsBridge f45994f;
 
         public c(SwanAppGlobalJsBridge swanAppGlobalJsBridge, String str) {
             Interceptable interceptable = $ic;
@@ -134,16 +134,16 @@ public class SwanAppGlobalJsBridge extends c.a.p0.a.d1.a {
                     return;
                 }
             }
-            this.f46082f = swanAppGlobalJsBridge;
-            this.f46081e = str;
+            this.f45994f = swanAppGlobalJsBridge;
+            this.f45993e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SwanAppGlobalJsBridge swanAppGlobalJsBridge = this.f46082f;
-                swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f46081e);
+                SwanAppGlobalJsBridge swanAppGlobalJsBridge = this.f45994f;
+                swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), this.f45993e);
             }
         }
     }
@@ -154,7 +154,7 @@ public class SwanAppGlobalJsBridge extends c.a.p0.a.d1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppGlobalJsBridge f46083a;
+        public final /* synthetic */ SwanAppGlobalJsBridge f45995a;
 
         /* loaded from: classes6.dex */
         public class a implements Runnable {
@@ -162,7 +162,7 @@ public class SwanAppGlobalJsBridge extends c.a.p0.a.d1.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f46084e;
+            public final /* synthetic */ d f45996e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -179,22 +179,22 @@ public class SwanAppGlobalJsBridge extends c.a.p0.a.d1.a {
                         return;
                     }
                 }
-                this.f46084e = dVar;
+                this.f45996e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Iterator it = this.f46084e.f46083a.mPendingSchemeList.iterator();
+                    Iterator it = this.f45996e.f45995a.mPendingSchemeList.iterator();
                     while (it.hasNext()) {
-                        SwanAppGlobalJsBridge swanAppGlobalJsBridge = this.f46084e.f46083a;
+                        SwanAppGlobalJsBridge swanAppGlobalJsBridge = this.f45996e.f45995a;
                         swanAppGlobalJsBridge.doSchemeDispatch(swanAppGlobalJsBridge.mCallbackHandler.getCurrentPageUrl(), (String) it.next());
                     }
                     if (c.a.p0.a.f1.f.a.f5710a) {
-                        String str = "pending api count = " + this.f46084e.f46083a.mPendingSchemeList.size();
+                        String str = "pending api count = " + this.f45996e.f45995a.mPendingSchemeList.size();
                     }
-                    this.f46084e.f46083a.mPendingSchemeList.clear();
+                    this.f45996e.f45995a.mPendingSchemeList.clear();
                 }
             }
         }
@@ -214,13 +214,13 @@ public class SwanAppGlobalJsBridge extends c.a.p0.a.d1.a {
                     return;
                 }
             }
-            this.f46083a = swanAppGlobalJsBridge;
+            this.f45995a = swanAppGlobalJsBridge;
         }
 
         @Override // c.a.p0.a.r1.k.h.a
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46083a.mPendingSchemeList.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45995a.mPendingSchemeList.isEmpty()) {
                 return;
             }
             q0.X(new a(this));

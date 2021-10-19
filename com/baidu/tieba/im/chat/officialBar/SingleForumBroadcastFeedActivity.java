@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.os.Bundle;
 import android.util.LongSparseArray;
 import c.a.q0.j0.i;
-import c.a.r0.k1.f.j.g;
+import c.a.r0.l1.f.j.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -36,7 +36,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SingleForumBroadcastFeedActivity f53129g;
+        public final /* synthetic */ SingleForumBroadcastFeedActivity f53060g;
 
         public a(SingleForumBroadcastFeedActivity singleForumBroadcastFeedActivity) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f53129g = singleForumBroadcastFeedActivity;
+            this.f53060g = singleForumBroadcastFeedActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,8 +63,8 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, topToastEvent)) == null) {
-                if (this.f53129g.feedView != null) {
-                    this.f53129g.feedView.m(topToastEvent.isSuccess(), topToastEvent.getContent());
+                if (this.f53060g.feedView != null) {
+                    this.f53060g.feedView.m(topToastEvent.isSuccess(), topToastEvent.getContent());
                     return false;
                 }
                 return false;
@@ -79,7 +79,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SingleForumBroadcastFeedActivity f53130a;
+        public final /* synthetic */ SingleForumBroadcastFeedActivity f53061a;
 
         public b(SingleForumBroadcastFeedActivity singleForumBroadcastFeedActivity) {
             Interceptable interceptable = $ic;
@@ -96,22 +96,22 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f53130a = singleForumBroadcastFeedActivity;
+            this.f53061a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // c.a.r0.k1.f.j.g.d
-        public void a(List<c.a.r0.k1.l.c.b> list) {
+        @Override // c.a.r0.l1.f.j.g.d
+        public void a(List<c.a.r0.l1.l.c.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.f53130a.feedView.j(list, null);
+                this.f53061a.feedView.j(list, null);
             }
         }
 
-        @Override // c.a.r0.k1.f.j.g.d
-        public void onReadCountLoad(LongSparseArray<c.a.r0.k1.i.a.b.b> longSparseArray) {
+        @Override // c.a.r0.l1.f.j.g.d
+        public void onReadCountLoad(LongSparseArray<c.a.r0.l1.i.a.b.b> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
-                this.f53130a.feedView.k(longSparseArray);
+                this.f53061a.feedView.k(longSparseArray);
             }
         }
     }

@@ -13,7 +13,7 @@ public class E1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static E1 f77110a;
+    public static E1 f77145a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public E1() {
@@ -34,20 +34,20 @@ public class E1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f77110a == null) {
+            if (f77145a == null) {
                 synchronized (E1.class) {
-                    if (f77110a == null) {
-                        f77110a = new E1();
+                    if (f77145a == null) {
+                        f77145a = new E1();
                     }
                 }
             }
-            return f77110a;
+            return f77145a;
         }
         return (E1) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0057, code lost:
-        if (((r6 / 60) / 60) >= r10.f77343a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L9;
+        if (((r6 / 60) / 60) >= r10.f77378a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -64,7 +64,7 @@ public class E1 {
             }
             W1.a(new D1(this, context));
             f1 a2 = f1.a(context);
-            long i2 = U1.i(a2.f77343a);
+            long i2 = U1.i(a2.f77378a);
             boolean z = true;
             if (i2 > 0) {
                 try {
@@ -78,7 +78,7 @@ public class E1 {
                 }
             }
             if (z) {
-                a2.f77344b = System.currentTimeMillis();
+                a2.f77379b = System.currentTimeMillis();
                 W1.a(new e1(a2));
             }
             N.d(context);

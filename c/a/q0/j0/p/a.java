@@ -2,7 +2,7 @@ package c.a.q0.j0.p;
 
 import android.text.TextUtils;
 import c.a.q0.j0.b;
-import c.a.r0.a0.m;
+import c.a.r0.b0.m;
 import com.baidu.tbadk.mutiprocess.history.HistoryEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

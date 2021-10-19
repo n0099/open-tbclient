@@ -17,7 +17,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SharedPreferences f32226a;
+    public static SharedPreferences f32230a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static long a(String str, String str2) {
@@ -65,10 +65,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (f32226a == null) {
-            f32226a = DxmApplicationContextImpl.getApplicationContext(context).getSharedPreferences("pop_window_sign_record", 0);
+        if (f32230a == null) {
+            f32230a = DxmApplicationContextImpl.getApplicationContext(context).getSharedPreferences("pop_window_sign_record", 0);
         }
-        SharedPreferences.Editor edit = f32226a.edit();
+        SharedPreferences.Editor edit = f32230a.edit();
         edit.putString(str, str2);
         edit.commit();
     }
@@ -94,10 +94,10 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
-            if (f32226a == null) {
-                f32226a = DxmApplicationContextImpl.getApplicationContext(context).getSharedPreferences("pop_window_sign_record", 0);
+            if (f32230a == null) {
+                f32230a = DxmApplicationContextImpl.getApplicationContext(context).getSharedPreferences("pop_window_sign_record", 0);
             }
-            return f32226a.getString(str, str2);
+            return f32230a.getString(str, str2);
         }
         return (String) invokeLLL.objValue;
     }
@@ -116,10 +116,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLI(65543, null, context, str, i2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (f32226a == null) {
-            f32226a = DxmApplicationContextImpl.getApplicationContext(context).getSharedPreferences("pop_window_sign_record", 0);
+        if (f32230a == null) {
+            f32230a = DxmApplicationContextImpl.getApplicationContext(context).getSharedPreferences("pop_window_sign_record", 0);
         }
-        SharedPreferences.Editor edit = f32226a.edit();
+        SharedPreferences.Editor edit = f32230a.edit();
         edit.putInt(str, i2);
         edit.commit();
     }
@@ -131,10 +131,10 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 return -1;
             }
-            if (f32226a == null) {
-                f32226a = DxmApplicationContextImpl.getApplicationContext(context).getSharedPreferences("pop_window_sign_record", 0);
+            if (f32230a == null) {
+                f32230a = DxmApplicationContextImpl.getApplicationContext(context).getSharedPreferences("pop_window_sign_record", 0);
             }
-            return f32226a.getInt(str, i2);
+            return f32230a.getInt(str, i2);
         }
         return invokeLLI.intValue;
     }

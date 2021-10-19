@@ -18,7 +18,7 @@ public final class b implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<X500Principal, Set<X509Certificate>> f32079a;
+    public final Map<X500Principal, Set<X509Certificate>> f32083a;
 
     public b(X509Certificate... x509CertificateArr) {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public final class b implements e {
                 return;
             }
         }
-        this.f32079a = new LinkedHashMap();
+        this.f32083a = new LinkedHashMap();
         for (X509Certificate x509Certificate : x509CertificateArr) {
             X500Principal subjectX500Principal = x509Certificate.getSubjectX500Principal();
-            Set<X509Certificate> set = this.f32079a.get(subjectX500Principal);
+            Set<X509Certificate> set = this.f32083a.get(subjectX500Principal);
             if (set == null) {
                 set = new LinkedHashSet<>(1);
-                this.f32079a.put(subjectX500Principal, set);
+                this.f32083a.put(subjectX500Principal, set);
             }
             set.add(x509Certificate);
         }
@@ -54,7 +54,7 @@ public final class b implements e {
             if (obj == this) {
                 return true;
             }
-            return (obj instanceof b) && ((b) obj).f32079a.equals(this.f32079a);
+            return (obj instanceof b) && ((b) obj).f32083a.equals(this.f32083a);
         }
         return invokeL.booleanValue;
     }
@@ -64,7 +64,7 @@ public final class b implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509Certificate)) == null) {
-            Set<X509Certificate> set = this.f32079a.get(x509Certificate.getIssuerX500Principal());
+            Set<X509Certificate> set = this.f32083a.get(x509Certificate.getIssuerX500Principal());
             if (set == null) {
                 return null;
             }
@@ -83,6 +83,6 @@ public final class b implements e {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32079a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32083a.hashCode() : invokeV.intValue;
     }
 }

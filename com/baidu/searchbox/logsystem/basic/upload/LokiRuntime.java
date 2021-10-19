@@ -1,7 +1,7 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
-import c.a.r0.e3.f;
-import c.a.r0.e3.l;
+import c.a.r0.f3.f;
+import c.a.r0.f3.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;

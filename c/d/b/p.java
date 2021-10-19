@@ -48,7 +48,7 @@ public abstract class p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ p f32147a;
+        public final /* synthetic */ p f32151a;
 
         public b(p pVar) {
             Interceptable interceptable = $ic;
@@ -65,14 +65,14 @@ public abstract class p {
                     return;
                 }
             }
-            this.f32147a = pVar;
+            this.f32151a = pVar;
         }
 
         @Override // c.d.b.p.c
         public p create(e eVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) ? this.f32147a : (p) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) ? this.f32151a : (p) invokeL.objValue;
         }
     }
 

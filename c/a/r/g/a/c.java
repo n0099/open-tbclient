@@ -13,14 +13,14 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f15396b = 5;
+    public static int f15419b = 5;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f15397c = 40;
+    public static int f15420c = 40;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.helios.common.cc.a f15398a;
+    public com.baidu.helios.common.cc.a f15421a;
 
     static {
         InterceptResult invokeClinit;
@@ -50,15 +50,15 @@ public class c {
                 return;
             }
         }
-        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(f15397c);
-        this.f15398a = aVar;
-        aVar.a(0, f15397c, true);
+        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(f15420c);
+        this.f15421a = aVar;
+        aVar.a(0, f15420c, true);
     }
 
     public void a(com.baidu.helios.common.cc.a aVar, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048576, this, aVar, i2, i3, i4) == null) {
-            com.baidu.helios.common.cc.a d2 = this.f15398a.d(i2, i2 + i3);
+            com.baidu.helios.common.cc.a d2 = this.f15421a.d(i2, i2 + i3);
             if (i4 != 0) {
                 if (i4 != 1) {
                     if (i4 == 2) {
@@ -72,7 +72,7 @@ public class c {
                 d2.b(aVar);
             }
             for (int i5 = 0; i5 < i3; i5++) {
-                this.f15398a.a(i2 + i5, d2.d(i5));
+                this.f15421a.a(i2 + i5, d2.d(i5));
             }
         }
     }
@@ -80,6 +80,6 @@ public class c {
     public byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15398a.a() : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15421a.a() : (byte[]) invokeV.objValue;
     }
 }

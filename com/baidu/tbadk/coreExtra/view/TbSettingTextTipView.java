@@ -31,10 +31,10 @@ public class TbSettingTextTipView extends FrameLayout {
     public View dividerline;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f48302e;
+    public boolean f48226e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48303f;
+    public int f48227f;
     public ImageView imageView;
     public Context mContext;
     public TextView textView;
@@ -59,7 +59,7 @@ public class TbSettingTextTipView extends FrameLayout {
                 return;
             }
         }
-        this.f48302e = true;
+        this.f48226e = true;
         this.mContext = context;
         initialieView();
         initializeStyle(attributeSet);
@@ -149,12 +149,12 @@ public class TbSettingTextTipView extends FrameLayout {
                 if (string2 != null) {
                     this.tipView.setText(string2);
                 }
-                this.f48302e = obtainStyledAttributes.getBoolean(R$styleable.TbSettingView_settingShowArraw, true);
+                this.f48226e = obtainStyledAttributes.getBoolean(R$styleable.TbSettingView_settingShowArraw, true);
                 obtainStyledAttributes.recycle();
             }
             this.container.setClickable(false);
             this.container.setFocusable(false);
-            if (this.f48302e) {
+            if (this.f48226e) {
                 return;
             }
             this.imageView.setVisibility(4);
@@ -167,7 +167,7 @@ public class TbSettingTextTipView extends FrameLayout {
             setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
             SkinManager.setViewTextColor(this.textView, R.color.CAM_X0105);
             TextView textView = this.tipView;
-            int i3 = this.f48303f;
+            int i3 = this.f48227f;
             if (i3 == 0) {
                 i3 = R.color.CAM_X0109;
             }
@@ -210,7 +210,7 @@ public class TbSettingTextTipView extends FrameLayout {
     public void setTipViewColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f48303f = i2;
+            this.f48227f = i2;
             SkinManager.setViewTextColor(this.tipView, i2);
         }
     }
@@ -240,7 +240,7 @@ public class TbSettingTextTipView extends FrameLayout {
                 return;
             }
         }
-        this.f48302e = true;
+        this.f48226e = true;
         this.mContext = context;
         initialieView();
     }

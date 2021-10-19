@@ -17,7 +17,7 @@ public final class PermissionEnum {
     public static final PermissionEnum STORAGE;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ PermissionEnum[] f43820a;
+    public static final /* synthetic */ PermissionEnum[] f43732a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public final class PermissionEnum {
         APP_LIST = new PermissionEnum("APP_LIST", 2);
         PermissionEnum permissionEnum = new PermissionEnum("READ_PHONE_STATE", 3);
         READ_PHONE_STATE = permissionEnum;
-        f43820a = new PermissionEnum[]{LOCATION, STORAGE, APP_LIST, permissionEnum};
+        f43732a = new PermissionEnum[]{LOCATION, STORAGE, APP_LIST, permissionEnum};
     }
 
     public PermissionEnum(String str, int i2) {
@@ -69,6 +69,6 @@ public final class PermissionEnum {
     public static PermissionEnum[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PermissionEnum[]) f43820a.clone() : (PermissionEnum[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PermissionEnum[]) f43732a.clone() : (PermissionEnum[]) invokeV.objValue;
     }
 }

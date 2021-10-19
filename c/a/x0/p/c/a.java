@@ -15,23 +15,23 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f31022a;
+    public volatile boolean f31069a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f31023b;
+    public c f31070b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f31024c;
+    public b f31071c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.x0.p.g.c f31025d;
+    public c.a.x0.p.g.c f31072d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f31026e;
+    public boolean f31073e;
 
     /* renamed from: c.a.x0.p.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1427a {
+    public static /* synthetic */ class C1430a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -42,7 +42,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f31027e;
+        public final /* synthetic */ a f31074e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -59,10 +59,10 @@ public class a {
                     return;
                 }
             }
-            this.f31027e = aVar;
+            this.f31074e = aVar;
         }
 
-        public /* synthetic */ b(a aVar, C1427a c1427a) {
+        public /* synthetic */ b(a aVar, C1430a c1430a) {
             this(aVar);
         }
 
@@ -73,33 +73,33 @@ public class a {
                 Process.setThreadPriority(-19);
                 try {
                     try {
-                        this.f31027e.f31023b = new c(-100);
-                        if (this.f31027e.f31023b.d() != null) {
-                            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(c.f31134d);
-                            this.f31027e.f31023b.c();
-                            if (this.f31027e.f31023b.e() != 3) {
+                        this.f31074e.f31070b = new c(-100);
+                        if (this.f31074e.f31070b.d() != null) {
+                            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(c.f31181d);
+                            this.f31074e.f31070b.c();
+                            if (this.f31074e.f31070b.e() != 3) {
                                 return;
                             }
-                            while (!this.f31027e.f31022a) {
+                            while (!this.f31074e.f31069a) {
                                 allocateDirect.clear();
-                                int a2 = this.f31027e.f31023b.a(allocateDirect, c.f31134d);
+                                int a2 = this.f31074e.f31070b.a(allocateDirect, c.f31181d);
                                 if (a2 > 0) {
                                     double a3 = c.a.x0.p.i.a.a(allocateDirect, a2);
-                                    if (this.f31027e.f31025d != null && a3 > 0.0d) {
-                                        this.f31027e.f31025d.a(a3);
+                                    if (this.f31074e.f31072d != null && a3 > 0.0d) {
+                                        this.f31074e.f31072d.a(a3);
                                     }
                                 }
                             }
-                        } else if (this.f31027e.f31025d != null) {
-                            this.f31027e.f31025d.a("failed to initialize AudioRecord", true);
+                        } else if (this.f31074e.f31072d != null) {
+                            this.f31074e.f31072d.a("failed to initialize AudioRecord", true);
                         }
                     } catch (Exception unused) {
-                        if (this.f31027e.f31025d != null) {
-                            this.f31027e.f31025d.a("failed to initialize AudioRecord", true);
+                        if (this.f31074e.f31072d != null) {
+                            this.f31074e.f31072d.a("failed to initialize AudioRecord", true);
                         }
                     }
                 } finally {
-                    this.f31027e.i();
+                    this.f31074e.i();
                 }
             }
         }
@@ -118,16 +118,16 @@ public class a {
                 return;
             }
         }
-        this.f31022a = false;
+        this.f31069a = false;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f31026e = true;
-            this.f31022a = false;
+            this.f31073e = true;
+            this.f31069a = false;
             b bVar = new b(this, null);
-            this.f31024c = bVar;
+            this.f31071c = bVar;
             bVar.start();
         }
     }
@@ -135,35 +135,35 @@ public class a {
     public void d(c.a.x0.p.g.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f31025d = cVar;
+            this.f31072d = cVar;
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f31022a = true;
-            this.f31026e = false;
+            this.f31069a = true;
+            this.f31073e = false;
         }
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31026e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31073e : invokeV.booleanValue;
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f31022a = false;
-            this.f31026e = false;
-            c cVar = this.f31023b;
+            this.f31069a = false;
+            this.f31073e = false;
+            c cVar = this.f31070b;
             if (cVar != null) {
                 cVar.b();
             }
-            if (this.f31024c != null) {
-                this.f31024c = null;
+            if (this.f31071c != null) {
+                this.f31071c = null;
             }
         }
     }

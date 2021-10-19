@@ -13,7 +13,7 @@ public class a<T> implements c.a.q0.f1.p.b.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<T> f13303a;
+    public List<T> f13311a;
 
     public a(List<T> list) {
         Interceptable interceptable = $ic;
@@ -30,20 +30,20 @@ public class a<T> implements c.a.q0.f1.p.b.a.a {
                 return;
             }
         }
-        this.f13303a = list;
+        this.f13311a = list;
     }
 
     @Override // c.a.q0.f1.p.b.a.a
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13303a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13311a.size() : invokeV.intValue;
     }
 
     @Override // c.a.q0.f1.p.b.a.a
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (i2 < 0 || i2 >= this.f13303a.size()) ? "" : this.f13303a.get(i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (i2 < 0 || i2 >= this.f13311a.size()) ? "" : this.f13311a.get(i2) : invokeI.objValue;
     }
 }

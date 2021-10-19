@@ -14,10 +14,10 @@ public abstract class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f75873a;
+    public static final g f75908a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f75874b;
+    public static final g f75909b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public abstract class g {
                 return;
             }
         }
-        f75873a = new g("PRODUCE_STATISTICAL", 0) { // from class: com.sdk.base.framework.c.h
+        f75908a = new g("PRODUCE_STATISTICAL", 0) { // from class: com.sdk.base.framework.c.h
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,7 +65,7 @@ public abstract class g {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? com.sdk.base.framework.f.e.a.a("cucc/host_cucc.properties", "PRODUCE_STATISTICAL") : (String) invokeV.objValue;
             }
         };
-        f75874b = new g("PRODUCE_DZH", 1) { // from class: com.sdk.base.framework.c.i
+        f75909b = new g("PRODUCE_DZH", 1) { // from class: com.sdk.base.framework.c.i
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

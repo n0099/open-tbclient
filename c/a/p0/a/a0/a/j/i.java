@@ -117,7 +117,7 @@ public class i {
                             this.f4426a = "linearGradient";
                             return;
                         }
-                        this.f4428c = new RadialGradient(c.a.p0.a.v2.n0.g(optJSONObject2.optInt("x")), c.a.p0.a.v2.n0.g(optJSONObject2.optInt("y")), c.a.p0.a.v2.n0.g(optJSONObject2.optInt(com.baidu.mapsdkplatform.comapi.map.r.f42342a)), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.f4428c = new RadialGradient(c.a.p0.a.v2.n0.g(optJSONObject2.optInt("x")), c.a.p0.a.v2.n0.g(optJSONObject2.optInt("y")), c.a.p0.a.v2.n0.g(optJSONObject2.optInt(com.baidu.mapsdkplatform.comapi.map.r.f42346a)), iArr, fArr, Shader.TileMode.CLAMP);
                         this.f4426a = "circularGradient";
                     }
                 }

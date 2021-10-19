@@ -9,7 +9,7 @@ import c.a.e.e.m.b;
 import c.a.e.e.p.k;
 import c.a.q0.e.f;
 import c.a.q0.u.j;
-import c.a.r0.u.a;
+import c.a.r0.v.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -78,9 +78,9 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
                 return;
             }
             UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-            aVar.f48190a = true;
-            aVar.f48193d = "1".equals(queryParameter2);
-            aVar.f48192c = queryParameter;
+            aVar.f48111a = true;
+            aVar.f48114d = "1".equals(queryParameter2);
+            aVar.f48113c = queryParameter;
             MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
         }
     }

@@ -14,16 +14,16 @@ public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f42398a;
+    public final /* synthetic */ int f42402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ HistoryTraceQueryOptions f42399b;
+    public final /* synthetic */ HistoryTraceQueryOptions f42403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f42400c;
+    public final /* synthetic */ String f42404c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ b.a f42401d;
+    public final /* synthetic */ b.a f42405d;
 
     public d(b.a aVar, int i2, HistoryTraceQueryOptions historyTraceQueryOptions, String str) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
                 return;
             }
         }
-        this.f42401d = aVar;
-        this.f42398a = i2;
-        this.f42399b = historyTraceQueryOptions;
-        this.f42400c = str;
+        this.f42405d = aVar;
+        this.f42402a = i2;
+        this.f42403b = historyTraceQueryOptions;
+        this.f42404c = str;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.e
@@ -53,17 +53,17 @@ public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (c.a.f42434e == aVar || c.a.f42431b == aVar || c.a.f42432c == aVar || c.a.f42433d == aVar) {
-                i2 = b.f42391g;
+            if (c.a.f42438e == aVar || c.a.f42435b == aVar || c.a.f42436c == aVar || c.a.f42437d == aVar) {
+                i2 = b.f42395g;
                 if (i2 <= 2) {
-                    this.f42401d.a(this.f42400c, this.f42398a, this.f42399b);
-                    i3 = b.f42391g;
-                    int unused = b.f42391g = i3 + 1;
+                    this.f42405d.a(this.f42404c, this.f42402a, this.f42403b);
+                    i3 = b.f42395g;
+                    int unused = b.f42395g = i3 + 1;
                 }
             }
-            i4 = b.f42391g;
+            i4 = b.f42395g;
             if (2 < i4) {
-                this.f42401d.a(aVar, this.f42398a);
+                this.f42405d.a(aVar, this.f42402a);
             }
         }
     }
@@ -72,10 +72,10 @@ public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            String str2 = b.f42387a;
+            String str2 = b.f42391a;
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str2, "Request success, the result = " + str);
-            this.f42401d.a(3, str, this.f42398a, this.f42399b);
-            int unused = b.f42391g = 0;
+            this.f42405d.a(3, str, this.f42402a, this.f42403b);
+            int unused = b.f42395g = 0;
         }
     }
 }

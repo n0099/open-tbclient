@@ -319,7 +319,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f7282d != null || (F = c.a.p0.a.a2.d.g().r().F()) == null || (cVar = F.q) == null) {
             return;
         }
-        this.f7282d = Boolean.valueOf(cVar.f46667a);
+        this.f7282d = Boolean.valueOf(cVar.f46579a);
         d.h("SwanCookieManager", "enableStore =" + this.f7282d);
     }
 

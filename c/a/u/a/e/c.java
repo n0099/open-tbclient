@@ -48,7 +48,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, z)) == null) {
             bVar.o = z;
-            h(bVar, f(bVar.f30212h, bVar.f30213i, bVar.n, d(false)), a(bVar.f30205a, d(false)));
+            h(bVar, f(bVar.f30259h, bVar.f30260i, bVar.n, d(false)), a(bVar.f30252a, d(false)));
             return bVar;
         }
         return (c.a.u.a.c.b) invokeLZ.objValue;
@@ -62,8 +62,8 @@ public class c {
             c.a.u.a.c.b bVar = new c.a.u.a.c.b();
             bVar.n = random;
             bVar.o = true;
-            bVar.f30212h = 1L;
-            bVar.f30213i = j2;
+            bVar.f30259h = 1L;
+            bVar.f30260i = j2;
             bVar.l = j2 == 1;
             bVar.k = j2 == 3;
             h(bVar, f(1L, j2, random, d(false)), a(e(context, random, j2), d(false)));
@@ -183,7 +183,7 @@ public class c {
                 allocate.putInt(bArr.length);
                 allocate.put(bArr);
                 allocate.put(bArr2);
-                bVar.f30205a = allocate.array();
+                bVar.f30252a = allocate.array();
             } catch (Exception unused) {
             }
             return bVar;

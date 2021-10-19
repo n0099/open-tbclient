@@ -60,13 +60,13 @@ public class b {
         aVar.S(z);
     }
 
-    public void b(a.InterfaceC1633a interfaceC1633a) {
+    public void b(a.InterfaceC1635a interfaceC1635a) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1633a) == null) || (aVar = this.we) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1635a) == null) || (aVar = this.we) == null) {
             return;
         }
-        aVar.a(interfaceC1633a);
+        aVar.a(interfaceC1635a);
         if (this.wf) {
             return;
         }

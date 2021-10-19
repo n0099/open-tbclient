@@ -1,71 +1,103 @@
 package c.a.r0.s3;
 
-import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import org.apache.commons.lang3.StringUtils;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
+import java.net.URLEncoder;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class c {
+public class c extends BdAsyncTask<String, String, Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                sb.append(list.get(i2));
-                sb.append(StringUtils.LF);
-            }
-            return sb.toString().getBytes();
-        }
-        return (byte[]) invokeL.objValue;
+    /* renamed from: a  reason: collision with root package name */
+    public String f24680a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public a f24681b;
+
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a();
+
+        void b();
+
+        void c();
+
+        void onError(String str);
     }
 
-    public static byte[] b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public c(String str, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return jSONObject.toString().getBytes();
         }
-        return (byte[]) invokeL.objValue;
+        this.f24680a = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.f24681b = aVar;
     }
 
-    public static boolean c(byte[] bArr, String str) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Integer doInBackground(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            if (bArr == null) {
-                return false;
-            }
-            c.a.e.e.j.a.e eVar = new c.a.e.e.j.a.e();
-            eVar.b().s(str);
-            eVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
-            eVar.b().c("", bArr);
-            new c.a.e.e.j.a.c(eVar).n(3, -1, -1);
-            int i2 = eVar.c().f2328b;
-            byte[] bArr2 = eVar.c().f2334h;
-            if (bArr2 == null || i2 != 200) {
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
             try {
-                return new JSONObject(new String(bArr2, "utf-8")).optJSONObject("error").optInt("errno") == 0;
+                NetWork netWork = new NetWork(this.f24680a);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                JSONArray optJSONArray = new JSONObject(new String(netWork.getNetData())).optJSONArray("result");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                        if (optJSONObject != null) {
+                            return Integer.valueOf(optJSONObject.optInt(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT, -1));
+                        }
+                    }
+                    return -1;
+                }
+                return -1;
             } catch (Exception e2) {
                 e2.printStackTrace();
-                return false;
+                return -1;
             }
         }
-        return invokeLL.booleanValue;
+        return (Integer) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(Integer num) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) || this.f24681b == null || num == null) {
+            return;
+        }
+        if (num.intValue() == -1) {
+            this.f24681b.onError(null);
+        } else if (num.intValue() == 1) {
+            this.f24681b.c();
+        } else if (num.intValue() != 2 && num.intValue() != 0) {
+            this.f24681b.a();
+        } else {
+            this.f24681b.b();
+        }
     }
 }

@@ -19,7 +19,7 @@ public final class b implements u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f64867a;
+    public final boolean f64902a;
 
     /* loaded from: classes9.dex */
     public static final class a extends com.bytedance.sdk.component.b.a.g {
@@ -27,7 +27,7 @@ public final class b implements u {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f64868a;
+        public long f64903a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(r rVar) {
@@ -54,7 +54,7 @@ public final class b implements u {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, cVar, j2) == null) {
                 super.a_(cVar, j2);
-                this.f64868a += j2;
+                this.f64903a += j2;
             }
         }
     }
@@ -74,7 +74,7 @@ public final class b implements u {
                 return;
             }
         }
-        this.f64867a = z;
+        this.f64902a = z;
     }
 
     @Override // com.bytedance.sdk.component.b.b.u
@@ -105,7 +105,7 @@ public final class b implements u {
                     com.bytedance.sdk.component.b.a.d a4 = com.bytedance.sdk.component.b.a.l.a(aVar3);
                     a3.d().a(a4);
                     a4.close();
-                    gVar.i().a(gVar.h(), aVar3.f64868a);
+                    gVar.i().a(gVar.h(), aVar3.f64903a);
                 } else if (!cVar.e()) {
                     f2.d();
                 }
@@ -118,8 +118,8 @@ public final class b implements u {
             ab a5 = aVar2.a(a3).a(f2.b().d()).a(currentTimeMillis).b(System.currentTimeMillis()).a();
             gVar.i().a(gVar.h(), a5);
             int c2 = a5.c();
-            if (this.f64867a && c2 == 101) {
-                a2 = a5.i().a(com.bytedance.sdk.component.b.b.a.c.f64856c).a();
+            if (this.f64902a && c2 == 101) {
+                a2 = a5.i().a(com.bytedance.sdk.component.b.b.a.c.f64891c).a();
             } else {
                 a2 = a5.i().a(g2.a(a5)).a();
             }

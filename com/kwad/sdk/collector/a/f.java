@@ -10,10 +10,10 @@ public class f extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f71634a;
+    public int f71669a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f71635b;
+    public int f71670b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class f extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
                 return;
             }
         }
-        this.f71634a = -1;
-        this.f71635b = -1;
+        this.f71669a = -1;
+        this.f71670b = -1;
     }
 }

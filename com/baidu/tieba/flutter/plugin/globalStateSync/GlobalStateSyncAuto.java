@@ -169,7 +169,7 @@ public class GlobalStateSyncAuto {
         public void writeToFlutter(SingleTypeStateData singleTypeStateData, final Reply<WriteResult> reply) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, singleTypeStateData, reply) == null) {
-                new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterGlobalStateSync.writeToFlutter", new StandardMessageCodec()).send(singleTypeStateData.toMap(), new BasicMessageChannel.Reply() { // from class: c.a.r0.s0.a.b.a
+                new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterGlobalStateSync.writeToFlutter", new StandardMessageCodec()).send(singleTypeStateData.toMap(), new BasicMessageChannel.Reply() { // from class: c.a.r0.t0.a.b.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

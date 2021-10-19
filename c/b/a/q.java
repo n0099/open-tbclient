@@ -29,20 +29,20 @@ public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f31431d;
+    public static int f31435d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final HashMap<String, p> f31432e;
+    public static final HashMap<String, p> f31436e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final y1 f31433a;
+    public final y1 f31437a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final z1 f31434b;
+    public final z1 f31438b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f31435c;
+    public final a f31439c;
 
     /* loaded from: classes4.dex */
     public static class a extends SQLiteOpenHelper {
@@ -76,7 +76,7 @@ public class q {
             if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
                 try {
                     sQLiteDatabase.beginTransaction();
-                    for (p pVar : q.f31432e.values()) {
+                    for (p pVar : q.f31436e.values()) {
                         String k = pVar.k();
                         if (k != null) {
                             sQLiteDatabase.execSQL(k);
@@ -105,7 +105,7 @@ public class q {
                 h0.e("onUpgrade, " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3, null);
                 try {
                     sQLiteDatabase.beginTransaction();
-                    Iterator<p> it = q.f31432e.values().iterator();
+                    Iterator<p> it = q.f31436e.values().iterator();
                     while (it.hasNext()) {
                         sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + it.next().l());
                     }
@@ -136,7 +136,7 @@ public class q {
         String str2 = "UPDATE " + x.s + " SET monitor_num =? WHERE event_name =? AND monitor_status =?";
         String str3 = "SELECT * FROM " + x.s + " WHERE date<? ORDER BY local_time_ms LIMIT ?";
         String str4 = "DELETE FROM " + x.s + " WHERE local_time_ms <= ?";
-        f31432e = new HashMap<>();
+        f31436e = new HashMap<>();
         h(new w());
         h(new r());
         h(new t(null, false, null));
@@ -162,15 +162,15 @@ public class q {
                 return;
             }
         }
-        this.f31435c = new a(application, "bd_embed_tea_agent.db", null, 29);
-        this.f31434b = z1Var;
-        this.f31433a = y1Var;
+        this.f31439c = new a(application, "bd_embed_tea_agent.db", null, 29);
+        this.f31438b = z1Var;
+        this.f31437a = y1Var;
     }
 
     public static void h(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, pVar) == null) {
-            f31432e.put(pVar.l(), pVar);
+            f31436e.put(pVar.l(), pVar);
         }
     }
 
@@ -244,9 +244,9 @@ public class q {
             return (ArrayList) invokeV.objValue;
         }
         ArrayList<v> arrayList = new ArrayList<>();
-        v vVar = (v) f31432e.get("pack");
+        v vVar = (v) f31436e.get("pack");
         try {
-            cursor = this.f31435c.getWritableDatabase().rawQuery("SELECT * FROM pack ORDER BY local_time_ms DESC,_full DESC LIMIT 2", null);
+            cursor = this.f31439c.getWritableDatabase().rawQuery("SELECT * FROM pack ORDER BY local_time_ms DESC,_full DESC LIMIT 2", null);
             while (cursor.moveToNext()) {
                 try {
                     vVar = (v) vVar.clone();
@@ -283,12 +283,12 @@ public class q {
                 while (cursor.moveToNext()) {
                     try {
                         pVar.a(cursor);
-                        if (h0.f31368b) {
+                        if (h0.f31372b) {
                             h0.a("queryEvnetInner, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + pVar, null);
                         }
                         jSONArray.put(pVar.n());
-                        if (pVar.f31412e > j2) {
-                            j2 = pVar.f31412e;
+                        if (pVar.f31416e > j2) {
+                            j2 = pVar.f31416e;
                         }
                     } catch (Throwable th) {
                         th = th;
@@ -336,15 +336,15 @@ public class q {
      */
     /* JADX WARN: Code restructure failed: missing block: B:33:0x007b, code lost:
         r13.m = r6;
-        r13.f31414g = r12.f31414g;
-        r13.f31412e = r12.f31412e;
-        r13.n = (r12.f31412e + r6) / 1000;
-        r13.f31413f = c.b.a.p1.a(r11.f31433a);
-        r13.f31416i = r12.f31416i;
-        r13.f31417j = r12.f31417j;
+        r13.f31418g = r12.f31418g;
+        r13.f31416e = r12.f31416e;
+        r13.n = (r12.f31416e + r6) / 1000;
+        r13.f31417f = c.b.a.p1.a(r11.f31437a);
+        r13.f31420i = r12.f31420i;
+        r13.f31421j = r12.f31421j;
      */
     /* JADX WARN: Code restructure failed: missing block: B:35:0x009d, code lost:
-        if (c.b.a.h0.f31368b == false) goto L34;
+        if (c.b.a.h0.f31372b == false) goto L34;
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x009f, code lost:
         c.b.a.h0.a("queryPage, " + r13 + com.baidu.android.common.others.lang.StringUtil.ARRAY_ELEMENT_SEPARATOR + r3.length(), null);
@@ -363,7 +363,7 @@ public class q {
             return (JSONArray) invokeLLLL.objValue;
         }
         boolean z = false;
-        String[] strArr = {uVar.f31414g};
+        String[] strArr = {uVar.f31418g};
         JSONArray jSONArray = new JSONArray();
         long j2 = 0;
         try {
@@ -371,7 +371,7 @@ public class q {
             while (cursor.moveToNext()) {
                 try {
                     wVar.a(cursor);
-                    if (h0.f31368b) {
+                    if (h0.f31372b) {
                         h0.a("queryPageInner, " + strArr + StringUtil.ARRAY_ELEMENT_SEPARATOR + wVar, null);
                     }
                     if (wVar.q()) {
@@ -414,7 +414,7 @@ public class q {
             h0.a("save, " + arrayList.toString(), null);
             try {
                 try {
-                    sQLiteDatabase = this.f31435c.getWritableDatabase();
+                    sQLiteDatabase = this.f31439c.getWritableDatabase();
                     try {
                         sQLiteDatabase.beginTransaction();
                         Iterator<p> it = arrayList.iterator();
@@ -429,7 +429,7 @@ public class q {
                     } catch (Throwable th2) {
                         th = th2;
                         try {
-                            f31431d += arrayList.size();
+                            f31435d += arrayList.size();
                             h0.b(th);
                             if (sQLiteDatabase != null) {
                                 sQLiteDatabase.endTransaction();
@@ -498,16 +498,16 @@ public class q {
                 }
             }
             try {
-                SQLiteDatabase writableDatabase = this.f31435c.getWritableDatabase();
+                SQLiteDatabase writableDatabase = this.f31439c.getWritableDatabase();
                 writableDatabase.beginTransaction();
                 Iterator<v> it2 = arrayList.iterator();
                 while (it2.hasNext()) {
-                    writableDatabase.execSQL("DELETE FROM pack WHERE local_time_ms=?", new String[]{String.valueOf(it2.next().f31412e)});
+                    writableDatabase.execSQL("DELETE FROM pack WHERE local_time_ms=?", new String[]{String.valueOf(it2.next().f31416e)});
                 }
                 Iterator<v> it3 = arrayList2.iterator();
                 while (it3.hasNext()) {
                     v next2 = it3.next();
-                    long j2 = next2.f31412e;
+                    long j2 = next2.f31416e;
                     int i4 = next2.n + 1;
                     next2.n = i4;
                     writableDatabase.execSQL(b(j2, i4));
@@ -563,18 +563,18 @@ public class q {
         if (interceptable != null && (invokeL = interceptable.invokeL(1048587, this, jSONObject)) != null) {
             return invokeL.booleanValue;
         }
-        u uVar = (u) f31432e.get("launch");
-        y yVar2 = (y) f31432e.get("terminate");
-        w wVar2 = (w) f31432e.get("page");
-        t tVar = (t) f31432e.get("eventv3");
-        r rVar = (r) f31432e.get("event");
-        s sVar = (s) f31432e.get("event_misc");
+        u uVar = (u) f31436e.get("launch");
+        y yVar2 = (y) f31436e.get("terminate");
+        w wVar2 = (w) f31436e.get("page");
+        t tVar = (t) f31436e.get("eventv3");
+        r rVar = (r) f31436e.get("event");
+        s sVar = (s) f31436e.get("event_misc");
         String str2 = "pack";
-        v vVar2 = (v) f31432e.get("pack");
+        v vVar2 = (v) f31436e.get("pack");
         ContentValues contentValues2 = new ContentValues();
         Cursor cursor2 = null;
         try {
-            SQLiteDatabase writableDatabase = this.f31435c.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.f31439c.getWritableDatabase();
             try {
                 writableDatabase.beginTransaction();
                 Cursor rawQuery = writableDatabase.rawQuery("SELECT * FROM launch ORDER BY local_time_ms DESC LIMIT 5", null);
@@ -589,25 +589,25 @@ public class q {
                             break;
                         }
                         uVar.a(rawQuery);
-                        if (TextUtils.equals(uVar.f31414g, j1.l())) {
+                        if (TextUtils.equals(uVar.f31418g, j1.l())) {
                             str2 = str3;
                         } else {
                             try {
                                 try {
-                                    if (TextUtils.equals(uVar.n, this.f31434b.p())) {
+                                    if (TextUtils.equals(uVar.n, this.f31438b.p())) {
                                         try {
-                                            if (uVar.m == this.f31434b.n()) {
+                                            if (uVar.m == this.f31438b.n()) {
                                                 jSONObject2 = jSONObject3;
                                                 w wVar3 = wVar2;
-                                                long j4 = uVar.f31412e >= j3 ? uVar.f31412e : j3;
-                                                long j5 = uVar.f31412e <= j2 ? uVar.f31412e : j2;
+                                                long j4 = uVar.f31416e >= j3 ? uVar.f31416e : j3;
+                                                long j5 = uVar.f31416e <= j2 ? uVar.f31416e : j2;
                                                 g2 = g(uVar, yVar2, wVar3, writableDatabase);
                                                 p[] pVarArr2 = {rVar, tVar, sVar};
                                                 JSONArray[] jSONArrayArr = new JSONArray[3];
-                                                int a2 = a(pVarArr2, 0, writableDatabase, uVar.f31414g, jSONArrayArr);
+                                                int a2 = a(pVarArr2, 0, writableDatabase, uVar.f31418g, jSONArrayArr);
                                                 if (g2.length() <= 0) {
                                                     try {
-                                                        long j6 = uVar.f31412e;
+                                                        long j6 = uVar.f31416e;
                                                         JSONArray jSONArray = jSONArrayArr[0];
                                                         JSONArray jSONArray2 = jSONArrayArr[1];
                                                         JSONArray jSONArray3 = jSONArrayArr[2];
@@ -683,14 +683,14 @@ public class q {
                                                     yVar = yVar2;
                                                     str = str3;
                                                     uVar.o = true;
-                                                    vVar.q(uVar.f31412e, jSONObject2, uVar, null, null, jSONArrayArr[0], jSONArrayArr[1], jSONArrayArr[2]);
+                                                    vVar.q(uVar.f31416e, jSONObject2, uVar, null, null, jSONArrayArr[0], jSONArrayArr[1], jSONArrayArr[2]);
                                                 }
-                                                if (h0.f31368b) {
+                                                if (h0.f31372b) {
                                                     StringBuilder sb = new StringBuilder();
                                                     sb.append("packer launch, ");
                                                     sb.append(g2.length() <= 0);
                                                     sb.append(", sid:");
-                                                    sb.append(uVar.f31414g);
+                                                    sb.append(uVar.f31418g);
                                                     h0.a(sb.toString(), null);
                                                 }
                                                 ContentValues h2 = vVar.h(contentValues);
@@ -703,12 +703,12 @@ public class q {
                                                 while (i2 < 3) {
                                                     v vVar3 = vVar;
                                                     String str6 = str5;
-                                                    i2 = a(pVarArr, i2, sQLiteDatabase, uVar.f31414g, jSONArrayArr);
+                                                    i2 = a(pVarArr, i2, sQLiteDatabase, uVar.f31418g, jSONArrayArr);
                                                     if (jSONArrayArr[0] == null && jSONArrayArr[1] == null && jSONArrayArr[2] == null) {
                                                         vVar = vVar3;
                                                         str5 = str6;
                                                     }
-                                                    vVar3.q(uVar.f31412e, jSONObject2, null, null, null, jSONArrayArr[0], jSONArrayArr[1], jSONArrayArr[2]);
+                                                    vVar3.q(uVar.f31416e, jSONObject2, null, null, null, jSONArrayArr[0], jSONArrayArr[1], jSONArrayArr[2]);
                                                     contentValues4 = vVar3.h(contentValues4);
                                                     sQLiteDatabase.insert(str4, str6, contentValues4);
                                                     vVar = vVar3;
@@ -811,17 +811,17 @@ public class q {
                             jSONObject4.put("version_code", uVar.m);
                             jSONObject2 = jSONObject4;
                             w wVar32 = wVar2;
-                            if (uVar.f31412e >= j3) {
+                            if (uVar.f31416e >= j3) {
                             }
-                            if (uVar.f31412e <= j2) {
+                            if (uVar.f31416e <= j2) {
                             }
                             g2 = g(uVar, yVar2, wVar32, writableDatabase);
                             p[] pVarArr22 = {rVar, tVar, sVar};
                             JSONArray[] jSONArrayArr2 = new JSONArray[3];
-                            int a22 = a(pVarArr22, 0, writableDatabase, uVar.f31414g, jSONArrayArr2);
+                            int a22 = a(pVarArr22, 0, writableDatabase, uVar.f31418g, jSONArrayArr2);
                             if (g2.length() <= 0) {
                             }
-                            if (h0.f31368b) {
+                            if (h0.f31372b) {
                             }
                         }
                     } catch (Exception e9) {
@@ -916,20 +916,20 @@ public class q {
         if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(1048588, this, jSONObject, uVar, z)) != null) {
             return invokeLLZ.booleanValue;
         }
-        t tVar = (t) f31432e.get("eventv3");
-        r rVar = (r) f31432e.get("event");
-        s sVar = (s) f31432e.get("event_misc");
-        v vVar4 = (v) f31432e.get("pack");
+        t tVar = (t) f31436e.get("eventv3");
+        r rVar = (r) f31436e.get("event");
+        s sVar = (s) f31436e.get("event_misc");
+        v vVar4 = (v) f31436e.get("pack");
         ContentValues contentValues2 = new ContentValues();
         SQLiteDatabase sQLiteDatabase4 = null;
         try {
-            SQLiteDatabase writableDatabase = this.f31435c.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.f31439c.getWritableDatabase();
             try {
                 writableDatabase.beginTransaction();
                 p[] pVarArr2 = {rVar, tVar, sVar};
                 JSONArray[] jSONArrayArr = new JSONArray[3];
                 char c2 = 1;
-                int a2 = a(pVarArr2, 0, writableDatabase, uVar.f31414g, jSONArrayArr);
+                int a2 = a(pVarArr2, 0, writableDatabase, uVar.f31418g, jSONArrayArr);
                 if (jSONArrayArr[0] != null) {
                     try {
                     } catch (Exception e2) {
@@ -986,7 +986,7 @@ public class q {
                                         sQLiteDatabase = sQLiteDatabase2;
                                     }
                                     try {
-                                        i2 = a(pVarArr, i2, sQLiteDatabase2, uVar.f31414g, jSONArrayArr);
+                                        i2 = a(pVarArr, i2, sQLiteDatabase2, uVar.f31418g, jSONArrayArr);
                                         if (jSONArrayArr[0] != null) {
                                             try {
                                             } catch (Exception e5) {
@@ -1087,8 +1087,8 @@ public class q {
                         ContentValues h2 = vVar.h(contentValues2);
                         str = "pack";
                         sQLiteDatabase2.insert(str, null, h2);
-                        if (h0.f31368b && l(uVar, z)) {
-                            h0.a("send launch, " + uVar.f31414g + ", hadUI:" + z, null);
+                        if (h0.f31372b && l(uVar, z)) {
+                            h0.a("send launch, " + uVar.f31418g + ", hadUI:" + z, null);
                         }
                         uVar.p = true;
                         i2 = a2;

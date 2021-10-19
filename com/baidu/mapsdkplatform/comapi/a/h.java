@@ -19,25 +19,25 @@ public class h extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Animator f42152a;
+    public Animator f42156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f42153b;
+    public long f42157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Interpolator f42154c;
+    public Interpolator f42158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Animation.AnimationListener f42155d;
+    public Animation.AnimationListener f42159d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42156e;
+    public int f42160e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42157f;
+    public int f42161f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f42158g;
+    public float[] f42162g;
 
     public h(float... fArr) {
         Interceptable interceptable = $ic;
@@ -54,13 +54,13 @@ public class h extends c {
                 return;
             }
         }
-        this.f42152a = null;
-        this.f42153b = 0L;
-        this.f42154c = null;
-        this.f42155d = null;
-        this.f42156e = 1;
-        this.f42157f = 0;
-        this.f42158g = fArr;
+        this.f42156a = null;
+        this.f42157b = 0L;
+        this.f42158c = null;
+        this.f42159d = null;
+        this.f42160e = 1;
+        this.f42161f = 0;
+        this.f42162g = fArr;
     }
 
     @TargetApi(11)
@@ -68,12 +68,12 @@ public class h extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, marker)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(marker, "scale", this.f42158g);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(marker, "scale", this.f42162g);
             if (ofFloat != null) {
-                ofFloat.setRepeatCount(this.f42157f);
+                ofFloat.setRepeatCount(this.f42161f);
                 ofFloat.setRepeatMode(c());
-                ofFloat.setDuration(this.f42153b);
-                Interpolator interpolator = this.f42154c;
+                ofFloat.setDuration(this.f42157b);
+                Interpolator interpolator = this.f42158c;
                 if (interpolator != null) {
                     ofFloat.setInterpolator(interpolator);
                 }
@@ -88,7 +88,7 @@ public class h extends c {
     public void a() {
         Animator animator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (animator = this.f42152a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (animator = this.f42156a) == null) {
             return;
         }
         animator.start();
@@ -98,7 +98,7 @@ public class h extends c {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f42156e = i2;
+            this.f42160e = i2;
         }
     }
 
@@ -109,7 +109,7 @@ public class h extends c {
             if (j2 < 0) {
                 j2 = 0;
             }
-            this.f42153b = j2;
+            this.f42157b = j2;
         }
     }
 
@@ -127,7 +127,7 @@ public class h extends c {
     public void a(Interpolator interpolator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, interpolator) == null) {
-            this.f42154c = interpolator;
+            this.f42158c = interpolator;
         }
     }
 
@@ -135,7 +135,7 @@ public class h extends c {
     public void a(Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, animationListener) == null) {
-            this.f42155d = animationListener;
+            this.f42159d = animationListener;
         }
     }
 
@@ -145,7 +145,7 @@ public class h extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, marker, animation) == null) {
             ObjectAnimator a2 = a(marker);
-            this.f42152a = a2;
+            this.f42156a = a2;
             a(a2);
         }
     }
@@ -155,11 +155,11 @@ public class h extends c {
     public void b() {
         Animator animator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (animator = this.f42152a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (animator = this.f42156a) == null) {
             return;
         }
         animator.cancel();
-        this.f42152a = null;
+        this.f42156a = null;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -167,7 +167,7 @@ public class h extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             if (i2 > 0 || i2 == -1) {
-                this.f42157f = i2;
+                this.f42161f = i2;
             }
         }
     }
@@ -175,7 +175,7 @@ public class h extends c {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f42156e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f42160e : invokeV.intValue;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c

@@ -14,33 +14,33 @@ public final class a extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<C1486a> f33367c;
+    public final List<C1488a> f33371c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<C1486a> f33368d;
+    public final List<C1488a> f33372d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<C1486a> f33369e;
+    public final List<C1488a> f33373e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Format f33370f;
+    public final Format f33374f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<Format> f33371g;
+    public final List<Format> f33375g;
 
     /* renamed from: c.i.b.a.d0.w.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1486a {
+    public static final class C1488a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f33372a;
+        public final String f33376a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Format f33373b;
+        public final Format f33377b;
 
-        public C1486a(String str, Format format) {
+        public C1488a(String str, Format format) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,19 +55,19 @@ public final class a extends c {
                     return;
                 }
             }
-            this.f33372a = str;
-            this.f33373b = format;
+            this.f33376a = str;
+            this.f33377b = format;
         }
 
-        public static C1486a a(String str) {
+        public static C1488a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new C1486a(str, Format.createContainerFormat("0", "application/x-mpegURL", null, null, -1, 0, null)) : (C1486a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new C1488a(str, Format.createContainerFormat("0", "application/x-mpegURL", null, null, -1, 0, null)) : (C1488a) invokeL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(String str, List<String> list, List<C1486a> list2, List<C1486a> list3, List<C1486a> list4, Format format, List<Format> list5) {
+    public a(String str, List<String> list, List<C1488a> list2, List<C1488a> list3, List<C1488a> list4, Format format, List<Format> list5) {
         super(str, list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -85,18 +85,18 @@ public final class a extends c {
                 return;
             }
         }
-        this.f33367c = Collections.unmodifiableList(list2);
-        this.f33368d = Collections.unmodifiableList(list3);
-        this.f33369e = Collections.unmodifiableList(list4);
-        this.f33370f = format;
-        this.f33371g = list5 != null ? Collections.unmodifiableList(list5) : null;
+        this.f33371c = Collections.unmodifiableList(list2);
+        this.f33372d = Collections.unmodifiableList(list3);
+        this.f33373e = Collections.unmodifiableList(list4);
+        this.f33374f = format;
+        this.f33375g = list5 != null ? Collections.unmodifiableList(list5) : null;
     }
 
     public static a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            List singletonList = Collections.singletonList(C1486a.a(str));
+            List singletonList = Collections.singletonList(C1488a.a(str));
             List emptyList = Collections.emptyList();
             return new a(null, Collections.emptyList(), singletonList, emptyList, emptyList, null, null);
         }

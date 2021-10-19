@@ -34,7 +34,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f13442a;
+    public static boolean f13450a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -43,10 +43,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f13443a;
+        public final /* synthetic */ AlertDialog f13451a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f13444b;
+        public final /* synthetic */ Activity f13452b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2, AlertDialog alertDialog, Activity activity) {
@@ -66,8 +66,8 @@ public class b {
                     return;
                 }
             }
-            this.f13443a = alertDialog;
-            this.f13444b = activity;
+            this.f13451a = alertDialog;
+            this.f13452b = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,8 +77,8 @@ public class b {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
-                    this.f13443a.dismiss();
-                    new BdTopToast(this.f13444b, 2000).setIcon(true).setContent(this.f13444b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f13444b.findViewById(16908290));
+                    this.f13451a.dismiss();
+                    new BdTopToast(this.f13452b, 2000).setIcon(true).setContent(this.f13452b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f13452b.findViewById(16908290));
                 }
             }
         }
@@ -86,18 +86,18 @@ public class b {
 
     /* renamed from: c.a.q0.g1.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0666b extends CustomMessageListener {
+    public static class C0667b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f13445a;
+        public final /* synthetic */ AlertDialog f13453a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f13446b;
+        public final /* synthetic */ Activity f13454b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0666b(int i2, AlertDialog alertDialog, Activity activity) {
+        public C0667b(int i2, AlertDialog alertDialog, Activity activity) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -114,8 +114,8 @@ public class b {
                     return;
                 }
             }
-            this.f13445a = alertDialog;
-            this.f13446b = activity;
+            this.f13453a = alertDialog;
+            this.f13454b = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -125,8 +125,8 @@ public class b {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
-                    this.f13445a.dismiss();
-                    new BdTopToast(this.f13446b, 2000).setIcon(true).setContent(this.f13446b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f13446b.findViewById(16908290));
+                    this.f13453a.dismiss();
+                    new BdTopToast(this.f13454b, 2000).setIcon(true).setContent(this.f13454b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f13454b.findViewById(16908290));
                 }
             }
         }
@@ -155,7 +155,7 @@ public class b {
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                b.f13442a = false;
+                b.f13450a = false;
             }
         }
     }
@@ -166,7 +166,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f13447e;
+        public final /* synthetic */ Activity f13455e;
 
         public d(Activity activity) {
             Interceptable interceptable = $ic;
@@ -183,14 +183,14 @@ public class b {
                     return;
                 }
             }
-            this.f13447e = activity;
+            this.f13455e = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MainTabActivityConfig.toExitApp(this.f13447e);
+                MainTabActivityConfig.toExitApp(this.f13455e);
             }
         }
     }
@@ -201,232 +201,9 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f13448e;
-
-        public e(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f13448e = activity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f13448e);
-                youngsterPasswordActivityConfig.setYoungsterPasswordPageType(6);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, youngsterPasswordActivityConfig));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class f implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f13449e;
-
-        public f(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f13449e = activity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f13449e);
-                youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);
-                if (this.f13449e.getComponentName().getClassName().contains("MainTabActivity")) {
-                    youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
-                } else {
-                    youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(1);
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, youngsterPasswordActivityConfig));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class g extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f13450a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f13451b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(int i2, AlertDialog alertDialog, Activity activity) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), alertDialog, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f13450a = alertDialog;
-            this.f13451b = activity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                Object data = customResponsedMessage.getData();
-                if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
-                    this.f13450a.dismiss();
-                    new BdTopToast(this.f13451b, 2000).setIcon(true).setContent(this.f13451b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f13451b.findViewById(16908290));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class h extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f13452a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f13453b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public h(int i2, AlertDialog alertDialog, Activity activity) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), alertDialog, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f13452a = alertDialog;
-            this.f13453b = activity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                Object data = customResponsedMessage.getData();
-                int intValue = data instanceof Integer ? ((Integer) data).intValue() : 0;
-                if (intValue == 6) {
-                    this.f13452a.dismiss();
-                    new BdTopToast(this.f13453b, 2000).setIcon(true).setContent(this.f13453b.getString(R.string.youngster_dialog_close_time_success_message)).show((ViewGroup) this.f13453b.findViewById(16908290));
-                } else if (intValue == 7) {
-                    this.f13452a.dismiss();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class i extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f13454a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f13455b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public i(int i2, AlertDialog alertDialog, Activity activity) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), alertDialog, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f13454a = alertDialog;
-            this.f13455b = activity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                Object data = customResponsedMessage.getData();
-                if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
-                    this.f13454a.dismiss();
-                    new BdTopToast(this.f13455b, 2000).setIcon(true).setContent(this.f13455b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f13455b.findViewById(16908290));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class j implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ Activity f13456e;
 
-        public j(Activity activity) {
+        public e(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -448,20 +225,22 @@ public class b {
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MainTabActivityConfig.toExitApp(this.f13456e);
+                YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f13456e);
+                youngsterPasswordActivityConfig.setYoungsterPasswordPageType(6);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, youngsterPasswordActivityConfig));
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class k implements View.OnClickListener {
+    public static class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ Activity f13457e;
 
-        public k(Activity activity) {
+        public f(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -486,6 +265,227 @@ public class b {
                 YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f13457e);
                 youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);
                 if (this.f13457e.getComponentName().getClassName().contains("MainTabActivity")) {
+                    youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
+                } else {
+                    youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(1);
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, youngsterPasswordActivityConfig));
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class g extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ AlertDialog f13458a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ Activity f13459b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(int i2, AlertDialog alertDialog, Activity activity) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), alertDialog, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13458a = alertDialog;
+            this.f13459b = activity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                Object data = customResponsedMessage.getData();
+                if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
+                    this.f13458a.dismiss();
+                    new BdTopToast(this.f13459b, 2000).setIcon(true).setContent(this.f13459b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f13459b.findViewById(16908290));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class h extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ AlertDialog f13460a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ Activity f13461b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public h(int i2, AlertDialog alertDialog, Activity activity) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), alertDialog, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13460a = alertDialog;
+            this.f13461b = activity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                Object data = customResponsedMessage.getData();
+                int intValue = data instanceof Integer ? ((Integer) data).intValue() : 0;
+                if (intValue == 6) {
+                    this.f13460a.dismiss();
+                    new BdTopToast(this.f13461b, 2000).setIcon(true).setContent(this.f13461b.getString(R.string.youngster_dialog_close_time_success_message)).show((ViewGroup) this.f13461b.findViewById(16908290));
+                } else if (intValue == 7) {
+                    this.f13460a.dismiss();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class i extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ AlertDialog f13462a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ Activity f13463b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public i(int i2, AlertDialog alertDialog, Activity activity) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), alertDialog, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13462a = alertDialog;
+            this.f13463b = activity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                Object data = customResponsedMessage.getData();
+                if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 3) {
+                    this.f13462a.dismiss();
+                    new BdTopToast(this.f13463b, 2000).setIcon(true).setContent(this.f13463b.getString(R.string.youngster_close_title)).show((ViewGroup) this.f13463b.findViewById(16908290));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class j implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Activity f13464e;
+
+        public j(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13464e = activity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                MainTabActivityConfig.toExitApp(this.f13464e);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class k implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Activity f13465e;
+
+        public k(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13465e = activity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f13465e);
+                youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);
+                if (this.f13465e.getComponentName().getClassName().contains("MainTabActivity")) {
                     youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
                 } else {
                     youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(1);
@@ -531,8 +531,8 @@ public class b {
                 RelativeLayout relativeLayout = new RelativeLayout(currentActivity);
                 View view = new View(currentActivity);
                 c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(view);
-                d2.n(1);
-                d2.o(R.string.J_X06);
+                d2.m(1);
+                d2.n(R.string.J_X06);
                 d2.f(R.color.CAM_X0205);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds103));
                 layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds100), 0, 0);
@@ -550,18 +550,18 @@ public class b {
                 lVar.g(false);
                 AlertDialog s = lVar.s();
                 a aVar = new a(2921484, s, currentActivity);
-                C0666b c0666b = new C0666b(2921486, s, currentActivity);
+                C0667b c0667b = new C0667b(2921486, s, currentActivity);
                 if (currentActivity instanceof BaseActivity) {
                     BdUniqueId uniqueId = ((BaseActivity) currentActivity).getUniqueId();
                     aVar.setTag(uniqueId);
-                    c0666b.setTag(uniqueId);
+                    c0667b.setTag(uniqueId);
                 } else if (currentActivity instanceof BaseFragmentActivity) {
                     BdUniqueId uniqueId2 = ((BaseFragmentActivity) currentActivity).getUniqueId();
                     aVar.setTag(uniqueId2);
-                    c0666b.setTag(uniqueId2);
+                    c0667b.setTag(uniqueId2);
                 }
                 MessageManager.getInstance().registerListener(aVar);
-                MessageManager.getInstance().registerListener(c0666b);
+                MessageManager.getInstance().registerListener(c0667b);
                 return true;
             }
             return true;
@@ -574,13 +574,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (c.a.q0.g1.b.c.d()) {
-                if (f13442a) {
-                    if (c.a.q0.g1.b.c.f13458a) {
+                if (f13450a) {
+                    if (c.a.q0.g1.b.c.f13466a) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921561, 7));
                         return d();
                     }
                     return true;
-                } else if (c.a.q0.g1.b.c.f13458a) {
+                } else if (c.a.q0.g1.b.c.f13466a) {
                     return d();
                 } else {
                     Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
@@ -590,8 +590,8 @@ public class b {
                     RelativeLayout relativeLayout = new RelativeLayout(currentActivity);
                     View view = new View(currentActivity);
                     c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(view);
-                    d2.n(1);
-                    d2.o(R.string.J_X06);
+                    d2.m(1);
+                    d2.n(R.string.J_X06);
                     d2.f(R.color.CAM_X0205);
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds103));
                     layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds100), 0, 0);
@@ -627,7 +627,7 @@ public class b {
                     MessageManager.getInstance().registerListener(hVar);
                     MessageManager.getInstance().registerListener(iVar);
                     a();
-                    f13442a = true;
+                    f13450a = true;
                     return true;
                 }
             }

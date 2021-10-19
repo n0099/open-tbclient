@@ -37,20 +37,20 @@ public class OkHttp3Interceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Field f59553c;
+    public static Field f59588c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f59554d;
+    public static boolean f59589d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Constructor<RealResponseBody> f59555e;
+    public static Constructor<RealResponseBody> f59590e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CookieJar f59556a;
+    public CookieJar f59591a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TurbonetEngine f59557b;
+    public TurbonetEngine f59592b;
 
     /* loaded from: classes8.dex */
     public class a implements c.a.s0.b.d.b {
@@ -58,7 +58,7 @@ public class OkHttp3Interceptor implements Interceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f59558a;
+        public final /* synthetic */ d f59593a;
 
         public a(OkHttp3Interceptor okHttp3Interceptor, d dVar) {
             Interceptable interceptable = $ic;
@@ -75,14 +75,14 @@ public class OkHttp3Interceptor implements Interceptor {
                     return;
                 }
             }
-            this.f59558a = dVar;
+            this.f59593a = dVar;
         }
 
         @Override // c.a.s0.b.d.b
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                this.f59558a.disconnect();
+                this.f59593a.disconnect();
             }
         }
 
@@ -90,7 +90,7 @@ public class OkHttp3Interceptor implements Interceptor {
         public void b(Exception exc, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j2) == null) {
-                this.f59558a.disconnect();
+                this.f59593a.disconnect();
             }
         }
 
@@ -98,7 +98,7 @@ public class OkHttp3Interceptor implements Interceptor {
         public void onComplete(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-                this.f59558a.disconnect();
+                this.f59593a.disconnect();
             }
         }
     }
@@ -109,10 +109,10 @@ public class OkHttp3Interceptor implements Interceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.b.a f59559a;
+        public final /* synthetic */ c.a.s0.b.a f59594a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ OkHttp3Interceptor f59560b;
+        public final /* synthetic */ OkHttp3Interceptor f59595b;
 
         public b(OkHttp3Interceptor okHttp3Interceptor, c.a.s0.b.a aVar) {
             Interceptable interceptable = $ic;
@@ -129,20 +129,20 @@ public class OkHttp3Interceptor implements Interceptor {
                     return;
                 }
             }
-            this.f59560b = okHttp3Interceptor;
-            this.f59559a = aVar;
+            this.f59595b = okHttp3Interceptor;
+            this.f59594a = aVar;
         }
 
         @Override // c.a.s0.b.d.b
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                c.a.s0.b.a aVar = this.f59559a;
-                aVar.f29874e = j2;
+                c.a.s0.b.a aVar = this.f59594a;
+                aVar.f29921e = j2;
                 aVar.c();
-                c.a.s0.b.a aVar2 = this.f59559a;
-                aVar2.f29872c = -12;
-                aVar2.d(this.f59560b.f59557b);
+                c.a.s0.b.a aVar2 = this.f59594a;
+                aVar2.f29919c = -12;
+                aVar2.d(this.f59595b.f59592b);
             }
         }
 
@@ -150,11 +150,11 @@ public class OkHttp3Interceptor implements Interceptor {
         public void b(Exception exc, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j2) == null) {
-                c.a.s0.b.a aVar = this.f59559a;
-                aVar.f29874e = j2;
+                c.a.s0.b.a aVar = this.f59594a;
+                aVar.f29921e = j2;
                 aVar.c();
-                this.f59559a.a(exc);
-                this.f59559a.d(this.f59560b.f59557b);
+                this.f59594a.a(exc);
+                this.f59594a.d(this.f59595b.f59592b);
             }
         }
 
@@ -162,12 +162,12 @@ public class OkHttp3Interceptor implements Interceptor {
         public void onComplete(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-                c.a.s0.b.a aVar = this.f59559a;
-                aVar.f29874e = j2;
+                c.a.s0.b.a aVar = this.f59594a;
+                aVar.f29921e = j2;
                 aVar.c();
-                c.a.s0.b.a aVar2 = this.f59559a;
-                aVar2.f29872c = 0;
-                aVar2.d(this.f59560b.f59557b);
+                c.a.s0.b.a aVar2 = this.f59594a;
+                aVar2.f29919c = 0;
+                aVar2.d(this.f59595b.f59592b);
             }
         }
     }
@@ -187,25 +187,25 @@ public class OkHttp3Interceptor implements Interceptor {
         }
         try {
             Field declaredField = RealResponseBody.class.getDeclaredField("source");
-            f59553c = declaredField;
+            f59588c = declaredField;
             declaredField.setAccessible(true);
         } catch (NoSuchFieldException unused) {
-            f59553c = null;
+            f59588c = null;
         }
         try {
             boolean c2 = OkHttpVersionUtil.c();
-            f59554d = c2;
+            f59589d = c2;
             if (c2) {
-                f59555e = RealResponseBody.class.getConstructor(String.class, Long.TYPE, BufferedSource.class);
+                f59590e = RealResponseBody.class.getConstructor(String.class, Long.TYPE, BufferedSource.class);
             } else {
-                f59555e = RealResponseBody.class.getConstructor(Headers.class, BufferedSource.class);
+                f59590e = RealResponseBody.class.getConstructor(Headers.class, BufferedSource.class);
             }
         } catch (IllegalArgumentException unused2) {
-            f59555e = null;
+            f59590e = null;
         } catch (NoSuchMethodException unused3) {
-            f59555e = null;
+            f59590e = null;
         } catch (NoSuchElementException unused4) {
-            f59555e = null;
+            f59590e = null;
         }
     }
 
@@ -224,9 +224,9 @@ public class OkHttp3Interceptor implements Interceptor {
                 return;
             }
         }
-        this.f59556a = CookieJar.NO_COOKIES;
+        this.f59591a = CookieJar.NO_COOKIES;
         TurbonetEngine b2 = turbonetContext.b();
-        this.f59557b = b2;
+        this.f59592b = b2;
         if (b2 == null) {
             throw new NullPointerException("TurbonetEngine is null.");
         }
@@ -244,7 +244,7 @@ public class OkHttp3Interceptor implements Interceptor {
                 }
                 Cookie cookie = list.get(i2);
                 sb.append(cookie.name());
-                sb.append(com.alipay.sdk.encrypt.a.f36022h);
+                sb.append(com.alipay.sdk.encrypt.a.f36026h);
                 sb.append(cookie.value());
             }
             return sb.toString();
@@ -256,11 +256,11 @@ public class OkHttp3Interceptor implements Interceptor {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain, request)) == null) {
-            if (f59553c == null) {
+            if (f59588c == null) {
                 return chain.proceed(request);
             }
             c.a.s0.b.a aVar = new c.a.s0.b.a(request.url().toString());
-            aVar.f29871b = request.method();
+            aVar.f29918b = request.method();
             Request.Builder newBuilder = request.newBuilder();
             RequestBody body = request.body();
             if (body != null) {
@@ -280,24 +280,24 @@ public class OkHttp3Interceptor implements Interceptor {
             if (request.header("User-Agent") == null) {
                 newBuilder.header("User-Agent", okhttp3.internal.Version.userAgent());
             }
-            List<Cookie> loadForRequest = this.f59556a.loadForRequest(request.url());
+            List<Cookie> loadForRequest = this.f59591a.loadForRequest(request.url());
             if (!loadForRequest.isEmpty()) {
                 newBuilder.header("Cookie", b(loadForRequest));
             }
             Response proceed = chain.proceed(newBuilder.build());
             aVar.b();
-            aVar.f29873d = proceed.code();
+            aVar.f29920d = proceed.code();
             ResponseBody body2 = proceed.body();
             RealResponseBody realResponseBody = body2 instanceof RealResponseBody ? (RealResponseBody) body2 : null;
-            if (this.f59556a != CookieJar.NO_COOKIES) {
+            if (this.f59591a != CookieJar.NO_COOKIES) {
                 List<Cookie> parseAll = Cookie.parseAll(request.url(), proceed.headers());
                 if (!parseAll.isEmpty()) {
-                    this.f59556a.saveFromResponse(request.url(), parseAll);
+                    this.f59591a.saveFromResponse(request.url(), parseAll);
                 }
             }
             if (realResponseBody != null) {
                 try {
-                    f59553c.set(realResponseBody, Okio.buffer(Okio.source(new c.a.s0.b.d.a(body2.source().inputStream(), new b(this, aVar)))));
+                    f59588c.set(realResponseBody, Okio.buffer(Okio.source(new c.a.s0.b.d.a(body2.source().inputStream(), new b(this, aVar)))));
                 } catch (IllegalAccessException unused) {
                 }
             }
@@ -315,14 +315,14 @@ public class OkHttp3Interceptor implements Interceptor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chain)) == null) {
             Request request = chain.request();
-            if (f59555e != null && !this.f59557b.f() && (!f59554d || chain.call() != null)) {
-                d dVar = new d(new URL(request.url().toString()), this.f59557b);
+            if (f59590e != null && !this.f59592b.f() && (!f59589d || chain.call() != null)) {
+                d dVar = new d(new URL(request.url().toString()), this.f59592b);
                 dVar.p();
-                if (f59554d && chain.call().isCanceled()) {
+                if (f59589d && chain.call().isCanceled()) {
                     dVar.disconnect();
                     return c(chain, request);
                 }
-                if (f59554d) {
+                if (f59589d) {
                     dVar.setReadTimeout(chain.readTimeoutMillis());
                     dVar.setConnectTimeout(chain.connectTimeoutMillis());
                 }
@@ -330,7 +330,7 @@ public class OkHttp3Interceptor implements Interceptor {
                 for (String str : headers.names()) {
                     dVar.addRequestProperty(str, headers.get(str));
                 }
-                List<Cookie> loadForRequest = this.f59556a.loadForRequest(request.url());
+                List<Cookie> loadForRequest = this.f59591a.loadForRequest(request.url());
                 if (loadForRequest != null && !loadForRequest.isEmpty()) {
                     dVar.addRequestProperty("Cookie", b(loadForRequest));
                 }
@@ -348,7 +348,7 @@ public class OkHttp3Interceptor implements Interceptor {
                         outputStream.close();
                     }
                     int responseCode = dVar.getResponseCode();
-                    if (f59554d && chain.call().isCanceled()) {
+                    if (f59589d && chain.call().isCanceled()) {
                         dVar.disconnect();
                         return c(chain, request);
                     }
@@ -371,10 +371,10 @@ public class OkHttp3Interceptor implements Interceptor {
                         }
                     }
                     Headers build = builder2.build();
-                    if (this.f59556a != CookieJar.NO_COOKIES) {
+                    if (this.f59591a != CookieJar.NO_COOKIES) {
                         List<Cookie> parseAll = Cookie.parseAll(request.url(), build);
                         if (!parseAll.isEmpty()) {
-                            this.f59556a.saveFromResponse(request.url(), parseAll);
+                            this.f59591a.saveFromResponse(request.url(), parseAll);
                         }
                     }
                     if (responseCode >= 200 && responseCode < 400) {
@@ -394,10 +394,10 @@ public class OkHttp3Interceptor implements Interceptor {
                         }
                     }
                     try {
-                        if (f59554d) {
-                            builder.body(f59555e.newInstance(builder2.get("Content-Type"), j2, buffer2));
+                        if (f59589d) {
+                            builder.body(f59590e.newInstance(builder2.get("Content-Type"), j2, buffer2));
                         } else {
-                            builder.body(f59555e.newInstance(builder2.build(), buffer2));
+                            builder.body(f59590e.newInstance(builder2.build(), buffer2));
                         }
                     } catch (Exception e2) {
                         String str6 = "unexpected error:" + e2.toString();

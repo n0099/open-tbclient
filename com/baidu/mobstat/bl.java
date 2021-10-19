@@ -23,23 +23,23 @@ public class bl {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43483a;
+    public static String f43395a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<WebView> f43484b;
+    public WeakReference<WebView> f43396b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f43485c;
+    public WeakReference<Activity> f43397c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f43486d;
+    public JSONObject f43398d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f43487e;
+    public boolean f43399e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f43488f;
+    public boolean f43400f;
 
     public bl() {
         Interceptable interceptable = $ic;
@@ -77,10 +77,10 @@ public class bl {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ WebView f43489a;
+                public final /* synthetic */ WebView f43401a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f43490b;
+                public final /* synthetic */ String f43402b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -97,15 +97,15 @@ public class bl {
                             return;
                         }
                     }
-                    this.f43489a = webView;
-                    this.f43490b = r7;
+                    this.f43401a = webView;
+                    this.f43402b = r7;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f43489a.loadUrl(this.f43490b);
+                        this.f43401a.loadUrl(this.f43402b);
                     }
                 }
             });
@@ -127,7 +127,7 @@ public class bl {
         WebView webView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (bd.c().b() && this.f43488f) {
+            if (bd.c().b() && this.f43400f) {
                 bd c2 = bd.c();
                 c2.a("setEventToNative: " + str);
             }
@@ -135,8 +135,8 @@ public class bl {
                 bh c3 = bh.c();
                 c3.a("setEventToNative: " + str);
             }
-            WeakReference<Activity> weakReference2 = this.f43485c;
-            if (weakReference2 == null || (activity = weakReference2.get()) == null || (weakReference = this.f43484b) == null || (webView = weakReference.get()) == null) {
+            WeakReference<Activity> weakReference2 = this.f43397c;
+            if (weakReference2 == null || (activity = weakReference2.get()) == null || (weakReference = this.f43396b) == null || (webView = weakReference.get()) == null) {
                 return;
             }
             a(str, activity, webView);
@@ -151,7 +151,7 @@ public class bl {
                 bd c2 = bd.c();
                 c2.a("setViewportTreeToNative " + str);
             }
-            f43483a = str;
+            f43395a = str;
         }
     }
 
@@ -161,7 +161,7 @@ public class bl {
         if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, activity, webView, rect)) != null) {
             return (String) invokeLLL.objValue;
         }
-        f43483a = "";
+        f43395a = "";
         b(activity, webView, rect);
         int i2 = 0;
         while (true) {
@@ -173,8 +173,8 @@ public class bl {
                 Thread.sleep(20L);
             } catch (Exception unused) {
             }
-            if (!TextUtils.isEmpty(f43483a)) {
-                return f43483a;
+            if (!TextUtils.isEmpty(f43395a)) {
+                return f43395a;
             }
             i2 = i3;
         }
@@ -186,8 +186,8 @@ public class bl {
             return;
         }
         if (z) {
-            this.f43488f = z;
-            this.f43486d = jSONObject;
+            this.f43400f = z;
+            this.f43398d = jSONObject;
         }
         if (z) {
             bd.c().a("injectTrackJs circleConfig: " + jSONObject);
@@ -202,17 +202,17 @@ public class bl {
             }
         }
         if (activity != null) {
-            this.f43485c = new WeakReference<>(activity);
+            this.f43397c = new WeakReference<>(activity);
         }
         if (webView != null) {
-            this.f43484b = new WeakReference<>(webView);
+            this.f43396b = new WeakReference<>(webView);
         }
-        this.f43487e = z;
+        this.f43399e = z;
         String a2 = a();
         if (TextUtils.isEmpty(a2)) {
             a2 = new JSONObject().toString();
         }
-        if (bd.c().b() && this.f43488f) {
+        if (bd.c().b() && this.f43400f) {
             bd.c().a("injectTrackJs h5Config: " + a2);
         }
         if (bh.c().b()) {
@@ -228,8 +228,8 @@ public class bl {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, webView, z)) == null) {
-            WeakReference<WebView> weakReference = this.f43484b;
-            return (weakReference == null || weakReference.get() != webView || this.f43487e == z) ? false : true;
+            WeakReference<WebView> weakReference = this.f43396b;
+            return (weakReference == null || weakReference.get() != webView || this.f43399e == z) ? false : true;
         }
         return invokeLZ.booleanValue;
     }
@@ -313,9 +313,9 @@ public class bl {
                 Map<String, String> g2 = bj.g(webView);
                 Context applicationContext = activity.getApplicationContext();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (a(this.f43486d, activity.getClass().getName(), str5, a3, b2)) {
+                if (a(this.f43398d, activity.getClass().getName(), str5, a3, b2)) {
                     BDStatCore.instance().onEvent(applicationContext, "", str422, 1, System.currentTimeMillis(), a2, jSONArray222, name, str5, f2, g2, true);
-                } else if (bd.c().b() && this.f43488f) {
+                } else if (bd.c().b() && this.f43400f) {
                     bd.c().a("setEventToNative: not circle event, will not take effect");
                 }
                 aw.a().a(applicationContext, "", str422, 1, currentTimeMillis, name, a2, str5, jSONArray222, f2, g2, true, jSONObject322, "");

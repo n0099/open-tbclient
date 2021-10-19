@@ -147,10 +147,10 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Comparator f71023e;
+        public final /* synthetic */ Comparator f71058e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Comparator f71024f;
+        public final /* synthetic */ Comparator f71059f;
 
         public a(Comparator comparator, Comparator comparator2) {
             Interceptable interceptable = $ic;
@@ -167,8 +167,8 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
                     return;
                 }
             }
-            this.f71023e = comparator;
-            this.f71024f = comparator2;
+            this.f71058e = comparator;
+            this.f71059f = comparator2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -178,12 +178,12 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) {
-                Comparator comparator = this.f71023e;
+                Comparator comparator = this.f71058e;
                 int compare = comparator == null ? 0 : comparator.compare(aVar.getRowKey(), aVar2.getRowKey());
                 if (compare != 0) {
                     return compare;
                 }
-                Comparator comparator2 = this.f71024f;
+                Comparator comparator2 = this.f71059f;
                 if (comparator2 == null) {
                     return 0;
                 }

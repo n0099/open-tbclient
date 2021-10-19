@@ -13,13 +13,13 @@ public class Gradient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f41471a;
+    public final int f41475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f41472b;
+    public final int[] f41476b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final float[] f41473c;
+    public final float[] f41477c;
 
     /* loaded from: classes5.dex */
     public class a {
@@ -27,16 +27,16 @@ public class Gradient {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Gradient f41474a;
+        public final /* synthetic */ Gradient f41478a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f41475b;
+        public final int f41479b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f41476c;
+        public final int f41480c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final float f41477d;
+        public final float f41481d;
 
         public a(Gradient gradient, int i2, int i3, float f2) {
             Interceptable interceptable = $ic;
@@ -53,10 +53,10 @@ public class Gradient {
                     return;
                 }
             }
-            this.f41474a = gradient;
-            this.f41475b = i2;
-            this.f41476c = i3;
-            this.f41477d = f2;
+            this.f41478a = gradient;
+            this.f41479b = i2;
+            this.f41480c = i3;
+            this.f41481d = f2;
         }
 
         public /* synthetic */ a(Gradient gradient, int i2, int i3, float f2, i iVar) {
@@ -114,12 +114,12 @@ public class Gradient {
                 throw new IllegalArgumentException("BDMapSDKException: startPoints should be in increasing order");
             }
         }
-        this.f41471a = i2;
+        this.f41475a = i2;
         int[] iArr2 = new int[iArr.length];
-        this.f41472b = iArr2;
-        this.f41473c = new float[fArr.length];
+        this.f41476b = iArr2;
+        this.f41477c = new float[fArr.length];
         System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
-        System.arraycopy(fArr, 0, this.f41473c, 0, fArr.length);
+        System.arraycopy(fArr, 0, this.f41477c, 0, fArr.length);
     }
 
     public static int a(int i2, int i3, float f2) {
@@ -150,24 +150,24 @@ public class Gradient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             HashMap<Integer, a> hashMap = new HashMap<>();
-            if (this.f41473c[0] != 0.0f) {
-                hashMap.put(0, new a(this, Color.argb(0, Color.red(this.f41472b[0]), Color.green(this.f41472b[0]), Color.blue(this.f41472b[0])), this.f41472b[0], this.f41471a * this.f41473c[0], null));
+            if (this.f41477c[0] != 0.0f) {
+                hashMap.put(0, new a(this, Color.argb(0, Color.red(this.f41476b[0]), Color.green(this.f41476b[0]), Color.blue(this.f41476b[0])), this.f41476b[0], this.f41475a * this.f41477c[0], null));
             }
-            for (int i2 = 1; i2 < this.f41472b.length; i2++) {
+            for (int i2 = 1; i2 < this.f41476b.length; i2++) {
                 int i3 = i2 - 1;
-                Integer valueOf = Integer.valueOf((int) (this.f41471a * this.f41473c[i3]));
-                int[] iArr = this.f41472b;
+                Integer valueOf = Integer.valueOf((int) (this.f41475a * this.f41477c[i3]));
+                int[] iArr = this.f41476b;
                 int i4 = iArr[i3];
                 int i5 = iArr[i2];
-                float[] fArr = this.f41473c;
-                hashMap.put(valueOf, new a(this, i4, i5, (fArr[i2] - fArr[i3]) * this.f41471a, null));
+                float[] fArr = this.f41477c;
+                hashMap.put(valueOf, new a(this, i4, i5, (fArr[i2] - fArr[i3]) * this.f41475a, null));
             }
-            float[] fArr2 = this.f41473c;
+            float[] fArr2 = this.f41477c;
             if (fArr2[fArr2.length - 1] != 1.0f) {
                 int length = fArr2.length - 1;
-                Integer valueOf2 = Integer.valueOf((int) (this.f41471a * fArr2[length]));
-                int[] iArr2 = this.f41472b;
-                hashMap.put(valueOf2, new a(this, iArr2[length], iArr2[length], this.f41471a * (1.0f - this.f41473c[length]), null));
+                Integer valueOf2 = Integer.valueOf((int) (this.f41475a * fArr2[length]));
+                int[] iArr2 = this.f41476b;
+                hashMap.put(valueOf2, new a(this, iArr2[length], iArr2[length], this.f41475a * (1.0f - this.f41477c[length]), null));
             }
             return hashMap;
         }
@@ -179,18 +179,18 @@ public class Gradient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)})) == null) {
             HashMap<Integer, a> a2 = a();
-            int[] iArr = new int[this.f41471a];
+            int[] iArr = new int[this.f41475a];
             a aVar = a2.get(0);
             int i2 = 0;
-            for (int i3 = 0; i3 < this.f41471a; i3++) {
+            for (int i3 = 0; i3 < this.f41475a; i3++) {
                 if (a2.containsKey(Integer.valueOf(i3))) {
                     aVar = a2.get(Integer.valueOf(i3));
                     i2 = i3;
                 }
-                iArr[i3] = a(aVar.f41475b, aVar.f41476c, (i3 - i2) / aVar.f41477d);
+                iArr[i3] = a(aVar.f41479b, aVar.f41480c, (i3 - i2) / aVar.f41481d);
             }
             if (d2 != 1.0d) {
-                for (int i4 = 0; i4 < this.f41471a; i4++) {
+                for (int i4 = 0; i4 < this.f41475a; i4++) {
                     int i5 = iArr[i4];
                     iArr[i4] = Color.argb((int) (Color.alpha(i5) * d2), Color.red(i5), Color.green(i5), Color.blue(i5));
                 }

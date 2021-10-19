@@ -9,7 +9,7 @@ import android.widget.ListView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.j;
 import c.a.q0.s.f0.f;
-import c.a.r0.g3.j.h;
+import c.a.r0.h3.j.h;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ProxyAdkBaseActivity;
@@ -34,22 +34,22 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f57094e;
+    public h f57028e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SquareModel f57095f;
+    public SquareModel f57029f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f57096g;
+    public boolean f57030g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f57097h;
+    public boolean f57031h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f57098i;
+    public long f57032i;
 
     /* renamed from: j  reason: collision with root package name */
-    public NavigationBar f57099j;
+    public NavigationBar f57033j;
     public TbPageContext<Object> k;
     public View l;
     public final SquareModel.a m;
@@ -63,7 +63,7 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareActivity f57100e;
+        public final /* synthetic */ SquareActivity f57034e;
 
         public a(SquareActivity squareActivity) {
             Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
                     return;
                 }
             }
-            this.f57100e = squareActivity;
+            this.f57034e = squareActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f57100e.closeActivity();
+                this.f57034e.closeActivity();
             }
         }
     }
@@ -98,7 +98,7 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SquareActivity f57101a;
+        public final /* synthetic */ SquareActivity f57035a;
 
         public b(SquareActivity squareActivity) {
             Interceptable interceptable = $ic;
@@ -115,54 +115,54 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
                     return;
                 }
             }
-            this.f57101a = squareActivity;
+            this.f57035a = squareActivity;
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, c.a.r0.g3.j.f fVar) {
+        public void a(boolean z, String str, c.a.r0.h3.j.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, fVar}) == null) {
-                this.f57101a.f57094e.f(true, "");
-                SquareActivity squareActivity = this.f57101a;
-                squareActivity.hideLoadingView(squareActivity.f57094e.g());
+                this.f57035a.f57028e.f(true, "");
+                SquareActivity squareActivity = this.f57035a;
+                squareActivity.hideLoadingView(squareActivity.f57028e.g());
                 if (z && fVar != null && !fVar.g()) {
-                    this.f57101a.f57094e.j(this.f57101a.f57095f.F());
-                    this.f57101a.f57096g = true;
-                    this.f57101a.f57094e.h();
-                    this.f57101a.v();
+                    this.f57035a.f57028e.j(this.f57035a.f57029f.F());
+                    this.f57035a.f57030g = true;
+                    this.f57035a.f57028e.h();
+                    this.f57035a.v();
                 }
-                if (this.f57101a.f57097h) {
-                    this.f57101a.f57097h = false;
-                    this.f57101a.w(true);
-                    if (!this.f57101a.f57096g) {
-                        this.f57101a.f57094e.h();
-                        SquareActivity squareActivity2 = this.f57101a;
-                        squareActivity2.showLoadingView(squareActivity2.f57094e.g());
+                if (this.f57035a.f57031h) {
+                    this.f57035a.f57031h = false;
+                    this.f57035a.w(true);
+                    if (!this.f57035a.f57030g) {
+                        this.f57035a.f57028e.h();
+                        SquareActivity squareActivity2 = this.f57035a;
+                        squareActivity2.showLoadingView(squareActivity2.f57028e.g());
                     }
                 } else {
-                    if (this.f57101a.f57098i > -1) {
+                    if (this.f57035a.f57032i > -1) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        TiebaStatic.page(TiebaStatic.OpKey.OP_SQUARE_ENTER, currentTimeMillis - this.f57101a.f57098i, this.f57101a.f57095f.H() - this.f57101a.f57098i, this.f57101a.f57095f.J(), this.f57101a.f57095f.I(), currentTimeMillis - this.f57101a.f57095f.G());
-                        this.f57101a.f57098i = -1L;
+                        TiebaStatic.page(TiebaStatic.OpKey.OP_SQUARE_ENTER, currentTimeMillis - this.f57035a.f57032i, this.f57035a.f57029f.H() - this.f57035a.f57032i, this.f57035a.f57029f.J(), this.f57035a.f57029f.I(), currentTimeMillis - this.f57035a.f57029f.G());
+                        this.f57035a.f57032i = -1L;
                     }
-                    if (!this.f57101a.f57096g) {
+                    if (!this.f57035a.f57030g) {
                         if (j.z()) {
-                            this.f57101a.f57094e.m(R.string.no_data_text);
+                            this.f57035a.f57028e.m(R.string.no_data_text);
                         } else {
-                            this.f57101a.f57094e.m(R.string.game_index_no_network_text);
+                            this.f57035a.f57028e.m(R.string.game_index_no_network_text);
                         }
                     }
                 }
                 if (!j.z()) {
-                    this.f57101a.f57094e.e();
-                    if (this.f57101a.f57096g) {
+                    this.f57035a.f57028e.e();
+                    if (this.f57035a.f57030g) {
                         return;
                     }
-                    this.f57101a.r();
+                    this.f57035a.r();
                     return;
                 }
-                this.f57101a.k.showToast(str);
-                this.f57101a.f57094e.i();
+                this.f57035a.k.showToast(str);
+                this.f57035a.f57028e.i();
             }
         }
     }
@@ -173,7 +173,7 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareActivity f57102e;
+        public final /* synthetic */ SquareActivity f57036e;
 
         public c(SquareActivity squareActivity) {
             Interceptable interceptable = $ic;
@@ -190,14 +190,14 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
                     return;
                 }
             }
-            this.f57102e = squareActivity;
+            this.f57036e = squareActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.f57102e.w(true);
+                this.f57036e.w(true);
             }
         }
     }
@@ -208,7 +208,7 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareActivity f57103e;
+        public final /* synthetic */ SquareActivity f57037e;
 
         public d(SquareActivity squareActivity) {
             Interceptable interceptable = $ic;
@@ -225,7 +225,7 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
                     return;
                 }
             }
-            this.f57103e = squareActivity;
+            this.f57037e = squareActivity;
         }
 
         @Override // android.view.View.OnKeyListener
@@ -260,7 +260,7 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareActivity f57104e;
+        public final /* synthetic */ SquareActivity f57038e;
 
         public e(SquareActivity squareActivity) {
             Interceptable interceptable = $ic;
@@ -277,14 +277,14 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
                     return;
                 }
             }
-            this.f57104e = squareActivity;
+            this.f57038e = squareActivity;
         }
 
         @Override // c.a.q0.s.f0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f57104e.w(true);
+                this.f57038e.w(true);
             }
         }
     }
@@ -317,11 +317,11 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
                 return;
             }
         }
-        this.f57094e = null;
-        this.f57095f = null;
-        this.f57096g = false;
-        this.f57097h = false;
-        this.f57098i = -1L;
+        this.f57028e = null;
+        this.f57029f = null;
+        this.f57030g = false;
+        this.f57031h = false;
+        this.f57032i = -1L;
         this.m = new b(this);
         this.n = new c(this);
         this.o = new d(this);
@@ -366,10 +366,10 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            h hVar = this.f57094e;
+            h hVar = this.f57028e;
             if (hVar != null) {
                 hVar.onChangeSkinType(i2);
-                this.f57099j.onChangeSkinType(getPageContext(), i2);
+                this.f57033j.onChangeSkinType(getPageContext(), i2);
             }
         }
     }
@@ -380,7 +380,7 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             this.k = getPageContext();
-            this.f57098i = System.currentTimeMillis();
+            this.f57032i = System.currentTimeMillis();
             this.l = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.square_view, (ViewGroup) null);
             getPageContext().getPageActivity().setContentView(this.l);
             u();
@@ -412,14 +412,14 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f57094e.c(this.n);
+            this.f57028e.c(this.n);
         }
     }
 
     public final void s() {
         SquareModel squareModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (squareModel = this.f57095f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (squareModel = this.f57029f) == null) {
             return;
         }
         squareModel.cancelLoadData();
@@ -429,9 +429,9 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             SquareModel squareModel = new SquareModel(getPageContext());
-            this.f57095f = squareModel;
+            this.f57029f = squareModel;
             squareModel.N(this.m);
-            this.f57097h = true;
+            this.f57031h = true;
             w(true);
         }
     }
@@ -440,37 +440,37 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             h hVar = new h(getPageContext(), this.l, this.o);
-            this.f57094e = hVar;
+            this.f57028e = hVar;
             hVar.l(this.p);
             NavigationBar navigationBar = (NavigationBar) this.k.getPageActivity().findViewById(R.id.view_navigation_bar);
-            this.f57099j = navigationBar;
+            this.f57033j = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.f57099j.setTitleText(this.k.getString(R.string.ba_square));
+            this.f57033j.setTitleText(this.k.getString(R.string.ba_square));
         }
     }
 
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f57094e.k(this.n);
+            this.f57028e.k(this.n);
         }
     }
 
     public final void w(boolean z) {
         SquareModel squareModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (squareModel = this.f57095f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (squareModel = this.f57029f) == null) {
             return;
         }
         boolean z2 = false;
-        boolean z3 = squareModel.F() == null || this.f57095f.F().g();
+        boolean z3 = squareModel.F() == null || this.f57029f.F().g();
         boolean z4 = z;
         if (!j.z()) {
-            this.f57097h = false;
+            this.f57031h = false;
             z4 = false;
             z3 = true;
         }
-        if (this.f57097h) {
+        if (this.f57031h) {
             z3 = true;
         } else {
             z2 = z4;
@@ -478,9 +478,9 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
         if (z3 || z2) {
             s();
             if (z2) {
-                this.f57095f.M();
+                this.f57029f.M();
             } else {
-                this.f57095f.L();
+                this.f57029f.L();
             }
         }
     }

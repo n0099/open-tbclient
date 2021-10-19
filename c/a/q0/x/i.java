@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import c.a.q0.x.z.a;
+import c.a.q0.x.a0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.DLauncher;
@@ -17,18 +17,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class i extends c.a.q0.x.z.a {
+public class i extends c.a.q0.x.a0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinkedList<h> q;
 
     /* loaded from: classes3.dex */
-    public class a implements a.InterfaceC0718a {
+    public class a implements a.InterfaceC0717a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f15090a;
+        public final /* synthetic */ i f15121a;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -45,15 +45,15 @@ public class i extends c.a.q0.x.z.a {
                     return;
                 }
             }
-            this.f15090a = iVar;
+            this.f15121a = iVar;
         }
 
-        @Override // c.a.q0.x.z.a.InterfaceC0718a
+        @Override // c.a.q0.x.a0.a.InterfaceC0717a
         public View getView(int i2, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, view, viewGroup)) == null) {
-                DLauncher C = this.f15090a.C(i2);
+                DLauncher C = this.f15121a.C(i2);
                 if (C.getLayoutParams() == null) {
                     C.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                 }
@@ -69,7 +69,7 @@ public class i extends c.a.q0.x.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f15091a;
+        public final /* synthetic */ i f15122a;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -86,14 +86,14 @@ public class i extends c.a.q0.x.z.a {
                     return;
                 }
             }
-            this.f15091a = iVar;
+            this.f15122a = iVar;
         }
 
         @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.c
         public void a(View view, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && view.isEnabled() && (view instanceof DLauncher) && this.f15091a.n != null) {
-                this.f15091a.n.performLauncherClick(view);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && view.isEnabled() && (view instanceof DLauncher) && this.f15122a.n != null) {
+                this.f15122a.n.performLauncherClick(view);
             }
         }
     }
@@ -131,7 +131,7 @@ public class i extends c.a.q0.x.z.a {
         return (DLauncher) invokeI.objValue;
     }
 
-    @Override // c.a.q0.x.z.a
+    @Override // c.a.q0.x.a0.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -143,7 +143,7 @@ public class i extends c.a.q0.x.z.a {
         }
     }
 
-    @Override // c.a.q0.x.z.a
+    @Override // c.a.q0.x.a0.a
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -157,7 +157,7 @@ public class i extends c.a.q0.x.z.a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.q0.x.z.a
+    @Override // c.a.q0.x.a0.a
     public void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {

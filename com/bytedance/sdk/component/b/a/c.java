@@ -23,14 +23,14 @@ public final class c implements d, e, Cloneable, ByteChannel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f64715c;
+    public static final byte[] f64750c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public o f64716a;
+    public o f64751a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f64717b;
+    public long f64752b;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
                 return;
             }
         }
-        f64715c = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
+        f64750c = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     }
 
     public c() {
@@ -65,7 +65,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
     @Override // com.bytedance.sdk.component.b.a.e
     public void a(long j2) throws EOFException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) && this.f64717b < j2) {
+        if ((interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) && this.f64752b < j2) {
             throw new EOFException();
         }
     }
@@ -78,35 +78,35 @@ public final class c implements d, e, Cloneable, ByteChannel {
                 throw new IllegalArgumentException("source == null");
             }
             if (cVar != this) {
-                u.a(cVar.f64717b, 0L, j2);
+                u.a(cVar.f64752b, 0L, j2);
                 while (j2 > 0) {
-                    o oVar = cVar.f64716a;
-                    if (j2 < oVar.f64751c - oVar.f64750b) {
-                        o oVar2 = this.f64716a;
-                        o oVar3 = oVar2 != null ? oVar2.f64755g : null;
-                        if (oVar3 != null && oVar3.f64753e) {
-                            if ((oVar3.f64751c + j2) - (oVar3.f64752d ? 0 : oVar3.f64750b) <= 8192) {
-                                cVar.f64716a.a(oVar3, (int) j2);
-                                cVar.f64717b -= j2;
-                                this.f64717b += j2;
+                    o oVar = cVar.f64751a;
+                    if (j2 < oVar.f64786c - oVar.f64785b) {
+                        o oVar2 = this.f64751a;
+                        o oVar3 = oVar2 != null ? oVar2.f64790g : null;
+                        if (oVar3 != null && oVar3.f64788e) {
+                            if ((oVar3.f64786c + j2) - (oVar3.f64787d ? 0 : oVar3.f64785b) <= 8192) {
+                                cVar.f64751a.a(oVar3, (int) j2);
+                                cVar.f64752b -= j2;
+                                this.f64752b += j2;
                                 return;
                             }
                         }
-                        cVar.f64716a = cVar.f64716a.a((int) j2);
+                        cVar.f64751a = cVar.f64751a.a((int) j2);
                     }
-                    o oVar4 = cVar.f64716a;
-                    long j3 = oVar4.f64751c - oVar4.f64750b;
-                    cVar.f64716a = oVar4.b();
-                    o oVar5 = this.f64716a;
+                    o oVar4 = cVar.f64751a;
+                    long j3 = oVar4.f64786c - oVar4.f64785b;
+                    cVar.f64751a = oVar4.b();
+                    o oVar5 = this.f64751a;
                     if (oVar5 == null) {
-                        this.f64716a = oVar4;
-                        oVar4.f64755g = oVar4;
-                        oVar4.f64754f = oVar4;
+                        this.f64751a = oVar4;
+                        oVar4.f64790g = oVar4;
+                        oVar4.f64789f = oVar4;
                     } else {
-                        oVar5.f64755g.a(oVar4).c();
+                        oVar5.f64790g.a(oVar4).c();
                     }
-                    cVar.f64717b -= j3;
-                    this.f64717b += j3;
+                    cVar.f64752b -= j3;
+                    this.f64752b += j3;
                     j2 -= j3;
                 }
                 return;
@@ -141,14 +141,14 @@ public final class c implements d, e, Cloneable, ByteChannel {
     public String d(long j2) throws EOFException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j2)) == null) ? a(j2, u.f64764a) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j2)) == null) ? a(j2, u.f64799a) : (String) invokeJ.objValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.e
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f64717b == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f64752b == 0 : invokeV.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -160,38 +160,38 @@ public final class c implements d, e, Cloneable, ByteChannel {
             }
             if (obj instanceof c) {
                 c cVar = (c) obj;
-                long j2 = this.f64717b;
-                if (j2 != cVar.f64717b) {
+                long j2 = this.f64752b;
+                if (j2 != cVar.f64752b) {
                     return false;
                 }
                 long j3 = 0;
                 if (j2 == 0) {
                     return true;
                 }
-                o oVar = this.f64716a;
-                o oVar2 = cVar.f64716a;
-                int i2 = oVar.f64750b;
-                int i3 = oVar2.f64750b;
-                while (j3 < this.f64717b) {
-                    long min = Math.min(oVar.f64751c - i2, oVar2.f64751c - i3);
+                o oVar = this.f64751a;
+                o oVar2 = cVar.f64751a;
+                int i2 = oVar.f64785b;
+                int i3 = oVar2.f64785b;
+                while (j3 < this.f64752b) {
+                    long min = Math.min(oVar.f64786c - i2, oVar2.f64786c - i3);
                     int i4 = 0;
                     while (i4 < min) {
                         int i5 = i2 + 1;
                         int i6 = i3 + 1;
-                        if (oVar.f64749a[i2] != oVar2.f64749a[i3]) {
+                        if (oVar.f64784a[i2] != oVar2.f64784a[i3]) {
                             return false;
                         }
                         i4++;
                         i2 = i5;
                         i3 = i6;
                     }
-                    if (i2 == oVar.f64751c) {
-                        oVar = oVar.f64754f;
-                        i2 = oVar.f64750b;
+                    if (i2 == oVar.f64786c) {
+                        oVar = oVar.f64789f;
+                        i2 = oVar.f64785b;
                     }
-                    if (i3 == oVar2.f64751c) {
-                        oVar2 = oVar2.f64754f;
-                        i3 = oVar2.f64750b;
+                    if (i3 == oVar2.f64786c) {
+                        oVar2 = oVar2.f64789f;
+                        i3 = oVar2.f64785b;
                     }
                     j3 += min;
                 }
@@ -211,7 +211,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f64718a;
+            public final /* synthetic */ c f64753a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -228,14 +228,14 @@ public final class c implements d, e, Cloneable, ByteChannel {
                         return;
                     }
                 }
-                this.f64718a = this;
+                this.f64753a = this;
             }
 
             @Override // java.io.InputStream
             public int available() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? (int) Math.min(this.f64718a.f64717b, 2147483647L) : invokeV2.intValue;
+                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? (int) Math.min(this.f64753a.f64752b, 2147483647L) : invokeV2.intValue;
             }
 
             @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -250,8 +250,8 @@ public final class c implements d, e, Cloneable, ByteChannel {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    c cVar = this.f64718a;
-                    if (cVar.f64717b > 0) {
+                    c cVar = this.f64753a;
+                    if (cVar.f64752b > 0) {
                         return cVar.h() & 255;
                     }
                     return -1;
@@ -263,7 +263,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048580, this)) == null) {
-                    return this.f64718a + ".inputStream()";
+                    return this.f64753a + ".inputStream()";
                 }
                 return (String) invokeV2.objValue;
             }
@@ -272,7 +272,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
             public int read(byte[] bArr, int i2, int i3) {
                 InterceptResult invokeLII;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048579, this, bArr, i2, i3)) == null) ? this.f64718a.a(bArr, i2, i3) : invokeLII.intValue;
+                return (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048579, this, bArr, i2, i3)) == null) ? this.f64753a.a(bArr, i2, i3) : invokeLII.intValue;
             }
         } : (InputStream) invokeV.objValue;
     }
@@ -288,18 +288,18 @@ public final class c implements d, e, Cloneable, ByteChannel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            o oVar = this.f64716a;
+            o oVar = this.f64751a;
             if (oVar == null) {
                 return 0;
             }
             int i2 = 1;
             do {
-                int i3 = oVar.f64751c;
-                for (int i4 = oVar.f64750b; i4 < i3; i4++) {
-                    i2 = (i2 * 31) + oVar.f64749a[i4];
+                int i3 = oVar.f64786c;
+                for (int i4 = oVar.f64785b; i4 < i3; i4++) {
+                    i2 = (i2 * 31) + oVar.f64784a[i4];
                 }
-                oVar = oVar.f64754f;
-            } while (oVar != this.f64716a);
+                oVar = oVar.f64789f;
+            } while (oVar != this.f64751a);
             return i2;
         }
         return invokeV.intValue;
@@ -320,15 +320,15 @@ public final class c implements d, e, Cloneable, ByteChannel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
-            long j2 = this.f64717b;
+            long j2 = this.f64752b;
             if (j2 >= 4) {
-                o oVar = this.f64716a;
-                int i2 = oVar.f64750b;
-                int i3 = oVar.f64751c;
+                o oVar = this.f64751a;
+                int i2 = oVar.f64785b;
+                int i3 = oVar.f64786c;
                 if (i3 - i2 < 4) {
                     return ((h() & 255) << 24) | ((h() & 255) << 16) | ((h() & 255) << 8) | (h() & 255);
                 }
-                byte[] bArr = oVar.f64749a;
+                byte[] bArr = oVar.f64784a;
                 int i4 = i2 + 1;
                 int i5 = i4 + 1;
                 int i6 = ((bArr[i2] & 255) << 24) | ((bArr[i4] & 255) << 16);
@@ -336,16 +336,16 @@ public final class c implements d, e, Cloneable, ByteChannel {
                 int i8 = i6 | ((bArr[i5] & 255) << 8);
                 int i9 = i7 + 1;
                 int i10 = i8 | (bArr[i7] & 255);
-                this.f64717b = j2 - 4;
+                this.f64752b = j2 - 4;
                 if (i9 == i3) {
-                    this.f64716a = oVar.b();
+                    this.f64751a = oVar.b();
                     p.a(oVar);
                 } else {
-                    oVar.f64750b = i9;
+                    oVar.f64785b = i9;
                 }
                 return i10;
             }
-            throw new IllegalStateException("size < 4: " + this.f64717b);
+            throw new IllegalStateException("size < 4: " + this.f64752b);
         }
         return invokeV.intValue;
     }
@@ -364,15 +364,15 @@ public final class c implements d, e, Cloneable, ByteChannel {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
-            if (this.f64717b != 0) {
+            if (this.f64752b != 0) {
                 int i4 = 0;
                 long j2 = 0;
                 boolean z = false;
                 do {
-                    o oVar = this.f64716a;
-                    byte[] bArr = oVar.f64749a;
-                    int i5 = oVar.f64750b;
-                    int i6 = oVar.f64751c;
+                    o oVar = this.f64751a;
+                    byte[] bArr = oVar.f64784a;
+                    int i5 = oVar.f64785b;
+                    int i6 = oVar.f64786c;
                     while (i5 < i6) {
                         byte b2 = bArr[i5];
                         if (b2 < 48 || b2 > 57) {
@@ -385,10 +385,10 @@ public final class c implements d, e, Cloneable, ByteChannel {
                             } else {
                                 z = true;
                                 if (i5 != i6) {
-                                    this.f64716a = oVar.b();
+                                    this.f64751a = oVar.b();
                                     p.a(oVar);
                                 } else {
-                                    oVar.f64750b = i5;
+                                    oVar.f64785b = i5;
                                 }
                                 if (!z) {
                                     break;
@@ -410,8 +410,8 @@ public final class c implements d, e, Cloneable, ByteChannel {
                     }
                     if (!z) {
                     }
-                } while (this.f64716a != null);
-                this.f64717b -= i4;
+                } while (this.f64751a != null);
+                this.f64752b -= i4;
                 return j2;
             }
             throw new IllegalStateException("size == 0");
@@ -430,7 +430,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
             try {
-                return a(this.f64717b, u.f64764a);
+                return a(this.f64752b, u.f64799a);
             } catch (EOFException e2) {
                 throw new AssertionError(e2);
             }
@@ -451,7 +451,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
             try {
-                return g(this.f64717b);
+                return g(this.f64752b);
             } catch (EOFException e2) {
                 throw new AssertionError(e2);
             }
@@ -463,7 +463,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048641, this) == null) {
             try {
-                h(this.f64717b);
+                h(this.f64752b);
             } catch (EOFException e2) {
                 throw new AssertionError(e2);
             }
@@ -475,17 +475,17 @@ public final class c implements d, e, Cloneable, ByteChannel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, byteBuffer)) == null) {
-            o oVar = this.f64716a;
+            o oVar = this.f64751a;
             if (oVar == null) {
                 return -1;
             }
-            int min = Math.min(byteBuffer.remaining(), oVar.f64751c - oVar.f64750b);
-            byteBuffer.put(oVar.f64749a, oVar.f64750b, min);
-            int i2 = oVar.f64750b + min;
-            oVar.f64750b = i2;
-            this.f64717b -= min;
-            if (i2 == oVar.f64751c) {
-                this.f64716a = oVar.b();
+            int min = Math.min(byteBuffer.remaining(), oVar.f64786c - oVar.f64785b);
+            byteBuffer.put(oVar.f64784a, oVar.f64785b, min);
+            int i2 = oVar.f64785b + min;
+            oVar.f64785b = i2;
+            this.f64752b -= min;
+            if (i2 == oVar.f64786c) {
+                this.f64751a = oVar.b();
                 p.a(oVar);
             }
             return min;
@@ -502,20 +502,20 @@ public final class c implements d, e, Cloneable, ByteChannel {
             return (c) invokeV.objValue;
         }
         c cVar = new c();
-        if (this.f64717b == 0) {
+        if (this.f64752b == 0) {
             return cVar;
         }
-        o a2 = this.f64716a.a();
-        cVar.f64716a = a2;
-        a2.f64755g = a2;
-        a2.f64754f = a2;
-        o oVar = this.f64716a;
+        o a2 = this.f64751a.a();
+        cVar.f64751a = a2;
+        a2.f64790g = a2;
+        a2.f64789f = a2;
+        o oVar = this.f64751a;
         while (true) {
-            oVar = oVar.f64754f;
-            if (oVar != this.f64716a) {
-                cVar.f64716a.f64755g.a(oVar.a());
+            oVar = oVar.f64789f;
+            if (oVar != this.f64751a) {
+                cVar.f64751a.f64790g.a(oVar.a());
             } else {
-                cVar.f64717b = this.f64717b;
+                cVar.f64752b = this.f64752b;
                 return cVar;
             }
         }
@@ -525,11 +525,11 @@ public final class c implements d, e, Cloneable, ByteChannel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
-            long j2 = this.f64717b;
+            long j2 = this.f64752b;
             if (j2 <= 2147483647L) {
                 return f((int) j2);
             }
-            throw new IllegalArgumentException("size > Integer.MAX_VALUE: " + this.f64717b);
+            throw new IllegalArgumentException("size > Integer.MAX_VALUE: " + this.f64752b);
         }
         return (f) invokeV.objValue;
     }
@@ -550,12 +550,12 @@ public final class c implements d, e, Cloneable, ByteChannel {
                 int i2 = remaining;
                 while (i2 > 0) {
                     o e2 = e(1);
-                    int min = Math.min(i2, 8192 - e2.f64751c);
-                    byteBuffer.get(e2.f64749a, e2.f64751c, min);
+                    int min = Math.min(i2, 8192 - e2.f64786c);
+                    byteBuffer.get(e2.f64784a, e2.f64786c, min);
                     i2 -= min;
-                    e2.f64751c += min;
+                    e2.f64786c += min;
                 }
-                this.f64717b += remaining;
+                this.f64752b += remaining;
                 return remaining;
             }
             throw new IllegalArgumentException("source == null");
@@ -568,36 +568,36 @@ public final class c implements d, e, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{cVar, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             if (cVar != null) {
-                u.a(this.f64717b, j2, j3);
+                u.a(this.f64752b, j2, j3);
                 if (j3 == 0) {
                     return this;
                 }
-                cVar.f64717b += j3;
-                o oVar = this.f64716a;
+                cVar.f64752b += j3;
+                o oVar = this.f64751a;
                 while (true) {
-                    int i2 = oVar.f64751c;
-                    int i3 = oVar.f64750b;
+                    int i2 = oVar.f64786c;
+                    int i3 = oVar.f64785b;
                     if (j2 < i2 - i3) {
                         break;
                     }
                     j2 -= i2 - i3;
-                    oVar = oVar.f64754f;
+                    oVar = oVar.f64789f;
                 }
                 while (j3 > 0) {
                     o a2 = oVar.a();
-                    int i4 = (int) (a2.f64750b + j2);
-                    a2.f64750b = i4;
-                    a2.f64751c = Math.min(i4 + ((int) j3), a2.f64751c);
-                    o oVar2 = cVar.f64716a;
+                    int i4 = (int) (a2.f64785b + j2);
+                    a2.f64785b = i4;
+                    a2.f64786c = Math.min(i4 + ((int) j3), a2.f64786c);
+                    o oVar2 = cVar.f64751a;
                     if (oVar2 == null) {
-                        a2.f64755g = a2;
-                        a2.f64754f = a2;
-                        cVar.f64716a = a2;
+                        a2.f64790g = a2;
+                        a2.f64789f = a2;
+                        cVar.f64751a = a2;
                     } else {
-                        oVar2.f64755g.a(a2);
+                        oVar2.f64790g.a(a2);
                     }
-                    j3 -= a2.f64751c - a2.f64750b;
-                    oVar = oVar.f64754f;
+                    j3 -= a2.f64786c - a2.f64785b;
+                    oVar = oVar.f64789f;
                     j2 = 0;
                 }
                 return this;
@@ -610,7 +610,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
     public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f64717b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f64752b : invokeV.longValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -621,8 +621,8 @@ public final class c implements d, e, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i2)) == null) {
             o e2 = e(4);
-            byte[] bArr = e2.f64749a;
-            int i3 = e2.f64751c;
+            byte[] bArr = e2.f64784a;
+            int i3 = e2.f64786c;
             int i4 = i3 + 1;
             bArr[i3] = (byte) ((i2 >>> 24) & 255);
             int i5 = i4 + 1;
@@ -630,8 +630,8 @@ public final class c implements d, e, Cloneable, ByteChannel {
             int i6 = i5 + 1;
             bArr[i5] = (byte) ((i2 >>> 8) & 255);
             bArr[i6] = (byte) (i2 & 255);
-            e2.f64751c = i6 + 1;
-            this.f64717b += 4;
+            e2.f64786c = i6 + 1;
+            this.f64752b += 4;
             return this;
         }
         return (c) invokeI.objValue;
@@ -683,13 +683,13 @@ public final class c implements d, e, Cloneable, ByteChannel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
-            long j2 = this.f64717b;
+            long j2 = this.f64752b;
             if (j2 == 0) {
                 return 0L;
             }
-            o oVar = this.f64716a.f64755g;
-            int i2 = oVar.f64751c;
-            return (i2 >= 8192 || !oVar.f64753e) ? j2 : j2 - (i2 - oVar.f64750b);
+            o oVar = this.f64751a.f64790g;
+            int i2 = oVar.f64786c;
+            return (i2 >= 8192 || !oVar.f64788e) ? j2 : j2 - (i2 - oVar.f64785b);
         }
         return invokeV.longValue;
     }
@@ -699,19 +699,19 @@ public final class c implements d, e, Cloneable, ByteChannel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            long j2 = this.f64717b;
+            long j2 = this.f64752b;
             if (j2 != 0) {
-                o oVar = this.f64716a;
-                int i2 = oVar.f64750b;
-                int i3 = oVar.f64751c;
+                o oVar = this.f64751a;
+                int i2 = oVar.f64785b;
+                int i3 = oVar.f64786c;
                 int i4 = i2 + 1;
-                byte b2 = oVar.f64749a[i2];
-                this.f64717b = j2 - 1;
+                byte b2 = oVar.f64784a[i2];
+                this.f64752b = j2 - 1;
                 if (i4 == i3) {
-                    this.f64716a = oVar.b();
+                    this.f64751a = oVar.b();
                     p.a(oVar);
                 } else {
-                    oVar.f64750b = i4;
+                    oVar.f64785b = i4;
                 }
                 return b2;
             }
@@ -725,28 +725,28 @@ public final class c implements d, e, Cloneable, ByteChannel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
-            long j2 = this.f64717b;
+            long j2 = this.f64752b;
             if (j2 >= 2) {
-                o oVar = this.f64716a;
-                int i2 = oVar.f64750b;
-                int i3 = oVar.f64751c;
+                o oVar = this.f64751a;
+                int i2 = oVar.f64785b;
+                int i3 = oVar.f64786c;
                 if (i3 - i2 < 2) {
                     return (short) (((h() & 255) << 8) | (h() & 255));
                 }
-                byte[] bArr = oVar.f64749a;
+                byte[] bArr = oVar.f64784a;
                 int i4 = i2 + 1;
                 int i5 = i4 + 1;
                 int i6 = ((bArr[i2] & 255) << 8) | (bArr[i4] & 255);
-                this.f64717b = j2 - 2;
+                this.f64752b = j2 - 2;
                 if (i5 == i3) {
-                    this.f64716a = oVar.b();
+                    this.f64751a = oVar.b();
                     p.a(oVar);
                 } else {
-                    oVar.f64750b = i5;
+                    oVar.f64785b = i5;
                 }
                 return (short) i6;
             }
-            throw new IllegalStateException("size < 2: " + this.f64717b);
+            throw new IllegalStateException("size < 2: " + this.f64752b);
         }
         return invokeV.shortValue;
     }
@@ -772,30 +772,30 @@ public final class c implements d, e, Cloneable, ByteChannel {
         if (interceptable != null && (invokeJ = interceptable.invokeJ(1048595, this, j2)) != null) {
             return invokeJ.byteValue;
         }
-        u.a(this.f64717b, j2, 1L);
-        long j3 = this.f64717b;
+        u.a(this.f64752b, j2, 1L);
+        long j3 = this.f64752b;
         if (j3 - j2 > j2) {
-            o oVar = this.f64716a;
+            o oVar = this.f64751a;
             while (true) {
-                int i3 = oVar.f64751c;
-                int i4 = oVar.f64750b;
+                int i3 = oVar.f64786c;
+                int i4 = oVar.f64785b;
                 long j4 = i3 - i4;
                 if (j2 < j4) {
-                    return oVar.f64749a[i4 + ((int) j2)];
+                    return oVar.f64784a[i4 + ((int) j2)];
                 }
                 j2 -= j4;
-                oVar = oVar.f64754f;
+                oVar = oVar.f64789f;
             }
         } else {
             long j5 = j2 - j3;
-            o oVar2 = this.f64716a;
+            o oVar2 = this.f64751a;
             do {
-                oVar2 = oVar2.f64755g;
-                int i5 = oVar2.f64751c;
-                i2 = oVar2.f64750b;
+                oVar2 = oVar2.f64790g;
+                int i5 = oVar2.f64786c;
+                i2 = oVar2.f64785b;
                 j5 += i5 - i2;
             } while (j5 < 0);
-            return oVar2.f64749a[i2 + ((int) j5)];
+            return oVar2.f64784a[i2 + ((int) j5)];
         }
     }
 
@@ -814,13 +814,13 @@ public final class c implements d, e, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
             o e2 = e(2);
-            byte[] bArr = e2.f64749a;
-            int i3 = e2.f64751c;
+            byte[] bArr = e2.f64784a;
+            int i3 = e2.f64786c;
             int i4 = i3 + 1;
             bArr[i3] = (byte) ((i2 >>> 8) & 255);
             bArr[i4] = (byte) (i2 & 255);
-            e2.f64751c = i4 + 1;
-            this.f64717b += 2;
+            e2.f64786c = i4 + 1;
+            this.f64752b += 2;
             return this;
         }
         return (c) invokeI.objValue;
@@ -831,7 +831,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j2)) == null) {
-            u.a(this.f64717b, 0L, j2);
+            u.a(this.f64752b, 0L, j2);
             if (j2 <= 2147483647L) {
                 byte[] bArr = new byte[(int) j2];
                 a(bArr);
@@ -847,7 +847,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i2)) == null) {
             if (i2 == 0) {
-                return f.f64720b;
+                return f.f64755b;
             }
             return new q(this, i2);
         }
@@ -874,16 +874,16 @@ public final class c implements d, e, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) {
             if (i2 >= 1 && i2 <= 8192) {
-                o oVar = this.f64716a;
+                o oVar = this.f64751a;
                 if (oVar == null) {
                     o a2 = p.a();
-                    this.f64716a = a2;
-                    a2.f64755g = a2;
-                    a2.f64754f = a2;
+                    this.f64751a = a2;
+                    a2.f64790g = a2;
+                    a2.f64789f = a2;
                     return a2;
                 }
-                o oVar2 = oVar.f64755g;
-                return (oVar2.f64751c + i2 > 8192 || !oVar2.f64753e) ? oVar2.a(p.a()) : oVar2;
+                o oVar2 = oVar.f64790g;
+                return (oVar2.f64786c + i2 > 8192 || !oVar2.f64788e) ? oVar2.a(p.a()) : oVar2;
             }
             throw new IllegalArgumentException();
         }
@@ -896,16 +896,16 @@ public final class c implements d, e, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048624, this, j2) == null) {
             while (j2 > 0) {
-                if (this.f64716a != null) {
-                    int min = (int) Math.min(j2, oVar.f64751c - oVar.f64750b);
+                if (this.f64751a != null) {
+                    int min = (int) Math.min(j2, oVar.f64786c - oVar.f64785b);
                     long j3 = min;
-                    this.f64717b -= j3;
+                    this.f64752b -= j3;
                     j2 -= j3;
-                    o oVar2 = this.f64716a;
-                    int i2 = oVar2.f64750b + min;
-                    oVar2.f64750b = i2;
-                    if (i2 == oVar2.f64751c) {
-                        this.f64716a = oVar2.b();
+                    o oVar2 = this.f64751a;
+                    int i2 = oVar2.f64785b + min;
+                    oVar2.f64785b = i2;
+                    if (i2 == oVar2.f64786c) {
+                        this.f64751a = oVar2.b();
                         p.a(oVar2);
                     }
                 } else {
@@ -928,12 +928,12 @@ public final class c implements d, e, Cloneable, ByteChannel {
                 int i4 = i3 + i2;
                 while (i2 < i4) {
                     o e2 = e(1);
-                    int min = Math.min(i4 - i2, 8192 - e2.f64751c);
-                    System.arraycopy(bArr, i2, e2.f64749a, e2.f64751c, min);
+                    int min = Math.min(i4 - i2, 8192 - e2.f64786c);
+                    System.arraycopy(bArr, i2, e2.f64784a, e2.f64786c, min);
                     i2 += min;
-                    e2.f64751c += min;
+                    e2.f64786c += min;
                 }
-                this.f64717b += j2;
+                this.f64752b += j2;
                 return this;
             }
             throw new IllegalArgumentException("source == null");
@@ -947,7 +947,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, charset)) == null) {
             try {
-                return a(this.f64717b, charset);
+                return a(this.f64752b, charset);
             } catch (EOFException e2) {
                 throw new AssertionError(e2);
             }
@@ -988,18 +988,18 @@ public final class c implements d, e, Cloneable, ByteChannel {
                 i3++;
             }
             o e2 = e(i3);
-            byte[] bArr = e2.f64749a;
-            int i4 = e2.f64751c + i3;
+            byte[] bArr = e2.f64784a;
+            int i4 = e2.f64786c + i3;
             while (j2 != 0) {
                 i4--;
-                bArr[i4] = f64715c[(int) (j2 % 10)];
+                bArr[i4] = f64750c[(int) (j2 % 10)];
                 j2 /= 10;
             }
             if (z) {
                 bArr[i4 - 1] = UtilsBlink.VER_TYPE_SEPARATOR;
             }
-            e2.f64751c += i3;
-            this.f64717b += i3;
+            e2.f64786c += i3;
+            this.f64752b += i3;
             return this;
         }
         return (c) invokeJ.objValue;
@@ -1017,14 +1017,14 @@ public final class c implements d, e, Cloneable, ByteChannel {
             }
             int numberOfTrailingZeros = (Long.numberOfTrailingZeros(Long.highestOneBit(j2)) / 4) + 1;
             o e2 = e(numberOfTrailingZeros);
-            byte[] bArr = e2.f64749a;
-            int i2 = e2.f64751c;
+            byte[] bArr = e2.f64784a;
+            int i2 = e2.f64786c;
             for (int i3 = (i2 + numberOfTrailingZeros) - 1; i3 >= i2; i3--) {
-                bArr[i3] = f64715c[(int) (15 & j2)];
+                bArr[i3] = f64750c[(int) (15 & j2)];
                 j2 >>>= 4;
             }
-            e2.f64751c += numberOfTrailingZeros;
-            this.f64717b += numberOfTrailingZeros;
+            e2.f64786c += numberOfTrailingZeros;
+            this.f64752b += numberOfTrailingZeros;
             return this;
         }
         return (c) invokeJ.objValue;
@@ -1034,23 +1034,23 @@ public final class c implements d, e, Cloneable, ByteChannel {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048588, this, j2, charset)) == null) {
-            u.a(this.f64717b, 0L, j2);
+            u.a(this.f64752b, 0L, j2);
             if (charset != null) {
                 if (j2 > 2147483647L) {
                     throw new IllegalArgumentException("byteCount > Integer.MAX_VALUE: " + j2);
                 } else if (j2 == 0) {
                     return "";
                 } else {
-                    o oVar = this.f64716a;
-                    if (oVar.f64750b + j2 > oVar.f64751c) {
+                    o oVar = this.f64751a;
+                    if (oVar.f64785b + j2 > oVar.f64786c) {
                         return new String(g(j2), charset);
                     }
-                    String str = new String(oVar.f64749a, oVar.f64750b, (int) j2, charset);
-                    int i2 = (int) (oVar.f64750b + j2);
-                    oVar.f64750b = i2;
-                    this.f64717b -= j2;
-                    if (i2 == oVar.f64751c) {
-                        this.f64716a = oVar.b();
+                    String str = new String(oVar.f64784a, oVar.f64785b, (int) j2, charset);
+                    int i2 = (int) (oVar.f64785b + j2);
+                    oVar.f64785b = i2;
+                    this.f64752b -= j2;
+                    if (i2 == oVar.f64786c) {
+                        this.f64751a = oVar.b();
                         p.a(oVar);
                     }
                     return str;
@@ -1069,11 +1069,11 @@ public final class c implements d, e, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
             o e2 = e(1);
-            byte[] bArr = e2.f64749a;
-            int i3 = e2.f64751c;
-            e2.f64751c = i3 + 1;
+            byte[] bArr = e2.f64784a;
+            int i3 = e2.f64786c;
+            e2.f64786c = i3 + 1;
             bArr[i3] = (byte) i2;
-            this.f64717b++;
+            this.f64752b++;
             return this;
         }
         return (c) invokeI.objValue;
@@ -1099,17 +1099,17 @@ public final class c implements d, e, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
             u.a(bArr.length, i2, i3);
-            o oVar = this.f64716a;
+            o oVar = this.f64751a;
             if (oVar == null) {
                 return -1;
             }
-            int min = Math.min(i3, oVar.f64751c - oVar.f64750b);
-            System.arraycopy(oVar.f64749a, oVar.f64750b, bArr, i2, min);
-            int i4 = oVar.f64750b + min;
-            oVar.f64750b = i4;
-            this.f64717b -= min;
-            if (i4 == oVar.f64751c) {
-                this.f64716a = oVar.b();
+            int min = Math.min(i3, oVar.f64786c - oVar.f64785b);
+            System.arraycopy(oVar.f64784a, oVar.f64785b, bArr, i2, min);
+            int i4 = oVar.f64785b + min;
+            oVar.f64785b = i4;
+            this.f64752b -= min;
+            if (i4 == oVar.f64786c) {
+                this.f64751a = oVar.b();
                 p.a(oVar);
             }
             return min;
@@ -1154,8 +1154,8 @@ public final class c implements d, e, Cloneable, ByteChannel {
                         char charAt = str.charAt(i2);
                         if (charAt < 128) {
                             o e2 = e(1);
-                            byte[] bArr = e2.f64749a;
-                            int i4 = e2.f64751c - i2;
+                            byte[] bArr = e2.f64784a;
+                            int i4 = e2.f64786c - i2;
                             int min = Math.min(i3, 8192 - i4);
                             int i5 = i2 + 1;
                             bArr[i2 + i4] = (byte) charAt;
@@ -1167,10 +1167,10 @@ public final class c implements d, e, Cloneable, ByteChannel {
                                 bArr[i5 + i4] = (byte) charAt2;
                                 i5++;
                             }
-                            int i6 = e2.f64751c;
+                            int i6 = e2.f64786c;
                             int i7 = (i4 + i5) - i6;
-                            e2.f64751c = i6 + i7;
-                            this.f64717b += i7;
+                            e2.f64786c = i6 + i7;
+                            this.f64752b += i7;
                             i2 = i5;
                         } else {
                             if (charAt < 2048) {
@@ -1248,7 +1248,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
                 } else if (i3 >= i2) {
                     if (i3 <= str.length()) {
                         if (charset != null) {
-                            if (charset.equals(u.f64764a)) {
+                            if (charset.equals(u.f64799a)) {
                                 return a(str, i2, i3);
                             }
                             byte[] bytes = str.substring(i2, i3).getBytes(charset);
@@ -1292,7 +1292,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, cVar, j2)) == null) {
             if (cVar != null) {
                 if (j2 >= 0) {
-                    long j3 = this.f64717b;
+                    long j3 = this.f64752b;
                     if (j3 == 0) {
                         return -1L;
                     }
@@ -1323,46 +1323,46 @@ public final class c implements d, e, Cloneable, ByteChannel {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Byte.valueOf(b2), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             long j4 = 0;
             if (j2 >= 0 && j3 >= j2) {
-                long j5 = this.f64717b;
+                long j5 = this.f64752b;
                 if (j3 <= j5) {
                     j5 = j3;
                 }
-                if (j2 == j5 || (oVar = this.f64716a) == null) {
+                if (j2 == j5 || (oVar = this.f64751a) == null) {
                     return -1L;
                 }
-                long j6 = this.f64717b;
+                long j6 = this.f64752b;
                 if (j6 - j2 < j2) {
                     while (j6 > j2) {
-                        oVar = oVar.f64755g;
-                        j6 -= oVar.f64751c - oVar.f64750b;
+                        oVar = oVar.f64790g;
+                        j6 -= oVar.f64786c - oVar.f64785b;
                     }
                 } else {
                     while (true) {
-                        long j7 = (oVar.f64751c - oVar.f64750b) + j4;
+                        long j7 = (oVar.f64786c - oVar.f64785b) + j4;
                         if (j7 >= j2) {
                             break;
                         }
-                        oVar = oVar.f64754f;
+                        oVar = oVar.f64789f;
                         j4 = j7;
                     }
                     j6 = j4;
                 }
                 long j8 = j2;
                 while (j6 < j5) {
-                    byte[] bArr = oVar.f64749a;
-                    int min = (int) Math.min(oVar.f64751c, (oVar.f64750b + j5) - j6);
-                    for (int i2 = (int) ((oVar.f64750b + j8) - j6); i2 < min; i2++) {
+                    byte[] bArr = oVar.f64784a;
+                    int min = (int) Math.min(oVar.f64786c, (oVar.f64785b + j5) - j6);
+                    for (int i2 = (int) ((oVar.f64785b + j8) - j6); i2 < min; i2++) {
                         if (bArr[i2] == b2) {
-                            return (i2 - oVar.f64750b) + j6;
+                            return (i2 - oVar.f64785b) + j6;
                         }
                     }
-                    j6 += oVar.f64751c - oVar.f64750b;
-                    oVar = oVar.f64754f;
+                    j6 += oVar.f64786c - oVar.f64785b;
+                    oVar = oVar.f64789f;
                     j8 = j6;
                 }
                 return -1L;
             }
-            throw new IllegalArgumentException(String.format("size=%s fromIndex=%s toIndex=%s", Long.valueOf(this.f64717b), Long.valueOf(j2), Long.valueOf(j3)));
+            throw new IllegalArgumentException(String.format("size=%s fromIndex=%s toIndex=%s", Long.valueOf(this.f64752b), Long.valueOf(j2), Long.valueOf(j3)));
         }
         return invokeCommon.longValue;
     }
@@ -1378,7 +1378,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j2), fVar, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (j2 < 0 || i2 < 0 || i3 < 0 || this.f64717b - j2 < i3 || fVar.g() - i2 < i3) {
+            if (j2 < 0 || i2 < 0 || i3 < 0 || this.f64752b - j2 < i3 || fVar.g() - i2 < i3) {
                 return false;
             }
             for (int i4 = 0; i4 < i3; i4++) {
@@ -1395,6 +1395,6 @@ public final class c implements d, e, Cloneable, ByteChannel {
     public t a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? t.f64760c : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? t.f64795c : (t) invokeV.objValue;
     }
 }

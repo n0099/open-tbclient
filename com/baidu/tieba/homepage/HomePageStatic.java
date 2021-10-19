@@ -18,7 +18,7 @@ public class HomePageStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f52123a;
+    public static boolean f52050a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

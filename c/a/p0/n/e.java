@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 public final class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int app_name = 2131690142;
-    public static final int swan_launch_failed_default_dialog_msg = 2131694361;
-    public static final int swan_launch_failed_default_toast_msg = 2131694362;
+    public static final int swan_launch_failed_default_dialog_msg = 2131694374;
+    public static final int swan_launch_failed_default_toast_msg = 2131694375;
     public transient /* synthetic */ FieldHolder $fh;
 }

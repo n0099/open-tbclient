@@ -30,22 +30,22 @@ public class PbGiftListView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f55813e;
+    public Context f55747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f55814f;
+    public View f55748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f55815g;
+    public TbImageView f55749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f55816h;
+    public TbImageView f55750h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f55817i;
+    public TbImageView f55751i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbImageView f55818j;
+    public TbImageView f55752j;
     public TextView k;
     public TextView l;
     public String m;
@@ -61,7 +61,7 @@ public class PbGiftListView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbGiftListView f55819e;
+        public final /* synthetic */ PbGiftListView f55753e;
 
         public a(PbGiftListView pbGiftListView) {
             Interceptable interceptable = $ic;
@@ -78,21 +78,21 @@ public class PbGiftListView extends FrameLayout {
                     return;
                 }
             }
-            this.f55819e = pbGiftListView;
+            this.f55753e = pbGiftListView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TbPageContext tbPageContext;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (tbPageContext = (TbPageContext) j.a(this.f55819e.f55813e)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (tbPageContext = (TbPageContext) j.a(this.f55753e.f55747e)) == null) {
                 return;
             }
             if (TbadkCoreApplication.isLogin()) {
-                if (StringUtils.isNull(this.f55819e.m)) {
+                if (StringUtils.isNull(this.f55753e.m)) {
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(tbPageContext.getPageActivity(), this.f55819e.o, this.f55819e.m, this.f55819e.n, GiftTabActivityConfig.FROM_PB, this.f55819e.p, this.f55819e.q)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(tbPageContext.getPageActivity(), this.f55753e.o, this.f55753e.m, this.f55753e.n, GiftTabActivityConfig.FROM_PB, this.f55753e.p, this.f55753e.q)));
                 return;
             }
             ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity());
@@ -131,38 +131,38 @@ public class PbGiftListView extends FrameLayout {
             if (d1Var != null && d1Var.a() != null && d1Var.a().size() > 0) {
                 int size = d1Var.a().size() > 4 ? 4 : d1Var.a().size();
                 if (size == 1) {
-                    this.f55815g.startLoad(d1Var.a().get(0).f14135a, 10, false);
-                    this.f55815g.setVisibility(0);
-                    this.f55816h.setVisibility(8);
-                    this.f55817i.setVisibility(8);
-                    this.f55818j.setVisibility(8);
+                    this.f55749g.startLoad(d1Var.a().get(0).f14158a, 10, false);
+                    this.f55749g.setVisibility(0);
+                    this.f55750h.setVisibility(8);
+                    this.f55751i.setVisibility(8);
+                    this.f55752j.setVisibility(8);
                 } else if (size == 2) {
-                    this.f55815g.startLoad(d1Var.a().get(0).f14135a, 10, false);
-                    this.f55816h.startLoad(d1Var.a().get(1).f14135a, 10, false);
-                    this.f55815g.setVisibility(0);
-                    this.f55816h.setVisibility(0);
-                    this.f55817i.setVisibility(8);
-                    this.f55818j.setVisibility(8);
+                    this.f55749g.startLoad(d1Var.a().get(0).f14158a, 10, false);
+                    this.f55750h.startLoad(d1Var.a().get(1).f14158a, 10, false);
+                    this.f55749g.setVisibility(0);
+                    this.f55750h.setVisibility(0);
+                    this.f55751i.setVisibility(8);
+                    this.f55752j.setVisibility(8);
                 } else if (size == 3) {
-                    this.f55815g.startLoad(d1Var.a().get(0).f14135a, 10, false);
-                    this.f55816h.startLoad(d1Var.a().get(1).f14135a, 10, false);
-                    this.f55817i.startLoad(d1Var.a().get(2).f14135a, 10, false);
-                    this.f55815g.setVisibility(0);
-                    this.f55816h.setVisibility(0);
-                    this.f55817i.setVisibility(0);
-                    this.f55818j.setVisibility(8);
+                    this.f55749g.startLoad(d1Var.a().get(0).f14158a, 10, false);
+                    this.f55750h.startLoad(d1Var.a().get(1).f14158a, 10, false);
+                    this.f55751i.startLoad(d1Var.a().get(2).f14158a, 10, false);
+                    this.f55749g.setVisibility(0);
+                    this.f55750h.setVisibility(0);
+                    this.f55751i.setVisibility(0);
+                    this.f55752j.setVisibility(8);
                 } else if (size == 4) {
-                    this.f55815g.startLoad(d1Var.a().get(0).f14135a, 10, false);
-                    this.f55816h.startLoad(d1Var.a().get(1).f14135a, 10, false);
-                    this.f55817i.startLoad(d1Var.a().get(2).f14135a, 10, false);
-                    this.f55818j.startLoad(d1Var.a().get(3).f14135a, 10, false);
-                    this.f55815g.setVisibility(0);
-                    this.f55816h.setVisibility(0);
-                    this.f55817i.setVisibility(0);
-                    this.f55818j.setVisibility(0);
+                    this.f55749g.startLoad(d1Var.a().get(0).f14158a, 10, false);
+                    this.f55750h.startLoad(d1Var.a().get(1).f14158a, 10, false);
+                    this.f55751i.startLoad(d1Var.a().get(2).f14158a, 10, false);
+                    this.f55752j.startLoad(d1Var.a().get(3).f14158a, 10, false);
+                    this.f55749g.setVisibility(0);
+                    this.f55750h.setVisibility(0);
+                    this.f55751i.setVisibility(0);
+                    this.f55752j.setVisibility(0);
                 }
                 if (d1Var.b() > 0) {
-                    this.k.setText(String.format(this.f55813e.getResources().getString(R.string.gift_counts), Integer.valueOf(d1Var.b())));
+                    this.k.setText(String.format(this.f55747e.getResources().getString(R.string.gift_counts), Integer.valueOf(d1Var.b())));
                     this.k.setVisibility(0);
                 } else {
                     this.k.setVisibility(8);
@@ -182,22 +182,22 @@ public class PbGiftListView extends FrameLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = View.inflate(this.f55813e, R.layout.pb_gift_list_item, this);
-            this.f55814f = inflate;
-            this.f55815g = (TbImageView) inflate.findViewById(R.id.pb_gift_view1);
-            this.f55816h = (TbImageView) this.f55814f.findViewById(R.id.pb_gift_view2);
-            this.f55817i = (TbImageView) this.f55814f.findViewById(R.id.pb_gift_view3);
-            this.f55818j = (TbImageView) this.f55814f.findViewById(R.id.pb_gift_view4);
-            this.f55815g.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f55816h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f55817i.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f55818j.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f55815g.setDefaultResource(R.drawable.icon_gift_moren);
-            this.f55816h.setDefaultResource(R.drawable.icon_gift_moren);
-            this.f55817i.setDefaultResource(R.drawable.icon_gift_moren);
-            this.f55818j.setDefaultResource(R.drawable.icon_gift_moren);
-            this.k = (TextView) this.f55814f.findViewById(R.id.pb_gift_number_view);
-            TextView textView = (TextView) this.f55814f.findViewById(R.id.pb_gift_send_view);
+            View inflate = View.inflate(this.f55747e, R.layout.pb_gift_list_item, this);
+            this.f55748f = inflate;
+            this.f55749g = (TbImageView) inflate.findViewById(R.id.pb_gift_view1);
+            this.f55750h = (TbImageView) this.f55748f.findViewById(R.id.pb_gift_view2);
+            this.f55751i = (TbImageView) this.f55748f.findViewById(R.id.pb_gift_view3);
+            this.f55752j = (TbImageView) this.f55748f.findViewById(R.id.pb_gift_view4);
+            this.f55749g.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f55750h.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f55751i.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f55752j.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f55749g.setDefaultResource(R.drawable.icon_gift_moren);
+            this.f55750h.setDefaultResource(R.drawable.icon_gift_moren);
+            this.f55751i.setDefaultResource(R.drawable.icon_gift_moren);
+            this.f55752j.setDefaultResource(R.drawable.icon_gift_moren);
+            this.k = (TextView) this.f55748f.findViewById(R.id.pb_gift_number_view);
+            TextView textView = (TextView) this.f55748f.findViewById(R.id.pb_gift_send_view);
             this.l = textView;
             textView.setOnClickListener(new a(this));
         }
@@ -271,7 +271,7 @@ public class PbGiftListView extends FrameLayout {
             }
         }
         this.r = 3;
-        this.f55813e = context;
+        this.f55747e = context;
         g();
     }
 
@@ -295,7 +295,7 @@ public class PbGiftListView extends FrameLayout {
             }
         }
         this.r = 3;
-        this.f55813e = context;
+        this.f55747e = context;
         g();
     }
 }

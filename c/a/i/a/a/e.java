@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class e implements c.a.r0.j3.q0.a {
+public class e implements c.a.r0.k3.q0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -198,7 +198,7 @@ public class e implements c.a.r0.j3.q0.a {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = c.a.q0.s.g0.b.b.c(c.a.q0.s.g0.a.d(this.f3509e)).f13953a;
+                String str = c.a.q0.s.g0.b.b.c(c.a.q0.s.g0.a.d(this.f3509e)).f13974a;
                 if (this.f3511g.f3503b != null) {
                     this.f3511g.f3503b.removeCallbacks(this.f3511g.f3506e);
                     if (StringUtils.isNull(str)) {
@@ -416,7 +416,7 @@ public class e implements c.a.r0.j3.q0.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new e() : (e) invokeV.objValue;
     }
 
-    @Override // c.a.r0.j3.q0.a
+    @Override // c.a.r0.k3.q0.a
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -424,7 +424,7 @@ public class e implements c.a.r0.j3.q0.a {
         }
     }
 
-    @Override // c.a.r0.j3.q0.a
+    @Override // c.a.r0.k3.q0.a
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -442,7 +442,7 @@ public class e implements c.a.r0.j3.q0.a {
         }
     }
 
-    @Override // c.a.r0.j3.q0.a
+    @Override // c.a.r0.k3.q0.a
     public boolean c(c.a.e.e.q.f fVar, int i2) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;
@@ -486,7 +486,7 @@ public class e implements c.a.r0.j3.q0.a {
         return invokeLI.booleanValue;
     }
 
-    @Override // c.a.r0.j3.q0.a
+    @Override // c.a.r0.k3.q0.a
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -494,7 +494,7 @@ public class e implements c.a.r0.j3.q0.a {
         }
     }
 
-    @Override // c.a.r0.j3.q0.a
+    @Override // c.a.r0.k3.q0.a
     public void d(c.a.e.e.q.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
@@ -502,7 +502,7 @@ public class e implements c.a.r0.j3.q0.a {
         }
     }
 
-    @Override // c.a.r0.j3.q0.a
+    @Override // c.a.r0.k3.q0.a
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -538,7 +538,7 @@ public class e implements c.a.r0.j3.q0.a {
         }
     }
 
-    @Override // c.a.r0.j3.q0.a
+    @Override // c.a.r0.k3.q0.a
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -557,7 +557,7 @@ public class e implements c.a.r0.j3.q0.a {
         }
     }
 
-    @Override // c.a.r0.j3.q0.a
+    @Override // c.a.r0.k3.q0.a
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {

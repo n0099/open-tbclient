@@ -34,22 +34,22 @@ public class NewFaceGroupShareModel extends FaceBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_SHARE_FACE_GROUP);
+            return true;
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_SHARE_FACE_GROUP);
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
     }

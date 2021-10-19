@@ -19,10 +19,10 @@ public class HomePageYoungsterTopView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f52499e;
+    public TextView f52430e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f52500f;
+    public ImageView f52431f;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -58,8 +58,8 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-            SkinManager.setViewTextColor(this.f52499e, R.color.CAM_X0107);
-            SkinManager.setImageResource(this.f52500f, R.drawable.icon_home_card_delete);
+            SkinManager.setViewTextColor(this.f52430e, R.color.CAM_X0107);
+            SkinManager.setImageResource(this.f52431f, R.drawable.icon_home_card_delete);
         }
     }
 

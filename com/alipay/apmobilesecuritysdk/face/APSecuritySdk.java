@@ -25,14 +25,14 @@ public class APSecuritySdk {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static APSecuritySdk f35835a;
+    public static APSecuritySdk f35839a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object f35836c;
+    public static Object f35840c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f35837b;
+    public Context f35841b;
 
     /* loaded from: classes4.dex */
     public interface InitResultListener {
@@ -45,7 +45,7 @@ public class APSecuritySdk {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ APSecuritySdk f35841a;
+        public final /* synthetic */ APSecuritySdk f35845a;
         public String apdid;
         public String apdidToken;
         public String clientKey;
@@ -66,7 +66,7 @@ public class APSecuritySdk {
                     return;
                 }
             }
-            this.f35841a = aPSecuritySdk;
+            this.f35845a = aPSecuritySdk;
         }
     }
 
@@ -83,7 +83,7 @@ public class APSecuritySdk {
                 return;
             }
         }
-        f35836c = new Object();
+        f35840c = new Object();
     }
 
     public APSecuritySdk(Context context) {
@@ -101,21 +101,21 @@ public class APSecuritySdk {
                 return;
             }
         }
-        this.f35837b = context;
+        this.f35841b = context;
     }
 
     public static APSecuritySdk getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f35835a == null) {
-                synchronized (f35836c) {
-                    if (f35835a == null) {
-                        f35835a = new APSecuritySdk(context);
+            if (f35839a == null) {
+                synchronized (f35840c) {
+                    if (f35839a == null) {
+                        f35839a = new APSecuritySdk(context);
                     }
                 }
             }
-            return f35835a;
+            return f35839a;
         }
         return (APSecuritySdk) invokeL.objValue;
     }
@@ -130,7 +130,7 @@ public class APSecuritySdk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = a.a(this.f35837b, "");
+            String a2 = a.a(this.f35841b, "");
             if (com.alipay.security.mobile.module.a.a.a(a2)) {
                 initToken(0, new HashMap(), null);
             }
@@ -159,10 +159,10 @@ public class APSecuritySdk {
             synchronized (this) {
                 tokenResult = new TokenResult(this);
                 try {
-                    tokenResult.apdidToken = a.a(this.f35837b, "");
-                    tokenResult.clientKey = h.f(this.f35837b);
-                    tokenResult.apdid = a.a(this.f35837b);
-                    tokenResult.umidToken = UmidSdkWrapper.getSecurityToken(this.f35837b);
+                    tokenResult.apdidToken = a.a(this.f35841b, "");
+                    tokenResult.clientKey = h.f(this.f35841b);
+                    tokenResult.apdid = a.a(this.f35841b);
+                    tokenResult.umidToken = UmidSdkWrapper.getSecurityToken(this.f35841b);
                     if (com.alipay.security.mobile.module.a.a.a(tokenResult.apdid) || com.alipay.security.mobile.module.a.a.a(tokenResult.apdidToken) || com.alipay.security.mobile.module.a.a.a(tokenResult.clientKey)) {
                         initToken(0, new HashMap(), null);
                     }
@@ -178,25 +178,25 @@ public class APSecuritySdk {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i2, map, initResultListener) == null) {
             com.alipay.apmobilesecuritysdk.b.a.a().a(i2);
-            String b2 = h.b(this.f35837b);
+            String b2 = h.b(this.f35841b);
             String c2 = com.alipay.apmobilesecuritysdk.b.a.a().c();
             if (com.alipay.security.mobile.module.a.a.b(b2) && !com.alipay.security.mobile.module.a.a.a(b2, c2)) {
-                com.alipay.apmobilesecuritysdk.e.a.a(this.f35837b);
-                d.a(this.f35837b);
-                g.a(this.f35837b);
+                com.alipay.apmobilesecuritysdk.e.a.a(this.f35841b);
+                d.a(this.f35841b);
+                g.a(this.f35841b);
                 i.h();
             }
             if (!com.alipay.security.mobile.module.a.a.a(b2, c2)) {
-                h.c(this.f35837b, c2);
+                h.c(this.f35841b, c2);
             }
-            String a2 = com.alipay.security.mobile.module.a.a.a(map, b.f35973g, "");
+            String a2 = com.alipay.security.mobile.module.a.a.a(map, b.f35977g, "");
             String a3 = com.alipay.security.mobile.module.a.a.a(map, "tid", "");
             String a4 = com.alipay.security.mobile.module.a.a.a(map, "userId", "");
             if (com.alipay.security.mobile.module.a.a.a(a2)) {
-                a2 = UtdidWrapper.getUtdid(this.f35837b);
+                a2 = UtdidWrapper.getUtdid(this.f35841b);
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(b.f35973g, a2);
+            hashMap.put(b.f35977g, a2);
             hashMap.put("tid", a3);
             hashMap.put("userId", a4);
             hashMap.put("appName", "");
@@ -208,13 +208,13 @@ public class APSecuritySdk {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Map f35838a;
+                public final /* synthetic */ Map f35842a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ InitResultListener f35839b;
+                public final /* synthetic */ InitResultListener f35843b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ APSecuritySdk f35840c;
+                public final /* synthetic */ APSecuritySdk f35844c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -231,19 +231,19 @@ public class APSecuritySdk {
                             return;
                         }
                     }
-                    this.f35840c = this;
-                    this.f35838a = hashMap;
-                    this.f35839b = initResultListener;
+                    this.f35844c = this;
+                    this.f35842a = hashMap;
+                    this.f35843b = initResultListener;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        new a(this.f35840c.f35837b).a(this.f35838a);
-                        InitResultListener initResultListener2 = this.f35839b;
+                        new a(this.f35844c.f35841b).a(this.f35842a);
+                        InitResultListener initResultListener2 = this.f35843b;
                         if (initResultListener2 != null) {
-                            initResultListener2.onResult(this.f35840c.getTokenResult());
+                            initResultListener2.onResult(this.f35844c.getTokenResult());
                         }
                     }
                 }

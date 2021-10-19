@@ -25,7 +25,7 @@ public class BarInformationModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f54693e;
+    public final HttpMessageListener f54624e;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -94,30 +94,30 @@ public class BarInformationModel extends BdBaseModel {
                 return;
             }
         }
-        this.f54693e = new a(this, CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
+        this.f54624e = new a(this, CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
         registerTask();
-        this.f54693e.setTag(getUniqueId());
-        this.f54693e.setSelfListener(true);
-        registerListener(this.f54693e);
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        this.f54624e.setTag(getUniqueId());
+        this.f54624e.setSelfListener(true);
+        registerListener(this.f54624e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
             return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
         }
         return invokeV.booleanValue;
     }

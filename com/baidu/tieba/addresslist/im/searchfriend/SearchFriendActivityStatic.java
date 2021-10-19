@@ -1,6 +1,6 @@
 package com.baidu.tieba.addresslist.im.searchfriend;
 
-import c.a.r0.s.e.b.b.a;
+import c.a.r0.t.e.b.b.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;

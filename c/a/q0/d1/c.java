@@ -14,14 +14,14 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f12907c;
+    public static c f12921c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.q0.t.c.a f12908a;
+    public c.a.q0.t.c.a f12922a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ABTestExtraData f12909b;
+    public ABTestExtraData f12923b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12907c == null) {
+            if (f12921c == null) {
                 synchronized (c.class) {
-                    if (f12907c == null) {
-                        f12907c = new c();
+                    if (f12921c == null) {
+                        f12921c = new c();
                     }
                 }
             }
-            return f12907c;
+            return f12921c;
         }
         return (c) invokeV.objValue;
     }
@@ -56,8 +56,8 @@ public class c {
     public final void a(c.a.q0.t.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            boolean z = aVar == null || this.f12908a == null || aVar.a() != this.f12908a.a();
-            this.f12908a = aVar;
+            boolean z = aVar == null || this.f12922a == null || aVar.a() != this.f12922a.a();
+            this.f12922a = aVar;
             if (z) {
                 b("zan_or_cai_smallflow");
             }
@@ -75,12 +75,12 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f12909b == null) {
+            if (this.f12923b == null) {
                 ABTestExtraData aBTestExtraData = new ABTestExtraData();
-                this.f12909b = aBTestExtraData;
+                this.f12923b = aBTestExtraData;
                 aBTestExtraData.parserABTestExtraFormSharedPref();
             }
-            return this.f12909b.getABTestResult();
+            return this.f12923b.getABTestResult();
         }
         return (String) invokeV.objValue;
     }
@@ -95,7 +95,7 @@ public class c {
     public void f(ABTestExtraData aBTestExtraData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
-            this.f12909b = aBTestExtraData;
+            this.f12923b = aBTestExtraData;
         }
     }
 }

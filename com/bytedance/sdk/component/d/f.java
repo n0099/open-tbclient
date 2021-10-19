@@ -14,10 +14,10 @@ public class f<V> extends FutureTask<V> implements Comparable<f<V>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f65372a;
+    public int f65407a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65373b;
+    public int f65408b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Callable<V> callable, int i2, int i3) {
@@ -37,8 +37,8 @@ public class f<V> extends FutureTask<V> implements Comparable<f<V>> {
                 return;
             }
         }
-        this.f65372a = i2 == -1 ? 5 : i2;
-        this.f65373b = i3;
+        this.f65407a = i2 == -1 ? 5 : i2;
+        this.f65408b = i3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +59,7 @@ public class f<V> extends FutureTask<V> implements Comparable<f<V>> {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65372a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65407a : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,7 +81,7 @@ public class f<V> extends FutureTask<V> implements Comparable<f<V>> {
                 return;
             }
         }
-        this.f65372a = i2 == -1 ? 5 : i2;
-        this.f65373b = i3;
+        this.f65407a = i2 == -1 ? 5 : i2;
+        this.f65408b = i3;
     }
 }

@@ -16,7 +16,7 @@ public final class EnqueueType {
     public static final EnqueueType ENQUEUE_TAIL;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ EnqueueType[] f76143a;
+    public static final /* synthetic */ EnqueueType[] f76178a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public final class EnqueueType {
         ENQUEUE_HEAD = new EnqueueType("ENQUEUE_HEAD", 1);
         EnqueueType enqueueType = new EnqueueType("ENQUEUE_TAIL", 2);
         ENQUEUE_TAIL = enqueueType;
-        f76143a = new EnqueueType[]{ENQUEUE_NONE, ENQUEUE_HEAD, enqueueType};
+        f76178a = new EnqueueType[]{ENQUEUE_NONE, ENQUEUE_HEAD, enqueueType};
     }
 
     public EnqueueType(String str, int i2) {
@@ -67,6 +67,6 @@ public final class EnqueueType {
     public static EnqueueType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnqueueType[]) f76143a.clone() : (EnqueueType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnqueueType[]) f76178a.clone() : (EnqueueType[]) invokeV.objValue;
     }
 }

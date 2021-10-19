@@ -1,7 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -60,7 +60,7 @@ public class CheckPostRequestMessage extends NetMessage {
             builder.ori_ugc_nid = this.ori_ugc_nid;
             builder.ori_ugc_vid = this.ori_ugc_vid;
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             CheckPostReqIdl.Builder builder2 = new CheckPostReqIdl.Builder();
             builder2.data = builder.build(false);

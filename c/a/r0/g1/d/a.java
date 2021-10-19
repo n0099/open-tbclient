@@ -1,170 +1,66 @@
 package c.a.r0.g1.d;
 
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import c.a.r0.p3.c;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobstat.MtjConfig;
+import com.baidu.mobstat.StatService;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class a {
+public class a implements c.a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static a f17935f;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f17936a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public SparseArray<Long> f17937b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public SparseArray<Long> f17938c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public SparseArray<Long> f17939d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public SparseArray<Long> f17940e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1462201503, "Lc/a/r0/g1/d/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1462201503, "Lc/a/r0/g1/d/a;");
-                return;
-            }
-        }
-        f17935f = new a();
-    }
 
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f17936a = 0L;
-        this.f17937b = new SparseArray<>();
-        this.f17938c = new SparseArray<>();
-        this.f17939d = new SparseArray<>();
-        this.f17940e = new SparseArray<>();
-    }
-
-    public static a d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f17935f : (a) invokeV.objValue;
-    }
-
-    public long a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            Long l = this.f17938c.get(i2);
-            if (l == null) {
-                return -1L;
-            }
-            return l.longValue();
+        String version = TbConfig.getVersion();
+        if (TextUtils.isEmpty(version)) {
+            return;
         }
-        return invokeI.longValue;
+        StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    @Override // c.a.r0.p3.c.a
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17936a : invokeV.longValue;
-    }
-
-    public long c(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            Long l = this.f17937b.get(i2);
-            if (l == null) {
-                return -1L;
-            }
-            return l.longValue();
-        }
-        return invokeI.longValue;
-    }
-
-    public long e(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            Long l = this.f17940e.get(i2);
-            if (l == null) {
-                return -1L;
-            }
-            return l.longValue();
-        }
-        return invokeI.longValue;
-    }
-
-    public long f(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            Long l = this.f17939d.get(i2);
-            if (l == null) {
-                return -1L;
-            }
-            return l.longValue();
-        }
-        return invokeI.longValue;
-    }
-
-    public void g(long j2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            this.f17938c.put(i2, Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
+            StatService.autoTrace(context);
         }
     }
 
-    public void h(long j2) {
+    @Override // c.a.r0.p3.c.a
+    public void b(Context context, WebView webView, WebChromeClient webChromeClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.f17936a = j2;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, webView, webChromeClient) == null) {
+            StatService.trackWebView(context, webView, webChromeClient);
         }
     }
 
-    public void i(long j2, int i2) {
+    @Override // c.a.r0.p3.c.a
+    public void c(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            this.f17937b.put(i2, Long.valueOf(j2));
-        }
-    }
-
-    public void j(long j2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            this.f17940e.put(i2, Long.valueOf(j2));
-        }
-    }
-
-    public void k(long j2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            this.f17939d.put(i2, Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, str, z) == null) {
+            StatService.setAppChannel(context, str, z);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.tbean;
 
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.v0;
+import c.a.q0.d1.u0;
 import c.a.q0.p0.b;
 import c.a.q0.p0.g;
 import com.baidu.adp.framework.MessageManager;
@@ -41,11 +41,11 @@ public class BuyTBeanActivityStatic {
 
         /* renamed from: com.baidu.tieba.tbean.BuyTBeanActivityStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1799a implements b {
+        public class C1801a implements b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1799a(a aVar) {
+            public C1801a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,12 +103,12 @@ public class BuyTBeanActivityStatic {
                         return 3;
                     }
                     if (str.contains("tdoudiscount:")) {
-                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, v0.d(str, MemberPayStatistic.REFER_PAGE), v0.d(str, MemberPayStatistic.CLICK_ZONE), new C1799a(this));
+                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, u0.d(str, MemberPayStatistic.REFER_PAGE), u0.d(str, MemberPayStatistic.CLICK_ZONE), new C1801a(this));
                         return 0;
                     }
-                    Bundle i2 = v0.i(str);
+                    Bundle i2 = u0.i(str);
                     if (i2 != null && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && UrlSchemaHelper.PAY_TBEAN_PAGE.equalsIgnoreCase(i2.getString("path"))) {
-                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, v0.d(str, MemberPayStatistic.REFER_PAGE), v0.d(str, MemberPayStatistic.CLICK_ZONE));
+                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, u0.d(str, MemberPayStatistic.REFER_PAGE), u0.d(str, MemberPayStatistic.CLICK_ZONE));
                         return 0;
                     }
                 }
@@ -132,7 +132,7 @@ public class BuyTBeanActivityStatic {
             }
         }
         TbadkApplication.getInst().RegisterIntent(BuyTBeanActivityConfig.class, BuyTBeanActivity.class);
-        c.a.r0.j3.e0.a.f(306001, GetYinJiResponseMessage.class, false);
+        c.a.r0.k3.e0.a.f(306001, GetYinJiResponseMessage.class, false);
         c();
         a();
         b();
@@ -175,7 +175,7 @@ public class BuyTBeanActivityStatic {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, c.a.r0.j3.e0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, c.a.r0.k3.e0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

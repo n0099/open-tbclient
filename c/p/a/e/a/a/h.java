@@ -38,8 +38,8 @@ public class h extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Intent intent = new Intent(c.p.a.e.b.d.c.f35104c + ".intent.action.OPEN_FILEMANAGER");
-            intent.putExtra("CurrentDir", this.f34933c);
+            Intent intent = new Intent(c.p.a.e.b.d.c.f35108c + ".intent.action.OPEN_FILEMANAGER");
+            intent.putExtra("CurrentDir", this.f34937c);
             intent.putExtra("first_position", 1);
             intent.putExtra("CurrentMode", 1);
             intent.putExtra("com.iqoo.secure", true);

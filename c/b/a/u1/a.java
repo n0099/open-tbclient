@@ -11,7 +11,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final UriConfig f31458a;
+    public static final UriConfig f31462a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,12 +41,12 @@ public class a {
         bVar2.h("https://toblog.ctobsnssdk.com/service/2/log_settings/");
         bVar2.j("https://toblog.ctobsnssdk.com/service/2/abtest_config/");
         bVar2.l("https://success.ctobsnssdk.com/service/2/app_log/");
-        f31458a = bVar2.c();
+        f31462a = bVar2.c();
     }
 
     public static final UriConfig a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? f31458a : (UriConfig) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? f31462a : (UriConfig) invokeI.objValue;
     }
 }

@@ -583,7 +583,7 @@ public class d {
                             z10 = z9;
                         } else {
                             z10 = z9;
-                            if (!r(str15, file2.getAbsolutePath()).f36410a) {
+                            if (!r(str15, file2.getAbsolutePath()).f36414a) {
                                 if (pluginSetting == null || !str.startsWith("file://")) {
                                     z11 = z8;
                                     str16 = "is_third";
@@ -604,7 +604,7 @@ public class d {
                                     } catch (Exception e3) {
                                         BdLog.e(e3);
                                     }
-                                    q(str, str15, "signature_not_match", str15 + "-SourceMd5_" + a2 + "-tmpSize_" + length + "-error_" + r.f36411b + "-step_" + r.f36412c);
+                                    q(str, str15, "signature_not_match", str15 + "-SourceMd5_" + a2 + "-tmpSize_" + length + "-error_" + r.f36415b + "-step_" + r.f36416c);
                                     return null;
                                 }
                                 ?? r7 = "version_code";
@@ -923,10 +923,10 @@ public class d {
                                                 try {
                                                     Util.a d2 = Util.d(fileInputStream, file4);
                                                     file2.delete();
-                                                    if (!d2.f36410a) {
+                                                    if (!d2.f36414a) {
                                                         str20 = str3;
                                                         try {
-                                                            q(str, str15, str20, d2.f36411b);
+                                                            q(str, str15, str20, d2.f36415b);
                                                             c.a.e.e.m.a.c(fileInputStream);
                                                             return null;
                                                         } catch (Exception e13) {
@@ -1849,7 +1849,7 @@ public class d {
                         fileInputStream = new FileInputStream(file3);
                         try {
                             Util.a d2 = Util.d(fileInputStream, file2);
-                            if (d2.f36410a) {
+                            if (d2.f36414a) {
                                 if (file2.length() == file3.length()) {
                                     c.a.e.e.m.a.c(fileInputStream);
                                 } else {
@@ -1857,7 +1857,7 @@ public class d {
                                 }
                             } else {
                                 f.n(file2);
-                                throw new Exception(d2.f36411b);
+                                throw new Exception(d2.f36415b);
                             }
                         } catch (Exception e3) {
                             e = e3;
@@ -1893,13 +1893,13 @@ public class d {
                 long currentTimeMillis = System.currentTimeMillis();
                 File file = new File(Util.m(), String.valueOf(System.currentTimeMillis()));
                 Util.a d2 = Util.d(inputStream, file);
-                if (!d2.f36410a) {
+                if (!d2.f36414a) {
                     try {
                         file.delete();
                     } catch (Exception e2) {
                         BdLog.e(e2);
                     }
-                    q(str, str2, "assets_copy_temp_fail", d2.f36411b);
+                    q(str, str2, "assets_copy_temp_fail", d2.f36415b);
                     return null;
                 }
                 c.a.e.h.h.a.b().n("plugin_copy_file", System.currentTimeMillis() - currentTimeMillis, str2);
@@ -2028,12 +2028,12 @@ public class d {
                         c.a.e.h.h.a.b().o("plugin_install", "collectCertificates_ok", str, null);
                     }
                 } catch (Throwable th3) {
-                    aVar.f36411b += "-exception_" + th3.toString();
+                    aVar.f36415b += "-exception_" + th3.toString();
                     return aVar;
                 }
             }
             if (signatureArr == null) {
-                aVar.f36411b = "get_newsignatures_null_" + str2;
+                aVar.f36415b = "get_newsignatures_null_" + str2;
                 return aVar;
             }
             Signature[] signatureArr2 = f2800h;
@@ -2044,14 +2044,14 @@ public class d {
                         signatureArr2 = e.a(file.getAbsolutePath(), aVar);
                         f2800h = signatureArr2;
                     } catch (Throwable th4) {
-                        aVar.f36411b += "-exception_" + th4.toString();
+                        aVar.f36415b += "-exception_" + th4.toString();
                         return aVar;
                     }
                 }
             }
             int b2 = Util.b(signatureArr2, signatureArr);
             if (b2 == 0) {
-                aVar.f36410a = true;
+                aVar.f36414a = true;
                 return aVar;
             }
             StringBuilder sb = new StringBuilder();
@@ -2081,7 +2081,7 @@ public class d {
                     sb.append(th6.getMessage());
                 }
             }
-            aVar.f36411b = "compare_signatures_fail_" + b2 + "_" + sb.toString();
+            aVar.f36415b = "compare_signatures_fail_" + b2 + "_" + sb.toString();
             return aVar;
         }
         return (Util.a) invokeLL.objValue;

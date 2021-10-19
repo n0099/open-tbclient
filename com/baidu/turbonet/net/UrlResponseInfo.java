@@ -21,28 +21,28 @@ public final class UrlResponseInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f59636a;
+    public final List<String> f59671a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f59637b;
+    public final int f59672b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f59638c;
+    public final String f59673c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f59639d;
+    public final boolean f59674d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f59640e;
+    public final String f59675e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f59641f;
+    public final String f59676f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicLong f59642g;
+    public final AtomicLong f59677g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HeaderBlock f59643h;
+    public final HeaderBlock f59678h;
 
     /* loaded from: classes8.dex */
     public static final class HeaderBlock {
@@ -50,10 +50,10 @@ public final class UrlResponseInfo {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<Map.Entry<String, String>> f59644a;
+        public final List<Map.Entry<String, String>> f59679a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, List<String>> f59645b;
+        public Map<String, List<String>> f59680b;
 
         public HeaderBlock(List<Map.Entry<String, String>> list) {
             Interceptable interceptable = $ic;
@@ -70,25 +70,25 @@ public final class UrlResponseInfo {
                     return;
                 }
             }
-            this.f59644a = list;
+            this.f59679a = list;
         }
 
         public List<Map.Entry<String, String>> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59644a : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59679a : (List) invokeV.objValue;
         }
 
         public Map<String, List<String>> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Map<String, List<String>> map = this.f59645b;
+                Map<String, List<String>> map = this.f59680b;
                 if (map != null) {
                     return map;
                 }
                 TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-                for (Map.Entry<String, String> entry : this.f59644a) {
+                for (Map.Entry<String, String> entry : this.f59679a) {
                     ArrayList arrayList = new ArrayList();
                     if (treeMap.containsKey(entry.getKey())) {
                         arrayList.addAll((Collection) treeMap.get(entry.getKey()));
@@ -97,7 +97,7 @@ public final class UrlResponseInfo {
                     treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
                 }
                 Map<String, List<String>> unmodifiableMap = Collections.unmodifiableMap(treeMap);
-                this.f59645b = unmodifiableMap;
+                this.f59680b = unmodifiableMap;
                 return unmodifiableMap;
             }
             return (Map) invokeV.objValue;
@@ -119,63 +119,63 @@ public final class UrlResponseInfo {
                 return;
             }
         }
-        this.f59636a = Collections.unmodifiableList(list);
-        this.f59637b = i2;
-        this.f59638c = str;
-        this.f59643h = new HeaderBlock(Collections.unmodifiableList(list2));
-        this.f59639d = z;
-        this.f59640e = str2;
-        this.f59641f = str3;
-        this.f59642g = new AtomicLong();
+        this.f59671a = Collections.unmodifiableList(list);
+        this.f59672b = i2;
+        this.f59673c = str;
+        this.f59678h = new HeaderBlock(Collections.unmodifiableList(list2));
+        this.f59674d = z;
+        this.f59675e = str2;
+        this.f59676f = str3;
+        this.f59677g = new AtomicLong();
     }
 
     public Map<String, List<String>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59643h.b() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59678h.b() : (Map) invokeV.objValue;
     }
 
     public List<Map.Entry<String, String>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59643h.a() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59678h.a() : (List) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59637b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59672b : invokeV.intValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59638c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59673c : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59640e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59675e : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59641f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59676f : (String) invokeV.objValue;
     }
 
     public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59642g.get() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59677g.get() : invokeV.longValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<String> list = this.f59636a;
+            List<String> list = this.f59671a;
             return list.get(list.size() - 1);
         }
         return (String) invokeV.objValue;
@@ -184,20 +184,20 @@ public final class UrlResponseInfo {
     public List<String> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59636a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59671a : (List) invokeV.objValue;
     }
 
     public void j(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.f59642g.set(j2);
+            this.f59677g.set(j2);
         }
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f59639d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f59674d : invokeV.booleanValue;
     }
 
     public String toString() {

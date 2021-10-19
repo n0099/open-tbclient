@@ -1,6 +1,6 @@
 package com.baidu.tieba.personExtra;
 
-import c.a.r0.n2.a;
+import c.a.r0.o2.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

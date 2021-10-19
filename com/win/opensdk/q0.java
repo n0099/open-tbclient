@@ -12,34 +12,34 @@ public class q0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f77460a;
+    public int[] f77495a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f77461b;
+    public int f77496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f77462c;
+    public int f77497c;
 
     /* renamed from: d  reason: collision with root package name */
-    public p0 f77463d;
+    public p0 f77498d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List f77464e;
+    public List f77499e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f77465f;
+    public int f77500f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f77466g;
+    public int f77501g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f77467h;
+    public boolean f77502h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f77468i;
+    public int f77503i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f77469j;
+    public int f77504j;
     public int k;
     public int l;
     public int m;
@@ -57,10 +57,10 @@ public class q0 {
                 return;
             }
         }
-        this.f77460a = null;
-        this.f77461b = 0;
-        this.f77462c = 0;
-        this.f77464e = new ArrayList();
+        this.f77495a = null;
+        this.f77496b = 0;
+        this.f77497c = 0;
+        this.f77499e = new ArrayList();
         this.m = 0;
     }
 }

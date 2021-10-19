@@ -11,7 +11,7 @@ public class GetReverse {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ICooperService f43772a;
+    public static ICooperService f43684a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public GetReverse() {
@@ -32,10 +32,10 @@ public class GetReverse {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f43772a == null) {
-                f43772a = CooperService.instance();
+            if (f43684a == null) {
+                f43684a = CooperService.instance();
             }
-            return f43772a;
+            return f43684a;
         }
         return (ICooperService) invokeL.objValue;
     }

@@ -16,7 +16,7 @@ public class m extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37239d;
+    public String f37243d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(i iVar, Context context, String str) {
@@ -37,7 +37,7 @@ public class m extends c {
                 return;
             }
         }
-        this.f37239d = str;
+        this.f37243d = str;
     }
 
     @Override // com.baidu.android.pushservice.d.a
@@ -64,7 +64,7 @@ public class m extends c {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
             super.b(hashMap);
             hashMap.put("method", "settags");
-            hashMap.put(CommandMessage.TYPE_TAGS, this.f37239d);
+            hashMap.put(CommandMessage.TYPE_TAGS, this.f37243d);
         }
     }
 }

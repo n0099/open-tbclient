@@ -33,10 +33,10 @@ public class BlueLikeButton extends TextView implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f56163e;
+    public boolean f56097e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f56164f;
+    public boolean f56098f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlueLikeButton(Context context) {
@@ -56,8 +56,8 @@ public class BlueLikeButton extends TextView implements b {
                 return;
             }
         }
-        this.f56163e = false;
-        this.f56164f = false;
+        this.f56097e = false;
+        this.f56098f = false;
     }
 
     @Override // c.a.q0.s.f0.t.b
@@ -71,19 +71,19 @@ public class BlueLikeButton extends TextView implements b {
     public boolean isLike() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56163e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56097e : invokeV.booleanValue;
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f56164f) {
-                if (this.f56163e) {
+            if (this.f56098f) {
+                if (this.f56097e) {
                     SkinManager.setViewTextColor(this, R.color.CAM_X0101, 1);
                 } else {
                     SkinManager.setViewTextColor(this, R.color.CAM_X0101, 1);
                 }
-            } else if (this.f56163e) {
+            } else if (this.f56097e) {
                 setBackgroundDrawable(SkinManager.getDrawable(R.drawable.selector_like_button_gray_bg));
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1);
@@ -98,7 +98,7 @@ public class BlueLikeButton extends TextView implements b {
     @Override // c.a.q0.s.f0.t.b
     public void onClickEvent(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f56164f) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f56098f) {
             return;
         }
         TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "4"));
@@ -109,7 +109,7 @@ public class BlueLikeButton extends TextView implements b {
             statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
             TiebaStatic.log(statisticItem);
         }
-        if (this.f56163e) {
+        if (this.f56097e) {
             return;
         }
         Context context = getContext();
@@ -126,7 +126,7 @@ public class BlueLikeButton extends TextView implements b {
     public void setBJH(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f56164f = z;
+            this.f56098f = z;
         }
     }
 
@@ -140,9 +140,9 @@ public class BlueLikeButton extends TextView implements b {
     public void updateLikeStatus(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f56163e = z;
+            this.f56097e = z;
             if (z) {
-                if (this.f56164f) {
+                if (this.f56098f) {
                     setText(R.string.followed);
                     TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).defaultColor(R.color.CAM_X0204).into(this);
                     SkinManager.setViewTextColor(this, R.color.CAM_X0105, 1);
@@ -153,7 +153,7 @@ public class BlueLikeButton extends TextView implements b {
                 setPadding(0, 0, 0, 0);
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1);
-            } else if (this.f56164f) {
+            } else if (this.f56098f) {
                 setText(R.string.attention);
                 TBSelector.selectorBackgroundDrawable(DrawableSelector.make().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0302).build(), DrawableSelector.make().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).build()).into(this);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0101, 1);
@@ -186,8 +186,8 @@ public class BlueLikeButton extends TextView implements b {
                 return;
             }
         }
-        this.f56163e = false;
-        this.f56164f = false;
+        this.f56097e = false;
+        this.f56098f = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -209,8 +209,8 @@ public class BlueLikeButton extends TextView implements b {
                 return;
             }
         }
-        this.f56163e = false;
-        this.f56164f = false;
+        this.f56097e = false;
+        this.f56098f = false;
     }
 
     @Override // c.a.q0.s.f0.t.b

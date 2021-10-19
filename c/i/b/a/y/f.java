@@ -10,10 +10,10 @@ public abstract class f extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f34115f;
+    public long f34119f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f34116g;
+    public int f34120g;
 
     public f() {
         Interceptable interceptable = $ic;

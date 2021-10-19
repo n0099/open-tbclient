@@ -34,7 +34,7 @@ public class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             boolean a2 = ad.a(context);
             com.kwad.sdk.core.d.a.a("InfoCollector", "queryAccessibilityServicePermission result: " + a2);
-            return new g("android.permission.BIND_ACCESSIBILITY_SERVICE", a2 ? g.f71656b : g.f71657c);
+            return new g("android.permission.BIND_ACCESSIBILITY_SERVICE", a2 ? g.f71691b : g.f71692c);
         }
         return (g) invokeL.objValue;
     }
@@ -53,7 +53,7 @@ public class f {
                 if (strArr != null) {
                     for (String str : strArr) {
                         int a2 = ad.a(context, str);
-                        arrayList.add(new g(str, a2 == 0 ? g.f71656b : a2 == -1 ? g.f71657c : g.f71655a));
+                        arrayList.add(new g(str, a2 == 0 ? g.f71691b : a2 == -1 ? g.f71692c : g.f71690a));
                     }
                 }
                 return arrayList;

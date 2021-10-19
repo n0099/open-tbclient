@@ -18,10 +18,10 @@ public class ShareUrlSearch extends l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.platform.core.e.a f42011a;
+    public com.baidu.platform.core.e.a f42015a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42012b;
+    public boolean f42016b;
 
     public ShareUrlSearch() {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class ShareUrlSearch extends l {
                 return;
             }
         }
-        this.f42012b = false;
-        this.f42011a = new h();
+        this.f42016b = false;
+        this.f42015a = new h();
     }
 
     private boolean a(String str) {
@@ -66,11 +66,11 @@ public class ShareUrlSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42012b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42016b) {
             return;
         }
-        this.f42012b = true;
-        this.f42011a.a();
+        this.f42016b = true;
+        this.f42015a.a();
         BMapManager.destroy();
     }
 
@@ -78,7 +78,7 @@ public class ShareUrlSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locationShareURLOption)) == null) {
-            com.baidu.platform.core.e.a aVar = this.f42011a;
+            com.baidu.platform.core.e.a aVar = this.f42015a;
             if (aVar != null) {
                 if (locationShareURLOption == null || locationShareURLOption.mLocation == null || locationShareURLOption.mName == null || locationShareURLOption.mSnippet == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option or name or snippet  can not be null");
@@ -94,7 +94,7 @@ public class ShareUrlSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, poiDetailShareURLOption)) == null) {
-            com.baidu.platform.core.e.a aVar = this.f42011a;
+            com.baidu.platform.core.e.a aVar = this.f42015a;
             if (aVar != null) {
                 if (poiDetailShareURLOption == null || poiDetailShareURLOption.mUid == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option or uid can not be null");
@@ -110,7 +110,7 @@ public class ShareUrlSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, routeShareURLOption)) == null) {
-            if (this.f42011a != null) {
+            if (this.f42015a != null) {
                 if (routeShareURLOption != null) {
                     if (routeShareURLOption.getmMode().ordinal() < 0) {
                         return false;
@@ -133,7 +133,7 @@ public class ShareUrlSearch extends l {
                             throw new IllegalArgumentException("BDMapSDKException: end cityCode must be set if not set end location");
                         }
                     }
-                    return this.f42011a.a(routeShareURLOption);
+                    return this.f42015a.a(routeShareURLOption);
                 }
                 throw new IllegalArgumentException("BDMapSDKException: option is null");
             }
@@ -145,7 +145,7 @@ public class ShareUrlSearch extends l {
     public void setOnGetShareUrlResultListener(OnGetShareUrlResultListener onGetShareUrlResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onGetShareUrlResultListener) == null) {
-            com.baidu.platform.core.e.a aVar = this.f42011a;
+            com.baidu.platform.core.e.a aVar = this.f42015a;
             if (aVar == null) {
                 throw new IllegalStateException("BDMapSDKException: searcher has been destroyed");
             }

@@ -55,28 +55,28 @@ public class s {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f69199a = -1.0f;
+    public static float f69234a = -1.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f69200b = -1;
+    public static int f69235b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f69201c = -1.0f;
+    public static float f69236c = -1.0f;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f69202d = -1;
+    public static int f69237d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f69203e = -1;
+    public static int f69238e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static WindowManager f69204f;
+    public static WindowManager f69239f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static float f69205g;
+    public static float f69240g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f69206h;
+    public static boolean f69241h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -109,7 +109,7 @@ public class s {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) ? f69199a < 0.0f || f69200b < 0 || f69201c < 0.0f || f69202d < 0 || f69203e < 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) ? f69234a < 0.0f || f69235b < 0 || f69236c < 0.0f || f69237d < 0 || f69238e < 0 : invokeV.booleanValue;
     }
 
     public static int d(Context context) {
@@ -117,7 +117,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, context)) == null) {
             a(context);
-            return f69203e;
+            return f69238e;
         }
         return invokeL.intValue;
     }
@@ -127,7 +127,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65585, null, context)) == null) {
             a(context);
-            return f69201c;
+            return f69236c;
         }
         return invokeL.floatValue;
     }
@@ -137,7 +137,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, context)) == null) {
             a(context);
-            return f69200b;
+            return f69235b;
         }
         return invokeL.intValue;
     }
@@ -249,7 +249,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65600, null, context)) == null) {
             try {
-                if (f69206h) {
+                if (f69241h) {
                     Class<?> loadClass = context.getClassLoader().loadClass("android.util.DisplayMetrics");
                     Method declaredMethod = loadClass.getDeclaredMethod("getDeviceDensity", new Class[0]);
                     declaredMethod.setAccessible(true);
@@ -269,36 +269,36 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
             Context a2 = context == null ? com.bytedance.sdk.openadsdk.core.o.a() : context;
-            f69204f = (WindowManager) com.bytedance.sdk.openadsdk.core.o.a().getSystemService("window");
+            f69239f = (WindowManager) com.bytedance.sdk.openadsdk.core.o.a().getSystemService("window");
             if (a2 == null) {
                 return;
             }
             if (c()) {
                 DisplayMetrics displayMetrics = a2.getResources().getDisplayMetrics();
-                f69199a = o(a2);
-                f69200b = displayMetrics.densityDpi;
-                f69201c = displayMetrics.scaledDensity;
-                f69202d = displayMetrics.widthPixels;
-                f69203e = displayMetrics.heightPixels;
+                f69234a = o(a2);
+                f69235b = displayMetrics.densityDpi;
+                f69236c = displayMetrics.scaledDensity;
+                f69237d = displayMetrics.widthPixels;
+                f69238e = displayMetrics.heightPixels;
             }
             if (context == null || context.getResources() == null || context.getResources().getConfiguration() == null) {
                 return;
             }
             if (context.getResources().getConfiguration().orientation == 1) {
-                int i2 = f69202d;
-                int i3 = f69203e;
+                int i2 = f69237d;
+                int i3 = f69238e;
                 if (i2 > i3) {
-                    f69202d = i3;
-                    f69203e = i2;
+                    f69237d = i3;
+                    f69238e = i2;
                     return;
                 }
                 return;
             }
-            int i4 = f69202d;
-            int i5 = f69203e;
+            int i4 = f69237d;
+            int i5 = f69238e;
             if (i4 < i5) {
-                f69202d = i5;
-                f69203e = i4;
+                f69237d = i5;
+                f69238e = i4;
             }
         }
     }
@@ -344,7 +344,7 @@ public class s {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f69207a;
+            public final /* synthetic */ View f69242a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -361,7 +361,7 @@ public class s {
                         return;
                     }
                 }
-                this.f69207a = view;
+                this.f69242a = view;
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -369,8 +369,8 @@ public class s {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
                     super.onAnimationEnd(animator);
-                    s.a(this.f69207a, 8);
-                    ObjectAnimator.ofFloat(this.f69207a, "alpha", 0.0f, 1.0f).setDuration(0L).start();
+                    s.a(this.f69242a, 8);
+                    ObjectAnimator.ofFloat(this.f69242a, "alpha", 0.0f, 1.0f).setDuration(0L).start();
                 }
             }
         });
@@ -422,11 +422,11 @@ public class s {
             if (context == null) {
                 return null;
             }
-            if (f69204f == null) {
-                f69204f = (WindowManager) com.bytedance.sdk.openadsdk.core.o.a().getSystemService("window");
+            if (f69239f == null) {
+                f69239f = (WindowManager) com.bytedance.sdk.openadsdk.core.o.a().getSystemService("window");
             }
             int[] iArr = new int[2];
-            WindowManager windowManager = f69204f;
+            WindowManager windowManager = f69239f;
             if (windowManager != null) {
                 Display defaultDisplay = windowManager.getDefaultDisplay();
                 DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -468,7 +468,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, context)) == null) {
             a(context);
-            return f69202d;
+            return f69237d;
         }
         return invokeL.intValue;
     }
@@ -734,7 +734,7 @@ public class s {
                             if (applicationInfo == null || applicationInfo.metaData == null || !applicationInfo.metaData.containsKey("design_width_in_dp")) {
                                 return;
                             }
-                            boolean unused = s.f69206h = true;
+                            boolean unused = s.f69241h = true;
                         } catch (Exception unused2) {
                         }
                     }
@@ -932,17 +932,17 @@ public class s {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65549, null, view, view2) == null) && view != null && view2 != null) {
             try {
-                if (Build.VERSION.SDK_INT >= 28 && f69205g == 0.0f) {
+                if (Build.VERSION.SDK_INT >= 28 && f69240g == 0.0f) {
                     WindowInsets rootWindowInsets = view.getRootWindowInsets();
                     DisplayCutout displayCutout = rootWindowInsets != null ? rootWindowInsets.getDisplayCutout() : null;
                     if (displayCutout != null) {
-                        f69205g = displayCutout.getSafeInsetTop();
+                        f69240g = displayCutout.getSafeInsetTop();
                     }
                 }
-                if (f69205g == 0.0f) {
+                if (f69240g == 0.0f) {
                     return;
                 }
-                float max = Math.max(i(view2.getContext()), f69205g);
+                float max = Math.max(i(view2.getContext()), f69240g);
                 ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
                 if (layoutParams instanceof FrameLayout.LayoutParams) {
                     FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
@@ -1022,25 +1022,25 @@ public class s {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f69208a;
+                public final /* synthetic */ Context f69243a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f69209b;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f69244b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f69210c;
+                public final /* synthetic */ String f69245c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f69211d;
+                public final /* synthetic */ String f69246d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Bitmap f69212e;
+                public final /* synthetic */ Bitmap f69247e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ boolean f69213f;
+                public final /* synthetic */ boolean f69248f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ int f69214g;
+                public final /* synthetic */ int f69249g;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1060,20 +1060,20 @@ public class s {
                             return;
                         }
                     }
-                    this.f69208a = context;
-                    this.f69209b = mVar;
-                    this.f69210c = str;
-                    this.f69211d = str2;
-                    this.f69212e = bitmap;
-                    this.f69213f = z;
-                    this.f69214g = i2;
+                    this.f69243a = context;
+                    this.f69244b = mVar;
+                    this.f69245c = str;
+                    this.f69246d = str2;
+                    this.f69247e = bitmap;
+                    this.f69248f = z;
+                    this.f69249g = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        s.c(this.f69208a, this.f69209b, this.f69210c, this.f69211d, this.f69212e, this.f69213f, this.f69214g);
+                        s.c(this.f69243a, this.f69244b, this.f69245c, this.f69246d, this.f69247e, this.f69248f, this.f69249g);
                     }
                 }
             }, 5);
@@ -1131,10 +1131,10 @@ public class s {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f69215a;
+            public final /* synthetic */ View f69250a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f69216b;
+            public final /* synthetic */ a f69251b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1151,18 +1151,18 @@ public class s {
                         return;
                     }
                 }
-                this.f69215a = view;
-                this.f69216b = aVar;
+                this.f69250a = view;
+                this.f69251b = aVar;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f69215a.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                    a aVar2 = this.f69216b;
+                    this.f69250a.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                    a aVar2 = this.f69251b;
                     if (aVar2 != null) {
-                        aVar2.a(this.f69215a);
+                        aVar2.a(this.f69250a);
                     }
                 }
             }

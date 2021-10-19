@@ -25,11 +25,11 @@ public final class i extends g {
                 return;
             }
         }
-        this.f42794a = 4294967295L;
-        this.f42795b = 4;
-        this.f42796c = 32;
-        this.f42797d = i2;
-        this.f42798e = i3;
+        this.f42706a = 4294967295L;
+        this.f42707b = 4;
+        this.f42708c = 32;
+        this.f42709d = i2;
+        this.f42710e = i3;
     }
 
     @Override // com.baidu.mobads.cid.cesium.a.g

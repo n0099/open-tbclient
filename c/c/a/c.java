@@ -50,34 +50,34 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Canvas f31650a;
+    public Canvas f31654a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SVG.b f31651b;
+    public SVG.b f31655b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f31652c;
+    public float f31656c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f31653d;
+    public boolean f31657d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SVG f31654e;
+    public SVG f31658e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f31655f;
+    public h f31659f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Stack<h> f31656g;
+    public Stack<h> f31660g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Stack<SVG.h0> f31657h;
+    public Stack<SVG.h0> f31661h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Stack<Matrix> f31658i;
+    public Stack<Matrix> f31662i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Stack<Canvas> f31659j;
+    public Stack<Canvas> f31663j;
     public Stack<Bitmap> k;
 
     /* loaded from: classes4.dex */
@@ -85,16 +85,16 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31660a;
+        public static final /* synthetic */ int[] f31664a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31661b;
+        public static final /* synthetic */ int[] f31665b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31662c;
+        public static final /* synthetic */ int[] f31666c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31663d;
+        public static final /* synthetic */ int[] f31667d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -111,75 +111,75 @@ public class c {
                 }
             }
             int[] iArr = new int[SVG.Style.FillRule.values().length];
-            f31663d = iArr;
+            f31667d = iArr;
             try {
                 iArr[SVG.Style.FillRule.EvenOdd.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31663d[SVG.Style.FillRule.NonZero.ordinal()] = 2;
+                f31667d[SVG.Style.FillRule.NonZero.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             int[] iArr2 = new int[SVG.Style.LineJoin.values().length];
-            f31662c = iArr2;
+            f31666c = iArr2;
             try {
                 iArr2[SVG.Style.LineJoin.Miter.ordinal()] = 1;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f31662c[SVG.Style.LineJoin.Round.ordinal()] = 2;
+                f31666c[SVG.Style.LineJoin.Round.ordinal()] = 2;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f31662c[SVG.Style.LineJoin.Bevel.ordinal()] = 3;
+                f31666c[SVG.Style.LineJoin.Bevel.ordinal()] = 3;
             } catch (NoSuchFieldError unused5) {
             }
             int[] iArr3 = new int[SVG.Style.LineCaps.values().length];
-            f31661b = iArr3;
+            f31665b = iArr3;
             try {
                 iArr3[SVG.Style.LineCaps.Butt.ordinal()] = 1;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f31661b[SVG.Style.LineCaps.Round.ordinal()] = 2;
+                f31665b[SVG.Style.LineCaps.Round.ordinal()] = 2;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f31661b[SVG.Style.LineCaps.Square.ordinal()] = 3;
+                f31665b[SVG.Style.LineCaps.Square.ordinal()] = 3;
             } catch (NoSuchFieldError unused8) {
             }
             int[] iArr4 = new int[PreserveAspectRatio.Alignment.values().length];
-            f31660a = iArr4;
+            f31664a = iArr4;
             try {
                 iArr4[PreserveAspectRatio.Alignment.XMidYMin.ordinal()] = 1;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f31660a[PreserveAspectRatio.Alignment.XMidYMid.ordinal()] = 2;
+                f31664a[PreserveAspectRatio.Alignment.XMidYMid.ordinal()] = 2;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f31660a[PreserveAspectRatio.Alignment.XMidYMax.ordinal()] = 3;
+                f31664a[PreserveAspectRatio.Alignment.XMidYMax.ordinal()] = 3;
             } catch (NoSuchFieldError unused11) {
             }
             try {
-                f31660a[PreserveAspectRatio.Alignment.XMaxYMin.ordinal()] = 4;
+                f31664a[PreserveAspectRatio.Alignment.XMaxYMin.ordinal()] = 4;
             } catch (NoSuchFieldError unused12) {
             }
             try {
-                f31660a[PreserveAspectRatio.Alignment.XMaxYMid.ordinal()] = 5;
+                f31664a[PreserveAspectRatio.Alignment.XMaxYMid.ordinal()] = 5;
             } catch (NoSuchFieldError unused13) {
             }
             try {
-                f31660a[PreserveAspectRatio.Alignment.XMaxYMax.ordinal()] = 6;
+                f31664a[PreserveAspectRatio.Alignment.XMaxYMax.ordinal()] = 6;
             } catch (NoSuchFieldError unused14) {
             }
             try {
-                f31660a[PreserveAspectRatio.Alignment.XMinYMid.ordinal()] = 7;
+                f31664a[PreserveAspectRatio.Alignment.XMinYMid.ordinal()] = 7;
             } catch (NoSuchFieldError unused15) {
             }
             try {
-                f31660a[PreserveAspectRatio.Alignment.XMinYMax.ordinal()] = 8;
+                f31664a[PreserveAspectRatio.Alignment.XMinYMax.ordinal()] = 8;
             } catch (NoSuchFieldError unused16) {
             }
         }
@@ -191,31 +191,31 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<C1449c> f31664a;
+        public List<C1451c> f31668a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f31665b;
+        public float f31669b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f31666c;
+        public float f31670c;
 
         /* renamed from: d  reason: collision with root package name */
-        public C1449c f31667d;
+        public C1451c f31671d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f31668e;
+        public boolean f31672e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f31669f;
+        public boolean f31673f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f31670g;
+        public int f31674g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f31671h;
+        public boolean f31675h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c f31672i;
+        public final /* synthetic */ c f31676i;
 
         public b(c cVar, SVG.v vVar) {
             Interceptable interceptable = $ic;
@@ -232,24 +232,24 @@ public class c {
                     return;
                 }
             }
-            this.f31672i = cVar;
-            this.f31664a = new ArrayList();
-            this.f31667d = null;
-            this.f31668e = false;
-            this.f31669f = true;
-            this.f31670g = -1;
+            this.f31676i = cVar;
+            this.f31668a = new ArrayList();
+            this.f31671d = null;
+            this.f31672e = false;
+            this.f31673f = true;
+            this.f31674g = -1;
             if (vVar == null) {
                 return;
             }
             vVar.h(this);
-            if (this.f31671h) {
-                this.f31667d.b(this.f31664a.get(this.f31670g));
-                this.f31664a.set(this.f31670g, this.f31667d);
-                this.f31671h = false;
+            if (this.f31675h) {
+                this.f31671d.b(this.f31668a.get(this.f31674g));
+                this.f31668a.set(this.f31674g, this.f31671d);
+                this.f31675h = false;
             }
-            C1449c c1449c = this.f31667d;
-            if (c1449c != null) {
-                this.f31664a.add(c1449c);
+            C1451c c1451c = this.f31671d;
+            if (c1451c != null) {
+                this.f31668a.add(c1451c);
             }
         }
 
@@ -257,19 +257,19 @@ public class c {
         public void a(float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                if (this.f31671h) {
-                    this.f31667d.b(this.f31664a.get(this.f31670g));
-                    this.f31664a.set(this.f31670g, this.f31667d);
-                    this.f31671h = false;
+                if (this.f31675h) {
+                    this.f31671d.b(this.f31668a.get(this.f31674g));
+                    this.f31668a.set(this.f31674g, this.f31671d);
+                    this.f31675h = false;
                 }
-                C1449c c1449c = this.f31667d;
-                if (c1449c != null) {
-                    this.f31664a.add(c1449c);
+                C1451c c1451c = this.f31671d;
+                if (c1451c != null) {
+                    this.f31668a.add(c1451c);
                 }
-                this.f31665b = f2;
-                this.f31666c = f3;
-                this.f31667d = new C1449c(this.f31672i, f2, f3, 0.0f, 0.0f);
-                this.f31670g = this.f31664a.size();
+                this.f31669b = f2;
+                this.f31670c = f3;
+                this.f31671d = new C1451c(this.f31676i, f2, f3, 0.0f, 0.0f);
+                this.f31674g = this.f31668a.size();
             }
         }
 
@@ -277,12 +277,12 @@ public class c {
         public void b(float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                this.f31667d.a(f2, f3);
-                this.f31664a.add(this.f31667d);
-                c cVar = this.f31672i;
-                C1449c c1449c = this.f31667d;
-                this.f31667d = new C1449c(cVar, f2, f3, f2 - c1449c.f31673a, f3 - c1449c.f31674b);
-                this.f31671h = false;
+                this.f31671d.a(f2, f3);
+                this.f31668a.add(this.f31671d);
+                c cVar = this.f31676i;
+                C1451c c1451c = this.f31671d;
+                this.f31671d = new C1451c(cVar, f2, f3, f2 - c1451c.f31677a, f3 - c1451c.f31678b);
+                this.f31675h = false;
             }
         }
 
@@ -290,10 +290,10 @@ public class c {
         public void c(float f2, float f3, float f4, float f5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-                this.f31667d.a(f2, f3);
-                this.f31664a.add(this.f31667d);
-                this.f31667d = new C1449c(this.f31672i, f4, f5, f4 - f2, f5 - f3);
-                this.f31671h = false;
+                this.f31671d.a(f2, f3);
+                this.f31668a.add(this.f31671d);
+                this.f31671d = new C1451c(this.f31676i, f4, f5, f4 - f2, f5 - f3);
+                this.f31675h = false;
             }
         }
 
@@ -301,9 +301,9 @@ public class c {
         public void close() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f31664a.add(this.f31667d);
-                b(this.f31665b, this.f31666c);
-                this.f31671h = true;
+                this.f31668a.add(this.f31671d);
+                b(this.f31669b, this.f31670c);
+                this.f31675h = true;
             }
         }
 
@@ -311,13 +311,13 @@ public class c {
         public void d(float f2, float f3, float f4, float f5, float f6, float f7) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)}) == null) {
-                if (this.f31669f || this.f31668e) {
-                    this.f31667d.a(f2, f3);
-                    this.f31664a.add(this.f31667d);
-                    this.f31668e = false;
+                if (this.f31673f || this.f31672e) {
+                    this.f31671d.a(f2, f3);
+                    this.f31668a.add(this.f31671d);
+                    this.f31672e = false;
                 }
-                this.f31667d = new C1449c(this.f31672i, f6, f7, f6 - f4, f7 - f5);
-                this.f31671h = false;
+                this.f31671d = new C1451c(this.f31676i, f6, f7, f6 - f4, f7 - f5);
+                this.f31675h = false;
             }
         }
 
@@ -325,41 +325,41 @@ public class c {
         public void e(float f2, float f3, float f4, boolean z, boolean z2, float f5, float f6) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z), Boolean.valueOf(z2), Float.valueOf(f5), Float.valueOf(f6)}) == null) {
-                this.f31668e = true;
-                this.f31669f = false;
-                C1449c c1449c = this.f31667d;
-                c.m(c1449c.f31673a, c1449c.f31674b, f2, f3, f4, z, z2, f5, f6, this);
-                this.f31669f = true;
-                this.f31671h = false;
+                this.f31672e = true;
+                this.f31673f = false;
+                C1451c c1451c = this.f31671d;
+                c.m(c1451c.f31677a, c1451c.f31678b, f2, f3, f4, z, z2, f5, f6, this);
+                this.f31673f = true;
+                this.f31675h = false;
             }
         }
 
-        public List<C1449c> f() {
+        public List<C1451c> f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31664a : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31668a : (List) invokeV.objValue;
         }
     }
 
     /* renamed from: c.c.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1449c {
+    public class C1451c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public float f31673a;
+        public float f31677a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f31674b;
+        public float f31678b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f31675c;
+        public float f31679c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f31676d;
+        public float f31680d;
 
-        public C1449c(c cVar, float f2, float f3, float f4, float f5) {
+        public C1451c(c cVar, float f2, float f3, float f4, float f5) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -374,35 +374,35 @@ public class c {
                     return;
                 }
             }
-            this.f31675c = 0.0f;
-            this.f31676d = 0.0f;
-            this.f31673a = f2;
-            this.f31674b = f3;
+            this.f31679c = 0.0f;
+            this.f31680d = 0.0f;
+            this.f31677a = f2;
+            this.f31678b = f3;
             double sqrt = Math.sqrt((f4 * f4) + (f5 * f5));
             if (sqrt != 0.0d) {
-                this.f31675c = (float) (f4 / sqrt);
-                this.f31676d = (float) (f5 / sqrt);
+                this.f31679c = (float) (f4 / sqrt);
+                this.f31680d = (float) (f5 / sqrt);
             }
         }
 
         public void a(float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                float f4 = f2 - this.f31673a;
-                float f5 = f3 - this.f31674b;
+                float f4 = f2 - this.f31677a;
+                float f5 = f3 - this.f31678b;
                 double sqrt = Math.sqrt((f4 * f4) + (f5 * f5));
                 if (sqrt != 0.0d) {
-                    this.f31675c += (float) (f4 / sqrt);
-                    this.f31676d += (float) (f5 / sqrt);
+                    this.f31679c += (float) (f4 / sqrt);
+                    this.f31680d += (float) (f5 / sqrt);
                 }
             }
         }
 
-        public void b(C1449c c1449c) {
+        public void b(C1451c c1451c) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c1449c) == null) {
-                this.f31675c += c1449c.f31675c;
-                this.f31676d += c1449c.f31676d;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c1451c) == null) {
+                this.f31679c += c1451c.f31679c;
+                this.f31680d += c1451c.f31680d;
             }
         }
 
@@ -410,7 +410,7 @@ public class c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "(" + this.f31673a + "," + this.f31674b + " " + this.f31675c + "," + this.f31676d + SmallTailInfo.EMOTION_SUFFIX;
+                return "(" + this.f31677a + "," + this.f31678b + " " + this.f31679c + "," + this.f31680d + SmallTailInfo.EMOTION_SUFFIX;
             }
             return (String) invokeV.objValue;
         }
@@ -422,13 +422,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Path f31677a;
+        public Path f31681a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f31678b;
+        public float f31682b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f31679c;
+        public float f31683c;
 
         public d(c cVar, SVG.v vVar) {
             Interceptable interceptable = $ic;
@@ -445,7 +445,7 @@ public class c {
                     return;
                 }
             }
-            this.f31677a = new Path();
+            this.f31681a = new Path();
             if (vVar == null) {
                 return;
             }
@@ -456,9 +456,9 @@ public class c {
         public void a(float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                this.f31677a.moveTo(f2, f3);
-                this.f31678b = f2;
-                this.f31679c = f3;
+                this.f31681a.moveTo(f2, f3);
+                this.f31682b = f2;
+                this.f31683c = f3;
             }
         }
 
@@ -466,9 +466,9 @@ public class c {
         public void b(float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                this.f31677a.lineTo(f2, f3);
-                this.f31678b = f2;
-                this.f31679c = f3;
+                this.f31681a.lineTo(f2, f3);
+                this.f31682b = f2;
+                this.f31683c = f3;
             }
         }
 
@@ -476,9 +476,9 @@ public class c {
         public void c(float f2, float f3, float f4, float f5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-                this.f31677a.quadTo(f2, f3, f4, f5);
-                this.f31678b = f4;
-                this.f31679c = f5;
+                this.f31681a.quadTo(f2, f3, f4, f5);
+                this.f31682b = f4;
+                this.f31683c = f5;
             }
         }
 
@@ -486,7 +486,7 @@ public class c {
         public void close() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f31677a.close();
+                this.f31681a.close();
             }
         }
 
@@ -494,9 +494,9 @@ public class c {
         public void d(float f2, float f3, float f4, float f5, float f6, float f7) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)}) == null) {
-                this.f31677a.cubicTo(f2, f3, f4, f5, f6, f7);
-                this.f31678b = f6;
-                this.f31679c = f7;
+                this.f31681a.cubicTo(f2, f3, f4, f5, f6, f7);
+                this.f31682b = f6;
+                this.f31683c = f7;
             }
         }
 
@@ -504,16 +504,16 @@ public class c {
         public void e(float f2, float f3, float f4, boolean z, boolean z2, float f5, float f6) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z), Boolean.valueOf(z2), Float.valueOf(f5), Float.valueOf(f6)}) == null) {
-                c.m(this.f31678b, this.f31679c, f2, f3, f4, z, z2, f5, f6, this);
-                this.f31678b = f5;
-                this.f31679c = f6;
+                c.m(this.f31682b, this.f31683c, f2, f3, f4, z, z2, f5, f6, this);
+                this.f31682b = f5;
+                this.f31683c = f6;
             }
         }
 
         public Path f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31677a : (Path) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31681a : (Path) invokeV.objValue;
         }
     }
 
@@ -523,10 +523,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public Path f31680d;
+        public Path f31684d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f31681e;
+        public final /* synthetic */ c f31685e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(c cVar, Path path, float f2, float f3) {
@@ -547,23 +547,23 @@ public class c {
                     return;
                 }
             }
-            this.f31681e = cVar;
-            this.f31680d = path;
+            this.f31685e = cVar;
+            this.f31684d = path;
         }
 
         @Override // c.c.a.c.f, c.c.a.c.j
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (this.f31681e.Y0()) {
-                    if (this.f31681e.f31655f.f31690f) {
-                        this.f31681e.f31650a.drawTextOnPath(str, this.f31680d, this.f31682a, this.f31683b, this.f31681e.f31655f.f31692h);
+                if (this.f31685e.Y0()) {
+                    if (this.f31685e.f31659f.f31694f) {
+                        this.f31685e.f31654a.drawTextOnPath(str, this.f31684d, this.f31686a, this.f31687b, this.f31685e.f31659f.f31696h);
                     }
-                    if (this.f31681e.f31655f.f31691g) {
-                        this.f31681e.f31650a.drawTextOnPath(str, this.f31680d, this.f31682a, this.f31683b, this.f31681e.f31655f.f31693i);
+                    if (this.f31685e.f31659f.f31695g) {
+                        this.f31685e.f31654a.drawTextOnPath(str, this.f31684d, this.f31686a, this.f31687b, this.f31685e.f31659f.f31697i);
                     }
                 }
-                this.f31682a += this.f31681e.f31655f.f31692h.measureText(str);
+                this.f31686a += this.f31685e.f31659f.f31696h.measureText(str);
             }
         }
     }
@@ -574,13 +574,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public float f31682a;
+        public float f31686a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f31683b;
+        public float f31687b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f31684c;
+        public final /* synthetic */ c f31688c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(c cVar, float f2, float f3) {
@@ -601,9 +601,9 @@ public class c {
                     return;
                 }
             }
-            this.f31684c = cVar;
-            this.f31682a = f2;
-            this.f31683b = f3;
+            this.f31688c = cVar;
+            this.f31686a = f2;
+            this.f31687b = f3;
         }
 
         @Override // c.c.a.c.j
@@ -611,15 +611,15 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 c.C("TextSequence render", new Object[0]);
-                if (this.f31684c.Y0()) {
-                    if (this.f31684c.f31655f.f31690f) {
-                        this.f31684c.f31650a.drawText(str, this.f31682a, this.f31683b, this.f31684c.f31655f.f31692h);
+                if (this.f31688c.Y0()) {
+                    if (this.f31688c.f31659f.f31694f) {
+                        this.f31688c.f31654a.drawText(str, this.f31686a, this.f31687b, this.f31688c.f31659f.f31696h);
                     }
-                    if (this.f31684c.f31655f.f31691g) {
-                        this.f31684c.f31650a.drawText(str, this.f31682a, this.f31683b, this.f31684c.f31655f.f31693i);
+                    if (this.f31688c.f31659f.f31695g) {
+                        this.f31688c.f31654a.drawText(str, this.f31686a, this.f31687b, this.f31688c.f31659f.f31697i);
                     }
                 }
-                this.f31682a += this.f31684c.f31655f.f31692h.measureText(str);
+                this.f31686a += this.f31688c.f31659f.f31696h.measureText(str);
             }
         }
     }
@@ -630,16 +630,16 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public float f31685a;
+        public float f31689a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f31686b;
+        public float f31690b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Path f31687c;
+        public Path f31691c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c f31688d;
+        public final /* synthetic */ c f31692d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(c cVar, float f2, float f3, Path path) {
@@ -660,10 +660,10 @@ public class c {
                     return;
                 }
             }
-            this.f31688d = cVar;
-            this.f31685a = f2;
-            this.f31686b = f3;
-            this.f31687c = path;
+            this.f31692d = cVar;
+            this.f31689a = f2;
+            this.f31690b = f3;
+            this.f31691c = path;
         }
 
         @Override // c.c.a.c.j
@@ -684,12 +684,12 @@ public class c {
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.f31688d.Y0()) {
+                if (this.f31692d.Y0()) {
                     Path path = new Path();
-                    this.f31688d.f31655f.f31692h.getTextPath(str, 0, str.length(), this.f31685a, this.f31686b, path);
-                    this.f31687c.addPath(path);
+                    this.f31692d.f31659f.f31696h.getTextPath(str, 0, str.length(), this.f31689a, this.f31690b, path);
+                    this.f31691c.addPath(path);
                 }
-                this.f31685a += this.f31688d.f31655f.f31692h.measureText(str);
+                this.f31689a += this.f31692d.f31659f.f31696h.measureText(str);
             }
         }
     }
@@ -700,22 +700,22 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public SVG.Style f31689e;
+        public SVG.Style f31693e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f31690f;
+        public boolean f31694f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f31691g;
+        public boolean f31695g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Paint f31692h;
+        public Paint f31696h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Paint f31693i;
+        public Paint f31697i;
 
         /* renamed from: j  reason: collision with root package name */
-        public SVG.b f31694j;
+        public SVG.b f31698j;
         public SVG.b k;
         public boolean l;
         public boolean m;
@@ -736,16 +736,16 @@ public class c {
                 }
             }
             Paint paint = new Paint();
-            this.f31692h = paint;
+            this.f31696h = paint;
             paint.setFlags(385);
-            this.f31692h.setStyle(Paint.Style.FILL);
-            this.f31692h.setTypeface(Typeface.DEFAULT);
+            this.f31696h.setStyle(Paint.Style.FILL);
+            this.f31696h.setTypeface(Typeface.DEFAULT);
             Paint paint2 = new Paint();
-            this.f31693i = paint2;
+            this.f31697i = paint2;
             paint2.setFlags(385);
-            this.f31693i.setStyle(Paint.Style.STROKE);
-            this.f31693i.setTypeface(Typeface.DEFAULT);
-            this.f31689e = SVG.Style.d();
+            this.f31697i.setStyle(Paint.Style.STROKE);
+            this.f31697i.setTypeface(Typeface.DEFAULT);
+            this.f31693e = SVG.Style.d();
         }
 
         public Object clone() {
@@ -754,9 +754,9 @@ public class c {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
                     h hVar = (h) super.clone();
-                    hVar.f31689e = (SVG.Style) this.f31689e.clone();
-                    hVar.f31692h = new Paint(this.f31692h);
-                    hVar.f31693i = new Paint(this.f31693i);
+                    hVar.f31693e = (SVG.Style) this.f31693e.clone();
+                    hVar.f31696h = new Paint(this.f31696h);
+                    hVar.f31697i = new Paint(this.f31697i);
                     return hVar;
                 } catch (CloneNotSupportedException e2) {
                     throw new InternalError(e2.toString());
@@ -772,16 +772,16 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public float f31695a;
+        public float f31699a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f31696b;
+        public float f31700b;
 
         /* renamed from: c  reason: collision with root package name */
-        public RectF f31697c;
+        public RectF f31701c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c f31698d;
+        public final /* synthetic */ c f31702d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(c cVar, float f2, float f3) {
@@ -802,10 +802,10 @@ public class c {
                     return;
                 }
             }
-            this.f31698d = cVar;
-            this.f31697c = new RectF();
-            this.f31695a = f2;
-            this.f31696b = f3;
+            this.f31702d = cVar;
+            this.f31701c = new RectF();
+            this.f31699a = f2;
+            this.f31700b = f3;
         }
 
         @Override // c.c.a.c.j
@@ -815,20 +815,20 @@ public class c {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, w0Var)) == null) {
                 if (w0Var instanceof SVG.x0) {
                     SVG.x0 x0Var = (SVG.x0) w0Var;
-                    SVG.l0 n = w0Var.f69302a.n(x0Var.n);
+                    SVG.l0 n = w0Var.f69337a.n(x0Var.n);
                     if (n == null) {
                         c.J("TextPath path reference '%s' not found", x0Var.n);
                         return false;
                     }
                     SVG.u uVar = (SVG.u) n;
-                    Path f2 = new d(this.f31698d, uVar.o).f();
+                    Path f2 = new d(this.f31702d, uVar.o).f();
                     Matrix matrix = uVar.n;
                     if (matrix != null) {
                         f2.transform(matrix);
                     }
                     RectF rectF = new RectF();
                     f2.computeBounds(rectF, true);
-                    this.f31697c.union(rectF);
+                    this.f31701c.union(rectF);
                     return false;
                 }
                 return true;
@@ -840,14 +840,14 @@ public class c {
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.f31698d.Y0()) {
+                if (this.f31702d.Y0()) {
                     Rect rect = new Rect();
-                    this.f31698d.f31655f.f31692h.getTextBounds(str, 0, str.length(), rect);
+                    this.f31702d.f31659f.f31696h.getTextBounds(str, 0, str.length(), rect);
                     RectF rectF = new RectF(rect);
-                    rectF.offset(this.f31695a, this.f31696b);
-                    this.f31697c.union(rectF);
+                    rectF.offset(this.f31699a, this.f31700b);
+                    this.f31701c.union(rectF);
                 }
-                this.f31695a += this.f31698d.f31655f.f31692h.measureText(str);
+                this.f31699a += this.f31702d.f31659f.f31696h.measureText(str);
             }
         }
     }
@@ -919,9 +919,9 @@ public class c {
                 return;
             }
         }
-        this.f31650a = canvas;
-        this.f31652c = f2;
-        this.f31651b = bVar;
+        this.f31654a = canvas;
+        this.f31656c = f2;
+        this.f31655b = bVar;
     }
 
     public static void C(String str, Object... objArr) {
@@ -1105,8 +1105,8 @@ public class c {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f31650a.restore();
-            this.f31655f = this.f31656g.pop();
+            this.f31654a.restore();
+            this.f31659f = this.f31660g.pop();
         }
     }
 
@@ -1150,9 +1150,9 @@ public class c {
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f31650a.save();
-            this.f31656g.push(this.f31655f);
-            this.f31655f = (h) this.f31655f.clone();
+            this.f31654a.save();
+            this.f31660g.push(this.f31659f);
+            this.f31659f = (h) this.f31659f.clone();
         }
     }
 
@@ -1160,11 +1160,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, q0Var) == null) {
             C("Switch render", new Object[0]);
-            W0(this.f31655f, q0Var);
+            W0(this.f31659f, q0Var);
             if (E()) {
                 Matrix matrix = q0Var.n;
                 if (matrix != null) {
-                    this.f31650a.concat(matrix);
+                    this.f31654a.concat(matrix);
                 }
                 t(q0Var);
                 boolean n0 = n0();
@@ -1185,18 +1185,18 @@ public class c {
                 if (oVar2 == null || !oVar2.k()) {
                     PreserveAspectRatio preserveAspectRatio = r0Var.n;
                     if (preserveAspectRatio == null) {
-                        preserveAspectRatio = PreserveAspectRatio.f69260d;
+                        preserveAspectRatio = PreserveAspectRatio.f69295d;
                     }
-                    W0(this.f31655f, r0Var);
-                    this.f31655f.f31694j = new SVG.b(0.0f, 0.0f, oVar != null ? oVar.h(this) : this.f31655f.f31694j.f69279g, oVar2 != null ? oVar2.h(this) : this.f31655f.f31694j.f69280h);
-                    if (!this.f31655f.f31689e.z.booleanValue()) {
-                        SVG.b bVar = this.f31655f.f31694j;
-                        O0(bVar.f69277e, bVar.f69278f, bVar.f69279g, bVar.f69280h);
+                    W0(this.f31659f, r0Var);
+                    this.f31659f.f31698j = new SVG.b(0.0f, 0.0f, oVar != null ? oVar.h(this) : this.f31659f.f31698j.f69314g, oVar2 != null ? oVar2.h(this) : this.f31659f.f31698j.f69315h);
+                    if (!this.f31659f.f31693e.z.booleanValue()) {
+                        SVG.b bVar = this.f31659f.f31698j;
+                        O0(bVar.f69312e, bVar.f69313f, bVar.f69314g, bVar.f69315h);
                     }
                     SVG.b bVar2 = r0Var.o;
                     if (bVar2 != null) {
-                        this.f31650a.concat(s(this.f31655f.f31694j, bVar2, preserveAspectRatio));
-                        this.f31655f.k = r0Var.o;
+                        this.f31654a.concat(s(this.f31659f.f31698j, bVar2, preserveAspectRatio));
+                        this.f31659f.k = r0Var.o;
                     }
                     boolean n0 = n0();
                     F0(r0Var, true);
@@ -1212,21 +1212,21 @@ public class c {
     public final void D(boolean z, SVG.b bVar, SVG.t tVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), bVar, tVar}) == null) {
-            SVG.l0 n = this.f31654e.n(tVar.f69306e);
+            SVG.l0 n = this.f31658e.n(tVar.f69341e);
             if (n == null) {
                 Object[] objArr = new Object[2];
                 objArr[0] = z ? "Fill" : "Stroke";
-                objArr[1] = tVar.f69306e;
+                objArr[1] = tVar.f69341e;
                 J("%s reference '%s' not found", objArr);
-                SVG.m0 m0Var = tVar.f69307f;
+                SVG.m0 m0Var = tVar.f69342f;
                 if (m0Var != null) {
-                    P0(this.f31655f, z, m0Var);
+                    P0(this.f31659f, z, m0Var);
                     return;
                 } else if (z) {
-                    this.f31655f.f31690f = false;
+                    this.f31659f.f31694f = false;
                     return;
                 } else {
-                    this.f31655f.f31691g = false;
+                    this.f31659f.f31695g = false;
                     return;
                 }
             }
@@ -1246,11 +1246,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, u0Var) == null) {
             C("Text render", new Object[0]);
-            W0(this.f31655f, u0Var);
+            W0(this.f31659f, u0Var);
             if (E()) {
                 Matrix matrix = u0Var.r;
                 if (matrix != null) {
-                    this.f31650a.concat(matrix);
+                    this.f31654a.concat(matrix);
                 }
                 List<SVG.o> list = u0Var.n;
                 float f2 = 0.0f;
@@ -1271,11 +1271,11 @@ public class c {
                     }
                     h2 -= r;
                 }
-                if (u0Var.f69293h == null) {
+                if (u0Var.f69328h == null) {
                     i iVar = new i(this, h2, i2);
                     I(u0Var, iVar);
-                    RectF rectF = iVar.f31697c;
-                    u0Var.f69293h = new SVG.b(rectF.left, rectF.top, rectF.width(), iVar.f31697c.height());
+                    RectF rectF = iVar.f31701c;
+                    u0Var.f69328h = new SVG.b(rectF.left, rectF.top, rectF.width(), iVar.f31701c.height());
                 }
                 U0(u0Var);
                 v(u0Var);
@@ -1293,7 +1293,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Boolean bool = this.f31655f.f31689e.E;
+            Boolean bool = this.f31659f.f31693e.E;
             if (bool != null) {
                 return bool.booleanValue();
             }
@@ -1310,23 +1310,23 @@ public class c {
             if (oVar == null || !oVar.k()) {
                 SVG.o oVar2 = b1Var.s;
                 if (oVar2 == null || !oVar2.k()) {
-                    W0(this.f31655f, b1Var);
+                    W0(this.f31659f, b1Var);
                     if (E()) {
-                        SVG.l0 n = b1Var.f69302a.n(b1Var.o);
+                        SVG.l0 n = b1Var.f69337a.n(b1Var.o);
                         if (n == null) {
                             J("Use reference '%s' not found", b1Var.o);
                             return;
                         }
                         Matrix matrix = b1Var.n;
                         if (matrix != null) {
-                            this.f31650a.concat(matrix);
+                            this.f31654a.concat(matrix);
                         }
                         Matrix matrix2 = new Matrix();
                         SVG.o oVar3 = b1Var.p;
                         float h2 = oVar3 != null ? oVar3.h(this) : 0.0f;
                         SVG.o oVar4 = b1Var.q;
                         matrix2.preTranslate(h2, oVar4 != null ? oVar4.i(this) : 0.0f);
-                        this.f31650a.concat(matrix2);
+                        this.f31654a.concat(matrix2);
                         t(b1Var);
                         boolean n0 = n0();
                         j0(b1Var);
@@ -1372,15 +1372,15 @@ public class c {
     public final void F(SVG.i0 i0Var, Path path) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, i0Var, path) == null) {
-            SVG.m0 m0Var = this.f31655f.f31689e.f69269f;
+            SVG.m0 m0Var = this.f31659f.f31693e.f69304f;
             if (m0Var instanceof SVG.t) {
-                SVG.l0 n = this.f31654e.n(((SVG.t) m0Var).f69306e);
+                SVG.l0 n = this.f31658e.n(((SVG.t) m0Var).f69341e);
                 if (n instanceof SVG.x) {
                     P(i0Var, path, (SVG.x) n);
                     return;
                 }
             }
-            this.f31650a.drawPath(path, this.f31655f.f31692h);
+            this.f31654a.drawPath(path, this.f31659f.f31696h);
         }
     }
 
@@ -1402,13 +1402,13 @@ public class c {
     public final void G(Path path) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, path) == null) {
-            h hVar = this.f31655f;
-            if (hVar.f31689e.P == SVG.Style.VectorEffect.NonScalingStroke) {
-                Matrix matrix = this.f31650a.getMatrix();
+            h hVar = this.f31659f;
+            if (hVar.f31693e.P == SVG.Style.VectorEffect.NonScalingStroke) {
+                Matrix matrix = this.f31654a.getMatrix();
                 Path path2 = new Path();
                 path.transform(matrix, path2);
-                this.f31650a.setMatrix(new Matrix());
-                Shader shader = this.f31655f.f31693i.getShader();
+                this.f31654a.setMatrix(new Matrix());
+                Shader shader = this.f31659f.f31697i.getShader();
                 Matrix matrix2 = new Matrix();
                 if (shader != null) {
                     shader.getLocalMatrix(matrix2);
@@ -1416,23 +1416,23 @@ public class c {
                     matrix3.postConcat(matrix);
                     shader.setLocalMatrix(matrix3);
                 }
-                this.f31650a.drawPath(path2, this.f31655f.f31693i);
-                this.f31650a.setMatrix(matrix);
+                this.f31654a.drawPath(path2, this.f31659f.f31697i);
+                this.f31654a.setMatrix(matrix);
                 if (shader != null) {
                     shader.setLocalMatrix(matrix2);
                     return;
                 }
                 return;
             }
-            this.f31650a.drawPath(path, hVar.f31693i);
+            this.f31654a.drawPath(path, hVar.f31697i);
         }
     }
 
     public void G0(SVG svg, SVG.b bVar, PreserveAspectRatio preserveAspectRatio, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{svg, bVar, preserveAspectRatio, Boolean.valueOf(z)}) == null) {
-            this.f31654e = svg;
-            this.f31653d = z;
+            this.f31658e = svg;
+            this.f31657d = z;
             SVG.d0 j2 = svg.j();
             if (j2 == null) {
                 Z0("Nothing to render. Document is empty.", new Object[0]);
@@ -1457,11 +1457,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             try {
-                Bitmap createBitmap = Bitmap.createBitmap(this.f31650a.getWidth(), this.f31650a.getHeight(), Bitmap.Config.ARGB_8888);
+                Bitmap createBitmap = Bitmap.createBitmap(this.f31654a.getWidth(), this.f31654a.getHeight(), Bitmap.Config.ARGB_8888);
                 this.k.push(createBitmap);
                 Canvas canvas = new Canvas(createBitmap);
-                canvas.setMatrix(this.f31650a.getMatrix());
-                this.f31650a = canvas;
+                canvas.setMatrix(this.f31654a.getMatrix());
+                this.f31654a = canvas;
             } catch (OutOfMemoryError e2) {
                 J("Not enough memory to create temporary bitmaps for mask processing", new Object[0]);
                 throw e2;
@@ -1488,7 +1488,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void H0(SVG.q qVar, C1449c c1449c) {
+    public final void H0(SVG.q qVar, C1451c c1451c) {
         float f2;
         SVG.b bVar;
         boolean n0;
@@ -1496,22 +1496,22 @@ public class c {
         float f4;
         float f5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, qVar, c1449c) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048590, this, qVar, c1451c) == null) {
             S0();
             Float f6 = qVar.u;
             float f7 = 0.0f;
             if (f6 != null) {
                 if (Float.isNaN(f6.floatValue())) {
-                    if (c1449c.f31675c != 0.0f || c1449c.f31676d != 0.0f) {
-                        f2 = (float) Math.toDegrees(Math.atan2(c1449c.f31676d, c1449c.f31675c));
+                    if (c1451c.f31679c != 0.0f || c1451c.f31680d != 0.0f) {
+                        f2 = (float) Math.toDegrees(Math.atan2(c1451c.f31680d, c1451c.f31679c));
                     }
                 } else {
                     f2 = qVar.u.floatValue();
                 }
-                float e2 = !qVar.p ? 1.0f : this.f31655f.f31689e.k.e(this.f31652c);
-                this.f31655f = Q(qVar);
+                float e2 = !qVar.p ? 1.0f : this.f31659f.f31693e.k.e(this.f31656c);
+                this.f31659f = Q(qVar);
                 Matrix matrix = new Matrix();
-                matrix.preTranslate(c1449c.f31673a, c1449c.f31674b);
+                matrix.preTranslate(c1451c.f31677a, c1451c.f31678b);
                 matrix.preRotate(f2);
                 matrix.preScale(e2, e2);
                 SVG.o oVar = qVar.q;
@@ -1524,22 +1524,22 @@ public class c {
                 float i3 = oVar4 != null ? oVar4.i(this) : 3.0f;
                 bVar = qVar.o;
                 if (bVar == null) {
-                    float f8 = h3 / bVar.f69279g;
-                    float f9 = i3 / bVar.f69280h;
+                    float f8 = h3 / bVar.f69314g;
+                    float f9 = i3 / bVar.f69315h;
                     PreserveAspectRatio preserveAspectRatio = qVar.n;
                     if (preserveAspectRatio == null) {
-                        preserveAspectRatio = PreserveAspectRatio.f69260d;
+                        preserveAspectRatio = PreserveAspectRatio.f69295d;
                     }
-                    if (!preserveAspectRatio.equals(PreserveAspectRatio.f69259c)) {
+                    if (!preserveAspectRatio.equals(PreserveAspectRatio.f69294c)) {
                         f8 = preserveAspectRatio.b() == PreserveAspectRatio.Scale.Slice ? Math.max(f8, f9) : Math.min(f8, f9);
                         f9 = f8;
                     }
                     matrix.preTranslate((-h2) * f8, (-i2) * f9);
-                    this.f31650a.concat(matrix);
+                    this.f31654a.concat(matrix);
                     SVG.b bVar2 = qVar.o;
-                    float f10 = bVar2.f69279g * f8;
-                    float f11 = bVar2.f69280h * f9;
-                    switch (a.f31660a[preserveAspectRatio.a().ordinal()]) {
+                    float f10 = bVar2.f69314g * f8;
+                    float f11 = bVar2.f69315h * f9;
+                    switch (a.f31664a[preserveAspectRatio.a().ordinal()]) {
                         case 1:
                         case 2:
                         case 3:
@@ -1556,7 +1556,7 @@ public class c {
                             f4 = 0.0f;
                             break;
                     }
-                    int i4 = a.f31660a[preserveAspectRatio.a().ordinal()];
+                    int i4 = a.f31664a[preserveAspectRatio.a().ordinal()];
                     if (i4 != 2) {
                         if (i4 != 3) {
                             if (i4 != 5) {
@@ -1568,24 +1568,24 @@ public class c {
                         }
                         f5 = i3 - f11;
                         f7 = 0.0f - f5;
-                        if (!this.f31655f.f31689e.z.booleanValue()) {
+                        if (!this.f31659f.f31693e.z.booleanValue()) {
                             O0(f4, f7, h3, i3);
                         }
                         matrix.reset();
                         matrix.preScale(f8, f9);
-                        this.f31650a.concat(matrix);
+                        this.f31654a.concat(matrix);
                     }
                     f5 = (i3 - f11) / 2.0f;
                     f7 = 0.0f - f5;
-                    if (!this.f31655f.f31689e.z.booleanValue()) {
+                    if (!this.f31659f.f31693e.z.booleanValue()) {
                     }
                     matrix.reset();
                     matrix.preScale(f8, f9);
-                    this.f31650a.concat(matrix);
+                    this.f31654a.concat(matrix);
                 } else {
                     matrix.preTranslate(-h2, -i2);
-                    this.f31650a.concat(matrix);
-                    if (!this.f31655f.f31689e.z.booleanValue()) {
+                    this.f31654a.concat(matrix);
+                    if (!this.f31659f.f31693e.z.booleanValue()) {
                         O0(0.0f, 0.0f, h3, i3);
                     }
                 }
@@ -1599,9 +1599,9 @@ public class c {
             f2 = 0.0f;
             if (!qVar.p) {
             }
-            this.f31655f = Q(qVar);
+            this.f31659f = Q(qVar);
             Matrix matrix2 = new Matrix();
-            matrix2.preTranslate(c1449c.f31673a, c1449c.f31674b);
+            matrix2.preTranslate(c1451c.f31677a, c1451c.f31678b);
             matrix2.preRotate(f2);
             matrix2.preScale(e2, e2);
             SVG.o oVar5 = qVar.q;
@@ -1630,12 +1630,12 @@ public class c {
     public final void I(SVG.w0 w0Var, j jVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048591, this, w0Var, jVar) == null) && E()) {
-            Iterator<SVG.l0> it = w0Var.f69288i.iterator();
+            Iterator<SVG.l0> it = w0Var.f69323i.iterator();
             boolean z = true;
             while (it.hasNext()) {
                 SVG.l0 next = it.next();
                 if (next instanceof SVG.a1) {
-                    jVar.b(T0(((SVG.a1) next).f69275c, z, !it.hasNext()));
+                    jVar.b(T0(((SVG.a1) next).f69310c, z, !it.hasNext()));
                 } else {
                     m0(next, jVar);
                 }
@@ -1663,29 +1663,29 @@ public class c {
         SVG.q qVar2;
         String str2;
         SVG.q qVar3;
-        List<C1449c> p;
+        List<C1451c> p;
         int size;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeL(1048592, this, kVar) != null) {
             return;
         }
-        SVG.Style style = this.f31655f.f31689e;
+        SVG.Style style = this.f31659f.f31693e;
         if (style.B == null && style.C == null && style.D == null) {
             return;
         }
-        String str3 = this.f31655f.f31689e.B;
+        String str3 = this.f31659f.f31693e.B;
         if (str3 != null) {
-            SVG.l0 n = kVar.f69302a.n(str3);
+            SVG.l0 n = kVar.f69337a.n(str3);
             if (n != null) {
                 qVar = (SVG.q) n;
-                str = this.f31655f.f31689e.C;
+                str = this.f31659f.f31693e.C;
                 if (str != null) {
-                    SVG.l0 n2 = kVar.f69302a.n(str);
+                    SVG.l0 n2 = kVar.f69337a.n(str);
                     if (n2 != null) {
                         qVar2 = (SVG.q) n2;
-                        str2 = this.f31655f.f31689e.D;
+                        str2 = this.f31659f.f31693e.D;
                         if (str2 != null) {
-                            SVG.l0 n3 = kVar.f69302a.n(str2);
+                            SVG.l0 n3 = kVar.f69337a.n(str2);
                             if (n3 != null) {
                                 qVar3 = (SVG.q) n3;
                                 if (!(kVar instanceof SVG.u)) {
@@ -1696,7 +1696,7 @@ public class c {
                                     p = p((SVG.y) kVar);
                                 }
                                 if (p == null && (size = p.size()) != 0) {
-                                    SVG.Style style2 = this.f31655f.f31689e;
+                                    SVG.Style style2 = this.f31659f.f31693e;
                                     style2.D = null;
                                     style2.C = null;
                                     style2.B = null;
@@ -1716,7 +1716,7 @@ public class c {
                                 }
                                 return;
                             }
-                            J("Marker reference '%s' not found", this.f31655f.f31689e.D);
+                            J("Marker reference '%s' not found", this.f31659f.f31693e.D);
                         }
                         qVar3 = null;
                         if (!(kVar instanceof SVG.u)) {
@@ -1724,7 +1724,7 @@ public class c {
                         if (p == null) {
                             return;
                         }
-                        SVG.Style style22 = this.f31655f.f31689e;
+                        SVG.Style style22 = this.f31659f.f31693e;
                         style22.D = null;
                         style22.C = null;
                         style22.B = null;
@@ -1735,11 +1735,11 @@ public class c {
                         if (qVar3 == null) {
                         }
                     } else {
-                        J("Marker reference '%s' not found", this.f31655f.f31689e.C);
+                        J("Marker reference '%s' not found", this.f31659f.f31693e.C);
                     }
                 }
                 qVar2 = null;
-                str2 = this.f31655f.f31689e.D;
+                str2 = this.f31659f.f31693e.D;
                 if (str2 != null) {
                 }
                 qVar3 = null;
@@ -1748,15 +1748,15 @@ public class c {
                 if (p == null) {
                 }
             } else {
-                J("Marker reference '%s' not found", this.f31655f.f31689e.B);
+                J("Marker reference '%s' not found", this.f31659f.f31693e.B);
             }
         }
         qVar = null;
-        str = this.f31655f.f31689e.C;
+        str = this.f31659f.f31693e.C;
         if (str != null) {
         }
         qVar2 = null;
-        str2 = this.f31655f.f31689e.D;
+        str2 = this.f31659f.f31693e.D;
         if (str2 != null) {
         }
         qVar3 = null;
@@ -1776,24 +1776,24 @@ public class c {
             boolean z = true;
             if (bool != null && bool.booleanValue()) {
                 SVG.o oVar = rVar.r;
-                f2 = oVar != null ? oVar.h(this) : i0Var.f69293h.f69279g;
+                f2 = oVar != null ? oVar.h(this) : i0Var.f69328h.f69314g;
                 SVG.o oVar2 = rVar.s;
-                f3 = oVar2 != null ? oVar2.i(this) : i0Var.f69293h.f69280h;
+                f3 = oVar2 != null ? oVar2.i(this) : i0Var.f69328h.f69315h;
                 SVG.o oVar3 = rVar.p;
                 if (oVar3 != null) {
                     oVar3.h(this);
                 } else {
-                    SVG.b bVar = i0Var.f69293h;
-                    float f4 = bVar.f69277e;
-                    float f5 = bVar.f69279g;
+                    SVG.b bVar = i0Var.f69328h;
+                    float f4 = bVar.f69312e;
+                    float f5 = bVar.f69314g;
                 }
                 SVG.o oVar4 = rVar.q;
                 if (oVar4 != null) {
                     oVar4.i(this);
                 } else {
-                    SVG.b bVar2 = i0Var.f69293h;
-                    float f6 = bVar2.f69278f;
-                    float f7 = bVar2.f69280h;
+                    SVG.b bVar2 = i0Var.f69328h;
+                    float f6 = bVar2.f69313f;
+                    float f7 = bVar2.f69315h;
                 }
             } else {
                 SVG.o oVar5 = rVar.p;
@@ -1808,31 +1808,31 @@ public class c {
                 float g2 = oVar7 != null ? oVar7.g(this, 1.0f) : 1.2f;
                 SVG.o oVar8 = rVar.s;
                 float g3 = oVar8 != null ? oVar8.g(this, 1.0f) : 1.2f;
-                SVG.b bVar3 = i0Var.f69293h;
-                float f8 = bVar3.f69277e;
-                float f9 = bVar3.f69279g;
-                float f10 = bVar3.f69278f;
+                SVG.b bVar3 = i0Var.f69328h;
+                float f8 = bVar3.f69312e;
+                float f9 = bVar3.f69314g;
+                float f10 = bVar3.f69313f;
                 f2 = g2 * f9;
-                f3 = g3 * bVar3.f69280h;
+                f3 = g3 * bVar3.f69315h;
             }
             if (f2 == 0.0f || f3 == 0.0f) {
                 return;
             }
             S0();
             h Q = Q(rVar);
-            this.f31655f = Q;
-            Q.f31689e.q = Float.valueOf(1.0f);
+            this.f31659f = Q;
+            Q.f31693e.q = Float.valueOf(1.0f);
             Boolean bool2 = rVar.o;
             if (bool2 != null && !bool2.booleanValue()) {
                 z = false;
             }
             if (!z) {
-                Canvas canvas = this.f31650a;
-                SVG.b bVar4 = i0Var.f69293h;
-                canvas.translate(bVar4.f69277e, bVar4.f69278f);
-                Canvas canvas2 = this.f31650a;
-                SVG.b bVar5 = i0Var.f69293h;
-                canvas2.scale(bVar5.f69279g, bVar5.f69280h);
+                Canvas canvas = this.f31654a;
+                SVG.b bVar4 = i0Var.f69328h;
+                canvas.translate(bVar4.f69312e, bVar4.f69313f);
+                Canvas canvas2 = this.f31654a;
+                SVG.b bVar5 = i0Var.f69328h;
+                canvas2.scale(bVar5.f69314g, bVar5.f69315h);
             }
             F0(rVar, false);
             R0();
@@ -1842,14 +1842,14 @@ public class c {
     public final void K(SVG.w0 w0Var, StringBuilder sb) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, w0Var, sb) == null) {
-            Iterator<SVG.l0> it = w0Var.f69288i.iterator();
+            Iterator<SVG.l0> it = w0Var.f69323i.iterator();
             boolean z = true;
             while (it.hasNext()) {
                 SVG.l0 next = it.next();
                 if (next instanceof SVG.w0) {
                     K((SVG.w0) next, sb);
                 } else if (next instanceof SVG.a1) {
-                    sb.append(T0(((SVG.a1) next).f69275c, z, !it.hasNext()));
+                    sb.append(T0(((SVG.a1) next).f69310c, z, !it.hasNext()));
                 }
                 z = false;
             }
@@ -1861,7 +1861,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, q0Var) == null) {
             String language = Locale.getDefault().getLanguage();
-            c.c.a.d e2 = this.f31654e.e();
+            c.c.a.d e2 = this.f31658e.e();
             for (SVG.l0 l0Var : q0Var.getChildren()) {
                 if (l0Var instanceof SVG.e0) {
                     SVG.e0 e0Var = (SVG.e0) l0Var;
@@ -1888,7 +1888,7 @@ public class c {
                         if (m != null) {
                             if (!m.isEmpty() && e2 != null) {
                                 for (String str2 : m) {
-                                    if (e2.b(str2, this.f31655f.f31689e.u.intValue(), String.valueOf(this.f31655f.f31689e.v)) == null) {
+                                    if (e2.b(str2, this.f31659f.f31693e.u.intValue(), String.valueOf(this.f31659f.f31693e.v)) == null) {
                                         break;
                                     }
                                 }
@@ -1905,7 +1905,7 @@ public class c {
     public final void L(SVG.j jVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, jVar, str) == null) {
-            SVG.l0 n = jVar.f69302a.n(str);
+            SVG.l0 n = jVar.f69337a.n(str);
             if (n == null) {
                 Z0("Gradient reference '%s' not found", str);
             } else if (!(n instanceof SVG.j)) {
@@ -1914,17 +1914,17 @@ public class c {
                 J("Circular reference in gradient href attribute '%s'", str);
             } else {
                 SVG.j jVar2 = (SVG.j) n;
-                if (jVar.f69295i == null) {
-                    jVar.f69295i = jVar2.f69295i;
+                if (jVar.f69330i == null) {
+                    jVar.f69330i = jVar2.f69330i;
                 }
-                if (jVar.f69296j == null) {
-                    jVar.f69296j = jVar2.f69296j;
+                if (jVar.f69331j == null) {
+                    jVar.f69331j = jVar2.f69331j;
                 }
                 if (jVar.k == null) {
                     jVar.k = jVar2.k;
                 }
-                if (jVar.f69294h.isEmpty()) {
-                    jVar.f69294h = jVar2.f69294h;
+                if (jVar.f69329h.isEmpty()) {
+                    jVar.f69329h = jVar2.f69329h;
                 }
                 try {
                     if (jVar instanceof SVG.k0) {
@@ -1946,9 +1946,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, x0Var) == null) {
             C("TextPath render", new Object[0]);
-            W0(this.f31655f, x0Var);
+            W0(this.f31659f, x0Var);
             if (E() && Y0()) {
-                SVG.l0 n = x0Var.f69302a.n(x0Var.n);
+                SVG.l0 n = x0Var.f69337a.n(x0Var.n);
                 if (n == null) {
                     J("TextPath reference '%s' not found", x0Var.n);
                     return;
@@ -2002,13 +2002,13 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            h hVar = this.f31655f;
-            if (hVar.f31689e.K != null && !hVar.m) {
+            h hVar = this.f31659f;
+            if (hVar.f31693e.K != null && !hVar.m) {
                 Z0("Masks are not supported when using getPicture()", new Object[0]);
             }
-            if (this.f31655f.f31689e.q.floatValue() >= 1.0f) {
-                h hVar2 = this.f31655f;
-                if (hVar2.f31689e.K == null || !hVar2.m) {
+            if (this.f31659f.f31693e.q.floatValue() >= 1.0f) {
+                h hVar2 = this.f31659f;
+                if (hVar2.f31693e.K == null || !hVar2.m) {
                     return false;
                 }
             }
@@ -2041,25 +2041,25 @@ public class c {
     public final void N0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.f31655f = new h(this);
-            this.f31656g = new Stack<>();
-            V0(this.f31655f, SVG.Style.d());
-            h hVar = this.f31655f;
-            hVar.f31694j = this.f31651b;
+            this.f31659f = new h(this);
+            this.f31660g = new Stack<>();
+            V0(this.f31659f, SVG.Style.d());
+            h hVar = this.f31659f;
+            hVar.f31698j = this.f31655b;
             hVar.l = false;
-            hVar.m = this.f31653d;
-            this.f31656g.push((h) hVar.clone());
-            this.f31659j = new Stack<>();
+            hVar.m = this.f31657d;
+            this.f31660g.push((h) hVar.clone());
+            this.f31663j = new Stack<>();
             this.k = new Stack<>();
-            this.f31658i = new Stack<>();
-            this.f31657h = new Stack<>();
+            this.f31662i = new Stack<>();
+            this.f31661h = new Stack<>();
         }
     }
 
     public final void O(SVG.x xVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048602, this, xVar, str) == null) {
-            SVG.l0 n = xVar.f69302a.n(str);
+            SVG.l0 n = xVar.f69337a.n(str);
             if (n == null) {
                 Z0("Pattern reference '%s' not found", str);
             } else if (!(n instanceof SVG.x)) {
@@ -2089,8 +2089,8 @@ public class c {
                 if (xVar.v == null) {
                     xVar.v = xVar2.v;
                 }
-                if (xVar.f69288i.isEmpty()) {
-                    xVar.f69288i = xVar2.f69288i;
+                if (xVar.f69323i.isEmpty()) {
+                    xVar.f69323i = xVar2.f69323i;
                 }
                 if (xVar.o == null) {
                     xVar.o = xVar2.o;
@@ -2111,14 +2111,14 @@ public class c {
         if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
             float f6 = f4 + f2;
             float f7 = f5 + f3;
-            SVG.c cVar = this.f31655f.f31689e.A;
+            SVG.c cVar = this.f31659f.f31693e.A;
             if (cVar != null) {
-                f2 += cVar.f69284d.h(this);
-                f3 += this.f31655f.f31689e.A.f69281a.i(this);
-                f6 -= this.f31655f.f31689e.A.f69282b.h(this);
-                f7 -= this.f31655f.f31689e.A.f69283c.i(this);
+                f2 += cVar.f69319d.h(this);
+                f3 += this.f31659f.f31693e.A.f69316a.i(this);
+                f6 -= this.f31659f.f31693e.A.f69317b.h(this);
+                f7 -= this.f31659f.f31693e.A.f69318c.i(this);
             }
-            this.f31650a.clipRect(f2, f3, f6, f7);
+            this.f31654a.clipRect(f2, f3, f6, f7);
         }
     }
 
@@ -2153,12 +2153,12 @@ public class c {
                 float g4 = oVar7 != null ? oVar7.g(this, 1.0f) : 0.0f;
                 SVG.o oVar8 = xVar.v;
                 float g5 = oVar8 != null ? oVar8.g(this, 1.0f) : 0.0f;
-                SVG.b bVar = i0Var.f69293h;
-                float f6 = bVar.f69277e;
-                float f7 = bVar.f69279g;
+                SVG.b bVar = i0Var.f69328h;
+                float f6 = bVar.f69312e;
+                float f7 = bVar.f69314g;
                 f2 = (g2 * f7) + f6;
-                float f8 = bVar.f69278f;
-                float f9 = bVar.f69280h;
+                float f8 = bVar.f69313f;
+                float f9 = bVar.f69315h;
                 float f10 = g4 * f7;
                 f3 = g5 * f9;
                 f4 = (g3 * f9) + f8;
@@ -2169,25 +2169,25 @@ public class c {
             }
             PreserveAspectRatio preserveAspectRatio = xVar.n;
             if (preserveAspectRatio == null) {
-                preserveAspectRatio = PreserveAspectRatio.f69260d;
+                preserveAspectRatio = PreserveAspectRatio.f69295d;
             }
             S0();
-            this.f31650a.clipPath(path);
+            this.f31654a.clipPath(path);
             h hVar = new h(this);
             V0(hVar, SVG.Style.d());
-            hVar.f31689e.z = Boolean.FALSE;
+            hVar.f31693e.z = Boolean.FALSE;
             R(xVar, hVar);
-            this.f31655f = hVar;
-            SVG.b bVar2 = i0Var.f69293h;
+            this.f31659f = hVar;
+            SVG.b bVar2 = i0Var.f69328h;
             Matrix matrix = xVar.r;
             if (matrix != null) {
-                this.f31650a.concat(matrix);
+                this.f31654a.concat(matrix);
                 Matrix matrix2 = new Matrix();
                 if (xVar.r.invert(matrix2)) {
-                    SVG.b bVar3 = i0Var.f69293h;
-                    SVG.b bVar4 = i0Var.f69293h;
-                    SVG.b bVar5 = i0Var.f69293h;
-                    float[] fArr = {bVar3.f69277e, bVar3.f69278f, bVar3.d(), bVar4.f69278f, bVar4.d(), i0Var.f69293h.e(), bVar5.f69277e, bVar5.e()};
+                    SVG.b bVar3 = i0Var.f69328h;
+                    SVG.b bVar4 = i0Var.f69328h;
+                    SVG.b bVar5 = i0Var.f69328h;
+                    float[] fArr = {bVar3.f69312e, bVar3.f69313f, bVar3.d(), bVar4.f69313f, bVar4.d(), i0Var.f69328h.e(), bVar5.f69312e, bVar5.e()};
                     matrix2.mapPoints(fArr);
                     RectF rectF = new RectF(fArr[0], fArr[1], fArr[0], fArr[1]);
                     for (int i2 = 2; i2 <= 6; i2 += 2) {
@@ -2210,33 +2210,33 @@ public class c {
                     bVar2 = new SVG.b(f11, f12, rectF.right - f11, rectF.bottom - f12);
                 }
             }
-            float floor = f2 + (((float) Math.floor((bVar2.f69277e - f2) / f5)) * f5);
+            float floor = f2 + (((float) Math.floor((bVar2.f69312e - f2) / f5)) * f5);
             float d2 = bVar2.d();
             float e2 = bVar2.e();
             SVG.b bVar6 = new SVG.b(0.0f, 0.0f, f5, f3);
-            for (float floor2 = f4 + (((float) Math.floor((bVar2.f69278f - f4) / f3)) * f3); floor2 < e2; floor2 += f3) {
+            for (float floor2 = f4 + (((float) Math.floor((bVar2.f69313f - f4) / f3)) * f3); floor2 < e2; floor2 += f3) {
                 for (float f13 = floor; f13 < d2; f13 += f5) {
-                    bVar6.f69277e = f13;
-                    bVar6.f69278f = floor2;
+                    bVar6.f69312e = f13;
+                    bVar6.f69313f = floor2;
                     S0();
-                    if (!this.f31655f.f31689e.z.booleanValue()) {
-                        O0(bVar6.f69277e, bVar6.f69278f, bVar6.f69279g, bVar6.f69280h);
+                    if (!this.f31659f.f31693e.z.booleanValue()) {
+                        O0(bVar6.f69312e, bVar6.f69313f, bVar6.f69314g, bVar6.f69315h);
                     }
                     SVG.b bVar7 = xVar.o;
                     if (bVar7 != null) {
-                        this.f31650a.concat(s(bVar6, bVar7, preserveAspectRatio));
+                        this.f31654a.concat(s(bVar6, bVar7, preserveAspectRatio));
                     } else {
                         Boolean bool2 = xVar.q;
                         boolean z2 = bool2 == null || bool2.booleanValue();
-                        this.f31650a.translate(f13, floor2);
+                        this.f31654a.translate(f13, floor2);
                         if (!z2) {
-                            Canvas canvas = this.f31650a;
-                            SVG.b bVar8 = i0Var.f69293h;
-                            canvas.scale(bVar8.f69279g, bVar8.f69280h);
+                            Canvas canvas = this.f31654a;
+                            SVG.b bVar8 = i0Var.f69328h;
+                            canvas.scale(bVar8.f69314g, bVar8.f69315h);
                         }
                     }
                     boolean n0 = n0();
-                    for (SVG.l0 l0Var : xVar.f69288i) {
+                    for (SVG.l0 l0Var : xVar.f69323i) {
                         A0(l0Var);
                     }
                     if (n0) {
@@ -2253,20 +2253,20 @@ public class c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{hVar, Boolean.valueOf(z), m0Var}) == null) {
-            SVG.Style style = hVar.f31689e;
-            float floatValue = (z ? style.f69271h : style.f69273j).floatValue();
+            SVG.Style style = hVar.f31693e;
+            float floatValue = (z ? style.f69306h : style.f69308j).floatValue();
             if (m0Var instanceof SVG.f) {
-                i2 = ((SVG.f) m0Var).f69287e;
+                i2 = ((SVG.f) m0Var).f69322e;
             } else if (!(m0Var instanceof SVG.g)) {
                 return;
             } else {
-                i2 = hVar.f31689e.r.f69287e;
+                i2 = hVar.f31693e.r.f69322e;
             }
             int z2 = i2 | (z(floatValue) << 24);
             if (z) {
-                hVar.f31692h.setColor(z2);
+                hVar.f31696h.setColor(z2);
             } else {
-                hVar.f31693i.setColor(z2);
+                hVar.f31697i.setColor(z2);
             }
         }
     }
@@ -2287,36 +2287,36 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048607, this, z, b0Var) == null) {
             if (z) {
-                if (a0(b0Var.f69299e, 2147483648L)) {
-                    h hVar = this.f31655f;
-                    SVG.Style style = hVar.f31689e;
-                    SVG.m0 m0Var = b0Var.f69299e.L;
-                    style.f69269f = m0Var;
-                    hVar.f31690f = m0Var != null;
+                if (a0(b0Var.f69334e, 2147483648L)) {
+                    h hVar = this.f31659f;
+                    SVG.Style style = hVar.f31693e;
+                    SVG.m0 m0Var = b0Var.f69334e.L;
+                    style.f69304f = m0Var;
+                    hVar.f31694f = m0Var != null;
                 }
-                if (a0(b0Var.f69299e, 4294967296L)) {
-                    this.f31655f.f31689e.f69271h = b0Var.f69299e.M;
+                if (a0(b0Var.f69334e, 4294967296L)) {
+                    this.f31659f.f31693e.f69306h = b0Var.f69334e.M;
                 }
-                if (a0(b0Var.f69299e, 6442450944L)) {
-                    h hVar2 = this.f31655f;
-                    P0(hVar2, z, hVar2.f31689e.f69269f);
+                if (a0(b0Var.f69334e, 6442450944L)) {
+                    h hVar2 = this.f31659f;
+                    P0(hVar2, z, hVar2.f31693e.f69304f);
                     return;
                 }
                 return;
             }
-            if (a0(b0Var.f69299e, 2147483648L)) {
-                h hVar3 = this.f31655f;
-                SVG.Style style2 = hVar3.f31689e;
-                SVG.m0 m0Var2 = b0Var.f69299e.L;
-                style2.f69272i = m0Var2;
-                hVar3.f31691g = m0Var2 != null;
+            if (a0(b0Var.f69334e, 2147483648L)) {
+                h hVar3 = this.f31659f;
+                SVG.Style style2 = hVar3.f31693e;
+                SVG.m0 m0Var2 = b0Var.f69334e.L;
+                style2.f69307i = m0Var2;
+                hVar3.f31695g = m0Var2 != null;
             }
-            if (a0(b0Var.f69299e, 4294967296L)) {
-                this.f31655f.f31689e.f69273j = b0Var.f69299e.M;
+            if (a0(b0Var.f69334e, 4294967296L)) {
+                this.f31659f.f31693e.f69308j = b0Var.f69334e.M;
             }
-            if (a0(b0Var.f69299e, 6442450944L)) {
-                h hVar4 = this.f31655f;
-                P0(hVar4, z, hVar4.f31689e.f69272i);
+            if (a0(b0Var.f69334e, 6442450944L)) {
+                h hVar4 = this.f31659f;
+                P0(hVar4, z, hVar4.f31693e.f69307i);
             }
         }
     }
@@ -2330,7 +2330,7 @@ public class c {
                 if (l0Var instanceof SVG.j0) {
                     arrayList.add(0, (SVG.j0) l0Var);
                 }
-                SVG.h0 h0Var = l0Var.f69303b;
+                SVG.h0 h0Var = l0Var.f69338b;
                 if (h0Var == null) {
                     break;
                 }
@@ -2339,13 +2339,13 @@ public class c {
             for (SVG.j0 j0Var : arrayList) {
                 W0(hVar, j0Var);
             }
-            SVG.b bVar = this.f31654e.j().o;
+            SVG.b bVar = this.f31658e.j().o;
             hVar.k = bVar;
             if (bVar == null) {
-                hVar.k = this.f31651b;
+                hVar.k = this.f31655b;
             }
-            hVar.f31694j = this.f31651b;
-            hVar.m = this.f31655f.m;
+            hVar.f31698j = this.f31655b;
+            hVar.m = this.f31659f.m;
             return hVar;
         }
         return (h) invokeLL.objValue;
@@ -2354,8 +2354,8 @@ public class c {
     public final void R0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            this.f31650a.restore();
-            this.f31655f = this.f31656g.pop();
+            this.f31654a.restore();
+            this.f31659f = this.f31660g.pop();
         }
     }
 
@@ -2364,12 +2364,12 @@ public class c {
         SVG.Style.TextAnchor textAnchor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            SVG.Style style = this.f31655f.f31689e;
+            SVG.Style style = this.f31659f.f31693e;
             if (style.x != SVG.Style.TextDirection.LTR && (textAnchor = style.y) != SVG.Style.TextAnchor.Middle) {
                 SVG.Style.TextAnchor textAnchor2 = SVG.Style.TextAnchor.Start;
                 return textAnchor == textAnchor2 ? SVG.Style.TextAnchor.End : textAnchor2;
             }
-            return this.f31655f.f31689e.y;
+            return this.f31659f.f31693e.y;
         }
         return (SVG.Style.TextAnchor) invokeV.objValue;
     }
@@ -2377,9 +2377,9 @@ public class c {
     public final void S0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            this.f31650a.save();
-            this.f31656g.push(this.f31655f);
-            this.f31655f = (h) this.f31655f.clone();
+            this.f31654a.save();
+            this.f31660g.push(this.f31659f);
+            this.f31659f = (h) this.f31659f.clone();
         }
     }
 
@@ -2387,11 +2387,11 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            SVG.Style.FillRule fillRule = this.f31655f.f31689e.J;
+            SVG.Style.FillRule fillRule = this.f31659f.f31693e.J;
             if (fillRule == null) {
                 return Path.FillType.WINDING;
             }
-            if (a.f31663d[fillRule.ordinal()] != 1) {
+            if (a.f31667d[fillRule.ordinal()] != 1) {
                 return Path.FillType.WINDING;
             }
             return Path.FillType.EVEN_ODD;
@@ -2403,7 +2403,7 @@ public class c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048613, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (this.f31655f.l) {
+            if (this.f31659f.l) {
                 return str.replaceAll("[\\n\\t]", " ");
             }
             String replaceAll = str.replaceAll("\\n", "").replaceAll("\\t", " ");
@@ -2421,21 +2421,21 @@ public class c {
     public float U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f31655f.f31692h.getTextSize() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f31659f.f31696h.getTextSize() : invokeV.floatValue;
     }
 
     public final void U0(SVG.i0 i0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048615, this, i0Var) == null) || i0Var.f69303b == null || i0Var.f69293h == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048615, this, i0Var) == null) || i0Var.f69338b == null || i0Var.f69328h == null) {
             return;
         }
         Matrix matrix = new Matrix();
-        if (this.f31658i.peek().invert(matrix)) {
-            SVG.b bVar = i0Var.f69293h;
-            SVG.b bVar2 = i0Var.f69293h;
-            SVG.b bVar3 = i0Var.f69293h;
-            float[] fArr = {bVar.f69277e, bVar.f69278f, bVar.d(), bVar2.f69278f, bVar2.d(), i0Var.f69293h.e(), bVar3.f69277e, bVar3.e()};
-            matrix.preConcat(this.f31650a.getMatrix());
+        if (this.f31662i.peek().invert(matrix)) {
+            SVG.b bVar = i0Var.f69328h;
+            SVG.b bVar2 = i0Var.f69328h;
+            SVG.b bVar3 = i0Var.f69328h;
+            float[] fArr = {bVar.f69312e, bVar.f69313f, bVar.d(), bVar2.f69313f, bVar2.d(), i0Var.f69328h.e(), bVar3.f69312e, bVar3.e()};
+            matrix.preConcat(this.f31654a.getMatrix());
             matrix.mapPoints(fArr);
             RectF rectF = new RectF(fArr[0], fArr[1], fArr[0], fArr[1]);
             for (int i2 = 2; i2 <= 6; i2 += 2) {
@@ -2453,10 +2453,10 @@ public class c {
                     rectF.bottom = fArr[i3];
                 }
             }
-            SVG.i0 i0Var2 = (SVG.i0) this.f31657h.peek();
-            SVG.b bVar4 = i0Var2.f69293h;
+            SVG.i0 i0Var2 = (SVG.i0) this.f31661h.peek();
+            SVG.b bVar4 = i0Var2.f69328h;
             if (bVar4 == null) {
-                i0Var2.f69293h = SVG.b.a(rectF.left, rectF.top, rectF.right, rectF.bottom);
+                i0Var2.f69328h = SVG.b.a(rectF.left, rectF.top, rectF.right, rectF.bottom);
             } else {
                 bVar4.f(SVG.b.a(rectF.left, rectF.top, rectF.right, rectF.bottom));
             }
@@ -2466,7 +2466,7 @@ public class c {
     public float V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f31655f.f31692h.getTextSize() / 2.0f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f31659f.f31696h.getTextSize() / 2.0f : invokeV.floatValue;
     }
 
     public final void V0(h hVar, SVG.Style style) {
@@ -2474,134 +2474,134 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048617, this, hVar, style) == null) {
             if (a0(style, 4096L)) {
-                hVar.f31689e.r = style.r;
+                hVar.f31693e.r = style.r;
             }
             if (a0(style, 2048L)) {
-                hVar.f31689e.q = style.q;
+                hVar.f31693e.q = style.q;
             }
             if (a0(style, 1L)) {
-                hVar.f31689e.f69269f = style.f69269f;
-                hVar.f31690f = style.f69269f != null;
+                hVar.f31693e.f69304f = style.f69304f;
+                hVar.f31694f = style.f69304f != null;
             }
             if (a0(style, 4L)) {
-                hVar.f31689e.f69271h = style.f69271h;
+                hVar.f31693e.f69306h = style.f69306h;
             }
             if (a0(style, 6149L)) {
-                P0(hVar, true, hVar.f31689e.f69269f);
+                P0(hVar, true, hVar.f31693e.f69304f);
             }
             if (a0(style, 2L)) {
-                hVar.f31689e.f69270g = style.f69270g;
+                hVar.f31693e.f69305g = style.f69305g;
             }
             if (a0(style, 8L)) {
-                hVar.f31689e.f69272i = style.f69272i;
-                hVar.f31691g = style.f69272i != null;
+                hVar.f31693e.f69307i = style.f69307i;
+                hVar.f31695g = style.f69307i != null;
             }
             if (a0(style, 16L)) {
-                hVar.f31689e.f69273j = style.f69273j;
+                hVar.f31693e.f69308j = style.f69308j;
             }
             if (a0(style, 6168L)) {
-                P0(hVar, false, hVar.f31689e.f69272i);
+                P0(hVar, false, hVar.f31693e.f69307i);
             }
             if (a0(style, 34359738368L)) {
-                hVar.f31689e.P = style.P;
+                hVar.f31693e.P = style.P;
             }
             if (a0(style, 32L)) {
-                SVG.Style style2 = hVar.f31689e;
+                SVG.Style style2 = hVar.f31693e;
                 SVG.o oVar = style.k;
                 style2.k = oVar;
-                hVar.f31693i.setStrokeWidth(oVar.f(this));
+                hVar.f31697i.setStrokeWidth(oVar.f(this));
             }
             if (a0(style, 64L)) {
-                hVar.f31689e.l = style.l;
-                int i2 = a.f31661b[style.l.ordinal()];
+                hVar.f31693e.l = style.l;
+                int i2 = a.f31665b[style.l.ordinal()];
                 if (i2 == 1) {
-                    hVar.f31693i.setStrokeCap(Paint.Cap.BUTT);
+                    hVar.f31697i.setStrokeCap(Paint.Cap.BUTT);
                 } else if (i2 == 2) {
-                    hVar.f31693i.setStrokeCap(Paint.Cap.ROUND);
+                    hVar.f31697i.setStrokeCap(Paint.Cap.ROUND);
                 } else if (i2 == 3) {
-                    hVar.f31693i.setStrokeCap(Paint.Cap.SQUARE);
+                    hVar.f31697i.setStrokeCap(Paint.Cap.SQUARE);
                 }
             }
             if (a0(style, 128L)) {
-                hVar.f31689e.m = style.m;
-                int i3 = a.f31662c[style.m.ordinal()];
+                hVar.f31693e.m = style.m;
+                int i3 = a.f31666c[style.m.ordinal()];
                 if (i3 == 1) {
-                    hVar.f31693i.setStrokeJoin(Paint.Join.MITER);
+                    hVar.f31697i.setStrokeJoin(Paint.Join.MITER);
                 } else if (i3 == 2) {
-                    hVar.f31693i.setStrokeJoin(Paint.Join.ROUND);
+                    hVar.f31697i.setStrokeJoin(Paint.Join.ROUND);
                 } else if (i3 == 3) {
-                    hVar.f31693i.setStrokeJoin(Paint.Join.BEVEL);
+                    hVar.f31697i.setStrokeJoin(Paint.Join.BEVEL);
                 }
             }
             if (a0(style, 256L)) {
-                hVar.f31689e.n = style.n;
-                hVar.f31693i.setStrokeMiter(style.n.floatValue());
+                hVar.f31693e.n = style.n;
+                hVar.f31697i.setStrokeMiter(style.n.floatValue());
             }
             if (a0(style, 512L)) {
-                hVar.f31689e.o = style.o;
+                hVar.f31693e.o = style.o;
             }
             if (a0(style, 1024L)) {
-                hVar.f31689e.p = style.p;
+                hVar.f31693e.p = style.p;
             }
             Typeface typeface = null;
             if (a0(style, 1536L)) {
-                SVG.o[] oVarArr = hVar.f31689e.o;
+                SVG.o[] oVarArr = hVar.f31693e.o;
                 if (oVarArr == null) {
-                    hVar.f31693i.setPathEffect(null);
+                    hVar.f31697i.setPathEffect(null);
                 } else {
                     int length = oVarArr.length;
                     int i4 = length % 2 == 0 ? length : length * 2;
                     float[] fArr = new float[i4];
                     float f2 = 0.0f;
                     for (int i5 = 0; i5 < i4; i5++) {
-                        fArr[i5] = hVar.f31689e.o[i5 % length].f(this);
+                        fArr[i5] = hVar.f31693e.o[i5 % length].f(this);
                         f2 += fArr[i5];
                     }
                     if (f2 == 0.0f) {
-                        hVar.f31693i.setPathEffect(null);
+                        hVar.f31697i.setPathEffect(null);
                     } else {
-                        float f3 = hVar.f31689e.p.f(this);
+                        float f3 = hVar.f31693e.p.f(this);
                         if (f3 < 0.0f) {
                             f3 = (f3 % f2) + f2;
                         }
-                        hVar.f31693i.setPathEffect(new DashPathEffect(fArr, f3));
+                        hVar.f31697i.setPathEffect(new DashPathEffect(fArr, f3));
                     }
                 }
             }
             if (a0(style, 16384L)) {
                 float U = U();
-                hVar.f31689e.t = style.t;
-                hVar.f31692h.setTextSize(style.t.g(this, U));
-                hVar.f31693i.setTextSize(style.t.g(this, U));
+                hVar.f31693e.t = style.t;
+                hVar.f31696h.setTextSize(style.t.g(this, U));
+                hVar.f31697i.setTextSize(style.t.g(this, U));
             }
             if (a0(style, 8192L)) {
-                hVar.f31689e.s = style.s;
+                hVar.f31693e.s = style.s;
             }
             if (a0(style, 32768L)) {
-                if (style.u.intValue() == -1 && hVar.f31689e.u.intValue() > 100) {
-                    SVG.Style style3 = hVar.f31689e;
+                if (style.u.intValue() == -1 && hVar.f31693e.u.intValue() > 100) {
+                    SVG.Style style3 = hVar.f31693e;
                     style3.u = Integer.valueOf(style3.u.intValue() - 100);
-                } else if (style.u.intValue() == 1 && hVar.f31689e.u.intValue() < 900) {
-                    SVG.Style style4 = hVar.f31689e;
+                } else if (style.u.intValue() == 1 && hVar.f31693e.u.intValue() < 900) {
+                    SVG.Style style4 = hVar.f31693e;
                     style4.u = Integer.valueOf(style4.u.intValue() + 100);
                 } else {
-                    hVar.f31689e.u = style.u;
+                    hVar.f31693e.u = style.u;
                 }
             }
             if (a0(style, 65536L)) {
-                hVar.f31689e.v = style.v;
+                hVar.f31693e.v = style.v;
             }
             if (a0(style, 106496L)) {
-                if (hVar.f31689e.s != null && (svg = this.f31654e) != null) {
+                if (hVar.f31693e.s != null && (svg = this.f31658e) != null) {
                     c.c.a.d e2 = svg.e();
-                    for (String str : hVar.f31689e.s) {
-                        SVG.Style style5 = hVar.f31689e;
+                    for (String str : hVar.f31693e.s) {
+                        SVG.Style style5 = hVar.f31693e;
                         Typeface x = x(str, style5.u, style5.v);
                         if (x != null || e2 == null) {
                             typeface = x;
                             continue;
                         } else {
-                            typeface = e2.b(str, hVar.f31689e.u.intValue(), String.valueOf(hVar.f31689e.v));
+                            typeface = e2.b(str, hVar.f31693e.u.intValue(), String.valueOf(hVar.f31693e.v));
                             continue;
                         }
                         if (typeface != null) {
@@ -2610,68 +2610,68 @@ public class c {
                     }
                 }
                 if (typeface == null) {
-                    SVG.Style style6 = hVar.f31689e;
+                    SVG.Style style6 = hVar.f31693e;
                     typeface = x(TypefaceCompatApi28Impl.DEFAULT_FAMILY, style6.u, style6.v);
                 }
-                hVar.f31692h.setTypeface(typeface);
-                hVar.f31693i.setTypeface(typeface);
+                hVar.f31696h.setTypeface(typeface);
+                hVar.f31697i.setTypeface(typeface);
             }
             if (a0(style, PlaybackStateCompat.ACTION_PREPARE_FROM_URI)) {
-                hVar.f31689e.w = style.w;
-                hVar.f31692h.setStrikeThruText(style.w == SVG.Style.TextDecoration.LineThrough);
-                hVar.f31692h.setUnderlineText(style.w == SVG.Style.TextDecoration.Underline);
+                hVar.f31693e.w = style.w;
+                hVar.f31696h.setStrikeThruText(style.w == SVG.Style.TextDecoration.LineThrough);
+                hVar.f31696h.setUnderlineText(style.w == SVG.Style.TextDecoration.Underline);
                 if (Build.VERSION.SDK_INT >= 17) {
-                    hVar.f31693i.setStrikeThruText(style.w == SVG.Style.TextDecoration.LineThrough);
-                    hVar.f31693i.setUnderlineText(style.w == SVG.Style.TextDecoration.Underline);
+                    hVar.f31697i.setStrikeThruText(style.w == SVG.Style.TextDecoration.LineThrough);
+                    hVar.f31697i.setUnderlineText(style.w == SVG.Style.TextDecoration.Underline);
                 }
             }
             if (a0(style, 68719476736L)) {
-                hVar.f31689e.x = style.x;
+                hVar.f31693e.x = style.x;
             }
             if (a0(style, PlaybackStateCompat.ACTION_SET_REPEAT_MODE)) {
-                hVar.f31689e.y = style.y;
+                hVar.f31693e.y = style.y;
             }
             if (a0(style, PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED)) {
-                hVar.f31689e.z = style.z;
+                hVar.f31693e.z = style.z;
             }
             if (a0(style, 2097152L)) {
-                hVar.f31689e.B = style.B;
+                hVar.f31693e.B = style.B;
             }
             if (a0(style, 4194304L)) {
-                hVar.f31689e.C = style.C;
+                hVar.f31693e.C = style.C;
             }
             if (a0(style, 8388608L)) {
-                hVar.f31689e.D = style.D;
+                hVar.f31693e.D = style.D;
             }
             if (a0(style, 16777216L)) {
-                hVar.f31689e.E = style.E;
+                hVar.f31693e.E = style.E;
             }
             if (a0(style, 33554432L)) {
-                hVar.f31689e.F = style.F;
+                hVar.f31693e.F = style.F;
             }
             if (a0(style, 1048576L)) {
-                hVar.f31689e.A = style.A;
+                hVar.f31693e.A = style.A;
             }
             if (a0(style, AccountConstants.TYPE_MODIFY_NICKNAME)) {
-                hVar.f31689e.I = style.I;
+                hVar.f31693e.I = style.I;
             }
             if (a0(style, 536870912L)) {
-                hVar.f31689e.J = style.J;
+                hVar.f31693e.J = style.J;
             }
             if (a0(style, 1073741824L)) {
-                hVar.f31689e.K = style.K;
+                hVar.f31693e.K = style.K;
             }
             if (a0(style, 67108864L)) {
-                hVar.f31689e.G = style.G;
+                hVar.f31693e.G = style.G;
             }
             if (a0(style, 134217728L)) {
-                hVar.f31689e.H = style.H;
+                hVar.f31693e.H = style.H;
             }
             if (a0(style, AnimatedStateListDrawableCompat.AnimatedStateListState.REVERSIBLE_FLAG_BIT)) {
-                hVar.f31689e.N = style.N;
+                hVar.f31693e.N = style.N;
             }
             if (a0(style, 17179869184L)) {
-                hVar.f31689e.O = style.O;
+                hVar.f31693e.O = style.O;
             }
         }
     }
@@ -2680,9 +2680,9 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            h hVar = this.f31655f;
+            h hVar = this.f31659f;
             SVG.b bVar = hVar.k;
-            return bVar != null ? bVar : hVar.f31694j;
+            return bVar != null ? bVar : hVar.f31698j;
         }
         return (SVG.b) invokeV.objValue;
     }
@@ -2690,19 +2690,19 @@ public class c {
     public final void W0(h hVar, SVG.j0 j0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048619, this, hVar, j0Var) == null) {
-            hVar.f31689e.e(j0Var.f69303b == null);
-            SVG.Style style = j0Var.f69299e;
+            hVar.f31693e.e(j0Var.f69338b == null);
+            SVG.Style style = j0Var.f69334e;
             if (style != null) {
                 V0(hVar, style);
             }
-            if (this.f31654e.k()) {
-                for (CSSParser.d dVar : this.f31654e.b()) {
-                    if (CSSParser.m(dVar.f69250a, j0Var)) {
-                        V0(hVar, dVar.f69251b);
+            if (this.f31658e.k()) {
+                for (CSSParser.d dVar : this.f31658e.b()) {
+                    if (CSSParser.m(dVar.f69285a, j0Var)) {
+                        V0(hVar, dVar.f69286b);
                     }
                 }
             }
-            SVG.Style style2 = j0Var.f69300f;
+            SVG.Style style2 = j0Var.f69335f;
             if (style2 != null) {
                 V0(hVar, style2);
             }
@@ -2712,27 +2712,27 @@ public class c {
     public float X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.f31652c : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.f31656c : invokeV.floatValue;
     }
 
     public final void X0() {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            SVG.Style style = this.f31655f.f31689e;
+            SVG.Style style = this.f31659f.f31693e;
             SVG.m0 m0Var = style.N;
             if (m0Var instanceof SVG.f) {
-                i2 = ((SVG.f) m0Var).f69287e;
+                i2 = ((SVG.f) m0Var).f69322e;
             } else if (!(m0Var instanceof SVG.g)) {
                 return;
             } else {
-                i2 = style.r.f69287e;
+                i2 = style.r.f69322e;
             }
-            Float f2 = this.f31655f.f31689e.O;
+            Float f2 = this.f31659f.f31693e.O;
             if (f2 != null) {
                 i2 |= z(f2.floatValue()) << 24;
             }
-            this.f31650a.drawColor(i2);
+            this.f31654a.drawColor(i2);
         }
     }
 
@@ -2740,11 +2740,11 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            SVG.Style.FillRule fillRule = this.f31655f.f31689e.f69270g;
+            SVG.Style.FillRule fillRule = this.f31659f.f31693e.f69305g;
             if (fillRule == null) {
                 return Path.FillType.WINDING;
             }
-            if (a.f31663d[fillRule.ordinal()] != 1) {
+            if (a.f31667d[fillRule.ordinal()] != 1) {
                 return Path.FillType.WINDING;
             }
             return Path.FillType.EVEN_ODD;
@@ -2756,7 +2756,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-            Boolean bool = this.f31655f.f31689e.F;
+            Boolean bool = this.f31659f.f31693e.F;
             if (bool != null) {
                 return bool.booleanValue();
             }
@@ -2768,7 +2768,7 @@ public class c {
     public final boolean a0(SVG.Style style, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048624, this, style, j2)) == null) ? (style.f69268e & j2) != 0 : invokeLJ.booleanValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048624, this, style, j2)) == null) ? (style.f69303e & j2) != 0 : invokeLJ.booleanValue;
     }
 
     public final void b0(boolean z, SVG.b bVar, SVG.k0 k0Var) {
@@ -2782,11 +2782,11 @@ public class c {
             if (str != null) {
                 L(k0Var, str);
             }
-            Boolean bool = k0Var.f69295i;
+            Boolean bool = k0Var.f69330i;
             int i2 = 0;
             boolean z2 = bool != null && bool.booleanValue();
-            h hVar = this.f31655f;
-            Paint paint = z ? hVar.f31692h : hVar.f31693i;
+            h hVar = this.f31659f;
+            Paint paint = z ? hVar.f31696h : hVar.f31697i;
             if (z2) {
                 SVG.b W = W();
                 SVG.o oVar = k0Var.m;
@@ -2794,7 +2794,7 @@ public class c {
                 SVG.o oVar2 = k0Var.n;
                 float i3 = oVar2 != null ? oVar2.i(this) : 0.0f;
                 SVG.o oVar3 = k0Var.o;
-                float h3 = oVar3 != null ? oVar3.h(this) : W.f69279g;
+                float h3 = oVar3 != null ? oVar3.h(this) : W.f69314g;
                 SVG.o oVar4 = k0Var.p;
                 g2 = oVar4 != null ? oVar4.i(this) : 0.0f;
                 f4 = h3;
@@ -2814,46 +2814,46 @@ public class c {
                 f4 = g5;
             }
             S0();
-            this.f31655f = Q(k0Var);
+            this.f31659f = Q(k0Var);
             Matrix matrix = new Matrix();
             if (!z2) {
-                matrix.preTranslate(bVar.f69277e, bVar.f69278f);
-                matrix.preScale(bVar.f69279g, bVar.f69280h);
+                matrix.preTranslate(bVar.f69312e, bVar.f69313f);
+                matrix.preScale(bVar.f69314g, bVar.f69315h);
             }
-            Matrix matrix2 = k0Var.f69296j;
+            Matrix matrix2 = k0Var.f69331j;
             if (matrix2 != null) {
                 matrix.preConcat(matrix2);
             }
-            int size = k0Var.f69294h.size();
+            int size = k0Var.f69329h.size();
             if (size == 0) {
                 R0();
                 if (z) {
-                    this.f31655f.f31690f = false;
+                    this.f31659f.f31694f = false;
                     return;
                 } else {
-                    this.f31655f.f31691g = false;
+                    this.f31659f.f31695g = false;
                     return;
                 }
             }
             int[] iArr = new int[size];
             float[] fArr = new float[size];
             float f5 = -1.0f;
-            Iterator<SVG.l0> it = k0Var.f69294h.iterator();
+            Iterator<SVG.l0> it = k0Var.f69329h.iterator();
             while (it.hasNext()) {
                 SVG.c0 c0Var = (SVG.c0) it.next();
-                if (i2 != 0 && c0Var.f69285h.floatValue() < f5) {
+                if (i2 != 0 && c0Var.f69320h.floatValue() < f5) {
                     fArr[i2] = f5;
                 } else {
-                    fArr[i2] = c0Var.f69285h.floatValue();
-                    f5 = c0Var.f69285h.floatValue();
+                    fArr[i2] = c0Var.f69320h.floatValue();
+                    f5 = c0Var.f69320h.floatValue();
                 }
                 S0();
-                W0(this.f31655f, c0Var);
-                SVG.f fVar = (SVG.f) this.f31655f.f31689e.G;
+                W0(this.f31659f, c0Var);
+                SVG.f fVar = (SVG.f) this.f31659f.f31693e.G;
                 if (fVar == null) {
-                    fVar = SVG.f.f69286f;
+                    fVar = SVG.f.f69321f;
                 }
-                iArr[i2] = fVar.f69287e | (z(this.f31655f.f31689e.H.floatValue()) << 24);
+                iArr[i2] = fVar.f69322e | (z(this.f31659f.f31693e.H.floatValue()) << 24);
                 i2++;
                 R0();
             }
@@ -2891,9 +2891,9 @@ public class c {
             float f4 = i2 - f2;
             float f5 = h2 + f2;
             float f6 = i2 + f2;
-            if (dVar.f69293h == null) {
+            if (dVar.f69328h == null) {
                 float f7 = 2.0f * f2;
-                dVar.f69293h = new SVG.b(f3, f4, f7, f7);
+                dVar.f69328h = new SVG.b(f3, f4, f7, f7);
             }
             float f8 = 0.5522848f * f2;
             Path path = new Path();
@@ -2926,8 +2926,8 @@ public class c {
             float f3 = i2 - i3;
             float f4 = h2 + h3;
             float f5 = i2 + i3;
-            if (iVar.f69293h == null) {
-                iVar.f69293h = new SVG.b(f2, f3, h3 * 2.0f, 2.0f * i3);
+            if (iVar.f69328h == null) {
+                iVar.f69328h = new SVG.b(f2, f3, h3 * 2.0f, 2.0f * i3);
             }
             float f6 = h3 * 0.5522848f;
             float f7 = 0.5522848f * i3;
@@ -2959,8 +2959,8 @@ public class c {
             float h3 = oVar3 == null ? 0.0f : oVar3.h(this);
             SVG.o oVar4 = pVar.r;
             float i3 = oVar4 != null ? oVar4.i(this) : 0.0f;
-            if (pVar.f69293h == null) {
-                pVar.f69293h = new SVG.b(Math.min(h2, i2), Math.min(i2, i3), Math.abs(h3 - h2), Math.abs(i3 - i2));
+            if (pVar.f69328h == null) {
+                pVar.f69328h = new SVG.b(Math.min(h2, i2), Math.min(i2, i3), Math.abs(h3 - h2), Math.abs(i3 - i2));
             }
             Path path = new Path();
             path.moveTo(h2, i2);
@@ -2989,8 +2989,8 @@ public class c {
             if (yVar instanceof SVG.z) {
                 path.close();
             }
-            if (yVar.f69293h == null) {
-                yVar.f69293h = q(path);
+            if (yVar.f69328h == null) {
+                yVar.f69328h = q(path);
             }
             path.setFillType(T());
             return path;
@@ -3028,8 +3028,8 @@ public class c {
             float i3 = oVar3 != null ? oVar3.i(this) : 0.0f;
             float h4 = a0Var.q.h(this);
             float i4 = a0Var.r.i(this);
-            if (a0Var.f69293h == null) {
-                a0Var.f69293h = new SVG.b(h3, i3, h4, i4);
+            if (a0Var.f69328h == null) {
+                a0Var.f69328h = new SVG.b(h3, i3, h4, i4);
             }
             float f2 = h3 + h4;
             float f3 = i3 + i4;
@@ -3073,7 +3073,7 @@ public class c {
         Path f0;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048631, this, kVar, path, matrix) == null) {
-            W0(this.f31655f, kVar);
+            W0(this.f31659f, kVar);
             if (E() && Y0()) {
                 Matrix matrix2 = kVar.n;
                 if (matrix2 != null) {
@@ -3107,11 +3107,11 @@ public class c {
             if (str != null) {
                 L(o0Var, str);
             }
-            Boolean bool = o0Var.f69295i;
+            Boolean bool = o0Var.f69330i;
             int i2 = 0;
             boolean z2 = bool != null && bool.booleanValue();
-            h hVar = this.f31655f;
-            Paint paint = z ? hVar.f31692h : hVar.f31693i;
+            h hVar = this.f31659f;
+            Paint paint = z ? hVar.f31696h : hVar.f31697i;
             if (z2) {
                 SVG.o oVar = new SVG.o(50.0f, SVG.Unit.percent);
                 SVG.o oVar2 = o0Var.m;
@@ -3133,46 +3133,46 @@ public class c {
                 f3 = g4;
             }
             S0();
-            this.f31655f = Q(o0Var);
+            this.f31659f = Q(o0Var);
             Matrix matrix = new Matrix();
             if (!z2) {
-                matrix.preTranslate(bVar.f69277e, bVar.f69278f);
-                matrix.preScale(bVar.f69279g, bVar.f69280h);
+                matrix.preTranslate(bVar.f69312e, bVar.f69313f);
+                matrix.preScale(bVar.f69314g, bVar.f69315h);
             }
-            Matrix matrix2 = o0Var.f69296j;
+            Matrix matrix2 = o0Var.f69331j;
             if (matrix2 != null) {
                 matrix.preConcat(matrix2);
             }
-            int size = o0Var.f69294h.size();
+            int size = o0Var.f69329h.size();
             if (size == 0) {
                 R0();
                 if (z) {
-                    this.f31655f.f31690f = false;
+                    this.f31659f.f31694f = false;
                     return;
                 } else {
-                    this.f31655f.f31691g = false;
+                    this.f31659f.f31695g = false;
                     return;
                 }
             }
             int[] iArr = new int[size];
             float[] fArr = new float[size];
             float f4 = -1.0f;
-            Iterator<SVG.l0> it = o0Var.f69294h.iterator();
+            Iterator<SVG.l0> it = o0Var.f69329h.iterator();
             while (it.hasNext()) {
                 SVG.c0 c0Var = (SVG.c0) it.next();
-                if (i2 != 0 && c0Var.f69285h.floatValue() < f4) {
+                if (i2 != 0 && c0Var.f69320h.floatValue() < f4) {
                     fArr[i2] = f4;
                 } else {
-                    fArr[i2] = c0Var.f69285h.floatValue();
-                    f4 = c0Var.f69285h.floatValue();
+                    fArr[i2] = c0Var.f69320h.floatValue();
+                    f4 = c0Var.f69320h.floatValue();
                 }
                 S0();
-                W0(this.f31655f, c0Var);
-                SVG.f fVar = (SVG.f) this.f31655f.f31689e.G;
+                W0(this.f31659f, c0Var);
+                SVG.f fVar = (SVG.f) this.f31659f.f31693e.G;
                 if (fVar == null) {
-                    fVar = SVG.f.f69286f;
+                    fVar = SVG.f.f69321f;
                 }
-                iArr[i2] = fVar.f69287e | (z(this.f31655f.f31689e.H.floatValue()) << 24);
+                iArr[i2] = fVar.f69322e | (z(this.f31659f.f31693e.H.floatValue()) << 24);
                 i2++;
                 R0();
             }
@@ -3200,15 +3200,15 @@ public class c {
     public final void i(SVG.u uVar, Path path, Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048633, this, uVar, path, matrix) == null) {
-            W0(this.f31655f, uVar);
+            W0(this.f31659f, uVar);
             if (E() && Y0()) {
                 Matrix matrix2 = uVar.n;
                 if (matrix2 != null) {
                     matrix.preConcat(matrix2);
                 }
                 Path f2 = new d(this, uVar.o).f();
-                if (uVar.f69293h == null) {
-                    uVar.f69293h = q(f2);
+                if (uVar.f69328h == null) {
+                    uVar.f69328h = q(f2);
                 }
                 t(uVar);
                 path.setFillType(T());
@@ -3220,8 +3220,8 @@ public class c {
     public final void i0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
-            this.f31657h.pop();
-            this.f31658i.pop();
+            this.f31661h.pop();
+            this.f31662i.pop();
         }
     }
 
@@ -3251,15 +3251,15 @@ public class c {
     public final void j0(SVG.h0 h0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048636, this, h0Var) == null) {
-            this.f31657h.push(h0Var);
-            this.f31658i.push(this.f31650a.getMatrix());
+            this.f31661h.push(h0Var);
+            this.f31662i.push(this.f31654a.getMatrix());
         }
     }
 
     public final void k(SVG.u0 u0Var, Path path, Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048637, this, u0Var, path, matrix) == null) {
-            W0(this.f31655f, u0Var);
+            W0(this.f31659f, u0Var);
             if (E()) {
                 Matrix matrix2 = u0Var.r;
                 if (matrix2 != null) {
@@ -3276,18 +3276,18 @@ public class c {
                 if (list4 != null && list4.size() != 0) {
                     f2 = u0Var.q.get(0).i(this);
                 }
-                if (this.f31655f.f31689e.y != SVG.Style.TextAnchor.Start) {
+                if (this.f31659f.f31693e.y != SVG.Style.TextAnchor.Start) {
                     float r = r(u0Var);
-                    if (this.f31655f.f31689e.y == SVG.Style.TextAnchor.Middle) {
+                    if (this.f31659f.f31693e.y == SVG.Style.TextAnchor.Middle) {
                         r /= 2.0f;
                     }
                     h2 -= r;
                 }
-                if (u0Var.f69293h == null) {
+                if (u0Var.f69328h == null) {
                     i iVar = new i(this, h2, i2);
                     I(u0Var, iVar);
-                    RectF rectF = iVar.f31697c;
-                    u0Var.f69293h = new SVG.b(rectF.left, rectF.top, rectF.width(), iVar.f31697c.height());
+                    RectF rectF = iVar.f31701c;
+                    u0Var.f69328h = new SVG.b(rectF.left, rectF.top, rectF.width(), iVar.f31701c.height());
                 }
                 t(u0Var);
                 Path path2 = new Path();
@@ -3301,20 +3301,20 @@ public class c {
     public final void k0(SVG.i0 i0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048638, this, i0Var) == null) {
-            h hVar = this.f31655f;
-            String str = hVar.f31689e.K;
+            h hVar = this.f31659f;
+            String str = hVar.f31693e.K;
             if (str != null && hVar.m) {
-                SVG.l0 n = this.f31654e.n(str);
+                SVG.l0 n = this.f31658e.n(str);
                 H();
                 J0((SVG.r) n, i0Var);
                 Bitmap l0 = l0();
-                Canvas pop = this.f31659j.pop();
-                this.f31650a = pop;
+                Canvas pop = this.f31663j.pop();
+                this.f31654a = pop;
                 pop.save();
-                this.f31650a.setMatrix(new Matrix());
-                this.f31650a.drawBitmap(l0, 0.0f, 0.0f, this.f31655f.f31692h);
+                this.f31654a.setMatrix(new Matrix());
+                this.f31654a.drawBitmap(l0, 0.0f, 0.0f, this.f31659f.f31696h);
                 l0.recycle();
-                this.f31650a.restore();
+                this.f31654a.restore();
             }
             R0();
         }
@@ -3323,13 +3323,13 @@ public class c {
     public final void l(SVG.b1 b1Var, Path path, Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048639, this, b1Var, path, matrix) == null) {
-            W0(this.f31655f, b1Var);
+            W0(this.f31659f, b1Var);
             if (E() && Y0()) {
                 Matrix matrix2 = b1Var.n;
                 if (matrix2 != null) {
                     matrix.preConcat(matrix2);
                 }
-                SVG.l0 n = b1Var.f69302a.n(b1Var.o);
+                SVG.l0 n = b1Var.f69337a.n(b1Var.o);
                 if (n == null) {
                     J("Use reference '%s' not found", b1Var.o);
                     return;
@@ -3392,7 +3392,7 @@ public class c {
                 C("TSpan render", new Object[0]);
                 S0();
                 SVG.t0 t0Var = (SVG.t0) l0Var;
-                W0(this.f31655f, t0Var);
+                W0(this.f31659f, t0Var);
                 if (E()) {
                     boolean z = jVar instanceof f;
                     float f6 = 0.0f;
@@ -3401,13 +3401,13 @@ public class c {
                         if (list != null && list.size() != 0) {
                             f5 = t0Var.n.get(0).h(this);
                         } else {
-                            f5 = ((f) jVar).f31682a;
+                            f5 = ((f) jVar).f31686a;
                         }
                         List<SVG.o> list2 = t0Var.o;
                         if (list2 != null && list2.size() != 0) {
                             f3 = t0Var.o.get(0).i(this);
                         } else {
-                            f3 = ((f) jVar).f31683b;
+                            f3 = ((f) jVar).f31687b;
                         }
                         List<SVG.o> list3 = t0Var.p;
                         f4 = (list3 == null || list3.size() == 0) ? 0.0f : t0Var.p.get(0).h(this);
@@ -3425,8 +3425,8 @@ public class c {
                     v((SVG.i0) t0Var.c());
                     if (z) {
                         f fVar = (f) jVar;
-                        fVar.f31682a = f6 + f4;
-                        fVar.f31683b = f3 + f2;
+                        fVar.f31686a = f6 + f4;
+                        fVar.f31687b = f3 + f2;
                     }
                     boolean n0 = n0();
                     I(t0Var, jVar);
@@ -3438,10 +3438,10 @@ public class c {
             } else if (l0Var instanceof SVG.s0) {
                 S0();
                 SVG.s0 s0Var = (SVG.s0) l0Var;
-                W0(this.f31655f, s0Var);
+                W0(this.f31659f, s0Var);
                 if (E()) {
                     v((SVG.i0) s0Var.c());
-                    SVG.l0 n = l0Var.f69302a.n(s0Var.n);
+                    SVG.l0 n = l0Var.f69337a.n(s0Var.n);
                     if (n == null || !(n instanceof SVG.w0)) {
                         J("Tref reference '%s' not found", s0Var.n);
                     } else {
@@ -3462,19 +3462,19 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
             if (M0()) {
-                this.f31650a.saveLayerAlpha(null, z(this.f31655f.f31689e.q.floatValue()), 31);
-                this.f31656g.push(this.f31655f);
-                h hVar = (h) this.f31655f.clone();
-                this.f31655f = hVar;
-                String str = hVar.f31689e.K;
+                this.f31654a.saveLayerAlpha(null, z(this.f31659f.f31693e.q.floatValue()), 31);
+                this.f31660g.push(this.f31659f);
+                h hVar = (h) this.f31659f.clone();
+                this.f31659f = hVar;
+                String str = hVar.f31693e.K;
                 if (str != null && hVar.m) {
-                    SVG.l0 n = this.f31654e.n(str);
+                    SVG.l0 n = this.f31658e.n(str);
                     if (n != null && (n instanceof SVG.r)) {
-                        this.f31659j.push(this.f31650a);
+                        this.f31663j.push(this.f31654a);
                         H();
                     } else {
-                        J("Mask reference '%s' not found", this.f31655f.f31689e.K);
-                        this.f31655f.f31689e.K = null;
+                        J("Mask reference '%s' not found", this.f31659f.f31693e.K);
+                        this.f31659f.f31693e.K = null;
                     }
                 }
                 return true;
@@ -3484,7 +3484,7 @@ public class c {
         return invokeV.booleanValue;
     }
 
-    public final List<C1449c> o(SVG.p pVar) {
+    public final List<C1451c> o(SVG.p pVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, pVar)) == null) {
@@ -3499,8 +3499,8 @@ public class c {
             ArrayList arrayList = new ArrayList(2);
             float f2 = h3 - h2;
             float f3 = i3 - i2;
-            arrayList.add(new C1449c(this, h2, i2, f2, f3));
-            arrayList.add(new C1449c(this, h3, i3, f2, f3));
+            arrayList.add(new C1451c(this, h2, i2, f2, f3));
+            arrayList.add(new C1451c(this, h3, i3, f2, f3));
             return arrayList;
         }
         return (List) invokeL.objValue;
@@ -3514,21 +3514,21 @@ public class c {
             if (oVar == null || oVar.k()) {
                 return;
             }
-            W0(this.f31655f, dVar);
+            W0(this.f31659f, dVar);
             if (E() && Y0()) {
                 Matrix matrix = dVar.n;
                 if (matrix != null) {
-                    this.f31650a.concat(matrix);
+                    this.f31654a.concat(matrix);
                 }
                 Path c0 = c0(dVar);
                 U0(dVar);
                 v(dVar);
                 t(dVar);
                 boolean n0 = n0();
-                if (this.f31655f.f31690f) {
+                if (this.f31659f.f31694f) {
                     F(dVar, c0);
                 }
-                if (this.f31655f.f31691g) {
+                if (this.f31659f.f31695g) {
                     G(c0);
                 }
                 if (n0) {
@@ -3538,7 +3538,7 @@ public class c {
         }
     }
 
-    public final List<C1449c> p(SVG.y yVar) {
+    public final List<C1451c> p(SVG.y yVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, yVar)) == null) {
@@ -3549,17 +3549,17 @@ public class c {
             }
             ArrayList arrayList = new ArrayList();
             float[] fArr = yVar.o;
-            C1449c c1449c = new C1449c(this, fArr[0], fArr[1], 0.0f, 0.0f);
+            C1451c c1451c = new C1451c(this, fArr[0], fArr[1], 0.0f, 0.0f);
             float f2 = 0.0f;
             float f3 = 0.0f;
             while (i2 < length) {
                 float[] fArr2 = yVar.o;
                 float f4 = fArr2[i2];
                 float f5 = fArr2[i2 + 1];
-                c1449c.a(f4, f5);
-                arrayList.add(c1449c);
+                c1451c.a(f4, f5);
+                arrayList.add(c1451c);
                 i2 += 2;
-                c1449c = new C1449c(this, f4, f5, f4 - c1449c.f31673a, f5 - c1449c.f31674b);
+                c1451c = new C1451c(this, f4, f5, f4 - c1451c.f31677a, f5 - c1451c.f31678b);
                 f3 = f5;
                 f2 = f4;
             }
@@ -3568,15 +3568,15 @@ public class c {
                 if (f2 != fArr3[0] && f3 != fArr3[1]) {
                     float f6 = fArr3[0];
                     float f7 = fArr3[1];
-                    c1449c.a(f6, f7);
-                    arrayList.add(c1449c);
-                    C1449c c1449c2 = new C1449c(this, f6, f7, f6 - c1449c.f31673a, f7 - c1449c.f31674b);
-                    c1449c2.b((C1449c) arrayList.get(0));
-                    arrayList.add(c1449c2);
-                    arrayList.set(0, c1449c2);
+                    c1451c.a(f6, f7);
+                    arrayList.add(c1451c);
+                    C1451c c1451c2 = new C1451c(this, f6, f7, f6 - c1451c.f31677a, f7 - c1451c.f31678b);
+                    c1451c2.b((C1451c) arrayList.get(0));
+                    arrayList.add(c1451c2);
+                    arrayList.set(0, c1451c2);
                 }
             } else {
-                arrayList.add(c1449c);
+                arrayList.add(c1451c);
             }
             return arrayList;
         }
@@ -3591,21 +3591,21 @@ public class c {
             if (oVar == null || iVar.r == null || oVar.k() || iVar.r.k()) {
                 return;
             }
-            W0(this.f31655f, iVar);
+            W0(this.f31659f, iVar);
             if (E() && Y0()) {
                 Matrix matrix = iVar.n;
                 if (matrix != null) {
-                    this.f31650a.concat(matrix);
+                    this.f31654a.concat(matrix);
                 }
                 Path d0 = d0(iVar);
                 U0(iVar);
                 v(iVar);
                 t(iVar);
                 boolean n0 = n0();
-                if (this.f31655f.f31690f) {
+                if (this.f31659f.f31694f) {
                     F(iVar, d0);
                 }
-                if (this.f31655f.f31691g) {
+                if (this.f31659f.f31695g) {
                     G(d0);
                 }
                 if (n0) {
@@ -3630,11 +3630,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048648, this, lVar) == null) {
             C("Group render", new Object[0]);
-            W0(this.f31655f, lVar);
+            W0(this.f31659f, lVar);
             if (E()) {
                 Matrix matrix = lVar.n;
                 if (matrix != null) {
-                    this.f31650a.concat(matrix);
+                    this.f31654a.concat(matrix);
                 }
                 t(lVar);
                 boolean n0 = n0();
@@ -3653,7 +3653,7 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, w0Var)) == null) {
             k kVar = new k(this, null);
             I(w0Var, kVar);
-            return kVar.f31699a;
+            return kVar.f31703a;
         }
         return invokeL.floatValue;
     }
@@ -3669,11 +3669,11 @@ public class c {
             }
             PreserveAspectRatio preserveAspectRatio = nVar.n;
             if (preserveAspectRatio == null) {
-                preserveAspectRatio = PreserveAspectRatio.f69260d;
+                preserveAspectRatio = PreserveAspectRatio.f69295d;
             }
             Bitmap w = w(nVar.o);
             if (w == null) {
-                c.c.a.d e2 = this.f31654e.e();
+                c.c.a.d e2 = this.f31658e.e();
                 if (e2 == null) {
                     return;
                 }
@@ -3683,28 +3683,28 @@ public class c {
                 J("Could not locate image '%s'", nVar.o);
                 return;
             }
-            W0(this.f31655f, nVar);
+            W0(this.f31659f, nVar);
             if (E() && Y0()) {
                 Matrix matrix = nVar.t;
                 if (matrix != null) {
-                    this.f31650a.concat(matrix);
+                    this.f31654a.concat(matrix);
                 }
                 SVG.o oVar3 = nVar.p;
                 float h2 = oVar3 != null ? oVar3.h(this) : 0.0f;
                 SVG.o oVar4 = nVar.q;
-                this.f31655f.f31694j = new SVG.b(h2, oVar4 != null ? oVar4.i(this) : 0.0f, nVar.r.h(this), nVar.s.h(this));
-                if (!this.f31655f.f31689e.z.booleanValue()) {
-                    SVG.b bVar = this.f31655f.f31694j;
-                    O0(bVar.f69277e, bVar.f69278f, bVar.f69279g, bVar.f69280h);
+                this.f31659f.f31698j = new SVG.b(h2, oVar4 != null ? oVar4.i(this) : 0.0f, nVar.r.h(this), nVar.s.h(this));
+                if (!this.f31659f.f31693e.z.booleanValue()) {
+                    SVG.b bVar = this.f31659f.f31698j;
+                    O0(bVar.f69312e, bVar.f69313f, bVar.f69314g, bVar.f69315h);
                 }
                 SVG.b bVar2 = new SVG.b(0.0f, 0.0f, w.getWidth(), w.getHeight());
-                nVar.f69293h = bVar2;
-                this.f31650a.concat(s(this.f31655f.f31694j, bVar2, preserveAspectRatio));
+                nVar.f69328h = bVar2;
+                this.f31654a.concat(s(this.f31659f.f31698j, bVar2, preserveAspectRatio));
                 U0(nVar);
                 t(nVar);
                 boolean n0 = n0();
                 X0();
-                this.f31650a.drawBitmap(w, 0.0f, 0.0f, new Paint());
+                this.f31654a.drawBitmap(w, 0.0f, 0.0f, new Paint());
                 if (n0) {
                     k0(nVar);
                 }
@@ -3728,26 +3728,26 @@ public class c {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048651, this, bVar, bVar2, preserveAspectRatio)) == null) {
             Matrix matrix = new Matrix();
             if (preserveAspectRatio != null && preserveAspectRatio.a() != null) {
-                float f4 = bVar.f69279g / bVar2.f69279g;
-                float f5 = bVar.f69280h / bVar2.f69280h;
-                float f6 = -bVar2.f69277e;
-                float f7 = -bVar2.f69278f;
-                if (preserveAspectRatio.equals(PreserveAspectRatio.f69259c)) {
-                    matrix.preTranslate(bVar.f69277e, bVar.f69278f);
+                float f4 = bVar.f69314g / bVar2.f69314g;
+                float f5 = bVar.f69315h / bVar2.f69315h;
+                float f6 = -bVar2.f69312e;
+                float f7 = -bVar2.f69313f;
+                if (preserveAspectRatio.equals(PreserveAspectRatio.f69294c)) {
+                    matrix.preTranslate(bVar.f69312e, bVar.f69313f);
                     matrix.preScale(f4, f5);
                     matrix.preTranslate(f6, f7);
                     return matrix;
                 }
                 float max = preserveAspectRatio.b() == PreserveAspectRatio.Scale.Slice ? Math.max(f4, f5) : Math.min(f4, f5);
-                float f8 = bVar.f69279g / max;
-                float f9 = bVar.f69280h / max;
-                switch (a.f31660a[preserveAspectRatio.a().ordinal()]) {
+                float f8 = bVar.f69314g / max;
+                float f9 = bVar.f69315h / max;
+                switch (a.f31664a[preserveAspectRatio.a().ordinal()]) {
                     case 1:
                     case 2:
                     case 3:
-                        f3 = (bVar2.f69279g - f8) / 2.0f;
+                        f3 = (bVar2.f69314g - f8) / 2.0f;
                         f6 -= f3;
-                        i2 = a.f31660a[preserveAspectRatio.a().ordinal()];
+                        i2 = a.f31664a[preserveAspectRatio.a().ordinal()];
                         if (i2 != 2) {
                             if (i2 != 3) {
                                 if (i2 != 5) {
@@ -3758,39 +3758,39 @@ public class c {
                                     }
                                 }
                             }
-                            f2 = bVar2.f69280h - f9;
+                            f2 = bVar2.f69315h - f9;
                             f7 -= f2;
-                            matrix.preTranslate(bVar.f69277e, bVar.f69278f);
+                            matrix.preTranslate(bVar.f69312e, bVar.f69313f);
                             matrix.preScale(max, max);
                             matrix.preTranslate(f6, f7);
                             break;
                         }
-                        f2 = (bVar2.f69280h - f9) / 2.0f;
+                        f2 = (bVar2.f69315h - f9) / 2.0f;
                         f7 -= f2;
-                        matrix.preTranslate(bVar.f69277e, bVar.f69278f);
+                        matrix.preTranslate(bVar.f69312e, bVar.f69313f);
                         matrix.preScale(max, max);
                         matrix.preTranslate(f6, f7);
                     case 4:
                     case 5:
                     case 6:
-                        f3 = bVar2.f69279g - f8;
+                        f3 = bVar2.f69314g - f8;
                         f6 -= f3;
-                        i2 = a.f31660a[preserveAspectRatio.a().ordinal()];
+                        i2 = a.f31664a[preserveAspectRatio.a().ordinal()];
                         if (i2 != 2) {
                         }
-                        f2 = (bVar2.f69280h - f9) / 2.0f;
+                        f2 = (bVar2.f69315h - f9) / 2.0f;
                         f7 -= f2;
-                        matrix.preTranslate(bVar.f69277e, bVar.f69278f);
+                        matrix.preTranslate(bVar.f69312e, bVar.f69313f);
                         matrix.preScale(max, max);
                         matrix.preTranslate(f6, f7);
                         break;
                     default:
-                        i2 = a.f31660a[preserveAspectRatio.a().ordinal()];
+                        i2 = a.f31664a[preserveAspectRatio.a().ordinal()];
                         if (i2 != 2) {
                         }
-                        f2 = (bVar2.f69280h - f9) / 2.0f;
+                        f2 = (bVar2.f69315h - f9) / 2.0f;
                         f7 -= f2;
-                        matrix.preTranslate(bVar.f69277e, bVar.f69278f);
+                        matrix.preTranslate(bVar.f69312e, bVar.f69313f);
                         matrix.preScale(max, max);
                         matrix.preTranslate(f6, f7);
                         break;
@@ -3805,11 +3805,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048652, this, pVar) == null) {
             C("Line render", new Object[0]);
-            W0(this.f31655f, pVar);
-            if (E() && Y0() && this.f31655f.f31691g) {
+            W0(this.f31659f, pVar);
+            if (E() && Y0() && this.f31659f.f31695g) {
                 Matrix matrix = pVar.n;
                 if (matrix != null) {
-                    this.f31650a.concat(matrix);
+                    this.f31654a.concat(matrix);
                 }
                 Path e0 = e0(pVar);
                 U0(pVar);
@@ -3828,7 +3828,7 @@ public class c {
     public final void t(SVG.i0 i0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048653, this, i0Var) == null) {
-            u(i0Var, i0Var.f69293h);
+            u(i0Var, i0Var.f69328h);
         }
     }
 
@@ -3839,27 +3839,27 @@ public class c {
             if (uVar.o == null) {
                 return;
             }
-            W0(this.f31655f, uVar);
+            W0(this.f31659f, uVar);
             if (E() && Y0()) {
-                h hVar = this.f31655f;
-                if (hVar.f31691g || hVar.f31690f) {
+                h hVar = this.f31659f;
+                if (hVar.f31695g || hVar.f31694f) {
                     Matrix matrix = uVar.n;
                     if (matrix != null) {
-                        this.f31650a.concat(matrix);
+                        this.f31654a.concat(matrix);
                     }
                     Path f2 = new d(this, uVar.o).f();
-                    if (uVar.f69293h == null) {
-                        uVar.f69293h = q(f2);
+                    if (uVar.f69328h == null) {
+                        uVar.f69328h = q(f2);
                     }
                     U0(uVar);
                     v(uVar);
                     t(uVar);
                     boolean n0 = n0();
-                    if (this.f31655f.f31690f) {
+                    if (this.f31659f.f31694f) {
                         f2.setFillType(Y());
                         F(uVar, f2);
                     }
-                    if (this.f31655f.f31691g) {
+                    if (this.f31659f.f31695g) {
                         G(f2);
                     }
                     I0(uVar);
@@ -3874,17 +3874,17 @@ public class c {
     public final void u(SVG.i0 i0Var, SVG.b bVar) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048655, this, i0Var, bVar) == null) || (str = this.f31655f.f31689e.I) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048655, this, i0Var, bVar) == null) || (str = this.f31659f.f31693e.I) == null) {
             return;
         }
-        SVG.l0 n = i0Var.f69302a.n(str);
+        SVG.l0 n = i0Var.f69337a.n(str);
         if (n == null) {
-            J("ClipPath reference '%s' not found", this.f31655f.f31689e.I);
+            J("ClipPath reference '%s' not found", this.f31659f.f31693e.I);
             return;
         }
         SVG.e eVar = (SVG.e) n;
-        if (eVar.f69288i.isEmpty()) {
-            this.f31650a.clipRect(0, 0, 0, 0);
+        if (eVar.f69323i.isEmpty()) {
+            this.f31654a.clipRect(0, 0, 0, 0);
             return;
         }
         Boolean bool = eVar.o;
@@ -3896,21 +3896,21 @@ public class c {
         B();
         if (!z) {
             Matrix matrix = new Matrix();
-            matrix.preTranslate(bVar.f69277e, bVar.f69278f);
-            matrix.preScale(bVar.f69279g, bVar.f69280h);
-            this.f31650a.concat(matrix);
+            matrix.preTranslate(bVar.f69312e, bVar.f69313f);
+            matrix.preScale(bVar.f69314g, bVar.f69315h);
+            this.f31654a.concat(matrix);
         }
         Matrix matrix2 = eVar.n;
         if (matrix2 != null) {
-            this.f31650a.concat(matrix2);
+            this.f31654a.concat(matrix2);
         }
-        this.f31655f = Q(eVar);
+        this.f31659f = Q(eVar);
         t(eVar);
         Path path = new Path();
-        for (SVG.l0 l0Var : eVar.f69288i) {
+        for (SVG.l0 l0Var : eVar.f69323i) {
             j(l0Var, true, path, new Matrix());
         }
-        this.f31650a.clipPath(path);
+        this.f31654a.clipPath(path);
         A();
     }
 
@@ -3918,13 +3918,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048656, this, yVar) == null) {
             C("PolyLine render", new Object[0]);
-            W0(this.f31655f, yVar);
+            W0(this.f31659f, yVar);
             if (E() && Y0()) {
-                h hVar = this.f31655f;
-                if (hVar.f31691g || hVar.f31690f) {
+                h hVar = this.f31659f;
+                if (hVar.f31695g || hVar.f31694f) {
                     Matrix matrix = yVar.n;
                     if (matrix != null) {
-                        this.f31650a.concat(matrix);
+                        this.f31654a.concat(matrix);
                     }
                     if (yVar.o.length < 2) {
                         return;
@@ -3934,10 +3934,10 @@ public class c {
                     v(yVar);
                     t(yVar);
                     boolean n0 = n0();
-                    if (this.f31655f.f31690f) {
+                    if (this.f31659f.f31694f) {
                         F(yVar, f0);
                     }
-                    if (this.f31655f.f31691g) {
+                    if (this.f31659f.f31695g) {
                         G(f0);
                     }
                     I0(yVar);
@@ -3952,13 +3952,13 @@ public class c {
     public final void v(SVG.i0 i0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048657, this, i0Var) == null) {
-            SVG.m0 m0Var = this.f31655f.f31689e.f69269f;
+            SVG.m0 m0Var = this.f31659f.f31693e.f69304f;
             if (m0Var instanceof SVG.t) {
-                D(true, i0Var.f69293h, (SVG.t) m0Var);
+                D(true, i0Var.f69328h, (SVG.t) m0Var);
             }
-            SVG.m0 m0Var2 = this.f31655f.f31689e.f69272i;
+            SVG.m0 m0Var2 = this.f31659f.f31693e.f69307i;
             if (m0Var2 instanceof SVG.t) {
-                D(false, i0Var.f69293h, (SVG.t) m0Var2);
+                D(false, i0Var.f69328h, (SVG.t) m0Var2);
             }
         }
     }
@@ -3967,13 +3967,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048658, this, zVar) == null) {
             C("Polygon render", new Object[0]);
-            W0(this.f31655f, zVar);
+            W0(this.f31659f, zVar);
             if (E() && Y0()) {
-                h hVar = this.f31655f;
-                if (hVar.f31691g || hVar.f31690f) {
+                h hVar = this.f31659f;
+                if (hVar.f31695g || hVar.f31694f) {
                     Matrix matrix = zVar.n;
                     if (matrix != null) {
-                        this.f31650a.concat(matrix);
+                        this.f31654a.concat(matrix);
                     }
                     if (zVar.o.length < 2) {
                         return;
@@ -3983,10 +3983,10 @@ public class c {
                     v(zVar);
                     t(zVar);
                     boolean n0 = n0();
-                    if (this.f31655f.f31690f) {
+                    if (this.f31659f.f31694f) {
                         F(zVar, f0);
                     }
-                    if (this.f31655f.f31691g) {
+                    if (this.f31659f.f31695g) {
                         G(f0);
                     }
                     I0(zVar);
@@ -4020,21 +4020,21 @@ public class c {
             if (oVar == null || a0Var.r == null || oVar.k() || a0Var.r.k()) {
                 return;
             }
-            W0(this.f31655f, a0Var);
+            W0(this.f31659f, a0Var);
             if (E() && Y0()) {
                 Matrix matrix = a0Var.n;
                 if (matrix != null) {
-                    this.f31650a.concat(matrix);
+                    this.f31654a.concat(matrix);
                 }
                 Path g0 = g0(a0Var);
                 U0(a0Var);
                 v(a0Var);
                 t(a0Var);
                 boolean n0 = n0();
-                if (this.f31655f.f31690f) {
+                if (this.f31659f.f31694f) {
                     F(a0Var, g0);
                 }
-                if (this.f31655f.f31691g) {
+                if (this.f31659f.f31695g) {
                     G(g0);
                 }
                 if (n0) {
@@ -4085,8 +4085,8 @@ public class c {
     public final void y(SVG.l0 l0Var) {
         Boolean bool;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048663, this, l0Var) == null) && (l0Var instanceof SVG.j0) && (bool = ((SVG.j0) l0Var).f69298d) != null) {
-            this.f31655f.l = bool.booleanValue();
+        if ((interceptable == null || interceptable.invokeL(1048663, this, l0Var) == null) && (l0Var instanceof SVG.j0) && (bool = ((SVG.j0) l0Var).f69333d) != null) {
+            this.f31659f.l = bool.booleanValue();
         }
     }
 
@@ -4121,11 +4121,11 @@ public class c {
             if (oVar == null || !oVar.k()) {
                 if (oVar2 == null || !oVar2.k()) {
                     if (preserveAspectRatio == null && (preserveAspectRatio = d0Var.n) == null) {
-                        preserveAspectRatio = PreserveAspectRatio.f69260d;
+                        preserveAspectRatio = PreserveAspectRatio.f69295d;
                     }
-                    W0(this.f31655f, d0Var);
+                    W0(this.f31659f, d0Var);
                     if (E()) {
-                        if (d0Var.f69303b != null) {
+                        if (d0Var.f69338b != null) {
                             SVG.o oVar3 = d0Var.p;
                             float h2 = oVar3 != null ? oVar3.h(this) : 0.0f;
                             SVG.o oVar4 = d0Var.q;
@@ -4135,17 +4135,17 @@ public class c {
                             f2 = 0.0f;
                         }
                         SVG.b W = W();
-                        this.f31655f.f31694j = new SVG.b(r1, f2, oVar != null ? oVar.h(this) : W.f69279g, oVar2 != null ? oVar2.i(this) : W.f69280h);
-                        if (!this.f31655f.f31689e.z.booleanValue()) {
-                            SVG.b bVar2 = this.f31655f.f31694j;
-                            O0(bVar2.f69277e, bVar2.f69278f, bVar2.f69279g, bVar2.f69280h);
+                        this.f31659f.f31698j = new SVG.b(r1, f2, oVar != null ? oVar.h(this) : W.f69314g, oVar2 != null ? oVar2.i(this) : W.f69315h);
+                        if (!this.f31659f.f31693e.z.booleanValue()) {
+                            SVG.b bVar2 = this.f31659f.f31698j;
+                            O0(bVar2.f69312e, bVar2.f69313f, bVar2.f69314g, bVar2.f69315h);
                         }
-                        u(d0Var, this.f31655f.f31694j);
+                        u(d0Var, this.f31659f.f31698j);
                         if (bVar != null) {
-                            this.f31650a.concat(s(this.f31655f.f31694j, bVar, preserveAspectRatio));
-                            this.f31655f.k = d0Var.o;
+                            this.f31654a.concat(s(this.f31659f.f31698j, bVar, preserveAspectRatio));
+                            this.f31659f.k = d0Var.o;
                         } else {
-                            this.f31650a.translate(r1, f2);
+                            this.f31654a.translate(r1, f2);
                         }
                         boolean n0 = n0();
                         X0();
@@ -4166,10 +4166,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public float f31699a;
+        public float f31703a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f31700b;
+        public final /* synthetic */ c f31704b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k(c cVar) {
@@ -4190,15 +4190,15 @@ public class c {
                     return;
                 }
             }
-            this.f31700b = cVar;
-            this.f31699a = 0.0f;
+            this.f31704b = cVar;
+            this.f31703a = 0.0f;
         }
 
         @Override // c.c.a.c.j
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f31699a += this.f31700b.f31655f.f31692h.measureText(str);
+                this.f31703a += this.f31704b.f31659f.f31696h.measureText(str);
             }
         }
 

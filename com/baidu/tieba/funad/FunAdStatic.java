@@ -1,9 +1,9 @@
 package com.baidu.tieba.funad;
 
-import c.a.r0.x0.a;
-import c.a.r0.x0.b;
-import c.a.r0.y0.c;
-import c.a.r0.y0.d;
+import c.a.r0.y0.a;
+import c.a.r0.y0.b;
+import c.a.r0.z0.c;
+import c.a.r0.z0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -64,7 +64,7 @@ public class FunAdStatic {
                 return;
             }
         }
-        b.f28333a.set(new d());
+        b.f28509a.set(new d());
         CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

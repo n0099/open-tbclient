@@ -35,7 +35,7 @@ public class ClickableHeaderImageView extends HeadImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ClickableHeaderImageView f47719e;
+        public final /* synthetic */ ClickableHeaderImageView f47639e;
 
         public a(ClickableHeaderImageView clickableHeaderImageView) {
             Interceptable interceptable = $ic;
@@ -52,26 +52,26 @@ public class ClickableHeaderImageView extends HeadImageView {
                     return;
                 }
             }
-            this.f47719e = clickableHeaderImageView;
+            this.f47639e = clickableHeaderImageView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d dVar = this.f47719e.mInterceptClickEventListener;
-                if ((dVar == null || !dVar.onClickEvent(view)) && this.f47719e.s0 != null) {
-                    MetaData t = this.f47719e.t0 ? this.f47719e.s0.v1().t() : this.f47719e.s0.J();
+                d dVar = this.f47639e.mInterceptClickEventListener;
+                if ((dVar == null || !dVar.onClickEvent(view)) && this.f47639e.s0 != null) {
+                    MetaData t = this.f47639e.t0 ? this.f47639e.s0.v1().t() : this.f47639e.s0.J();
                     if (t == null || StringUtils.isNull(t.getName_show()) || StringUtils.isNull(t.getUserId())) {
                         return;
                     }
                     long g2 = b.g(t.getUserId(), 0L);
-                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.f47719e.getContext()).createNormalConfig(g2, g2 == b.g(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
-                    createNormalConfig.setSourceTid(this.f47719e.s0.s1());
-                    createNormalConfig.setSourceNid(this.f47719e.s0.F0());
+                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.f47639e.getContext()).createNormalConfig(g2, g2 == b.g(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
+                    createNormalConfig.setSourceTid(this.f47639e.s0.s1());
+                    createNormalConfig.setSourceNid(this.f47639e.s0.F0());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
-                    if (this.f47719e.u0 != null) {
-                        this.f47719e.u0.onClick(view);
+                    if (this.f47639e.u0 != null) {
+                        this.f47639e.u0.onClick(view);
                     }
                 }
             }

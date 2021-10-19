@@ -32,11 +32,11 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f67747a;
+    public static volatile d f67782a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f67748b;
+    public AtomicBoolean f67783b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class d {
                 return;
             }
         }
-        this.f67748b = new AtomicBoolean(false);
+        this.f67783b = new AtomicBoolean(false);
     }
 
     private JSONObject c(String str) {
@@ -93,14 +93,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f67747a == null) {
+            if (f67782a == null) {
                 synchronized (d.class) {
-                    if (f67747a == null) {
-                        f67747a = new d();
+                    if (f67782a == null) {
+                        f67782a = new d();
                     }
                 }
             }
-            return f67747a;
+            return f67782a;
         }
         return (d) invokeV.objValue;
     }
@@ -134,7 +134,7 @@ public class d {
                 }
             }
             a(hashSet);
-            this.f67748b.set(false);
+            this.f67783b.set(false);
             return;
         }
         k.b("TmplDiffManager", "end doCheckAndDeleteTask maxTplCnt,local size" + F + ", 目前存储的模版的个数 " + b2.size());
@@ -190,11 +190,11 @@ public class d {
                 k.f("TmplDiffManager", "saveTemplate error: tplInfo == null");
                 return;
             }
-            String str2 = iVar.f67023a;
-            String str3 = iVar.f67025c;
-            String str4 = iVar.f67024b;
-            String str5 = iVar.f67026d;
-            String str6 = iVar.f67027e;
+            String str2 = iVar.f67058a;
+            String str3 = iVar.f67060c;
+            String str4 = iVar.f67059b;
+            String str5 = iVar.f67061d;
+            String str6 = iVar.f67062e;
             if (TextUtils.isEmpty(str)) {
                 str = h.d().h();
             }
@@ -207,25 +207,25 @@ public class d {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f67749a;
+                    public final /* synthetic */ String f67784a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f67750b;
+                    public final /* synthetic */ String f67785b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f67751c;
+                    public final /* synthetic */ String f67786c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f67752d;
+                    public final /* synthetic */ String f67787d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ String f67753e;
+                    public final /* synthetic */ String f67788e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ String f67754f;
+                    public final /* synthetic */ String f67789f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ d f67755g;
+                    public final /* synthetic */ d f67790g;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -245,20 +245,20 @@ public class d {
                                 return;
                             }
                         }
-                        this.f67755g = this;
-                        this.f67749a = str2;
-                        this.f67750b = str3;
-                        this.f67751c = str4;
-                        this.f67752d = str5;
-                        this.f67753e = str6;
-                        this.f67754f = str7;
+                        this.f67790g = this;
+                        this.f67784a = str2;
+                        this.f67785b = str3;
+                        this.f67786c = str4;
+                        this.f67787d = str5;
+                        this.f67788e = str6;
+                        this.f67789f = str7;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f67755g.a(this.f67749a, this.f67750b, this.f67751c, this.f67752d, this.f67753e, this.f67754f);
+                            this.f67790g.a(this.f67784a, this.f67785b, this.f67786c, this.f67787d, this.f67788e, this.f67789f);
                         }
                     }
                 }, 10);

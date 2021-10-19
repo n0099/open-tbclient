@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.livecard;
 
 import c.a.q0.s.q.d2;
-import c.a.r0.j3.g;
-import c.a.r0.j3.h;
-import c.a.r0.v.k.a.d;
-import c.a.r0.v.k.a.e;
-import c.a.r0.v.k.a.f;
-import c.a.r0.w0.e0;
-import c.a.r0.w0.f0;
+import c.a.r0.k3.g;
+import c.a.r0.k3.h;
+import c.a.r0.w.k.a.d;
+import c.a.r0.w.k.a.e;
+import c.a.r0.w.k.a.f;
+import c.a.r0.x0.e0;
+import c.a.r0.x0.f0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -65,11 +65,11 @@ public class Static {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                 CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
-                absDelegateAdapterList.add(new c.a.r0.v.k.a.c(null, d2.z3, null));
+                absDelegateAdapterList.add(new c.a.r0.w.k.a.c(null, d2.z3, null));
                 absDelegateAdapterList.add(new f(null, d2.y3, null));
                 absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, d2.A3, null));
-                absDelegateAdapterList.add(new c.a.r0.v.k.a.a(null, g.f20809g, null));
-                absDelegateAdapterList.add(new d(null, h.f20821f, null));
+                absDelegateAdapterList.add(new c.a.r0.w.k.a.a(null, g.f20987g, null));
+                absDelegateAdapterList.add(new d(null, h.f20999f, null));
             }
         }
     }
@@ -105,10 +105,10 @@ public class Static {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003022 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new c.a.r0.v.k.a.c(null, d2.z3, null));
+                absDelegateAdapterList.add(new c.a.r0.w.k.a.c(null, d2.z3, null));
                 absDelegateAdapterList.add(new e(null, d2.y3, null));
                 absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, d2.A3, null));
-                absDelegateAdapterList.add(new e(null, h.f20821f, null));
+                absDelegateAdapterList.add(new e(null, h.f20999f, null));
             }
         }
     }
@@ -144,8 +144,8 @@ public class Static {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof e0)) {
                 e0 e0Var = (e0) customResponsedMessage.getData();
-                c.a.r0.v.k.c.a aVar = new c.a.r0.v.k.c.a();
-                aVar.h(e0Var.f26592e);
+                c.a.r0.w.k.c.a aVar = new c.a.r0.w.k.c.a();
+                aVar.h(e0Var.f26767e);
                 e0Var.a(49, aVar);
             }
         }

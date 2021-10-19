@@ -14,7 +14,7 @@ public class gs implements av.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f78060a;
+    public int f78095a;
 
     /* renamed from: a  reason: collision with other field name */
     public fl f454a;
@@ -48,7 +48,7 @@ public class gs implements av.b.a {
         }
         this.f458a = false;
         this.f455a = xMPushService;
-        this.f457a = av.c.f78464b;
+        this.f457a = av.c.f78499b;
         this.f456a = bVar;
     }
 
@@ -72,11 +72,11 @@ public class gs implements av.b.a {
             return;
         }
         b();
-        if (!this.f458a || this.f78060a == 11) {
+        if (!this.f458a || this.f78095a == 11) {
             return;
         }
         ex m368a = gx.m366a().m368a();
-        int i2 = gu.f78062a[this.f457a.ordinal()];
+        int i2 = gu.f78097a[this.f457a.ordinal()];
         if (i2 != 1) {
             if (i2 == 3) {
                 ewVar = ew.H;
@@ -86,7 +86,7 @@ public class gs implements av.b.a {
                 m368a.d(this.f456a.f918b);
                 m368a.f352b = 1;
                 try {
-                    m368a.a((byte) Integer.parseInt(this.f456a.f78455g));
+                    m368a.a((byte) Integer.parseInt(this.f456a.f78490g));
                 } catch (NumberFormatException unused) {
                 }
                 gx.m366a().a(m368a);
@@ -94,7 +94,7 @@ public class gs implements av.b.a {
             }
             return;
         }
-        int i3 = this.f78060a;
+        int i3 = this.f78095a;
         if (i3 == 17) {
             ewVar = ew.L;
         } else if (i3 == 21) {
@@ -102,7 +102,7 @@ public class gs implements av.b.a {
         } else {
             try {
                 gv.a c2 = gv.c(gx.a().a());
-                m368a.f349a = c2.f78063a.a();
+                m368a.f349a = c2.f78098a.a();
                 m368a.c(c2.f459a);
             } catch (NullPointerException unused2) {
                 m368a = null;
@@ -127,9 +127,9 @@ public class gs implements av.b.a {
     public void a(av.c cVar, av.c cVar2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, i2) == null) {
-            if (!this.f458a && cVar == av.c.f78464b) {
+            if (!this.f458a && cVar == av.c.f78499b) {
                 this.f457a = cVar2;
-                this.f78060a = i2;
+                this.f78095a = i2;
                 this.f458a = true;
             }
             this.f455a.a(new gt(this, 4));

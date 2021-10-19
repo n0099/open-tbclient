@@ -55,7 +55,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
                     return;
                 }
             }
-            this.data = BloomFilterStrategies.a.g(bloomFilter.bits.f71117a);
+            this.data = BloomFilterStrategies.a.g(bloomFilter.bits.f71152a);
             this.numHashFunctions = bloomFilter.numHashFunctions;
             this.funnel = bloomFilter.funnel;
             this.strategy = bloomFilter.strategy;
@@ -266,9 +266,9 @@ public final class BloomFilter<T> implements o<T>, Serializable {
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
             dataOutputStream.writeByte(SignedBytes.a(this.strategy.ordinal()));
             dataOutputStream.writeByte(b.a(this.numHashFunctions));
-            dataOutputStream.writeInt(this.bits.f71117a.length());
-            for (int i2 = 0; i2 < this.bits.f71117a.length(); i2++) {
-                dataOutputStream.writeLong(this.bits.f71117a.get(i2));
+            dataOutputStream.writeInt(this.bits.f71152a.length());
+            for (int i2 = 0; i2 < this.bits.f71152a.length(); i2++) {
+                dataOutputStream.writeLong(this.bits.f71152a.get(i2));
             }
         }
     }

@@ -17,21 +17,21 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42415a;
+    public int f42419a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42416b;
+    public int f42420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f42417c;
+    public ExecutorService f42421c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static abstract class AbstractRunnableC1673a implements Runnable {
+    public static abstract class AbstractRunnableC1675a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public AbstractRunnableC1673a() {
+        public AbstractRunnableC1675a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,7 +45,7 @@ public class a {
             }
         }
 
-        public /* synthetic */ AbstractRunnableC1673a(b bVar) {
+        public /* synthetic */ AbstractRunnableC1675a(b bVar) {
             this();
         }
 
@@ -91,9 +91,9 @@ public class a {
                 return;
             }
         }
-        this.f42415a = 4000;
-        this.f42416b = 4000;
-        this.f42417c = Executors.newCachedThreadPool();
+        this.f42419a = 4000;
+        this.f42420b = 4000;
+        this.f42421c = Executors.newCachedThreadPool();
     }
 
     public void a(String str, e eVar) {
@@ -102,7 +102,7 @@ public class a {
             if (str == null || str.isEmpty()) {
                 throw new IllegalArgumentException("Request URL cannot be null");
             }
-            this.f42417c.submit(new b(this, eVar, str));
+            this.f42421c.submit(new b(this, eVar, str));
         }
     }
 }

@@ -125,7 +125,7 @@ public class a {
             aVar.f6365c = prefetchEvent.pageType;
             String c2 = c.a.p0.a.a2.n.b.c(prefetchEvent.appPath, o0.f(j.b(prefetchEvent.pageUrl)));
             aVar.f6369g = c2;
-            aVar.f6366d = g.b(c2, F.f46659e).f4617g;
+            aVar.f6366d = g.b(c2, F.f46571e).f4617g;
             aVar.f6367e = prefetchEvent.isT7Available;
             aVar.f6371i = prefetchEvent.sConsole;
             if (f6362j) {

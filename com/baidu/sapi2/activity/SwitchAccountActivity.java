@@ -50,7 +50,7 @@ public class SwitchAccountActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SwitchAccountActivity f44858a;
+            public final /* synthetic */ SwitchAccountActivity f44770a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -67,14 +67,14 @@ public class SwitchAccountActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f44858a = this;
+                this.f44770a = this;
             }
 
             @Override // com.baidu.sapi2.shell.result.WebAuthResult
             public void finishActivity() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f44858a.finish();
+                    this.f44770a.finish();
                     CoreViewRouter.getInstance().release();
                 }
             }
@@ -173,7 +173,7 @@ public class SwitchAccountActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SwitchAccountActivity f44859a;
+                public final /* synthetic */ SwitchAccountActivity f44771a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -190,14 +190,14 @@ public class SwitchAccountActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44859a = this;
+                    this.f44771a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f44859a.onClose();
+                        this.f44771a.onClose();
                     }
                 }
             });
@@ -206,7 +206,7 @@ public class SwitchAccountActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SwitchAccountActivity f44860a;
+                public final /* synthetic */ SwitchAccountActivity f44772a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -223,7 +223,7 @@ public class SwitchAccountActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44860a = this;
+                    this.f44772a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
@@ -231,7 +231,7 @@ public class SwitchAccountActivity extends BaseActivity {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        this.f44860a.a();
+                        this.f44772a.a();
                         return false;
                     }
                     return invokeV.booleanValue;
@@ -242,7 +242,7 @@ public class SwitchAccountActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SwitchAccountActivity f44861a;
+                public final /* synthetic */ SwitchAccountActivity f44773a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -259,14 +259,14 @@ public class SwitchAccountActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44861a = this;
+                    this.f44773a = this;
                 }
 
                 @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
                 public void onFailed(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        this.f44861a.a(i2, str);
+                        this.f44773a.a(i2, str);
                     }
                 }
 
@@ -275,7 +275,7 @@ public class SwitchAccountActivity extends BaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountType) == null) {
                         super.onSuccess();
-                        this.f44861a.a(accountType);
+                        this.f44773a.a(accountType);
                     }
                 }
             });
@@ -284,7 +284,7 @@ public class SwitchAccountActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SwitchAccountActivity f44862a;
+                public final /* synthetic */ SwitchAccountActivity f44774a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -301,7 +301,7 @@ public class SwitchAccountActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44862a = this;
+                    this.f44774a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.SwitchAccountCallback
@@ -327,12 +327,12 @@ public class SwitchAccountActivity extends BaseActivity {
                         if (!TextUtils.isEmpty(result.extraJson)) {
                             webLoginDTO.extraJson = result.extraJson;
                         }
-                        CoreViewRouter.getInstance().startLogin(this.f44862a, new WebAuthListener(this) { // from class: com.baidu.sapi2.activity.SwitchAccountActivity.5.1
+                        CoreViewRouter.getInstance().startLogin(this.f44774a, new WebAuthListener(this) { // from class: com.baidu.sapi2.activity.SwitchAccountActivity.5.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass5 f44863a;
+                            public final /* synthetic */ AnonymousClass5 f44775a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -349,7 +349,7 @@ public class SwitchAccountActivity extends BaseActivity {
                                         return;
                                     }
                                 }
-                                this.f44863a = this;
+                                this.f44775a = this;
                             }
 
                             /* JADX DEBUG: Method merged with bridge method */
@@ -357,7 +357,7 @@ public class SwitchAccountActivity extends BaseActivity {
                             public void onFailure(WebAuthResult webAuthResult) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                                    this.f44863a.f44862a.a(webAuthResult.getResultCode(), webAuthResult.getResultMsg());
+                                    this.f44775a.f44774a.a(webAuthResult.getResultCode(), webAuthResult.getResultMsg());
                                 }
                             }
 
@@ -367,11 +367,11 @@ public class SwitchAccountActivity extends BaseActivity {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048579, this, webAuthResult) == null) {
                                     webAuthResult.finishActivity(false);
-                                    this.f44863a.f44862a.a(webAuthResult.accountType);
-                                    if (this.f44863a.f44862a.sapiWebView != null) {
+                                    this.f44775a.f44774a.a(webAuthResult.accountType);
+                                    if (this.f44775a.f44774a.sapiWebView != null) {
                                         ArrayList arrayList = new ArrayList();
                                         arrayList.add(new PassNameValuePair("changeAccountSuc", "1"));
-                                        this.f44863a.f44862a.sapiWebView.loadSwitchAccount(arrayList);
+                                        this.f44775a.f44774a.sapiWebView.loadSwitchAccount(arrayList);
                                     }
                                 }
                             }

@@ -26,10 +26,10 @@ public class VAdError extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64691a;
+    public int f64726a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f64692b;
+    public long f64727b;
     public final i networkResponse;
 
     public VAdError(i iVar) {
@@ -53,26 +53,26 @@ public class VAdError extends Exception {
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64691a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64726a : invokeV.intValue;
     }
 
     public long getNetworkTimeMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64692b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64727b : invokeV.longValue;
     }
 
     public void setErrorCode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f64691a = i2;
+            this.f64726a = i2;
         }
     }
 
     public void setNetworkTimeMs(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f64692b = j2;
+            this.f64727b = j2;
         }
     }
 
@@ -92,7 +92,7 @@ public class VAdError extends Exception {
             }
         }
         this.networkResponse = null;
-        this.f64691a = i2;
+        this.f64726a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -114,7 +114,7 @@ public class VAdError extends Exception {
             }
         }
         this.networkResponse = null;
-        this.f64691a = i2;
+        this.f64726a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -137,7 +137,7 @@ public class VAdError extends Exception {
             }
         }
         this.networkResponse = null;
-        this.f64691a = i2;
+        this.f64726a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -159,6 +159,6 @@ public class VAdError extends Exception {
             }
         }
         this.networkResponse = null;
-        this.f64691a = i2;
+        this.f64726a = i2;
     }
 }

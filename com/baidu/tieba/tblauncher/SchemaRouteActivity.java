@@ -12,7 +12,7 @@ import c.a.e.a.b;
 import c.a.q0.a.d;
 import c.a.q0.a.g;
 import c.a.q0.a.w;
-import c.a.r0.j3.i0.n;
+import c.a.r0.k3.i0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -65,7 +65,7 @@ public class SchemaRouteActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SchemaRouteActivity f57430a;
+        public final /* synthetic */ SchemaRouteActivity f57364a;
 
         public a(SchemaRouteActivity schemaRouteActivity) {
             Interceptable interceptable = $ic;
@@ -82,17 +82,17 @@ public class SchemaRouteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f57430a = schemaRouteActivity;
+            this.f57364a = schemaRouteActivity;
         }
 
         @Override // c.a.q0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.w) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f57430a.getActivity(), null, (String) hashMap.get(g.w), true);
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f57364a.getActivity(), null, (String) hashMap.get(g.w), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
                 tbWebViewActivityConfig.setUri((Uri) hashMap.get(g.K));
-                this.f57430a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+                this.f57364a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
         }
     }
@@ -139,7 +139,7 @@ public class SchemaRouteActivity extends BaseActivity {
             d.y().L(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbpb") || dataString.contains("unidispatch/pb"))) {
             if ("tbpb://tieba.baidu.com".equals(dataString)) {
-                if (b.f().h("MainTabActivity")) {
+                if (b.g().i("MainTabActivity")) {
                     return;
                 }
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
@@ -178,7 +178,7 @@ public class SchemaRouteActivity extends BaseActivity {
             sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
             d.y().L(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("unidispatch/openapp") || dataString.contains("donothing"))) {
-            if (!b.f().h("MainTabActivity")) {
+            if (!b.g().i("MainTabActivity")) {
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
             }
             d.y().L(true);
@@ -432,7 +432,7 @@ public class SchemaRouteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             if (TbadkCoreApplication.getInst().getStartType() == 2) {
-                c.a.q0.b0.a.f12792a = true;
+                c.a.q0.b0.a.f12798a = true;
             }
             super.onCreate(bundle);
             checkSchema(getIntent());

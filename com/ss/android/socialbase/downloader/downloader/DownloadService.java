@@ -20,11 +20,11 @@ public class DownloadService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f76211b;
+    public static final String f76246b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public p f76212a;
+    public p f76247a;
 
     /* loaded from: classes10.dex */
     public class a implements Runnable {
@@ -32,16 +32,16 @@ public class DownloadService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f76213e;
+        public final /* synthetic */ Intent f76248e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f76214f;
+        public final /* synthetic */ int f76249f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f76215g;
+        public final /* synthetic */ int f76250g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DownloadService f76216h;
+        public final /* synthetic */ DownloadService f76251h;
 
         public a(DownloadService downloadService, Intent intent, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -58,20 +58,20 @@ public class DownloadService extends Service {
                     return;
                 }
             }
-            this.f76216h = downloadService;
-            this.f76213e = intent;
-            this.f76214f = i2;
-            this.f76215g = i3;
+            this.f76251h = downloadService;
+            this.f76248e = intent;
+            this.f76249f = i2;
+            this.f76250g = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             p pVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pVar = this.f76216h.f76212a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pVar = this.f76251h.f76247a) == null) {
                 return;
             }
-            pVar.a(this.f76213e, this.f76214f, this.f76215g);
+            pVar.a(this.f76248e, this.f76249f, this.f76250g);
         }
     }
 
@@ -88,7 +88,7 @@ public class DownloadService extends Service {
                 return;
             }
         }
-        f76211b = DownloadService.class.getSimpleName();
+        f76246b = DownloadService.class.getSimpleName();
     }
 
     public DownloadService() {
@@ -110,12 +110,12 @@ public class DownloadService extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            String str = f76211b;
+            String str = f76246b;
             StringBuilder sb = new StringBuilder();
             sb.append("onBind downloadServiceHandler != null:");
-            sb.append(this.f76212a != null);
+            sb.append(this.f76247a != null);
             c.p.a.e.b.c.a.g(str, sb.toString());
-            p pVar = this.f76212a;
+            p pVar = this.f76247a;
             if (pVar != null) {
                 return pVar.a(intent);
             }
@@ -131,7 +131,7 @@ public class DownloadService extends Service {
             super.onCreate();
             e.C(this);
             p N0 = e.N0();
-            this.f76212a = N0;
+            this.f76247a = N0;
             N0.c(new WeakReference(this));
         }
     }
@@ -141,12 +141,12 @@ public class DownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (c.p.a.e.b.c.a.e()) {
-                c.p.a.e.b.c.a.g(f76211b, "Service onDestroy");
+                c.p.a.e.b.c.a.g(f76246b, "Service onDestroy");
             }
-            p pVar = this.f76212a;
+            p pVar = this.f76247a;
             if (pVar != null) {
                 pVar.d();
-                this.f76212a = null;
+                this.f76247a = null;
             }
             super.onDestroy();
         }
@@ -158,9 +158,9 @@ public class DownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i2, i3)) == null) {
             if (c.p.a.e.b.c.a.e()) {
-                c.p.a.e.b.c.a.g(f76211b, "DownloadService onStartCommand");
+                c.p.a.e.b.c.a.g(f76246b, "DownloadService onStartCommand");
             }
-            this.f76212a.c();
+            this.f76247a.c();
             ExecutorService A0 = e.A0();
             if (A0 != null) {
                 A0.execute(new a(this, intent, i2, i3));

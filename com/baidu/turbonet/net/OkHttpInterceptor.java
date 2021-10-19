@@ -13,7 +13,7 @@ public class OkHttpInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Field f59561a;
+    public static Field f59596a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,10 +31,10 @@ public class OkHttpInterceptor implements Interceptor {
         }
         try {
             Field declaredField = RealResponseBody.class.getDeclaredField("source");
-            f59561a = declaredField;
+            f59596a = declaredField;
             declaredField.setAccessible(true);
         } catch (NoSuchFieldException unused) {
-            f59561a = null;
+            f59596a = null;
         }
     }
 }

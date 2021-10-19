@@ -160,7 +160,7 @@ public class FullBrowseHelper {
                             if ((data instanceof IntentConfig) && ((IntentConfig) data).getContext() != null) {
                                 Class<?> cls = data.getClass();
                                 if (LoginActivityConfig.class == cls) {
-                                    FullBrowseHelper.showDialog(j.a(c.a.e.a.b.f().b()), new IAcceptPrivacyConfirm(this, customMessage) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.5.1
+                                    FullBrowseHelper.showDialog(j.a(c.a.e.a.b.g().b()), new IAcceptPrivacyConfirm(this, customMessage) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.5.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
                                         public final /* synthetic */ AnonymousClass5 this$0;
@@ -200,12 +200,12 @@ public class FullBrowseHelper {
                                     return null;
                                 } else if (MainTabActivityConfig.class != cls && PbActivityConfig.class != cls && FrsActivityConfig.class != cls && ImageViewerConfig.class != cls && LogoActivityConfig.class != cls) {
                                     if (InterestGuideActivityConfig.class != cls && NewUserRedPackageActivityConfig.class != cls) {
-                                        FullBrowseHelper.showDialog(j.a(c.a.e.a.b.f().b()), null);
+                                        FullBrowseHelper.showDialog(j.a(c.a.e.a.b.g().b()), null);
                                     }
                                     return null;
                                 }
                             } else if (customMessage.getCmd() == 2002015 || customMessage.getCmd() == 2921361) {
-                                FullBrowseHelper.showDialog(j.a(c.a.e.a.b.f().b()), null);
+                                FullBrowseHelper.showDialog(j.a(c.a.e.a.b.g().b()), null);
                                 return null;
                             }
                         }
@@ -224,7 +224,7 @@ public class FullBrowseHelper {
             TextView textView = (TextView) inflate.findViewById(R.id.private_title);
             inflate.findViewById(R.id.protocol_layout).setVisibility(0);
             TextView textView2 = (TextView) inflate.findViewById(R.id.protocol_scrollable_textview);
-            c.d(textView2).w(R.color.CAM_X0107);
+            c.d(textView2).v(R.color.CAM_X0107);
             textView2.setHighlightColor(0);
             TextView textView3 = (TextView) inflate.findViewById(R.id.private_yes);
             TextView textView4 = (TextView) inflate.findViewById(R.id.private_no);
@@ -312,7 +312,7 @@ public class FullBrowseHelper {
             aVar.setAutoNight(true);
             aVar.setCancelable(false);
             c d2 = c.d(textView3);
-            d2.o(R.string.J_X07);
+            d2.n(R.string.J_X07);
             d2.f(R.color.CAM_X0303);
             SkinManager.setViewTextColorSelector(textView3, R.color.CAM_X0101, R.color.CAM_X0618, 0);
             int i2 = R.color.CAM_X0110;
@@ -394,13 +394,13 @@ public class FullBrowseHelper {
             aVar.create(fVar);
             aVar.show();
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE).addParam("obj_type", 4));
-            c.d(textView).w(R.color.CAM_X0105);
+            c.d(textView).v(R.color.CAM_X0105);
             WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.full_browse_image1), R.drawable.full_mode_icon_mask_recommend1, null);
-            c.d((TextView) inflate.findViewById(R.id.full_browse_image_text1)).w(R.color.CAM_X0105);
+            c.d((TextView) inflate.findViewById(R.id.full_browse_image_text1)).v(R.color.CAM_X0105);
             WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.full_browse_image2), R.drawable.full_mode_icon_mask_interaction2, null);
-            c.d((TextView) inflate.findViewById(R.id.full_browse_image_text2)).w(R.color.CAM_X0105);
+            c.d((TextView) inflate.findViewById(R.id.full_browse_image_text2)).v(R.color.CAM_X0105);
             WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.full_browse_image3), R.drawable.full_mode_icon_mask_lssue3, null);
-            c.d((TextView) inflate.findViewById(R.id.full_browse_image_text3)).w(R.color.CAM_X0105);
+            c.d((TextView) inflate.findViewById(R.id.full_browse_image_text3)).v(R.color.CAM_X0105);
         }
     }
 }

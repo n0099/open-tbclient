@@ -22,20 +22,20 @@ public class c implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f36229d;
+    public static c f36233d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static DataReportResult f36230e;
+    public static DataReportResult f36234e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public w f36231a;
+    public w f36235a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BugTrackMessageService f36232b;
+    public BugTrackMessageService f36236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DataReportService f36233c;
+    public DataReportService f36237c;
 
     static {
         InterceptResult invokeClinit;
@@ -67,15 +67,15 @@ public class c implements a {
                 return;
             }
         }
-        this.f36231a = null;
-        this.f36232b = null;
-        this.f36233c = null;
+        this.f36235a = null;
+        this.f36236b = null;
+        this.f36237c = null;
         aa aaVar = new aa();
         aaVar.a(str);
         h hVar = new h(context);
-        this.f36231a = hVar;
-        this.f36232b = (BugTrackMessageService) hVar.a(BugTrackMessageService.class, aaVar);
-        this.f36233c = (DataReportService) this.f36231a.a(DataReportService.class, aaVar);
+        this.f36235a = hVar;
+        this.f36236b = (BugTrackMessageService) hVar.a(BugTrackMessageService.class, aaVar);
+        this.f36237c = (DataReportService) this.f36235a.a(DataReportService.class, aaVar);
     }
 
     public static synchronized c a(Context context, String str) {
@@ -84,10 +84,10 @@ public class c implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             synchronized (c.class) {
-                if (f36229d == null) {
-                    f36229d = new c(context, str);
+                if (f36233d == null) {
+                    f36233d = new c(context, str);
                 }
-                cVar = f36229d;
+                cVar = f36233d;
             }
             return cVar;
         }
@@ -102,14 +102,14 @@ public class c implements a {
             if (dataReportRequest == null) {
                 return null;
             }
-            if (this.f36233c != null) {
-                f36230e = null;
+            if (this.f36237c != null) {
+                f36234e = null;
                 new Thread(new b(this, dataReportRequest)).start();
-                for (int i2 = 300000; f36230e == null && i2 >= 0; i2 -= 50) {
+                for (int i2 = 300000; f36234e == null && i2 >= 0; i2 -= 50) {
                     Thread.sleep(50L);
                 }
             }
-            return f36230e;
+            return f36234e;
         }
         return (DataReportResult) invokeL.objValue;
     }
@@ -120,7 +120,7 @@ public class c implements a {
         BugTrackMessageService bugTrackMessageService;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (com.alipay.security.mobile.module.a.a.a(str) || (bugTrackMessageService = this.f36232b) == null) {
+            if (com.alipay.security.mobile.module.a.a.a(str) || (bugTrackMessageService = this.f36236b) == null) {
                 return false;
             }
             String str2 = null;

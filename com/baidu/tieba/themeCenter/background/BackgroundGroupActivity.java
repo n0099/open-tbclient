@@ -1,10 +1,10 @@
 package com.baidu.tieba.themeCenter.background;
 
 import android.os.Bundle;
-import c.a.r0.p3.e.b;
-import c.a.r0.p3.e.c;
-import c.a.r0.p3.e.d;
-import c.a.r0.p3.h.e;
+import c.a.r0.q3.e.b;
+import c.a.r0.q3.e.c;
+import c.a.r0.q3.e.d;
+import c.a.r0.q3.h.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -32,7 +32,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundGroupActivity f57530a;
+        public final /* synthetic */ BackgroundGroupActivity f57464a;
 
         public a(BackgroundGroupActivity backgroundGroupActivity) {
             Interceptable interceptable = $ic;
@@ -49,22 +49,22 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     return;
                 }
             }
-            this.f57530a = backgroundGroupActivity;
+            this.f57464a = backgroundGroupActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
         public void a(int i2, String str, e eVar, List<b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                BackgroundGroupActivity backgroundGroupActivity = this.f57530a;
+                BackgroundGroupActivity backgroundGroupActivity = this.f57464a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.mView.d());
-                this.f57530a.mView.i();
+                this.f57464a.mView.i();
                 if (i2 == 0) {
-                    this.f57530a.mView.k(eVar, list, this.f57530a.mModel.F());
+                    this.f57464a.mView.k(eVar, list, this.f57464a.mModel.F());
                     return;
                 }
-                this.f57530a.showToast(str);
-                this.f57530a.mView.j();
+                this.f57464a.showToast(str);
+                this.f57464a.mView.j();
             }
         }
     }
@@ -99,7 +99,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             c.a.q0.o0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f13624a = true;
+                pageStayDurationItem.f13644a = true;
             }
             return pageStayDurationItem;
         }
@@ -141,7 +141,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             this.mView = cVar;
             cVar.e();
             showLoadingView(this.mView.d());
-            this.mModel.LoadData();
+            this.mModel.loadData();
         }
     }
 
@@ -161,7 +161,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             return;
         }
         showLoadingView(cVar.d());
-        this.mModel.LoadData();
+        this.mModel.loadData();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -172,7 +172,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             if (TbadkCoreApplication.getInst().getThemeWebviewOpen()) {
                 TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
                 showLoadingView(this.mView.d());
-                this.mModel.LoadData();
+                this.mModel.loadData();
             }
         }
     }

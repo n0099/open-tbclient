@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 import c.a.e.e.p.j;
 import c.a.q0.m.a;
-import c.a.r0.x3.h;
+import c.a.r0.y3.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -24,7 +24,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f58216h;
+    public TextView f58160h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoNetworkStateTipView(Context context) {
@@ -50,7 +50,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f58216h = (TextView) findViewById(R.id.video_net_tip_duration);
+            this.f58160h = (TextView) findViewById(R.id.video_net_tip_duration);
         }
     }
 
@@ -83,7 +83,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
             return;
         }
         if (view.getId() == R.id.free_flow) {
-            a.u(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+            a.w(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
         } else if (view.getId() != R.id.play || (onClickListener = this.mOutClickListener) == null) {
         } else {
             onClickListener.onClick(view);
@@ -96,7 +96,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f58216h.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
+        this.f58160h.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

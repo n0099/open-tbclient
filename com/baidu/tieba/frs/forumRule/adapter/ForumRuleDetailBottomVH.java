@@ -28,7 +28,7 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f51239a;
+    public View f51166a;
     public BarImageView mBarManagementHeadView;
     public EMTextView mBarManagementRevise;
     public EMTextView mBarManagementTitle;
@@ -56,7 +56,7 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f51239a = view;
+        this.f51166a = view;
         BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_rules_bar_management_head_view);
         this.mBarManagementHeadView = barImageView;
         barImageView.setShowOval(true);
@@ -95,19 +95,19 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f51239a, R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(this.f51166a, R.color.CAM_X0205);
             c d2 = c.d(this.mBarManagementTitle);
-            d2.B(R.string.F_X01);
-            d2.w(R.color.CAM_X0105);
+            d2.A(R.string.F_X01);
+            d2.v(R.color.CAM_X0105);
             c d3 = c.d(this.mBarManagementRevise);
-            d3.B(R.string.F_X01);
-            d3.w(R.color.CAM_X0109);
+            d3.A(R.string.F_X01);
+            d3.v(R.color.CAM_X0109);
             c d4 = c.d(this.mChargerOfBarTitle);
-            d4.B(R.string.F_X01);
-            d4.w(R.color.CAM_X0105);
+            d4.A(R.string.F_X01);
+            d4.v(R.color.CAM_X0105);
             c d5 = c.d(this.mTimeRevise);
-            d5.B(R.string.F_X01);
-            d5.w(R.color.CAM_X0109);
+            d5.A(R.string.F_X01);
+            d5.v(R.color.CAM_X0109);
             this.mHeadViewIndex.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_pb_barservice14, WebPManager.ResourceStateType.NORMAL));
             this.mChargerOfBarHeadView.setSkinType(i2);
             SkinManager.setBackgroundColor(this.mCrossLine, R.color.CAM_X0111);

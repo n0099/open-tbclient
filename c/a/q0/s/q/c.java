@@ -15,36 +15,36 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f14102a;
+    public boolean f14123a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14103b;
+    public String f14124b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14104c;
+    public String f14125c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14105d;
+    public String f14126d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f14106e;
+    public float f14127e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14107f;
+    public String f14128f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public b f14108g;
+    public b f14129g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public a f14109h;
+    public a f14130h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f14110i;
+    public String f14131i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f14111j;
+    public String f14132j;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -52,10 +52,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f14112a;
+        public String f14133a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f14113b;
+        public String f14134b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -80,11 +80,11 @@ public class c {
                     return null;
                 }
                 a aVar = new a();
-                aVar.f14112a = jSONObject.optString("desc", DisplayInfoView.AUTH_TEXT);
+                aVar.f14133a = jSONObject.optString("desc", DisplayInfoView.AUTH_TEXT);
                 String optString = jSONObject.optString("url");
-                aVar.f14113b = optString;
+                aVar.f14134b = optString;
                 if (TextUtils.isEmpty(optString)) {
-                    aVar.f14113b = jSONObject.optString("cmd");
+                    aVar.f14134b = jSONObject.optString("cmd");
                 }
                 return aVar;
             }
@@ -98,10 +98,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f14114a;
+        public String f14135a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f14115b;
+        public String f14136b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -126,11 +126,11 @@ public class c {
                     return null;
                 }
                 b bVar = new b();
-                bVar.f14114a = jSONObject.optString("desc", DisplayInfoView.PRI_TEXT);
+                bVar.f14135a = jSONObject.optString("desc", DisplayInfoView.PRI_TEXT);
                 String optString = jSONObject.optString("url");
-                bVar.f14115b = optString;
+                bVar.f14136b = optString;
                 if (TextUtils.isEmpty(optString)) {
-                    bVar.f14115b = jSONObject.optString("cmd");
+                    bVar.f14136b = jSONObject.optString("cmd");
                 }
                 return bVar;
             }
@@ -151,7 +151,7 @@ public class c {
                 return;
             }
         }
-        this.f14106e = -1.0f;
+        this.f14127e = -1.0f;
     }
 
     public static boolean a(c cVar) {
@@ -163,7 +163,7 @@ public class c {
             if (cVar == null) {
                 return false;
             }
-            return (TextUtils.isEmpty(cVar.f14107f) && TextUtils.isEmpty(cVar.f14105d) && ((bVar = cVar.f14108g) == null || TextUtils.isEmpty(bVar.f14114a)) && ((aVar = cVar.f14109h) == null || TextUtils.isEmpty(aVar.f14112a))) ? false : true;
+            return (TextUtils.isEmpty(cVar.f14128f) && TextUtils.isEmpty(cVar.f14126d) && ((bVar = cVar.f14129g) == null || TextUtils.isEmpty(bVar.f14135a)) && ((aVar = cVar.f14130h) == null || TextUtils.isEmpty(aVar.f14133a))) ? false : true;
         }
         return invokeL.booleanValue;
     }
@@ -177,24 +177,24 @@ public class c {
                 return null;
             }
             c cVar = new c();
-            cVar.f14102a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
-            cVar.f14103b = jSONObject.optString("app_icon");
-            cVar.f14104c = jSONObject.optString("app_name");
-            cVar.f14105d = jSONObject.optString("developer_name");
-            cVar.f14107f = jSONObject.optString("version");
-            cVar.f14108g = b.a(jSONObject.optJSONObject("privacy"));
-            cVar.f14109h = a.a(jSONObject.optJSONObject("permission"));
-            cVar.f14110i = jSONObject.optString("apk_size");
-            cVar.f14111j = jSONObject.optString("apk_url");
+            cVar.f14123a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
+            cVar.f14124b = jSONObject.optString("app_icon");
+            cVar.f14125c = jSONObject.optString("app_name");
+            cVar.f14126d = jSONObject.optString("developer_name");
+            cVar.f14128f = jSONObject.optString("version");
+            cVar.f14129g = b.a(jSONObject.optJSONObject("privacy"));
+            cVar.f14130h = a.a(jSONObject.optJSONObject("permission"));
+            cVar.f14131i = jSONObject.optString("apk_size");
+            cVar.f14132j = jSONObject.optString("apk_url");
             try {
                 float parseFloat = Float.parseFloat(jSONObject.optString("score"));
                 if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
-                    cVar.f14106e = parseFloat;
+                    cVar.f14127e = parseFloat;
                 } else {
-                    cVar.f14106e = -1.0f;
+                    cVar.f14127e = -1.0f;
                 }
             } catch (NumberFormatException unused) {
-                cVar.f14106e = -1.0f;
+                cVar.f14127e = -1.0f;
             }
             return cVar;
         }
@@ -207,8 +207,8 @@ public class c {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cVar)) == null) {
-            if (cVar != null && cVar.f14102a) {
-                return (TextUtils.isEmpty(cVar.f14107f) || TextUtils.isEmpty(cVar.f14105d) || (bVar = cVar.f14108g) == null || TextUtils.isEmpty(bVar.f14115b) || (aVar = cVar.f14109h) == null || TextUtils.isEmpty(aVar.f14113b)) ? false : true;
+            if (cVar != null && cVar.f14123a) {
+                return (TextUtils.isEmpty(cVar.f14128f) || TextUtils.isEmpty(cVar.f14126d) || (bVar = cVar.f14129g) == null || TextUtils.isEmpty(bVar.f14136b) || (aVar = cVar.f14130h) == null || TextUtils.isEmpty(aVar.f14134b)) ? false : true;
             }
             return true;
         }

@@ -13,34 +13,34 @@ public class m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f15092a;
+    public Context f15123a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15093b;
+    public String f15124b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f15094c;
+    public int f15125c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f15095d;
+    public int f15126d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15096e;
+    public int f15127e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15097f;
+    public int f15128f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f15098g;
+    public boolean f15129g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f15099h;
+    public boolean f15130h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f15100i;
+    public boolean f15131i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f15101j;
+    public int f15132j;
     public n k;
     public int l;
     public boolean m;
@@ -64,12 +64,12 @@ public class m {
                 return;
             }
         }
-        this.f15100i = true;
+        this.f15131i = true;
         this.m = false;
         this.q = true;
-        this.f15093b = str;
-        this.f15094c = i2;
-        this.f15101j = i3;
+        this.f15124b = str;
+        this.f15125c = i2;
+        this.f15132j = i3;
     }
 
     public boolean a() {
@@ -84,7 +84,7 @@ public class m {
     public Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15092a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15123a : (Context) invokeV.objValue;
     }
 
     public boolean c() {
@@ -130,12 +130,12 @@ public class m {
                 return;
             }
         }
-        this.f15100i = true;
+        this.f15131i = true;
         this.m = false;
         this.q = true;
-        this.f15093b = str;
-        this.f15094c = i2;
-        this.f15092a = context;
+        this.f15124b = str;
+        this.f15125c = i2;
+        this.f15123a = context;
     }
 
     public m(Context context, String str, int i2, int i3) {
@@ -153,12 +153,12 @@ public class m {
                 return;
             }
         }
-        this.f15100i = true;
+        this.f15131i = true;
         this.m = false;
         this.q = true;
-        this.f15093b = str;
-        this.f15094c = i2;
-        this.f15092a = context;
-        this.f15101j = i3;
+        this.f15124b = str;
+        this.f15125c = i2;
+        this.f15123a = context;
+        this.f15132j = i3;
     }
 }

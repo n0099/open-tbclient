@@ -19,13 +19,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f72043a;
+    public Context f72078a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f72044b;
+    public final LinkedBlockingQueue<IBinder> f72079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f72045c;
+    public ServiceConnection f72080c;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class c {
                 return;
             }
         }
-        this.f72044b = new LinkedBlockingQueue<>(1);
-        this.f72045c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.c.1
+        this.f72079b = new LinkedBlockingQueue<>(1);
+        this.f72080c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f72046a;
+            public final /* synthetic */ c f72081a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,7 +65,7 @@ public class c {
                         return;
                     }
                 }
-                this.f72046a = this;
+                this.f72081a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -74,7 +74,7 @@ public class c {
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     try {
                         com.kwad.sdk.core.d.a.c("LenovoDeviceIDHelper", "onServiceConnected");
-                        this.f72046a.f72044b.put(iBinder);
+                        this.f72081a.f72079b.put(iBinder);
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
@@ -88,7 +88,7 @@ public class c {
                 }
             }
         };
-        this.f72043a = context;
+        this.f72078a = context;
     }
 
     public String a() {
@@ -101,16 +101,16 @@ public class c {
             try {
                 Intent intent = new Intent();
                 intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-                if (this.f72043a.bindService(intent, this.f72045c, 1)) {
+                if (this.f72078a.bindService(intent, this.f72080c, 1)) {
                     try {
-                        str = new c.a(this.f72044b.take()).a();
+                        str = new c.a(this.f72079b.take()).a();
                         com.kwad.sdk.core.d.a.c("LenovoDeviceIDHelper", "getOAID oaid:" + str);
-                        context = this.f72043a;
-                        serviceConnection = this.f72045c;
+                        context = this.f72078a;
+                        serviceConnection = this.f72080c;
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
-                        context = this.f72043a;
-                        serviceConnection = this.f72045c;
+                        context = this.f72078a;
+                        serviceConnection = this.f72080c;
                     }
                     context.unbindService(serviceConnection);
                 }

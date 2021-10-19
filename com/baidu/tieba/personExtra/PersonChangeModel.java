@@ -15,7 +15,7 @@ public class PersonChangeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonChangeData f56041e;
+    public PersonChangeData f55975e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonChangeModel(PersonChangeData personChangeData) {
@@ -35,15 +35,15 @@ public class PersonChangeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f56041e = null;
-        this.f56041e = personChangeData;
+        this.f55975e = null;
+        this.f55975e = personChangeData;
         if (personChangeData == null) {
-            this.f56041e = new PersonChangeData();
+            this.f55975e = new PersonChangeData();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -53,7 +53,7 @@ public class PersonChangeModel extends BdBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -65,6 +65,6 @@ public class PersonChangeModel extends BdBaseModel {
     public PersonChangeData w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56041e : (PersonChangeData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55975e : (PersonChangeData) invokeV.objValue;
     }
 }

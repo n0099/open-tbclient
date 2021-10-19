@@ -11,7 +11,7 @@ public class m implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeScrollView f39801a;
+    public final /* synthetic */ SafeScrollView f39805a;
 
     public m(SafeScrollView safeScrollView) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class m implements Runnable {
                 return;
             }
         }
-        this.f39801a = safeScrollView;
+        this.f39805a = safeScrollView;
     }
 
     @Override // java.lang.Runnable
@@ -41,13 +41,13 @@ public class m implements Runnable {
         SafeKeyBoardEditText safeKeyBoardEditText3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            safeKeyBoardUtil = this.f39801a.f39784g;
-            context = this.f39801a.f39782e;
-            safeKeyBoardEditText = this.f39801a.f39783f;
-            safeKeyBoardUtil.init(context, safeKeyBoardEditText.getViewGroup(), this.f39801a);
-            safeKeyBoardUtil2 = this.f39801a.f39784g;
-            safeKeyBoardEditText2 = this.f39801a.f39783f;
-            safeKeyBoardEditText3 = this.f39801a.f39783f;
+            safeKeyBoardUtil = this.f39805a.f39788g;
+            context = this.f39805a.f39786e;
+            safeKeyBoardEditText = this.f39805a.f39787f;
+            safeKeyBoardUtil.init(context, safeKeyBoardEditText.getViewGroup(), this.f39805a);
+            safeKeyBoardUtil2 = this.f39805a.f39788g;
+            safeKeyBoardEditText2 = this.f39805a.f39787f;
+            safeKeyBoardEditText3 = this.f39805a.f39787f;
             safeKeyBoardUtil2.showSoftKeyBoard(safeKeyBoardEditText2, safeKeyBoardEditText3.getVisibleView());
         }
     }

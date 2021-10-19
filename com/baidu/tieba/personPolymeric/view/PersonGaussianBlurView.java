@@ -17,7 +17,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f56191i;
+    public a f56125i;
 
     /* loaded from: classes7.dex */
     public class a extends BdAsyncTask<Bitmap, String, Bitmap> {
@@ -25,7 +25,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonGaussianBlurView f56192a;
+        public final /* synthetic */ PersonGaussianBlurView f56126a;
 
         public a(PersonGaussianBlurView personGaussianBlurView) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
                     return;
                 }
             }
-            this.f56192a = personGaussianBlurView;
+            this.f56126a = personGaussianBlurView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -96,7 +96,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
             if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
                 super.onPostExecute((a) bitmap);
                 if (c(bitmap)) {
-                    this.f56192a.setImageBitmap(bitmap);
+                    this.f56126a.setImageBitmap(bitmap);
                 }
             }
         }
@@ -128,12 +128,12 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) || bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        a aVar = this.f56191i;
+        a aVar = this.f56125i;
         if (aVar != null) {
             aVar.cancel();
         }
         a aVar2 = new a(this);
-        this.f56191i = aVar2;
+        this.f56125i = aVar2;
         aVar2.execute(bitmap);
     }
 }

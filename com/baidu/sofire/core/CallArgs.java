@@ -17,22 +17,22 @@ public class CallArgs implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f45323a;
+    public int f45235a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45324b;
+    public int f45236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45325c;
+    public String f45237c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object[] f45326d;
+    public Object[] f45238d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object[] f45327e;
+    public Object[] f45239e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Object f45328f;
+    public Object f45240f;
 
     static {
         InterceptResult invokeClinit;
@@ -107,12 +107,12 @@ public class CallArgs implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
-            parcel.writeInt(this.f45323a);
-            parcel.writeInt(this.f45324b);
-            parcel.writeString(this.f45325c);
-            parcel.writeArray(this.f45327e);
-            parcel.writeArray(this.f45326d);
-            parcel.writeValue(this.f45328f);
+            parcel.writeInt(this.f45235a);
+            parcel.writeInt(this.f45236b);
+            parcel.writeString(this.f45237c);
+            parcel.writeArray(this.f45239e);
+            parcel.writeArray(this.f45238d);
+            parcel.writeValue(this.f45240f);
         }
     }
 
@@ -131,11 +131,11 @@ public class CallArgs implements Parcelable {
                 return;
             }
         }
-        this.f45323a = parcel.readInt();
-        this.f45324b = parcel.readInt();
-        this.f45325c = parcel.readString();
-        this.f45327e = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f45326d = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f45328f = parcel.readValue(CallArgs.class.getClassLoader());
+        this.f45235a = parcel.readInt();
+        this.f45236b = parcel.readInt();
+        this.f45237c = parcel.readString();
+        this.f45239e = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f45238d = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f45240f = parcel.readValue(CallArgs.class.getClassLoader());
     }
 }

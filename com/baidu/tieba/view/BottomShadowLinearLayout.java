@@ -21,22 +21,22 @@ public class BottomShadowLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58271e;
+    public int f58215e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58272f;
+    public int f58216f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f58273g;
+    public float f58217g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f58274h;
+    public float f58218h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f58275i;
+    public Paint f58219i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Paint f58276j;
+    public Paint f58220j;
     public RectF k;
     public RectF l;
 
@@ -65,20 +65,20 @@ public class BottomShadowLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             Paint paint = new Paint();
-            this.f58275i = paint;
+            this.f58219i = paint;
             paint.reset();
-            this.f58275i.setAntiAlias(true);
-            this.f58275i.setStyle(Paint.Style.FILL);
-            this.f58275i.setDither(true);
+            this.f58219i.setAntiAlias(true);
+            this.f58219i.setStyle(Paint.Style.FILL);
+            this.f58219i.setDither(true);
             Paint paint2 = new Paint();
-            this.f58276j = paint2;
+            this.f58220j = paint2;
             paint2.reset();
-            this.f58276j.setAntiAlias(true);
-            this.f58276j.setStyle(Paint.Style.FILL);
-            this.f58276j.setDither(true);
-            this.f58273g = l.g(context, R.dimen.ds20);
-            this.f58274h = l.g(context, R.dimen.ds25);
-            setLayerType(1, this.f58275i);
+            this.f58220j.setAntiAlias(true);
+            this.f58220j.setStyle(Paint.Style.FILL);
+            this.f58220j.setDither(true);
+            this.f58217g = l.g(context, R.dimen.ds20);
+            this.f58218h = l.g(context, R.dimen.ds25);
+            setLayerType(1, this.f58219i);
             onChangeSkinType();
         }
     }
@@ -86,28 +86,28 @@ public class BottomShadowLinearLayout extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f58271e <= 0 || this.f58272f <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f58215e <= 0 || this.f58216f <= 0) {
             return;
         }
         if (this.k == null) {
-            this.k = new RectF(0.0f, 0.0f, this.f58271e, this.f58272f - this.f58274h);
+            this.k = new RectF(0.0f, 0.0f, this.f58215e, this.f58216f - this.f58218h);
         }
         RectF rectF = this.k;
-        float f2 = this.f58273g;
-        canvas.drawRoundRect(rectF, f2, f2, this.f58275i);
+        float f2 = this.f58217g;
+        canvas.drawRoundRect(rectF, f2, f2, this.f58219i);
         if (this.l == null) {
-            this.l = new RectF(0.0f, 0.0f, this.f58271e, this.f58272f / 2);
+            this.l = new RectF(0.0f, 0.0f, this.f58215e, this.f58216f / 2);
         }
-        canvas.drawRect(this.l, this.f58276j);
+        canvas.drawRect(this.l, this.f58220j);
         super.dispatchDraw(canvas);
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f58275i.setColor(SkinManager.getColor(R.color.CAM_X0207));
-            this.f58276j.setColor(SkinManager.getColor(R.color.CAM_X0207));
-            this.f58275i.setShadowLayer(25.0f, 0.0f, 0.0f, SkinManager.getColor(R.color.CAM_X0805));
+            this.f58219i.setColor(SkinManager.getColor(R.color.CAM_X0207));
+            this.f58220j.setColor(SkinManager.getColor(R.color.CAM_X0207));
+            this.f58219i.setShadowLayer(25.0f, 0.0f, 0.0f, SkinManager.getColor(R.color.CAM_X0805));
         }
     }
 
@@ -116,8 +116,8 @@ public class BottomShadowLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            this.f58271e = getMeasuredWidth();
-            this.f58272f = getMeasuredHeight();
+            this.f58215e = getMeasuredWidth();
+            this.f58216f = getMeasuredHeight();
         }
     }
 

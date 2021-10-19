@@ -130,11 +130,11 @@ public final class e {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             ReadableByteChannel newChannel = Channels.newChannel(inputStream);
             FileChannel channel = fileOutputStream.getChannel();
-            long j2 = 4194304;
+            long j2 = 4096;
             long j3 = 0;
             while (j2 > 0) {
                 try {
-                    j2 = channel.transferFrom(newChannel, j3, 4194304L);
+                    j2 = channel.transferFrom(newChannel, j3, 4096L);
                     j3 += j2;
                 } finally {
                     k.a(fileOutputStream);

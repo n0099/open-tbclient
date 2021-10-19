@@ -19,11 +19,11 @@ public class a extends Thread {
 
     /* renamed from: c.a.q0.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0670a implements MessageQueue.IdleHandler {
+    public static class C0672a implements MessageQueue.IdleHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0670a() {
+        public C0672a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,7 +77,7 @@ public class a extends Thread {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            Looper.myQueue().addIdleHandler(new C0670a());
+            Looper.myQueue().addIdleHandler(new C0672a());
         }
     }
 

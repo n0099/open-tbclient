@@ -21,37 +21,37 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f78104a;
+    public static final iy f78139a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f483a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f78105b;
+    public static final iy f78140b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f78106c;
+    public static final iy f78141c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f78107d;
+    public static final iy f78142d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f78108e;
+    public static final iy f78143e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f78109f;
+    public static final iy f78144f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f78110g;
+    public static final iy f78145g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f78111h;
+    public static final iy f78146h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f78112i;
+    public static final iy f78147i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final iy f78113j;
+    public static final iy f78148j;
     public static final iy k;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,16 +105,16 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
             }
         }
         f483a = new jg("ClientUploadDataItem");
-        f78104a = new iy("", (byte) 11, (short) 1);
-        f78105b = new iy("", (byte) 11, (short) 2);
-        f78106c = new iy("", (byte) 11, (short) 3);
-        f78107d = new iy("", (byte) 10, (short) 4);
-        f78108e = new iy("", (byte) 10, (short) 5);
-        f78109f = new iy("", (byte) 2, (short) 6);
-        f78110g = new iy("", (byte) 11, (short) 7);
-        f78111h = new iy("", (byte) 11, (short) 8);
-        f78112i = new iy("", (byte) 11, (short) 9);
-        f78113j = new iy("", (byte) 13, (short) 10);
+        f78139a = new iy("", (byte) 11, (short) 1);
+        f78140b = new iy("", (byte) 11, (short) 2);
+        f78141c = new iy("", (byte) 11, (short) 3);
+        f78142d = new iy("", (byte) 10, (short) 4);
+        f78143e = new iy("", (byte) 10, (short) 5);
+        f78144f = new iy("", (byte) 2, (short) 6);
+        f78145g = new iy("", (byte) 11, (short) 7);
+        f78146h = new iy("", (byte) 11, (short) 8);
+        f78147i = new iy("", (byte) 11, (short) 9);
+        f78148j = new iy("", (byte) 13, (short) 10);
         k = new iy("", (byte) 11, (short) 11);
     }
 
@@ -315,7 +315,7 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
         jbVar.m527a();
         while (true) {
             iy m523a = jbVar.m523a();
-            byte b2 = m523a.f78355a;
+            byte b2 = m523a.f78390a;
             if (b2 == 0) {
                 jbVar.f();
                 m380a();
@@ -540,52 +540,52 @@ public class hj implements iq<hj, Object>, Serializable, Cloneable {
             m380a();
             jbVar.a(f483a);
             if (this.f485a != null && m382a()) {
-                jbVar.a(f78104a);
+                jbVar.a(f78139a);
                 jbVar.a(this.f485a);
                 jbVar.b();
             }
             if (this.f490b != null && m384b()) {
-                jbVar.a(f78105b);
+                jbVar.a(f78140b);
                 jbVar.a(this.f490b);
                 jbVar.b();
             }
             if (this.f491c != null && m385c()) {
-                jbVar.a(f78106c);
+                jbVar.a(f78141c);
                 jbVar.a(this.f491c);
                 jbVar.b();
             }
             if (m386d()) {
-                jbVar.a(f78107d);
+                jbVar.a(f78142d);
                 jbVar.a(this.f484a);
                 jbVar.b();
             }
             if (m387e()) {
-                jbVar.a(f78108e);
+                jbVar.a(f78143e);
                 jbVar.a(this.f489b);
                 jbVar.b();
             }
             if (f()) {
-                jbVar.a(f78109f);
+                jbVar.a(f78144f);
                 jbVar.a(this.f488a);
                 jbVar.b();
             }
             if (this.f492d != null && g()) {
-                jbVar.a(f78110g);
+                jbVar.a(f78145g);
                 jbVar.a(this.f492d);
                 jbVar.b();
             }
             if (this.f493e != null && h()) {
-                jbVar.a(f78111h);
+                jbVar.a(f78146h);
                 jbVar.a(this.f493e);
                 jbVar.b();
             }
             if (this.f494f != null && i()) {
-                jbVar.a(f78112i);
+                jbVar.a(f78147i);
                 jbVar.a(this.f494f);
                 jbVar.b();
             }
             if (this.f487a != null && j()) {
-                jbVar.a(f78113j);
+                jbVar.a(f78148j);
                 jbVar.a(new ja((byte) 11, (byte) 11, this.f487a.size()));
                 for (Map.Entry<String, String> entry : this.f487a.entrySet()) {
                     jbVar.a(entry.getKey());

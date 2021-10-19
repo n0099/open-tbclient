@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CountDownTimer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG = 1;
@@ -24,7 +24,7 @@ public class CountDownTimer {
     public long mPauseTime;
     public long mStopTimeInFuture;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

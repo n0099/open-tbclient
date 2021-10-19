@@ -13,7 +13,7 @@ public class G implements x2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ H5Activity f77114a;
+    public final /* synthetic */ H5Activity f77149a;
 
     public G(H5Activity h5Activity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class G implements x2 {
                 return;
             }
         }
-        this.f77114a = h5Activity;
+        this.f77149a = h5Activity;
     }
 
     @Override // com.win.opensdk.x2
@@ -38,14 +38,14 @@ public class G implements x2 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            H5Activity h5Activity = this.f77114a;
-            if (Q1.a(h5Activity.f77273e, h5Activity.f77276h)) {
-                this.f77114a.f77276h = System.currentTimeMillis();
-                H5Activity h5Activity2 = this.f77114a;
-                Q1.a(h5Activity2.f77269a, str, h5Activity2.f77273e, h5Activity2.f77277i, str2);
-                Z0.a(this.f77114a.f77269a).a(new a1(this.f77114a.f77273e), str).a("desc", str2).a();
-                H1.a(this.f77114a.f77273e.getId() + this.f77114a.f77274f, "is_click", null);
-                N.a(this.f77114a.f77273e, str2);
+            H5Activity h5Activity = this.f77149a;
+            if (Q1.a(h5Activity.f77308e, h5Activity.f77311h)) {
+                this.f77149a.f77311h = System.currentTimeMillis();
+                H5Activity h5Activity2 = this.f77149a;
+                Q1.a(h5Activity2.f77304a, str, h5Activity2.f77308e, h5Activity2.f77312i, str2);
+                Z0.a(this.f77149a.f77304a).a(new a1(this.f77149a.f77308e), str).a("desc", str2).a();
+                H1.a(this.f77149a.f77308e.getId() + this.f77149a.f77309f, "is_click", null);
+                N.a(this.f77149a.f77308e, str2);
                 return true;
             }
             return true;
@@ -57,7 +57,7 @@ public class G implements x2 {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f77114a.f77275g = str;
+            this.f77149a.f77310g = str;
         }
     }
 }

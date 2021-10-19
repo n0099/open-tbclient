@@ -412,6 +412,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.lifecycle : (Lifecycle) invokeV.objValue;
     }
 
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     @NonNull
     public FlutterView.RenderMode getRenderMode() {
         InterceptResult invokeV;

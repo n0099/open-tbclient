@@ -257,7 +257,7 @@ public class b implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, downloadParams, aVar)) == null) {
             this.f10612a = context;
-            this.f10614c = c.a.p0.f.i.k.g.a.a(downloadParams.f46996a, downloadParams.f46997b);
+            this.f10614c = c.a.p0.f.i.k.g.a.a(downloadParams.f46908a, downloadParams.f46909b);
             this.f10615d = aVar;
             k();
             q();

@@ -69,7 +69,7 @@ public class a {
         c.a.p0.a.j2.a c2 = c.a.p0.a.j2.k.c("770");
         for (UbcFlowEvent ubcFlowEvent : list) {
             if (ubcFlowEvent != null) {
-                b.e(c2, ubcFlowEvent.f46276a, ubcFlowEvent.j(), ubcFlowEvent.g());
+                b.e(c2, ubcFlowEvent.f46188a, ubcFlowEvent.j(), ubcFlowEvent.g());
             }
         }
         JSONObject jSONObject = new JSONObject();
@@ -113,8 +113,8 @@ public class a {
                 sb.append(StringUtils.LF);
                 sb.append(ubcFlowEvent.g());
                 sb.append(ZeusCrashHandler.NAME_SEPERATOR);
-                sb.append(ubcFlowEvent.f46276a);
-                hashMap.put(ubcFlowEvent.f46276a, Long.valueOf(ubcFlowEvent.g()));
+                sb.append(ubcFlowEvent.f46188a);
+                hashMap.put(ubcFlowEvent.f46188a, Long.valueOf(ubcFlowEvent.g()));
             }
         }
         sb.append(StringUtils.LF);

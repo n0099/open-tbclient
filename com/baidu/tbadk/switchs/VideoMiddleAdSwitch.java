@@ -44,7 +44,7 @@ public class VideoMiddleAdSwitch extends a {
     public static boolean isOnAndHitVideoAdDrawTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? isOn() && d.U() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? isOn() && d.X() : invokeV.booleanValue;
     }
 
     @Override // c.a.e.e.f.a

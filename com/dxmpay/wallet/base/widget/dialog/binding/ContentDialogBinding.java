@@ -17,7 +17,7 @@ public class ContentDialogBinding extends BaseDialogBinding {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TextView f70054a;
+    public final TextView f70089a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ContentDialogBinding(View view) {
@@ -37,7 +37,7 @@ public class ContentDialogBinding extends BaseDialogBinding {
                 return;
             }
         }
-        this.f70054a = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_text_content"));
+        this.f70089a = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_text_content"));
     }
 
     @Override // com.dxmpay.wallet.base.widget.dialog.binding.BaseDialogBinding, com.dxmpay.wallet.base.widget.dialog.binding.BaseBinding
@@ -47,30 +47,30 @@ public class ContentDialogBinding extends BaseDialogBinding {
             super.executeBindings();
             ContentDialogModel contentDialogModel = (ContentDialogModel) getViewModel();
             if (contentDialogModel.hideMessage) {
-                this.f70054a.setVisibility(8);
+                this.f70089a.setVisibility(8);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.titleText.getLayoutParams();
-                layoutParams.bottomMargin += ((LinearLayout.LayoutParams) this.f70054a.getLayoutParams()).bottomMargin;
+                layoutParams.bottomMargin += ((LinearLayout.LayoutParams) this.f70089a.getLayoutParams()).bottomMargin;
                 this.titleText.setLayoutParams(layoutParams);
                 return;
             }
             int i2 = contentDialogModel.messageId;
             if (i2 != 0) {
-                this.f70054a.setText(i2);
+                this.f70089a.setText(i2);
             } else if (!TextUtils.isEmpty(contentDialogModel.message)) {
-                this.f70054a.setText(contentDialogModel.message);
+                this.f70089a.setText(contentDialogModel.message);
             }
-            this.f70054a.setMovementMethod(LinkMovementMethod.getInstance());
+            this.f70089a.setMovementMethod(LinkMovementMethod.getInstance());
             int i3 = contentDialogModel.messageColor;
             if (i3 != 0) {
-                this.f70054a.setTextColor(i3);
+                this.f70089a.setTextColor(i3);
             }
             int i4 = contentDialogModel.backgroundColor;
             if (i4 != 0) {
-                this.f70054a.setBackgroundColor(i4);
+                this.f70089a.setBackgroundColor(i4);
             }
             int i5 = contentDialogModel.messageSize;
             if (i5 != 0) {
-                this.f70054a.setTextSize(i5);
+                this.f70089a.setTextSize(i5);
             }
         }
     }

@@ -28,10 +28,10 @@ public class PBError {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77164a;
+    public int f77199a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f77165b;
+    public String f77200b;
 
     static {
         InterceptResult invokeClinit;
@@ -75,33 +75,33 @@ public class PBError {
                 return;
             }
         }
-        this.f77164a = i2;
-        this.f77165b = str;
+        this.f77199a = i2;
+        this.f77200b = str;
     }
 
     public int getCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f77164a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f77199a : invokeV.intValue;
     }
 
     public String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f77165b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f77200b : (String) invokeV.objValue;
     }
 
     public void setCode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f77164a = i2;
+            this.f77199a = i2;
         }
     }
 
     public void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f77165b = str;
+            this.f77200b = str;
         }
     }
 
@@ -109,7 +109,7 @@ public class PBError {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "PBError{code=" + this.f77164a + ", msg='" + this.f77165b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PBError{code=" + this.f77199a + ", msg='" + this.f77200b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

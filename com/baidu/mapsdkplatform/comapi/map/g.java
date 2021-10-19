@@ -22,9 +22,9 @@ public class g extends ag {
                 return;
             }
         }
-        this.f42282c = 0;
-        this.f42281b = "compass";
-        this.f42283d = 0;
-        this.f42269g = 20;
+        this.f42286c = 0;
+        this.f42285b = "compass";
+        this.f42287d = 0;
+        this.f42273g = 20;
     }
 }

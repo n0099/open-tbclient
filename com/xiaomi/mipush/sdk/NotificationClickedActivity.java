@@ -19,7 +19,7 @@ public final class NotificationClickedActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BroadcastReceiver f77580a;
+    public BroadcastReceiver f77615a;
 
     /* renamed from: a  reason: collision with other field name */
     public Handler f61a;
@@ -72,7 +72,7 @@ public final class NotificationClickedActivity extends Activity {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("action_clicked_activity_finish");
             ac acVar = new ac(this);
-            this.f77580a = acVar;
+            this.f77615a = acVar;
             try {
                 registerReceiver(acVar, intentFilter, d.a(this), null);
             } catch (Exception unused) {
@@ -88,7 +88,7 @@ public final class NotificationClickedActivity extends Activity {
             super.onDestroy();
             this.f61a.removeCallbacksAndMessages(null);
             try {
-                unregisterReceiver(this.f77580a);
+                unregisterReceiver(this.f77615a);
             } catch (Exception unused) {
             }
         }

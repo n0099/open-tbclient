@@ -34,34 +34,34 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f68460a;
+    public final File f68495a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedHashMap<String, File> f68461b;
+    public final LinkedHashMap<String, File> f68496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ReentrantReadWriteLock f68462c;
+    public final ReentrantReadWriteLock f68497c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ReentrantReadWriteLock.ReadLock f68463d;
+    public final ReentrantReadWriteLock.ReadLock f68498d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ReentrantReadWriteLock.WriteLock f68464e;
+    public final ReentrantReadWriteLock.WriteLock f68499e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<a> f68465f;
+    public final Set<a> f68500f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f68466g;
+    public volatile long f68501g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile float f68467h;
+    public volatile float f68502h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final b f68468i;
+    public final b f68503i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Runnable f68469j;
+    public final Runnable f68504j;
     public final Handler k;
 
     /* loaded from: classes9.dex */
@@ -77,7 +77,7 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, Integer> f68478a;
+        public final Map<String, Integer> f68513a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                     return;
                 }
             }
-            this.f68478a = new HashMap();
+            this.f68513a = new HashMap();
         }
 
         public synchronized void a(String str) {
@@ -100,11 +100,11 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 synchronized (this) {
                     if (!TextUtils.isEmpty(str)) {
-                        Integer num = this.f68478a.get(str);
+                        Integer num = this.f68513a.get(str);
                         if (num == null) {
-                            this.f68478a.put(str, 1);
+                            this.f68513a.put(str, 1);
                         } else {
-                            this.f68478a.put(str, Integer.valueOf(num.intValue() + 1));
+                            this.f68513a.put(str, Integer.valueOf(num.intValue() + 1));
                         }
                     }
                 }
@@ -116,11 +116,11 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 synchronized (this) {
-                    if (!TextUtils.isEmpty(str) && (num = this.f68478a.get(str)) != null) {
+                    if (!TextUtils.isEmpty(str) && (num = this.f68513a.get(str)) != null) {
                         if (num.intValue() == 1) {
-                            this.f68478a.remove(str);
+                            this.f68513a.remove(str);
                         } else {
-                            this.f68478a.put(str, Integer.valueOf(num.intValue() - 1));
+                            this.f68513a.put(str, Integer.valueOf(num.intValue() - 1));
                         }
                     }
                 }
@@ -135,7 +135,7 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                     if (TextUtils.isEmpty(str)) {
                         return false;
                     }
-                    return this.f68478a.containsKey(str);
+                    return this.f68513a.containsKey(str);
                 }
             }
             return invokeL.booleanValue;
@@ -158,21 +158,21 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                 return;
             }
         }
-        this.f68461b = new LinkedHashMap<>(0, 0.75f, true);
+        this.f68496b = new LinkedHashMap<>(0, 0.75f, true);
         ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
-        this.f68462c = reentrantReadWriteLock;
-        this.f68463d = reentrantReadWriteLock.readLock();
-        this.f68464e = this.f68462c.writeLock();
-        this.f68465f = Collections.newSetFromMap(new ConcurrentHashMap());
-        this.f68466g = 104857600L;
-        this.f68467h = 0.5f;
-        this.f68468i = new b();
-        this.f68469j = new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.n.a.c.1
+        this.f68497c = reentrantReadWriteLock;
+        this.f68498d = reentrantReadWriteLock.readLock();
+        this.f68499e = this.f68497c.writeLock();
+        this.f68500f = Collections.newSetFromMap(new ConcurrentHashMap());
+        this.f68501g = 104857600L;
+        this.f68502h = 0.5f;
+        this.f68503i = new b();
+        this.f68504j = new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.n.a.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f68470a;
+            public final /* synthetic */ c f68505a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -189,7 +189,7 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                         return;
                     }
                 }
-                this.f68470a = this;
+                this.f68505a = this;
             }
 
             @Override // java.lang.Runnable
@@ -201,7 +201,7 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass1 f68471a;
+                        public final /* synthetic */ AnonymousClass1 f68506a;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -222,15 +222,15 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                                     return;
                                 }
                             }
-                            this.f68471a = this;
+                            this.f68506a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                c cVar = this.f68471a.f68470a;
-                                cVar.b(cVar.f68466g);
+                                c cVar = this.f68506a.f68505a;
+                                cVar.b(cVar.f68501g);
                             }
                         }
                     });
@@ -239,13 +239,13 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
         };
         this.k = new Handler(Looper.getMainLooper());
         if (file != null && file.exists() && file.isDirectory() && file.canRead() && file.canWrite()) {
-            this.f68460a = file;
+            this.f68495a = file;
             e.a(new g(this, "DiskLruCache", 5) { // from class: com.bytedance.sdk.openadsdk.n.a.c.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f68472a;
+                public final /* synthetic */ c f68507a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -266,14 +266,14 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                             return;
                         }
                     }
-                    this.f68472a = this;
+                    this.f68507a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f68472a.b();
+                        this.f68507a.b();
                     }
                 }
             });
@@ -290,8 +290,8 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.k.removeCallbacks(this.f68469j);
-            this.k.postDelayed(this.f68469j, 10000L);
+            this.k.removeCallbacks(this.f68504j);
+            this.k.postDelayed(this.f68504j, 10000L);
         }
     }
 
@@ -300,9 +300,9 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (this.f68463d.tryLock()) {
-                File file = this.f68461b.get(str);
-                this.f68463d.unlock();
+            if (this.f68498d.tryLock()) {
+                File file = this.f68496b.get(str);
+                this.f68498d.unlock();
                 return file;
             }
             return null;
@@ -314,9 +314,9 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f68464e.lock();
+            this.f68499e.lock();
             try {
-                File[] listFiles = this.f68460a.listFiles();
+                File[] listFiles = this.f68495a.listFiles();
                 if (listFiles != null && listFiles.length > 0) {
                     HashMap hashMap = new HashMap(listFiles.length);
                     ArrayList arrayList = new ArrayList(listFiles.length);
@@ -331,10 +331,10 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ HashMap f68473a;
+                        public final /* synthetic */ HashMap f68508a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ c f68474b;
+                        public final /* synthetic */ c f68509b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -351,8 +351,8 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                                     return;
                                 }
                             }
-                            this.f68474b = this;
-                            this.f68473a = hashMap;
+                            this.f68509b = this;
+                            this.f68508a = hashMap;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -362,7 +362,7 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                             InterceptResult invokeLL;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, file3)) == null) {
-                                int i2 = ((((Long) this.f68473a.get(file2)).longValue() - ((Long) this.f68473a.get(file3)).longValue()) > 0L ? 1 : ((((Long) this.f68473a.get(file2)).longValue() - ((Long) this.f68473a.get(file3)).longValue()) == 0L ? 0 : -1));
+                                int i2 = ((((Long) this.f68508a.get(file2)).longValue() - ((Long) this.f68508a.get(file3)).longValue()) > 0L ? 1 : ((((Long) this.f68508a.get(file2)).longValue() - ((Long) this.f68508a.get(file3)).longValue()) == 0L ? 0 : -1));
                                 if (i2 < 0) {
                                     return -1;
                                 }
@@ -374,13 +374,13 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                     Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
                         File file2 = (File) it.next();
-                        this.f68461b.put(a(file2), file2);
+                        this.f68496b.put(a(file2), file2);
                     }
                 }
-                this.f68464e.unlock();
+                this.f68499e.unlock();
                 c();
             } catch (Throwable th) {
-                this.f68464e.unlock();
+                this.f68499e.unlock();
                 throw th;
             }
         }
@@ -391,7 +391,7 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.f68465f.add(aVar);
+        this.f68500f.add(aVar);
     }
 
     @Override // com.bytedance.sdk.openadsdk.n.a.a
@@ -399,17 +399,17 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.f68463d.lock();
-            File file = this.f68461b.get(str);
-            this.f68463d.unlock();
+            this.f68498d.lock();
+            File file = this.f68496b.get(str);
+            this.f68498d.unlock();
             if (file != null) {
                 return file;
             }
-            File file2 = new File(this.f68460a, str);
-            this.f68464e.lock();
-            this.f68461b.put(str, file2);
-            this.f68464e.unlock();
-            for (a aVar : this.f68465f) {
+            File file2 = new File(this.f68495a, str);
+            this.f68499e.lock();
+            this.f68496b.put(str, file2);
+            this.f68499e.unlock();
+            for (a aVar : this.f68500f) {
                 aVar.a(str);
             }
             c();
@@ -421,7 +421,7 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f68466g = j2;
+            this.f68501g = j2;
             c();
         }
     }
@@ -434,13 +434,13 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
             if (a2 != null) {
                 com.bytedance.sdk.openadsdk.n.b.c.a(a2).a(0);
             }
-            this.k.removeCallbacks(this.f68469j);
+            this.k.removeCallbacks(this.f68504j);
             e.a(new g(this, "clear", 1) { // from class: com.bytedance.sdk.openadsdk.n.a.c.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f68475a;
+                public final /* synthetic */ c f68510a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -461,14 +461,14 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                             return;
                         }
                     }
-                    this.f68475a = this;
+                    this.f68510a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f68475a.b(0L);
+                        this.f68510a.b(0L);
                     }
                 }
             });
@@ -481,7 +481,7 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f68468i.a(str);
+        this.f68503i.a(str);
     }
 
     private String a(File file) {
@@ -496,7 +496,7 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f68468i.b(str);
+        this.f68503i.b(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -508,11 +508,11 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j2) == null) {
             HashSet hashSet = new HashSet();
-            this.f68464e.lock();
+            this.f68499e.lock();
             long j3 = 0;
             HashSet hashSet2 = null;
             try {
-                for (Map.Entry<String, File> entry : this.f68461b.entrySet()) {
+                for (Map.Entry<String, File> entry : this.f68496b.entrySet()) {
                     j3 += entry.getValue().length();
                 }
             } catch (Throwable th) {
@@ -521,13 +521,13 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
             if (j3 <= j2) {
                 return;
             }
-            long j4 = ((float) j2) * this.f68467h;
+            long j4 = ((float) j2) * this.f68502h;
             HashSet hashSet3 = new HashSet();
             try {
-                for (Map.Entry<String, File> entry2 : this.f68461b.entrySet()) {
+                for (Map.Entry<String, File> entry2 : this.f68496b.entrySet()) {
                     File value = entry2.getValue();
                     if (value != null && value.exists()) {
-                        if (!this.f68468i.c(a(value))) {
+                        if (!this.f68503i.c(a(value))) {
                             long length = value.length();
                             File file = new File(value.getAbsolutePath() + "-tmp");
                             if (value.renameTo(file)) {
@@ -545,14 +545,14 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                 }
                 Iterator it = hashSet3.iterator();
                 while (it.hasNext()) {
-                    this.f68461b.remove((String) it.next());
+                    this.f68496b.remove((String) it.next());
                 }
             } catch (Throwable th2) {
                 th = th2;
                 hashSet2 = hashSet3;
                 try {
                     th.printStackTrace();
-                    this.f68464e.unlock();
+                    this.f68499e.unlock();
                     hashSet3 = hashSet2;
                     while (r13.hasNext()) {
                     }
@@ -561,10 +561,10 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ HashSet f68476a;
+                        public final /* synthetic */ HashSet f68511a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ c f68477b;
+                        public final /* synthetic */ c f68512b;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -585,15 +585,15 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                                     return;
                                 }
                             }
-                            this.f68477b = this;
-                            this.f68476a = hashSet;
+                            this.f68512b = this;
+                            this.f68511a = hashSet;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                Iterator it2 = this.f68476a.iterator();
+                                Iterator it2 = this.f68511a.iterator();
                                 while (it2.hasNext()) {
                                     try {
                                         ((File) it2.next()).delete();
@@ -604,10 +604,10 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                         }
                     });
                 } finally {
-                    this.f68464e.unlock();
+                    this.f68499e.unlock();
                 }
             }
-            for (a aVar : this.f68465f) {
+            for (a aVar : this.f68500f) {
                 aVar.a(hashSet3);
             }
             e.a(new g(this, "trimSize", 1, hashSet) { // from class: com.bytedance.sdk.openadsdk.n.a.c.5
@@ -615,10 +615,10 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ HashSet f68476a;
+                public final /* synthetic */ HashSet f68511a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ c f68477b;
+                public final /* synthetic */ c f68512b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -639,15 +639,15 @@ public class c extends com.bytedance.sdk.openadsdk.n.a.a {
                             return;
                         }
                     }
-                    this.f68477b = this;
-                    this.f68476a = hashSet;
+                    this.f68512b = this;
+                    this.f68511a = hashSet;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Iterator it2 = this.f68476a.iterator();
+                        Iterator it2 = this.f68511a.iterator();
                         while (it2.hasNext()) {
                             try {
                                 ((File) it2.next()).delete();

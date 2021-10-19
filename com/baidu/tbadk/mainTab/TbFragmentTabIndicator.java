@@ -34,22 +34,22 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f48521a;
+        public View f48445a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f48522b;
+        public boolean f48446b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f48523c;
+        public int f48447c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f48524d;
+        public int f48448d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f48525e;
+        public int f48449e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbFragmentTabIndicator f48526f;
+        public TbFragmentTabIndicator f48450f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -64,8 +64,8 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                     return;
                 }
             }
-            this.f48522b = true;
-            this.f48525e = R.color.common_color_10225;
+            this.f48446b = true;
+            this.f48449e = R.color.common_color_10225;
         }
 
         public final int a(TextView textView) {
@@ -75,7 +75,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 if (textView == null) {
                     return -1;
                 }
-                String charSequence = ((TextView) this.f48521a).getText().toString();
+                String charSequence = ((TextView) this.f48445a).getText().toString();
                 if ("   ".equals(charSequence)) {
                     return 100;
                 }
@@ -87,26 +87,26 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                int i3 = this.f48524d;
+                int i3 = this.f48448d;
                 if (i3 != 0) {
-                    SkinManager.setBackgroundResource(this.f48521a, i3);
+                    SkinManager.setBackgroundResource(this.f48445a, i3);
                 }
-                View view = this.f48521a;
+                View view = this.f48445a;
                 if (view instanceof TextView) {
-                    int i4 = this.f48525e;
+                    int i4 = this.f48449e;
                     if (i4 != 0) {
                         SkinManager.setViewTextColor(view, i4, 1);
                     }
-                    int a2 = a((TextView) this.f48521a);
+                    int a2 = a((TextView) this.f48445a);
                     if (a2 > 0 && a2 < 10) {
-                        SkinManager.setBackgroundResource(this.f48521a, R.drawable.icon_news_head_prompt_one);
+                        SkinManager.setBackgroundResource(this.f48445a, R.drawable.icon_news_head_prompt_one);
                     } else if (a2 >= 10 && a2 < 100) {
-                        SkinManager.setBackgroundResource(this.f48521a, R.drawable.icon_news_head_prompt_two);
+                        SkinManager.setBackgroundResource(this.f48445a, R.drawable.icon_news_head_prompt_two);
                     } else if (a2 >= 100) {
-                        SkinManager.setBackgroundResource(this.f48521a, R.drawable.icon_news_head_prompt_more);
+                        SkinManager.setBackgroundResource(this.f48445a, R.drawable.icon_news_head_prompt_more);
                     }
                 }
-                View view2 = this.f48521a;
+                View view2 = this.f48445a;
                 if (view2 instanceof MessageRedDotView) {
                     ((MessageRedDotView) view2).onChangeSkinType();
                 }

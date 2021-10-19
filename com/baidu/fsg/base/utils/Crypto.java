@@ -28,25 +28,25 @@ public class Crypto {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f39616a = 16;
+    public static final int f39620a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39617b = 8;
+    public static final int f39621b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f39618c = 128;
+    public static final int f39622c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f39619d = 64;
+    public static final int f39623d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f39620e = 8;
+    public static final int f39624e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f39621f = 1000;
+    public static final int f39625f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f39622g;
+    public static SecureRandom f39626g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,7 +62,7 @@ public class Crypto {
                 return;
             }
         }
-        f39622g = new SecureRandom();
+        f39626g = new SecureRandom();
     }
 
     public Crypto() {
@@ -107,7 +107,7 @@ public class Crypto {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             byte[] bArr = new byte[i2];
-            f39622g.nextBytes(bArr);
+            f39626g.nextBytes(bArr);
             return bArr;
         }
         return (byte[]) invokeI.objValue;

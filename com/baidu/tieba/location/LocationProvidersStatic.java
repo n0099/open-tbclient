@@ -62,13 +62,13 @@ public class LocationProvidersStatic {
                 EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                 int indexOf = editorTools.getCollectTools().indexOf(7);
                 if (indexOf != -1) {
-                    editorTools.addTool(new c.a.r0.t1.d.b(editorTools.getContext(), indexOf + 1));
+                    editorTools.addTool(new c.a.r0.u1.d.b(editorTools.getContext(), indexOf + 1));
                 }
                 if (editorTools.getCollectTools().indexOf(8) != -1) {
                     if (editorTools.isIsFromPb()) {
-                        editorTools.addTool(new c.a.r0.t1.d.a(editorTools.getContext(), true));
+                        editorTools.addTool(new c.a.r0.u1.d.a(editorTools.getContext(), true));
                     } else {
-                        editorTools.addTool(new c.a.r0.t1.d.a(editorTools.getContext()));
+                        editorTools.addTool(new c.a.r0.u1.d.a(editorTools.getContext()));
                     }
                 }
             }
@@ -98,7 +98,7 @@ public class LocationProvidersStatic {
         public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016556, new c.a.r0.t1.d.b(customMessage.getData(), 0)) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016556, new c.a.r0.u1.d.b(customMessage.getData(), 0)) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -165,13 +165,13 @@ public class LocationProvidersStatic {
                 return;
             }
         }
-        c.a.e.e.i.a.l().p(c.a.r0.t1.b.t());
+        c.a.e.e.i.a.l().p(c.a.r0.u1.b.t());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            c.a.e.e.i.a.l().p(c.a.r0.t1.a.j());
+            c.a.e.e.i.a.l().p(c.a.r0.u1.a.j());
         }
         MessageManager.getInstance().registerListener(new a(2010044));
         CustomMessageTask customMessageTask = new CustomMessageTask(2016556, new b());

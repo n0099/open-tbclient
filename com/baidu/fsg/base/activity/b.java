@@ -10,16 +10,16 @@ public class b implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f39397a;
+    public final /* synthetic */ int f39401a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f39398b;
+    public final /* synthetic */ int f39402b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f39399c;
+    public final /* synthetic */ String f39403c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ BeanActivity f39400d;
+    public final /* synthetic */ BeanActivity f39404d;
 
     public b(BeanActivity beanActivity, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
@@ -36,19 +36,19 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f39400d = beanActivity;
-        this.f39397a = i2;
-        this.f39398b = i3;
-        this.f39399c = str;
+        this.f39404d = beanActivity;
+        this.f39401a = i2;
+        this.f39402b = i3;
+        this.f39403c = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BeanActivity beanActivity = this.f39400d;
+            BeanActivity beanActivity = this.f39404d;
             if (beanActivity.mAct != null) {
-                beanActivity.handleFailure(this.f39397a, this.f39398b, this.f39399c);
+                beanActivity.handleFailure(this.f39401a, this.f39402b, this.f39403c);
             }
         }
     }

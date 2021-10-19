@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.pb.main.adapter;
 
-import c.a.r0.j2.h.b;
+import c.a.r0.k2.h.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

@@ -1,187 +1,124 @@
 package c.a.r0.c4;
 
-import android.content.Context;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.ScrollView;
-import c.a.e.e.p.l;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
-public class h extends PopupWindow {
+public class h implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f16671a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public a f16672b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f16673c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f16674d;
-
     /* renamed from: e  reason: collision with root package name */
-    public Context f16675e;
+    public final Spannable f16391e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16676f;
+    public c.a.q0.f1.m.f f16392f;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void onPrefixItemClick(int i2);
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public int f16393g;
 
-    /* loaded from: classes3.dex */
-    public static class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f16677e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public a f16678f;
-
-        public b(int i2, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f16677e = i2;
-            this.f16678f = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f16678f) == null) {
-                return;
-            }
-            aVar.onPrefixItemClick(this.f16677e);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(Context context) {
-        super(context);
+    public h(Spannable spannable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {spannable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f16671a = -1;
-        this.f16675e = context;
-        b(context);
+        this.f16392f = null;
+        this.f16393g = 0;
+        this.f16391e = spannable;
     }
 
-    public void a(View view) {
+    public void a(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            view.setOnClickListener(new b(this.f16673c, this.f16672b));
-            this.f16674d.addView(view);
-            this.f16673c++;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.f16393g = i2;
         }
     }
 
-    public final void b(Context context) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        c.a.q0.f1.m.f fVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            ScrollView scrollView = new ScrollView(context);
-            scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-            LinearLayout linearLayout = new LinearLayout(context);
-            this.f16674d = linearLayout;
-            linearLayout.setOrientation(1);
-            this.f16674d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            scrollView.addView(this.f16674d);
-            scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            scrollView.setPadding(0, 0, l.e(context, 1.0f), l.e(context, 1.0f));
-            scrollView.setFadingEdgeLength(0);
-            scrollView.setScrollbarFadingEnabled(false);
-            try {
-                Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(scrollView, 2);
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (view instanceof TextView) {
+                TextView textView = (TextView) view;
+                if (action == 3 && (fVar = this.f16392f) != null) {
+                    fVar.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                    view.invalidate();
+                    this.f16392f = null;
+                    return false;
+                }
+                if (action == 1 || action == 0) {
+                    int x = (int) motionEvent.getX();
+                    int y = (int) motionEvent.getY();
+                    Layout layout = textView.getLayout();
+                    if (layout == null) {
+                        return false;
+                    }
+                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
+                    Spannable spannable = this.f16391e;
+                    if (spannable == null) {
+                        return false;
+                    }
+                    c.a.q0.f1.m.f[] fVarArr = (c.a.q0.f1.m.f[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, c.a.q0.f1.m.f.class);
+                    if (fVarArr != null && fVarArr.length != 0 && fVarArr[0] != null) {
+                        if (action == 1) {
+                            fVarArr[0].g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                            fVarArr[0].onClick(textView);
+                            view.invalidate();
+                        } else {
+                            c.a.q0.f1.m.f fVar2 = fVarArr[0];
+                            this.f16392f = fVar2;
+                            if (fVar2.e()) {
+                                int i2 = this.f16393g;
+                                if (i2 != 0) {
+                                    fVarArr[0].g(SkinManager.getColor(i2));
+                                } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                                    fVarArr[0].g(SkinManager.getColor(R.color.CAM_X0204));
+                                } else {
+                                    fVarArr[0].g(SkinManager.getColor(R.color.cp_bg_line_z));
+                                }
+                            }
+                            Spannable spannable2 = this.f16391e;
+                            Selection.setSelection(spannable2, spannable2.getSpanStart(fVarArr[0]), this.f16391e.getSpanEnd(fVarArr[0]));
+                            view.invalidate();
+                        }
+                        return true;
+                    }
+                    c.a.q0.f1.m.f fVar3 = this.f16392f;
+                    if (fVar3 != null) {
+                        fVar3.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                        view.invalidate();
+                    }
+                    Selection.removeSelection(this.f16391e);
+                }
+                return false;
             }
-            setContentView(scrollView);
+            return false;
         }
-    }
-
-    public void c(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            int i3 = this.f16671a;
-            if (i3 != -1) {
-                this.f16674d.getChildAt(i3).setSelected(false);
-            }
-            this.f16671a = i2;
-            this.f16674d.getChildAt(i2).setSelected(true);
-        }
-    }
-
-    public void d(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f16676f = i2;
-        }
-    }
-
-    public void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f16672b = aVar;
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, view, i2, i3) == null) {
-            getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.f16675e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.f16675e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
-            int measuredWidth = getContentView().getMeasuredWidth();
-            if (measuredWidth < view.getWidth()) {
-                measuredWidth = view.getWidth();
-            }
-            int measuredHeight = getContentView().getMeasuredHeight();
-            int i4 = this.f16676f;
-            if (measuredHeight > i4) {
-                measuredHeight = i4;
-            }
-            setWidth(measuredWidth);
-            setHeight(measuredHeight);
-            super.showAsDropDown(view, i2, i3);
-        }
+        return invokeLL.booleanValue;
     }
 }

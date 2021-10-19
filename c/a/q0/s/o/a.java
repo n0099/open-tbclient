@@ -24,11 +24,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f14041b;
+    public static a f14062b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<c.a.q0.a.d0.a> f14042a;
+    public ArrayList<c.a.q0.a.d0.a> f14063a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,21 +43,21 @@ public class a {
                 return;
             }
         }
-        this.f14042a = new ArrayList<>();
+        this.f14063a = new ArrayList<>();
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f14041b == null) {
+            if (f14062b == null) {
                 synchronized (a.class) {
-                    if (f14041b == null) {
-                        f14041b = new a();
+                    if (f14062b == null) {
+                        f14062b = new a();
                     }
                 }
             }
-            return f14041b;
+            return f14062b;
         }
         return (a) invokeV.objValue;
     }
@@ -84,7 +84,7 @@ public class a {
     public final ArrayList<c.a.q0.a.d0.a> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14042a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14063a : (ArrayList) invokeV.objValue;
     }
 
     public void f(JSONArray jSONArray) {
@@ -108,7 +108,7 @@ public class a {
             if (StringUtils.isNull(currentAccount) || jSONArray == null) {
                 return;
             }
-            this.f14042a.clear();
+            this.f14063a.clear();
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 JSONObject jSONObject = null;
                 try {
@@ -116,38 +116,40 @@ public class a {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                c.a.q0.a.d0.a aVar = new c.a.q0.a.d0.a();
-                aVar.f12556a = jSONObject.optInt("active_id");
-                aVar.f12557b = jSONObject.optInt("mission_id");
-                aVar.f12558c = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
-                long d2 = d("business_update_time" + currentAccount + aVar.f12556a);
-                if (g("business_count_hint" + currentAccount + aVar.f12556a) && DateUtils.isToday(d2)) {
-                    aVar.s = c("business_count_hint" + currentAccount + aVar.f12556a);
-                } else {
-                    aVar.s = jSONObject.optInt("show_num");
-                    a();
-                    i("business_count_hint" + currentAccount + aVar.f12556a, aVar.s);
-                    j("business_update_time" + currentAccount + aVar.f12556a, System.currentTimeMillis());
-                }
-                aVar.t = jSONObject.optInt("show_time_begin");
-                aVar.u = jSONObject.optInt("show_time_end");
-                JSONArray optJSONArray = jSONObject.optJSONArray("forumIds");
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    try {
-                        aVar.w.add((String) optJSONArray.get(i3));
-                    } catch (JSONException e3) {
-                        e3.printStackTrace();
+                if (jSONObject != null) {
+                    c.a.q0.a.d0.a aVar = new c.a.q0.a.d0.a();
+                    aVar.f12556a = jSONObject.optInt("active_id");
+                    aVar.f12557b = jSONObject.optInt("mission_id");
+                    aVar.f12558c = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
+                    long d2 = d("business_update_time" + currentAccount + aVar.f12556a);
+                    if (g("business_count_hint" + currentAccount + aVar.f12556a) && DateUtils.isToday(d2)) {
+                        aVar.s = c("business_count_hint" + currentAccount + aVar.f12556a);
+                    } else {
+                        aVar.s = jSONObject.optInt("show_num");
+                        a();
+                        i("business_count_hint" + currentAccount + aVar.f12556a, aVar.s);
+                        j("business_update_time" + currentAccount + aVar.f12556a, System.currentTimeMillis());
                     }
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("show_page");
-                for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
-                    try {
-                        aVar.v.add((String) optJSONArray2.get(i4));
-                    } catch (JSONException e4) {
-                        e4.printStackTrace();
+                    aVar.t = jSONObject.optInt("show_time_begin");
+                    aVar.u = jSONObject.optInt("show_time_end");
+                    JSONArray optJSONArray = jSONObject.optJSONArray("forumIds");
+                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                        try {
+                            aVar.w.add((String) optJSONArray.get(i3));
+                        } catch (JSONException e3) {
+                            e3.printStackTrace();
+                        }
                     }
+                    JSONArray optJSONArray2 = jSONObject.optJSONArray("show_page");
+                    for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
+                        try {
+                            aVar.v.add((String) optJSONArray2.get(i4));
+                        } catch (JSONException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    this.f14063a.add(aVar);
                 }
-                this.f14042a.add(aVar);
             }
         }
     }

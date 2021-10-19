@@ -44,17 +44,17 @@ public class b extends SwanAppAlertDialog.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f46603e = this.f10005f.getResources().getDimensionPixelSize(d.aiapps_action_sheet_list_item);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f46603e);
+            this.f46515e = this.f10005f.getResources().getDimensionPixelSize(d.aiapps_action_sheet_list_item);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f46515e);
             layoutParams.addRule(12);
-            this.f46599a.t.setLayoutParams(layoutParams);
+            this.f46511a.t.setLayoutParams(layoutParams);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.f10005f.getResources().getDimensionPixelSize(d.aiapps_action_sheet_bottom_divider));
-            layoutParams2.addRule(2, this.f46599a.t.getId());
-            this.f46599a.f46620h.setLayoutParams(layoutParams2);
+            layoutParams2.addRule(2, this.f46511a.t.getId());
+            this.f46511a.f46532h.setLayoutParams(layoutParams2);
             o(c.aiapps_action_sheet_split_color);
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams3.addRule(2, this.f46599a.f46620h.getId());
-            this.f46599a.u.setLayoutParams(layoutParams3);
+            layoutParams3.addRule(2, this.f46511a.f46532h.getId());
+            this.f46511a.u.setLayoutParams(layoutParams3);
             return super.c();
         }
         return (SwanAppAlertDialog) invokeV.objValue;

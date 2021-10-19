@@ -22,19 +22,19 @@ public class b2 extends WebViewClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f77284a;
+    public boolean f77319a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Context f77285b;
+    public final /* synthetic */ Context f77320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Info f77286c;
+    public final /* synthetic */ Info f77321c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f77287d;
+    public final /* synthetic */ String f77322d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ c2 f77288e;
+    public final /* synthetic */ c2 f77323e;
 
     public b2(c2 c2Var, Context context, Info info, String str) {
         Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class b2 extends WebViewClient {
                 return;
             }
         }
-        this.f77288e = c2Var;
-        this.f77285b = context;
-        this.f77286c = info;
-        this.f77287d = str;
+        this.f77323e = c2Var;
+        this.f77320b = context;
+        this.f77321c = info;
+        this.f77322d = str;
     }
 
     public final boolean a(String str) {
@@ -63,9 +63,9 @@ public class b2 extends WebViewClient {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             Uri parse = Uri.parse(str);
             if (c2.a(parse) || c2.b(parse)) {
-                this.f77284a = true;
-                if (!Q1.a(this.f77285b, parse, null)) {
-                    Z1.a(this.f77285b, parse);
+                this.f77319a = true;
+                if (!Q1.a(this.f77320b, parse, null)) {
+                    Z1.a(this.f77320b, parse);
                 }
                 return true;
             }
@@ -79,13 +79,13 @@ public class b2 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
             super.onPageFinished(webView, str);
-            this.f77288e.f77314c.removeMessages(11);
-            if (this.f77284a) {
+            this.f77323e.f77349c.removeMessages(11);
+            if (this.f77319a) {
                 return;
             }
-            Y0 a2 = Z0.a(this.f77285b);
+            Y0 a2 = Z0.a(this.f77320b);
             try {
-                a2.f77254b = Z0.a("ps", new a1(this.f77286c));
+                a2.f77289b = Z0.a("ps", new a1(this.f77321c));
                 a2.a("co", 2004);
                 a2.a("msg", str);
             } catch (JSONException unused) {
@@ -93,8 +93,8 @@ public class b2 extends WebViewClient {
             a2.a();
             Message obtain = Message.obtain();
             obtain.what = 12;
-            obtain.obj = this.f77287d;
-            this.f77288e.f77314c.sendMessage(obtain);
+            obtain.obj = this.f77322d;
+            this.f77323e.f77349c.sendMessage(obtain);
         }
     }
 

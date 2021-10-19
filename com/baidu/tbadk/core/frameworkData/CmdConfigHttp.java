@@ -56,6 +56,7 @@ public class CmdConfigHttp {
     public static final int CMD_CHANNEL_VIDEO_UNSET_TOP = 1003308;
     public static final int CMD_CHECK_BAIDU_SIM = 1003392;
     public static final int CMD_CHECK_CARD_INFO = 1003442;
+    public static final int CMD_CHECK_INTEREST_COMMIT = 1003514;
     public static final int CMD_CHECK_POST = 1003451;
     public static final int CMD_CHECK_REAL_NAME = 1003325;
     public static final int CMD_CHECK_SHARE_SDK = 1003417;
@@ -155,6 +156,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_QM_STICKERS = 1003502;
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
     public static final int CMD_GET_RECOMMEND_GOD_LIST = 1003475;
+    public static final int CMD_GET_RECOMMEND_TOPIC = 1003515;
     public static final int CMD_GET_REPOST_RECOMMEND_FORUM = 1003323;
     public static final int CMD_GET_RN_SYNC = 1003409;
     public static final int CMD_GET_SELECT_CLASS = 1003506;

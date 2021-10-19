@@ -24,14 +24,14 @@ public class a implements k {
 
     /* renamed from: c.p.a.a.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class DialogInterface$OnClickListenerC1516a implements DialogInterface.OnClickListener {
+    public static class DialogInterface$OnClickListenerC1518a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.f.c f34439e;
+        public final /* synthetic */ c.p.a.a.a.f.c f34443e;
 
-        public DialogInterface$OnClickListenerC1516a(c.p.a.a.a.f.c cVar) {
+        public DialogInterface$OnClickListenerC1518a(c.p.a.a.a.f.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,17 +46,17 @@ public class a implements k {
                     return;
                 }
             }
-            this.f34439e = cVar;
+            this.f34443e = cVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            c.InterfaceC1518c interfaceC1518c;
+            c.InterfaceC1520c interfaceC1520c;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC1518c = this.f34439e.f34477h) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC1520c = this.f34443e.f34481h) == null) {
                 return;
             }
-            interfaceC1518c.b(dialogInterface);
+            interfaceC1520c.b(dialogInterface);
         }
     }
 
@@ -66,7 +66,7 @@ public class a implements k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.f.c f34440e;
+        public final /* synthetic */ c.p.a.a.a.f.c f34444e;
 
         public b(c.p.a.a.a.f.c cVar) {
             Interceptable interceptable = $ic;
@@ -83,17 +83,17 @@ public class a implements k {
                     return;
                 }
             }
-            this.f34440e = cVar;
+            this.f34444e = cVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            c.InterfaceC1518c interfaceC1518c;
+            c.InterfaceC1520c interfaceC1520c;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC1518c = this.f34440e.f34477h) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC1520c = this.f34444e.f34481h) == null) {
                 return;
             }
-            interfaceC1518c.a(dialogInterface);
+            interfaceC1520c.a(dialogInterface);
         }
     }
 
@@ -103,7 +103,7 @@ public class a implements k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.f.c f34441e;
+        public final /* synthetic */ c.p.a.a.a.f.c f34445e;
 
         public c(c.p.a.a.a.f.c cVar) {
             Interceptable interceptable = $ic;
@@ -120,17 +120,17 @@ public class a implements k {
                     return;
                 }
             }
-            this.f34441e = cVar;
+            this.f34445e = cVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            c.InterfaceC1518c interfaceC1518c;
+            c.InterfaceC1520c interfaceC1520c;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (interfaceC1518c = this.f34441e.f34477h) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (interfaceC1520c = this.f34445e.f34481h) == null) {
                 return;
             }
-            interfaceC1518c.c(dialogInterface);
+            interfaceC1520c.c(dialogInterface);
         }
     }
 
@@ -170,10 +170,10 @@ public class a implements k {
             if (cVar == null) {
                 return null;
             }
-            AlertDialog show = new AlertDialog.Builder(cVar.f34470a).setTitle(cVar.f34471b).setMessage(cVar.f34472c).setPositiveButton(cVar.f34473d, new b(cVar)).setNegativeButton(cVar.f34474e, new DialogInterface$OnClickListenerC1516a(cVar)).show();
-            show.setCanceledOnTouchOutside(cVar.f34475f);
+            AlertDialog show = new AlertDialog.Builder(cVar.f34474a).setTitle(cVar.f34475b).setMessage(cVar.f34476c).setPositiveButton(cVar.f34477d, new b(cVar)).setNegativeButton(cVar.f34478e, new DialogInterface$OnClickListenerC1518a(cVar)).show();
+            show.setCanceledOnTouchOutside(cVar.f34479f);
             show.setOnCancelListener(new c(cVar));
-            Drawable drawable = cVar.f34476g;
+            Drawable drawable = cVar.f34480g;
             if (drawable != null) {
                 show.setIcon(drawable);
             }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.forumRule.message;
 
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -51,7 +51,7 @@ public class ForumRuleDetailReqMsg extends NetMessage {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.forum_id = getForumRuleId();
                 if (z) {
-                    a0.c(builder, true, true, false);
+                    z.c(builder, true, true, false);
                 }
                 ForumRuleDetailReqIdl.Builder builder2 = new ForumRuleDetailReqIdl.Builder();
                 builder2.data = builder.build(false);

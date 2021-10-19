@@ -13,20 +13,20 @@ public final class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final y f42361a;
+    public static final y f42365a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final y f42362b;
+    public static final y f42366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final y f42363c;
+    public static final y f42367c;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ y[] f42364e;
+    public static final /* synthetic */ y[] f42368e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f42365d;
+    public final int f42369d;
 
     static {
         InterceptResult invokeClinit;
@@ -41,11 +41,11 @@ public final class y {
                 return;
             }
         }
-        f42361a = new y("DEFAULT", 0, 1);
-        f42362b = new y("INDOOR", 1, 2);
+        f42365a = new y("DEFAULT", 0, 1);
+        f42366b = new y("INDOOR", 1, 2);
         y yVar = new y("STREET", 2, 3);
-        f42363c = yVar;
-        f42364e = new y[]{f42361a, f42362b, yVar};
+        f42367c = yVar;
+        f42368e = new y[]{f42365a, f42366b, yVar};
     }
 
     public y(String str, int i2, int i3) {
@@ -66,7 +66,7 @@ public final class y {
                 return;
             }
         }
-        this.f42365d = i3;
+        this.f42369d = i3;
     }
 
     public static y valueOf(String str) {
@@ -78,6 +78,6 @@ public final class y {
     public static y[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (y[]) f42364e.clone() : (y[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (y[]) f42368e.clone() : (y[]) invokeV.objValue;
     }
 }

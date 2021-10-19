@@ -94,8 +94,8 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
                 if (this.f3789a.k != null && this.f3789a.k.getThreadData() != null) {
-                    c.a.r0.a0.m.a(this.f3789a.k.getThreadData().f0());
-                    c.a.r0.a0.m.l(this.f3789a.f3787j.getTitle(), this.f3789a.k.getThreadData().f0(), R.color.CAM_X0101, R.color.CAM_X0109);
+                    c.a.r0.b0.m.a(this.f3789a.k.getThreadData().f0());
+                    c.a.r0.b0.m.l(this.f3789a.f3787j.getTitle(), this.f3789a.k.getThreadData().f0(), R.color.CAM_X0101, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -144,11 +144,11 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.r0.a0.b0<c.a.q0.s.q.a> b0Var) {
+    public void k(c.a.r0.b0.c0<c.a.q0.s.q.a> c0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
-            super.k(b0Var);
-            this.f3787j.setSubClickListener(b0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0Var) == null) {
+            super.k(c0Var);
+            this.f3787j.setSubClickListener(c0Var);
         }
     }
 
@@ -164,12 +164,12 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view, nVar) == null) {
             c.a.q0.s.q.a aVar = this.k;
-            if (((aVar instanceof c.a.r0.a0.d0.e) || (aVar instanceof d2)) && (view.getTag() instanceof ThreadCardViewHolder)) {
+            if (((aVar instanceof c.a.r0.b0.e0.e) || (aVar instanceof d2)) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
-                if (nVar instanceof c.a.r0.a0.d0.e) {
-                    c.a.r0.a0.d0.e eVar = (c.a.r0.a0.d0.e) this.k;
+                if (nVar instanceof c.a.r0.b0.e0.e) {
+                    c.a.r0.b0.e0.e eVar = (c.a.r0.b0.e0.e) this.k;
                     eVar.k = 1;
-                    ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) eVar, view.getContext(), eVar.f15571e.a2 ? 2 : 1, false);
+                    ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) eVar, view.getContext(), eVar.f15721e.a2 ? 2 : 1, false);
                     threadCardViewHolder.getCardView().o(new a.C0095a(1));
                 } else if (nVar instanceof d2) {
                     d2 d2Var = (d2) this.k;

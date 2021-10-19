@@ -18,16 +18,16 @@ public class f implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13228a;
+    public int f13233a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13229b;
+    public int f13234b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f13230c;
+    public double f13235c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f13231d;
+    public boolean f13236d;
 
     public f(int i2) {
         Interceptable interceptable = $ic;
@@ -44,11 +44,11 @@ public class f implements c {
                 return;
             }
         }
-        this.f13228a = 3;
-        this.f13229b = 3;
-        this.f13231d = true;
+        this.f13233a = 3;
+        this.f13234b = 3;
+        this.f13236d = true;
         if (i2 > 0) {
-            this.f13229b = i2;
+            this.f13234b = i2;
         }
     }
 
@@ -77,7 +77,7 @@ public class f implements c {
             if (i2 == 1) {
                 return 0.5625d;
             }
-            double d2 = this.f13230c;
+            double d2 = this.f13235c;
             if (d2 > 0.0d) {
                 return d2;
             }
@@ -89,7 +89,7 @@ public class f implements c {
     public void d(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f13230c = d2;
+            this.f13235c = d2;
         }
     }
 
@@ -103,19 +103,19 @@ public class f implements c {
             }
             int count = ListUtils.getCount(list);
             if (count >= 2) {
-                constrainImageLayout.setImageMaxChildCount(this.f13228a);
+                constrainImageLayout.setImageMaxChildCount(this.f13233a);
                 constrainImageLayout.setCanCenterStart(false);
             } else {
                 constrainImageLayout.setImageMaxChildCount(-1);
                 constrainImageLayout.setCanCenterStart(true);
             }
-            int i4 = this.f13229b;
+            int i4 = this.f13234b;
             int i5 = count - i4;
             if (i5 > 0) {
                 i3 = i4 + i2;
                 List<MediaData> subList = ListUtils.subList(list, i2, i3);
-                constrainImageLayout.setExtraCenterText(this.f13231d ? TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i5)}) : null);
-                constrainImageLayout.setUrls(subList, i2, true, this.f13231d);
+                constrainImageLayout.setExtraCenterText(this.f13236d ? TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i5)}) : null);
+                constrainImageLayout.setUrls(subList, i2, true, this.f13236d);
             } else {
                 constrainImageLayout.setUrls(ListUtils.subList(list, i2, count), i2);
                 constrainImageLayout.setExtraCenterText(null);

@@ -12,7 +12,7 @@ public final class R {
     /* loaded from: classes5.dex */
     public static final class raw {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int tnconfig = 0x7f110056;
+        public static final int tnconfig = 0x7f110058;
         public transient /* synthetic */ FieldHolder $fh;
 
         public raw() {

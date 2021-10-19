@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.e0.e;
+import c.a.r0.f0.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -26,19 +26,19 @@ public class StateSwitchView extends EditorInfoView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58921f;
+    public String f58865f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58922g;
+    public String f58866g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58923h;
+    public int f58867h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f58924i;
+    public int f58868i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f58925j;
+    public boolean f58869j;
     public AbsSvgType k;
     public AbsSvgType l;
     public int m;
@@ -52,7 +52,7 @@ public class StateSwitchView extends EditorInfoView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ StateSwitchView f58926e;
+        public final /* synthetic */ StateSwitchView f58870e;
 
         public a(StateSwitchView stateSwitchView) {
             Interceptable interceptable = $ic;
@@ -69,14 +69,14 @@ public class StateSwitchView extends EditorInfoView {
                     return;
                 }
             }
-            this.f58926e = stateSwitchView;
+            this.f58870e = stateSwitchView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f58926e.n.I();
+                this.f58870e.n.I();
             }
         }
     }
@@ -99,7 +99,7 @@ public class StateSwitchView extends EditorInfoView {
                 return;
             }
         }
-        this.f58925j = false;
+        this.f58869j = false;
         this.o = 3;
         b();
     }
@@ -139,10 +139,10 @@ public class StateSwitchView extends EditorInfoView {
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds48);
             int i2 = this.m;
             if (i2 == 1) {
-                if (this.f58925j && (absSvgType2 = this.l) != null) {
+                if (this.f58869j && (absSvgType2 = this.l) != null) {
                     drawable2 = absSvgType2.getDrawable();
                 } else {
-                    int i3 = this.f58924i;
+                    int i3 = this.f58868i;
                     drawable2 = i3 > 0 ? SkinManager.getDrawable(i3) : null;
                 }
                 if (drawable2 != null) {
@@ -151,10 +151,10 @@ public class StateSwitchView extends EditorInfoView {
                     setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.ds8));
                 }
             } else if (i2 == 0) {
-                if (this.f58925j && (absSvgType = this.k) != null) {
+                if (this.f58869j && (absSvgType = this.k) != null) {
                     drawable = absSvgType.getDrawable();
                 } else {
-                    drawable = this.f58924i > 0 ? SkinManager.getDrawable(this.f58923h) : null;
+                    drawable = this.f58868i > 0 ? SkinManager.getDrawable(this.f58867h) : null;
                 }
                 if (drawable != null) {
                     drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
@@ -169,9 +169,9 @@ public class StateSwitchView extends EditorInfoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.m == 1) {
-                setText(this.f58922g);
+                setText(this.f58866g);
             } else {
-                setText(this.f58921f);
+                setText(this.f58865f);
             }
         }
     }
@@ -221,9 +221,9 @@ public class StateSwitchView extends EditorInfoView {
     public void setLeftStateDrawable(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
-            this.f58923h = i2;
-            this.f58924i = i3;
-            this.f58925j = false;
+            this.f58867h = i2;
+            this.f58868i = i3;
+            this.f58869j = false;
             e();
         }
     }
@@ -242,8 +242,8 @@ public class StateSwitchView extends EditorInfoView {
     public void setStateString(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            this.f58921f = str;
-            this.f58922g = str2;
+            this.f58865f = str;
+            this.f58866g = str2;
             f();
         }
     }
@@ -302,7 +302,7 @@ public class StateSwitchView extends EditorInfoView {
                 return;
             }
         }
-        this.f58925j = false;
+        this.f58869j = false;
         this.o = 3;
         b();
     }
@@ -312,7 +312,7 @@ public class StateSwitchView extends EditorInfoView {
         if (!(interceptable == null || interceptable.invokeLL(1048586, this, absSvgType, absSvgType2) == null) || absSvgType == null || absSvgType2 == null) {
             return;
         }
-        this.f58925j = true;
+        this.f58869j = true;
         this.k = absSvgType;
         this.l = absSvgType2;
         e();
@@ -337,7 +337,7 @@ public class StateSwitchView extends EditorInfoView {
                 return;
             }
         }
-        this.f58925j = false;
+        this.f58869j = false;
         this.o = 3;
         b();
     }

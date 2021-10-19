@@ -15,7 +15,7 @@ public final class f0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f79205a;
+    public static final a f79240a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -140,7 +140,7 @@ public final class f0 {
             aVar = (a) declaredField.get(null);
         } catch (Throwable unused) {
         }
-        f79205a = aVar;
+        f79240a = aVar;
     }
 
     public static long a(Class<?> cls, String str) {
@@ -148,7 +148,7 @@ public final class f0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
             try {
-                return f79205a.g(cls.getDeclaredField(str));
+                return f79240a.g(cls.getDeclaredField(str));
             } catch (NoSuchFieldException e2) {
                 InternalError internalError = new InternalError();
                 internalError.initCause(e2);

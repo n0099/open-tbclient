@@ -31,14 +31,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f65940a;
+    public static volatile b f65975a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Context> f65941b;
+    public WeakReference<Context> f65976b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final p f65942c;
+    public final p f65977c;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -62,14 +62,14 @@ public class b {
                 return;
             }
         }
-        this.f65941b = new WeakReference<>(context);
-        this.f65942c = o.f();
+        this.f65976b = new WeakReference<>(context);
+        this.f65977c = o.f();
     }
 
     private void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context) == null) {
-            this.f65941b = new WeakReference<>(context);
+            this.f65976b = new WeakReference<>(context);
         }
     }
 
@@ -77,16 +77,16 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f65940a == null) {
+            if (f65975a == null) {
                 synchronized (b.class) {
-                    if (f65940a == null) {
-                        f65940a = new b(context);
+                    if (f65975a == null) {
+                        f65975a = new b(context);
                     }
                 }
             } else {
-                f65940a.b(context);
+                f65975a.b(context);
             }
-            return f65940a;
+            return f65975a;
         }
         return (b) invokeL.objValue;
     }
@@ -94,15 +94,15 @@ public class b {
     public void a(@NonNull AdSlot adSlot, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adSlot, aVar) == null) {
-            this.f65942c.a(adSlot, new n(), 1, new p.b(this, aVar) { // from class: com.bytedance.sdk.openadsdk.component.a.b.1
+            this.f65977c.a(adSlot, new n(), 1, new p.b(this, aVar) { // from class: com.bytedance.sdk.openadsdk.component.a.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f65943a;
+                public final /* synthetic */ a f65978a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f65944b;
+                public final /* synthetic */ b f65979b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -119,8 +119,8 @@ public class b {
                             return;
                         }
                     }
-                    this.f65944b = this;
-                    this.f65943a = aVar;
+                    this.f65979b = this;
+                    this.f65978a = aVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.p.b
@@ -128,7 +128,7 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
                         k.b("BannerAdManager", str + GlideException.IndentedAppendable.INDENT + i2);
-                        a aVar2 = this.f65943a;
+                        a aVar2 = this.f65978a;
                         if (aVar2 != null) {
                             aVar2.a();
                         }
@@ -143,11 +143,11 @@ public class b {
                     }
                     m mVar = aVar2.c().get(0);
                     if (mVar.aK()) {
-                        this.f65944b.a(mVar, this.f65943a);
+                        this.f65979b.a(mVar, this.f65978a);
                         return;
                     }
                     k.b("BannerAdManager", "Banner广告解析失败/广告为空");
-                    a aVar3 = this.f65943a;
+                    a aVar3 = this.f65978a;
                     if (aVar3 != null) {
                         aVar3.a();
                     }
@@ -159,21 +159,21 @@ public class b {
     public void a(@NonNull AdSlot adSlot, @NonNull TTAdNative.BannerAdListener bannerAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adSlot, bannerAdListener) == null) {
-            this.f65942c.a(adSlot, new n(), 1, new p.b(this, bannerAdListener, adSlot, System.currentTimeMillis()) { // from class: com.bytedance.sdk.openadsdk.component.a.b.2
+            this.f65977c.a(adSlot, new n(), 1, new p.b(this, bannerAdListener, adSlot, System.currentTimeMillis()) { // from class: com.bytedance.sdk.openadsdk.component.a.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTAdNative.BannerAdListener f65945a;
+                public final /* synthetic */ TTAdNative.BannerAdListener f65980a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AdSlot f65946b;
+                public final /* synthetic */ AdSlot f65981b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f65947c;
+                public final /* synthetic */ long f65982c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ b f65948d;
+                public final /* synthetic */ b f65983d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -190,17 +190,17 @@ public class b {
                             return;
                         }
                     }
-                    this.f65948d = this;
-                    this.f65945a = bannerAdListener;
-                    this.f65946b = adSlot;
-                    this.f65947c = r9;
+                    this.f65983d = this;
+                    this.f65980a = bannerAdListener;
+                    this.f65981b = adSlot;
+                    this.f65982c = r9;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.p.b
                 public void a(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        this.f65945a.onError(i2, str);
+                        this.f65980a.onError(i2, str);
                         k.b("BannerAdManager", str + " " + i2);
                     }
                 }
@@ -212,15 +212,15 @@ public class b {
                         if (aVar.c() != null && !aVar.c().isEmpty()) {
                             m mVar = aVar.c().get(0);
                             if (mVar.aK()) {
-                                this.f65948d.a(mVar, new a(this, mVar) { // from class: com.bytedance.sdk.openadsdk.component.a.b.2.1
+                                this.f65983d.a(mVar, new a(this, mVar) { // from class: com.bytedance.sdk.openadsdk.component.a.b.2.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ m f65949a;
+                                    public final /* synthetic */ m f65984a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass2 f65950b;
+                                    public final /* synthetic */ AnonymousClass2 f65985b;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -237,37 +237,37 @@ public class b {
                                                 return;
                                             }
                                         }
-                                        this.f65950b = this;
-                                        this.f65949a = mVar;
+                                        this.f65985b = this;
+                                        this.f65984a = mVar;
                                     }
 
                                     @Override // com.bytedance.sdk.openadsdk.component.a.b.a
                                     public void a(@NonNull com.bytedance.sdk.openadsdk.component.a.a aVar2) {
                                         Interceptable interceptable3 = $ic;
-                                        if (!(interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar2) == null) || this.f65950b.f65948d.f65941b.get() == null) {
+                                        if (!(interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar2) == null) || this.f65985b.f65983d.f65976b.get() == null) {
                                             return;
                                         }
-                                        e eVar = new e((Context) this.f65950b.f65948d.f65941b.get(), aVar2, this.f65950b.f65946b);
-                                        com.bytedance.sdk.openadsdk.e.d.a((Context) this.f65950b.f65948d.f65941b.get(), this.f65949a, q.b(this.f65950b.f65946b.getDurationSlotType()), this.f65950b.f65947c);
-                                        this.f65950b.f65945a.onBannerAdLoad(eVar);
+                                        e eVar = new e((Context) this.f65985b.f65983d.f65976b.get(), aVar2, this.f65985b.f65981b);
+                                        com.bytedance.sdk.openadsdk.e.d.a((Context) this.f65985b.f65983d.f65976b.get(), this.f65984a, q.b(this.f65985b.f65981b.getDurationSlotType()), this.f65985b.f65982c);
+                                        this.f65985b.f65980a.onBannerAdLoad(eVar);
                                     }
 
                                     @Override // com.bytedance.sdk.openadsdk.component.a.b.a
                                     public void a() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            this.f65950b.f65945a.onError(-5, g.a(-5));
+                                            this.f65985b.f65980a.onError(-5, g.a(-5));
                                         }
                                     }
                                 });
                                 return;
                             }
                             k.b("BannerAdManager", "Banner广告解析失败");
-                            this.f65945a.onError(-4, g.a(-4));
+                            this.f65980a.onError(-4, g.a(-4));
                             return;
                         }
                         k.b("BannerAdManager", "Banner广告解析失败/广告为空");
-                        this.f65945a.onError(-4, g.a(-4));
+                        this.f65980a.onError(-4, g.a(-4));
                     }
                 }
             });
@@ -283,13 +283,13 @@ public class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f65951a;
+                public final /* synthetic */ a f65986a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ m f65952b;
+                public final /* synthetic */ m f65987b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ b f65953c;
+                public final /* synthetic */ b f65988c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -306,16 +306,16 @@ public class b {
                             return;
                         }
                     }
-                    this.f65953c = this;
-                    this.f65951a = aVar;
-                    this.f65952b = mVar;
+                    this.f65988c = this;
+                    this.f65986a = aVar;
+                    this.f65987b = mVar;
                 }
 
                 @Override // com.bytedance.sdk.component.image.ILoaderListener
                 public void onFailed(int i2, String str, @Nullable Throwable th) {
                     a aVar2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, th) == null) || (aVar2 = this.f65951a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, th) == null) || (aVar2 = this.f65986a) == null) {
                         return;
                     }
                     aVar2.a();
@@ -326,14 +326,14 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageResponse) == null) {
                         if (imageResponse != null && imageResponse.getResult() != null) {
-                            a aVar2 = this.f65951a;
+                            a aVar2 = this.f65986a;
                             if (aVar2 != null) {
-                                aVar2.a(new com.bytedance.sdk.openadsdk.component.a.a(imageResponse.getResult(), this.f65952b));
+                                aVar2.a(new com.bytedance.sdk.openadsdk.component.a.a(imageResponse.getResult(), this.f65987b));
                                 return;
                             }
                             return;
                         }
-                        a aVar3 = this.f65951a;
+                        a aVar3 = this.f65986a;
                         if (aVar3 != null) {
                             aVar3.a();
                         }

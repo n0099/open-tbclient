@@ -14,7 +14,7 @@ public final class ei extends AsyncTask {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f60008a;
+    public final /* synthetic */ FeedbackReportActivity f60043a;
 
     public ei(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class ei extends AsyncTask {
                 return;
             }
         }
-        this.f60008a = feedbackReportActivity;
+        this.f60043a = feedbackReportActivity;
     }
 
     public static Integer a() {
@@ -56,10 +56,10 @@ public final class ei extends AsyncTask {
 
     @Override // android.os.AsyncTask
     public final /* synthetic */ void onPostExecute(Object obj) {
-        this.f60008a.finish();
+        this.f60043a.finish();
         try {
             com.baidu.ufosdk.f.c.d("执行动画...");
-            this.f60008a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f60008a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f60008a.getApplicationContext(), "ufo_slide_out_to_right"));
+            this.f60043a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f60043a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f60043a.getApplicationContext(), "ufo_slide_out_to_right"));
         } catch (Exception unused) {
             com.baidu.ufosdk.f.c.d("执行动画失败！！");
         }
@@ -68,10 +68,10 @@ public final class ei extends AsyncTask {
     @Override // android.os.AsyncTask
     public final void onPreExecute() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f60008a.getCurrentFocus() == null || this.f60008a.getCurrentFocus().getWindowToken() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f60043a.getCurrentFocus() == null || this.f60043a.getCurrentFocus().getWindowToken() == null) {
             return;
         }
-        ((InputMethodManager) this.f60008a.getSystemService("input_method")).hideSoftInputFromWindow(this.f60008a.getCurrentFocus().getWindowToken(), 2);
+        ((InputMethodManager) this.f60043a.getSystemService("input_method")).hideSoftInputFromWindow(this.f60043a.getCurrentFocus().getWindowToken(), 2);
     }
 
     @Override // android.os.AsyncTask

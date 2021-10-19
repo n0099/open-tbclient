@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.forumRule.message;
 
-import c.a.r0.w0.q1.c.b;
+import c.a.r0.x0.q1.c.b;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

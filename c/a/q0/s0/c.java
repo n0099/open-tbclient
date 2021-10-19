@@ -45,21 +45,21 @@ public class c extends c.a.e.h.j.e.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f14586c;
+    public static c f14606c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static BdFileDownloadData f14587d;
+    public static BdFileDownloadData f14607d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static List<BdFileDownloadData> f14588e;
+    public static List<BdFileDownloadData> f14608e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f14589a;
+    public b f14609a;
     @SuppressLint({"HandlerLeak"})
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f14590b;
+    public Handler f14610b;
 
     /* loaded from: classes3.dex */
     public class a extends Handler {
@@ -91,11 +91,11 @@ public class c extends c.a.e.h.j.e.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 if (message != null && message.what == -1 && (message.obj instanceof c.a.q0.s0.b)) {
-                    if (c.f14587d != null) {
+                    if (c.f14607d != null) {
                         c.a.q0.s0.b bVar = (c.a.q0.s0.b) message.obj;
-                        c.f14587d.setErrorCode(message.arg1);
-                        c.f14587d.setAfterHttpDnsUrl(bVar.a());
-                        c.f14587d.setStatusMsg(bVar.g());
+                        c.f14607d.setErrorCode(message.arg1);
+                        c.f14607d.setAfterHttpDnsUrl(bVar.a());
+                        c.f14607d.setStatusMsg(bVar.g());
                         return;
                     }
                     return;
@@ -109,13 +109,13 @@ public class c extends c.a.e.h.j.e.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
                 super.handleMessage(message);
-                if (message.what != 900002 || message.arg2 <= 0 || c.f14587d == null) {
+                if (message.what != 900002 || message.arg2 <= 0 || c.f14607d == null) {
                     return;
                 }
-                c.f14587d.setLength(message.arg1);
-                c.f14587d.setSize(message.arg2);
-                if (c.f14587d.getCallback() != null) {
-                    c.f14587d.getCallback().d(c.f14587d);
+                c.f14607d.setLength(message.arg1);
+                c.f14607d.setSize(message.arg2);
+                if (c.f14607d.getCallback() != null) {
+                    c.f14607d.getCallback().d(c.f14607d);
                 }
             }
         }
@@ -128,34 +128,34 @@ public class c extends c.a.e.h.j.e.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f14591a;
+        public NetWork f14611a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f14592b;
+        public long f14612b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f14593c;
+        public String f14613c;
 
         /* renamed from: d  reason: collision with root package name */
-        public BdFileDownloadData f14594d;
+        public BdFileDownloadData f14614d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f14595e;
+        public String f14615e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f14596f;
+        public String f14616f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f14597g;
+        public String f14617g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f14598h;
+        public String f14618h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f14599i;
+        public long f14619i;
 
         /* renamed from: j  reason: collision with root package name */
-        public long f14600j;
+        public long f14620j;
         public long k;
         public final /* synthetic */ c l;
 
@@ -175,13 +175,13 @@ public class c extends c.a.e.h.j.e.b {
                 }
             }
             this.l = cVar;
-            this.f14591a = new NetWork();
-            this.f14592b = -1L;
-            this.f14593c = null;
-            this.f14595e = null;
-            this.f14596f = "";
-            this.f14597g = "";
-            this.f14598h = "";
+            this.f14611a = new NetWork();
+            this.f14612b = -1L;
+            this.f14613c = null;
+            this.f14615e = null;
+            this.f14616f = "";
+            this.f14617g = "";
+            this.f14618h = "";
         }
 
         public final boolean b(File file, String str, byte[] bArr) {
@@ -230,10 +230,10 @@ public class c extends c.a.e.h.j.e.b {
                     throw th;
                 }
                 if (!y.equalsIgnoreCase(str)) {
-                    this.f14592b = file.length();
-                    this.f14593c = y;
+                    this.f14612b = file.length();
+                    this.f14613c = y;
                     f.n(file);
-                    this.f14595e = c.a.q0.s0.a.a(file);
+                    this.f14615e = c.a.q0.s0.a.a(file);
                     fileInputStream.close();
                     return false;
                 }
@@ -257,27 +257,27 @@ public class c extends c.a.e.h.j.e.b {
                 if (bdFileDownloadDataArr[0] == null) {
                     return 3;
                 }
-                this.f14594d = bdFileDownloadDataArr[0];
+                this.f14614d = bdFileDownloadDataArr[0];
                 if (bdFileDownloadDataArr[0].getCallback() != null && !bdFileDownloadDataArr[0].getCallback().b(bdFileDownloadDataArr[0])) {
                     return 0;
                 }
                 BdLog.i("pluginFileDownloader beging download " + bdFileDownloadDataArr[0].getId());
                 if (bdFileDownloadDataArr[0].getPath() != null && bdFileDownloadDataArr[0].getCheck() != null) {
-                    this.f14596f = bdFileDownloadDataArr[0].getId();
-                    this.f14591a.setUrl(bdFileDownloadDataArr[0].getUrl());
-                    this.f14591a.setCanHttpsDownToHttp(true);
+                    this.f14616f = bdFileDownloadDataArr[0].getId();
+                    this.f14611a.setUrl(bdFileDownloadDataArr[0].getUrl());
+                    this.f14611a.setCanHttpsDownToHttp(true);
                     File file = new File(bdFileDownloadDataArr[0].getPath());
                     if (b(file, bdFileDownloadDataArr[0].getCheck(), null)) {
                         return 0;
                     }
                     if (!file.exists()) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        this.f14597g = UtilHelper.getIpFromDomain("tb1.bdstatic.com");
+                        this.f14617g = UtilHelper.getIpFromDomain("tb1.bdstatic.com");
                         int d2 = d(bdFileDownloadDataArr[0], null);
                         if (d2 == 6 || d2 == 7) {
                             d2 = d(bdFileDownloadDataArr[0], null);
                         }
-                        this.f14599i = System.currentTimeMillis() - currentTimeMillis;
+                        this.f14619i = System.currentTimeMillis() - currentTimeMillis;
                         if (d2 != 0) {
                             return Integer.valueOf(d2);
                         }
@@ -303,12 +303,12 @@ public class c extends c.a.e.h.j.e.b {
                 File file = new File(bdFileDownloadData.getPath());
                 File file2 = new File(this.l.m(bdFileDownloadData));
                 long length = file2.length();
-                if (this.f14591a.downloadFile(this.l.m(bdFileDownloadData), this.l.f14590b, TbConfig.NET_MSG_GETLENTH, 3, 3000, true)) {
+                if (this.f14611a.downloadFile(this.l.m(bdFileDownloadData), this.l.f14610b, TbConfig.NET_MSG_GETLENTH, 3, 3000, true)) {
                     if (g(file2, file, bArr)) {
                         return b(file, bdFileDownloadData.getCheck(), bArr) ? 0 : 6;
                     }
                     return 8;
-                } else if (this.f14591a.getNetContext().getResponse().mNetErrorCode == 416) {
+                } else if (this.f14611a.getNetContext().getResponse().mNetErrorCode == 416) {
                     if (b(file2, bdFileDownloadData.getCheck(), null)) {
                         if (g(file2, file, bArr)) {
                             return b(file, bdFileDownloadData.getCheck(), bArr) ? 0 : 6;
@@ -317,7 +317,7 @@ public class c extends c.a.e.h.j.e.b {
                     }
                     return 7;
                 } else {
-                    this.f14600j = file2.length();
+                    this.f14620j = file2.length();
                     this.k = file2.length() - length;
                     return e();
                 }
@@ -330,8 +330,8 @@ public class c extends c.a.e.h.j.e.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 if (j.z()) {
-                    if (c.f14587d != null) {
-                        int errorCode = c.f14587d.getErrorCode();
+                    if (c.f14607d != null) {
+                        int errorCode = c.f14607d.getErrorCode();
                         if (errorCode != -100) {
                             switch (errorCode) {
                                 case NetWorkError.NETWORK_CONNECT_EXCEPTION /* -22 */:
@@ -383,7 +383,7 @@ public class c extends c.a.e.h.j.e.b {
             if (interceptable != null && interceptable.invokeL(1048581, this, num) != null) {
                 return;
             }
-            String statusMsg = c.f14587d.getStatusMsg();
+            String statusMsg = c.f14607d.getStatusMsg();
             int intValue = num.intValue();
             if (intValue != 2) {
                 if (intValue != 3 && intValue != 4 && intValue != 5 && intValue != 8 && intValue != 9) {
@@ -412,26 +412,26 @@ public class c extends c.a.e.h.j.e.b {
                     statusMsg = string;
                 }
                 if (num.intValue() == 8) {
-                    statusMsg = statusMsg + "_err-" + this.f14598h;
+                    statusMsg = statusMsg + "_err-" + this.f14618h;
                 }
                 if (num.intValue() != 6 || num.intValue() == 7) {
                     String c2 = c.a.q0.s0.a.c(TbadkCoreApplication.getInst());
                     String str = !c.a.q0.s0.a.b() ? "true" : "false";
                     StringBuilder sb = new StringBuilder();
                     sb.append("_downloadfilesize-");
-                    sb.append(this.f14592b);
+                    sb.append(this.f14612b);
                     sb.append(" ");
                     sb.append("downloadfileMd5-");
-                    sb.append(this.f14593c);
+                    sb.append(this.f14613c);
                     sb.append(" wishMd5-");
-                    BdFileDownloadData bdFileDownloadData = this.f14594d;
+                    BdFileDownloadData bdFileDownloadData = this.f14614d;
                     sb.append(bdFileDownloadData != null ? "" : bdFileDownloadData.getCheck());
                     sb.append("-url_");
-                    sb.append(c.f14587d.getUrl());
+                    sb.append(c.f14607d.getUrl());
                     sb.append("-realurl_");
-                    sb.append(c.f14587d.getAfterHttpDnsUrl());
+                    sb.append(c.f14607d.getAfterHttpDnsUrl());
                     sb.append("-uploadResult_");
-                    sb.append(this.f14595e);
+                    sb.append(this.f14615e);
                     sb.append("-Proxy_");
                     sb.append(c2);
                     sb.append("-UsbDebug_");
@@ -445,15 +445,15 @@ public class c extends c.a.e.h.j.e.b {
                     sb2.append("-netType_");
                     sb2.append(j.J());
                     sb2.append("-cost_");
-                    sb2.append(this.f14599i);
+                    sb2.append(this.f14619i);
                     sb2.append("-downloadSize_");
                     sb2.append(this.k);
                     sb2.append("-tempSize_");
-                    sb2.append(this.f14600j);
+                    sb2.append(this.f14620j);
                     sb2.append("-clientIp_");
                     sb2.append(CommonHelper.getIp());
                     sb2.append("-cdnIp_");
-                    sb2.append(this.f14597g);
+                    sb2.append(this.f14617g);
                     sb2.append("-NetChangeTime_");
                     sb2.append(j.l());
                     sb2.append("-syncTime_");
@@ -466,14 +466,14 @@ public class c extends c.a.e.h.j.e.b {
                     }
                     statusMsg = statusMsg + sb2.toString();
                 }
-                c.f14587d.setStatusMsg(string);
-                c.f14587d.setErrorCode(num.intValue());
-                if (c.f14587d.getCallback() != null) {
-                    c.f14587d.getCallback().e(c.f14587d, num.intValue(), string, statusMsg);
+                c.f14607d.setStatusMsg(string);
+                c.f14607d.setErrorCode(num.intValue());
+                if (c.f14607d.getCallback() != null) {
+                    c.f14607d.getCallback().e(c.f14607d, num.intValue(), string, statusMsg);
                 }
-                c.f14587d.setStatus(2);
-                if (c.f14587d.getCallback() == null) {
-                    c.f14587d.getCallback().d(c.f14587d);
+                c.f14607d.setStatus(2);
+                if (c.f14607d.getCallback() == null) {
+                    c.f14607d.getCallback().d(c.f14607d);
                     return;
                 }
                 return;
@@ -490,19 +490,19 @@ public class c extends c.a.e.h.j.e.b {
             }
             StringBuilder sb3 = new StringBuilder();
             sb3.append("_downloadfilesize-");
-            sb3.append(this.f14592b);
+            sb3.append(this.f14612b);
             sb3.append(" ");
             sb3.append("downloadfileMd5-");
-            sb3.append(this.f14593c);
+            sb3.append(this.f14613c);
             sb3.append(" wishMd5-");
-            BdFileDownloadData bdFileDownloadData2 = this.f14594d;
+            BdFileDownloadData bdFileDownloadData2 = this.f14614d;
             sb3.append(bdFileDownloadData2 != null ? "" : bdFileDownloadData2.getCheck());
             sb3.append("-url_");
-            sb3.append(c.f14587d.getUrl());
+            sb3.append(c.f14607d.getUrl());
             sb3.append("-realurl_");
-            sb3.append(c.f14587d.getAfterHttpDnsUrl());
+            sb3.append(c.f14607d.getAfterHttpDnsUrl());
             sb3.append("-uploadResult_");
-            sb3.append(this.f14595e);
+            sb3.append(this.f14615e);
             sb3.append("-Proxy_");
             sb3.append(c22);
             sb3.append("-UsbDebug_");
@@ -512,12 +512,12 @@ public class c extends c.a.e.h.j.e.b {
             statusMsg = sb3.toString();
             if (statusMsg != null) {
             }
-            c.f14587d.setStatusMsg(string);
-            c.f14587d.setErrorCode(num.intValue());
-            if (c.f14587d.getCallback() != null) {
+            c.f14607d.setStatusMsg(string);
+            c.f14607d.setErrorCode(num.intValue());
+            if (c.f14607d.getCallback() != null) {
             }
-            c.f14587d.setStatus(2);
-            if (c.f14587d.getCallback() == null) {
+            c.f14607d.setStatus(2);
+            if (c.f14607d.getCallback() == null) {
             }
         }
 
@@ -549,14 +549,14 @@ public class c extends c.a.e.h.j.e.b {
                     } catch (Exception e3) {
                         exc = e3;
                         z = false;
-                        c.a.e.h.h.a.b().p("retry_rename_tmp", this.f14596f, !z ? "true" : "false", exc.toString());
+                        c.a.e.h.h.a.b().p("retry_rename_tmp", this.f14616f, !z ? "true" : "false", exc.toString());
                         try {
                             if (!z) {
                             }
                             return true;
                         } catch (Exception e4) {
                             f.n(file2);
-                            this.f14598h = "avirom_" + Util.g() + "-filesize_" + j2 + "-exception_" + exc.toString() + "-exception1_" + e4.toString();
+                            this.f14618h = "avirom_" + Util.g() + "-filesize_" + j2 + "-exception_" + exc.toString() + "-exception1_" + e4.toString();
                             return false;
                         }
                     }
@@ -567,7 +567,7 @@ public class c extends c.a.e.h.j.e.b {
                             } catch (Exception e5) {
                                 exc = e5;
                                 z = true;
-                                c.a.e.h.h.a.b().p("retry_rename_tmp", this.f14596f, !z ? "true" : "false", exc.toString());
+                                c.a.e.h.h.a.b().p("retry_rename_tmp", this.f14616f, !z ? "true" : "false", exc.toString());
                                 if (!z) {
                                     file.delete();
                                 } else {
@@ -593,7 +593,7 @@ public class c extends c.a.e.h.j.e.b {
                     throw new Exception("rename return fail");
                 }
                 if (file.exists()) {
-                    this.f14598h = "temp_exists";
+                    this.f14618h = "temp_exists";
                     f.n(file);
                 }
                 return false;
@@ -606,16 +606,16 @@ public class c extends c.a.e.h.j.e.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 super.onCancelled();
-                this.f14591a.cancelNetConnect();
-                c.f14587d.setStatus(4);
-                c.f14587d.setStatusMsg(null);
-                if (c.f14587d.getCallback() != null) {
-                    c.f14587d.getCallback().d(c.f14587d);
+                this.f14611a.cancelNetConnect();
+                c.f14607d.setStatus(4);
+                c.f14607d.setStatusMsg(null);
+                if (c.f14607d.getCallback() != null) {
+                    c.f14607d.getCallback().d(c.f14607d);
                 }
-                if (!c.f14588e.isEmpty()) {
-                    c.f14588e.remove(0);
+                if (!c.f14608e.isEmpty()) {
+                    c.f14608e.remove(0);
                 }
-                BdFileDownloadData unused = c.f14587d = null;
+                BdFileDownloadData unused = c.f14607d = null;
                 this.l.p();
             }
         }
@@ -630,21 +630,21 @@ public class c extends c.a.e.h.j.e.b {
                     num = -1;
                 }
                 if (num.intValue() == 0) {
-                    if (c.f14587d.getCallback() != null) {
-                        c.f14587d.getCallback().a(c.f14587d);
+                    if (c.f14607d.getCallback() != null) {
+                        c.f14607d.getCallback().a(c.f14607d);
                     }
-                    c.f14587d.setStatus(0);
-                    if (c.f14587d.getCallback() != null) {
-                        c.f14587d.getCallback().d(c.f14587d);
+                    c.f14607d.setStatus(0);
+                    if (c.f14607d.getCallback() != null) {
+                        c.f14607d.getCallback().d(c.f14607d);
                     }
                 } else {
                     f(num);
                 }
-                BdFileDownloadData unused = c.f14587d = null;
-                if (c.f14588e.isEmpty()) {
+                BdFileDownloadData unused = c.f14607d = null;
+                if (c.f14608e.isEmpty()) {
                     return;
                 }
-                c.f14588e.remove(0);
+                c.f14608e.remove(0);
                 this.l.p();
             }
         }
@@ -663,9 +663,9 @@ public class c extends c.a.e.h.j.e.b {
                 return;
             }
         }
-        f14586c = new c();
-        f14587d = null;
-        f14588e = new LinkedList();
+        f14606c = new c();
+        f14607d = null;
+        f14608e = new LinkedList();
     }
 
     public c() {
@@ -681,14 +681,14 @@ public class c extends c.a.e.h.j.e.b {
                 return;
             }
         }
-        this.f14589a = null;
-        this.f14590b = new a(this, LaunchTask.asyncLooper);
+        this.f14609a = null;
+        this.f14610b = new a(this, LaunchTask.asyncLooper);
     }
 
     public static c n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f14586c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f14606c : (c) invokeV.objValue;
     }
 
     @Override // c.a.e.h.j.e.b
@@ -697,13 +697,13 @@ public class c extends c.a.e.h.j.e.b {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        BdFileDownloadData bdFileDownloadData = f14587d;
+        BdFileDownloadData bdFileDownloadData = f14607d;
         if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(str)) {
-            this.f14589a.cancel(true);
+            this.f14609a.cancel(true);
             return;
         }
         LinkedList<BdFileDownloadData> linkedList = new LinkedList();
-        Iterator<BdFileDownloadData> it = f14588e.iterator();
+        Iterator<BdFileDownloadData> it = f14608e.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -719,7 +719,7 @@ public class c extends c.a.e.h.j.e.b {
             }
         }
         for (BdFileDownloadData bdFileDownloadData2 : linkedList) {
-            f14588e.remove(bdFileDownloadData2);
+            f14608e.remove(bdFileDownloadData2);
         }
     }
 
@@ -727,7 +727,7 @@ public class c extends c.a.e.h.j.e.b {
     public List<BdFileDownloadData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14588e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14608e : (List) invokeV.objValue;
     }
 
     @Override // c.a.e.h.j.e.b
@@ -750,14 +750,14 @@ public class c extends c.a.e.h.j.e.b {
         BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
         BdBaseApplication inst = BdBaseApplication.getInst();
         bdStatisticsManager.eventStat(inst, "plugin_start_download", null, 1, "pname", bdFileDownloadData.getId(), "appver", BdStatisticsManager.getInstance().getAppVersion(), "comment", "downloadByAuto-isBackgrount_" + TbadkCoreApplication.getInst().isInBackground(), "pid", Integer.valueOf(Process.myPid()));
-        for (int i3 = 0; i3 < f14588e.size(); i3++) {
-            BdFileDownloadData bdFileDownloadData2 = f14588e.get(i3);
+        for (int i3 = 0; i3 < f14608e.size(); i3++) {
+            BdFileDownloadData bdFileDownloadData2 = f14608e.get(i3);
             if (bdFileDownloadData2 != null && !k.isEmpty(bdFileDownloadData2.getUrl()) && bdFileDownloadData2.getUrl().equals(bdFileDownloadData.getUrl()) && bdFileDownloadData2.getId().equals(bdFileDownloadData.getId())) {
                 return;
             }
         }
         bdFileDownloadData.setStatus(1);
-        f14588e.add(bdFileDownloadData);
+        f14608e.add(bdFileDownloadData);
         p();
     }
 
@@ -781,20 +781,20 @@ public class c extends c.a.e.h.j.e.b {
         BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
         BdBaseApplication inst = BdBaseApplication.getInst();
         bdStatisticsManager.eventStat(inst, "plugin_start_download", null, 1, "pname", bdFileDownloadData.getId(), "appver", BdStatisticsManager.getInstance().getAppVersion(), "comment", "downloadByUser-isBackgrount_" + TbadkCoreApplication.getInst().isInBackground(), "pid", Integer.valueOf(Process.myPid()));
-        BdFileDownloadData bdFileDownloadData2 = f14587d;
-        if (bdFileDownloadData2 != null && bdFileDownloadData2.getUrl().equals(bdFileDownloadData.getUrl()) && f14587d.getId().equals(bdFileDownloadData.getId())) {
+        BdFileDownloadData bdFileDownloadData2 = f14607d;
+        if (bdFileDownloadData2 != null && bdFileDownloadData2.getUrl().equals(bdFileDownloadData.getUrl()) && f14607d.getId().equals(bdFileDownloadData.getId())) {
             return;
         }
-        for (int i3 = 0; i3 < f14588e.size(); i3++) {
-            BdFileDownloadData bdFileDownloadData3 = f14588e.get(i3);
+        for (int i3 = 0; i3 < f14608e.size(); i3++) {
+            BdFileDownloadData bdFileDownloadData3 = f14608e.get(i3);
             if (bdFileDownloadData3 != null && bdFileDownloadData3.getUrl().equals(bdFileDownloadData.getUrl()) && bdFileDownloadData3.getId().equals(bdFileDownloadData.getId())) {
-                f14588e.remove(i3);
-                f14588e.add(0, bdFileDownloadData3);
+                f14608e.remove(i3);
+                f14608e.add(0, bdFileDownloadData3);
                 return;
             }
         }
         bdFileDownloadData.setStatus(1);
-        f14588e.add(0, bdFileDownloadData);
+        f14608e.add(0, bdFileDownloadData);
         p();
     }
 
@@ -825,13 +825,13 @@ public class c extends c.a.e.h.j.e.b {
 
     public final void p() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && f14587d == null && !f14588e.isEmpty()) {
-            BdFileDownloadData bdFileDownloadData = f14588e.get(0);
-            f14587d = bdFileDownloadData;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && f14607d == null && !f14608e.isEmpty()) {
+            BdFileDownloadData bdFileDownloadData = f14608e.get(0);
+            f14607d = bdFileDownloadData;
             if (bdFileDownloadData != null) {
                 b bVar = new b(this);
-                this.f14589a = bVar;
-                bVar.execute(f14587d);
+                this.f14609a = bVar;
+                bVar.execute(f14607d);
             }
         }
     }

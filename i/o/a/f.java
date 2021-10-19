@@ -13,10 +13,10 @@ public final class f<T> implements d.a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.d<T> f78931e;
+    public final i.d<T> f78966e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.n.f<? super T, Boolean> f78932f;
+    public final i.n.f<? super T, Boolean> f78967f;
 
     /* loaded from: classes10.dex */
     public static final class a<T> extends i.j<T> {
@@ -24,13 +24,13 @@ public final class f<T> implements d.a<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final i.j<? super T> f78933e;
+        public final i.j<? super T> f78968e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final i.n.f<? super T, Boolean> f78934f;
+        public final i.n.f<? super T, Boolean> f78969f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f78935g;
+        public boolean f78970g;
 
         public a(i.j<? super T> jVar, i.n.f<? super T, Boolean> fVar) {
             Interceptable interceptable = $ic;
@@ -47,30 +47,30 @@ public final class f<T> implements d.a<T> {
                     return;
                 }
             }
-            this.f78933e = jVar;
-            this.f78934f = fVar;
+            this.f78968e = jVar;
+            this.f78969f = fVar;
             request(0L);
         }
 
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f78935g) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f78970g) {
                 return;
             }
-            this.f78933e.onCompleted();
+            this.f78968e.onCompleted();
         }
 
         @Override // i.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.f78935g) {
+                if (this.f78970g) {
                     i.r.c.j(th);
                     return;
                 }
-                this.f78935g = true;
-                this.f78933e.onError(th);
+                this.f78970g = true;
+                this.f78968e.onError(th);
             }
         }
 
@@ -79,8 +79,8 @@ public final class f<T> implements d.a<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
                 try {
-                    if (this.f78934f.call(t).booleanValue()) {
-                        this.f78933e.onNext(t);
+                    if (this.f78969f.call(t).booleanValue()) {
+                        this.f78968e.onNext(t);
                     } else {
                         request(1L);
                     }
@@ -97,7 +97,7 @@ public final class f<T> implements d.a<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
                 super.setProducer(fVar);
-                this.f78933e.setProducer(fVar);
+                this.f78968e.setProducer(fVar);
             }
         }
     }
@@ -117,8 +117,8 @@ public final class f<T> implements d.a<T> {
                 return;
             }
         }
-        this.f78931e = dVar;
-        this.f78932f = fVar;
+        this.f78966e = dVar;
+        this.f78967f = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -127,9 +127,9 @@ public final class f<T> implements d.a<T> {
     public void call(i.j<? super T> jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            a aVar = new a(jVar, this.f78932f);
+            a aVar = new a(jVar, this.f78967f);
             jVar.add(aVar);
-            this.f78931e.I(aVar);
+            this.f78966e.I(aVar);
         }
     }
 }

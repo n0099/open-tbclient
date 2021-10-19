@@ -19,10 +19,10 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12966a;
+        public String f12974a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f12967b;
+        public int f12975b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,13 +49,13 @@ public class i {
                 if (str.contains("#")) {
                     String[] split = str.split("#");
                     if (split.length == 1) {
-                        aVar.f12966a = split[0];
+                        aVar.f12974a = split[0];
                     } else if (split.length == 2) {
-                        aVar.f12966a = split[0];
-                        aVar.f12967b = c.a.e.e.m.b.e(split[1], -1);
+                        aVar.f12974a = split[0];
+                        aVar.f12975b = c.a.e.e.m.b.e(split[1], -1);
                     }
                 } else {
-                    aVar.f12966a = str;
+                    aVar.f12974a = str;
                 }
                 return aVar;
             }
@@ -66,10 +66,10 @@ public class i {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (StringUtils.isNull(this.f12966a)) {
-                    return null;
+                if (StringUtils.isNull(this.f12974a)) {
+                    return "";
                 }
-                return this.f12966a + "#" + this.f12967b;
+                return this.f12974a + "#" + this.f12975b;
             }
             return (String) invokeV.objValue;
         }
@@ -89,8 +89,8 @@ public class i {
                     return;
                 }
             }
-            this.f12966a = str;
-            this.f12967b = i2;
+            this.f12974a = str;
+            this.f12975b = i2;
         }
     }
 
@@ -109,8 +109,8 @@ public class i {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
                 a a2 = a.a(str);
-                if (a2 != null && !StringUtils.isNull(a2.f12966a)) {
-                    arrayList.add(a2.f12966a);
+                if (a2 != null && !StringUtils.isNull(a2.f12974a)) {
+                    arrayList.add(a2.f12974a);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);

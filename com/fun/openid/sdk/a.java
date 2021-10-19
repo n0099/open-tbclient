@@ -13,23 +13,23 @@ public interface a extends IInterface {
 
     /* renamed from: com.fun.openid.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static abstract class AbstractBinderC1951a extends Binder implements a {
+    public static abstract class AbstractBinderC1953a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int f70335a = 0;
+        public static final /* synthetic */ int f70370a = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.fun.openid.sdk.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public static class C1952a implements a {
+        public static class C1954a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f70336a;
+            public IBinder f70371a;
 
-            public C1952a(IBinder iBinder) {
+            public C1954a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,14 +44,14 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f70336a = iBinder;
+                this.f70371a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70336a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70371a : (IBinder) invokeV.objValue;
             }
         }
     }

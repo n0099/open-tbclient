@@ -24,7 +24,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f<T> f54998e;
+    public f<T> f54929e;
 
     public PaymentConfirmModel(f<T> fVar) {
         Interceptable interceptable = $ic;
@@ -41,11 +41,11 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
                 return;
             }
         }
-        this.f54998e = fVar;
+        this.f54929e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -55,7 +55,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -79,7 +79,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("password", payRequestData.getPassword());
         httpMessage.addParam("bindid", payRequestData.getBindId());
         httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
-        this.f54998e.sendMessage(httpMessage);
+        this.f54929e.sendMessage(httpMessage);
     }
 
     public void x() {
@@ -121,6 +121,6 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
         httpMessage.addParam("pay_type", String.valueOf(paymentConfirmRequestData.getPay_type()));
         httpMessage.addParam("currency", paymentConfirmRequestData.getCurrency());
-        this.f54998e.sendMessage(httpMessage);
+        this.f54929e.sendMessage(httpMessage);
     }
 }

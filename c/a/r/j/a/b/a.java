@@ -36,31 +36,31 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f15533f;
+    public static final String[] f15556f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f15534a;
+    public String f15557a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f15535b;
+    public Context f15558b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.C0735a f15536c;
+    public a.C0737a f15559c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ZipFile f15537d;
+    public ZipFile f15560d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PackageManager f15538e;
+    public PackageManager f15561e;
 
     /* renamed from: c.a.r.j.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0745a implements FilenameFilter {
+    public class C0747a implements FilenameFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0745a(a aVar) {
+        public C0747a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +90,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f15539a;
+        public long f15562a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class a {
                     }
                     JSONObject jSONObject = new JSONObject(b2);
                     b bVar = new b();
-                    bVar.f15539a = jSONObject.getLong("version");
+                    bVar.f15562a = jSONObject.getLong("version");
                     return bVar;
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -141,7 +141,7 @@ public class a {
                 return;
             }
         }
-        f15533f = new String[]{"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
+        f15556f = new String[]{"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
     }
 
     public a() {
@@ -163,7 +163,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                Bundle bundle = this.f15538e.getPackageInfo(this.f15534a, 128).applicationInfo.metaData;
+                Bundle bundle = this.f15561e.getPackageInfo(this.f15557a, 128).applicationInfo.metaData;
                 if (bundle != null) {
                     String string = bundle.getString("com.baidu.helios.tc.qver");
                     if (TextUtils.isEmpty(string) || !string.startsWith("v")) {
@@ -198,13 +198,13 @@ public class a {
         return (String) invokeL.objValue;
     }
 
-    public void c(String str, Context context, a.C0735a c0735a) {
+    public void c(String str, Context context, a.C0737a c0737a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, context, c0735a) == null) {
-            this.f15534a = str;
-            this.f15535b = context;
-            this.f15536c = c0735a;
-            this.f15538e = context.getPackageManager();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, context, c0737a) == null) {
+            this.f15557a = str;
+            this.f15558b = context;
+            this.f15559c = c0737a;
+            this.f15561e = context.getPackageManager();
         }
     }
 
@@ -217,8 +217,8 @@ public class a {
             return invokeV.intValue;
         }
         try {
-            AssetManager assets = this.f15535b.createPackageContext(this.f15534a, 0).getAssets();
-            this.f15536c.a();
+            AssetManager assets = this.f15558b.createPackageContext(this.f15557a, 0).getAssets();
+            this.f15559c.a();
             File k = k();
             InputStream inputStream = null;
             try {
@@ -254,7 +254,7 @@ public class a {
                                     }
                                 }
                                 HashSet hashSet2 = new HashSet();
-                                Collections.addAll(hashSet2, f15533f);
+                                Collections.addAll(hashSet2, f15556f);
                                 if (!hashSet2.equals(hashSet)) {
                                     c.b(inputStream);
                                     c.b(fileOutputStream);
@@ -364,7 +364,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             try {
-                return this.f15537d.getInputStream(new ZipEntry(str));
+                return this.f15560d.getInputStream(new ZipEntry(str));
             } catch (Exception e2) {
                 throw new TrustSubject.ConfigNotFoundException(e2);
             }
@@ -382,7 +382,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            File[] listFiles = this.f15536c.b().listFiles(new C0745a(this));
+            File[] listFiles = this.f15559c.b().listFiles(new C0747a(this));
             int i2 = 0;
             if (listFiles != null) {
                 int length = listFiles.length;
@@ -403,13 +403,13 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f15537d != null) {
+            if (this.f15560d != null) {
                 return true;
             }
             File k = k();
             if (k.exists()) {
                 try {
-                    this.f15537d = new ZipFile(k);
+                    this.f15560d = new ZipFile(k);
                     return true;
                 } catch (IOException e2) {
                     e2.printStackTrace();
@@ -425,10 +425,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ZipFile zipFile = this.f15537d;
+            ZipFile zipFile = this.f15560d;
             if (zipFile != null) {
                 c.d(zipFile);
-                this.f15537d = null;
+                this.f15560d = null;
                 return true;
             }
             return false;
@@ -442,7 +442,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             b a2 = b.a(this);
             if (a2 != null) {
-                return a2.f15539a;
+                return a2.f15562a;
             }
             return 0L;
         }
@@ -452,6 +452,6 @@ public class a {
     public final File k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f15536c.d("c.dat") : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f15559c.d("c.dat") : (File) invokeV.objValue;
     }
 }

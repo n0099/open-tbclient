@@ -25,23 +25,23 @@ public class a extends RelativeLayout implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f44429e;
+    public ImageView f44341e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44430f;
+    public TextView f44342f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44431g;
+    public TextView f44343g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f44432h;
+    public ImageView f44344h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC1693a f44433i;
+    public InterfaceC1695a f44345i;
 
     /* renamed from: com.baidu.poly.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1693a {
+    public interface InterfaceC1695a {
         void a();
     }
 
@@ -66,45 +66,45 @@ public class a extends RelativeLayout implements View.OnClickListener {
         }
     }
 
-    public void a(o oVar, InterfaceC1693a interfaceC1693a) {
+    public void a(o oVar, InterfaceC1695a interfaceC1695a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, oVar, interfaceC1693a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, oVar, interfaceC1695a) == null) {
             String displayName = oVar.getDisplayName();
             String S = oVar.S();
             String icon = oVar.getIcon();
             int P = oVar.P();
             int N = oVar.N();
-            b.c().b(this.f44429e, icon);
-            this.f44430f.setText(displayName);
+            b.c().b(this.f44341e, icon);
+            this.f44342f.setText(displayName);
             if (P == 1) {
-                this.f44432h.setImageResource(e.channel_checked);
+                this.f44344h.setImageResource(e.channel_checked);
             } else {
-                this.f44432h.setImageResource(e.unchecked);
+                this.f44344h.setImageResource(e.unchecked);
             }
             if (1 == N) {
-                this.f44433i = interfaceC1693a;
+                this.f44345i = interfaceC1695a;
             } else {
-                this.f44429e.setAlpha(0.4f);
-                this.f44430f.setAlpha(0.4f);
-                this.f44431g.setAlpha(0.4f);
-                this.f44432h.setVisibility(8);
+                this.f44341e.setAlpha(0.4f);
+                this.f44342f.setAlpha(0.4f);
+                this.f44343g.setAlpha(0.4f);
+                this.f44344h.setVisibility(8);
             }
             if (!TextUtils.isEmpty(S)) {
                 String M = oVar.M();
                 if (!TextUtils.isEmpty(M)) {
                     try {
-                        this.f44431g.setTextColor(Color.parseColor(M));
+                        this.f44343g.setTextColor(Color.parseColor(M));
                     } catch (Exception unused) {
                     }
                 }
-                this.f44431g.setText(S);
+                this.f44343g.setText(S);
                 return;
             }
-            this.f44431g.setVisibility(8);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f44430f.getLayoutParams();
+            this.f44343g.setVisibility(8);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f44342f.getLayoutParams();
             layoutParams.addRule(15);
             layoutParams.topMargin = 0;
-            this.f44430f.setLayoutParams(layoutParams);
+            this.f44342f.setLayoutParams(layoutParams);
         }
     }
 
@@ -112,22 +112,22 @@ public class a extends RelativeLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(g.view_channel_list_item, (ViewGroup) this, true);
-            this.f44429e = (ImageView) findViewById(f.channel_icon_view);
-            this.f44430f = (TextView) findViewById(f.channel_name_view);
-            this.f44431g = (TextView) findViewById(f.channel_desc_view);
-            this.f44432h = (ImageView) findViewById(f.channel_select_view);
+            this.f44341e = (ImageView) findViewById(f.channel_icon_view);
+            this.f44342f = (TextView) findViewById(f.channel_name_view);
+            this.f44343g = (TextView) findViewById(f.channel_desc_view);
+            this.f44344h = (ImageView) findViewById(f.channel_select_view);
             setOnClickListener(this);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        InterfaceC1693a interfaceC1693a;
+        InterfaceC1695a interfaceC1695a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (interfaceC1693a = this.f44433i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (interfaceC1695a = this.f44345i) == null) {
             return;
         }
-        interfaceC1693a.a();
+        interfaceC1695a.a();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

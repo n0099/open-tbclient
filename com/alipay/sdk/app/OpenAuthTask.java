@@ -42,26 +42,26 @@ public final class OpenAuthTask {
     public static final int SYS_ERR = 4000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Map<String, Callback> f35879e;
+    public static final Map<String, Callback> f35883e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f35880f = 0;
+    public static long f35884f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f35881g = 122;
+    public static final int f35885g = 122;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f35882a;
+    public volatile boolean f35886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Activity f35883b;
+    public final Activity f35887b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Callback f35884c;
+    public Callback f35888c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f35885d;
+    public final Handler f35889d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -138,7 +138,7 @@ public final class OpenAuthTask {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f35886a;
+        public static final /* synthetic */ int[] f35890a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -155,17 +155,17 @@ public final class OpenAuthTask {
                 }
             }
             int[] iArr = new int[BizType.values().length];
-            f35886a = iArr;
+            f35890a = iArr;
             try {
                 iArr[BizType.Deduct.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f35886a[BizType.AccountAuth.ordinal()] = 2;
+                f35890a[BizType.AccountAuth.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f35886a[BizType.Invoice.ordinal()] = 3;
+                f35890a[BizType.Invoice.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -177,16 +177,16 @@ public final class OpenAuthTask {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f35887a;
+        public final int f35891a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f35888b;
+        public final String f35892b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Bundle f35889c;
+        public final Bundle f35893c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ OpenAuthTask f35890d;
+        public final /* synthetic */ OpenAuthTask f35894d;
 
         public /* synthetic */ b(OpenAuthTask openAuthTask, int i2, String str, Bundle bundle, a aVar) {
             this(openAuthTask, i2, str, bundle);
@@ -195,10 +195,10 @@ public final class OpenAuthTask {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35890d.f35884c == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35894d.f35888c == null) {
                 return;
             }
-            this.f35890d.f35884c.onResult(this.f35887a, this.f35888b, this.f35889c);
+            this.f35894d.f35888c.onResult(this.f35891a, this.f35892b, this.f35893c);
         }
 
         public b(OpenAuthTask openAuthTask, int i2, String str, Bundle bundle) {
@@ -216,10 +216,10 @@ public final class OpenAuthTask {
                     return;
                 }
             }
-            this.f35890d = openAuthTask;
-            this.f35887a = i2;
-            this.f35888b = str;
-            this.f35889c = bundle;
+            this.f35894d = openAuthTask;
+            this.f35891a = i2;
+            this.f35892b = str;
+            this.f35893c = bundle;
         }
     }
 
@@ -236,8 +236,8 @@ public final class OpenAuthTask {
                 return;
             }
         }
-        f35879e = new ConcurrentHashMap();
-        f35880f = -1L;
+        f35883e = new ConcurrentHashMap();
+        f35884f = -1L;
     }
 
     public OpenAuthTask(Activity activity) {
@@ -255,21 +255,21 @@ public final class OpenAuthTask {
                 return;
             }
         }
-        this.f35882a = false;
-        this.f35885d = new Handler(Looper.getMainLooper());
-        this.f35883b = activity;
+        this.f35886a = false;
+        this.f35889d = new Handler(Looper.getMainLooper());
+        this.f35887b = activity;
         com.alipay.sdk.sys.b.d().a(activity);
     }
 
     public void execute(String str, BizType bizType, Map<String, String> map, Callback callback, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, bizType, map, callback, Boolean.valueOf(z)}) == null) {
-            Activity activity = this.f35883b;
+            Activity activity = this.f35887b;
             String valueOf = String.valueOf(map);
             com.alipay.sdk.sys.a aVar = new com.alipay.sdk.sys.a(activity, valueOf, "oa-" + bizType);
-            this.f35884c = callback;
+            this.f35888c = callback;
             if (a(aVar, str, bizType, map, z)) {
-                com.alipay.sdk.app.statistic.a.b(this.f35883b, aVar, "", aVar.f36068d);
+                com.alipay.sdk.app.statistic.a.b(this.f35887b, aVar, "", aVar.f36072d);
             }
         }
     }
@@ -279,40 +279,40 @@ public final class OpenAuthTask {
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{aVar, str, bizType, map, Boolean.valueOf(z)})) == null) {
-            if (this.f35882a) {
-                this.f35885d.post(new b(this, 4000, "该 OpenAuthTask 已在执行", null, null));
+            if (this.f35886a) {
+                this.f35889d.post(new b(this, 4000, "该 OpenAuthTask 已在执行", null, null));
                 return true;
             }
-            this.f35882a = true;
+            this.f35886a = true;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (elapsedRealtime - f35880f <= 3000) {
-                this.f35885d.post(new b(this, 5000, "3s 内重复支付", null, null));
+            if (elapsedRealtime - f35884f <= 3000) {
+                this.f35889d.post(new b(this, 5000, "3s 内重复支付", null, null));
                 return true;
             }
-            f35880f = elapsedRealtime;
+            f35884f = elapsedRealtime;
             com.alipay.sdk.app.a.a("");
             String a2 = l.a(32);
             HashMap hashMap = new HashMap(map);
-            hashMap.put("mqpPkgName", this.f35883b.getPackageName());
+            hashMap.put("mqpPkgName", this.f35887b.getPackageName());
             hashMap.put("mqpScene", "sdk");
             List<a.b> k = com.alipay.sdk.data.a.u().k();
-            if (!com.alipay.sdk.data.a.u().f35993g || k == null) {
-                k = com.alipay.sdk.app.a.f35926d;
+            if (!com.alipay.sdk.data.a.u().f35997g || k == null) {
+                k = com.alipay.sdk.app.a.f35930d;
             }
-            l.b a3 = l.a(aVar, this.f35883b, k);
-            if (a3 == null || a3.a(aVar) || a3.a() || (packageInfo = a3.f36143a) == null || packageInfo.versionCode < 122) {
+            l.b a3 = l.a(aVar, this.f35887b, k);
+            if (a3 == null || a3.a(aVar) || a3.a() || (packageInfo = a3.f36147a) == null || packageInfo.versionCode < 122) {
                 if (z) {
                     hashMap.put("mqpScheme", String.valueOf(str));
                     hashMap.put("mqpNotifyName", a2);
                     hashMap.put("mqpScene", "landing");
                     String a4 = a(bizType, hashMap);
-                    Intent intent = new Intent(this.f35883b, H5OpenAuthActivity.class);
+                    Intent intent = new Intent(this.f35887b, H5OpenAuthActivity.class);
                     intent.putExtra("url", String.format("https://render.alipay.com/p/s/i?scheme=%s", Uri.encode(a4)));
-                    a.C1566a.a(aVar, intent);
-                    this.f35883b.startActivity(intent);
+                    a.C1568a.a(aVar, intent);
+                    this.f35887b.startActivity(intent);
                     return false;
                 }
-                this.f35885d.post(new b(this, 4001, "支付宝未安装或签名错误", null, null));
+                this.f35889d.post(new b(this, 4001, "支付宝未安装或签名错误", null, null));
                 return true;
             }
             try {
@@ -320,7 +320,7 @@ public final class OpenAuthTask {
                 a5.put("ts_scheme", String.valueOf(SystemClock.elapsedRealtime()));
                 hashMap.put("mqpLoc", new JSONObject(a5).toString());
                 String a6 = a(bizType, hashMap);
-                f35879e.put(a2, this.f35884c);
+                f35883e.put(a2, this.f35888c);
                 String str2 = null;
                 try {
                     str2 = a(elapsedRealtime, a2, bizType, a6);
@@ -329,16 +329,16 @@ public final class OpenAuthTask {
                 }
                 String str3 = str2;
                 if (TextUtils.isEmpty(str3)) {
-                    this.f35885d.post(new b(this, 4000, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR, null, null));
+                    this.f35889d.post(new b(this, 4000, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR, null, null));
                     return true;
                 }
                 Intent intent2 = new Intent("android.intent.action.VIEW", new Uri.Builder().scheme("alipays").authority("platformapi").path("startapp").appendQueryParameter(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "20001129").appendQueryParameter("payload", str3).build());
                 intent2.addFlags(268435456);
-                intent2.setPackage(a3.f36143a.packageName);
+                intent2.setPackage(a3.f36147a.packageName);
                 try {
                     com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.c0, "" + elapsedRealtime);
-                    a.C1566a.a(aVar, a2);
-                    this.f35883b.startActivity(intent2);
+                    a.C1568a.a(aVar, a2);
+                    this.f35887b.startActivity(intent2);
                 } catch (Throwable th) {
                     com.alipay.sdk.app.statistic.a.a(aVar, "biz", "StartWalletEx", th);
                 }
@@ -354,7 +354,7 @@ public final class OpenAuthTask {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, bizType, map)) == null) {
             if (bizType != null) {
                 Uri.Builder appendQueryParameter = new Uri.Builder().scheme("alipays").authority("platformapi").path("startapp").appendQueryParameter(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, bizType.appId);
-                if (a.f35886a[bizType.ordinal()] == 1) {
+                if (a.f35890a[bizType.ordinal()] == 1) {
                     appendQueryParameter.appendQueryParameter("appClearTop", "false").appendQueryParameter("startMultApp", "YES");
                 }
                 for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -374,7 +374,7 @@ public final class OpenAuthTask {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("startTime", String.valueOf(j2));
             jSONObject.put("session", str);
-            jSONObject.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.f35883b.getPackageName());
+            jSONObject.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.f35887b.getPackageName());
             if (bizType != null) {
                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, bizType.appId);
             }
@@ -388,7 +388,7 @@ public final class OpenAuthTask {
     public static void a(String str, int i2, String str2, Bundle bundle) {
         Callback remove;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(AdIconUtil.AD_TEXT_ID, null, str, i2, str2, bundle) == null) || (remove = f35879e.remove(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(AdIconUtil.AD_TEXT_ID, null, str, i2, str2, bundle) == null) || (remove = f35883e.remove(str)) == null) {
             return;
         }
         try {

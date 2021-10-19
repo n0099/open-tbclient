@@ -213,7 +213,7 @@ public class a {
                             sb.append(Typography.amp);
                         }
                         sb.append(next.getName());
-                        sb.append(com.alipay.sdk.encrypt.a.f36022h);
+                        sb.append(com.alipay.sdk.encrypt.a.f36026h);
                         try {
                             sb.append(URLEncoder.encode(i(next.getValue()), "utf-8"));
                         } catch (UnsupportedEncodingException e2) {

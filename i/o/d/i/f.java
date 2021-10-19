@@ -24,22 +24,22 @@ public final class f<T> implements Queue<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicLong f79186e;
+    public final AtomicLong f79221e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f79187f;
+    public int f79222f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f79188g;
+    public long f79223g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f79189h;
+    public int f79224h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AtomicReferenceArray<Object> f79190i;
+    public AtomicReferenceArray<Object> f79225i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f79191j;
+    public int f79226j;
     public AtomicReferenceArray<Object> k;
     public final AtomicLong l;
 
@@ -77,15 +77,15 @@ public final class f<T> implements Queue<T> {
         }
         int b2 = i.b(Math.max(8, i2));
         int i5 = b2 - 1;
-        this.f79186e = new AtomicLong();
+        this.f79221e = new AtomicLong();
         this.l = new AtomicLong();
         AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(b2 + 1);
-        this.f79190i = atomicReferenceArray;
-        this.f79189h = i5;
+        this.f79225i = atomicReferenceArray;
+        this.f79224h = i5;
         a(b2);
         this.k = atomicReferenceArray;
-        this.f79191j = i5;
-        this.f79188g = i5 - 1;
+        this.f79226j = i5;
+        this.f79223g = i5 - 1;
         p(0L);
     }
 
@@ -122,7 +122,7 @@ public final class f<T> implements Queue<T> {
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f79187f = Math.min(i2 / 4, m);
+            this.f79222f = Math.min(i2 / 4, m);
         }
     }
 
@@ -188,7 +188,7 @@ public final class f<T> implements Queue<T> {
     public final long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f79186e.get() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f79221e.get() : invokeV.longValue;
     }
 
     @Override // java.util.Queue
@@ -221,7 +221,7 @@ public final class f<T> implements Queue<T> {
     public final long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f79186e.get() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f79221e.get() : invokeV.longValue;
     }
 
     @Override // java.util.Collection
@@ -272,8 +272,8 @@ public final class f<T> implements Queue<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2), t, Long.valueOf(j3)}) == null) {
             AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-            this.f79190i = atomicReferenceArray2;
-            this.f79188g = (j3 + j2) - 1;
+            this.f79225i = atomicReferenceArray2;
+            this.f79223g = (j3 + j2) - 1;
             p(j2 + 1);
             n(atomicReferenceArray2, i2, t);
             o(atomicReferenceArray, atomicReferenceArray2);
@@ -303,16 +303,16 @@ public final class f<T> implements Queue<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, t)) == null) {
             if (t != null) {
-                AtomicReferenceArray<Object> atomicReferenceArray = this.f79190i;
+                AtomicReferenceArray<Object> atomicReferenceArray = this.f79225i;
                 long e2 = e();
-                int i2 = this.f79189h;
+                int i2 = this.f79224h;
                 int c2 = c(e2, i2);
-                if (e2 < this.f79188g) {
+                if (e2 < this.f79223g) {
                     return q(atomicReferenceArray, t, e2, c2);
                 }
-                long j2 = this.f79187f + e2;
+                long j2 = this.f79222f + e2;
                 if (g(atomicReferenceArray, c(j2, i2)) == null) {
-                    this.f79188g = j2 - 1;
+                    this.f79223g = j2 - 1;
                     return q(atomicReferenceArray, t, e2, c2);
                 } else if (g(atomicReferenceArray, c(1 + e2, i2)) != null) {
                     return q(atomicReferenceArray, t, e2, c2);
@@ -329,7 +329,7 @@ public final class f<T> implements Queue<T> {
     public final void p(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            this.f79186e.lazySet(j2);
+            this.f79221e.lazySet(j2);
         }
     }
 
@@ -340,7 +340,7 @@ public final class f<T> implements Queue<T> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             AtomicReferenceArray<Object> atomicReferenceArray = this.k;
             long d2 = d();
-            int i2 = this.f79191j;
+            int i2 = this.f79226j;
             T t = (T) g(atomicReferenceArray, c(d2, i2));
             return t == n ? j(h(atomicReferenceArray), d2, i2) : t;
         }
@@ -354,7 +354,7 @@ public final class f<T> implements Queue<T> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             AtomicReferenceArray<Object> atomicReferenceArray = this.k;
             long d2 = d();
-            int i2 = this.f79191j;
+            int i2 = this.f79226j;
             int c2 = c(d2, i2);
             T t = (T) g(atomicReferenceArray, c2);
             boolean z = t == n;

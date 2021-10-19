@@ -32,34 +32,34 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30670a;
+    public int f30717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f30671b;
+    public Context f30718b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30672c;
+    public boolean f30719c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HandlerThread f30673d;
+    public HandlerThread f30720d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f30674e;
+    public volatile boolean f30721e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f30675f;
+    public boolean f30722f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30676g;
+    public long f30723g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.x.c.g.d f30677h;
+    public c.a.x.c.g.d f30724h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f30678i;
+    public e f30725i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HandlerC1414d f30679j;
+    public HandlerC1417d f30726j;
     public c.a.x.c.g.e k;
     public f l;
     public c.a.x.c.f.a m;
@@ -77,7 +77,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f30680a;
+        public final /* synthetic */ d f30727a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -94,17 +94,17 @@ public class d {
                     return;
                 }
             }
-            this.f30680a = dVar;
+            this.f30727a = dVar;
         }
 
         @Override // c.a.x.c.g.c
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f30680a.p.v();
-                this.f30680a.p = null;
-                this.f30680a.q = null;
-                this.f30680a.v(2, z);
+                this.f30727a.p.v();
+                this.f30727a.p = null;
+                this.f30727a.q = null;
+                this.f30727a.v(2, z);
             }
         }
 
@@ -112,7 +112,7 @@ public class d {
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && z) {
-                this.f30680a.p.x();
+                this.f30727a.p.x();
             }
         }
 
@@ -127,8 +127,8 @@ public class d {
         public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.f30680a.r = z;
-                this.f30680a.u(2, z);
+                this.f30727a.r = z;
+                this.f30727a.u(2, z);
             }
         }
     }
@@ -139,7 +139,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f30681a;
+        public final /* synthetic */ d f30728a;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -156,17 +156,17 @@ public class d {
                     return;
                 }
             }
-            this.f30681a = dVar;
+            this.f30728a = dVar;
         }
 
         @Override // c.a.x.c.g.c
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f30681a.m.p();
-                this.f30681a.m = null;
-                this.f30681a.n = null;
-                this.f30681a.v(4, z);
+                this.f30728a.m.p();
+                this.f30728a.m = null;
+                this.f30728a.n = null;
+                this.f30728a.v(4, z);
             }
         }
 
@@ -174,7 +174,7 @@ public class d {
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && z) {
-                this.f30681a.m.r();
+                this.f30728a.m.r();
             }
         }
 
@@ -190,8 +190,8 @@ public class d {
         public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.f30681a.o = z;
-                this.f30681a.u(4, z);
+                this.f30728a.o = z;
+                this.f30728a.u(4, z);
             }
         }
     }
@@ -202,7 +202,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f30682a;
+        public final /* synthetic */ d f30729a;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -219,14 +219,14 @@ public class d {
                     return;
                 }
             }
-            this.f30682a = dVar;
+            this.f30729a = dVar;
         }
 
         @Override // c.a.x.c.g.f
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f30682a.u(1, z);
+                this.f30729a.u(1, z);
             }
         }
 
@@ -235,26 +235,26 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 if (Build.VERSION.SDK_INT >= 18) {
-                    this.f30682a.k.d();
-                    this.f30682a.k = null;
+                    this.f30729a.k.d();
+                    this.f30729a.k = null;
                 }
-                this.f30682a.l = null;
-                this.f30682a.v(1, z);
+                this.f30729a.l = null;
+                this.f30729a.v(1, z);
             }
         }
     }
 
     /* renamed from: c.a.x.c.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class HandlerC1414d extends Handler {
+    public class HandlerC1417d extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f30683a;
+        public final /* synthetic */ d f30730a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC1414d(d dVar, Looper looper) {
+        public HandlerC1417d(d dVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -271,7 +271,7 @@ public class d {
                     return;
                 }
             }
-            this.f30683a = dVar;
+            this.f30730a = dVar;
         }
 
         @Override // android.os.Handler
@@ -280,35 +280,35 @@ public class d {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 switch (message.what) {
                     case ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE /* 7001 */:
-                        if (this.f30683a.f30678i != null) {
-                            this.f30683a.f30678i.onRecorderStart(((Boolean) message.obj).booleanValue());
+                        if (this.f30730a.f30725i != null) {
+                            this.f30730a.f30725i.onRecorderStart(((Boolean) message.obj).booleanValue());
                         }
-                        this.f30683a.f30674e = false;
+                        this.f30730a.f30721e = false;
                         break;
                     case 7002:
-                        if (this.f30683a.f30678i != null) {
-                            this.f30683a.f30678i.a(((Integer) message.obj).intValue());
+                        if (this.f30730a.f30725i != null) {
+                            this.f30730a.f30725i.a(((Integer) message.obj).intValue());
                             break;
                         }
                         break;
                     case 7003:
-                        if (this.f30683a.f30678i != null) {
-                            this.f30683a.f30678i.onRecorderComplete(((Boolean) message.obj).booleanValue(), this.f30683a.f30677h != null ? this.f30683a.f30677h.f() : null);
+                        if (this.f30730a.f30725i != null) {
+                            this.f30730a.f30725i.onRecorderComplete(((Boolean) message.obj).booleanValue(), this.f30730a.f30724h != null ? this.f30730a.f30724h.f() : null);
                             break;
                         }
                         break;
                     case 7004:
-                        if (this.f30683a.f30678i != null) {
-                            this.f30683a.f30678i.onRecorderError(((Integer) message.obj).intValue());
+                        if (this.f30730a.f30725i != null) {
+                            this.f30730a.f30725i.onRecorderError(((Integer) message.obj).intValue());
                             break;
                         }
                         break;
                     case 7005:
-                        this.f30683a.R();
+                        this.f30730a.R();
                         break;
                     case 7006:
-                        this.f30683a.f30674e = false;
-                        this.f30683a.U();
+                        this.f30730a.f30721e = false;
+                        this.f30730a.U();
                         break;
                 }
                 super.handleMessage(message);
@@ -344,11 +344,11 @@ public class d {
                 return;
             }
         }
-        this.f30670a = 0;
-        this.f30672c = false;
-        this.f30674e = false;
-        this.f30675f = false;
-        this.f30676g = 0L;
+        this.f30717a = 0;
+        this.f30719c = false;
+        this.f30721e = false;
+        this.f30722f = false;
+        this.f30723g = 0L;
         this.o = false;
         this.r = false;
     }
@@ -396,29 +396,29 @@ public class d {
             if (Build.VERSION.SDK_INT >= 18) {
                 this.k = new c.a.x.c.g.e();
             }
-            if (this.f30677h.o()) {
+            if (this.f30724h.o()) {
                 this.m = new c.a.x.c.f.a();
             } else {
                 w = true;
             }
             this.p = new c.a.x.c.f.b();
-            this.f30670a = 0;
-            if (!this.f30672c && this.f30673d == null) {
+            this.f30717a = 0;
+            if (!this.f30719c && this.f30720d == null) {
                 HandlerThread handlerThread = new HandlerThread(u);
-                this.f30673d = handlerThread;
+                this.f30720d = handlerThread;
                 handlerThread.start();
             }
-            HandlerC1414d handlerC1414d = this.f30679j;
-            if (handlerC1414d == null) {
-                if (this.f30673d != null) {
-                    this.f30679j = new HandlerC1414d(this, this.f30673d.getLooper());
+            HandlerC1417d handlerC1417d = this.f30726j;
+            if (handlerC1417d == null) {
+                if (this.f30720d != null) {
+                    this.f30726j = new HandlerC1417d(this, this.f30720d.getLooper());
                 } else {
-                    this.f30679j = new HandlerC1414d(this, this.f30671b.getMainLooper());
+                    this.f30726j = new HandlerC1417d(this, this.f30718b.getMainLooper());
                 }
             } else {
-                handlerC1414d.removeCallbacksAndMessages(null);
+                handlerC1417d.removeCallbacksAndMessages(null);
             }
-            this.f30677h.h();
+            this.f30724h.h();
         }
     }
 
@@ -430,8 +430,8 @@ public class d {
             synchronized (this) {
                 String str = "isMovieRecordStarted sMovieRecordState = " + v;
                 int i2 = (v ^ 1) ^ 2;
-                if (this.f30677h != null) {
-                    if (this.f30677h.o()) {
+                if (this.f30724h != null) {
+                    if (this.f30724h.o()) {
                         i2 ^= 4;
                     }
                 }
@@ -459,15 +459,15 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.x.c.g.d dVar = this.f30677h;
+            c.a.x.c.g.d dVar = this.f30724h;
             if (dVar == null) {
                 return false;
             }
             if (dVar.o()) {
-                if (this.f30670a == 3) {
+                if (this.f30717a == 3) {
                     return true;
                 }
-            } else if (this.f30670a == 2) {
+            } else if (this.f30717a == 2) {
                 return true;
             }
             return false;
@@ -478,7 +478,7 @@ public class d {
     public final boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30670a == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30717a == 0 : invokeV.booleanValue;
     }
 
     public void F(ByteBuffer byteBuffer, int i2, long j2) {
@@ -497,19 +497,19 @@ public class d {
                 arrayList.clear();
                 this.s = null;
             }
-            this.f30671b = null;
-            this.f30677h = null;
+            this.f30718b = null;
+            this.f30724h = null;
             N(0);
             K();
-            HandlerC1414d handlerC1414d = this.f30679j;
-            if (handlerC1414d != null) {
-                handlerC1414d.removeCallbacksAndMessages(null);
-                this.f30679j = null;
+            HandlerC1417d handlerC1417d = this.f30726j;
+            if (handlerC1417d != null) {
+                handlerC1417d.removeCallbacksAndMessages(null);
+                this.f30726j = null;
             }
-            HandlerThread handlerThread = this.f30673d;
+            HandlerThread handlerThread = this.f30720d;
             if (handlerThread != null) {
                 handlerThread.quit();
-                this.f30673d = null;
+                this.f30720d = null;
             }
         }
     }
@@ -550,8 +550,8 @@ public class d {
                 this.p.v();
                 z = false;
             }
-            c.a.x.c.g.d dVar = this.f30677h;
-            if (dVar == null || this.k.b(dVar.f(), this.f30677h.g(), this.l)) {
+            c.a.x.c.g.d dVar = this.f30724h;
+            if (dVar == null || this.k.b(dVar.f(), this.f30724h.g(), this.l)) {
                 return z;
             }
             return false;
@@ -562,11 +562,11 @@ public class d {
     public final void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            String str = "restartRecorder mRestartTried = " + this.f30675f;
-            HandlerC1414d handlerC1414d = this.f30679j;
-            if (handlerC1414d != null) {
-                this.f30675f = true;
-                handlerC1414d.sendMessageDelayed(handlerC1414d.obtainMessage(7005), 500L);
+            String str = "restartRecorder mRestartTried = " + this.f30722f;
+            HandlerC1417d handlerC1417d = this.f30726j;
+            if (handlerC1417d != null) {
+                this.f30722f = true;
+                handlerC1417d.sendMessageDelayed(handlerC1417d.obtainMessage(7005), 500L);
             }
         }
     }
@@ -577,7 +577,7 @@ public class d {
             if (z) {
                 v = i2 | v;
             }
-            this.f30670a++;
+            this.f30717a++;
         }
     }
 
@@ -587,16 +587,16 @@ public class d {
         if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (aVar = this.m) == null) {
             return;
         }
-        aVar.q(this.f30677h, this.k, this.n);
+        aVar.q(this.f30724h, this.k, this.n);
     }
 
     public final void Q() {
-        HandlerC1414d handlerC1414d;
+        HandlerC1417d handlerC1417d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (handlerC1414d = this.f30679j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (handlerC1417d = this.f30726j) == null) {
             return;
         }
-        handlerC1414d.sendMessageDelayed(handlerC1414d.obtainMessage(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, Boolean.FALSE), 500L);
+        handlerC1417d.sendMessageDelayed(handlerC1417d.obtainMessage(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, Boolean.FALSE), 500L);
     }
 
     public final void R() {
@@ -607,7 +607,7 @@ public class d {
             if (J()) {
                 P();
                 T();
-            } else if (!this.f30675f) {
+            } else if (!this.f30722f) {
                 L();
             } else {
                 Q();
@@ -618,15 +618,15 @@ public class d {
     public void S(Context context, c.a.x.c.g.d dVar, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048591, this, context, dVar, eVar) == null) {
-            String str = "startRecorder mStarting = " + this.f30674e;
-            if (this.f30674e) {
+            String str = "startRecorder mStarting = " + this.f30721e;
+            if (this.f30721e) {
                 Q();
                 return;
             }
-            this.f30674e = true;
-            this.f30671b = context;
-            this.f30677h = dVar;
-            this.f30678i = eVar;
+            this.f30721e = true;
+            this.f30718b = context;
+            this.f30724h = dVar;
+            this.f30725i = eVar;
             R();
         }
     }
@@ -635,29 +635,29 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             Y();
-            this.p.w(this.s, this.f30677h, this.k, this.q);
+            this.p.w(this.s, this.f30724h, this.k, this.q);
         }
     }
 
     public void U() {
-        HandlerC1414d handlerC1414d;
+        HandlerC1417d handlerC1417d;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            String str = "stopRecorder mStarting = " + this.f30674e;
-            if (this.f30674e) {
-                if (!B() && (handlerC1414d = this.f30679j) != null) {
-                    handlerC1414d.sendMessage(handlerC1414d.obtainMessage(7004, 4002));
+            String str = "stopRecorder mStarting = " + this.f30721e;
+            if (this.f30721e) {
+                if (!B() && (handlerC1417d = this.f30726j) != null) {
+                    handlerC1417d.sendMessage(handlerC1417d.obtainMessage(7004, 4002));
                 }
-                HandlerC1414d handlerC1414d2 = this.f30679j;
-                if (handlerC1414d2 != null) {
-                    handlerC1414d2.sendMessageDelayed(handlerC1414d2.obtainMessage(7006), 500L);
+                HandlerC1417d handlerC1417d2 = this.f30726j;
+                if (handlerC1417d2 != null) {
+                    handlerC1417d2.sendMessageDelayed(handlerC1417d2.obtainMessage(7006), 500L);
                     return;
                 }
                 return;
             }
             this.o = false;
             this.r = false;
-            this.f30676g = 0L;
+            this.f30723g = 0L;
             c.a.x.c.f.a aVar = this.m;
             if (aVar != null && aVar.o()) {
                 this.m.s();
@@ -673,8 +673,8 @@ public class d {
     public void V(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            this.f30676g *= 1000000;
-            e eVar = this.f30678i;
+            this.f30723g *= 1000000;
+            e eVar = this.f30725i;
             if (eVar != null) {
                 eVar.a(j2);
             }
@@ -764,7 +764,7 @@ public class d {
                 M(i2, z);
                 String str2 = "checkMovieRecordStartState sMovieRecordState = " + v;
                 if (D()) {
-                    this.f30679j.sendMessage(this.f30679j.obtainMessage(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, Boolean.valueOf(B())));
+                    this.f30726j.sendMessage(this.f30726j.obtainMessage(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, Boolean.valueOf(B())));
                 }
             }
         }
@@ -777,8 +777,8 @@ public class d {
                 String str = "checkMovieRecordStopState condition = " + i2 + " && state = " + z;
                 w(i2, z);
                 String str2 = "checkMovieRecordStopState sMovieRecordState = " + v;
-                if (E() && this.f30679j != null) {
-                    this.f30679j.sendMessage(this.f30679j.obtainMessage(7003, Boolean.valueOf(C())));
+                if (E() && this.f30726j != null) {
+                    this.f30726j.sendMessage(this.f30726j.obtainMessage(7003, Boolean.valueOf(C())));
                 }
             }
         }
@@ -790,7 +790,7 @@ public class d {
             if (z) {
                 v = i2 ^ v;
             }
-            this.f30670a--;
+            this.f30717a--;
         }
     }
 

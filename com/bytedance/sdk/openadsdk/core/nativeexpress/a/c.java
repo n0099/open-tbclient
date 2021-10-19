@@ -19,19 +19,19 @@ public class c implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f67136a;
+    public Context f67171a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f67137b;
+    public l f67172b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f67138c;
+    public View f67173c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ThemeStatusBroadcastReceiver f67139d;
+    public ThemeStatusBroadcastReceiver f67174d;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f67140e;
+    public g f67175e;
 
     public c(Context context, View view, g gVar, ThemeStatusBroadcastReceiver themeStatusBroadcastReceiver) {
         Interceptable interceptable = $ic;
@@ -48,11 +48,11 @@ public class c implements e {
                 return;
             }
         }
-        this.f67136a = context;
-        this.f67138c = view;
-        this.f67140e = gVar;
-        this.f67139d = themeStatusBroadcastReceiver;
-        this.f67137b = new l(view, themeStatusBroadcastReceiver, gVar);
+        this.f67171a = context;
+        this.f67173c = view;
+        this.f67175e = gVar;
+        this.f67174d = themeStatusBroadcastReceiver;
+        this.f67172b = new l(view, themeStatusBroadcastReceiver, gVar);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.a.e
@@ -67,16 +67,16 @@ public class c implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-            this.f67140e.d().g();
-            this.f67137b.a(new m(this, aVar) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.a.c.1
+            this.f67175e.d().g();
+            this.f67172b.a(new m(this, aVar) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.a.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e.a f67141a;
+                public final /* synthetic */ e.a f67176a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ c f67142b;
+                public final /* synthetic */ c f67177b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -93,28 +93,28 @@ public class c implements e {
                             return;
                         }
                     }
-                    this.f67142b = this;
-                    this.f67141a = aVar;
+                    this.f67177b = this;
+                    this.f67176a = aVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.m
                 public void a(View view, p pVar) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, pVar) == null) || this.f67141a.c()) {
+                    if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, pVar) == null) || this.f67176a.c()) {
                         return;
                     }
-                    com.bytedance.sdk.openadsdk.core.nativeexpress.p b2 = this.f67141a.b();
+                    com.bytedance.sdk.openadsdk.core.nativeexpress.p b2 = this.f67176a.b();
                     if (b2 != null) {
-                        b2.a(this.f67142b.f67137b, pVar);
+                        b2.a(this.f67177b.f67172b, pVar);
                     }
-                    this.f67141a.a(true);
+                    this.f67176a.a(true);
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.m
                 public void a(int i2) {
                     com.bytedance.sdk.openadsdk.core.nativeexpress.p b2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) || (b2 = this.f67141a.b()) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) || (b2 = this.f67176a.b()) == null) {
                         return;
                     }
                     b2.d(i2);
@@ -128,7 +128,7 @@ public class c implements e {
     public void a(com.bytedance.sdk.openadsdk.core.nativeexpress.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f67137b.a(cVar);
+            this.f67172b.a(cVar);
         }
     }
 }

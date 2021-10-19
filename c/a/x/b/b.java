@@ -15,13 +15,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.x.b.d.a f30602a;
+    public c.a.x.b.d.a f30649a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f30603b;
+    public c f30650b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.x.b.g.c f30604c;
+    public c.a.x.b.g.c f30651c;
 
     static {
         InterceptResult invokeClinit;
@@ -53,8 +53,8 @@ public class b {
                 return;
             }
         }
-        this.f30604c = cVar;
-        this.f30602a = new c.a.x.b.d.a(cVar.i(), 1);
+        this.f30651c = cVar;
+        this.f30649a = new c.a.x.b.d.a(cVar.i(), 1);
         d();
     }
 
@@ -62,67 +62,67 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             if (cVar == null) {
-                this.f30603b = new c.a.x.b.e.b();
+                this.f30650b = new c.a.x.b.e.b();
             } else {
-                this.f30603b = cVar;
+                this.f30650b = cVar;
             }
-            this.f30603b.b(this.f30604c.m(), this.f30604c.l());
+            this.f30650b.b(this.f30651c.m(), this.f30651c.l());
         }
     }
 
     public void b(long j2) {
         c.a.x.b.g.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || this.f30603b == null || (cVar = this.f30604c) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || this.f30650b == null || (cVar = this.f30651c) == null) {
             return;
         }
         if (cVar.o()) {
             d();
         }
         if (j2 != 0) {
-            this.f30604c.k().k(j2);
+            this.f30651c.k().k(j2);
         }
-        this.f30603b.a(this.f30604c.h(), this.f30604c.k());
+        this.f30650b.a(this.f30651c.h(), this.f30651c.k());
     }
 
     public c.a.x.b.d.a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30602a : (c.a.x.b.d.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30649a : (c.a.x.b.d.a) invokeV.objValue;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            float[] e2 = this.f30604c.k().e();
+            float[] e2 = this.f30651c.k().e();
             c.a.x.b.h.b.b(e2);
-            c.a.x.b.g.a f2 = this.f30604c.f();
+            c.a.x.b.g.a f2 = this.f30651c.f();
             c.a.x.b.h.b.e(e2, f2.j(), f2.k());
             c.a.x.b.h.b.a(e2, f2.g());
             c.a.x.b.h.b.c(e2, f2.e());
             if ((f2.i() + 360) % 180 == 0) {
-                c.a.x.b.h.b.d(e2, this.f30604c.m(), this.f30604c.l(), f2.h(), f2.f());
+                c.a.x.b.h.b.d(e2, this.f30651c.m(), this.f30651c.l(), f2.h(), f2.f());
                 return;
             }
-            c.a.x.b.f.c clone = this.f30604c.l().clone();
-            clone.h(this.f30604c.l().e());
-            clone.g(this.f30604c.l().f());
-            c.a.x.b.h.b.d(e2, this.f30604c.m(), clone, f2.h(), f2.f());
+            c.a.x.b.f.c clone = this.f30651c.l().clone();
+            clone.h(this.f30651c.l().e());
+            clone.g(this.f30651c.l().f());
+            c.a.x.b.h.b.d(e2, this.f30651c.m(), clone, f2.h(), f2.f());
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c cVar = this.f30603b;
+            c cVar = this.f30650b;
             if (cVar != null) {
                 cVar.release();
-                this.f30603b = null;
+                this.f30650b = null;
             }
-            c.a.x.b.d.a aVar = this.f30602a;
+            c.a.x.b.d.a aVar = this.f30649a;
             if (aVar != null) {
                 aVar.f();
-                this.f30602a = null;
+                this.f30649a = null;
             }
         }
     }
@@ -130,8 +130,8 @@ public class b {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c j2 = this.f30604c.j();
-            this.f30603b = j2;
+            c j2 = this.f30651c.j();
+            this.f30650b = j2;
             a(j2);
         }
     }
@@ -139,11 +139,11 @@ public class b {
     public void g(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            c.a.x.b.g.c cVar2 = this.f30604c;
+            c.a.x.b.g.c cVar2 = this.f30651c;
             if (cVar2 != null) {
                 cVar2.r(cVar);
             }
-            this.f30603b.release();
+            this.f30650b.release();
             a(cVar);
         }
     }

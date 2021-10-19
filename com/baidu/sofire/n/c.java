@@ -15,16 +15,16 @@ public final class c implements com.baidu.sofire.k.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f45497a;
+    public b f45409a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45498b;
+    public String f45410b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f45499c;
+    public Context f45411c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f45500d;
+    public a f45412d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,11 +44,11 @@ public final class c implements com.baidu.sofire.k.b {
     public final void a(Context context, com.baidu.sofire.k.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, cVar) == null) {
-            this.f45497a = new b(context);
-            this.f45499c = context;
+            this.f45409a = new b(context);
+            this.f45411c = context;
             if ("1".equals(com.baidu.sofire.p.a.a("persist.sys.identifierid.supported", "0"))) {
-                this.f45500d = new a(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f45500d);
+                this.f45412d = new a(this);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f45412d);
             }
         }
     }
@@ -58,10 +58,10 @@ public final class c implements com.baidu.sofire.k.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.f45498b)) {
-                this.f45498b = this.f45497a.a();
+            if (TextUtils.isEmpty(this.f45410b)) {
+                this.f45410b = this.f45409a.a();
             }
-            return this.f45498b;
+            return this.f45410b;
         }
         return (String) invokeV.objValue;
     }

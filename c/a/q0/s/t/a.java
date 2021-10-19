@@ -24,19 +24,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f14484a;
+    public static boolean f14504a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f14485b;
+    public static Handler f14505b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.q0.s.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class HandlerC0695a extends Handler {
+    public static class HandlerC0697a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public HandlerC0695a() {
+        public HandlerC0697a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,13 +90,13 @@ public class a {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                 if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    if (a.f14484a) {
+                    if (a.f14504a) {
                         return;
                     }
-                    a.f14485b.sendEmptyMessageDelayed(1, 10000L);
+                    a.f14505b.sendEmptyMessageDelayed(1, 10000L);
                     return;
                 }
-                a.f14485b.removeMessages(1);
+                a.f14505b.removeMessages(1);
                 a.g();
             }
         }
@@ -115,7 +115,7 @@ public class a {
                 return;
             }
         }
-        f14485b = new HandlerC0695a();
+        f14505b = new HandlerC0697a();
     }
 
     public static void d() {
@@ -128,7 +128,7 @@ public class a {
     public static void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z) == null) {
-            f14484a = z;
+            f14504a = z;
         }
     }
 

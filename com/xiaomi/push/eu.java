@@ -13,7 +13,7 @@ public class eu extends es {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f77901a = 3600000;
+    public static int f77936a = 3600000;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,6 +55,6 @@ public class eu extends es {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f77901a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f77936a : invokeV.longValue;
     }
 }

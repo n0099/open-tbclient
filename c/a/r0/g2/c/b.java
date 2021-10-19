@@ -1,168 +1,154 @@
 package c.a.r0.g2.c;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.recyclerview.widget.RecyclerView;
-import c.a.q0.n.f;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.newlist.view.HotTopicListInfoItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b extends c.a.e.l.e.a<c.a.r0.g2.d.b, C0900b> {
+public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f<c.a.r0.g2.d.b> m;
 
-    /* loaded from: classes3.dex */
-    public class a implements f<c.a.r0.g2.d.b> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: a  reason: collision with root package name */
+    public int f17806a;
 
-        public a(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    /* renamed from: b  reason: collision with root package name */
+    public String f17807b;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.n.f
-        /* renamed from: b */
-        public void c(View view, c.a.r0.g2.d.b bVar, int i2, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, bVar, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            }
-        }
+    /* renamed from: c  reason: collision with root package name */
+    public int f17808c;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.n.f
-        /* renamed from: d */
-        public void a(View view, c.a.r0.g2.d.b bVar, int i2, long j2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, bVar, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || bVar == null) {
-                return;
-            }
-            c.a.r0.g2.a.a("c13737", bVar, i2);
-        }
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f17809d;
 
-    /* renamed from: c.a.r0.g2.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0900b extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: e  reason: collision with root package name */
+    public String f17810e;
 
-        /* renamed from: a  reason: collision with root package name */
-        public HotTopicListInfoItem f18627a;
+    /* renamed from: f  reason: collision with root package name */
+    public String f17811f;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0900b(HotTopicListInfoItem hotTopicListInfoItem) {
-            super(hotTopicListInfoItem);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hotTopicListInfoItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f18627a = hotTopicListInfoItem;
-        }
+    /* renamed from: g  reason: collision with root package name */
+    public String f17812g;
 
-        public void a(c.a.r0.g2.d.b bVar) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
-                return;
-            }
-            this.f18627a.bindData(bVar);
-        }
-
-        public void onChangeSkinType(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f18627a.onChangeSkinType(i2);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.r0.g2.d.a.f18628a);
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17811f : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17810e : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17812g : (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17808c : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17806a : invokeV.intValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17807b : (String) invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17809d : invokeV.booleanValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f17811f = str;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.f17810e = str;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f17812g = str;
+        }
+    }
+
+    public void k(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.f17806a = i2;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f17809d = z;
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.f17807b = str;
+        }
+    }
+
+    public b(int i2, String str, int i3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), str, Integer.valueOf(i3), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.m = new a(this);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.l.e.a
-    /* renamed from: h0 */
-    public C0900b U(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            HotTopicListInfoItem hotTopicListInfoItem = new HotTopicListInfoItem(viewGroup.getContext());
-            hotTopicListInfoItem.setOnItemCoverListener(this.m);
-            hotTopicListInfoItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            C0900b c0900b = new C0900b(hotTopicListInfoItem);
-            c0900b.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            return c0900b;
-        }
-        return (C0900b) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.l.e.a
-    /* renamed from: i0 */
-    public View a0(int i2, View view, ViewGroup viewGroup, c.a.r0.g2.d.b bVar, C0900b c0900b) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, c0900b})) == null) {
-            if (bVar == null || c0900b == null) {
-                return null;
-            }
-            c0900b.a(bVar);
-            c0900b.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            return c0900b.getView();
-        }
-        return (View) invokeCommon.objValue;
+        this.f17806a = i2;
+        this.f17807b = str;
+        this.f17808c = i3;
+        this.f17809d = z;
     }
 }

@@ -17,13 +17,13 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52025e;
+    public int f51952e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f52026f;
+    public b f51953f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.e.c.g.a f52027g;
+    public c.a.e.c.g.a f51954g;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -31,7 +31,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FreeGiftChanceModel f52028a;
+        public final /* synthetic */ FreeGiftChanceModel f51955a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FreeGiftChanceModel freeGiftChanceModel, int i2, int i3) {
@@ -52,7 +52,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
             }
-            this.f52028a = freeGiftChanceModel;
+            this.f51955a = freeGiftChanceModel;
         }
 
         @Override // c.a.e.c.g.a
@@ -64,12 +64,12 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
             boolean z = responsedMessage instanceof FreeGiftChanceHttpResponseMessage;
             if (z || (responsedMessage instanceof FreeGiftChanceSocketResponseMessage)) {
                 if (z) {
-                    this.f52028a.f52025e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
+                    this.f51955a.f51952e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
                 } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
-                    this.f52028a.f52025e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
+                    this.f51955a.f51952e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
                 }
-                if (this.f52028a.f52026f != null) {
-                    this.f52028a.f52026f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f52028a.f52025e);
+                if (this.f51955a.f51953f != null) {
+                    this.f51955a.f51953f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f51955a.f51952e);
                 }
             }
         }
@@ -98,7 +98,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
                 return;
             }
         }
-        this.f52027g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
+        this.f51954g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
         registerListener();
         registerTask();
     }
@@ -106,12 +106,12 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f52026f = bVar;
+            this.f51953f = bVar;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -121,7 +121,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -133,15 +133,15 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            registerListener(this.f52027g);
+            registerListener(this.f51954g);
         }
     }
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.r0.j3.e0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-            c.a.r0.j3.e0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+            c.a.r0.k3.e0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+            c.a.r0.k3.e0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
         }
     }
 

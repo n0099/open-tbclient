@@ -18,16 +18,16 @@ public class d extends ImageSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13108e;
+    public int f13113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13109f;
+    public int f13114f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13110g;
+    public int f13115g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WeakReference<Drawable> f13111h;
+    public WeakReference<Drawable> f13116h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Drawable drawable) {
@@ -47,18 +47,18 @@ public class d extends ImageSpan {
                 return;
             }
         }
-        this.f13108e = 0;
+        this.f13113e = 0;
     }
 
     public final Drawable a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.f13111h;
+            WeakReference<Drawable> weakReference = this.f13116h;
             Drawable drawable = weakReference != null ? weakReference.get() : null;
             if (drawable == null) {
                 Drawable drawable2 = getDrawable();
-                this.f13111h = new WeakReference<>(drawable2);
+                this.f13116h = new WeakReference<>(drawable2);
                 return drawable2;
             }
             return drawable;
@@ -69,21 +69,21 @@ public class d extends ImageSpan {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f13109f = i2;
+            this.f13114f = i2;
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f13110g = i2;
+            this.f13115g = i2;
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f13108e = i2;
+            this.f13113e = i2;
         }
     }
 
@@ -95,7 +95,7 @@ public class d extends ImageSpan {
             return;
         }
         canvas.save();
-        canvas.translate(f2 + this.f13109f, ((((i6 - i4) - a2.getBounds().bottom) / 2) + i4) - this.f13108e);
+        canvas.translate(f2 + this.f13114f, ((((i6 - i4) - a2.getBounds().bottom) / 2) + i4) - this.f13113e);
         a2.draw(canvas);
         canvas.restore();
     }
@@ -122,7 +122,7 @@ public class d extends ImageSpan {
                 fontMetricsInt.bottom = i7;
                 fontMetricsInt.descent = i7;
             }
-            return bounds.right + this.f13109f + this.f13110g;
+            return bounds.right + this.f13114f + this.f13115g;
         }
         return invokeCommon.intValue;
     }

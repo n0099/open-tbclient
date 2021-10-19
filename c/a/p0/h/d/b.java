@@ -256,7 +256,7 @@ public final class b extends EventTargetImpl {
             c.a.p0.h.d.c.a e2 = c.a.p0.h.d.c.a.e(c.a.p0.a.y.b.a.G(jsObject));
             SwanAppActivity activity = c.a.p0.a.g1.f.V().getActivity();
             if (activity == null) {
-                bVar.errMsg = String.format("%s:%s", "exit", com.alipay.sdk.util.f.f36105j);
+                bVar.errMsg = String.format("%s:%s", "exit", com.alipay.sdk.util.f.f36109j);
                 e2.b(bVar);
                 return;
             }

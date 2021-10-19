@@ -10,7 +10,7 @@ public final class jg {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f78366a;
+    public final String f78401a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public jg() {
@@ -45,6 +45,6 @@ public final class jg {
                 return;
             }
         }
-        this.f78366a = str;
+        this.f78401a = str;
     }
 }

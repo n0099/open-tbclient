@@ -21,35 +21,35 @@ public class RefreshLoadingDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f60965a = "RefreshLoadingView";
+    public static final String f61000a = "RefreshLoadingView";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f60966b;
+    public Paint f61001b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f60967c;
+    public Paint f61002c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f60968d;
+    public int f61003d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f60969e;
+    public int f61004e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f60970f;
+    public int f61005f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f60971g;
+    public RectF f61006g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f60972h;
+    public Path f61007h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f60973i;
+    public int f61008i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f60974j;
+    public Context f61009j;
 
     public RefreshLoadingDrawable(Context context, int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -66,40 +66,40 @@ public class RefreshLoadingDrawable extends Drawable {
                 return;
             }
         }
-        this.f60966b = new Paint();
-        this.f60967c = new Paint();
-        this.f60971g = new RectF();
-        this.f60972h = new Path();
+        this.f61001b = new Paint();
+        this.f61002c = new Paint();
+        this.f61006g = new RectF();
+        this.f61007h = new Path();
         i2 = i2 < 0 ? 0 : i2;
-        this.f60968d = i3;
+        this.f61003d = i3;
         Context applicationContext = DxmApplicationContextImpl.getApplicationContext(context);
-        this.f60974j = applicationContext;
+        this.f61009j = applicationContext;
         int dip2px = DisplayUtils.dip2px(applicationContext, 1.0f);
-        this.f60969e = dip2px;
+        this.f61004e = dip2px;
         int i6 = i2 + (dip2px * 2);
-        this.f60973i = i6;
-        this.f60966b.setAntiAlias(true);
-        this.f60966b.setDither(true);
-        this.f60966b.setColor(this.f60968d);
-        this.f60966b.setStyle(Paint.Style.STROKE);
-        this.f60966b.setStrokeJoin(Paint.Join.ROUND);
-        this.f60966b.setStrokeCap(Paint.Cap.ROUND);
-        this.f60966b.setStrokeWidth(this.f60969e);
-        this.f60967c.set(this.f60966b);
-        RectF rectF = this.f60971g;
-        int i7 = this.f60969e;
-        int i8 = this.f60973i;
+        this.f61008i = i6;
+        this.f61001b.setAntiAlias(true);
+        this.f61001b.setDither(true);
+        this.f61001b.setColor(this.f61003d);
+        this.f61001b.setStyle(Paint.Style.STROKE);
+        this.f61001b.setStrokeJoin(Paint.Join.ROUND);
+        this.f61001b.setStrokeCap(Paint.Cap.ROUND);
+        this.f61001b.setStrokeWidth(this.f61004e);
+        this.f61002c.set(this.f61001b);
+        RectF rectF = this.f61006g;
+        int i7 = this.f61004e;
+        int i8 = this.f61008i;
         rectF.set(i7, i7, i8 - i7, i8 - i7);
-        this.f60972h.reset();
+        this.f61007h.reset();
         float f2 = i6;
         float f3 = 0.5f * f2;
         float f4 = 0.25f * f2;
-        this.f60972h.moveTo(f3, f4);
+        this.f61007h.moveTo(f3, f4);
         float f5 = f2 * 0.75f;
-        this.f60972h.lineTo(f5, f3);
-        this.f60972h.lineTo(f3, f5);
-        this.f60972h.lineTo(f4, f3);
-        this.f60972h.close();
+        this.f61007h.lineTo(f5, f3);
+        this.f61007h.lineTo(f3, f5);
+        this.f61007h.lineTo(f4, f3);
+        this.f61007h.close();
     }
 
     public static RefreshLoadingDrawable newInstanceBlue(Context context) {
@@ -124,10 +124,10 @@ public class RefreshLoadingDrawable extends Drawable {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.drawArc(this.f60971g, -90.0f, (this.f60970f * 360.0f) / 100.0f, false, this.f60966b);
-            if (this.f60970f >= 100) {
-                this.f60967c.setColor(this.f60968d);
-                canvas.drawPath(this.f60972h, this.f60967c);
+            canvas.drawArc(this.f61006g, -90.0f, (this.f61005f * 360.0f) / 100.0f, false, this.f61001b);
+            if (this.f61005f >= 100) {
+                this.f61002c.setColor(this.f61003d);
+                canvas.drawPath(this.f61007h, this.f61002c);
             }
         }
     }
@@ -136,14 +136,14 @@ public class RefreshLoadingDrawable extends Drawable {
     public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60973i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61008i : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60973i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61008i : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -179,10 +179,10 @@ public class RefreshLoadingDrawable extends Drawable {
             if (i2 > 100) {
                 i2 = 100;
             }
-            if (this.f60970f == i2) {
+            if (this.f61005f == i2) {
                 return;
             }
-            this.f60970f = i2;
+            this.f61005f = i2;
         }
     }
 }

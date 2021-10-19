@@ -27,17 +27,17 @@ public class b extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f71949a;
+    public static b f71984a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71950b;
+    public String f71985b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f71951c;
+    public a f71986c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f71952d;
+    public AdTemplate f71987d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Activity activity, @NonNull AdTemplate adTemplate, String str) {
@@ -58,8 +58,8 @@ public class b extends AlertDialog {
             }
         }
         setOwnerActivity(activity);
-        this.f71952d = adTemplate;
-        this.f71950b = str;
+        this.f71987d = adTemplate;
+        this.f71985b = str;
     }
 
     public static b a(Activity activity, AdTemplate adTemplate, String str) {
@@ -77,7 +77,7 @@ public class b extends AlertDialog {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            b bVar = f71949a;
+            b bVar = f71984a;
             if (bVar != null) {
                 return bVar.isShowing();
             }
@@ -101,13 +101,13 @@ public class b extends AlertDialog {
             }
             if (context instanceof Activity) {
                 try {
-                    if (f71949a == null) {
-                        f71949a = a((Activity) context, adTemplate, str);
+                    if (f71984a == null) {
+                        f71984a = a((Activity) context, adTemplate, str);
                     }
-                    if (f71949a.isShowing()) {
+                    if (f71984a.isShowing()) {
                         return true;
                     }
-                    f71949a.show();
+                    f71984a.show();
                     com.kwad.sdk.core.report.a.c(adTemplate, 86, null);
                     return true;
                 } catch (Throwable th) {
@@ -139,7 +139,7 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.dismiss();
-            f71949a = null;
+            f71984a = null;
         }
     }
 
@@ -155,7 +155,7 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onBackPressed();
-            com.kwad.sdk.core.report.a.n(this.f71952d);
+            com.kwad.sdk.core.report.a.n(this.f71987d);
         }
     }
 
@@ -164,15 +164,15 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            if (this.f71951c == null) {
-                a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.f71952d, !ab.e(getOwnerActivity()) ? 1 : 0, this.f71950b);
-                this.f71951c = aVar;
+            if (this.f71986c == null) {
+                a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.f71987d, !ab.e(getOwnerActivity()) ? 1 : 0, this.f71985b);
+                this.f71986c = aVar;
                 aVar.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.core.download.a.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f71953a;
+                    public final /* synthetic */ b f71988a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -189,20 +189,20 @@ public class b extends AlertDialog {
                                 return;
                             }
                         }
-                        this.f71953a = this;
+                        this.f71988a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            com.kwad.sdk.core.report.a.n(this.f71953a.f71952d);
-                            this.f71953a.dismiss();
+                            com.kwad.sdk.core.report.a.n(this.f71988a.f71987d);
+                            this.f71988a.dismiss();
                         }
                     }
                 });
             }
-            setContentView(this.f71951c);
+            setContentView(this.f71986c);
             setCanceledOnTouchOutside(true);
             getWindow().getDecorView().setPadding(0, 0, 0, 0);
             getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -215,11 +215,11 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            a aVar = this.f71951c;
+            a aVar = this.f71986c;
             if (aVar != null) {
                 aVar.c();
             }
-            f71949a = null;
+            f71984a = null;
         }
     }
 
@@ -228,7 +228,7 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onStart();
-            b bVar = f71949a;
+            b bVar = f71984a;
             if (bVar != null) {
                 bVar.setTitle((CharSequence) null);
             }

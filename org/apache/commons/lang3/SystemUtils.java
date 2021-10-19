@@ -1,7 +1,6 @@
 package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.media.duplayer.LibsInfoDef;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -178,7 +177,7 @@ public class SystemUtils {
         USER_NAME = getSystemProperty("user.name");
         USER_TIMEZONE = getSystemProperty("user.timezone");
         IS_JAVA_1_1 = getJavaVersionMatches("1.1");
-        IS_JAVA_1_2 = getJavaVersionMatches(LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION);
+        IS_JAVA_1_2 = getJavaVersionMatches("1.2");
         IS_JAVA_1_3 = getJavaVersionMatches("1.3");
         IS_JAVA_1_4 = getJavaVersionMatches("1.4");
         IS_JAVA_1_5 = getJavaVersionMatches("1.5");

@@ -17,13 +17,13 @@ public class k implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final i f35230a;
+    public final i f35234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.p.a.e.b.n.c f35231b;
+    public final c.p.a.e.b.n.c f35235b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f35232c;
+    public final e f35236c;
 
     public k(DownloadInfo downloadInfo, b bVar, i iVar) throws BaseException {
         Interceptable interceptable = $ic;
@@ -40,23 +40,23 @@ public class k implements e {
                 return;
             }
         }
-        this.f35230a = iVar;
-        this.f35231b = c(downloadInfo, iVar);
-        this.f35232c = new h(bVar, this);
+        this.f35234a = iVar;
+        this.f35235b = c(downloadInfo, iVar);
+        this.f35236c = new h(bVar, this);
     }
 
     public e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35232c : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35236c : (e) invokeV.objValue;
     }
 
     @Override // c.p.a.e.b.i.e
     public void b(@NonNull a aVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f35231b.a(aVar.f35183a, 0, aVar.f35185c);
-            this.f35230a.g(aVar.f35185c);
+            this.f35235b.a(aVar.f35187a, 0, aVar.f35189c);
+            this.f35234a.g(aVar.f35189c);
         }
     }
 
@@ -78,27 +78,27 @@ public class k implements e {
     public void d() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f35231b.n();
+            this.f35235b.n();
         }
     }
 
     public void e() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f35231b.r();
+            this.f35235b.r();
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.p.a.e.b.l.f.E(this.f35231b);
+            c.p.a.e.b.l.f.E(this.f35235b);
         }
     }
 
     public i g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35230a : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35234a : (i) invokeV.objValue;
     }
 }

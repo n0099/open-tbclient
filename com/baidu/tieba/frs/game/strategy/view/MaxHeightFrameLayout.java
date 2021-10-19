@@ -18,10 +18,10 @@ public class MaxHeightFrameLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f51318e;
+    public float f51245e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f51319f;
+    public float f51246f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaxHeightFrameLayout(Context context) {
@@ -41,19 +41,19 @@ public class MaxHeightFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f51318e = 0.6f;
-        this.f51319f = 0.0f;
+        this.f51245e = 0.6f;
+        this.f51246f = 0.0f;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            float f2 = this.f51319f;
+            float f2 = this.f51246f;
             if (f2 <= 0.0f) {
-                this.f51319f = this.f51318e * l.i(getContext());
+                this.f51246f = this.f51245e * l.i(getContext());
             } else {
-                this.f51319f = Math.min(f2, this.f51318e * l.i(getContext()));
+                this.f51246f = Math.min(f2, this.f51245e * l.i(getContext()));
             }
         }
     }
@@ -66,9 +66,9 @@ public class MaxHeightFrameLayout extends FrameLayout {
             for (int i2 = 0; i2 < indexCount; i2++) {
                 int index = obtainStyledAttributes.getIndex(i2);
                 if (index == R$styleable.MaxHeightFrameLayout_mhf_HeightRatio) {
-                    this.f51318e = obtainStyledAttributes.getFloat(index, 0.6f);
+                    this.f51245e = obtainStyledAttributes.getFloat(index, 0.6f);
                 } else if (index == R$styleable.MaxHeightFrameLayout_mhf_HeightDimen) {
-                    this.f51319f = obtainStyledAttributes.getDimension(index, 0.0f);
+                    this.f51246f = obtainStyledAttributes.getDimension(index, 0.0f);
                 }
             }
             obtainStyledAttributes.recycle();
@@ -82,19 +82,19 @@ public class MaxHeightFrameLayout extends FrameLayout {
             int mode = View.MeasureSpec.getMode(i3);
             int size = View.MeasureSpec.getSize(i3);
             if (mode == 1073741824) {
-                float f2 = this.f51319f;
+                float f2 = this.f51246f;
                 if (size > f2) {
                     size = (int) f2;
                 }
             }
             if (mode == 0) {
-                float f3 = this.f51319f;
+                float f3 = this.f51246f;
                 if (size > f3) {
                     size = (int) f3;
                 }
             }
             if (mode == Integer.MIN_VALUE) {
-                float f4 = this.f51319f;
+                float f4 = this.f51246f;
                 if (size > f4) {
                     size = (int) f4;
                 }
@@ -106,7 +106,7 @@ public class MaxHeightFrameLayout extends FrameLayout {
     public void setMaxHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f51319f = i2;
+            this.f51246f = i2;
         }
     }
 
@@ -129,8 +129,8 @@ public class MaxHeightFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f51318e = 0.6f;
-        this.f51319f = 0.0f;
+        this.f51245e = 0.6f;
+        this.f51246f = 0.0f;
         b(context, attributeSet);
         a();
     }
@@ -154,8 +154,8 @@ public class MaxHeightFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f51318e = 0.6f;
-        this.f51319f = 0.0f;
+        this.f51245e = 0.6f;
+        this.f51246f = 0.0f;
         b(context, attributeSet);
         a();
     }

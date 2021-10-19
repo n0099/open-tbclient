@@ -20,7 +20,7 @@ public final class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BufferedSink f34433a;
+    public final BufferedSink f34437a;
 
     public d(BufferedSink bufferedSink) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class d {
                 return;
             }
         }
-        this.f34433a = bufferedSink;
+        this.f34437a = bufferedSink;
     }
 
     public static int a(int i2) {
@@ -121,7 +121,7 @@ public final class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
-            if ((i2 & com.alipay.sdk.encrypt.a.f36021g) == 0) {
+            if ((i2 & com.alipay.sdk.encrypt.a.f36025g) == 0) {
                 return 1;
             }
             if ((i2 & (-16384)) == 0) {
@@ -171,21 +171,21 @@ public final class d {
     public void k(ByteString byteString) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, byteString) == null) {
-            this.f34433a.write(byteString);
+            this.f34437a.write(byteString);
         }
     }
 
     public void l(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f34433a.writeIntLe(i2);
+            this.f34437a.writeIntLe(i2);
         }
     }
 
     public void m(long j2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f34433a.writeLongLe(j2);
+            this.f34437a.writeLongLe(j2);
         }
     }
 
@@ -203,7 +203,7 @@ public final class d {
     public void o(String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f34433a.writeUtf8(str);
+            this.f34437a.writeUtf8(str);
         }
     }
 
@@ -217,11 +217,11 @@ public final class d {
     public void q(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            while ((i2 & com.alipay.sdk.encrypt.a.f36021g) != 0) {
-                this.f34433a.writeByte((i2 & 127) | 128);
+            while ((i2 & com.alipay.sdk.encrypt.a.f36025g) != 0) {
+                this.f34437a.writeByte((i2 & 127) | 128);
                 i2 >>>= 7;
             }
-            this.f34433a.writeByte(i2);
+            this.f34437a.writeByte(i2);
         }
     }
 
@@ -229,10 +229,10 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
             while (((-128) & j2) != 0) {
-                this.f34433a.writeByte((((int) j2) & 127) | 128);
+                this.f34437a.writeByte((((int) j2) & 127) | 128);
                 j2 >>>= 7;
             }
-            this.f34433a.writeByte((int) j2);
+            this.f34437a.writeByte((int) j2);
         }
     }
 }

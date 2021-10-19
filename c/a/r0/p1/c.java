@@ -1,15 +1,97 @@
 package c.a.r0.p1;
 
-import java.util.List;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface c {
-    void a(List<c.a.r0.p1.p.d> list);
+public class c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b();
+    /* renamed from: a  reason: collision with root package name */
+    public c.a.r0.p1.a f23244a;
 
-    void c(long j2, String str);
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    void d(String str, String str2, String str3, List<c.a.r0.p1.p.e> list);
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
 
-    void e(long j2, String str, int i2, String str2);
+        /* renamed from: a  reason: collision with root package name */
+        public static c f23245a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(859759709, "Lc/a/r0/p1/c$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(859759709, "Lc/a/r0/p1/c$b;");
+                    return;
+                }
+            }
+            f23245a = new c(null);
+        }
+    }
+
+    public /* synthetic */ c(a aVar) {
+        this();
+    }
+
+    public static c b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f23245a : (c) invokeV.objValue;
+    }
+
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            c.a.r0.p1.a aVar = this.f23244a;
+            if (aVar != null) {
+                aVar.cancel();
+                this.f23244a = null;
+            }
+            c.a.r0.p1.a aVar2 = new c.a.r0.p1.a(z);
+            this.f23244a = aVar2;
+            aVar2.execute(new String[0]);
+        }
+    }
+
+    public void c() {
+        c.a.r0.p1.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f23244a) == null) {
+            return;
+        }
+        aVar.cancel();
+        this.f23244a = null;
+    }
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

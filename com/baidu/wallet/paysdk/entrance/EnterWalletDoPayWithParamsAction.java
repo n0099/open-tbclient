@@ -40,13 +40,13 @@ public class EnterWalletDoPayWithParamsAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f62769a;
+                public final /* synthetic */ RouterCallback f62804a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f62770b;
+                public final /* synthetic */ boolean f62805b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletDoPayWithParamsAction f62771c;
+                public final /* synthetic */ EnterWalletDoPayWithParamsAction f62806c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -63,28 +63,28 @@ public class EnterWalletDoPayWithParamsAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f62771c = this;
-                    this.f62769a = routerCallback;
-                    this.f62770b = z;
+                    this.f62806c = this;
+                    this.f62804a = routerCallback;
+                    this.f62805b = z;
                 }
 
                 @Override // com.baidu.android.pay.PayCallBack
                 public boolean isHideLoadingDialog() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f62770b : invokeV.booleanValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f62805b : invokeV.booleanValue;
                 }
 
                 @Override // com.baidu.android.pay.PayCallBack
                 public void onPayResult(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f62769a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f62804a == null) {
                         return;
                     }
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, Integer.valueOf(i2));
                     hashMap2.put("payDesc", str2);
-                    this.f62769a.onResult(0, hashMap2);
+                    this.f62804a.onResult(0, hashMap2);
                 }
             }, hashMap);
         }

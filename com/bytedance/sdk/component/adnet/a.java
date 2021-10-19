@@ -24,19 +24,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static n f64513a = null;
+    public static n f64548a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f64514b = null;
+    public static String f64549b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f64515c = null;
+    public static b f64550c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f64516d = true;
+    public static boolean f64551d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public static com.bytedance.sdk.component.adnet.c.a f64517e;
+    public static com.bytedance.sdk.component.adnet.c.a f64552e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,15 +65,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
             try {
-                if (TextUtils.isEmpty(f64514b)) {
+                if (TextUtils.isEmpty(f64549b)) {
                     File file = new File(context.getCacheDir(), "VAdNetSdk");
                     file.mkdirs();
-                    f64514b = file.getAbsolutePath();
+                    f64549b = file.getAbsolutePath();
                 }
             } catch (Throwable th) {
                 o.a(th, "init adnetsdk default directory error ", new Object[0]);
             }
-            return f64514b;
+            return f64549b;
         }
         return (String) invokeL.objValue;
     }
@@ -81,14 +81,14 @@ public class a {
     public static com.bytedance.sdk.component.adnet.c.a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f64517e : (com.bytedance.sdk.component.adnet.c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f64552e : (com.bytedance.sdk.component.adnet.c.a) invokeV.objValue;
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            b bVar = f64515c;
+            b bVar = f64550c;
             if (bVar != null) {
                 return bVar;
             }
@@ -100,7 +100,7 @@ public class a {
     public static void a(com.bytedance.sdk.component.adnet.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar) == null) {
-            f64517e = aVar;
+            f64552e = aVar;
         }
     }
 
@@ -114,7 +114,7 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f64518a;
+            public final /* synthetic */ Context f64553a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -131,16 +131,16 @@ public class a {
                         return;
                     }
                 }
-                this.f64518a = r6;
+                this.f64553a = r6;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    com.bytedance.sdk.component.adnet.a.a.a(this.f64518a).c();
-                    com.bytedance.sdk.component.adnet.a.a.a(this.f64518a);
-                    com.bytedance.sdk.component.adnet.a.a.b(this.f64518a);
+                    com.bytedance.sdk.component.adnet.a.a.a(this.f64553a).c();
+                    com.bytedance.sdk.component.adnet.a.a.a(this.f64553a);
+                    com.bytedance.sdk.component.adnet.a.a.b(this.f64553a);
                 }
             }
         });
@@ -149,6 +149,6 @@ public class a {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f64516d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f64551d : invokeV.booleanValue;
     }
 }

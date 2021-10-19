@@ -17,14 +17,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Lock> f69067a;
+    public static final Map<String, Lock> f69102a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public FileLock f69068b;
+    public FileLock f69103b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f69069c;
+    public String f69104c;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class a {
                 return;
             }
         }
-        f69067a = new HashMap();
+        f69102a = new HashMap();
     }
 
     public a(String str, FileLock fileLock) {
@@ -57,19 +57,19 @@ public class a {
                 return;
             }
         }
-        this.f69069c = str;
-        this.f69068b = fileLock;
+        this.f69104c = str;
+        this.f69103b = fileLock;
     }
 
     public static a a(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (f69067a) {
-                Lock lock = f69067a.get(str);
+            synchronized (f69102a) {
+                Lock lock = f69102a.get(str);
                 if (lock == null) {
                     lock = new ReentrantLock();
-                    f69067a.put(str, lock);
+                    f69102a.put(str, lock);
                 }
                 if (lock.tryLock()) {
                     try {
@@ -94,10 +94,10 @@ public class a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (f69067a) {
-                this.f69068b.a();
-                this.f69068b.b();
-                f69067a.get(this.f69069c).unlock();
+            synchronized (f69102a) {
+                this.f69103b.a();
+                this.f69103b.b();
+                f69102a.get(this.f69104c).unlock();
             }
         }
     }

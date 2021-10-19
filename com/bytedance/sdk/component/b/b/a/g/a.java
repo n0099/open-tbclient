@@ -34,36 +34,36 @@ public class a extends e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<?> f65080a;
+    public final Class<?> f65115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d<Socket> f65081b;
+    public final d<Socket> f65116b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d<Socket> f65082c;
+    public final d<Socket> f65117c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d<Socket> f65083d;
+    public final d<Socket> f65118d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d<Socket> f65084e;
+    public final d<Socket> f65119e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f65085f;
+    public final c f65120f;
 
     /* renamed from: com.bytedance.sdk.component.b.b.a.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static final class C1889a extends com.bytedance.sdk.component.b.b.a.i.c {
+    public static final class C1891a extends com.bytedance.sdk.component.b.b.a.i.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Object f65086a;
+        public final Object f65121a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Method f65087b;
+        public final Method f65122b;
 
-        public C1889a(Object obj, Method method) {
+        public C1891a(Object obj, Method method) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,8 +78,8 @@ public class a extends e {
                     return;
                 }
             }
-            this.f65086a = obj;
-            this.f65087b = method;
+            this.f65121a = obj;
+            this.f65122b = method;
         }
 
         @Override // com.bytedance.sdk.component.b.b.a.i.c
@@ -88,7 +88,7 @@ public class a extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, str)) == null) {
                 try {
-                    return (List) this.f65087b.invoke(this.f65086a, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), "RSA", str);
+                    return (List) this.f65122b.invoke(this.f65121a, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), "RSA", str);
                 } catch (IllegalAccessException e2) {
                     throw new AssertionError(e2);
                 } catch (InvocationTargetException e3) {
@@ -103,7 +103,7 @@ public class a extends e {
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? obj instanceof C1889a : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? obj instanceof C1891a : invokeL.booleanValue;
         }
 
         public int hashCode() {
@@ -122,10 +122,10 @@ public class a extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final X509TrustManager f65088a;
+        public final X509TrustManager f65123a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Method f65089b;
+        public final Method f65124b;
 
         public b(X509TrustManager x509TrustManager, Method method) {
             Interceptable interceptable = $ic;
@@ -142,8 +142,8 @@ public class a extends e {
                     return;
                 }
             }
-            this.f65089b = method;
-            this.f65088a = x509TrustManager;
+            this.f65124b = method;
+            this.f65123a = x509TrustManager;
         }
 
         @Override // com.bytedance.sdk.component.b.b.a.i.f
@@ -152,7 +152,7 @@ public class a extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x509Certificate)) == null) {
                 try {
-                    TrustAnchor trustAnchor = (TrustAnchor) this.f65089b.invoke(this.f65088a, x509Certificate);
+                    TrustAnchor trustAnchor = (TrustAnchor) this.f65124b.invoke(this.f65123a, x509Certificate);
                     if (trustAnchor != null) {
                         return trustAnchor.getTrustedCert();
                     }
@@ -175,7 +175,7 @@ public class a extends e {
                 }
                 if (obj instanceof b) {
                     b bVar = (b) obj;
-                    return this.f65088a.equals(bVar.f65088a) && this.f65089b.equals(bVar.f65089b);
+                    return this.f65123a.equals(bVar.f65123a) && this.f65124b.equals(bVar.f65124b);
                 }
                 return false;
             }
@@ -185,7 +185,7 @@ public class a extends e {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65088a.hashCode() + (this.f65089b.hashCode() * 31) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65123a.hashCode() + (this.f65124b.hashCode() * 31) : invokeV.intValue;
         }
     }
 
@@ -204,12 +204,12 @@ public class a extends e {
                 return;
             }
         }
-        this.f65085f = c.a();
-        this.f65080a = cls;
-        this.f65081b = dVar;
-        this.f65082c = dVar2;
-        this.f65083d = dVar3;
-        this.f65084e = dVar4;
+        this.f65120f = c.a();
+        this.f65115a = cls;
+        this.f65116b = dVar;
+        this.f65117c = dVar2;
+        this.f65118d = dVar3;
+        this.f65119e = dVar4;
     }
 
     public static boolean c() {
@@ -285,13 +285,13 @@ public class a extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Method f65090a;
+        public final Method f65125a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Method f65091b;
+        public final Method f65126b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Method f65092c;
+        public final Method f65127c;
 
         public c(Method method, Method method2, Method method3) {
             Interceptable interceptable = $ic;
@@ -308,20 +308,20 @@ public class a extends e {
                     return;
                 }
             }
-            this.f65090a = method;
-            this.f65091b = method2;
-            this.f65092c = method3;
+            this.f65125a = method;
+            this.f65126b = method2;
+            this.f65127c = method3;
         }
 
         public Object a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                Method method = this.f65090a;
+                Method method = this.f65125a;
                 if (method != null) {
                     try {
                         Object invoke = method.invoke(null, new Object[0]);
-                        this.f65091b.invoke(invoke, str);
+                        this.f65126b.invoke(invoke, str);
                         return invoke;
                     } catch (Exception unused) {
                     }
@@ -337,7 +337,7 @@ public class a extends e {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
                 if (obj != null) {
                     try {
-                        this.f65092c.invoke(obj, new Object[0]);
+                        this.f65127c.invoke(obj, new Object[0]);
                         return true;
                     } catch (Exception unused) {
                         return false;
@@ -415,15 +415,15 @@ public class a extends e {
                     } catch (Exception unused) {
                     }
                 } else {
-                    this.f65081b.b(sSLSocket, Boolean.TRUE);
-                    this.f65082c.b(sSLSocket, str);
+                    this.f65116b.b(sSLSocket, Boolean.TRUE);
+                    this.f65117c.b(sSLSocket, str);
                 }
             }
-            d<Socket> dVar = this.f65084e;
+            d<Socket> dVar = this.f65119e;
             if (dVar == null || !dVar.a((d<Socket>) sSLSocket)) {
                 return;
             }
-            this.f65084e.d(sSLSocket, e.b(list));
+            this.f65119e.d(sSLSocket, e.b(list));
         }
     }
 
@@ -433,11 +433,11 @@ public class a extends e {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sSLSocket)) == null) {
-            d<Socket> dVar = this.f65083d;
-            if (dVar == null || !dVar.a((d<Socket>) sSLSocket) || (bArr = (byte[]) this.f65083d.d(sSLSocket, new Object[0])) == null) {
+            d<Socket> dVar = this.f65118d;
+            if (dVar == null || !dVar.a((d<Socket>) sSLSocket) || (bArr = (byte[]) this.f65118d.d(sSLSocket, new Object[0])) == null) {
                 return null;
             }
-            return new String(bArr, com.bytedance.sdk.component.b.b.a.c.f64858e);
+            return new String(bArr, com.bytedance.sdk.component.b.b.a.c.f64893e);
         }
         return (String) invokeL.objValue;
     }
@@ -475,13 +475,13 @@ public class a extends e {
     public Object a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f65085f.a(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f65120f.a(str) : invokeL.objValue;
     }
 
     @Override // com.bytedance.sdk.component.b.b.a.g.e
     public void a(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, obj) == null) || this.f65085f.a(obj)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, obj) == null) || this.f65120f.a(obj)) {
             return;
         }
         a(5, str, (Throwable) null);
@@ -507,7 +507,7 @@ public class a extends e {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x509TrustManager)) == null) {
             try {
                 Class<?> cls = Class.forName("android.net.http.X509TrustManagerExtensions");
-                return new C1889a(cls.getConstructor(X509TrustManager.class).newInstance(x509TrustManager), cls.getMethod("checkServerTrusted", X509Certificate[].class, String.class, String.class));
+                return new C1891a(cls.getConstructor(X509TrustManager.class).newInstance(x509TrustManager), cls.getMethod("checkServerTrusted", X509Certificate[].class, String.class, String.class));
             } catch (Exception unused) {
                 return super.a(x509TrustManager);
             }

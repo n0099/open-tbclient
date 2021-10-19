@@ -18,10 +18,10 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static byte[] f69134a;
+    public static byte[] f69169a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f69135b;
+    public static byte[] f69170b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,8 +37,8 @@ public class l {
                 return;
             }
         }
-        f69134a = new byte[]{80, 75, 3, 4};
-        f69135b = new byte[]{80, 75, 5, 6};
+        f69169a = new byte[]{80, 75, 3, 4};
+        f69170b = new byte[]{80, 75, 5, 6};
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -125,7 +125,7 @@ public class l {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x001c, code lost:
-        if (java.util.Arrays.equals(com.bytedance.sdk.openadsdk.preload.geckox.utils.l.f69135b, r1) != false) goto L15;
+        if (java.util.Arrays.equals(com.bytedance.sdk.openadsdk.preload.geckox.utils.l.f69170b, r1) != false) goto L15;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -138,7 +138,7 @@ public class l {
                 byte[] bArr = new byte[4];
                 boolean z = false;
                 if (inputStream.read(bArr, 0, 4) == 4) {
-                    if (!Arrays.equals(f69134a, bArr)) {
+                    if (!Arrays.equals(f69169a, bArr)) {
                     }
                     z = true;
                     return z;

@@ -1,9 +1,10 @@
 package c.a.r0.m2;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,130 +13,102 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static a f22319f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public long f22320a;
+    /* renamed from: c.a.r0.m2.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class C1043a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    /* renamed from: b  reason: collision with root package name */
-    public long f22321b;
+    /* loaded from: classes3.dex */
+    public static class b extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c  reason: collision with root package name */
-    public long f22322c;
+        /* renamed from: a  reason: collision with root package name */
+        public String f22252a;
 
-    /* renamed from: d  reason: collision with root package name */
-    public long f22323d;
+        /* renamed from: b  reason: collision with root package name */
+        public c f22253b;
 
-    /* renamed from: e  reason: collision with root package name */
-    public long f22324e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1790330617, "Lc/a/r0/m2/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public b() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1790330617, "Lc/a/r0/m2/a;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        f22319f = new a();
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ImageUploadResult doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? new c.a.q0.d0.f("user_pics").l(FileHelper.getFileDireciory(this.f22252a), false) : (ImageUploadResult) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ImageUploadResult imageUploadResult) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageUploadResult) == null) {
+                super.onPostExecute(imageUploadResult);
+                if (this.f22253b != null) {
+                    int i2 = 0;
+                    if (imageUploadResult != null) {
+                        i2 = imageUploadResult.error_code;
+                        str = imageUploadResult.error_msg;
+                    } else {
+                        str = "";
+                    }
+                    this.f22253b.a(i2, str, imageUploadResult);
+                }
+            }
+        }
+
+        public /* synthetic */ b(C1043a c1043a) {
+            this();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface c {
+        void a(int i2, String str, ImageUploadResult imageUploadResult);
     }
 
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.f22320a = 0L;
-        this.f22321b = 0L;
-        this.f22322c = 0L;
-        this.f22323d = 0L;
-        this.f22324e = 0L;
     }
 
-    public static a d() {
-        InterceptResult invokeV;
+    public void a(String str, c cVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f22319f : (a) invokeV.objValue;
-    }
-
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22322c : invokeV.longValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22320a : invokeV.longValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22321b : invokeV.longValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22324e : invokeV.longValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22323d : invokeV.longValue;
-    }
-
-    public void g(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.f22322c = j2;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) || StringUtils.isNull(str)) {
+            return;
         }
-    }
-
-    public void h(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.f22320a = j2;
-        }
-    }
-
-    public void i(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f22321b = j2;
-        }
-    }
-
-    public void j(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.f22324e = j2;
-        }
-    }
-
-    public void k(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.f22323d = j2;
-        }
+        b bVar = new b(null);
+        bVar.f22252a = str;
+        bVar.f22253b = cVar;
+        bVar.execute("");
     }
 }

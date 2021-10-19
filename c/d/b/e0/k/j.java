@@ -14,7 +14,7 @@ import okio.BufferedSource;
 public interface j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final j f32034a = new a();
+    public static final j f32038a = new a();
 
     /* loaded from: classes4.dex */
     public class a implements j {

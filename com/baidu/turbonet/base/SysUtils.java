@@ -19,7 +19,7 @@ public class SysUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f59414a;
+    public static Boolean f59449a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -112,10 +112,10 @@ public class SysUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f59414a == null) {
-                f59414a = Boolean.valueOf(b());
+            if (f59449a == null) {
+                f59449a = Boolean.valueOf(b());
             }
-            return f59414a.booleanValue();
+            return f59449a.booleanValue();
         }
         return invokeV.booleanValue;
     }

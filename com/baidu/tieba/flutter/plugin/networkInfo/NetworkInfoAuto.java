@@ -210,7 +210,7 @@ public class NetworkInfoAuto {
         public void setNetInfo(NetworkStatus networkStatus, final Reply<SetNetInfoResult> reply) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, networkStatus, reply) == null) {
-                new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterNetworkInfo.setNetInfo", new StandardMessageCodec()).send(networkStatus.toMap(), new BasicMessageChannel.Reply() { // from class: c.a.r0.s0.a.e.a
+                new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterNetworkInfo.setNetInfo", new StandardMessageCodec()).send(networkStatus.toMap(), new BasicMessageChannel.Reply() { // from class: c.a.r0.t0.a.e.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

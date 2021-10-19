@@ -20,13 +20,13 @@ public class c2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f77312a;
+    public Context f77347a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Info f77313b;
+    public Info f77348b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f77314c;
+    public Handler f77349c;
 
     public c2() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class c2 {
                 return;
             }
         }
-        this.f77314c = new a2(this);
+        this.f77349c = new a2(this);
     }
 
     public static boolean a(Uri uri) {
@@ -64,8 +64,8 @@ public class c2 {
     public void a(Context context, String str, Info info) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, info) == null) {
-            this.f77312a = context;
-            this.f77313b = info;
+            this.f77347a = context;
+            this.f77348b = info;
             WebView webView = new WebView(context);
             WebSettings settings = webView.getSettings();
             settings.setAllowContentAccess(true);
@@ -82,7 +82,7 @@ public class c2 {
             Message obtain = Message.obtain();
             obtain.what = 11;
             obtain.obj = str;
-            this.f77314c.sendMessageDelayed(obtain, 5000L);
+            this.f77349c.sendMessageDelayed(obtain, 5000L);
         }
     }
 }

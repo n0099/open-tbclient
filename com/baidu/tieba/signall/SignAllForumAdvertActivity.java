@@ -35,7 +35,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumAdvertActivity f56957a;
+        public final /* synthetic */ SignAllForumAdvertActivity f56891a;
 
         public a(SignAllForumAdvertActivity signAllForumAdvertActivity) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                     return;
                 }
             }
-            this.f56957a = signAllForumAdvertActivity;
+            this.f56891a = signAllForumAdvertActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +62,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((a) aVar, str, i2);
                 if (aVar == null) {
-                    this.f56957a.finish();
+                    this.f56891a.finish();
                 }
             }
         }
@@ -74,7 +74,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumAdvertActivity f56958e;
+        public final /* synthetic */ SignAllForumAdvertActivity f56892e;
 
         public b(SignAllForumAdvertActivity signAllForumAdvertActivity) {
             Interceptable interceptable = $ic;
@@ -91,14 +91,14 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                     return;
                 }
             }
-            this.f56958e = signAllForumAdvertActivity;
+            this.f56892e = signAllForumAdvertActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f56958e.getPageContext(), new String[]{this.f56958e.mAdUrl});
+                UrlManager.getInstance().dealOneLink(this.f56892e.getPageContext(), new String[]{this.f56892e.mAdUrl});
             }
         }
     }
@@ -109,7 +109,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumAdvertActivity f56959e;
+        public final /* synthetic */ SignAllForumAdvertActivity f56893e;
 
         public c(SignAllForumAdvertActivity signAllForumAdvertActivity) {
             Interceptable interceptable = $ic;
@@ -126,14 +126,14 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                     return;
                 }
             }
-            this.f56959e = signAllForumAdvertActivity;
+            this.f56893e = signAllForumAdvertActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56959e.finish();
+                this.f56893e.finish();
             }
         }
     }

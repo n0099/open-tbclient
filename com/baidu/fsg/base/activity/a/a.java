@@ -17,10 +17,10 @@ public class a extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f39395a;
+    public View f39399a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RotateAnimation f39396b;
+    public RotateAnimation f39400b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -72,13 +72,13 @@ public class a extends Dialog {
             setContentView(ResUtils.layout(getContext(), "rim_base_dialog_common_loading_layout"));
             setCanceledOnTouchOutside(false);
             setCancelable(false);
-            this.f39395a = findViewById(ResUtils.id(getContext(), "rim_base_dialog_common_loading_view"));
+            this.f39399a = findViewById(ResUtils.id(getContext(), "rim_base_dialog_common_loading_view"));
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
-            this.f39396b = rotateAnimation;
+            this.f39400b = rotateAnimation;
             rotateAnimation.setRepeatCount(-1);
-            this.f39396b.setDuration(1000L);
-            this.f39396b.setInterpolator(new LinearInterpolator());
-            this.f39395a.startAnimation(this.f39396b);
+            this.f39400b.setDuration(1000L);
+            this.f39400b.setInterpolator(new LinearInterpolator());
+            this.f39399a.startAnimation(this.f39400b);
         }
     }
 }

@@ -37,7 +37,7 @@ public final class MapStatusUpdateFactory {
                 return null;
             }
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(2);
-            mapStatusUpdate.f41549b = latLng;
+            mapStatusUpdate.f41553b = latLng;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeL.objValue;
@@ -51,7 +51,7 @@ public final class MapStatusUpdateFactory {
                 return null;
             }
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(3);
-            mapStatusUpdate.f41550c = latLngBounds;
+            mapStatusUpdate.f41554c = latLngBounds;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeL.objValue;
@@ -65,9 +65,9 @@ public final class MapStatusUpdateFactory {
                 return null;
             }
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(9);
-            mapStatusUpdate.f41550c = latLngBounds;
-            mapStatusUpdate.f41551d = i2;
-            mapStatusUpdate.f41552e = i3;
+            mapStatusUpdate.f41554c = latLngBounds;
+            mapStatusUpdate.f41555d = i2;
+            mapStatusUpdate.f41556e = i3;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeLII.objValue;
@@ -81,7 +81,7 @@ public final class MapStatusUpdateFactory {
                 return null;
             }
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(10);
-            mapStatusUpdate.f41550c = latLngBounds;
+            mapStatusUpdate.f41554c = latLngBounds;
             mapStatusUpdate.k = i2;
             mapStatusUpdate.l = i3;
             mapStatusUpdate.m = i4;
@@ -99,8 +99,8 @@ public final class MapStatusUpdateFactory {
             if (latLng == null) {
                 return null;
             }
-            mapStatusUpdate.f41549b = latLng;
-            mapStatusUpdate.f41553f = f2;
+            mapStatusUpdate.f41553b = latLng;
+            mapStatusUpdate.f41557f = f2;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeLF.objValue;
@@ -114,7 +114,7 @@ public final class MapStatusUpdateFactory {
                 return null;
             }
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(11);
-            mapStatusUpdate.f41550c = latLngBounds;
+            mapStatusUpdate.f41554c = latLngBounds;
             mapStatusUpdate.k = i2;
             mapStatusUpdate.l = i3;
             mapStatusUpdate.m = i4;
@@ -132,7 +132,7 @@ public final class MapStatusUpdateFactory {
                 return null;
             }
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(1);
-            mapStatusUpdate.f41548a = mapStatus;
+            mapStatusUpdate.f41552a = mapStatus;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeL.objValue;
@@ -143,8 +143,8 @@ public final class MapStatusUpdateFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65544, null, i2, i3)) == null) {
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(5);
-            mapStatusUpdate.f41554g = i2;
-            mapStatusUpdate.f41555h = i3;
+            mapStatusUpdate.f41558g = i2;
+            mapStatusUpdate.f41559h = i3;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeII.objValue;
@@ -155,7 +155,7 @@ public final class MapStatusUpdateFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(65545, null, f2)) == null) {
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(6);
-            mapStatusUpdate.f41556i = f2;
+            mapStatusUpdate.f41560i = f2;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeF.objValue;
@@ -169,8 +169,8 @@ public final class MapStatusUpdateFactory {
                 return null;
             }
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(7);
-            mapStatusUpdate.f41556i = f2;
-            mapStatusUpdate.f41557j = point;
+            mapStatusUpdate.f41560i = f2;
+            mapStatusUpdate.f41561j = point;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeCommon.objValue;
@@ -181,7 +181,7 @@ public final class MapStatusUpdateFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(6);
-            mapStatusUpdate.f41556i = 1.0f;
+            mapStatusUpdate.f41560i = 1.0f;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeV.objValue;
@@ -192,7 +192,7 @@ public final class MapStatusUpdateFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(6);
-            mapStatusUpdate.f41556i = -1.0f;
+            mapStatusUpdate.f41560i = -1.0f;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeV.objValue;
@@ -203,7 +203,7 @@ public final class MapStatusUpdateFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(65549, null, f2)) == null) {
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(8);
-            mapStatusUpdate.f41553f = f2;
+            mapStatusUpdate.f41557f = f2;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeF.objValue;

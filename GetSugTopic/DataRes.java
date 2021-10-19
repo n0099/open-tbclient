@@ -1,5 +1,7 @@
 package GetSugTopic;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,13 +12,18 @@ import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
 public final class DataRes extends Message {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer DEFAULT_TOPIC_INVALID;
     public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 2)
     public final TopicListModule bang_topic;
     @ProtoField(tag = 3)
     public final TopicListModule sug_topic;
+    @ProtoField(tag = 4, type = Message.Datatype.INT32)
+    public final Integer topic_invalid;
     @ProtoField(tag = 1)
     public final TopicListModule user_his_topic;
+    @ProtoField(tag = 5)
+    public final TopicListModule video_topic;
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<DataRes> {
@@ -24,7 +31,9 @@ public final class DataRes extends Message {
         public transient /* synthetic */ FieldHolder $fh;
         public TopicListModule bang_topic;
         public TopicListModule sug_topic;
+        public Integer topic_invalid;
         public TopicListModule user_his_topic;
+        public TopicListModule video_topic;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -64,6 +73,8 @@ public final class DataRes extends Message {
             this.user_his_topic = dataRes.user_his_topic;
             this.bang_topic = dataRes.bang_topic;
             this.sug_topic = dataRes.sug_topic;
+            this.topic_invalid = dataRes.topic_invalid;
+            this.video_topic = dataRes.video_topic;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,6 +93,22 @@ public final class DataRes extends Message {
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1372421440, "LGetSugTopic/DataRes;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1372421440, "LGetSugTopic/DataRes;");
+                return;
+            }
+        }
+        DEFAULT_TOPIC_INVALID = 0;
+    }
+
     public /* synthetic */ DataRes(Builder builder, boolean z, a aVar) {
         this(builder, z);
     }
@@ -94,13 +121,13 @@ public final class DataRes extends Message {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {builder, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 super((Message.Builder) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -108,10 +135,19 @@ public final class DataRes extends Message {
             this.user_his_topic = builder.user_his_topic;
             this.bang_topic = builder.bang_topic;
             this.sug_topic = builder.sug_topic;
+            Integer num = builder.topic_invalid;
+            if (num == null) {
+                this.topic_invalid = DEFAULT_TOPIC_INVALID;
+            } else {
+                this.topic_invalid = num;
+            }
+            this.video_topic = builder.video_topic;
             return;
         }
         this.user_his_topic = builder.user_his_topic;
         this.bang_topic = builder.bang_topic;
         this.sug_topic = builder.sug_topic;
+        this.topic_invalid = builder.topic_invalid;
+        this.video_topic = builder.video_topic;
     }
 }

@@ -115,7 +115,7 @@ public final class f extends com.vivo.push.v {
     public final void a(com.vivo.push.y yVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, yVar) == null) {
-            if (this.f77046a.getPackageName().equals(com.vivo.push.util.s.b(this.f77046a))) {
+            if (this.f77081a.getPackageName().equals(com.vivo.push.util.s.b(this.f77081a))) {
                 return;
             }
             com.vivo.push.b.l lVar = (com.vivo.push.b.l) yVar;
@@ -123,11 +123,11 @@ public final class f extends com.vivo.push.v {
             int e2 = lVar.e();
             com.vivo.push.util.p.d("OnChangePushStatusTask", "OnChangePushStatusTask serviceStatus is " + d2 + " ; receiverStatus is " + e2);
             if (d2 == 2) {
-                b(this.f77046a);
+                b(this.f77081a);
             } else if (d2 == 1) {
-                a(this.f77046a);
+                a(this.f77081a);
             } else if (d2 == 0) {
-                Context context = this.f77046a;
+                Context context = this.f77081a;
                 Intent intent = new Intent("com.vivo.pushservice.action.PUSH_SERVICE");
                 intent.setPackage(context.getPackageName());
                 List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 576);
@@ -145,7 +145,7 @@ public final class f extends com.vivo.push.v {
                 }
             }
             if (e2 == 2) {
-                Context context2 = this.f77046a;
+                Context context2 = this.f77081a;
                 List<ResolveInfo> c2 = c(context2);
                 if (c2 != null && c2.size() > 0) {
                     String str = c2.get(0).activityInfo.name;
@@ -166,7 +166,7 @@ public final class f extends com.vivo.push.v {
                 }
                 com.vivo.push.sdk.a.a().b();
             } else if (e2 == 1) {
-                Context context3 = this.f77046a;
+                Context context3 = this.f77081a;
                 List<ResolveInfo> c3 = c(context3);
                 if (c3 != null && c3.size() > 0) {
                     String str2 = c3.get(0).activityInfo.name;
@@ -186,7 +186,7 @@ public final class f extends com.vivo.push.v {
                 }
                 com.vivo.push.util.p.a("OnChangePushStatusTask", "enableReceiver error: can not find push service.");
             } else if (e2 == 0) {
-                Context context4 = this.f77046a;
+                Context context4 = this.f77081a;
                 List<ResolveInfo> c4 = c(context4);
                 if (c4 != null && c4.size() > 0) {
                     String str3 = c4.get(0).activityInfo.name;

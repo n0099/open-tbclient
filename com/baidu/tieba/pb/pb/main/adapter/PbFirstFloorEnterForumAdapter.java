@@ -8,8 +8,8 @@ import android.widget.ImageView;
 import c.a.e.e.p.l;
 import c.a.q0.n0.c;
 import c.a.q0.s.f0.n.b;
-import c.a.r0.j2.h.g;
-import c.a.r0.j3.r0.k;
+import c.a.r0.k2.h.g;
+import c.a.r0.k3.r0.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -45,22 +45,22 @@ public class PbFirstFloorEnterForumAdapter extends c.a.e.l.e.a<g, PbFirstFloorEn
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public CardForumHeadLayout f55344e;
+        public CardForumHeadLayout f55277e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f55345f;
+        public View f55278f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f55346g;
+        public View f55279g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView f55347h;
+        public ImageView f55280h;
 
         /* renamed from: i  reason: collision with root package name */
-        public g f55348i;
+        public g f55281i;
 
         /* renamed from: j  reason: collision with root package name */
-        public TBSpecificationBtn f55349j;
+        public TBSpecificationBtn f55282j;
         public String k;
         public String l;
         public final /* synthetic */ PbFirstFloorEnterForumAdapter m;
@@ -86,47 +86,47 @@ public class PbFirstFloorEnterForumAdapter extends c.a.e.l.e.a<g, PbFirstFloorEn
             this.m = pbFirstFloorEnterForumAdapter;
             ViewGroup viewGroup = (ViewGroup) view;
             CardForumHeadLayout cardForumHeadLayout = (CardForumHeadLayout) viewGroup.getChildAt(0);
-            this.f55344e = cardForumHeadLayout;
+            this.f55277e = cardForumHeadLayout;
             if (cardForumHeadLayout != null) {
                 cardForumHeadLayout.setOnClickListener(cardForumHeadLayout);
-                this.f55344e.setAfterClickListener(this);
+                this.f55277e.setAfterClickListener(this);
             }
-            this.f55345f = viewGroup.getChildAt(1);
-            this.f55347h = (ImageView) viewGroup.getChildAt(2);
-            this.f55346g = viewGroup.getChildAt(3);
+            this.f55278f = viewGroup.getChildAt(1);
+            this.f55280h = (ImageView) viewGroup.getChildAt(2);
+            this.f55279g = viewGroup.getChildAt(3);
         }
 
         public final void b(String str) {
             TbPageTag l;
             g gVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (l = c.l(this.m.m.getContext())) == null || (gVar = this.f55348i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (l = c.l(this.m.m.getContext())) == null || (gVar = this.f55281i) == null) {
                 return;
             }
-            c.a.r0.j2.k.e.f1.c.a(str, gVar.f19641j, gVar.k, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
+            c.a.r0.k2.k.e.f1.c.a(str, gVar.f19818j, gVar.k, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
         }
 
         public final void c() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f55349j == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f55282j == null) {
                 return;
             }
             if (this.m.o) {
-                this.f55349j.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.followed));
-                this.f55349j.setClickable(false);
-                ((b) this.f55349j.getStyleConfig()).r(R.color.CAM_X0109);
+                this.f55282j.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.followed));
+                this.f55282j.setClickable(false);
+                ((b) this.f55282j.getStyleConfig()).s(R.color.CAM_X0109);
                 return;
             }
-            this.f55349j.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.attention));
+            this.f55282j.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.attention));
         }
 
         public void changeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                WebPManager.setPureDrawable(this.f55347h, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
-                SkinManager.setBackgroundColor(this.f55345f, R.color.CAM_X0203);
-                SkinManager.setBackgroundColor(this.f55346g, R.color.CAM_X0203);
-                this.f55344e.onChangeSkinType();
+                WebPManager.setPureDrawable(this.f55280h, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
+                SkinManager.setBackgroundColor(this.f55278f, R.color.CAM_X0203);
+                SkinManager.setBackgroundColor(this.f55279g, R.color.CAM_X0203);
+                this.f55277e.onChangeSkinType();
             }
         }
 
@@ -134,7 +134,7 @@ public class PbFirstFloorEnterForumAdapter extends c.a.e.l.e.a<g, PbFirstFloorEn
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-                TiebaStatic.log(new StatisticItem("c13698").param("tid", this.f55348i.k).param("fid", this.f55348i.f19641j).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+                TiebaStatic.log(new StatisticItem("c13698").param("tid", this.f55281i.k).param("fid", this.f55281i.f19818j).param("uid", TbadkCoreApplication.getCurrentAccountId()));
             }
         }
 
@@ -142,23 +142,23 @@ public class PbFirstFloorEnterForumAdapter extends c.a.e.l.e.a<g, PbFirstFloorEn
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) {
                 if (gVar != null) {
-                    this.f55348i = gVar;
-                    this.k = gVar.f19641j;
-                    this.l = gVar.f19636e;
+                    this.f55281i = gVar;
+                    this.k = gVar.f19818j;
+                    this.l = gVar.f19813e;
                     if (!this.m.o) {
                         this.m.o = gVar.l;
                     }
-                    this.f55346g.setVisibility(gVar.f19640i ? 0 : 8);
+                    this.f55279g.setVisibility(gVar.f19817i ? 0 : 8);
                     if (getView() != null) {
-                        getView().setPadding(0, 0, 0, gVar.f19640i ? l.g(this.m.f2958e, R.dimen.tbds42) : 0);
+                        getView().setPadding(0, 0, 0, gVar.f19817i ? l.g(this.m.f2958e, R.dimen.tbds42) : 0);
                     }
-                    this.f55344e.setData(gVar.f19636e, gVar.f19637f, gVar.f19638g, gVar.f19639h);
+                    this.f55277e.setData(gVar.f19813e, gVar.f19814f, gVar.f19815g, gVar.f19816h);
                 }
-                if (this.f55349j == null || this.m.o) {
+                if (this.f55282j == null || this.m.o) {
                     return;
                 }
-                this.f55347h.setVisibility(4);
-                this.f55349j.setVisibility(0);
+                this.f55280h.setVisibility(4);
+                this.f55282j.setVisibility(0);
                 c();
                 b("c14274");
             }
@@ -171,7 +171,7 @@ public class PbFirstFloorEnterForumAdapter extends c.a.e.l.e.a<g, PbFirstFloorEn
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFirstFloorEnterForumAdapter f55350a;
+        public final /* synthetic */ PbFirstFloorEnterForumAdapter f55283a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PbFirstFloorEnterForumAdapter pbFirstFloorEnterForumAdapter, int i2) {
@@ -191,16 +191,16 @@ public class PbFirstFloorEnterForumAdapter extends c.a.e.l.e.a<g, PbFirstFloorEn
                     return;
                 }
             }
-            this.f55350a = pbFirstFloorEnterForumAdapter;
+            this.f55283a = pbFirstFloorEnterForumAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k) && ((k) customResponsedMessage.getData()).f21130b) {
-                this.f55350a.o = true;
-                this.f55350a.n.c();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k) && ((k) customResponsedMessage.getData()).f21310b) {
+                this.f55283a.o = true;
+                this.f55283a.n.c();
             }
         }
     }

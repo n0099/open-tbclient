@@ -16,13 +16,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
 public class SwitchManager {
     public static /* synthetic */ Interceptable $ic;
     public static SwitchManager sSwitchManager;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Integer> mBaseSwitchs;
-    public HashMap<String, c> mSwitchs;
+    public ConcurrentHashMap<String, c> mSwitchs;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +55,7 @@ public class SwitchManager {
         }
         this.mSwitchs = null;
         this.mBaseSwitchs = null;
-        this.mSwitchs = new HashMap<>();
+        this.mSwitchs = new ConcurrentHashMap<>();
     }
 
     public static synchronized SwitchManager getInstance() {

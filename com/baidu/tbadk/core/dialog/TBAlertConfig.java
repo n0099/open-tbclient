@@ -148,13 +148,13 @@ public final class TBAlertConfig {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f47586a;
+        public String f47506a;
 
         /* renamed from: b  reason: collision with root package name */
-        public OperateBtnStyle f47587b;
+        public OperateBtnStyle f47507b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View.OnClickListener f47588c;
+        public View.OnClickListener f47508c;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a(@StringRes int i2, @NonNull OperateBtnStyle operateBtnStyle) {
@@ -180,7 +180,7 @@ public final class TBAlertConfig {
         public void a(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-                this.f47588c = onClickListener;
+                this.f47508c = onClickListener;
             }
         }
 
@@ -199,9 +199,9 @@ public final class TBAlertConfig {
                     return;
                 }
             }
-            this.f47586a = str;
-            this.f47587b = operateBtnStyle;
-            this.f47588c = onClickListener;
+            this.f47506a = str;
+            this.f47507b = operateBtnStyle;
+            this.f47508c = onClickListener;
         }
 
         public a(@StringRes int i2, @NonNull OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
@@ -219,9 +219,9 @@ public final class TBAlertConfig {
                     return;
                 }
             }
-            this.f47586a = TbadkCoreApplication.getInst().getResources().getString(i2);
-            this.f47587b = operateBtnStyle;
-            this.f47588c = onClickListener;
+            this.f47506a = TbadkCoreApplication.getInst().getResources().getString(i2);
+            this.f47507b = operateBtnStyle;
+            this.f47508c = onClickListener;
         }
     }
 
@@ -231,16 +231,16 @@ public final class TBAlertConfig {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final OperateType f47589a;
+        public final OperateType f47509a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a f47590b;
+        public a f47510b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f47591c;
+        public a f47511c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f47592d;
+        public a f47512d;
 
         public b(OperateType operateType) {
             Interceptable interceptable = $ic;
@@ -257,7 +257,7 @@ public final class TBAlertConfig {
                     return;
                 }
             }
-            this.f47589a = operateType;
+            this.f47509a = operateType;
         }
 
         public static b a(a aVar) {
@@ -265,7 +265,7 @@ public final class TBAlertConfig {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
                 b bVar = new b(OperateType.ONE);
-                bVar.f47590b = aVar;
+                bVar.f47510b = aVar;
                 return bVar;
             }
             return (b) invokeL.objValue;
@@ -276,9 +276,9 @@ public final class TBAlertConfig {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, aVar, aVar2, aVar3)) == null) {
                 b bVar = new b(OperateType.THREE);
-                bVar.f47590b = aVar;
-                bVar.f47591c = aVar2;
-                bVar.f47592d = aVar3;
+                bVar.f47510b = aVar;
+                bVar.f47511c = aVar2;
+                bVar.f47512d = aVar3;
                 return bVar;
             }
             return (b) invokeLLL.objValue;
@@ -289,8 +289,8 @@ public final class TBAlertConfig {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, aVar, aVar2)) == null) {
                 b bVar = new b(OperateType.TWO);
-                bVar.f47590b = aVar;
-                bVar.f47591c = aVar2;
+                bVar.f47510b = aVar;
+                bVar.f47511c = aVar2;
                 return bVar;
             }
             return (b) invokeLL.objValue;

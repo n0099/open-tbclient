@@ -53,7 +53,7 @@ public final class p extends Handler {
         }
         int i2 = message.getData().getInt("type");
         String string = message.getData().getString("appid");
-        o oVar = q.f70370j;
+        o oVar = q.f70405j;
         oVar.getClass();
         if (i2 != 0) {
             if (i2 == 1) {
@@ -64,15 +64,15 @@ public final class p extends Handler {
                 str2 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
             } else if (i2 != 4) {
                 parse = null;
-                query = oVar.f70360a.getContentResolver().query(parse, null, null, null, null);
+                query = oVar.f70395a.getContentResolver().query(parse, null, null, null, null);
                 if (query != null) {
                     r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                     query.close();
                 }
-                q.f70367g = r2;
-                Context context = q.f70361a;
-                synchronized (q.f70364d) {
-                    q.f70364d.notify();
+                q.f70402g = r2;
+                Context context = q.f70396a;
+                synchronized (q.f70399d) {
+                    q.f70399d.notify();
                 }
                 return;
             } else {
@@ -85,12 +85,12 @@ public final class p extends Handler {
             str = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
         }
         parse = Uri.parse(str);
-        query = oVar.f70360a.getContentResolver().query(parse, null, null, null, null);
+        query = oVar.f70395a.getContentResolver().query(parse, null, null, null, null);
         if (query != null) {
         }
-        q.f70367g = r2;
-        Context context2 = q.f70361a;
-        synchronized (q.f70364d) {
+        q.f70402g = r2;
+        Context context2 = q.f70396a;
+        synchronized (q.f70399d) {
         }
     }
 }

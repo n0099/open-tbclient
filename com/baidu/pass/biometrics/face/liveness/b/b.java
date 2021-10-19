@@ -9,13 +9,13 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f44175h = 0;
+    public static final int f44087h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f44176i = 1;
+    public static final int f44088i = 1;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f44177j = 2;
+    public static final int f44089j = 2;
     public static final int k = 3;
     public static final int l = 4;
     public static final int m = 5;
@@ -34,25 +34,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f44178a;
+    public int f44090a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f44179b;
+    public boolean f44091b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44180c;
+    public boolean f44092c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f44181d;
+    public long f44093d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f44182e;
+    public long f44094e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f44183f;
+    public boolean f44095f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f44184g;
+    public boolean f44096g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -67,11 +67,11 @@ public class b {
                 return;
             }
         }
-        this.f44178a = 0;
-        this.f44179b = false;
-        this.f44180c = false;
-        this.f44182e = 20000L;
-        this.f44183f = false;
-        this.f44184g = false;
+        this.f44090a = 0;
+        this.f44091b = false;
+        this.f44092c = false;
+        this.f44094e = 20000L;
+        this.f44095f = false;
+        this.f44096g = false;
     }
 }

@@ -15,11 +15,11 @@ public class z1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile z1 f79666b;
+    public static volatile z1 f79701b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Throwable f79667a;
+    public Throwable f79702a;
 
     public z1() {
         Interceptable interceptable = $ic;
@@ -34,21 +34,21 @@ public class z1 {
                 return;
             }
         }
-        this.f79667a = null;
+        this.f79702a = null;
     }
 
     public static z1 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f79666b == null) {
+            if (f79701b == null) {
                 synchronized (z1.class) {
-                    if (f79666b == null) {
-                        f79666b = new z1();
+                    if (f79701b == null) {
+                        f79701b = new z1();
                     }
                 }
             }
-            return f79666b;
+            return f79701b;
         }
         return (z1) invokeV.objValue;
     }
@@ -59,7 +59,7 @@ public class z1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                th = this.f79667a;
+                th = this.f79702a;
             }
             return th;
         }

@@ -1,6 +1,5 @@
 package kotlin.jdk7;
 
-import com.baidu.media.duplayer.LibsInfoDef;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.tbadk.TbConfig;
 import kotlin.ExceptionsKt__ExceptionsKt;
@@ -15,7 +14,7 @@ import kotlin.jvm.internal.InlineMarker;
 @JvmName(name = "AutoCloseableKt")
 /* loaded from: classes2.dex */
 public final class AutoCloseableKt {
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @PublishedApi
     public static final void closeFinally(AutoCloseable autoCloseable, Throwable th) {
         if (autoCloseable == null) {
@@ -33,7 +32,7 @@ public final class AutoCloseableKt {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @InlineOnly
     public static final <T extends AutoCloseable, R> R use(T t, Function1<? super T, ? extends R> function1) {
         try {

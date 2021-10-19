@@ -36,7 +36,7 @@ public class i {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ ISmsController[] f63054a;
+                        public final /* synthetic */ ISmsController[] f63089a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -53,7 +53,7 @@ public class i {
                                     return;
                                 }
                             }
-                            this.f63054a = iSmsControllerArr;
+                            this.f63089a = iSmsControllerArr;
                         }
 
                         @Override // com.baidu.wallet.router.RouterCallback
@@ -65,7 +65,7 @@ public class i {
                                     if (obj == null || !(obj instanceof ISmsController)) {
                                         return;
                                     }
-                                    this.f63054a[0] = (ISmsController) obj;
+                                    this.f63089a[0] = (ISmsController) obj;
                                 } else if (i3 == 5) {
                                     HashMap hashMap2 = new HashMap();
                                     hashMap2.put("provider", "hce");

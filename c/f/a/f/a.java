@@ -16,12 +16,12 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f32298a;
+    public static final c f32302a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.f.a.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1467a {
+    public static /* synthetic */ class C1469a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -41,7 +41,7 @@ public final class a {
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
-                    super((C1467a) newInitContext.callArgs[0]);
+                    super((C1469a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -63,7 +63,7 @@ public final class a {
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? c.f.a.f.b.b(str) : (String) invokeL.objValue;
         }
 
-        public /* synthetic */ b(C1467a c1467a) {
+        public /* synthetic */ b(C1469a c1469a) {
             this();
         }
     }
@@ -105,7 +105,7 @@ public final class a {
             return (String) invokeL.objValue;
         }
 
-        public /* synthetic */ c(C1467a c1467a) {
+        public /* synthetic */ c(C1469a c1469a) {
             this();
         }
     }
@@ -124,21 +124,21 @@ public final class a {
             }
         }
         if (Build.VERSION.SDK_INT >= 23) {
-            f32298a = new b(null);
+            f32302a = new b(null);
         } else {
-            f32298a = new c(null);
+            f32302a = new c(null);
         }
     }
 
     public static int a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) ? f32298a.a(context, str, str2) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) ? f32302a.a(context, str, str2) : invokeLLL.intValue;
     }
 
     public static String b(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? f32298a.b(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? f32302a.b(str) : (String) invokeL.objValue;
     }
 }

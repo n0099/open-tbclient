@@ -15,10 +15,10 @@ public class b extends BeanRequestBase {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62758a;
+    public String f62793a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62759b;
+    public String f62794b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class b extends BeanRequestBase {
     public boolean checkRequestValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f62758a) || TextUtils.isEmpty(this.f62759b)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f62793a) || TextUtils.isEmpty(this.f62794b)) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.dxmpay.wallet.core.beans.BeanRequestBase

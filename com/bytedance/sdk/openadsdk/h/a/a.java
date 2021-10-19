@@ -18,7 +18,7 @@ public class a extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<w> f68208a;
+    public WeakReference<w> f68243a;
 
     public a(w wVar) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class a extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                 return;
             }
         }
-        this.f68208a = new WeakReference<>(wVar);
+        this.f68243a = new WeakReference<>(wVar);
     }
 
     @Override // com.bytedance.sdk.component.a.d
@@ -53,7 +53,7 @@ public class a extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ w f68209a;
+                public final /* synthetic */ w f68244a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -70,14 +70,14 @@ public class a extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                             return;
                         }
                     }
-                    this.f68209a = wVar;
+                    this.f68244a = wVar;
                 }
 
                 @Override // com.bytedance.sdk.component.a.d.b
                 public com.bytedance.sdk.component.a.d a() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new a(this.f68209a) : (com.bytedance.sdk.component.a.d) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new a(this.f68244a) : (com.bytedance.sdk.component.a.d) invokeV.objValue;
                 }
             });
         }
@@ -88,10 +88,10 @@ public class a extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
     public void a(@NonNull JSONObject jSONObject, @NonNull com.bytedance.sdk.component.a.f fVar) throws Exception {
         WeakReference<w> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, fVar) == null) || (weakReference = this.f68208a) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, fVar) == null) || (weakReference = this.f68243a) == null || weakReference.get() == null) {
             return;
         }
-        w wVar = this.f68208a.get();
+        w wVar = this.f68243a.get();
         if (wVar == null) {
             c();
         } else {

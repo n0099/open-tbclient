@@ -108,8 +108,8 @@ public class b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.r0.j3.e0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
-            c.a.r0.j3.e0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
+            c.a.r0.k3.e0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
+            c.a.r0.k3.e0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
         }
     }
 

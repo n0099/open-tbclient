@@ -15,34 +15,34 @@ public class DrawerArgs {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f36341a;
+    public float[] f36345a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36342b;
+    public boolean f36346b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f36343c;
+    public boolean f36347c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36344d;
+    public int f36348d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36345e;
+    public int f36349e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SkinType f36346f;
+    public SkinType f36350f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36347g;
+    public boolean f36351g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f36348h;
+    public boolean f36352h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f36349i;
+    public boolean f36353i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f36350j;
+    public int f36354j;
     public float k;
     public Matrix l;
     public int m;
@@ -124,11 +124,11 @@ public class DrawerArgs {
                 return;
             }
         }
-        this.f36341a = new float[8];
-        this.f36346f = SkinType.DAY;
-        this.f36348h = false;
-        this.f36349i = true;
-        this.f36350j = b.f2715a;
+        this.f36345a = new float[8];
+        this.f36350f = SkinType.DAY;
+        this.f36352h = false;
+        this.f36353i = true;
+        this.f36354j = b.f2715a;
         this.k = 1.0f;
         this.o = false;
     }

@@ -39,7 +39,7 @@ public final class hk {
     public static final hk Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hk f78114a;
+    public static final hk f78149a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hk[] f496a;
@@ -97,7 +97,7 @@ public final class hk {
     public static final hk az;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hk f78115b;
+    public static final hk f78150b;
     public static final hk ba;
     public static final hk bb;
     public static final hk bc;
@@ -115,28 +115,28 @@ public final class hk {
     public static final hk bo;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hk f78116c;
+    public static final hk f78151c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hk f78117d;
+    public static final hk f78152d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hk f78118e;
+    public static final hk f78153e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hk f78119f;
+    public static final hk f78154f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hk f78120g;
+    public static final hk f78155g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hk f78121h;
+    public static final hk f78156h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hk f78122i;
+    public static final hk f78157i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final hk f78123j;
+    public static final hk f78158j;
     public static final hk k;
     public static final hk l;
     public static final hk m;
@@ -171,16 +171,16 @@ public final class hk {
                 return;
             }
         }
-        f78114a = new hk("UploadSwitch", 0, 1);
-        f78115b = new hk("UploadFrequency", 1, 2);
-        f78116c = new hk("ScreenSizeCollectionSwitch", 2, 3);
-        f78117d = new hk("MacCollectionSwitch", 3, 4);
-        f78118e = new hk("IMSICollectionSwitch", 4, 5);
-        f78119f = new hk("AndroidVnCollectionSwitch", 5, 6);
-        f78120g = new hk("AndroidVcCollectionSwitch", 6, 7);
-        f78121h = new hk("AndroidIdCollectionSwitch", 7, 8);
-        f78122i = new hk("DeviceInfoCollectionFrequency", 8, 9);
-        f78123j = new hk("AppInstallListCollectionSwitch", 9, 10);
+        f78149a = new hk("UploadSwitch", 0, 1);
+        f78150b = new hk("UploadFrequency", 1, 2);
+        f78151c = new hk("ScreenSizeCollectionSwitch", 2, 3);
+        f78152d = new hk("MacCollectionSwitch", 3, 4);
+        f78153e = new hk("IMSICollectionSwitch", 4, 5);
+        f78154f = new hk("AndroidVnCollectionSwitch", 5, 6);
+        f78155g = new hk("AndroidVcCollectionSwitch", 6, 7);
+        f78156h = new hk("AndroidIdCollectionSwitch", 7, 8);
+        f78157i = new hk("DeviceInfoCollectionFrequency", 8, 9);
+        f78158j = new hk("AppInstallListCollectionSwitch", 9, 10);
         k = new hk("AppInstallListCollectionFrequency", 10, 11);
         l = new hk("AppActiveListCollectionSwitch", 11, 12);
         m = new hk("AppActiveListCollectionFrequency", 12, 13);
@@ -291,7 +291,7 @@ public final class hk {
         bn = new hk("CollectionPluginMd5", 117, 1003);
         hk hkVar = new hk("CollectionPluginForceStop", 118, 1004);
         bo = hkVar;
-        f496a = new hk[]{f78114a, f78115b, f78116c, f78117d, f78118e, f78119f, f78120g, f78121h, f78122i, f78123j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP, aQ, aR, aS, aT, aU, aV, aW, aX, aY, aZ, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, hkVar};
+        f496a = new hk[]{f78149a, f78150b, f78151c, f78152d, f78153e, f78154f, f78155g, f78156h, f78157i, f78158j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP, aQ, aR, aS, aT, aU, aV, aW, aX, aY, aZ, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, hkVar};
     }
 
     public hk(String str, int i2, int i3) {

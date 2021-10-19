@@ -18,7 +18,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SoftReference<ConcurrentHashMap<String, Map<String, Object>>> f68440a;
+    public static SoftReference<ConcurrentHashMap<String, Map<String, Object>>> f68475a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(String str) {
@@ -31,7 +31,7 @@ public class b {
         SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference;
         Map<String, Object> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65550, null, str) == null) || (softReference = f68440a) == null || softReference.get() == null || (map = f68440a.get().get(a(str))) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65550, null, str) == null) || (softReference = f68475a) == null || softReference.get() == null || (map = f68475a.get().get(a(str))) == null) {
             return;
         }
         map.clear();
@@ -55,7 +55,7 @@ public class b {
         Map<String, Object> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f68440a;
+            SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f68475a;
             if (softReference == null || (concurrentHashMap = softReference.get()) == null || (map = concurrentHashMap.get(a(str))) == null) {
                 return null;
             }
@@ -108,12 +108,12 @@ public class b {
     public static void a(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, obj) == null) {
-            SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f68440a;
+            SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f68475a;
             if (softReference == null || softReference.get() == null) {
-                f68440a = new SoftReference<>(new ConcurrentHashMap());
+                f68475a = new SoftReference<>(new ConcurrentHashMap());
             }
             String a2 = a(str);
-            ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap = f68440a.get();
+            ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap = f68475a.get();
             if (concurrentHashMap.get(a2) == null) {
                 concurrentHashMap.put(a2, new HashMap());
             }
@@ -166,16 +166,16 @@ public class b {
                 SharedPreferences.Editor edit = c2.edit();
                 edit.remove(str2);
                 edit.apply();
-                if (f68440a == null || f68440a.get() == null) {
+                if (f68475a == null || f68475a.get() == null) {
                     return;
                 }
                 String a2 = a(str);
-                if (!TextUtils.isEmpty(a2) && (map = f68440a.get().get(a2)) != null && map.size() != 0) {
+                if (!TextUtils.isEmpty(a2) && (map = f68475a.get().get(a2)) != null && map.size() != 0) {
                     map.remove(str2);
-                    if (f68440a == null || f68440a.get() == null) {
+                    if (f68475a == null || f68475a.get() == null) {
                         return;
                     }
-                    f68440a.get().put(a2, map);
+                    f68475a.get().put(a2, map);
                 }
             } catch (Throwable unused) {
             }

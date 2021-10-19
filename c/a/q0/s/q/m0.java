@@ -16,10 +16,10 @@ public class m0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14260a;
+    public String f14283a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14261b;
+    public int f14284b;
 
     public m0() {
         Interceptable interceptable = $ic;
@@ -34,20 +34,20 @@ public class m0 {
                 return;
             }
         }
-        this.f14260a = null;
-        this.f14261b = 0;
+        this.f14283a = null;
+        this.f14284b = 0;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14261b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14284b : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14260a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14283a : (String) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -56,8 +56,8 @@ public class m0 {
             return;
         }
         try {
-            this.f14261b = jSONObject.optInt("class_id", 0);
-            this.f14260a = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            this.f14284b = jSONObject.optInt("class_id", 0);
+            this.f14283a = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -68,7 +68,7 @@ public class m0 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, classify) == null) || classify == null) {
             return;
         }
-        this.f14261b = classify.class_id.intValue();
-        this.f14260a = classify.class_name;
+        this.f14284b = classify.class_id.intValue();
+        this.f14283a = classify.class_name;
     }
 }

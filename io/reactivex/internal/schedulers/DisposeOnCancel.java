@@ -17,7 +17,7 @@ public final class DisposeOnCancel implements Future<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Disposable f79339d;
+    public final Disposable f79374d;
 
     public DisposeOnCancel(Disposable disposable) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class DisposeOnCancel implements Future<Object> {
                 return;
             }
         }
-        this.f79339d = disposable;
+        this.f79374d = disposable;
     }
 
     @Override // java.util.concurrent.Future
@@ -42,7 +42,7 @@ public final class DisposeOnCancel implements Future<Object> {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.f79339d.dispose();
+            this.f79374d.dispose();
             return false;
         }
         return invokeZ.booleanValue;

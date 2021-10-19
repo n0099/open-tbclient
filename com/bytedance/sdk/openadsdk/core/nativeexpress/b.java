@@ -32,35 +32,35 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static Set<b> f67172j;
+    public static Set<b> f67207j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdSlot f67173a;
+    public AdSlot f67208a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.core.p f67174b;
+    public final com.bytedance.sdk.openadsdk.core.p f67209b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f67175c;
+    public Context f67210c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTAdNative.NativeExpressAdListener f67176d;
+    public TTAdNative.NativeExpressAdListener f67211d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicBoolean f67177e;
+    public final AtomicBoolean f67212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<com.bytedance.sdk.openadsdk.core.e.m> f67178f;
+    public List<com.bytedance.sdk.openadsdk.core.e.m> f67213f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<com.bytedance.sdk.openadsdk.core.e.m> f67179g;
+    public List<com.bytedance.sdk.openadsdk.core.e.m> f67214g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f67180h;
+    public a f67215h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f67181i;
+    public int f67216i;
     public ScheduledFuture<?> k;
     public ScheduledFuture<?> l;
     public ScheduledFuture<?> m;
@@ -85,7 +85,7 @@ public class b {
                 return;
             }
         }
-        f67172j = Collections.synchronizedSet(new HashSet());
+        f67207j = Collections.synchronizedSet(new HashSet());
     }
 
     public b(Context context) {
@@ -103,18 +103,18 @@ public class b {
                 return;
             }
         }
-        this.f67177e = new AtomicBoolean(false);
-        this.f67181i = 5;
+        this.f67212e = new AtomicBoolean(false);
+        this.f67216i = 5;
         this.k = null;
         this.l = null;
         this.m = null;
-        this.f67174b = com.bytedance.sdk.openadsdk.core.o.f();
+        this.f67209b = com.bytedance.sdk.openadsdk.core.o.f();
         if (context != null) {
-            this.f67175c = context.getApplicationContext();
+            this.f67210c = context.getApplicationContext();
         } else {
-            this.f67175c = com.bytedance.sdk.openadsdk.core.o.a();
+            this.f67210c = com.bytedance.sdk.openadsdk.core.o.a();
         }
-        f67172j.add(this);
+        f67207j.add(this);
     }
 
     private void c(boolean z) {
@@ -148,7 +148,7 @@ public class b {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            f67172j.remove(this);
+            f67207j.remove(this);
         }
     }
 
@@ -169,15 +169,15 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{adSlot, Integer.valueOf(i2), nativeExpressAdListener, aVar, Integer.valueOf(i3)}) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (this.f67177e.get()) {
+            if (this.f67212e.get()) {
                 com.bytedance.sdk.component.utils.k.f("ExpressAdLoadManager", "express ad is loading...");
                 return;
             }
-            this.f67181i = i2;
-            this.f67177e.set(true);
-            this.f67173a = adSlot;
-            this.f67176d = nativeExpressAdListener;
-            this.f67180h = aVar;
+            this.f67216i = i2;
+            this.f67212e.set(true);
+            this.f67208a = adSlot;
+            this.f67211d = nativeExpressAdListener;
+            this.f67215h = aVar;
             a(adSlot, currentTimeMillis);
         }
     }
@@ -188,19 +188,19 @@ public class b {
             return;
         }
         com.bytedance.sdk.openadsdk.core.e.n nVar = new com.bytedance.sdk.openadsdk.core.e.n();
-        nVar.f66804e = 2;
-        this.f67174b.a(adSlot, nVar, this.f67181i, new p.b(this, adSlot, j2) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.1
+        nVar.f66839e = 2;
+        this.f67209b.a(adSlot, nVar, this.f67216i, new p.b(this, adSlot, j2) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ AdSlot f67182a;
+            public final /* synthetic */ AdSlot f67217a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f67183b;
+            public final /* synthetic */ long f67218b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ b f67184c;
+            public final /* synthetic */ b f67219c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -217,16 +217,16 @@ public class b {
                         return;
                     }
                 }
-                this.f67184c = this;
-                this.f67182a = adSlot;
-                this.f67183b = j2;
+                this.f67219c = this;
+                this.f67217a = adSlot;
+                this.f67218b = j2;
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.p.b
             public void a(int i2, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                    this.f67184c.a(i2, str);
+                    this.f67219c.a(i2, str);
                 }
             }
 
@@ -235,13 +235,13 @@ public class b {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
                     if (aVar.c() != null && !aVar.c().isEmpty()) {
-                        this.f67184c.f67178f = aVar.c();
-                        this.f67184c.f67179g = aVar.c();
-                        this.f67184c.a(this.f67182a);
-                        this.f67184c.a(this.f67183b);
+                        this.f67219c.f67213f = aVar.c();
+                        this.f67219c.f67214g = aVar.c();
+                        this.f67219c.a(this.f67217a);
+                        this.f67219c.a(this.f67218b);
                         return;
                     }
-                    this.f67184c.a(-3, com.bytedance.sdk.openadsdk.core.g.a(-3));
+                    this.f67219c.a(-3, com.bytedance.sdk.openadsdk.core.g.a(-3));
                 }
             }
         });
@@ -251,7 +251,7 @@ public class b {
     public void a(AdSlot adSlot) {
         List<com.bytedance.sdk.openadsdk.core.e.m> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, this, adSlot) == null) || (list = this.f67178f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65547, this, adSlot) == null) || (list = this.f67213f) == null) {
             return;
         }
         for (com.bytedance.sdk.openadsdk.core.e.m mVar : list) {
@@ -283,16 +283,16 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65546, this, j2) == null) && this.f67177e.getAndSet(false)) {
+        if ((interceptable == null || interceptable.invokeJ(65546, this, j2) == null) && this.f67212e.getAndSet(false)) {
             new Handler(Looper.getMainLooper()).post(new Runnable(this, j2) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ long f67185a;
+                public final /* synthetic */ long f67220a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f67186b;
+                public final /* synthetic */ b f67221b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -309,41 +309,41 @@ public class b {
                             return;
                         }
                     }
-                    this.f67186b = this;
-                    this.f67185a = j2;
+                    this.f67221b = this;
+                    this.f67220a = j2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f67186b.f67179g == null || this.f67186b.f67179g.size() <= 0) {
-                            if (this.f67186b.f67176d != null) {
-                                this.f67186b.f67176d.onError(108, com.bytedance.sdk.openadsdk.core.g.a(108));
-                                this.f67186b.a(108);
+                        if (this.f67221b.f67214g == null || this.f67221b.f67214g.size() <= 0) {
+                            if (this.f67221b.f67211d != null) {
+                                this.f67221b.f67211d.onError(108, com.bytedance.sdk.openadsdk.core.g.a(108));
+                                this.f67221b.a(108);
                             }
-                            if (this.f67186b.f67180h != null) {
-                                this.f67186b.f67180h.a();
+                            if (this.f67221b.f67215h != null) {
+                                this.f67221b.f67215h.a();
                             }
                         } else {
-                            if (this.f67186b.f67176d != null) {
-                                ArrayList arrayList = new ArrayList(this.f67186b.f67179g.size());
-                                for (com.bytedance.sdk.openadsdk.core.e.m mVar : this.f67186b.f67179g) {
-                                    arrayList.add(this.f67186b.a(mVar));
+                            if (this.f67221b.f67211d != null) {
+                                ArrayList arrayList = new ArrayList(this.f67221b.f67214g.size());
+                                for (com.bytedance.sdk.openadsdk.core.e.m mVar : this.f67221b.f67214g) {
+                                    arrayList.add(this.f67221b.a(mVar));
                                 }
                                 if (!arrayList.isEmpty()) {
-                                    com.bytedance.sdk.openadsdk.e.d.a(this.f67186b.f67175c, (com.bytedance.sdk.openadsdk.core.e.m) this.f67186b.f67179g.get(0), com.bytedance.sdk.openadsdk.q.q.b(this.f67186b.f67173a.getDurationSlotType()), this.f67185a);
-                                    this.f67186b.f67176d.onNativeExpressAdLoad(arrayList);
+                                    com.bytedance.sdk.openadsdk.e.d.a(this.f67221b.f67210c, (com.bytedance.sdk.openadsdk.core.e.m) this.f67221b.f67214g.get(0), com.bytedance.sdk.openadsdk.q.q.b(this.f67221b.f67208a.getDurationSlotType()), this.f67220a);
+                                    this.f67221b.f67211d.onNativeExpressAdLoad(arrayList);
                                 } else {
-                                    this.f67186b.f67176d.onError(103, com.bytedance.sdk.openadsdk.core.g.a(103));
-                                    this.f67186b.a(103);
+                                    this.f67221b.f67211d.onError(103, com.bytedance.sdk.openadsdk.core.g.a(103));
+                                    this.f67221b.a(103);
                                 }
                             }
-                            if (this.f67186b.f67180h != null) {
-                                this.f67186b.f67180h.a(this.f67186b.f67179g);
+                            if (this.f67221b.f67215h != null) {
+                                this.f67221b.f67215h.a(this.f67221b.f67214g);
                             }
                         }
-                        this.f67186b.a();
+                        this.f67221b.a();
                     }
                 }
             });
@@ -354,8 +354,8 @@ public class b {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65544, this, i2) == null) {
-            List<com.bytedance.sdk.openadsdk.core.e.m> list = this.f67178f;
-            com.bytedance.sdk.openadsdk.j.a.c f2 = com.bytedance.sdk.openadsdk.j.a.c.b().a(this.f67181i).c(this.f67173a.getCodeId()).f((list == null || list.size() <= 0) ? "" : com.bytedance.sdk.openadsdk.q.q.h(this.f67178f.get(0).ao()));
+            List<com.bytedance.sdk.openadsdk.core.e.m> list = this.f67213f;
+            com.bytedance.sdk.openadsdk.j.a.c f2 = com.bytedance.sdk.openadsdk.j.a.c.b().a(this.f67216i).c(this.f67208a.getCodeId()).f((list == null || list.size() <= 0) ? "" : com.bytedance.sdk.openadsdk.q.q.h(this.f67213f.get(0).ao()));
             f2.b(i2).g(com.bytedance.sdk.openadsdk.core.g.a(i2));
             com.bytedance.sdk.openadsdk.j.a.a().h(f2);
         }
@@ -364,12 +364,12 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(65545, this, i2, str) == null) && this.f67177e.getAndSet(false)) {
-            TTAdNative.NativeExpressAdListener nativeExpressAdListener = this.f67176d;
+        if ((interceptable == null || interceptable.invokeIL(65545, this, i2, str) == null) && this.f67212e.getAndSet(false)) {
+            TTAdNative.NativeExpressAdListener nativeExpressAdListener = this.f67211d;
             if (nativeExpressAdListener != null) {
                 nativeExpressAdListener.onError(i2, str);
             }
-            a aVar = this.f67180h;
+            a aVar = this.f67215h;
             if (aVar != null) {
                 aVar.a();
             }
@@ -382,26 +382,26 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, mVar)) == null) {
-            int i2 = this.f67181i;
+            int i2 = this.f67216i;
             if (i2 == 1) {
                 if (mVar.V() != null) {
-                    return new com.bytedance.sdk.openadsdk.core.bannerexpress.c(this.f67175c, mVar, this.f67173a);
+                    return new com.bytedance.sdk.openadsdk.core.bannerexpress.c(this.f67210c, mVar, this.f67208a);
                 }
-                return new com.bytedance.sdk.openadsdk.core.bannerexpress.b(this.f67175c, mVar, this.f67173a);
+                return new com.bytedance.sdk.openadsdk.core.bannerexpress.b(this.f67210c, mVar, this.f67208a);
             } else if (i2 == 2) {
                 if (mVar.V() != null) {
-                    return new com.bytedance.sdk.openadsdk.core.d.c(this.f67175c, mVar, this.f67173a);
+                    return new com.bytedance.sdk.openadsdk.core.d.c(this.f67210c, mVar, this.f67208a);
                 }
-                return new com.bytedance.sdk.openadsdk.core.d.b(this.f67175c, mVar, this.f67173a);
+                return new com.bytedance.sdk.openadsdk.core.d.b(this.f67210c, mVar, this.f67208a);
             } else if (i2 != 5) {
                 if (i2 != 9) {
                     return null;
                 }
-                return new s(this.f67175c, mVar, this.f67173a);
+                return new s(this.f67210c, mVar, this.f67208a);
             } else if (mVar.V() != null) {
-                return new u(this.f67175c, mVar, this.f67173a);
+                return new u(this.f67210c, mVar, this.f67208a);
             } else {
-                return new q(this.f67175c, mVar, this.f67173a);
+                return new q(this.f67210c, mVar, this.f67208a);
             }
         }
         return (TTNativeExpressAd) invokeL.objValue;
@@ -411,11 +411,11 @@ public class b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            List<com.bytedance.sdk.openadsdk.core.e.m> list = this.f67178f;
+            List<com.bytedance.sdk.openadsdk.core.e.m> list = this.f67213f;
             if (list != null) {
                 list.clear();
             }
-            List<com.bytedance.sdk.openadsdk.core.e.m> list2 = this.f67179g;
+            List<com.bytedance.sdk.openadsdk.core.e.m> list2 = this.f67214g;
             if (list2 != null) {
                 list2.clear();
             }

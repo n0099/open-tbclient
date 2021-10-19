@@ -3,8 +3,8 @@ package com.baidu.tieba.im.model;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
-import c.a.r0.k1.f.i.b;
-import c.a.r0.k1.t.d;
+import c.a.r0.l1.f.i.b;
+import c.a.r0.l1.t.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -53,7 +53,7 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -62,20 +62,10 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void deleteSelectedDatas(b bVar) {
         LinkedList<ImMessageCenterShowItemData> linkedList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (linkedList = this.mList) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || (linkedList = this.mList) == null) {
             return;
         }
         ListIterator<ImMessageCenterShowItemData> listIterator = linkedList.listIterator();
@@ -93,7 +83,7 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     public int getCustomGroupType(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, imMessageCenterShowItemData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterShowItemData)) == null) {
             return 4;
         }
         return invokeL.intValue;
@@ -103,14 +93,24 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     public boolean isAccept(ImMessageCenterPojo imMessageCenterPojo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imMessageCenterPojo)) == null) ? isNeed(imMessageCenterPojo) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, imMessageCenterPojo)) == null) ? isNeed(imMessageCenterPojo) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     public boolean isToShow(ImMessageCenterPojo imMessageCenterPojo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, imMessageCenterPojo)) == null) ? isNeed(imMessageCenterPojo) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imMessageCenterPojo)) == null) ? isNeed(imMessageCenterPojo) : invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel

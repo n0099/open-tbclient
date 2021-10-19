@@ -18,7 +18,7 @@ public class b implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f40547a;
+    public IBinder f40551a;
 
     /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<b> {
@@ -89,7 +89,7 @@ public class b implements Parcelable {
                 return;
             }
         }
-        this.f40547a = iBinder;
+        this.f40551a = iBinder;
     }
 
     public b(Parcel parcel) {
@@ -107,13 +107,13 @@ public class b implements Parcelable {
                 return;
             }
         }
-        this.f40547a = parcel.readStrongBinder();
+        this.f40551a = parcel.readStrongBinder();
     }
 
     public IBinder a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40547a : (IBinder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40551a : (IBinder) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -130,7 +130,7 @@ public class b implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
-            parcel.writeStrongBinder(this.f40547a);
+            parcel.writeStrongBinder(this.f40551a);
         }
     }
 }

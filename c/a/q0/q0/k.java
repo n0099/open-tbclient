@@ -20,23 +20,23 @@ public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f13706e = "tb_perfor_samllflow_time";
+    public static String f13726e = "tb_perfor_samllflow_time";
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile k f13707f;
+    public static volatile k f13727f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13708a;
+    public boolean f13728a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f13709b;
+    public long f13729b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f13710c;
+    public long f13730c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f13711d;
+    public long f13731d;
 
     static {
         InterceptResult invokeClinit;
@@ -66,27 +66,27 @@ public class k {
                 return;
             }
         }
-        this.f13708a = false;
-        this.f13710c = 86400L;
-        this.f13711d = 0L;
-        this.f13709b = c.a.q0.s.d0.b.j().l(f13706e, 0L);
-        BdBaseApplication.getInst().setStartSmallFlowTime(this.f13709b);
-        this.f13711d = this.f13710c;
-        BdBaseApplication.getInst().setSmallFlowInterval(this.f13711d);
+        this.f13728a = false;
+        this.f13730c = 86400L;
+        this.f13731d = 0L;
+        this.f13729b = c.a.q0.s.d0.b.j().l(f13726e, 0L);
+        BdBaseApplication.getInst().setStartSmallFlowTime(this.f13729b);
+        this.f13731d = this.f13730c;
+        BdBaseApplication.getInst().setSmallFlowInterval(this.f13731d);
     }
 
     public static k d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f13707f == null) {
+            if (f13727f == null) {
                 synchronized (k.class) {
-                    if (f13707f == null) {
-                        f13707f = new k();
+                    if (f13727f == null) {
+                        f13727f = new k();
                     }
                 }
             }
-            return f13707f;
+            return f13727f;
         }
         return (k) invokeV.objValue;
     }
@@ -350,15 +350,15 @@ public class k {
                 switch (i2) {
                     case 1000:
                         m mVar = new m();
-                        mVar.f13705a = "frs";
+                        mVar.f13725a = "frs";
                         return mVar;
                     case 1001:
                         m mVar2 = new m();
-                        mVar2.f13705a = "pb";
+                        mVar2.f13725a = "pb";
                         return mVar2;
                     case 1002:
                         i iVar = new i();
-                        iVar.f13705a = "im";
+                        iVar.f13725a = "im";
                         return iVar;
                     case 1003:
                     case 1006:
@@ -367,35 +367,35 @@ public class k {
                         return null;
                     case 1004:
                         m mVar3 = new m();
-                        mVar3.f13705a = "photo_live";
+                        mVar3.f13725a = "photo_live";
                         return mVar3;
                     case 1005:
                         e eVar = new e();
-                        eVar.f13705a = "home_page";
+                        eVar.f13725a = "home_page";
                         return eVar;
                     case 1008:
                         m mVar4 = new m();
-                        mVar4.f13705a = "user_center";
+                        mVar4.f13725a = "user_center";
                         return mVar4;
                     case 1009:
                         m mVar5 = new m();
-                        mVar5.f13705a = "sign_all";
+                        mVar5.f13725a = "sign_all";
                         return mVar5;
                     case 1010:
                         m mVar6 = new m();
-                        mVar6.f13705a = "person_center";
+                        mVar6.f13725a = "person_center";
                         return mVar6;
                     case 1011:
                         m mVar7 = new m();
-                        mVar7.f13705a = "person_center_home";
+                        mVar7.f13725a = "person_center_home";
                         return mVar7;
                     case 1012:
                         m mVar8 = new m();
-                        mVar8.f13705a = "person_center_post";
+                        mVar8.f13725a = "person_center_post";
                         return mVar8;
                     case 1013:
                         m mVar9 = new m();
-                        mVar9.f13705a = "person_center_dynamic";
+                        mVar9.f13725a = "person_center_dynamic";
                         return mVar9;
                 }
             }
@@ -414,8 +414,8 @@ public class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!this.f13708a || (System.currentTimeMillis() - this.f13709b) / 1000 <= this.f13711d) {
-                return this.f13708a;
+            if (!this.f13728a || (System.currentTimeMillis() - this.f13729b) / 1000 <= this.f13731d) {
+                return this.f13728a;
             }
             return false;
         }
@@ -427,18 +427,18 @@ public class k {
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (z) {
-                long j2 = this.f13709b;
-                if (0 == j2 || currentTimeMillis - j2 >= this.f13711d) {
-                    this.f13709b = currentTimeMillis;
-                    BdBaseApplication.getInst().setStartSmallFlowTime(this.f13709b);
-                    c.a.q0.s.d0.b.j().w(f13706e, this.f13709b);
+                long j2 = this.f13729b;
+                if (0 == j2 || currentTimeMillis - j2 >= this.f13731d) {
+                    this.f13729b = currentTimeMillis;
+                    BdBaseApplication.getInst().setStartSmallFlowTime(this.f13729b);
+                    c.a.q0.s.d0.b.j().w(f13726e, this.f13729b);
                 }
             } else {
-                this.f13709b = 0L;
+                this.f13729b = 0L;
                 BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-                c.a.q0.s.d0.b.j().w(f13706e, this.f13709b);
+                c.a.q0.s.d0.b.j().w(f13726e, this.f13729b);
             }
-            this.f13708a = z;
+            this.f13728a = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
             if (BdStatisticsManager.getInstance().isMainProcess()) {
                 l.b().f();
@@ -451,7 +451,7 @@ public class k {
         if (!(interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) || j2 <= 0) {
             return;
         }
-        this.f13711d = j2;
+        this.f13731d = j2;
         BdBaseApplication.getInst().setSmallFlowInterval(j2);
     }
 }

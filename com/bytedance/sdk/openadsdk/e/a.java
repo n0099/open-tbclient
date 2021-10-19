@@ -20,10 +20,10 @@ public class a implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f67994a;
+    public final String f68029a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f67995b;
+    public final JSONObject f68030b;
 
     public a(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class a implements i {
                 return;
             }
         }
-        this.f67994a = str;
-        this.f67995b = jSONObject;
+        this.f68029a = str;
+        this.f68030b = jSONObject;
     }
 
     public static a a(Context context, String str, String str2, String str3, JSONObject jSONObject) {
@@ -113,13 +113,13 @@ public class a implements i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f67994a) || this.f67995b == null) {
+            if (TextUtils.isEmpty(this.f68029a) || this.f68030b == null) {
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("localId", this.f67994a);
-                jSONObject.put("event", this.f67995b);
+                jSONObject.put("localId", this.f68029a);
+                jSONObject.put("event", this.f68030b);
             } catch (Throwable unused) {
             }
             return jSONObject.toString();
@@ -159,6 +159,6 @@ public class a implements i {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67994a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68029a : (String) invokeV.objValue;
     }
 }

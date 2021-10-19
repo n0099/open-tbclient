@@ -36,7 +36,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeListView f36546e;
+        public final /* synthetic */ BdTypeListView f36550e;
 
         public a(BdTypeListView bdTypeListView) {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     return;
                 }
             }
-            this.f36546e = bdTypeListView;
+            this.f36550e = bdTypeListView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             TypeAdapter typeAdapter;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (typeAdapter = this.f36546e.K) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (typeAdapter = this.f36550e.K) == null) {
                 return;
             }
             typeAdapter.d(adapterView, view, i2, j2);
@@ -73,7 +73,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeListView f36547e;
+        public final /* synthetic */ BdTypeListView f36551e;
 
         public b(BdTypeListView bdTypeListView) {
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     return;
                 }
             }
-            this.f36547e = bdTypeListView;
+            this.f36551e = bdTypeListView;
         }
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -98,7 +98,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-                TypeAdapter typeAdapter = this.f36547e.K;
+                TypeAdapter typeAdapter = this.f36551e.K;
                 if (typeAdapter != null) {
                     return typeAdapter.e(adapterView, view, i2, j2);
                 }

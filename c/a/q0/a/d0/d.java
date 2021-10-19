@@ -479,8 +479,8 @@ public class d implements Handler.Callback {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.r0.j3.e0.a.h(309627, CompleteTaskSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, c.a.r0.j3.e0.a.a(TbConfig.COMPLETE_TASK_URL, 309627));
+            c.a.r0.k3.e0.a.h(309627, CompleteTaskSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, c.a.r0.k3.e0.a.a(TbConfig.COMPLETE_TASK_URL, 309627));
             tbHttpMessageTask.setResponsedClass(CompleteTaskHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

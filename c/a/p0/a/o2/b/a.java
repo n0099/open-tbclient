@@ -150,7 +150,7 @@ public class a {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.f7842e.setIconView(this.f7843f);
                 if (this.f7844g.f7838h == null) {
-                    this.f7842e.setTextColor(this.f7844g.f7835e.f46700a);
+                    this.f7842e.setTextColor(this.f7844g.f7835e.f46612a);
                 } else {
                     this.f7842e.setTextColor(SwanAppConfigData.s(this.f7844g.f7838h));
                 }
@@ -198,7 +198,7 @@ public class a {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.f7845e.setIconView(this.f7846f);
                 if (this.f7847g.f7839i == null) {
-                    this.f7845e.setTextColor(this.f7847g.f7835e.f46701b);
+                    this.f7845e.setTextColor(this.f7847g.f7835e.f46613b);
                 } else {
                     this.f7845e.setTextColor(SwanAppConfigData.s(this.f7847g.f7839i));
                 }
@@ -383,7 +383,7 @@ public class a {
             if (TextUtils.isEmpty(l)) {
                 l = e.C0114e.i(n.H(), n.u1()).getPath();
             }
-            String str = l + File.separator + mVar.f46708b;
+            String str = l + File.separator + mVar.f46620b;
             if (c.a.p0.t.d.u(str)) {
                 swanAppBottomTabIconView.setmIsSelect(false);
                 q0.b0(new b(this, swanAppBottomTabIconView, BitmapFactory.decodeFile(str)));
@@ -413,7 +413,7 @@ public class a {
             if (TextUtils.isEmpty(l)) {
                 l = e.C0114e.i(n.H(), n.u1()).getPath();
             }
-            String str = l + File.separator + mVar.f46709c;
+            String str = l + File.separator + mVar.f46621c;
             if (c.a.p0.t.d.u(str)) {
                 swanAppBottomTabIconView.setmIsSelect(true);
                 q0.b0(new c(this, swanAppBottomTabIconView, BitmapFactory.decodeFile(str)));
@@ -435,7 +435,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             for (int i2 = 0; i2 < this.f7837g.size(); i2++) {
-                if (this.f7837g.get(i2).f46707a.equals(str)) {
+                if (this.f7837g.get(i2).f46619a.equals(str)) {
                     u(i2);
                     this.f7833c = i2;
                     return;
@@ -455,32 +455,32 @@ public class a {
                 }
                 return;
             }
-            SwanAppConfigData.l lVar = s.f46660f;
+            SwanAppConfigData.l lVar = s.f46572f;
             this.f7835e = lVar;
-            List<SwanAppConfigData.m> list = lVar.f46704e;
+            List<SwanAppConfigData.m> list = lVar.f46616e;
             this.f7837g = list;
             int size = list.size();
             this.f7836f = new ArrayList<>(size);
             this.f7831a = view.findViewById(c.a.p0.a.f.bottom_bar_shadow);
-            y(this.f7835e.f46702c);
+            y(this.f7835e.f46614c);
             LinearLayout linearLayout = (LinearLayout) view.findViewById(c.a.p0.a.f.ai_apps_bottom_tab);
             this.f7832b = linearLayout;
             linearLayout.setVisibility(0);
-            this.f7832b.setBackgroundColor(this.f7835e.f46703d);
+            this.f7832b.setBackgroundColor(this.f7835e.f46615d);
             boolean z = false;
             for (int i2 = 0; i2 < size; i2++) {
                 SwanAppBottomTabIconView swanAppBottomTabIconView = new SwanAppBottomTabIconView(context);
                 SwanAppConfigData.m mVar = this.f7837g.get(i2);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, size);
                 layoutParams.gravity = 1;
-                if (TextUtils.equals(mVar.f46707a, !TextUtils.isEmpty(str) ? str : c.a.p0.a.g1.f.V().f()) && !z) {
+                if (TextUtils.equals(mVar.f46619a, !TextUtils.isEmpty(str) ? str : c.a.p0.a.g1.f.V().f()) && !z) {
                     C(swanAppBottomTabIconView, mVar);
                     this.f7833c = i2;
                     z = true;
                 } else {
                     A(swanAppBottomTabIconView, mVar);
                 }
-                swanAppBottomTabIconView.setTextView(mVar.f46710d);
+                swanAppBottomTabIconView.setTextView(mVar.f46622d);
                 swanAppBottomTabIconView.setOnClickListener(new View$OnClickListenerC0336a(this, i2));
                 this.f7836f.add(swanAppBottomTabIconView);
                 this.f7832b.addView(swanAppBottomTabIconView, layoutParams);
@@ -500,7 +500,7 @@ public class a {
             }
             this.f7833c = i2;
             this.f7834d.pause();
-            c.a.p0.a.l1.b g2 = c.a.p0.a.l1.b.g(this.f7837g.get(i2).f46707a, c.a.p0.a.g1.f.V().A());
+            c.a.p0.a.l1.b g2 = c.a.p0.a.l1.b.g(this.f7837g.get(i2).f46619a, c.a.p0.a.g1.f.V().A());
             h.f(g2.f7244e, "5");
             this.f7834d.W2(g2, uuid);
             c.a.p0.a.h0.g.f.D3("switchTab");
@@ -618,7 +618,7 @@ public class a {
             if (!TextUtils.isEmpty(str) && (list = this.f7837g) != null && list.size() != 0) {
                 for (int i2 = 0; i2 < this.f7837g.size(); i2++) {
                     SwanAppConfigData.m mVar = this.f7837g.get(i2);
-                    if (mVar != null && TextUtils.equals(mVar.f46707a, str)) {
+                    if (mVar != null && TextUtils.equals(mVar.f46619a, str)) {
                         return i2;
                     }
                 }
@@ -699,10 +699,10 @@ public class a {
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
             HashMap hashMap = new HashMap();
             SwanAppConfigData.m mVar = this.f7837g.get(i2);
-            String h3 = this.f7834d.h3(c.a.p0.a.l1.b.g(mVar.f46707a, c.a.p0.a.g1.f.V().A()).f7244e);
+            String h3 = this.f7834d.h3(c.a.p0.a.l1.b.g(mVar.f46619a, c.a.p0.a.g1.f.V().A()).f7244e);
             hashMap.put("index", String.valueOf(i2));
-            hashMap.put("pagePath", mVar.f46707a);
-            hashMap.put("text", mVar.f46710d);
+            hashMap.put("pagePath", mVar.f46619a);
+            hashMap.put("text", mVar.f46622d);
             hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, h3);
             c.a.p0.a.g1.f.V().v(new c.a.p0.a.o0.d.b("onTabItemTap", hashMap));
         }
@@ -731,10 +731,10 @@ public class a {
                 SwanAppBottomTabIconView swanAppBottomTabIconView = this.f7836f.get(i2);
                 q0.b0(new e(this, swanAppBottomTabIconView, str));
                 if (!TextUtils.isEmpty(str2)) {
-                    this.f7837g.get(i2).f46708b = str2;
+                    this.f7837g.get(i2).f46620b = str2;
                 }
                 if (!TextUtils.isEmpty(str3)) {
-                    this.f7837g.get(i2).f46709c = str3;
+                    this.f7837g.get(i2).f46621c = str3;
                 }
                 if (swanAppBottomTabIconView.ismIsSelect()) {
                     return C(swanAppBottomTabIconView, this.f7837g.get(i2));

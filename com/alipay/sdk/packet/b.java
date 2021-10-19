@@ -14,10 +14,10 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f36037a;
+    public final String f36041a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f36038b;
+    public final String f36042b;
 
     public b(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -34,31 +34,31 @@ public final class b {
                 return;
             }
         }
-        this.f36037a = str;
-        this.f36038b = str2;
+        this.f36041a = str;
+        this.f36042b = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36038b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36042b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36037a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36041a : (String) invokeV.objValue;
     }
 
     public JSONObject c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.f36038b)) {
+            if (TextUtils.isEmpty(this.f36042b)) {
                 return null;
             }
             try {
-                return new JSONObject(this.f36038b);
+                return new JSONObject(this.f36042b);
             } catch (Exception e2) {
                 com.alipay.sdk.util.c.a(e2);
                 return null;
@@ -70,6 +70,6 @@ public final class b {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? String.format("<Letter envelop=%s body=%s>", this.f36037a, this.f36038b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? String.format("<Letter envelop=%s body=%s>", this.f36041a, this.f36042b) : (String) invokeV.objValue;
     }
 }

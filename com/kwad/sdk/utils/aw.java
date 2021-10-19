@@ -13,7 +13,7 @@ public class aw extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<a> f74248a;
+    public WeakReference<a> f74283a;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -35,7 +35,7 @@ public class aw extends Handler {
                 return;
             }
         }
-        this.f74248a = new WeakReference<>(aVar);
+        this.f74283a = new WeakReference<>(aVar);
     }
 
     @Override // android.os.Handler
@@ -47,7 +47,7 @@ public class aw extends Handler {
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
-            if (this.f74248a == null || (aVar = this.f74248a.get()) == null) {
+            if (this.f74283a == null || (aVar = this.f74283a.get()) == null) {
                 return;
             }
             aVar.a(message);

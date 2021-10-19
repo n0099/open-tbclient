@@ -11,16 +11,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, String> f69080a;
+    public final Map<String, String> f69115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f69081b;
+    public final String f69116b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f69082c;
+    public final int f69117c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f69083d;
+    public final String f69118d;
 
     public c(Map<String, String> map, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class c {
                 return;
             }
         }
-        this.f69080a = map;
-        this.f69081b = str;
-        this.f69082c = i2;
-        this.f69083d = str2;
+        this.f69115a = map;
+        this.f69116b = str;
+        this.f69117c = i2;
+        this.f69118d = str2;
     }
 }

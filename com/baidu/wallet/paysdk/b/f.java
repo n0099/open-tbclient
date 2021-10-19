@@ -36,11 +36,11 @@ public class f extends g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BindFastRequest bindFastRequest = this.f62619e;
-            if (bindFastRequest == null || bindFastRequest.getmBankInfo() == null || this.f62619e.getmBankInfo().channel_info == null) {
+            BindFastRequest bindFastRequest = this.f62654e;
+            if (bindFastRequest == null || bindFastRequest.getmBankInfo() == null || this.f62654e.getmBankInfo().channel_info == null) {
                 return true;
             }
-            return this.f62619e.getmBankInfo().channel_info.isNeedSendSms();
+            return this.f62654e.getmBankInfo().channel_info.isNeedSendSms();
         }
         return invokeV.booleanValue;
     }
@@ -50,10 +50,10 @@ public class f extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr) == null) {
             if (this.r == null) {
-                this.r = (com.baidu.wallet.paysdk.beans.f) PayBeanFactory.getInstance().getBean((Context) this.f62618d, 17, BindCardBaseActivity.BEAN_TAG);
+                this.r = (com.baidu.wallet.paysdk.beans.f) PayBeanFactory.getInstance().getBean((Context) this.f62653d, 17, BindCardBaseActivity.BEAN_TAG);
             }
-            this.r.a(this.f62619e);
-            this.r.setResponseCallback(this.f62618d);
+            this.r.a(this.f62654e);
+            this.r.setResponseCallback(this.f62653d);
             StatisticManager.onEvent("callCardCheck");
             b(strArr);
             this.r.execBean();

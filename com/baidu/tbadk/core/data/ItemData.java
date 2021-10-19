@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import c.a.e.e.m.b;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
@@ -23,8 +24,9 @@ import tbclient.ItemPoint;
 import tbclient.ItemTable;
 import tbclient.TiebaPlusInfo;
 /* loaded from: classes6.dex */
-public class ItemData implements Serializable {
-    public static /* synthetic */ Interceptable $ic;
+public class ItemData extends OrmObject implements Serializable {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String ASSOCIATED_ITEM_DATA_FORMAT = "#(item,%d,%s)";
     public transient /* synthetic */ FieldHolder $fh;
     public ApkDetail apkDetail;
     public String appId;
@@ -180,6 +182,7 @@ public class ItemData implements Serializable {
         this.appId = tiebaPlusInfo.app_id;
         this.mIconUrl = tiebaPlusInfo.app_icon;
         this.mIconSize = 1.0d;
+        this.itemId = b.g(String.valueOf(tiebaPlusInfo.item_id), 0L);
         ApkDetail.Builder builder = new ApkDetail.Builder();
         builder.version = tiebaPlusInfo.app_version;
         builder.privacy_url = tiebaPlusInfo.app_privacy;

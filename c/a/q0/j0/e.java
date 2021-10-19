@@ -18,22 +18,22 @@ public class e implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f13497a;
+    public b f13515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f13498b;
+    public c f13516b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Application f13499c;
+    public Application f13517c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13500d;
+    public String f13518d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final j f13501e;
+    public final j f13519e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final k f13502f;
+    public final k f13520f;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -75,7 +75,7 @@ public class e implements d {
             if (!f.i()) {
                 String c2 = f.c();
                 f.m(c2 + " Process Not In WhiteList，No Receive");
-            } else if ("intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) && (a2 = this.this$0.f13501e.a(intent)) != null) {
+            } else if ("intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) && (a2 = this.this$0.f13519e.a(intent)) != null) {
                 int myPid = Process.myPid();
                 int pid = a2.getPid();
                 if (a2 == null || a2.getType() != 1) {
@@ -89,8 +89,8 @@ public class e implements d {
                 } else if (myPid == pid) {
                     return;
                 }
-                if (this.this$0.f13498b != null) {
-                    this.this$0.f13498b.a(a2);
+                if (this.this$0.f13516b != null) {
+                    this.this$0.f13516b.a(a2);
                 }
             }
         }
@@ -115,10 +115,10 @@ public class e implements d {
                 return;
             }
         }
-        this.f13500d = null;
-        this.f13501e = new j();
-        this.f13502f = new k();
-        this.f13499c = application;
+        this.f13518d = null;
+        this.f13519e = new j();
+        this.f13520f = new k();
+        this.f13517c = application;
     }
 
     @Override // c.a.q0.j0.d
@@ -141,7 +141,7 @@ public class e implements d {
     public void c(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f13498b = cVar;
+            this.f13516b = cVar;
         }
     }
 
@@ -150,10 +150,10 @@ public class e implements d {
         Application application;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f13500d == null && (application = this.f13499c) != null) {
-                this.f13500d = application.getPackageName();
+            if (this.f13518d == null && (application = this.f13517c) != null) {
+                this.f13518d = application.getPackageName();
             }
-            return this.f13500d;
+            return this.f13518d;
         }
         return (String) invokeV.objValue;
     }
@@ -163,11 +163,11 @@ public class e implements d {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
                 i();
-                this.f13497a = new b(this, null);
+                this.f13515a = new b(this, null);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.setPriority(1000);
                 intentFilter.addAction("intent.action.ACTION.TB.MUTI_PROCESS");
-                this.f13499c.registerReceiver(this.f13497a, intentFilter);
+                this.f13517c.registerReceiver(this.f13515a, intentFilter);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -182,8 +182,8 @@ public class e implements d {
                     Intent intent = new Intent();
                     intent.setPackage(f());
                     intent.setAction("intent.action.ACTION.TB.MUTI_PROCESS");
-                    this.f13502f.a(intent, aVar);
-                    this.f13499c.sendBroadcast(intent);
+                    this.f13520f.a(intent, aVar);
+                    this.f13517c.sendBroadcast(intent);
                     return;
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -198,10 +198,10 @@ public class e implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             try {
-                if (this.f13497a == null || this.f13499c == null) {
+                if (this.f13515a == null || this.f13517c == null) {
                     return;
                 }
-                this.f13499c.unregisterReceiver(this.f13497a);
+                this.f13517c.unregisterReceiver(this.f13515a);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

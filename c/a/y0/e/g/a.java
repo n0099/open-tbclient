@@ -18,20 +18,20 @@ public class a extends d {
 
     /* renamed from: c.a.y0.e.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1438a implements a.c {
+    public class C1441a implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicBoolean f31258a;
+        public final /* synthetic */ AtomicBoolean f31305a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Object f31259b;
+        public final /* synthetic */ Object f31306b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f31260c;
+        public final /* synthetic */ a f31307c;
 
-        public C1438a(a aVar, AtomicBoolean atomicBoolean, Object obj) {
+        public C1441a(a aVar, AtomicBoolean atomicBoolean, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,19 +46,19 @@ public class a extends d {
                     return;
                 }
             }
-            this.f31260c = aVar;
-            this.f31258a = atomicBoolean;
-            this.f31259b = obj;
+            this.f31307c = aVar;
+            this.f31305a = atomicBoolean;
+            this.f31306b = obj;
         }
 
         @Override // c.m.a.a.c
         public void a(int i2, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, exc) == null) {
-                this.f31260c.f31257g = i2;
-                this.f31258a.set(true);
-                synchronized (this.f31259b) {
-                    this.f31259b.notifyAll();
+                this.f31307c.f31304g = i2;
+                this.f31305a.set(true);
+                synchronized (this.f31306b) {
+                    this.f31306b.notifyAll();
                 }
             }
         }
@@ -67,13 +67,13 @@ public class a extends d {
         public void b(String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-                this.f31260c.f31254d = str;
-                this.f31260c.f31252b = z;
-                this.f31260c.f31253c = true;
-                this.f31260c.f31257g = 0;
-                this.f31258a.set(true);
-                synchronized (this.f31259b) {
-                    this.f31259b.notifyAll();
+                this.f31307c.f31301d = str;
+                this.f31307c.f31299b = z;
+                this.f31307c.f31300c = true;
+                this.f31307c.f31304g = 0;
+                this.f31305a.set(true);
+                synchronized (this.f31306b) {
+                    this.f31306b.notifyAll();
                 }
             }
         }
@@ -97,10 +97,10 @@ public class a extends d {
                 return;
             }
         }
-        this.f31254d = "";
-        this.f31252b = false;
-        this.f31253c = false;
-        this.f31257g = -200;
+        this.f31301d = "";
+        this.f31299b = false;
+        this.f31300c = false;
+        this.f31304g = -200;
     }
 
     @Override // c.a.y0.e.f.c
@@ -120,7 +120,7 @@ public class a extends d {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Object obj = new Object();
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            c.m.a.a.d(this.f31251a, new C1438a(this, atomicBoolean, obj));
+            c.m.a.a.d(this.f31298a, new C1441a(this, atomicBoolean, obj));
             synchronized (obj) {
                 if (!atomicBoolean.get()) {
                     try {

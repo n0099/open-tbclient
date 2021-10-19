@@ -18,10 +18,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, c.a.w.b.d.c.f> f30478a;
+    public static Map<String, c.a.w.b.d.c.f> f30525a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String> f30479b;
+    public static List<String> f30526b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,16 +37,16 @@ public class b {
                 return;
             }
         }
-        f30478a = new HashMap();
-        f30479b = new ArrayList();
+        f30525a = new HashMap();
+        f30526b = new ArrayList();
     }
 
     public static void a(List<String> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || f30478a.isEmpty() || c.a.w.e.g.d.c(list)) {
+        if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || f30525a.isEmpty() || c.a.w.e.g.d.c(list)) {
             return;
         }
-        Iterator<Map.Entry<String, c.a.w.b.d.c.f>> it = f30478a.entrySet().iterator();
+        Iterator<Map.Entry<String, c.a.w.b.d.c.f>> it = f30525a.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<String, c.a.w.b.d.c.f> next = it.next();
             if (next != null && list.contains(next.getKey())) {
@@ -60,17 +60,17 @@ public class b {
         JSONObject a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f30478a.isEmpty()) {
+            if (f30525a.isEmpty()) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (Map.Entry<String, c.a.w.b.d.c.f> entry : f30478a.entrySet()) {
+            for (Map.Entry<String, c.a.w.b.d.c.f> entry : f30525a.entrySet()) {
                 if (entry != null) {
                     String key = entry.getKey();
                     c.a.w.b.d.c.f value = entry.getValue();
                     if (value != null && (a2 = value.a()) != null) {
                         jSONArray.put(a2);
-                        f30479b.add(key);
+                        f30526b.add(key);
                     }
                 }
             }
@@ -85,20 +85,20 @@ public class b {
         if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || j.a(str)) {
             return;
         }
-        if (f30478a.containsKey(str)) {
-            fVar = f30478a.get(str);
+        if (f30525a.containsKey(str)) {
+            fVar = f30525a.get(str);
         } else {
             fVar = new c.a.w.b.d.c.f();
-            f30478a.put(str, fVar);
+            f30525a.put(str, fVar);
         }
-        fVar.f30445a = str;
+        fVar.f30492a = str;
         if (z2) {
-            fVar.f30447c = 1;
-            fVar.f30449e = System.currentTimeMillis() / 1000;
+            fVar.f30494c = 1;
+            fVar.f30496e = System.currentTimeMillis() / 1000;
         }
         if (z) {
-            fVar.f30446b = 1;
-            fVar.f30448d = System.currentTimeMillis() / 1000;
+            fVar.f30493b = 1;
+            fVar.f30495d = System.currentTimeMillis() / 1000;
         }
     }
 }

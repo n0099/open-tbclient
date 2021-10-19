@@ -16,10 +16,10 @@ public final class n implements TextWatcher {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f60088a;
+    public final /* synthetic */ FeedbackEditActivity f60123a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f60089b;
+    public long f60124b;
 
     public n(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public final class n implements TextWatcher {
                 return;
             }
         }
-        this.f60088a = feedbackEditActivity;
-        this.f60089b = 0L;
+        this.f60123a = feedbackEditActivity;
+        this.f60124b = 0L;
     }
 
     @Override // android.text.TextWatcher
@@ -53,33 +53,33 @@ public final class n implements TextWatcher {
         EditText editText7;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-            z = this.f60088a.x;
+            z = this.f60123a.x;
             if (!z) {
-                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f60088a);
+                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f60123a);
                 dVar.b(dVar.b() + 1);
-                this.f60088a.x = true;
+                this.f60123a.x = true;
             }
             try {
-                editText = this.f60088a.n;
+                editText = this.f60123a.n;
                 if (editText != null) {
-                    editText4 = this.f60088a.n;
+                    editText4 = this.f60123a.n;
                     if (editText4.getText().toString().length() > 30) {
-                        if (System.currentTimeMillis() - this.f60089b > 3000) {
-                            Toast.makeText(this.f60088a, com.baidu.ufosdk.f.s.a(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS), 0).show();
-                            this.f60089b = System.currentTimeMillis();
+                        if (System.currentTimeMillis() - this.f60124b > 3000) {
+                            Toast.makeText(this.f60123a, com.baidu.ufosdk.f.s.a(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS), 0).show();
+                            this.f60124b = System.currentTimeMillis();
                         }
-                        editText5 = this.f60088a.n;
-                        str = this.f60088a.R;
+                        editText5 = this.f60123a.n;
+                        str = this.f60123a.R;
                         editText5.setText(str);
-                        editText6 = this.f60088a.m;
-                        editText7 = this.f60088a.n;
+                        editText6 = this.f60123a.m;
+                        editText7 = this.f60123a.n;
                         FeedbackEditActivity.b(editText6, editText7.getText().length());
                     }
                 }
-                editText2 = this.f60088a.n;
+                editText2 = this.f60123a.n;
                 if (editText2 != null) {
-                    FeedbackEditActivity feedbackEditActivity = this.f60088a;
-                    editText3 = this.f60088a.n;
+                    FeedbackEditActivity feedbackEditActivity = this.f60123a;
+                    editText3 = this.f60123a.n;
                     feedbackEditActivity.R = editText3.getText().toString().trim();
                 }
             } catch (Exception e2) {

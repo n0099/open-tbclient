@@ -33,11 +33,11 @@ public class bv implements com.kwad.sdk.core.d<com.kwad.sdk.core.response.model.
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        bVar.f72554a = jSONObject.optLong("posId");
-        bVar.f72555b = jSONObject.optInt("adPhotoCountForMedia");
-        bVar.f72556c = jSONObject.optBoolean("enablePreload");
-        bVar.f72557d = jSONObject.optLong("increaseAdLoadTime", new Long("10000").longValue());
-        bVar.f72558e = jSONObject.optInt("adLoadStrategy");
+        bVar.f72589a = jSONObject.optLong("posId");
+        bVar.f72590b = jSONObject.optInt("adPhotoCountForMedia");
+        bVar.f72591c = jSONObject.optBoolean("enablePreload");
+        bVar.f72592d = jSONObject.optLong("increaseAdLoadTime", new Long("10000").longValue());
+        bVar.f72593e = jSONObject.optInt("adLoadStrategy");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,11 +49,11 @@ public class bv implements com.kwad.sdk.core.d<com.kwad.sdk.core.response.model.
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "posId", bVar.f72554a);
-            com.kwad.sdk.utils.q.a(jSONObject, "adPhotoCountForMedia", bVar.f72555b);
-            com.kwad.sdk.utils.q.a(jSONObject, "enablePreload", bVar.f72556c);
-            com.kwad.sdk.utils.q.a(jSONObject, "increaseAdLoadTime", bVar.f72557d);
-            com.kwad.sdk.utils.q.a(jSONObject, "adLoadStrategy", bVar.f72558e);
+            com.kwad.sdk.utils.q.a(jSONObject, "posId", bVar.f72589a);
+            com.kwad.sdk.utils.q.a(jSONObject, "adPhotoCountForMedia", bVar.f72590b);
+            com.kwad.sdk.utils.q.a(jSONObject, "enablePreload", bVar.f72591c);
+            com.kwad.sdk.utils.q.a(jSONObject, "increaseAdLoadTime", bVar.f72592d);
+            com.kwad.sdk.utils.q.a(jSONObject, "adLoadStrategy", bVar.f72593e);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

@@ -21,33 +21,33 @@ public class a implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f69136a;
+    public static boolean f69171a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f69137b;
+    public static long f69172b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f69138c;
+    public static long f69173c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile InterfaceC1937a f69139d;
+    public volatile InterfaceC1939a f69174d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile b f69140e;
+    public volatile b f69175e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f69141f;
+    public AtomicInteger f69176f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicBoolean f69142g;
+    public AtomicBoolean f69177g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashSet<Integer> f69143h;
+    public HashSet<Integer> f69178h;
 
     /* renamed from: com.bytedance.sdk.openadsdk.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC1937a {
+    public interface InterfaceC1939a {
         void a();
 
         void b();
@@ -94,9 +94,9 @@ public class a implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f69141f = new AtomicInteger(0);
-        this.f69142g = new AtomicBoolean(false);
-        this.f69143h = new HashSet<>();
+        this.f69176f = new AtomicInteger(0);
+        this.f69177g = new AtomicBoolean(false);
+        this.f69178h = new HashSet<>();
     }
 
     private void c() {
@@ -107,7 +107,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f69144a;
+                public final /* synthetic */ a f69179a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -127,17 +127,17 @@ public class a implements Application.ActivityLifecycleCallbacks {
                             return;
                         }
                     }
-                    this.f69144a = this;
+                    this.f69179a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f69144a.a()) {
-                        a.f69136a = false;
-                        a.f69138c = System.currentTimeMillis();
-                        com.bytedance.sdk.openadsdk.j.a.a().a(a.f69137b / 1000, a.f69138c / 1000, !com.bytedance.sdk.openadsdk.core.l.f67054e.get());
-                        com.bytedance.sdk.openadsdk.core.l.f67054e.set(false);
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f69179a.a()) {
+                        a.f69171a = false;
+                        a.f69173c = System.currentTimeMillis();
+                        com.bytedance.sdk.openadsdk.j.a.a().a(a.f69172b / 1000, a.f69173c / 1000, !com.bytedance.sdk.openadsdk.core.l.f67089e.get());
+                        com.bytedance.sdk.openadsdk.core.l.f67089e.set(false);
                     }
                 }
             });
@@ -167,24 +167,24 @@ public class a implements Application.ActivityLifecycleCallbacks {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69142g.get() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69177g.get() : invokeV.booleanValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f69139d == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f69174d == null) {
             return;
         }
-        this.f69139d = null;
+        this.f69174d = null;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, activity, bundle) == null) || this.f69139d == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, activity, bundle) == null) || this.f69174d == null) {
             return;
         }
-        this.f69139d.d();
+        this.f69174d.d();
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -192,10 +192,10 @@ public class a implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
             if (activity != null) {
-                this.f69143h.remove(Integer.valueOf(activity.hashCode()));
+                this.f69178h.remove(Integer.valueOf(activity.hashCode()));
             }
-            if (this.f69139d != null) {
-                this.f69139d.f();
+            if (this.f69174d != null) {
+                this.f69174d.f();
             }
         }
     }
@@ -203,10 +203,10 @@ public class a implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, activity) == null) || this.f69139d == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, activity) == null) || this.f69174d == null) {
             return;
         }
-        this.f69139d.c();
+        this.f69174d.c();
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -214,15 +214,15 @@ public class a implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
             if (activity != null) {
-                this.f69143h.add(Integer.valueOf(activity.hashCode()));
+                this.f69178h.add(Integer.valueOf(activity.hashCode()));
             }
-            if (this.f69139d != null) {
-                this.f69139d.a();
+            if (this.f69174d != null) {
+                this.f69174d.a();
             }
             com.bytedance.sdk.component.adnet.a.a(activity);
-            if (!f69136a) {
-                f69137b = System.currentTimeMillis();
-                f69136a = true;
+            if (!f69171a) {
+                f69172b = System.currentTimeMillis();
+                f69171a = true;
             }
             com.bytedance.sdk.openadsdk.core.r.a();
         }
@@ -239,12 +239,12 @@ public class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityStarted(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
-            if (this.f69141f.incrementAndGet() > 0) {
-                this.f69142g.set(false);
+            if (this.f69176f.incrementAndGet() > 0) {
+                this.f69177g.set(false);
             }
             d();
-            if (this.f69139d != null) {
-                this.f69139d.b();
+            if (this.f69174d != null) {
+                this.f69174d.b();
             }
         }
     }
@@ -253,14 +253,14 @@ public class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityStopped(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, activity) == null) {
-            if (this.f69141f.decrementAndGet() == 0) {
-                this.f69142g.set(true);
-                if (this.f69140e != null) {
-                    this.f69140e.b();
+            if (this.f69176f.decrementAndGet() == 0) {
+                this.f69177g.set(true);
+                if (this.f69175e != null) {
+                    this.f69175e.b();
                 }
             }
-            if (this.f69139d != null) {
-                this.f69139d.e();
+            if (this.f69174d != null) {
+                this.f69174d.e();
             }
             c();
         }
@@ -269,20 +269,20 @@ public class a implements Application.ActivityLifecycleCallbacks {
     public boolean a(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) ? activity != null && this.f69143h.contains(Integer.valueOf(activity.hashCode())) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) ? activity != null && this.f69178h.contains(Integer.valueOf(activity.hashCode())) : invokeL.booleanValue;
     }
 
-    public void a(InterfaceC1937a interfaceC1937a) {
+    public void a(InterfaceC1939a interfaceC1939a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC1937a) == null) {
-            this.f69139d = interfaceC1937a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC1939a) == null) {
+            this.f69174d = interfaceC1939a;
         }
     }
 
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f69140e = bVar;
+            this.f69175e = bVar;
         }
     }
 }

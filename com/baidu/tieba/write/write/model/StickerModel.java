@@ -23,10 +23,10 @@ public class StickerModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.c4.u.l.a f59215e;
+    public c.a.r0.d4.u.l.a f59165e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.e.c.g.a f59216f;
+    public c.a.e.c.g.a f59166f;
 
     /* loaded from: classes8.dex */
     public class a extends c.a.e.c.g.a {
@@ -34,7 +34,7 @@ public class StickerModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StickerModel f59217a;
+        public final /* synthetic */ StickerModel f59167a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(StickerModel stickerModel, int i2, int i3) {
@@ -55,7 +55,7 @@ public class StickerModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f59217a = stickerModel;
+            this.f59167a = stickerModel;
         }
 
         @Override // c.a.e.c.g.a
@@ -72,8 +72,8 @@ public class StickerModel extends BdBaseModel {
                 } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                     list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                 }
-                if (this.f59217a.f59215e != null) {
-                    this.f59217a.f59215e.e(list);
+                if (this.f59167a.f59165e != null) {
+                    this.f59167a.f59165e.e(list);
                 }
             }
         }
@@ -98,18 +98,36 @@ public class StickerModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_STICKET_LIST, 309475);
-        this.f59216f = aVar;
+        this.f59166f = aVar;
         registerListener(aVar);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            cancelMessage();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            cancelLoadData();
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (j.A()) {
-                c.a.r0.j3.e0.a.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-                c.a.r0.j3.e0.a.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+                c.a.r0.k3.e0.a.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+                c.a.r0.k3.e0.a.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
                 RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
                 requestGetStickerMessage.setTag(this.unique_id);
                 sendMessage(requestGetStickerMessage);
@@ -120,28 +138,10 @@ public class StickerModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            cancelMessage();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            cancelLoadData();
-        }
-    }
-
-    public void x(c.a.r0.c4.u.l.a aVar) {
+    public void x(c.a.r0.d4.u.l.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f59215e = aVar;
+            this.f59165e = aVar;
         }
     }
 }

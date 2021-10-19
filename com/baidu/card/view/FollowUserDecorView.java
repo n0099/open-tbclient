@@ -3,6 +3,7 @@ package com.baidu.card.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
+import c.a.e.e.p.l;
 import c.a.q0.s.f0.n.b;
 import c.a.q0.s.f0.t.c;
 import c.a.q0.s.q.d2;
@@ -11,7 +12,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.FollowUserButton;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,6 +28,7 @@ public class FollowUserDecorView extends FollowUserButton {
     public BdUniqueId u;
     public c v;
     public boolean w;
+    public boolean x;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FollowUserDecorView(Context context) {
@@ -79,9 +83,16 @@ public class FollowUserDecorView extends FollowUserButton {
         }
     }
 
+    public void setIsShowIcon(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.x = z;
+        }
+    }
+
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
             this.u = bdUniqueId;
             c cVar = this.v;
             if (cVar != null) {
@@ -92,7 +103,7 @@ public class FollowUserDecorView extends FollowUserButton {
 
     public void setUseNewStyle(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.w = z;
         }
     }
@@ -100,13 +111,19 @@ public class FollowUserDecorView extends FollowUserButton {
     @Override // com.baidu.tbadk.core.view.FollowUserButton
     public void updateLikeStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             super.updateLikeStatus(z);
             if (!this.w || z) {
                 return;
             }
             b bVar = new b();
-            bVar.q(R.color.CAM_X0304);
+            if (this.x) {
+                bVar.i(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                bVar.h(R.color.CAM_X0304);
+                bVar.g(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
+                bVar.f(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+            }
+            bVar.r(R.color.CAM_X0304);
             setConfig(bVar);
         }
     }

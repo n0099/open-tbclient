@@ -12,7 +12,7 @@ public class p1 implements T0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ q1 f77457a;
+    public final /* synthetic */ q1 f77492a;
 
     public p1(q1 q1Var) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class p1 implements T0 {
                 return;
             }
         }
-        this.f77457a = q1Var;
+        this.f77492a = q1Var;
     }
 
     @Override // com.win.opensdk.T0
     public void a() {
         T0 t0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (t0 = this.f77457a.f77470a.f77478d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (t0 = this.f77492a.f77505a.f77513d) == null) {
             return;
         }
         t0.a();
@@ -46,7 +46,7 @@ public class p1 implements T0 {
     public void a(int i2, String str) {
         T0 t0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (t0 = this.f77457a.f77470a.f77478d) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (t0 = this.f77492a.f77505a.f77513d) == null) {
             return;
         }
         t0.a(i2, str);
@@ -56,16 +56,16 @@ public class p1 implements T0 {
     public void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            K a2 = s1.a(((t1) obj).f77497c);
-            r1 r1Var = this.f77457a.f77470a;
-            T0 t0 = r1Var.f77478d;
+            K a2 = s1.a(((t1) obj).f77532c);
+            r1 r1Var = this.f77492a.f77505a;
+            T0 t0 = r1Var.f77513d;
             if (t0 != null) {
                 if (a2 == null) {
                     t0.a(101, "");
-                } else if (TextUtils.isEmpty(r1Var.f77476b) || !this.f77457a.f77470a.f77476b.equalsIgnoreCase(a2.a())) {
-                    this.f77457a.f77470a.f77478d.a(2003, "");
+                } else if (TextUtils.isEmpty(r1Var.f77511b) || !this.f77492a.f77505a.f77511b.equalsIgnoreCase(a2.a())) {
+                    this.f77492a.f77505a.f77513d.a(2003, "");
                 } else {
-                    this.f77457a.f77470a.f77478d.a(a2);
+                    this.f77492a.f77505a.f77513d.a(a2);
                 }
             }
         }

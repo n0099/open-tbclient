@@ -19,7 +19,7 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile Camera f60398a;
+    public volatile Camera f60433a;
 
     /* renamed from: com.baidu.wallet.base.camera.internal.b$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -33,7 +33,7 @@ public final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f60399a;
+        public static final b f60434a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +49,7 @@ public final class b {
                     return;
                 }
             }
-            f60399a = new b(null);
+            f60434a = new b(null);
         }
 
         public a() {
@@ -74,39 +74,39 @@ public final class b {
     public static final b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60399a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60434a : (b) invokeV.objValue;
     }
 
     public Camera b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f60398a == null) {
+            if (this.f60433a == null) {
                 synchronized (b.class) {
-                    if (this.f60398a == null) {
-                        this.f60398a = Camera.open();
+                    if (this.f60433a == null) {
+                        this.f60433a = Camera.open();
                     }
                 }
             }
-            return this.f60398a;
+            return this.f60433a;
         }
         return (Camera) invokeV.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f60398a == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f60433a == null) {
             return;
         }
-        this.f60398a.stopPreview();
+        this.f60433a.stopPreview();
     }
 
     public Camera.Parameters d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f60398a != null) {
-                return this.f60398a.getParameters();
+            if (this.f60433a != null) {
+                return this.f60433a.getParameters();
             }
             return null;
         }
@@ -115,27 +115,27 @@ public final class b {
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f60398a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f60433a == null) {
             return;
         }
-        this.f60398a.startPreview();
+        this.f60433a.startPreview();
     }
 
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f60398a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f60433a == null) {
             return;
         }
-        this.f60398a.release();
-        this.f60398a = null;
+        this.f60433a.release();
+        this.f60433a = null;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f60398a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f60433a == null) {
             return;
         }
-        this.f60398a.cancelAutoFocus();
+        this.f60433a.cancelAutoFocus();
     }
 
     public b() {
@@ -158,50 +158,50 @@ public final class b {
             if (parameters != null) {
                 parameters.setRotation(0);
             }
-            if (this.f60398a != null) {
-                this.f60398a.setParameters(parameters);
+            if (this.f60433a != null) {
+                this.f60433a.setParameters(parameters);
             }
         }
     }
 
     public void a(SurfaceHolder surfaceHolder) throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, surfaceHolder) == null) || this.f60398a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, surfaceHolder) == null) || this.f60433a == null) {
             return;
         }
-        this.f60398a.setPreviewDisplay(surfaceHolder);
+        this.f60433a.setPreviewDisplay(surfaceHolder);
     }
 
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) || this.f60398a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) || this.f60433a == null) {
             return;
         }
-        this.f60398a.addCallbackBuffer(bArr);
+        this.f60433a.addCallbackBuffer(bArr);
     }
 
     public void a(Camera.PreviewCallback previewCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, previewCallback) == null) || this.f60398a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, previewCallback) == null) || this.f60433a == null) {
             return;
         }
-        this.f60398a.setPreviewCallbackWithBuffer(previewCallback);
+        this.f60433a.setPreviewCallbackWithBuffer(previewCallback);
     }
 
     public void a(Camera.AutoFocusCallback autoFocusCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, autoFocusCallback) == null) || this.f60398a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, autoFocusCallback) == null) || this.f60433a == null) {
             return;
         }
-        this.f60398a.autoFocus(autoFocusCallback);
+        this.f60433a.autoFocus(autoFocusCallback);
     }
 
     public void a(Camera.ShutterCallback shutterCallback, Camera.PictureCallback pictureCallback, Camera.PictureCallback pictureCallback2, Camera.PictureCallback pictureCallback3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048580, this, shutterCallback, pictureCallback, pictureCallback2, pictureCallback3) == null) || this.f60398a == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048580, this, shutterCallback, pictureCallback, pictureCallback2, pictureCallback3) == null) || this.f60433a == null) {
             return;
         }
-        this.f60398a.takePicture(shutterCallback, pictureCallback, pictureCallback2, pictureCallback3);
+        this.f60433a.takePicture(shutterCallback, pictureCallback, pictureCallback2, pictureCallback3);
     }
 
     public void a(Camera.AutoFocusCallback autoFocusCallback, String str) {

@@ -29,22 +29,22 @@ public class SlidingTabLayout extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52908e;
+    public int f52839e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewPager f52909f;
+    public ViewPager f52840f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewPager.OnPageChangeListener f52910g;
+    public ViewPager.OnPageChangeListener f52841g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52911h;
+    public int f52842h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final SlidingTabStrip f52912i;
+    public final SlidingTabStrip f52843i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c f52913j;
+    public c f52844j;
     public List<TabItemView> k;
 
     /* loaded from: classes7.dex */
@@ -59,10 +59,10 @@ public class SlidingTabLayout extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f52914e;
+        public int f52845e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SlidingTabLayout f52915f;
+        public final /* synthetic */ SlidingTabLayout f52846f;
 
         public b(SlidingTabLayout slidingTabLayout) {
             Interceptable interceptable = $ic;
@@ -79,16 +79,16 @@ public class SlidingTabLayout extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f52915f = slidingTabLayout;
+            this.f52846f = slidingTabLayout;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f52914e = i2;
-                if (this.f52915f.f52910g != null) {
-                    this.f52915f.f52910g.onPageScrollStateChanged(i2);
+                this.f52845e = i2;
+                if (this.f52846f.f52841g != null) {
+                    this.f52846f.f52841g.onPageScrollStateChanged(i2);
                 }
             }
         }
@@ -97,14 +97,14 @@ public class SlidingTabLayout extends HorizontalScrollView {
         public void onPageScrolled(int i2, float f2, int i3) {
             int childCount;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || f2 < 0.0f || (childCount = this.f52915f.f52912i.getChildCount()) == 0 || i2 < 0 || i2 >= childCount) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || f2 < 0.0f || (childCount = this.f52846f.f52843i.getChildCount()) == 0 || i2 < 0 || i2 >= childCount) {
                 return;
             }
-            this.f52915f.f52912i.drawScrollRect(i2, f2);
-            View childAt = this.f52915f.f52912i.getChildAt(i2);
-            this.f52915f.j(i2, childAt != null ? (int) (childAt.getWidth() * f2) : 0);
-            if (this.f52915f.f52910g != null) {
-                this.f52915f.f52910g.onPageScrolled(i2, f2, i3);
+            this.f52846f.f52843i.drawScrollRect(i2, f2);
+            View childAt = this.f52846f.f52843i.getChildAt(i2);
+            this.f52846f.j(i2, childAt != null ? (int) (childAt.getWidth() * f2) : 0);
+            if (this.f52846f.f52841g != null) {
+                this.f52846f.f52841g.onPageScrolled(i2, f2, i3);
             }
         }
 
@@ -112,14 +112,14 @@ public class SlidingTabLayout extends HorizontalScrollView {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                int i3 = this.f52915f.f52911h;
-                this.f52915f.f52912i.updateTextViewColor(i2, this.f52915f.f52911h);
-                this.f52915f.f52911h = i2;
-                if (this.f52914e == 0) {
-                    this.f52915f.k(i3, i2);
+                int i3 = this.f52846f.f52842h;
+                this.f52846f.f52843i.updateTextViewColor(i2, this.f52846f.f52842h);
+                this.f52846f.f52842h = i2;
+                if (this.f52845e == 0) {
+                    this.f52846f.k(i3, i2);
                 }
-                if (this.f52915f.f52910g != null) {
-                    this.f52915f.f52910g.onPageSelected(i2);
+                if (this.f52846f.f52841g != null) {
+                    this.f52846f.f52841g.onPageSelected(i2);
                 }
             }
         }
@@ -135,16 +135,16 @@ public class SlidingTabLayout extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f52916e;
+        public int f52847e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f52917f;
+        public int f52848f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f52918g;
+        public int f52849g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ SlidingTabLayout f52919h;
+        public final /* synthetic */ SlidingTabLayout f52850h;
 
         public c(SlidingTabLayout slidingTabLayout) {
             Interceptable interceptable = $ic;
@@ -161,14 +161,14 @@ public class SlidingTabLayout extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f52919h = slidingTabLayout;
+            this.f52850h = slidingTabLayout;
         }
 
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                this.f52916e = i2;
-                this.f52917f = i3;
+                this.f52847e = i2;
+                this.f52848f = i3;
             }
         }
 
@@ -177,11 +177,11 @@ public class SlidingTabLayout extends HorizontalScrollView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
                 super.applyTransformation(f2, transformation);
-                int i2 = this.f52917f;
-                int i3 = this.f52916e;
-                this.f52919h.scrollTo((int) (i3 + ((i2 - i3) * f2)), 0);
-                if (this.f52919h.f52912i != null) {
-                    this.f52919h.f52912i.performTranslate(this.f52918g, f2);
+                int i2 = this.f52848f;
+                int i3 = this.f52847e;
+                this.f52850h.scrollTo((int) (i3 + ((i2 - i3) * f2)), 0);
+                if (this.f52850h.f52843i != null) {
+                    this.f52850h.f52843i.performTranslate(this.f52849g, f2);
                 }
             }
         }
@@ -189,7 +189,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         public void c(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f52918g = i2;
+                this.f52849g = i2;
             }
         }
 
@@ -204,7 +204,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SlidingTabLayout f52920e;
+        public final /* synthetic */ SlidingTabLayout f52851e;
 
         public d(SlidingTabLayout slidingTabLayout) {
             Interceptable interceptable = $ic;
@@ -221,18 +221,18 @@ public class SlidingTabLayout extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f52920e = slidingTabLayout;
+            this.f52851e = slidingTabLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f52920e.f52912i == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f52851e.f52843i == null) {
                 return;
             }
-            for (int i2 = 0; i2 < this.f52920e.f52912i.getChildCount(); i2++) {
-                if (view == this.f52920e.f52912i.getChildAt(i2)) {
-                    this.f52920e.f52909f.setCurrentItem(i2, false);
+            for (int i2 = 0; i2 < this.f52851e.f52843i.getChildCount(); i2++) {
+                if (view == this.f52851e.f52843i.getChildAt(i2)) {
+                    this.f52851e.f52840f.setCurrentItem(i2, false);
                     return;
                 }
             }
@@ -289,12 +289,12 @@ public class SlidingTabLayout extends HorizontalScrollView {
         View childAt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-            int childCount = this.f52912i.getChildCount();
-            if (childCount == 0 || i2 < 0 || i2 >= childCount || (childAt = this.f52912i.getChildAt(i2)) == null) {
+            int childCount = this.f52843i.getChildCount();
+            if (childCount == 0 || i2 < 0 || i2 >= childCount || (childAt = this.f52843i.getChildAt(i2)) == null) {
                 return 0;
             }
             int left = childAt.getLeft() + i3;
-            return (i2 > 0 || i3 > 0) ? left - this.f52908e : left;
+            return (i2 > 0 || i3 > 0) ? left - this.f52839e : left;
         }
         return invokeII.intValue;
     }
@@ -302,7 +302,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            PagerAdapter adapter = this.f52909f.getAdapter();
+            PagerAdapter adapter = this.f52840f.getAdapter();
             d dVar = new d(this, null);
             this.k.clear();
             for (int i2 = 0; i2 < adapter.getCount(); i2++) {
@@ -311,7 +311,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 TextView textView = createDefaultTabView.getTextView();
                 textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(((Object) adapter.getPageTitle(i2)) + "", 8, (String) null));
                 createDefaultTabView.setOnClickListener(dVar);
-                this.f52912i.addView(createDefaultTabView);
+                this.f52843i.addView(createDefaultTabView);
             }
         }
     }
@@ -329,15 +329,15 @@ public class SlidingTabLayout extends HorizontalScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             clearAnimation();
-            if (this.f52913j == null) {
+            if (this.f52844j == null) {
                 c cVar = new c(this, null);
-                this.f52913j = cVar;
+                this.f52844j = cVar;
                 cVar.setDuration(300L);
             }
             int h2 = h(i3, 0);
-            this.f52913j.c(i2);
-            this.f52913j.a(getScrollX(), h2);
-            startAnimation(this.f52913j);
+            this.f52844j.c(i2);
+            this.f52844j.a(getScrollX(), h2);
+            startAnimation(this.f52844j);
         }
     }
 
@@ -346,7 +346,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onAttachedToWindow();
-            ViewPager viewPager = this.f52909f;
+            ViewPager viewPager = this.f52840f;
             if (viewPager != null) {
                 j(viewPager.getCurrentItem(), 0);
             }
@@ -356,7 +356,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
     public void onChangeSkinType(int i2) {
         SlidingTabStrip slidingTabStrip;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (slidingTabStrip = this.f52912i) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (slidingTabStrip = this.f52843i) == null) {
             return;
         }
         slidingTabStrip.onChangeSkinType(i2);
@@ -365,7 +365,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
     public void setDrawBottomLine(boolean z) {
         SlidingTabStrip slidingTabStrip;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (slidingTabStrip = this.f52912i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (slidingTabStrip = this.f52843i) == null) {
             return;
         }
         slidingTabStrip.setDrawBottomLine(z);
@@ -374,15 +374,15 @@ public class SlidingTabLayout extends HorizontalScrollView {
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
-            this.f52910g = onPageChangeListener;
+            this.f52841g = onPageChangeListener;
         }
     }
 
     public void setViewPager(ViewPager viewPager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, viewPager) == null) {
-            this.f52912i.removeAllViews();
-            this.f52909f = viewPager;
+            this.f52843i.removeAllViews();
+            this.f52840f = viewPager;
             if (viewPager != null) {
                 viewPager.setOnPageChangeListener(new b(this, null));
                 i();
@@ -443,13 +443,13 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 return;
             }
         }
-        this.f52911h = 0;
+        this.f52842h = 0;
         this.k = new ArrayList();
         setHorizontalScrollBarEnabled(false);
         setFillViewport(true);
-        this.f52908e = (int) (getResources().getDisplayMetrics().density * 24.0f);
+        this.f52839e = (int) (getResources().getDisplayMetrics().density * 24.0f);
         SlidingTabStrip slidingTabStrip = new SlidingTabStrip(context);
-        this.f52912i = slidingTabStrip;
+        this.f52843i = slidingTabStrip;
         addView(slidingTabStrip, -1, -2);
     }
 }

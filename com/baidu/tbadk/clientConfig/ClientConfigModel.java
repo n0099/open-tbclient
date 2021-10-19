@@ -21,10 +21,10 @@ public class ClientConfigModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.q.a f47462e;
+    public c.a.q0.q.a f47375e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.e.c.g.a f47463f;
+    public final c.a.e.c.g.a f47376f;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.e.c.g.a {
@@ -32,7 +32,7 @@ public class ClientConfigModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ClientConfigModel f47464a;
+        public final /* synthetic */ ClientConfigModel f47377a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ClientConfigModel clientConfigModel, int i2, int i3) {
@@ -53,24 +53,24 @@ public class ClientConfigModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f47464a = clientConfigModel;
+            this.f47377a = clientConfigModel;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (!this.f47464a.z(responsedMessage)) {
-                    if (this.f47464a.f47462e != null) {
-                        this.f47464a.f47462e.onError("");
+                if (!this.f47377a.z(responsedMessage)) {
+                    if (this.f47377a.f47375e != null) {
+                        this.f47377a.f47375e.onError("");
                     }
                 } else if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
-                        this.f47464a.A(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+                        this.f47377a.A(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                     } else if (responsedMessage instanceof ClientConfigSocketResponse) {
-                        this.f47464a.A(((ClientConfigSocketResponse) responsedMessage).getData());
-                    } else if (this.f47464a.f47462e != null) {
-                        this.f47464a.f47462e.onError("");
+                        this.f47377a.A(((ClientConfigSocketResponse) responsedMessage).getData());
+                    } else if (this.f47377a.f47375e != null) {
+                        this.f47377a.f47375e.onError("");
                     }
                 } else {
                     String errorString = responsedMessage.getErrorString();
@@ -78,8 +78,8 @@ public class ClientConfigModel extends BdBaseModel {
                     if (StringUtils.isNull(errorString)) {
                         errorString = string;
                     }
-                    if (this.f47464a.f47462e != null) {
-                        this.f47464a.f47462e.onError(errorString);
+                    if (this.f47377a.f47375e != null) {
+                        this.f47377a.f47375e.onError(errorString);
                     }
                 }
             }
@@ -105,8 +105,8 @@ public class ClientConfigModel extends BdBaseModel {
             }
         }
         a aVar2 = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.f47463f = aVar2;
-        this.f47462e = aVar;
+        this.f47376f = aVar2;
+        this.f47375e = aVar;
         registerListener(aVar2);
     }
 
@@ -114,13 +114,13 @@ public class ClientConfigModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
             if (dataRes == null) {
-                if (this.f47462e != null) {
-                    this.f47462e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
+                if (this.f47375e != null) {
+                    this.f47375e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
                     return;
                 }
                 return;
             }
-            c.a.q0.q.a aVar = this.f47462e;
+            c.a.q0.q.a aVar = this.f47375e;
             if (aVar != null) {
                 aVar.a(dataRes);
             }
@@ -137,7 +137,7 @@ public class ClientConfigModel extends BdBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -147,7 +147,7 @@ public class ClientConfigModel extends BdBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

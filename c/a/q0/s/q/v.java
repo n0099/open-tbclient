@@ -16,10 +16,10 @@ public class v {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f14326a;
+    public ArrayList<String> f14346a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14327b;
+    public int f14347b;
 
     public v() {
         Interceptable interceptable = $ic;
@@ -34,19 +34,19 @@ public class v {
                 return;
             }
         }
-        this.f14326a = new ArrayList<>();
+        this.f14346a = new ArrayList<>();
     }
 
     public ArrayList<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14326a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14346a : (ArrayList) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14327b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14347b : invokeV.intValue;
     }
 
     public boolean c(ColorEgg colorEgg) {
@@ -54,19 +54,19 @@ public class v {
         List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, colorEgg)) == null) {
-            this.f14327b = 0;
+            this.f14347b = 0;
             if (colorEgg == null || (list = colorEgg.holiday_words) == null || list.size() <= 0) {
                 return false;
             }
             for (String str : colorEgg.holiday_words) {
                 if (!StringUtils.isNull(str)) {
-                    this.f14326a.add(str);
+                    this.f14346a.add(str);
                 }
             }
-            if (this.f14326a.size() <= 0) {
+            if (this.f14346a.size() <= 0) {
                 return false;
             }
-            this.f14327b = colorEgg.style_flag.intValue();
+            this.f14347b = colorEgg.style_flag.intValue();
             return true;
         }
         return invokeL.booleanValue;

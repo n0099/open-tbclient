@@ -70,7 +70,7 @@ public final class e {
             }
             try {
                 JarFile jarFile = new JarFile(str);
-                aVar.f36412c = 1;
+                aVar.f36416c = 1;
                 Enumeration<JarEntry> entries = jarFile.entries();
                 Certificate[] certificateArr = null;
                 loop0: while (true) {
@@ -84,19 +84,19 @@ public final class e {
                                 sb.append(jarFile.getName());
                                 sb.append("-JarEntry_");
                                 sb.append(name);
-                                aVar.f36411b = sb.toString();
-                                aVar.f36412c = 2;
+                                aVar.f36415b = sb.toString();
+                                aVar.f36416c = 2;
                                 try {
                                     b2 = b(jarFile, nextElement, bArr, aVar);
                                 } catch (Exception e2) {
                                     sb.append("-Exception_");
                                     sb.append(e2.toString());
-                                    aVar.f36411b = sb.toString();
+                                    aVar.f36415b = sb.toString();
                                     b2 = b(jarFile, nextElement, bArr, aVar);
                                 }
-                                aVar.f36412c = 5;
+                                aVar.f36416c = 5;
                                 if (b2 == null) {
-                                    aVar.f36412c = 6;
+                                    aVar.f36416c = 6;
                                     BdLog.e("Package " + str + " has no certificates at entry " + nextElement.getName() + "; ignoring!");
                                     jarFile.close();
                                     return null;
@@ -125,12 +125,12 @@ public final class e {
                             }
                         }
                     } else {
-                        aVar.f36412c = 8;
+                        aVar.f36416c = 8;
                         jarFile.close();
                         synchronized (f2877a) {
                             f2878b = weakReference;
                         }
-                        aVar.f36412c = 9;
+                        aVar.f36416c = 9;
                         if (certificateArr != null && certificateArr.length > 0) {
                             int length = certificateArr.length;
                             Signature[] signatureArr = new Signature[certificateArr.length];
@@ -143,7 +143,7 @@ public final class e {
                         return null;
                     }
                 }
-                aVar.f36412c = 7;
+                aVar.f36416c = 7;
                 jarFile.close();
                 return null;
             } catch (IOException e3) {
@@ -178,10 +178,10 @@ public final class e {
                 e = e3;
             }
             try {
-                aVar.f36412c = 3;
+                aVar.f36416c = 3;
                 while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
                 }
-                aVar.f36412c = 4;
+                aVar.f36416c = 4;
                 Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : null;
                 c.a.e.e.m.a.c(bufferedInputStream);
                 return certificates;

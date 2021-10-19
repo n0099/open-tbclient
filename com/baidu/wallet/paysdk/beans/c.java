@@ -23,28 +23,28 @@ public class c extends BaseBean<BindCardProtocolPreviewResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62668a;
+    public String f62703a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62669b;
+    public String f62704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62670c;
+    public String f62705c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f62671d;
+    public String f62706d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f62672e;
+    public String f62707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62673f;
+    public String f62708f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62674g;
+    public String f62709g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f62675h;
+    public String f62710h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context) {
@@ -69,35 +69,35 @@ public class c extends BaseBean<BindCardProtocolPreviewResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f62668a = str;
+            this.f62703a = str;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f62669b = str;
+            this.f62704b = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f62670c = str;
+            this.f62705c = str;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f62671d = str;
+            this.f62706d = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f62672e = str;
+            this.f62707e = str;
         }
     }
 
@@ -112,14 +112,14 @@ public class c extends BaseBean<BindCardProtocolPreviewResponse> {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f62673f = str;
+            this.f62708f = str;
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f62674g = str;
+            this.f62709g = str;
         }
     }
 
@@ -129,23 +129,23 @@ public class c extends BaseBean<BindCardProtocolPreviewResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair(BindCardProtocolActivity.PROTOCOL_SNAPSHOT_ID, this.f62668a));
-            arrayList.add(new RestNameValuePair("protocolType", this.f62669b));
-            arrayList.add(new RestNameValuePair("templateCode", this.f62670c));
-            if (!TextUtils.isEmpty(this.f62671d)) {
-                arrayList.add(new RestNameValuePair(BindCardProtocolActivity.TRUE_NAME, this.f62671d));
+            arrayList.add(new RestNameValuePair(BindCardProtocolActivity.PROTOCOL_SNAPSHOT_ID, this.f62703a));
+            arrayList.add(new RestNameValuePair("protocolType", this.f62704b));
+            arrayList.add(new RestNameValuePair("templateCode", this.f62705c));
+            if (!TextUtils.isEmpty(this.f62706d)) {
+                arrayList.add(new RestNameValuePair(BindCardProtocolActivity.TRUE_NAME, this.f62706d));
             }
-            if (!TextUtils.isEmpty(this.f62673f)) {
-                arrayList.add(new RestNameValuePair("identity_code", PayUtils.encrypt("identity_code", this.f62673f)));
+            if (!TextUtils.isEmpty(this.f62708f)) {
+                arrayList.add(new RestNameValuePair("identity_code", PayUtils.encrypt("identity_code", this.f62708f)));
             }
-            if (!TextUtils.isEmpty(this.f62672e)) {
-                arrayList.add(new RestNameValuePair(BindCardProtocolActivity.IDENTITY_TYPE, this.f62672e));
+            if (!TextUtils.isEmpty(this.f62707e)) {
+                arrayList.add(new RestNameValuePair(BindCardProtocolActivity.IDENTITY_TYPE, this.f62707e));
             }
-            if (!TextUtils.isEmpty(this.f62674g)) {
-                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62674g)));
+            if (!TextUtils.isEmpty(this.f62709g)) {
+                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62709g)));
             }
-            if (!TextUtils.isEmpty(this.f62675h)) {
-                arrayList.add(new RestNameValuePair("mobile", PayUtils.encrypt("phone_number", this.f62675h)));
+            if (!TextUtils.isEmpty(this.f62710h)) {
+                arrayList.add(new RestNameValuePair("mobile", PayUtils.encrypt("phone_number", this.f62710h)));
             }
             return arrayList;
         }
@@ -182,7 +182,7 @@ public class c extends BaseBean<BindCardProtocolPreviewResponse> {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f62675h = str;
+            this.f62710h = str;
         }
     }
 

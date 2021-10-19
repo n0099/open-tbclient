@@ -37,7 +37,7 @@ public class SecurityClientMobile {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, map)) == null) {
             synchronized (SecurityClientMobile.class) {
                 HashMap hashMap = new HashMap();
-                hashMap.put(b.f35973g, a.a(map, b.f35973g, ""));
+                hashMap.put(b.f35977g, a.a(map, b.f35977g, ""));
                 hashMap.put("tid", a.a(map, "tid", ""));
                 hashMap.put("userId", a.a(map, "userId", ""));
                 APSecuritySdk.getInstance(context).initToken(0, hashMap, null);

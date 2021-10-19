@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.im.more;
 
 import c.a.e.e.m.b;
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -44,7 +44,7 @@ public class PrivateInfoNetMessage extends NetMessage {
             ReqData.Builder builder = new ReqData.Builder();
             builder.user_id = Long.valueOf(b.g(TbadkCoreApplication.getCurrentAccount(), 0L));
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             GetPrivateInfoReqIdl.Builder builder2 = new GetPrivateInfoReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -129,8 +129,8 @@ public class f {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.r0.j3.e0.a.h(309608, GetTokenSocketResponsedMessage.class, false, false);
-            c.a.r0.j3.e0.a.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
+            c.a.r0.k3.e0.a.h(309608, GetTokenSocketResponsedMessage.class, false, false);
+            c.a.r0.k3.e0.a.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
         }
     }
 

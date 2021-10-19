@@ -1,10 +1,10 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import android.text.TextUtils;
-import c.a.q0.d1.a0;
 import c.a.q0.d1.e;
-import c.a.r0.g1.c.d;
-import c.a.r0.y2.l0.b;
+import c.a.q0.d1.z;
+import c.a.r0.h1.c.d;
+import c.a.r0.z2.l0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -54,7 +54,7 @@ public class ConcernPageRequestMessage extends NetMessage {
             String d2 = isEmpty ? "" : b.f().d("CONCERN");
             e eVar = this.adInfo;
             if (eVar != null && !isEmpty) {
-                str = eVar.f12920b;
+                str = eVar.f12929b;
             }
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.g(e2);
@@ -85,7 +85,7 @@ public class ConcernPageRequestMessage extends NetMessage {
                 int i2 = 1;
                 builder.follow_type = Integer.valueOf(c.a.q0.b.d.i() ? c.a.q0.s.d0.b.j().k("key_home_concern_all_status", 0) : 1);
                 if (z) {
-                    a0.a(builder, true);
+                    z.a(builder, true);
                 }
                 if (!TextUtils.isEmpty(this.pageTag)) {
                     i2 = 2;

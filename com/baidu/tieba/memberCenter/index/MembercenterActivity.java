@@ -47,7 +47,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f13624a = true;
+                pageStayDurationItem.f13644a = true;
             }
             return pageStayDurationItem;
         }

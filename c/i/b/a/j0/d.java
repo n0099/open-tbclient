@@ -26,34 +26,34 @@ public final class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WindowManager f33903a;
+    public final WindowManager f33907a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f33904b;
+    public final b f33908b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f33905c;
+    public final a f33909c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f33906d;
+    public long f33910d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f33907e;
+    public long f33911e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f33908f;
+    public long f33912f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f33909g;
+    public long f33913g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f33910h;
+    public long f33914h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f33911i;
+    public boolean f33915i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f33912j;
+    public long f33916j;
     public long k;
     public long l;
 
@@ -64,10 +64,10 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final DisplayManager f33913a;
+        public final DisplayManager f33917a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f33914b;
+        public final /* synthetic */ d f33918b;
 
         public a(d dVar, DisplayManager displayManager) {
             Interceptable interceptable = $ic;
@@ -84,21 +84,21 @@ public final class d {
                     return;
                 }
             }
-            this.f33914b = dVar;
-            this.f33913a = displayManager;
+            this.f33918b = dVar;
+            this.f33917a = displayManager;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f33913a.registerDisplayListener(this, null);
+                this.f33917a.registerDisplayListener(this, null);
             }
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f33913a.unregisterDisplayListener(this);
+                this.f33917a.unregisterDisplayListener(this);
             }
         }
 
@@ -113,7 +113,7 @@ public final class d {
         public void onDisplayChanged(int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && i2 == 0) {
-                this.f33914b.h();
+                this.f33918b.h();
             }
         }
 
@@ -130,23 +130,23 @@ public final class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: j  reason: collision with root package name */
-        public static final b f33915j;
+        public static final b f33919j;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public volatile long f33916e;
+        public volatile long f33920e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Handler f33917f;
+        public final Handler f33921f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final HandlerThread f33918g;
+        public final HandlerThread f33922g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Choreographer f33919h;
+        public Choreographer f33923h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f33920i;
+        public int f33924i;
 
         static {
             InterceptResult invokeClinit;
@@ -161,7 +161,7 @@ public final class d {
                     return;
                 }
             }
-            f33915j = new b();
+            f33919j = new b();
         }
 
         public b() {
@@ -177,35 +177,35 @@ public final class d {
                     return;
                 }
             }
-            this.f33916e = -9223372036854775807L;
+            this.f33920e = -9223372036854775807L;
             HandlerThread handlerThread = new HandlerThread("ChoreographerOwner:Handler");
-            this.f33918g = handlerThread;
+            this.f33922g = handlerThread;
             handlerThread.start();
-            Handler handler = new Handler(this.f33918g.getLooper(), this);
-            this.f33917f = handler;
+            Handler handler = new Handler(this.f33922g.getLooper(), this);
+            this.f33921f = handler;
             handler.sendEmptyMessage(0);
         }
 
         public static b d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f33915j : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f33919j : (b) invokeV.objValue;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f33917f.sendEmptyMessage(1);
+                this.f33921f.sendEmptyMessage(1);
             }
         }
 
         public final void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                int i2 = this.f33920i + 1;
-                this.f33920i = i2;
+                int i2 = this.f33924i + 1;
+                this.f33924i = i2;
                 if (i2 == 1) {
-                    this.f33919h.postFrameCallback(this);
+                    this.f33923h.postFrameCallback(this);
                 }
             }
         }
@@ -213,7 +213,7 @@ public final class d {
         public final void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f33919h = Choreographer.getInstance();
+                this.f33923h = Choreographer.getInstance();
             }
         }
 
@@ -221,26 +221,26 @@ public final class d {
         public void doFrame(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-                this.f33916e = j2;
-                this.f33919h.postFrameCallbackDelayed(this, 500L);
+                this.f33920e = j2;
+                this.f33923h.postFrameCallbackDelayed(this, 500L);
             }
         }
 
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f33917f.sendEmptyMessage(2);
+                this.f33921f.sendEmptyMessage(2);
             }
         }
 
         public final void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                int i2 = this.f33920i - 1;
-                this.f33920i = i2;
+                int i2 = this.f33924i - 1;
+                this.f33924i = i2;
                 if (i2 == 0) {
-                    this.f33919h.removeFrameCallback(this);
-                    this.f33916e = -9223372036854775807L;
+                    this.f33923h.removeFrameCallback(this);
+                    this.f33920e = -9223372036854775807L;
                 }
             }
         }
@@ -284,16 +284,16 @@ public final class d {
             }
         }
         WindowManager windowManager = context == null ? null : (WindowManager) context.getSystemService("window");
-        this.f33903a = windowManager;
+        this.f33907a = windowManager;
         if (windowManager != null) {
-            this.f33905c = v.f33861a >= 17 ? g(context) : null;
-            this.f33904b = b.d();
+            this.f33909c = v.f33865a >= 17 ? g(context) : null;
+            this.f33908b = b.d();
         } else {
-            this.f33905c = null;
-            this.f33904b = null;
+            this.f33909c = null;
+            this.f33908b = null;
         }
-        this.f33906d = -9223372036854775807L;
-        this.f33907e = -9223372036854775807L;
+        this.f33910d = -9223372036854775807L;
+        this.f33911e = -9223372036854775807L;
     }
 
     public static long c(long j2, long j3, long j4) {
@@ -325,44 +325,44 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             long j6 = 1000 * j2;
-            if (this.f33911i) {
-                if (j2 != this.f33908f) {
+            if (this.f33915i) {
+                if (j2 != this.f33912f) {
                     this.l++;
-                    this.f33909g = this.f33910h;
+                    this.f33913g = this.f33914h;
                 }
                 long j7 = this.l;
                 if (j7 >= 6) {
-                    j5 = this.f33909g + ((j6 - this.k) / j7);
+                    j5 = this.f33913g + ((j6 - this.k) / j7);
                     if (f(j5, j3)) {
-                        this.f33911i = false;
+                        this.f33915i = false;
                     } else {
-                        j4 = (this.f33912j + j5) - this.k;
-                        if (!this.f33911i) {
+                        j4 = (this.f33916j + j5) - this.k;
+                        if (!this.f33915i) {
                             this.k = j6;
-                            this.f33912j = j3;
+                            this.f33916j = j3;
                             this.l = 0L;
-                            this.f33911i = true;
+                            this.f33915i = true;
                         }
-                        this.f33908f = j2;
-                        this.f33910h = j5;
-                        bVar = this.f33904b;
-                        if (bVar != null || this.f33906d == -9223372036854775807L) {
+                        this.f33912f = j2;
+                        this.f33914h = j5;
+                        bVar = this.f33908b;
+                        if (bVar != null || this.f33910d == -9223372036854775807L) {
                             return j4;
                         }
-                        long j8 = bVar.f33916e;
-                        return j8 == -9223372036854775807L ? j4 : c(j4, j8, this.f33906d) - this.f33907e;
+                        long j8 = bVar.f33920e;
+                        return j8 == -9223372036854775807L ? j4 : c(j4, j8, this.f33910d) - this.f33911e;
                     }
                 } else if (f(j6, j3)) {
-                    this.f33911i = false;
+                    this.f33915i = false;
                 }
             }
             j4 = j3;
             j5 = j6;
-            if (!this.f33911i) {
+            if (!this.f33915i) {
             }
-            this.f33908f = j2;
-            this.f33910h = j5;
-            bVar = this.f33904b;
+            this.f33912f = j2;
+            this.f33914h = j5;
+            bVar = this.f33908b;
             if (bVar != null) {
             }
             return j4;
@@ -372,23 +372,23 @@ public final class d {
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f33903a == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f33907a == null) {
             return;
         }
-        a aVar = this.f33905c;
+        a aVar = this.f33909c;
         if (aVar != null) {
             aVar.b();
         }
-        this.f33904b.e();
+        this.f33908b.e();
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f33911i = false;
-            if (this.f33903a != null) {
-                this.f33904b.a();
-                a aVar = this.f33905c;
+            this.f33915i = false;
+            if (this.f33907a != null) {
+                this.f33908b.a();
+                a aVar = this.f33909c;
                 if (aVar != null) {
                     aVar.a();
                 }
@@ -400,7 +400,7 @@ public final class d {
     public final boolean f(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? Math.abs((j3 - this.f33912j) - (j2 - this.k)) > 20000000 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? Math.abs((j3 - this.f33916j) - (j2 - this.k)) > 20000000 : invokeCommon.booleanValue;
     }
 
     @TargetApi(17)
@@ -420,11 +420,11 @@ public final class d {
     public final void h() {
         Display defaultDisplay;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (defaultDisplay = this.f33903a.getDefaultDisplay()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (defaultDisplay = this.f33907a.getDefaultDisplay()) == null) {
             return;
         }
         long refreshRate = (long) (1.0E9d / defaultDisplay.getRefreshRate());
-        this.f33906d = refreshRate;
-        this.f33907e = (refreshRate * 80) / 100;
+        this.f33910d = refreshRate;
+        this.f33911e = (refreshRate * 80) / 100;
     }
 }

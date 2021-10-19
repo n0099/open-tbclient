@@ -15,16 +15,16 @@ public class b implements Comparable, Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f65360a;
+    public g f65395a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f65361b;
+    public a f65396b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f65362c;
+    public long f65397c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Thread f65363d;
+    public Thread f65398d;
 
     public b(g gVar, a aVar) {
         Interceptable interceptable = $ic;
@@ -41,19 +41,19 @@ public class b implements Comparable, Runnable {
                 return;
             }
         }
-        this.f65360a = null;
-        this.f65361b = null;
-        this.f65362c = 0L;
-        this.f65363d = null;
-        this.f65360a = gVar;
-        this.f65361b = aVar;
-        this.f65362c = SystemClock.uptimeMillis();
+        this.f65395a = null;
+        this.f65396b = null;
+        this.f65397c = 0L;
+        this.f65398d = null;
+        this.f65395a = gVar;
+        this.f65396b = aVar;
+        this.f65397c = SystemClock.uptimeMillis();
     }
 
     public g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65360a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65395a : (g) invokeV.objValue;
     }
 
     @Override // java.lang.Comparable
@@ -62,7 +62,7 @@ public class b implements Comparable, Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (obj instanceof b) {
-                return this.f65360a.compareTo(((b) obj).a());
+                return this.f65395a.compareTo(((b) obj).a());
             }
             return 0;
         }
@@ -73,13 +73,13 @@ public class b implements Comparable, Runnable {
         InterceptResult invokeL;
         g gVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? (obj instanceof b) && (gVar = this.f65360a) != null && gVar.equals(((b) obj).a()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? (obj instanceof b) && (gVar = this.f65395a) != null && gVar.equals(((b) obj).a()) : invokeL.booleanValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65360a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65395a.hashCode() : invokeV.intValue;
     }
 
     @Override // java.lang.Runnable
@@ -87,20 +87,20 @@ public class b implements Comparable, Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             long uptimeMillis = SystemClock.uptimeMillis();
-            long j2 = uptimeMillis - this.f65362c;
-            this.f65363d = Thread.currentThread();
-            g gVar = this.f65360a;
+            long j2 = uptimeMillis - this.f65397c;
+            this.f65398d = Thread.currentThread();
+            g gVar = this.f65395a;
             if (gVar != null) {
                 gVar.run();
             }
             long uptimeMillis2 = SystemClock.uptimeMillis() - uptimeMillis;
-            a aVar = this.f65361b;
+            a aVar = this.f65396b;
             if (aVar != null) {
                 d.a(aVar, j2, uptimeMillis2);
             }
             Object[] objArr = new Object[8];
             objArr[0] = "run: pool  = ";
-            a aVar2 = this.f65361b;
+            a aVar2 = this.f65396b;
             String str = StringUtil.NULL_STRING;
             objArr[1] = aVar2 != null ? aVar2.a() : StringUtil.NULL_STRING;
             objArr[2] = " waitTime =";
@@ -108,7 +108,7 @@ public class b implements Comparable, Runnable {
             objArr[4] = " taskCost = ";
             objArr[5] = Long.valueOf(uptimeMillis2);
             objArr[6] = " name=";
-            g gVar2 = this.f65360a;
+            g gVar2 = this.f65395a;
             if (gVar2 != null) {
                 str = gVar2.b();
             }

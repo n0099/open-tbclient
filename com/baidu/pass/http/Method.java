@@ -15,7 +15,7 @@ public final class Method {
     public static final Method POST;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ Method[] f44282a;
+    public static final /* synthetic */ Method[] f44194a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class Method {
         GET = new Method("GET", 0);
         Method method = new Method("POST", 1);
         POST = method;
-        f44282a = new Method[]{GET, method};
+        f44194a = new Method[]{GET, method};
     }
 
     public Method(String str, int i2) {
@@ -65,6 +65,6 @@ public final class Method {
     public static Method[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Method[]) f44282a.clone() : (Method[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Method[]) f44194a.clone() : (Method[]) invokeV.objValue;
     }
 }

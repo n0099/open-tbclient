@@ -63,7 +63,7 @@ public class j implements c.a.p0.m.a {
                 return null;
             }
             SwanAppConfigData F = Q.F();
-            if (F == null || (aVar = F.f46662h) == null) {
+            if (F == null || (aVar = F.f46574h) == null) {
                 boolean z2 = c.a.p0.a.k.f7085a;
                 return null;
             }

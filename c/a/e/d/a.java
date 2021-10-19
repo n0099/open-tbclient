@@ -40,7 +40,7 @@ public interface a {
             }
             this.f2096a = 0;
             this.f2097b = new e();
-            if (NSGif.f36291f) {
+            if (NSGif.f36295f) {
                 this.f2096a = 0;
             } else {
                 this.f2096a = 1;

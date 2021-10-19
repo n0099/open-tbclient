@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
-import c.a.r0.x3.h;
+import c.a.r0.y3.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -44,7 +44,7 @@ public class TbLiveCyberView extends CyberVideoView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbLiveCyberView f49458a;
+        public final /* synthetic */ TbLiveCyberView f49385a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(TbLiveCyberView tbLiveCyberView, int i2) {
@@ -64,7 +64,7 @@ public class TbLiveCyberView extends CyberVideoView {
                     return;
                 }
             }
-            this.f49458a = tbLiveCyberView;
+            this.f49385a = tbLiveCyberView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,7 +72,7 @@ public class TbLiveCyberView extends CyberVideoView {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.f49458a.stop();
+                this.f49385a.stop();
             }
         }
     }
@@ -143,7 +143,7 @@ public class TbLiveCyberView extends CyberVideoView {
             }
             new WeakReference(TbadkCoreApplication.getInst());
             SkinManager.setBackgroundResource(this, R.color.black_alpha100);
-            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: c.a.r0.v.b
+            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: c.a.r0.w.b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -154,7 +154,7 @@ public class TbLiveCyberView extends CyberVideoView {
                     return (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048576, this, i2, i3, obj)) == null) ? TbLiveCyberView.this.l(i2, i3, obj) : invokeIIL.booleanValue;
                 }
             });
-            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: c.a.r0.v.a
+            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: c.a.r0.w.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

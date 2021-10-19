@@ -74,15 +74,15 @@ public final class f extends d<com.vivo.push.model.a> {
     public final String b(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new String(g.a(g.a(d.f76911a), g.a(d.f76912b), Base64.decode(str, 2)), "utf-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new String(g.a(g.a(d.f76946a), g.a(d.f76947b), Base64.decode(str, 2)), "utf-8") : (String) invokeL.objValue;
     }
 
     public final String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (d.f76913c) {
-                for (T t : this.f76914d) {
+            synchronized (d.f76948c) {
+                for (T t : this.f76949d) {
                     if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
                         return t.b();
                     }

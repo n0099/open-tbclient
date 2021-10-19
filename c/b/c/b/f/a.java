@@ -21,31 +21,31 @@ public class a implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static a f31548i;
+    public static a f31552i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f31549e;
+    public Thread.UncaughtExceptionHandler f31553e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashSet<Thread.UncaughtExceptionHandler> f31550f;
+    public HashSet<Thread.UncaughtExceptionHandler> f31554f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f31551g;
+    public b f31555g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f31552h;
+    public long f31556h;
 
     /* renamed from: c.b.c.b.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1446a extends Thread {
+    public class C1448a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f31553e;
+        public final /* synthetic */ a f31557e;
 
-        public C1446a(a aVar) {
+        public C1448a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,7 @@ public class a implements Thread.UncaughtExceptionHandler {
                     return;
                 }
             }
-            this.f31553e = aVar;
+            this.f31557e = aVar;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -73,7 +73,7 @@ public class a implements Thread.UncaughtExceptionHandler {
             try {
                 while (true) {
                     SystemClock.sleep(Math.abs(new Random().nextLong()) % 5000);
-                    this.f31553e.g();
+                    this.f31557e.g();
                 }
             } catch (Throwable unused) {
             }
@@ -93,8 +93,8 @@ public class a implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f31550f = new HashSet<>();
-        this.f31552h = -1L;
+        this.f31554f = new HashSet<>();
+        this.f31556h = -1L;
         g();
         e();
     }
@@ -103,10 +103,10 @@ public class a implements Thread.UncaughtExceptionHandler {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f31548i == null) {
-                f31548i = new a();
+            if (f31552i == null) {
+                f31552i = new a();
             }
-            return f31548i;
+            return f31552i;
         }
         return (a) invokeV.objValue;
     }
@@ -114,7 +114,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     public void c(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f31551g = bVar;
+            this.f31555g = bVar;
         }
     }
 
@@ -139,7 +139,7 @@ public class a implements Thread.UncaughtExceptionHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                new C1446a(this).start();
+                new C1448a(this).start();
             } catch (Throwable unused) {
             }
         }
@@ -149,7 +149,7 @@ public class a implements Thread.UncaughtExceptionHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, thread, th) == null) {
             List<i> e2 = m.c().e();
-            com.bytedance.tea.crash.c cVar = com.bytedance.tea.crash.c.f69219b;
+            com.bytedance.tea.crash.c cVar = com.bytedance.tea.crash.c.f69254b;
             for (i iVar : e2) {
                 try {
                     iVar.a(cVar, l.n.a(th), thread);
@@ -167,10 +167,10 @@ public class a implements Thread.UncaughtExceptionHandler {
             return;
         }
         Thread.setDefaultUncaughtExceptionHandler(this);
-        if (this.f31549e == null) {
-            this.f31549e = defaultUncaughtExceptionHandler;
+        if (this.f31553e == null) {
+            this.f31553e = defaultUncaughtExceptionHandler;
         } else {
-            this.f31550f.add(defaultUncaughtExceptionHandler);
+            this.f31554f.add(defaultUncaughtExceptionHandler);
         }
     }
 
@@ -178,14 +178,14 @@ public class a implements Thread.UncaughtExceptionHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, thread, th) == null) {
             try {
-                Iterator<Thread.UncaughtExceptionHandler> it = this.f31550f.iterator();
+                Iterator<Thread.UncaughtExceptionHandler> it = this.f31554f.iterator();
                 while (it.hasNext()) {
                     try {
                         it.next().uncaughtException(thread, th);
                     } catch (Throwable unused) {
                     }
                 }
-                this.f31549e.uncaughtException(thread, th);
+                this.f31553e.uncaughtException(thread, th);
             } catch (Throwable unused2) {
             }
         }
@@ -195,12 +195,12 @@ public class a implements Thread.UncaughtExceptionHandler {
     public void uncaughtException(Thread thread, Throwable th) {
         boolean d2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, thread, th) == null) || SystemClock.uptimeMillis() - this.f31552h < 20000) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, thread, th) == null) || SystemClock.uptimeMillis() - this.f31556h < 20000) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            this.f31552h = SystemClock.uptimeMillis();
+            this.f31556h = SystemClock.uptimeMillis();
             d2 = d(thread, th);
         } finally {
             try {
@@ -208,10 +208,10 @@ public class a implements Thread.UncaughtExceptionHandler {
             }
         }
         if (d2) {
-            com.bytedance.tea.crash.c cVar = com.bytedance.tea.crash.c.f69219b;
+            com.bytedance.tea.crash.c cVar = com.bytedance.tea.crash.c.f69254b;
             f(thread, th);
-            if (d2 && this.f31551g != null && this.f31551g.a(th)) {
-                this.f31551g.a(currentTimeMillis, thread, th);
+            if (d2 && this.f31555g != null && this.f31555g.a(th)) {
+                this.f31555g.a(currentTimeMillis, thread, th);
                 String str = "end dispose " + th;
             }
         }

@@ -23,34 +23,34 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Paint f13098a;
+    public final Paint f13103a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Paint f13099b;
+    public final Paint f13104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Paint f13100c;
+    public final Paint f13105c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final View f13101d;
+    public final View f13106d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13102e;
+    public int f13107e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13103f;
+    public int f13108f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13104g;
+    public int f13109g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13105h;
+    public int f13110h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13106i;
+    public int f13111i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f13107j;
+    public int f13112j;
     public int k;
     public float l;
     public final Paint m;
@@ -79,15 +79,15 @@ public class c {
                 return;
             }
         }
-        this.f13098a = new Paint();
-        this.f13099b = new Paint();
-        this.f13100c = new Paint();
-        this.f13102e = 16;
-        this.f13103f = 16;
-        this.f13104g = -1;
-        this.f13105h = 1711276032;
-        this.f13106i = 20;
-        this.f13107j = 20;
+        this.f13103a = new Paint();
+        this.f13104b = new Paint();
+        this.f13105c = new Paint();
+        this.f13107e = 16;
+        this.f13108f = 16;
+        this.f13109g = -1;
+        this.f13110h = 1711276032;
+        this.f13111i = 20;
+        this.f13112j = 20;
         this.k = 36;
         this.l = 0.0f;
         this.m = new Paint();
@@ -99,27 +99,27 @@ public class c {
         this.s = 36;
         this.t = 0;
         this.v = 0;
-        this.f13101d = view;
+        this.f13106d = view;
         int color = c().getResources().getColor(R.color.black_alpha40);
-        this.f13105h = color;
-        this.f13099b.setColor(color);
-        this.f13099b.setAntiAlias(true);
-        this.f13106i = (int) c().getResources().getDimension(R.dimen.tbfontsize26);
+        this.f13110h = color;
+        this.f13104b.setColor(color);
+        this.f13104b.setAntiAlias(true);
+        this.f13111i = (int) c().getResources().getDimension(R.dimen.tbfontsize26);
         int color2 = c().getResources().getColor(R.color.CAM_X0101);
-        this.f13104g = color2;
-        this.f13098a.setColor(color2);
-        this.f13098a.setTextSize(this.f13106i);
-        this.f13098a.setAntiAlias(true);
-        this.f13098a.setTypeface(c.a.q0.s.u.a.J(c.a.q0.s.u.a.G(R.string.F_X02)));
-        this.f13102e = l.g(c(), R.dimen.tbds16);
-        this.f13103f = l.g(c(), R.dimen.tbds16);
-        this.f13107j = l.g(c(), R.dimen.tbds22);
+        this.f13109g = color2;
+        this.f13103a.setColor(color2);
+        this.f13103a.setTextSize(this.f13111i);
+        this.f13103a.setAntiAlias(true);
+        this.f13103a.setTypeface(c.a.q0.s.u.a.H(c.a.q0.s.u.a.E(R.string.F_X02)));
+        this.f13107e = l.g(c(), R.dimen.tbds16);
+        this.f13108f = l.g(c(), R.dimen.tbds16);
+        this.f13112j = l.g(c(), R.dimen.tbds22);
         this.k = l.g(c(), R.dimen.tbds40);
-        this.l = c.a.q0.s.u.a.A(R.string.J_X01)[0];
+        this.l = c.a.q0.s.u.a.y(R.string.J_X01)[0];
         int dimension = (int) c().getResources().getDimension(R.dimen.tbfontsize26);
         this.q = dimension;
-        this.f13100c.setTextSize(dimension);
-        this.f13098a.setAntiAlias(true);
+        this.f13105c.setTextSize(dimension);
+        this.f13103a.setAntiAlias(true);
         this.m.setAntiAlias(true);
         this.r = l.g(c(), R.dimen.tbds16);
         this.s = l.g(c(), R.dimen.tbds22);
@@ -132,47 +132,47 @@ public class c {
     public void a(Canvas canvas, String str, boolean z) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, canvas, str, z) == null) || canvas == null || this.f13101d == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, canvas, str, z) == null) || canvas == null || this.f13106d == null || TextUtils.isEmpty(str)) {
             return;
         }
         int save = canvas.save();
-        this.f13101d.getPaddingLeft();
-        int paddingRight = this.f13101d.getPaddingRight();
-        this.f13101d.getPaddingTop();
-        int paddingBottom = this.f13101d.getPaddingBottom();
-        int left = this.f13101d.getLeft();
-        int right = this.f13101d.getRight();
-        int top = this.f13101d.getTop();
-        int bottom = this.f13101d.getBottom();
-        float measureText = this.f13098a.measureText(str);
-        Paint.FontMetrics fontMetrics = this.f13098a.getFontMetrics();
+        this.f13106d.getPaddingLeft();
+        int paddingRight = this.f13106d.getPaddingRight();
+        this.f13106d.getPaddingTop();
+        int paddingBottom = this.f13106d.getPaddingBottom();
+        int left = this.f13106d.getLeft();
+        int right = this.f13106d.getRight();
+        int top = this.f13106d.getTop();
+        int bottom = this.f13106d.getBottom();
+        float measureText = this.f13103a.measureText(str);
+        Paint.FontMetrics fontMetrics = this.f13103a.getFontMetrics();
         if (z) {
             if (this.u == null) {
-                this.u = c.a.q0.s.u.a.D(R.array.S_O_X001);
+                this.u = c.a.q0.s.u.a.B(R.array.S_O_X001);
             }
             float[] fArr = this.u;
             if (fArr == null || fArr.length < 4) {
                 i2 = save;
             } else {
                 i2 = save;
-                this.f13098a.setShadowLayer(fArr[1], fArr[2], fArr[3], (int) fArr[0]);
+                this.f13103a.setShadowLayer(fArr[1], fArr[2], fArr[3], (int) fArr[0]);
             }
             int i3 = this.v;
-            canvas.drawText(str, (((right - left) - paddingRight) - i3) - measureText, (((bottom - top) - paddingBottom) - i3) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.f13098a);
+            canvas.drawText(str, (((right - left) - paddingRight) - i3) - measureText, (((bottom - top) - paddingBottom) - i3) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.f13103a);
         } else {
             i2 = save;
             float f2 = this.k + measureText;
-            float f3 = this.f13106i + this.f13107j;
-            canvas.translate((((right - left) - paddingRight) - f2) - this.f13103f, (((bottom - top) - paddingBottom) - f3) - this.f13102e);
+            float f3 = this.f13111i + this.f13112j;
+            canvas.translate((((right - left) - paddingRight) - f2) - this.f13108f, (((bottom - top) - paddingBottom) - f3) - this.f13107e);
             RectF rectF = new RectF(0.0f, 0.0f, f2, f3);
             float f4 = this.l;
             if (f4 < 1.0f) {
                 this.l = f4 * f3;
             }
             float f5 = this.l;
-            canvas.drawRoundRect(rectF, f5, f5, this.f13099b);
-            this.f13098a.clearShadowLayer();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.f13098a);
+            canvas.drawRoundRect(rectF, f5, f5, this.f13104b);
+            this.f13103a.clearShadowLayer();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.f13103a);
         }
         int i4 = i2;
         if (i4 < 1 || i4 > canvas.getSaveCount()) {
@@ -183,7 +183,7 @@ public class c {
 
     public void b(Canvas canvas, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, str, i2) == null) || canvas == null || this.f13101d == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, str, i2) == null) || canvas == null || this.f13106d == null || TextUtils.isEmpty(str)) {
             return;
         }
         if (i2 != 0) {
@@ -191,17 +191,17 @@ public class c {
             this.m.setColor(SkinManager.getColor(i2));
         }
         int save = canvas.save();
-        int paddingLeft = this.f13101d.getPaddingLeft();
-        this.f13101d.getPaddingRight();
-        int paddingTop = this.f13101d.getPaddingTop();
-        this.f13101d.getPaddingBottom();
-        float measureText = this.f13100c.measureText(str);
+        int paddingLeft = this.f13106d.getPaddingLeft();
+        this.f13106d.getPaddingRight();
+        int paddingTop = this.f13106d.getPaddingTop();
+        this.f13106d.getPaddingBottom();
+        float measureText = this.f13105c.measureText(str);
         canvas.translate(paddingLeft, paddingTop);
         RectF rectF = new RectF(0.0f, 0.0f, this.s + measureText, this.q + this.r);
         int i3 = this.t;
         canvas.drawRoundRect(rectF, i3, i3, this.m);
-        Paint.FontMetrics fontMetrics = this.f13100c.getFontMetrics();
-        canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.f13100c);
+        Paint.FontMetrics fontMetrics = this.f13105c.getFontMetrics();
+        canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.f13105c);
         if (save < 1 || save > canvas.getSaveCount()) {
             return;
         }
@@ -212,9 +212,9 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            View view = this.f13101d;
+            View view = this.f13106d;
             if (view != null && view.getContext() != null) {
-                return this.f13101d.getContext();
+                return this.f13106d.getContext();
             }
             return TbadkCoreApplication.getInst().getContext();
         }
@@ -224,19 +224,19 @@ public class c {
     public float d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? l.E(this.f13098a, str).height() + this.f13107j : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? l.E(this.f13103a, str).height() + this.f13112j : invokeL.floatValue;
     }
 
     public float e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? l.F(this.f13098a, str) + this.k : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? l.F(this.f13103a, str) + this.k : invokeL.floatValue;
     }
 
     public final void f() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (view = this.f13101d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (view = this.f13106d) == null) {
             return;
         }
         view.invalidate();
@@ -245,8 +245,8 @@ public class c {
     public void g(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            this.f13103f = i2;
-            this.f13102e = i3;
+            this.f13108f = i2;
+            this.f13107e = i3;
             f();
         }
     }
@@ -254,8 +254,8 @@ public class c {
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f13104g = i2;
-            this.f13098a.setColor(i2);
+            this.f13109g = i2;
+            this.f13103a.setColor(i2);
             f();
         }
     }
@@ -263,8 +263,8 @@ public class c {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f13106i = i2;
-            this.f13098a.setTextSize(i2);
+            this.f13111i = i2;
+            this.f13103a.setTextSize(i2);
             f();
         }
     }
@@ -275,7 +275,7 @@ public class c {
             return;
         }
         this.n = i2;
-        this.f13100c.setColor(SkinManager.getColor(i2, this.o));
+        this.f13105c.setColor(SkinManager.getColor(i2, this.o));
         this.m.setColor(SkinManager.getColor(i2, this.p));
     }
 }

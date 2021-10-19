@@ -17,25 +17,25 @@ public final class o<T> implements Loader.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f33781a;
+    public final g f33785a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f33782b;
+    public final int f33786b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f33783c;
+    public final e f33787c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final a<? extends T> f33784d;
+    public final a<? extends T> f33788d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile T f33785e;
+    public volatile T f33789e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f33786f;
+    public volatile boolean f33790f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f33787g;
+    public volatile long f33791g;
 
     /* loaded from: classes4.dex */
     public interface a<T> {
@@ -67,12 +67,12 @@ public final class o<T> implements Loader.c {
     public final void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f fVar = new f(this.f33783c, this.f33781a);
+            f fVar = new f(this.f33787c, this.f33785a);
             try {
                 fVar.o();
-                this.f33785e = this.f33784d.a(this.f33783c.getUri(), fVar);
+                this.f33789e = this.f33788d.a(this.f33787c.getUri(), fVar);
             } finally {
-                this.f33787g = fVar.g();
+                this.f33791g = fVar.g();
                 v.i(fVar);
             }
         }
@@ -82,27 +82,27 @@ public final class o<T> implements Loader.c {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33786f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33790f : invokeV.booleanValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33787g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33791g : invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final void cancelLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f33786f = true;
+            this.f33790f = true;
         }
     }
 
     public final T d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33785e : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33789e : (T) invokeV.objValue;
     }
 
     public o(e eVar, g gVar, int i2, a<? extends T> aVar) {
@@ -120,9 +120,9 @@ public final class o<T> implements Loader.c {
                 return;
             }
         }
-        this.f33783c = eVar;
-        this.f33781a = gVar;
-        this.f33782b = i2;
-        this.f33784d = aVar;
+        this.f33787c = eVar;
+        this.f33785a = gVar;
+        this.f33786b = i2;
+        this.f33788d = aVar;
     }
 }

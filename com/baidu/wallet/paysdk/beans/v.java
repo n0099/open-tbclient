@@ -26,16 +26,16 @@ public class v extends BaseBean<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62712a;
+    public String f62747a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62713b;
+    public String f62748b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f62714c;
+    public boolean f62749c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f62715d;
+    public String f62750d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> v(Context context) {
@@ -55,27 +55,27 @@ public class v extends BaseBean<Object> {
                 return;
             }
         }
-        this.f62714c = true;
+        this.f62749c = true;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f62712a = str;
+            this.f62747a = str;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f62713b = str;
+            this.f62748b = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f62715d = str;
+            this.f62750d = str;
         }
     }
 
@@ -95,11 +95,11 @@ public class v extends BaseBean<Object> {
             ArrayList arrayList = new ArrayList();
             String seed = PasswordController.getSeed();
             String encryptProxy = SecurePay.getInstance().encryptProxy(seed);
-            if (this.f62714c) {
-                arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f62712a, seed)));
+            if (this.f62749c) {
+                arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f62747a, seed)));
                 arrayList.add(new RestNameValuePair("seed", encryptProxy));
             } else {
-                String generateOTPKey = WalletFingerprint.getInstance(this.mContext).generateOTPKey(this.f62713b);
+                String generateOTPKey = WalletFingerprint.getInstance(this.mContext).generateOTPKey(this.f62748b);
                 String sn = WalletFingerprint.getInstance(this.mContext).getSN();
                 if (!TextUtils.isEmpty(generateOTPKey) && !TextUtils.isEmpty(sn)) {
                     arrayList.add(new RestNameValuePair("token_code", SecurePay.getInstance().encrypt(generateOTPKey)));
@@ -113,8 +113,8 @@ public class v extends BaseBean<Object> {
             arrayList.add(new RestNameValuePair("request_type", BindFastRequest.getCardRequestType(1)));
             arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, ""));
             BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Initiative.name());
-            if (!TextUtils.isEmpty(this.f62715d)) {
-                arrayList.add(new RestNameValuePair("session_id", this.f62715d));
+            if (!TextUtils.isEmpty(this.f62750d)) {
+                arrayList.add(new RestNameValuePair("session_id", this.f62750d));
             } else if (bindFastRequest != null && !TextUtils.isEmpty(bindFastRequest.getSessionId())) {
                 arrayList.add(new RestNameValuePair("session_id", bindFastRequest.getSessionId()));
             } else {
@@ -148,7 +148,7 @@ public class v extends BaseBean<Object> {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f62714c = z;
+            this.f62749c = z;
         }
     }
 }

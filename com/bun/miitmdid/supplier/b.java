@@ -22,34 +22,34 @@ public class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f64292a;
+        public static final a f64327a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f64293b;
+        public static final a f64328b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f64294c;
+        public static final a f64329c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f64295d;
+        public static final a f64330d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f64296e;
+        public static final a f64331e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f64297f;
+        public static final a f64332f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f64298g;
+        public static final a f64333g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final a f64299h;
+        public static final a f64334h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final a f64300i;
+        public static final a f64335i;
 
         /* renamed from: j  reason: collision with root package name */
-        public static final a f64301j;
+        public static final a f64336j;
         public static final a k;
         public static final a l;
         public static final /* synthetic */ a[] o;
@@ -70,20 +70,20 @@ public class b {
                     return;
                 }
             }
-            f64292a = new a("UNSUPPORT", 0, -1, "unsupport");
-            f64293b = new a("HUA_WEI", 1, 0, "HUAWEI");
-            f64294c = new a("XIAOMI", 2, 1, "Xiaomi");
-            f64295d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-            f64296e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-            f64297f = new a("MOTO", 5, 4, "motorola");
-            f64298g = new a("LENOVO", 6, 5, "lenovo");
-            f64299h = new a("ASUS", 7, 6, "asus");
-            f64300i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
-            f64301j = new a("MEIZU", 9, 8, "meizu");
+            f64327a = new a("UNSUPPORT", 0, -1, "unsupport");
+            f64328b = new a("HUA_WEI", 1, 0, "HUAWEI");
+            f64329c = new a("XIAOMI", 2, 1, "Xiaomi");
+            f64330d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
+            f64331e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
+            f64332f = new a("MOTO", 5, 4, "motorola");
+            f64333g = new a("LENOVO", 6, 5, "lenovo");
+            f64334h = new a("ASUS", 7, 6, "asus");
+            f64335i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
+            f64336j = new a("MEIZU", 9, 8, "meizu");
             k = new a("ALPS", 10, 9, "alps");
             a aVar = new a(RomUtils.ROM_NUBIA, 11, 10, "nubia");
             l = aVar;
-            o = new a[]{f64292a, f64293b, f64294c, f64295d, f64296e, f64297f, f64298g, f64299h, f64300i, f64301j, k, aVar};
+            o = new a[]{f64327a, f64328b, f64329c, f64330d, f64331e, f64332f, f64333g, f64334h, f64335i, f64336j, k, aVar};
         }
 
         public a(String str, int i2, int i3, String str2) {
@@ -114,14 +114,14 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
                 if (TextUtils.isEmpty(str)) {
-                    return f64292a;
+                    return f64327a;
                 }
                 for (a aVar : values()) {
                     if (aVar.n.equalsIgnoreCase(str)) {
                         return aVar;
                     }
                 }
-                return f64292a;
+                return f64327a;
             }
             return (a) invokeL.objValue;
         }

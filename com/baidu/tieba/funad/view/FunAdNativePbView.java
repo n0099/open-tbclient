@@ -16,10 +16,10 @@ import androidx.cardview.widget.CardView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.q0.b.d;
 import c.a.q0.s.u.c;
-import c.a.r0.j3.i0.o;
-import c.a.r0.x0.a;
-import c.a.r0.y0.b;
-import c.a.r0.y0.f.a;
+import c.a.r0.k3.i0.o;
+import c.a.r0.y0.a;
+import c.a.r0.z0.b;
+import c.a.r0.z0.f.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -54,7 +54,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public View dividerView;
 
     /* renamed from: e  reason: collision with root package name */
-    public FunAdButton f51980e;
+    public FunAdButton f51907e;
     public ViewGroup funAdContainer;
     public ViewGroup mediaContainer;
     public FunAdNativePicView mediaImageView;
@@ -89,8 +89,8 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, funNativeAd, oVar) == null) {
             ChannelNativeAds_6 channelNativeAds_6 = funNativeAd.getChannelNativeAds_6();
-            this.f51980e.setTag(oVar);
-            a aVar = new a(this.f51980e, oVar);
+            this.f51907e.setTag(oVar);
+            a aVar = new a(this.f51907e, oVar);
             if (channelNativeAds_6 != null && (ksNativeAd = channelNativeAds_6.ksNative) != null) {
                 ksNativeAd.setDownloadListener(aVar);
             } else if (channelNativeAds_6 != null && (tTNativeAd = channelNativeAds_6.csjNative) != null) {
@@ -150,7 +150,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return c.a.r0.x0.a.b("pb", d.G() ? "1" : "0");
+            return c.a.r0.y0.a.b("pb", d.H() ? "1" : "0");
         }
         return (a.g) invokeV.objValue;
     }
@@ -254,11 +254,11 @@ public class FunAdNativePbView extends FunAbsAdView {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             WebPManager.setPureDrawable(this.pbFeedBackView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             SkinManager.setBackgroundColor(this.dividerView, R.color.CAM_X0204);
-            c.d(this.descriptionView).w(R.color.CAM_X0105);
-            c.d(this.adTitleView).w(R.color.CAM_X0109);
-            c.d(this.adLabel).w(R.color.CAM_X0101);
+            c.d(this.descriptionView).v(R.color.CAM_X0105);
+            c.d(this.adTitleView).v(R.color.CAM_X0109);
+            c.d(this.adLabel).v(R.color.CAM_X0101);
             c d2 = c.d(this.adLabelLayout);
-            d2.o(R.string.J_X01);
+            d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0606);
             this.adButton.onChangeSkinType();
             this.mediaImageView.onChangedSkinType();
@@ -278,7 +278,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.adButton.setVisibility(0);
-            this.f51980e = this.adButton;
+            this.f51907e = this.adButton;
         }
     }
 

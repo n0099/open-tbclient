@@ -65,7 +65,7 @@ public class a extends c<byte[]> {
         return invokeV.intValue;
     }
 
-    /* JADX WARN: Type inference failed for: r0v14, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r0v14, types: [byte[], T] */
     @Override // c.a.e.e.d.c
     public g<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         InterceptResult invokeLL;

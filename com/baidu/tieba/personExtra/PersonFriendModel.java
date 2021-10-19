@@ -25,17 +25,17 @@ public class PersonFriendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f56061g;
+    public static final String f55995g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f56062h;
+    public static TbHttpMessageTask f55996h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public h1 f56063e;
+    public h1 f55997e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f56064f;
+    public String f55998f;
 
     static {
         InterceptResult invokeClinit;
@@ -51,11 +51,11 @@ public class PersonFriendModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
-        f56061g = str;
+        f55995g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, str);
-        f56062h = tbHttpMessageTask;
+        f55996h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f56062h);
+        MessageManager.getInstance().registerTask(f55996h);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,18 +76,18 @@ public class PersonFriendModel extends BdBaseModel {
                 return;
             }
         }
-        this.f56063e = new h1();
+        this.f55997e = new h1();
     }
 
     public void A(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f56064f = str;
+            this.f55998f = str;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -96,20 +96,20 @@ public class PersonFriendModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56064f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55998f : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setSex(int i2) {
@@ -121,7 +121,7 @@ public class PersonFriendModel extends BdBaseModel {
     public h1 w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f56063e : (h1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55997e : (h1) invokeV.objValue;
     }
 
     public void x() {
@@ -149,7 +149,7 @@ public class PersonFriendModel extends BdBaseModel {
     public void z(h1 h1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h1Var) == null) {
-            this.f56063e = h1Var;
+            this.f55997e = h1Var;
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.channel.message;
 
-import c.a.r0.g1.b.a.a;
+import c.a.r0.h1.b.a.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

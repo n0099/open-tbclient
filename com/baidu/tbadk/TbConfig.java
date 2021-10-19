@@ -542,6 +542,7 @@ public class TbConfig {
     public static final String URL_CANCEL_FORBIDDEN_FORUM = "c/c/excellent/submitCancelDislike";
     public static final String URL_CANDIDATE_SEARCH = "c/f/bawu/search";
     public static final String URL_CHECK_BIG_V = "c/u/user/getvuserinfo";
+    public static final String URL_CHECK_INTEREST_COMMIT = "c/s/checkInterestCommit";
     public static final String URL_CHECK_REAL_NAME = "c/s/checkRealName";
     public static final String URL_CHECK_SHOW_INIT_NAME_DIALOG = "c/s/initNickname";
     public static final String URL_CHECK_VIDEO_STATUS = "c/c/video/uploadVideoStatus";
@@ -581,6 +582,7 @@ public class TbConfig {
     public static final String URL_GET_HOT_TOPIC_TAB = "c/f/forum/hotThreadList";
     public static final String URL_GET_INTEREST_LABEL_LIST = "c/f/recommtag/getTagList";
     public static final String URL_GET_RECOMMEND_GOD = "c/u/user/getRecommendGod";
+    public static final String URL_GET_RECOMMEND_TOPIC = "c/f/recommend/getRecommendTopic";
     public static final String URL_GET_STICKER_LIST = "c/f/story/getSticker";
     public static final String URL_GET_TAB_TOPIC_LIST = "c/f/recommend/newtopiclist";
     public static final String URL_GET_TOKEN = "c/s/getToken";

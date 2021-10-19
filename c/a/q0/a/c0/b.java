@@ -114,8 +114,8 @@ public class b {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.r0.j3.e0.a.h(309689, BackUserSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, c.a.r0.j3.e0.a.a(TbConfig.URL_BACK_USER, 309689));
+            c.a.r0.k3.e0.a.h(309689, BackUserSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, c.a.r0.k3.e0.a.a(TbConfig.URL_BACK_USER, 309689));
             tbHttpMessageTask.setResponsedClass(BackUserHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

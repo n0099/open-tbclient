@@ -44,7 +44,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
         public InnerQueuedObserver<R> current;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f79307d;
+        public Disposable f79342d;
         public volatile boolean done;
         public final AtomicThrowable error;
         public final ErrorMode errorMode;
@@ -147,7 +147,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
                             i3++;
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
-                            this.f79307d.dispose();
+                            this.f79342d.dispose();
                             simpleQueue.clear();
                             disposeAll();
                             this.error.addThrowable(th);
@@ -246,7 +246,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
             if (interceptable == null || interceptable.invokeLL(1048580, this, innerQueuedObserver, th) == null) {
                 if (this.error.addThrowable(th)) {
                     if (this.errorMode == ErrorMode.IMMEDIATE) {
-                        this.f79307d.dispose();
+                        this.f79342d.dispose();
                     }
                     innerQueuedObserver.setDone();
                     drain();
@@ -308,8 +308,8 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048586, this, disposable) == null) && DisposableHelper.validate(this.f79307d, disposable)) {
-                this.f79307d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048586, this, disposable) == null) && DisposableHelper.validate(this.f79342d, disposable)) {
+                this.f79342d = disposable;
                 if (disposable instanceof QueueDisposable) {
                     QueueDisposable queueDisposable = (QueueDisposable) disposable;
                     int requestFusion = queueDisposable.requestFusion(3);

@@ -14,10 +14,10 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile HandlerThread f31598a;
+    public static volatile HandlerThread f31602a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Handler f31599b;
+    public static volatile Handler f31603b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,16 +53,16 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f31598a == null) {
+            if (f31602a == null) {
                 synchronized (i.class) {
-                    if (f31598a == null) {
-                        f31598a = new HandlerThread("default_npth_thread");
-                        f31598a.start();
-                        f31599b = new Handler(f31598a.getLooper());
+                    if (f31602a == null) {
+                        f31602a = new HandlerThread("default_npth_thread");
+                        f31602a.start();
+                        f31603b = new Handler(f31602a.getLooper());
                     }
                 }
             }
-            return f31598a;
+            return f31602a;
         }
         return (HandlerThread) invokeV.objValue;
     }
@@ -71,10 +71,10 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f31599b == null) {
+            if (f31603b == null) {
                 a();
             }
-            return f31599b;
+            return f31603b;
         }
         return (Handler) invokeV.objValue;
     }

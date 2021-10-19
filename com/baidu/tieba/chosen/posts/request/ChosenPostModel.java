@@ -1,8 +1,8 @@
 package com.baidu.tieba.chosen.posts.request;
 
 import c.a.q0.k0.b.g;
-import c.a.r0.b0.a.d.a;
-import c.a.r0.b0.a.d.b;
+import c.a.r0.c0.a.d.a;
+import c.a.r0.c0.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

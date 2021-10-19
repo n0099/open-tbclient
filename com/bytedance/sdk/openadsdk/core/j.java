@@ -25,34 +25,34 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f66967a;
+    public static String f67002a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f66968b;
+    public static String f67003b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f66969c;
+    public static String f67004c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f66970d;
+    public static String f67005d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f66971e;
+    public static String f67006e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f66972f;
+    public static String f67007f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f66973g;
+    public static String f67008g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f66974h;
+    public static String f67009h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f66975i;
+    public static String f67010i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f66976j;
+    public static String f67011j;
     public static boolean k;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,7 +76,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             String a2 = h.a("sdk_local_rom", 604800000L);
-            f66973g = a2;
+            f67008g = a2;
             if (TextUtils.isEmpty(a2)) {
                 StringBuilder sb = new StringBuilder();
                 try {
@@ -95,18 +95,18 @@ public class j {
                         }
                         sb.append(Build.VERSION.INCREMENTAL);
                         String sb2 = sb.toString();
-                        f66973g = sb2;
+                        f67008g = sb2;
                         h.a("sdk_local_rom", sb2);
                     }
                     sb.append(str);
                     sb.append(Build.VERSION.INCREMENTAL);
                     String sb22 = sb.toString();
-                    f66973g = sb22;
+                    f67008g = sb22;
                     h.a("sdk_local_rom", sb22);
                 } catch (Exception unused) {
                 }
             }
-            return f66973g;
+            return f67008g;
         }
         return (String) invokeV.objValue;
     }
@@ -115,7 +115,7 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f66967a) && !k) {
+            if (TextUtils.isEmpty(f67002a) && !k) {
                 synchronized (j.class) {
                     if (!k) {
                         l(context);
@@ -123,14 +123,14 @@ public class j {
                 }
             }
             try {
-                if (TextUtils.isEmpty(f66967a) && com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                if (TextUtils.isEmpty(f67002a) && com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     String b2 = c.a(k(context)).b("did", (String) null);
-                    f66967a = b2;
+                    f67002a = b2;
                     com.bytedance.sdk.openadsdk.o.a.a(3, b2);
                 }
             } catch (Exception unused) {
             }
-            return f66967a;
+            return f67002a;
         }
         return (String) invokeL.objValue;
     }
@@ -194,15 +194,15 @@ public class j {
     public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
-            if (!TextUtils.isEmpty(str) && !str.equals(f66967a)) {
+            if (!TextUtils.isEmpty(str) && !str.equals(f67002a)) {
                 c.a(context).a("did", str);
-                f66967a = str;
+                f67002a = str;
                 com.bytedance.sdk.openadsdk.o.a.a(3, str);
             }
-            if (TextUtils.isEmpty(f66967a)) {
+            if (TextUtils.isEmpty(f67002a)) {
                 return;
             }
-            s.a().a(f66967a);
+            s.a().a(f67002a);
         }
     }
 
@@ -210,14 +210,14 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            if (f66974h == null && !k) {
+            if (f67009h == null && !k) {
                 synchronized (j.class) {
                     if (!k) {
                         l(context);
                     }
                 }
             }
-            return f66974h;
+            return f67009h;
         }
         return (String) invokeL.objValue;
     }
@@ -226,14 +226,14 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (TextUtils.isEmpty(f66968b) && !k) {
+            if (TextUtils.isEmpty(f67003b) && !k) {
                 synchronized (j.class) {
                     if (!k) {
                         l(context);
                     }
                 }
             }
-            return f66968b;
+            return f67003b;
         }
         return (String) invokeL.objValue;
     }
@@ -247,14 +247,14 @@ public class j {
                 com.bytedance.sdk.openadsdk.o.a.a(6, f2.getDevImei());
                 return f2.getDevImei();
             }
-            if (TextUtils.isEmpty(f66969c) && !k) {
+            if (TextUtils.isEmpty(f67004c) && !k) {
                 synchronized (j.class) {
                     if (!k) {
                         l(context);
                     }
                 }
             }
-            return f66969c;
+            return f67004c;
         }
         return (String) invokeL.objValue;
     }
@@ -263,14 +263,14 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (TextUtils.isEmpty(f66975i) && !k) {
+            if (TextUtils.isEmpty(f67010i) && !k) {
                 synchronized (j.class) {
                     if (!k) {
                         l(context);
                     }
                 }
             }
-            return f66975i;
+            return f67010i;
         }
         return (String) invokeL.objValue;
     }
@@ -281,14 +281,14 @@ public class j {
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             TTCustomController f2 = h.d().f();
             if (f2 == null || f2.isCanUsePhoneState()) {
-                if (TextUtils.isEmpty(f66972f) && !k) {
+                if (TextUtils.isEmpty(f67007f) && !k) {
                     synchronized (j.class) {
                         if (!k) {
                             l(context);
                         }
                     }
                 }
-                return f66972f;
+                return f67007f;
             }
             return null;
         }
@@ -301,14 +301,14 @@ public class j {
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             TTCustomController f2 = h.d().f();
             if (f2 == null || f2.isCanUseWifiState()) {
-                if (TextUtils.isEmpty(f66970d) && !k) {
+                if (TextUtils.isEmpty(f67005d) && !k) {
                     synchronized (j.class) {
                         if (!k) {
                             l(context);
                         }
                     }
                 }
-                return f66970d;
+                return f67005d;
             }
             return null;
         }
@@ -321,14 +321,14 @@ public class j {
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             TTCustomController f2 = h.d().f();
             if (f2 == null || f2.isCanUseWifiState()) {
-                if (TextUtils.isEmpty(f66971e) && !k) {
+                if (TextUtils.isEmpty(f67006e) && !k) {
                     synchronized (j.class) {
                         if (!k) {
                             l(context);
                         }
                     }
                 }
-                return f66971e;
+                return f67006e;
             }
             return null;
         }
@@ -341,14 +341,14 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
             if (Build.VERSION.SDK_INT < 28 || (f2 = h.d().f()) == null || f2.isCanUsePhoneState()) {
-                if (TextUtils.isEmpty(f66976j) && !k) {
+                if (TextUtils.isEmpty(f67011j) && !k) {
                     synchronized (j.class) {
                         if (!k) {
                             l(context);
                         }
                     }
                 }
-                return f66976j;
+                return f67011j;
             }
             return null;
         }
@@ -358,7 +358,7 @@ public class j {
     public static void j(Context context) {
         Context k2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65550, null, context) == null) && TextUtils.isEmpty(f66969c) && (k2 = k(context)) != null) {
+        if ((interceptable == null || interceptable.invokeL(65550, null, context) == null) && TextUtils.isEmpty(f67004c) && (k2 = k(context)) != null) {
             try {
                 m(k2);
             } catch (Exception unused) {
@@ -391,22 +391,22 @@ public class j {
                     WifiManager wifiManager = (WifiManager) k2.getSystemService("wifi");
                     WifiInfo connectionInfo = wifiManager != null ? wifiManager.getConnectionInfo() : null;
                     if (connectionInfo != null) {
-                        f66970d = connectionInfo.getSSID();
+                        f67005d = connectionInfo.getSSID();
                     }
-                    f66971e = a(wifiManager);
+                    f67006e = a(wifiManager);
                 } catch (Throwable unused2) {
                 }
             }
-            f66976j = Build.VERSION.SDK_INT >= 28 ? Build.getSerial() : Build.SERIAL;
+            f67011j = Build.VERSION.SDK_INT >= 28 ? Build.getSerial() : Build.SERIAL;
         } catch (Exception unused3) {
         }
-        f66968b = a(k2, true);
+        f67003b = a(k2, true);
         String b2 = c.a(k2).b("did", (String) null);
-        f66967a = b2;
+        f67002a = b2;
         com.bytedance.sdk.openadsdk.o.a.a(3, b2);
-        f66973g = a();
-        f66974h = String.valueOf(Build.TIME);
-        f66975i = c.a(k2).b("uuid", (String) null);
+        f67008g = a();
+        f67009h = String.valueOf(Build.TIME);
+        f67010i = c.a(k2).b("uuid", (String) null);
         k = true;
     }
 
@@ -419,9 +419,9 @@ public class j {
             TTCustomController f2 = h.d().f();
             if ((f2 == null || f2.isCanUsePhoneState()) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
                 String deviceId = telephonyManager.getDeviceId();
-                f66969c = deviceId;
+                f67004c = deviceId;
                 com.bytedance.sdk.openadsdk.o.a.a(6, deviceId);
-                f66972f = telephonyManager.getSubscriberId();
+                f67007f = telephonyManager.getSubscriberId();
             }
         }
     }

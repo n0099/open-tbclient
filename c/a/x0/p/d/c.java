@@ -21,31 +21,31 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaMuxer f31034a;
+    public MediaMuxer f31081a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MediaCodec f31035b;
+    public MediaCodec f31082b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MediaCodec.BufferInfo f31036c;
+    public MediaCodec.BufferInfo f31083c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f31037d;
+    public boolean f31084d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f31038e;
+    public long f31085e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f31039f;
+    public long f31086f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f31040g;
+    public int f31087g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f31041h;
+    public int f31088h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f31042i;
+    public volatile boolean f31089i;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class c {
                 return;
             }
         }
-        this.f31037d = false;
+        this.f31084d = false;
     }
 
     public static MediaCodecInfo b(String str) {
@@ -94,15 +94,15 @@ public class c {
                 if (c.a.x0.l.d.f.g(outputFormat) == 1) {
                     outputFormat.setString("qlc", "123adb");
                     outputFormat.setString("adc", "123adb");
-                    addTrack = this.f31034a.addTrack(outputFormat);
-                    this.f31040g = addTrack;
+                    addTrack = this.f31081a.addTrack(outputFormat);
+                    this.f31087g = addTrack;
                 } else {
-                    addTrack = this.f31034a.addTrack(outputFormat);
-                    this.f31041h = addTrack;
+                    addTrack = this.f31081a.addTrack(outputFormat);
+                    this.f31088h = addTrack;
                 }
-                if (this.f31040g != -1) {
-                    this.f31034a.start();
-                    this.f31042i = true;
+                if (this.f31087g != -1) {
+                    this.f31081a.start();
+                    this.f31089i = true;
                     notifyAll();
                 }
             }
@@ -119,8 +119,8 @@ public class c {
             } catch (Exception e2) {
                 String str = "stop exception occur: " + e2.getLocalizedMessage();
             }
-            boolean z = this.f31037d;
-            this.f31037d = false;
+            boolean z = this.f31084d;
+            this.f31084d = false;
         }
     }
 
@@ -136,9 +136,9 @@ public class c {
             createVideoFormat.setInteger("i-frame-interval", 5);
             createVideoFormat.setInteger("color-format", i4);
             MediaCodec createEncoderByType = MediaCodec.createEncoderByType("video/avc");
-            this.f31035b = createEncoderByType;
+            this.f31082b = createEncoderByType;
             createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-            this.f31035b.start();
+            this.f31082b.start();
             File file = new File(str);
             if (file.exists()) {
                 file.delete();
@@ -146,15 +146,15 @@ public class c {
             if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
             }
-            this.f31034a = new MediaMuxer(str, 0);
-            this.f31042i = false;
-            this.f31040g = -1;
-            this.f31041h = -1;
-            this.f31038e = -1L;
-            this.f31039f = -1L;
-            this.f31036c = new MediaCodec.BufferInfo();
+            this.f31081a = new MediaMuxer(str, 0);
+            this.f31089i = false;
+            this.f31087g = -1;
+            this.f31088h = -1;
+            this.f31085e = -1L;
+            this.f31086f = -1L;
+            this.f31083c = new MediaCodec.BufferInfo();
             new MediaCodec.BufferInfo();
-            this.f31037d = true;
+            this.f31084d = true;
         }
     }
 
@@ -163,7 +163,7 @@ public class c {
         if (interceptable != null && interceptable.invokeLL(1048579, this, mediaCodec, bufferInfo) != null) {
             return;
         }
-        int i2 = mediaCodec == this.f31035b ? this.f31040g : this.f31041h;
+        int i2 = mediaCodec == this.f31082b ? this.f31087g : this.f31088h;
         while (true) {
             ByteBuffer[] outputBuffers = mediaCodec.getOutputBuffers();
             while (true) {
@@ -184,13 +184,13 @@ public class c {
                                 throw new RuntimeException("drainEncoder get outputBuffer " + dequeueOutputBuffer + " was null");
                             }
                             synchronized (this) {
-                                if (!this.f31042i) {
+                                if (!this.f31089i) {
                                     wait();
                                 }
                             }
                             byteBuffer.position(bufferInfo.offset);
                             byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
-                            this.f31034a.writeSampleData(i2, byteBuffer, bufferInfo);
+                            this.f31081a.writeSampleData(i2, byteBuffer, bufferInfo);
                         }
                         mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
                     } else {
@@ -203,7 +203,7 @@ public class c {
 
     public final void f(MediaCodec mediaCodec, MediaCodec.BufferInfo bufferInfo, byte[] bArr, long j2) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{mediaCodec, bufferInfo, bArr, Long.valueOf(j2)}) == null) && this.f31037d) {
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{mediaCodec, bufferInfo, bArr, Long.valueOf(j2)}) == null) && this.f31084d) {
             int dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L);
             ByteBuffer byteBuffer = mediaCodec.getInputBuffers()[dequeueInputBuffer];
             if (dequeueInputBuffer >= 0) {
@@ -219,38 +219,38 @@ public class c {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bArr) == null) {
-            int i2 = (this.f31038e > (-1L) ? 1 : (this.f31038e == (-1L) ? 0 : -1));
+            int i2 = (this.f31085e > (-1L) ? 1 : (this.f31085e == (-1L) ? 0 : -1));
             long nanoTime = System.nanoTime();
             if (i2 == 0) {
-                this.f31038e = nanoTime;
+                this.f31085e = nanoTime;
                 j2 = 0;
             } else {
-                j2 = (nanoTime - this.f31038e) / 1000;
+                j2 = (nanoTime - this.f31085e) / 1000;
             }
-            long j3 = this.f31039f;
+            long j3 = this.f31086f;
             if (j2 <= j3) {
                 j2 += (j3 - j2) + 1000;
             }
             long j4 = j2;
-            this.f31039f = j4;
-            f(this.f31035b, this.f31036c, bArr, j4);
+            this.f31086f = j4;
+            f(this.f31082b, this.f31083c, bArr, j4);
         }
     }
 
     public final void h() throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MediaCodec mediaCodec = this.f31035b;
+            MediaCodec mediaCodec = this.f31082b;
             if (mediaCodec != null) {
                 mediaCodec.stop();
-                this.f31035b.release();
-                this.f31035b = null;
+                this.f31082b.release();
+                this.f31082b = null;
             }
-            MediaMuxer mediaMuxer = this.f31034a;
+            MediaMuxer mediaMuxer = this.f31081a;
             if (mediaMuxer != null) {
                 mediaMuxer.stop();
-                this.f31034a.release();
-                this.f31034a = null;
+                this.f31081a.release();
+                this.f31081a = null;
             }
         }
     }

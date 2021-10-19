@@ -1,6 +1,6 @@
 package com.baidu.tieba.enterForum.hotuserrank.model;
 
-import c.a.r0.n0.i.c.c;
+import c.a.r0.o0.i.c.c;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

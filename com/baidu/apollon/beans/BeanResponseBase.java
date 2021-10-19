@@ -18,13 +18,13 @@ public class BeanResponseBase implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37873a = "系统开小差，等一会儿再试吧";
+    public static final String f37877a = "系统开小差，等一会儿再试吧";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37874b = "content";
+    public static final String f37878b = "content";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f37875c = "data";
+    public static final String f37879c = "data";
     public transient /* synthetic */ FieldHolder $fh;
     public Session cashdesk;
     public JSONObject content;
@@ -141,7 +141,7 @@ public class BeanResponseBase implements NoProguard {
                 return this.err_msg;
             }
             if (TextUtils.isEmpty(this.result_info)) {
-                return !TextUtils.isEmpty(this.result_string) ? this.result_string : f37873a;
+                return !TextUtils.isEmpty(this.result_string) ? this.result_string : f37877a;
             }
             return this.result_info;
         }

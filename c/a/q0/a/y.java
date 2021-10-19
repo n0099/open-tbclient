@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.q0.a.e;
-import c.a.q0.d1.s0;
+import c.a.q0.d1.r0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -203,7 +203,7 @@ public class y {
             if (userData.isNewGod()) {
                 TextView textView4 = new TextView(pageActivity);
                 textView4.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-                textView4.setText(userData.getNewGodData().getFieldName() + s0.a(userData.getNewGodData()));
+                textView4.setText(userData.getNewGodData().getFieldName() + r0.a(userData.getNewGodData()));
                 textView4.setTextSize(0, (float) UtilHelper.getDimenPixelSize(R.dimen.T_X09));
                 linearLayout.addView(textView4);
                 textView4.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
@@ -258,7 +258,7 @@ public class y {
         textView6.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) viewGroup.findViewById(R.id.jump_user_detail_btn);
         c.a.q0.s.f0.n.b bVar = new c.a.q0.s.f0.n.b();
-        bVar.o(R.color.CAM_X0302, R.color.CAM_X0101);
+        bVar.p(R.color.CAM_X0302, R.color.CAM_X0101);
         tBSpecificationBtn.setTextSize(R.dimen.T_X05);
         tBSpecificationBtn.setConfig(bVar);
         tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.browse_user_detail));

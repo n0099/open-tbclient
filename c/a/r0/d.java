@@ -1,8 +1,8 @@
 package c.a.r0;
 
 import android.content.Intent;
-import c.a.r0.y2.s;
-import c.a.r0.y2.y;
+import c.a.r0.z2.s;
+import c.a.r0.z2.y;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -23,29 +23,29 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile d f17063h;
+    public static volatile d f16585h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f17064a;
+    public long f16586a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f17065b;
+    public boolean f16587b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.q0.l.c f17066c;
+    public c.a.q0.l.c f16588c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f17067d;
+    public CustomMessageListener f16589d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f17068e;
+    public CustomMessageListener f16590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f17069f;
+    public CustomMessageListener f16591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f17070g;
+    public CustomMessageListener f16592g;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -89,7 +89,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f17071a;
+        public final /* synthetic */ d f16593a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(d dVar, int i2) {
@@ -109,7 +109,7 @@ public class d {
                     return;
                 }
             }
-            this.f17071a = dVar;
+            this.f16593a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,7 +117,7 @@ public class d {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016521) {
-                this.f17071a.e();
+                this.f16593a.e();
             }
         }
     }
@@ -128,7 +128,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f17072a;
+        public final /* synthetic */ d f16594a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(d dVar, int i2) {
@@ -148,21 +148,21 @@ public class d {
                     return;
                 }
             }
-            this.f17072a = dVar;
+            this.f16594a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016520 || this.f17072a.f17064a == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016520 || this.f16594a.f16586a == 0) {
                 return;
             }
             Object data = customResponsedMessage.getData();
             if (data.getClass().getSimpleName().equals(LoginActivity.D)) {
                 return;
             }
-            if (this.f17072a.f()) {
+            if (this.f16594a.f()) {
                 if (data instanceof BaseActivity) {
                     BaseActivity baseActivity = (BaseActivity) data;
                     Intent intent = new Intent(baseActivity.getActivity(), LogoActivity.class);
@@ -185,15 +185,15 @@ public class d {
 
     /* renamed from: c.a.r0.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0821d extends CustomMessageListener {
+    public class C0793d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f17073a;
+        public final /* synthetic */ d f16595a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0821d(d dVar, int i2) {
+        public C0793d(d dVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -210,7 +210,7 @@ public class d {
                     return;
                 }
             }
-            this.f17073a = dVar;
+            this.f16595a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -222,8 +222,8 @@ public class d {
                 if (data instanceof Boolean) {
                     long currentTimeMillis = System.currentTimeMillis() / 1000;
                     if (((Boolean) data).booleanValue()) {
-                        d dVar = this.f17073a;
-                        dVar.f17065b = currentTimeMillis - dVar.f17064a <= 1;
+                        d dVar = this.f16595a;
+                        dVar.f16587b = currentTimeMillis - dVar.f16586a <= 1;
                     }
                 }
             }
@@ -243,15 +243,15 @@ public class d {
                 return;
             }
         }
-        this.f17067d = new a(this, 2016522);
-        this.f17068e = new b(this, 2016521);
-        this.f17069f = new c(this, 2016520);
-        this.f17070g = new C0821d(this, 2016523);
-        this.f17065b = false;
-        MessageManager.getInstance().registerListener(this.f17068e);
-        MessageManager.getInstance().registerListener(this.f17069f);
-        MessageManager.getInstance().registerListener(this.f17067d);
-        MessageManager.getInstance().registerListener(this.f17070g);
+        this.f16589d = new a(this, 2016522);
+        this.f16590e = new b(this, 2016521);
+        this.f16591f = new c(this, 2016520);
+        this.f16592g = new C0793d(this, 2016523);
+        this.f16587b = false;
+        MessageManager.getInstance().registerListener(this.f16590e);
+        MessageManager.getInstance().registerListener(this.f16591f);
+        MessageManager.getInstance().registerListener(this.f16589d);
+        MessageManager.getInstance().registerListener(this.f16592g);
         if (y.o().n() != null) {
             y.o().n().c();
         }
@@ -261,14 +261,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f17063h == null) {
+            if (f16585h == null) {
                 synchronized (d.class) {
-                    if (f17063h == null) {
-                        f17063h = new d();
+                    if (f16585h == null) {
+                        f16585h = new d();
                     }
                 }
             }
-            return f17063h;
+            return f16585h;
         }
         return (d) invokeV.objValue;
     }
@@ -276,7 +276,7 @@ public class d {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f17064a = System.currentTimeMillis() / 1000;
+            this.f16586a = System.currentTimeMillis() / 1000;
         }
     }
 
@@ -287,11 +287,11 @@ public class d {
             int h2 = h();
             int i2 = i();
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.f17065b) {
-                this.f17065b = false;
+            if (this.f16587b) {
+                this.f16587b = false;
                 return false;
             }
-            long j2 = this.f17064a;
+            long j2 = this.f16586a;
             if (currentTimeMillis - j2 > 2 && currentTimeMillis - j2 > h2) {
                 s n = y.o().n();
                 return (n != null ? n.a() : i2) < i2;
@@ -306,10 +306,10 @@ public class d {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f17066c == null && (runTask = MessageManager.getInstance().runTask(2921564, c.a.q0.l.c.class)) != null) {
-                this.f17066c = (c.a.q0.l.c) runTask.getData();
+            if (this.f16588c == null && (runTask = MessageManager.getInstance().runTask(2921564, c.a.q0.l.c.class)) != null) {
+                this.f16588c = (c.a.q0.l.c) runTask.getData();
             }
-            c.a.q0.l.c cVar = this.f17066c;
+            c.a.q0.l.c cVar = this.f16588c;
             if (cVar != null) {
                 return (int) (cVar.a() * 60.0f);
             }
@@ -331,10 +331,10 @@ public class d {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f17066c == null && (runTask = MessageManager.getInstance().runTask(2921564, c.a.q0.l.c.class)) != null) {
-                this.f17066c = (c.a.q0.l.c) runTask.getData();
+            if (this.f16588c == null && (runTask = MessageManager.getInstance().runTask(2921564, c.a.q0.l.c.class)) != null) {
+                this.f16588c = (c.a.q0.l.c) runTask.getData();
             }
-            c.a.q0.l.c cVar = this.f17066c;
+            c.a.q0.l.c cVar = this.f16588c;
             if (cVar != null) {
                 return cVar.b();
             }

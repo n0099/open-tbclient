@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.itemtab;
 
 import c.a.e.e.p.l;
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import c.a.q0.k0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
@@ -44,7 +44,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
             builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst()));
             builder.scr_dip = Integer.valueOf((int) l.h(TbadkCoreApplication.getInst()));
-            a0.c(builder, true, false, true);
+            z.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

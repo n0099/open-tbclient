@@ -21,25 +21,25 @@ public final class c implements SharedPreferences {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f45443a;
+    public SharedPreferences f45355a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f45444b;
+    public Context f45356b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45445c;
+    public int f45357c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SharedPreferences.Editor f45446d;
+    public SharedPreferences.Editor f45358d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f45447e;
+    public boolean f45359e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45448f;
+    public String f45360f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f45449g;
+    public String f45361g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(Context context, SharedPreferences sharedPreferences, String str, int i2) {
@@ -69,16 +69,16 @@ public final class c implements SharedPreferences {
             try {
                 Bundle bundle = new Bundle();
                 bundle.putString(AppDownloadNetworkStateReceiver.KEY_OPERATION, str);
-                bundle.putString("pref_name", this.f45448f);
+                bundle.putString("pref_name", this.f45360f);
                 bundle.putString("key", str2);
                 bundle.putString("defult_value", str3);
-                if (this.f45447e) {
-                    if (TextUtils.isEmpty(this.f45449g)) {
-                        return w.a(this.f45444b, "CallPreferences", bundle);
+                if (this.f45359e) {
+                    if (TextUtils.isEmpty(this.f45361g)) {
+                        return w.a(this.f45356b, "CallPreferences", bundle);
                     }
-                    return w.b(this.f45444b, "CallPreferences", bundle, this.f45449g);
+                    return w.b(this.f45356b, "CallPreferences", bundle, this.f45361g);
                 }
-                return w.a(this.f45444b, "CallPreferences", bundle);
+                return w.a(this.f45356b, "CallPreferences", bundle);
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
                 return null;
@@ -102,11 +102,11 @@ public final class c implements SharedPreferences {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            SharedPreferences.Editor editor = this.f45446d;
+            SharedPreferences.Editor editor = this.f45358d;
             if (editor != null) {
                 return editor;
             }
-            SharedPreferences sharedPreferences = this.f45443a;
+            SharedPreferences sharedPreferences = this.f45355a;
             if (sharedPreferences != null) {
                 return sharedPreferences.edit();
             }
@@ -134,8 +134,8 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f45445c == 1 && (!this.f45447e || TextUtils.isEmpty(this.f45449g))) {
-                return this.f45443a == null ? z : this.f45443a.getBoolean(str, z);
+            if (this.f45357c == 1 && (!this.f45359e || TextUtils.isEmpty(this.f45361g))) {
+                return this.f45355a == null ? z : this.f45355a.getBoolean(str, z);
             }
             Bundle a2 = a("getBoolean", str, String.valueOf(z));
             if (a2 != null) {
@@ -155,8 +155,8 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f45445c == 1 && (!this.f45447e || TextUtils.isEmpty(this.f45449g))) {
-                return this.f45443a == null ? f2 : this.f45443a.getFloat(str, f2);
+            if (this.f45357c == 1 && (!this.f45359e || TextUtils.isEmpty(this.f45361g))) {
+                return this.f45355a == null ? f2 : this.f45355a.getFloat(str, f2);
             }
             Bundle a2 = a("getFloat", str, String.valueOf(f2));
             if (a2 != null) {
@@ -176,8 +176,8 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f45445c == 1 && (!this.f45447e || TextUtils.isEmpty(this.f45449g))) {
-                return this.f45443a == null ? i2 : this.f45443a.getInt(str, i2);
+            if (this.f45357c == 1 && (!this.f45359e || TextUtils.isEmpty(this.f45361g))) {
+                return this.f45355a == null ? i2 : this.f45355a.getInt(str, i2);
             }
             Bundle a2 = a("getInt", str, String.valueOf(i2));
             if (a2 != null) {
@@ -197,8 +197,8 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f45445c == 1 && (!this.f45447e || TextUtils.isEmpty(this.f45449g))) {
-                return this.f45443a == null ? j2 : this.f45443a.getLong(str, j2);
+            if (this.f45357c == 1 && (!this.f45359e || TextUtils.isEmpty(this.f45361g))) {
+                return this.f45355a == null ? j2 : this.f45355a.getLong(str, j2);
             }
             Bundle a2 = a("getLong", str, String.valueOf(j2));
             if (a2 != null) {
@@ -218,8 +218,8 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f45445c == 1 && (!this.f45447e || TextUtils.isEmpty(this.f45449g))) {
-                return this.f45443a == null ? str2 : this.f45443a.getString(str, str2);
+            if (this.f45357c == 1 && (!this.f45359e || TextUtils.isEmpty(this.f45361g))) {
+                return this.f45355a == null ? str2 : this.f45355a.getString(str, str2);
             }
             Bundle a2 = a("getString", str, str2);
             if (a2 != null) {
@@ -245,8 +245,8 @@ public final class c implements SharedPreferences {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, onSharedPreferenceChangeListener) == null) {
             try {
-                if (this.f45443a != null) {
-                    this.f45443a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+                if (this.f45355a != null) {
+                    this.f45355a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
                 }
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
@@ -259,8 +259,8 @@ public final class c implements SharedPreferences {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, onSharedPreferenceChangeListener) == null) {
             try {
-                if (this.f45443a != null) {
-                    this.f45443a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+                if (this.f45355a != null) {
+                    this.f45355a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
                 }
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
@@ -283,12 +283,12 @@ public final class c implements SharedPreferences {
                 return;
             }
         }
-        this.f45444b = context;
-        this.f45445c = i2;
-        this.f45443a = sharedPreferences;
-        this.f45446d = new b(context, sharedPreferences != null ? sharedPreferences.edit() : null, str, z, this.f45445c);
-        this.f45447e = z;
-        this.f45448f = str;
-        this.f45449g = str2;
+        this.f45356b = context;
+        this.f45357c = i2;
+        this.f45355a = sharedPreferences;
+        this.f45358d = new b(context, sharedPreferences != null ? sharedPreferences.edit() : null, str, z, this.f45357c);
+        this.f45359e = z;
+        this.f45360f = str;
+        this.f45361g = str2;
     }
 }

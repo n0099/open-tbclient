@@ -64,34 +64,34 @@ public class a {
     public volatile long R;
 
     /* renamed from: a  reason: collision with root package name */
-    public WindowSurface f31106a;
+    public WindowSurface f31153a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EglCore f31107b;
+    public EglCore f31154b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FullFrameRect f31108c;
+    public FullFrameRect f31155c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f31109d;
+    public int f31156d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.x0.p.f.e f31110e;
+    public c.a.x0.p.f.e f31157e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.x0.p.f.b f31111f;
+    public c.a.x0.p.f.b f31158f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.x0.p.f.d f31112g;
+    public c.a.x0.p.f.d f31159g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile g f31113h;
+    public volatile g f31160h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Object f31114i;
+    public Object f31161i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f31115j;
+    public boolean f31162j;
     public boolean k;
     public int l;
     public b m;
@@ -111,7 +111,7 @@ public class a {
 
     /* renamed from: c.a.x0.p.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1431a {
+    public static /* synthetic */ class C1434a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -134,7 +134,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f31116e;
+        public final /* synthetic */ a f31163e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -151,10 +151,10 @@ public class a {
                     return;
                 }
             }
-            this.f31116e = aVar;
+            this.f31163e = aVar;
         }
 
-        public /* synthetic */ c(a aVar, C1431a c1431a) {
+        public /* synthetic */ c(a aVar, C1434a c1434a) {
             this(aVar);
         }
 
@@ -168,49 +168,49 @@ public class a {
                 c.a.x0.g.a aVar = (c.a.x0.g.a) s.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
                 if (aVar != null) {
                     aVar.init(i2, 1);
-                    aVar.setSpeed(this.f31116e.w);
+                    aVar.setSpeed(this.f31163e.w);
                 }
-                synchronized (this.f31116e.I) {
-                    while (!this.f31116e.J) {
+                synchronized (this.f31163e.I) {
+                    while (!this.f31163e.J) {
                         try {
-                            this.f31116e.I.wait();
+                            this.f31163e.I.wait();
                         } catch (InterruptedException e2) {
                             e2.printStackTrace();
                         }
                     }
                 }
                 try {
-                    c.a.x0.p.f.c cVar = new c.a.x0.p.f.c(this.f31116e.A);
+                    c.a.x0.p.f.c cVar = new c.a.x0.p.f.c(this.f31163e.A);
                     if (cVar.d() != null) {
-                        this.f31116e.v = true;
-                        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(c.a.x0.p.f.c.f31134d);
+                        this.f31163e.v = true;
+                        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(c.a.x0.p.f.c.f31181d);
                         ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(10240);
                         cVar.c();
                         if (cVar.e() != 3) {
-                            a aVar2 = this.f31116e;
+                            a aVar2 = this.f31163e;
                             aVar2.e(1114, "音频开始录制失败 " + cVar.e());
                             cVar.b();
-                            this.f31116e.f31111f.d();
+                            this.f31163e.f31158f.d();
                             return;
                         }
-                        this.f31116e.l = 1;
-                        while (!this.f31116e.O) {
+                        this.f31163e.l = 1;
+                        while (!this.f31163e.O) {
                             try {
                                 allocateDirect.clear();
                                 allocateDirect2.clear();
-                                int a2 = cVar.a(allocateDirect, c.a.x0.p.f.c.f31134d);
-                                if (this.f31116e.C && this.f31116e.B != null) {
+                                int a2 = cVar.a(allocateDirect, c.a.x0.p.f.c.f31181d);
+                                if (this.f31163e.C && this.f31163e.B != null) {
                                     double a3 = c.a.x0.p.i.a.a(allocateDirect, a2);
                                     if (a3 > 0.0d) {
-                                        this.f31116e.B.a(a3);
+                                        this.f31163e.B.a(a3);
                                     }
                                 }
                                 if (a2 > 0) {
                                     if (aVar == null) {
                                         allocateDirect.position(a2);
                                         allocateDirect.flip();
-                                        this.f31116e.f31111f.b(allocateDirect, 0, a2, this.f31116e.G());
-                                        bVar = this.f31116e.f31111f;
+                                        this.f31163e.f31158f.b(allocateDirect, 0, a2, this.f31163e.G());
+                                        bVar = this.f31163e.f31158f;
                                     } else {
                                         byte[] bArr = new byte[a2];
                                         allocateDirect.get(bArr);
@@ -221,7 +221,7 @@ public class a {
                                         if (availableBytes > 0) {
                                             byte[] bArr2 = new byte[availableBytes];
                                             aVar.receiveBytes(bArr2, availableBytes);
-                                            if (this.f31116e.D) {
+                                            if (this.f31163e.D) {
                                                 byte[] k = c.a.x0.l.d.g.k(bArr2, 4.0d);
                                                 if (k != null) {
                                                     availableBytes = k.length;
@@ -233,8 +233,8 @@ public class a {
                                             int i3 = availableBytes;
                                             allocateDirect2.position(i3);
                                             allocateDirect2.flip();
-                                            this.f31116e.f31111f.b(allocateDirect2, 0, i3, this.f31116e.G());
-                                            bVar = this.f31116e.f31111f;
+                                            this.f31163e.f31158f.b(allocateDirect2, 0, i3, this.f31163e.G());
+                                            bVar = this.f31163e.f31158f;
                                         }
                                     }
                                     bVar.c();
@@ -243,26 +243,26 @@ public class a {
                                 cVar.b();
                             }
                         }
-                        this.f31116e.f31111f.b(null, 0, 0, this.f31116e.G());
-                        this.f31116e.f31111f.c();
+                        this.f31163e.f31158f.b(null, 0, 0, this.f31163e.G());
+                        this.f31163e.f31158f.c();
                         cVar.b();
-                        this.f31116e.f31111f.d();
+                        this.f31163e.f31158f.d();
                     } else {
                         c.a.x0.t.c.e(TextureMovieEncoder.TAG, "failed to initialize AudioRecord");
                     }
                 } catch (Exception e3) {
                     c.a.x0.t.c.f(TextureMovieEncoder.TAG, "AudioThread#run", e3);
                     c.a.x0.t.c.g(e3);
-                    if (this.f31116e.l != 6) {
-                        this.f31116e.l = 6;
+                    if (this.f31163e.l != 6) {
+                        this.f31163e.l = 6;
                         String message = e3.getMessage();
-                        a aVar3 = this.f31116e;
+                        a aVar3 = this.f31163e;
                         aVar3.e(1115, "结束音频编码错误" + message);
                     }
                 }
-                synchronized (this.f31116e.K) {
-                    this.f31116e.L = true;
-                    this.f31116e.K.notifyAll();
+                synchronized (this.f31163e.K) {
+                    this.f31163e.L = true;
+                    this.f31163e.K.notifyAll();
                 }
             }
         }
@@ -274,25 +274,25 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final File f31117a;
+        public final File f31164a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f31118b;
+        public final int f31165b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f31119c;
+        public final int f31166c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f31120d;
+        public final int f31167d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final EGLContext f31121e;
+        public final EGLContext f31168e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f31122f;
+        public final long f31169f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f31123g;
+        public int f31170g;
 
         public d(File file, int i2, int i3, int i4, int i5, EGLContext eGLContext, long j2, int i6) {
             Interceptable interceptable = $ic;
@@ -309,25 +309,25 @@ public class a {
                     return;
                 }
             }
-            this.f31123g = 10000;
-            this.f31117a = file;
-            this.f31118b = i2;
-            this.f31119c = i3;
-            this.f31120d = i4;
+            this.f31170g = 10000;
+            this.f31164a = file;
+            this.f31165b = i2;
+            this.f31166c = i3;
+            this.f31167d = i4;
             if (eGLContext != null) {
-                this.f31121e = eGLContext;
+                this.f31168e = eGLContext;
             } else {
-                this.f31121e = EGL14.eglGetCurrentContext();
+                this.f31168e = EGL14.eglGetCurrentContext();
             }
-            this.f31122f = j2;
-            this.f31123g = i6;
+            this.f31169f = j2;
+            this.f31170g = i6;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "EncoderConfig: " + this.f31118b + "x" + this.f31119c + CoroutineContextKt.DEBUG_THREAD_NAME_SEPARATOR + this.f31120d + " to '" + this.f31117a.toString() + "' ctxt=" + this.f31121e;
+                return "EncoderConfig: " + this.f31165b + "x" + this.f31166c + CoroutineContextKt.DEBUG_THREAD_NAME_SEPARATOR + this.f31167d + " to '" + this.f31164a.toString() + "' ctxt=" + this.f31168e;
             }
             return (String) invokeV.objValue;
         }
@@ -349,7 +349,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<a> f31124a;
+        public WeakReference<a> f31171a;
 
         public g(a aVar) {
             Interceptable interceptable = $ic;
@@ -366,7 +366,7 @@ public class a {
                     return;
                 }
             }
-            this.f31124a = new WeakReference<>(aVar);
+            this.f31171a = new WeakReference<>(aVar);
         }
 
         @Override // android.os.Handler
@@ -375,7 +375,7 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 Object obj = message.obj;
-                a aVar = this.f31124a.get();
+                a aVar = this.f31171a.get();
                 if (aVar == null) {
                     c.a.x0.t.c.l(TextureMovieEncoder.TAG, "VideoEncoderHandler.handleMessage: encoder is null");
                 } else if (i2 == 0) {
@@ -409,7 +409,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f31125e;
+        public final /* synthetic */ a f31172e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(a aVar, String str) {
@@ -429,7 +429,7 @@ public class a {
                     return;
                 }
             }
-            this.f31125e = aVar;
+            this.f31172e = aVar;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -437,18 +437,18 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Looper.prepare();
-                synchronized (this.f31125e.f31114i) {
-                    this.f31125e.f31113h = new g(this.f31125e);
-                    this.f31125e.f31115j = true;
-                    this.f31125e.f31114i.notifyAll();
+                synchronized (this.f31172e.f31161i) {
+                    this.f31172e.f31160h = new g(this.f31172e);
+                    this.f31172e.f31162j = true;
+                    this.f31172e.f31161i.notifyAll();
                 }
                 Looper.loop();
                 c.a.x0.t.c.c(TextureMovieEncoder.TAG, "Encoder thread exiting");
-                synchronized (this.f31125e.f31114i) {
-                    a aVar = this.f31125e;
-                    this.f31125e.k = false;
-                    aVar.f31115j = false;
-                    this.f31125e.f31113h = null;
+                synchronized (this.f31172e.f31161i) {
+                    a aVar = this.f31172e;
+                    this.f31172e.k = false;
+                    aVar.f31162j = false;
+                    this.f31172e.f31160h = null;
                 }
             }
         }
@@ -482,7 +482,7 @@ public class a {
                 return;
             }
         }
-        this.f31114i = new Object();
+        this.f31161i = new Object();
         this.l = 4;
         this.o = 0L;
         this.p = 0L;
@@ -529,7 +529,7 @@ public class a {
             c.a.x0.t.c.c(TextureMovieEncoder.TAG, "handleStartRecording " + dVar);
             this.H = dVar;
             c.a.x0.m.a aVar = new c.a.x0.m.a();
-            if (w(dVar.f31121e, dVar.f31118b, dVar.f31119c, dVar.f31120d, dVar.f31117a, aVar)) {
+            if (w(dVar.f31168e, dVar.f31165b, dVar.f31166c, dVar.f31167d, dVar.f31164a, aVar)) {
                 this.O = false;
                 b bVar = this.m;
                 if (bVar != null) {
@@ -537,7 +537,7 @@ public class a {
                 }
             } else if (this.l != 6) {
                 this.l = 6;
-                String str = aVar.f31016e;
+                String str = aVar.f31063e;
                 e(1111, "开始录制编码错误" + dVar.toString() + " , 错误信息：" + str);
             }
         }
@@ -578,7 +578,7 @@ public class a {
     public final void H(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f31109d = i2;
+            this.f31156d = i2;
         }
     }
 
@@ -616,7 +616,7 @@ public class a {
             c.a.x0.t.c.c(TextureMovieEncoder.TAG, "handleStopRecording");
             this.O = true;
             try {
-                this.f31110e.c(true);
+                this.f31157e.c(true);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -648,18 +648,18 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             try {
-                this.f31110e.d();
-                if (this.f31106a != null) {
-                    this.f31106a.release();
-                    this.f31106a = null;
+                this.f31157e.d();
+                if (this.f31153a != null) {
+                    this.f31153a.release();
+                    this.f31153a = null;
                 }
-                if (this.f31108c != null) {
-                    this.f31108c.release(false);
-                    this.f31108c = null;
+                if (this.f31155c != null) {
+                    this.f31155c.release(false);
+                    this.f31155c = null;
                 }
-                if (this.f31107b != null) {
-                    this.f31107b.release();
-                    this.f31107b = null;
+                if (this.f31154b != null) {
+                    this.f31154b.release();
+                    this.f31154b = null;
                 }
             } catch (Exception e2) {
                 c.a.x0.t.c.g(e2);
@@ -670,30 +670,30 @@ public class a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this.f31114i) {
-                while (!this.f31115j) {
+            synchronized (this.f31161i) {
+                while (!this.f31162j) {
                     try {
-                        this.f31114i.wait();
+                        this.f31161i.wait();
                     } catch (InterruptedException unused) {
                     }
                 }
             }
             this.s = 0;
-            c.a.x0.p.f.d dVar = this.f31112g;
+            c.a.x0.p.f.d dVar = this.f31159g;
             if (dVar == null || !dVar.e()) {
                 this.O = true;
-                c.a.x0.p.f.e eVar = this.f31110e;
+                c.a.x0.p.f.e eVar = this.f31157e;
                 if (eVar != null) {
                     eVar.e();
                 }
-                c.a.x0.p.f.b bVar = this.f31111f;
+                c.a.x0.p.f.b bVar = this.f31158f;
                 if (bVar != null) {
                     bVar.a();
                 }
             }
             this.l = 4;
-            this.f31113h.sendMessage(this.f31113h.obtainMessage(1));
-            this.f31113h.sendMessage(this.f31113h.obtainMessage(5));
+            this.f31160h.sendMessage(this.f31160h.obtainMessage(1));
+            this.f31160h.sendMessage(this.f31160h.obtainMessage(5));
         }
     }
 
@@ -727,8 +727,8 @@ public class a {
     public void f(SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, surfaceTexture) == null) {
-            synchronized (this.f31114i) {
-                if (this.f31115j) {
+            synchronized (this.f31161i) {
+                if (this.f31162j) {
                     synchronized (this.I) {
                         if (!this.J && this.N) {
                             this.J = true;
@@ -746,7 +746,7 @@ public class a {
                         if (timestamp == 0) {
                             c.a.x0.t.c.l(TextureMovieEncoder.TAG, "HEY: got SurfaceTexture with timestamp of zero");
                         } else {
-                            this.f31113h.sendMessage(this.f31113h.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
+                            this.f31160h.sendMessage(this.f31160h.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
                         }
                     }
                 }
@@ -758,23 +758,23 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, eGLContext) == null) {
             c.a.x0.t.c.c(TextureMovieEncoder.TAG, "handleUpdatedSharedContext " + eGLContext);
-            WindowSurface windowSurface = this.f31106a;
+            WindowSurface windowSurface = this.f31153a;
             if (windowSurface != null) {
                 windowSurface.releaseEglSurface();
             }
-            this.f31108c.release(false);
-            EglCore eglCore = this.f31107b;
+            this.f31155c.release(false);
+            EglCore eglCore = this.f31154b;
             if (eglCore != null) {
                 eglCore.release();
             }
             EglCore eglCore2 = new EglCore(eGLContext, 2);
-            this.f31107b = eglCore2;
-            WindowSurface windowSurface2 = this.f31106a;
+            this.f31154b = eglCore2;
+            WindowSurface windowSurface2 = this.f31153a;
             if (windowSurface2 != null) {
                 windowSurface2.recreate(eglCore2);
-                this.f31106a.makeCurrent();
+                this.f31153a.makeCurrent();
             }
-            this.f31108c = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+            this.f31155c = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
         }
     }
 
@@ -800,9 +800,9 @@ public class a {
         GLES20.glBindFramebuffer(36160, 0);
         GLES20.glDeleteFramebuffers(1, iArr2, 0);
         GLES20.glViewport(iArr[0], iArr[1], iArr[2], iArr[3]);
-        synchronized (this.f31114i) {
-            if (this.f31115j) {
-                this.f31113h.sendMessage(this.f31113h.obtainMessage(3, this.s, 0, null));
+        synchronized (this.f31161i) {
+            if (this.f31162j) {
+                this.f31160h.sendMessage(this.f31160h.obtainMessage(3, this.s, 0, null));
             }
         }
     }
@@ -817,8 +817,8 @@ public class a {
     public void j(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, dVar) == null) {
-            this.t = dVar.f31118b;
-            this.u = dVar.f31119c;
+            this.t = dVar.f31165b;
+            this.u = dVar.f31166c;
             int[] iArr = new int[1];
             GLES20.glGenTextures(1, iArr, 0);
             int i2 = iArr[0];
@@ -831,11 +831,11 @@ public class a {
             GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.t, this.u, 0, GeneratedTexture.FORMAT, 5121, null);
             GLES20.glBindTexture(3553, 0);
             this.l = 5;
-            this.o = dVar.f31122f;
+            this.o = dVar.f31169f;
             this.p = System.nanoTime();
             this.q = 0L;
             this.r = 0L;
-            synchronized (this.f31114i) {
+            synchronized (this.f31161i) {
                 if (this.k) {
                     c.a.x0.t.c.l(TextureMovieEncoder.TAG, "Encoder thread already running");
                     if (this.l != 6) {
@@ -847,14 +847,14 @@ public class a {
                 this.k = true;
                 new h(this, "TextureMovieVideoEncoder").start();
                 new c(this, null).start();
-                while (!this.f31115j) {
+                while (!this.f31162j) {
                     try {
-                        this.f31114i.wait();
+                        this.f31161i.wait();
                     } catch (InterruptedException unused) {
                     }
                 }
                 this.y = -1L;
-                this.f31113h.sendMessage(this.f31113h.obtainMessage(0, dVar));
+                this.f31160h.sendMessage(this.f31160h.obtainMessage(0, dVar));
             }
         }
     }
@@ -896,7 +896,7 @@ public class a {
             }
             if (this.s != 0) {
                 try {
-                    this.f31110e.c(false);
+                    this.f31157e.c(false);
                 } catch (Exception e2) {
                     c.a.x0.t.c.g(e2);
                     if (this.l != 6) {
@@ -906,21 +906,21 @@ public class a {
                     }
                 }
                 d dVar = this.H;
-                GLES20.glViewport(0, 0, dVar.f31118b, dVar.f31119c);
+                GLES20.glViewport(0, 0, dVar.f31165b, dVar.f31166c);
                 synchronized (a.class) {
                     if (this.x != 0.0f) {
-                        this.f31108c.setAngle(this.x);
+                        this.f31155c.setAngle(this.x);
                     }
-                    this.f31108c.drawFrame(this.f31109d, fArr);
+                    this.f31155c.drawFrame(this.f31156d, fArr);
                 }
-                if (this.f31106a != null) {
+                if (this.f31153a != null) {
                     long z = z();
                     if (this.y == -1) {
                         this.y = z;
                         this.z = 0L;
                     }
-                    this.f31106a.setPresentationTime(z * 1000);
-                    this.f31106a.swapBuffers();
+                    this.f31153a.setPresentationTime(z * 1000);
+                    this.f31153a.swapBuffers();
                     long j3 = z - this.y;
                     this.z = j3;
                     e eVar = this.n;
@@ -1035,33 +1035,33 @@ public class a {
             try {
                 if (this.D) {
                     RecordConstants.MOVIE_ENCODE_SAMPLE_RATE = 16000;
-                    c.a.x0.p.f.c.f31133c = 16000;
+                    c.a.x0.p.f.c.f31180c = 16000;
                     RecordConstants.AUDIO_ENCODE_SAMPLE_RATE = 16000;
                 } else {
                     RecordConstants.MOVIE_ENCODE_SAMPLE_RATE = 44100;
                     RecordConstants.AUDIO_ENCODE_SAMPLE_RATE = 44100;
-                    c.a.x0.p.f.c.f31133c = 44100;
+                    c.a.x0.p.f.c.f31180c = 44100;
                 }
                 this.M = file.toString();
-                this.f31112g = new c.a.x0.p.f.d(file.toString());
+                this.f31159g = new c.a.x0.p.f.d(file.toString());
                 if (this.F && Build.VERSION.SDK_INT <= 23) {
                     this.F = v(i2, i3, new File(file.toString()).getParent());
                 }
-                c.a.x0.p.f.e eVar = new c.a.x0.p.f.e(i2, i3, i4, this.F, this.f31112g);
-                this.f31110e = eVar;
-                eVar.b(this.H.f31123g);
-                this.f31111f = new c.a.x0.p.f.b(this.f31112g);
+                c.a.x0.p.f.e eVar = new c.a.x0.p.f.e(i2, i3, i4, this.F, this.f31159g);
+                this.f31157e = eVar;
+                eVar.b(this.H.f31170g);
+                this.f31158f = new c.a.x0.p.f.b(this.f31159g);
                 this.N = true;
                 EglCore eglCore = new EglCore(eGLContext, 2);
-                this.f31107b = eglCore;
-                WindowSurface windowSurface = new WindowSurface(eglCore, this.f31110e.a(), true);
-                this.f31106a = windowSurface;
+                this.f31154b = eglCore;
+                WindowSurface windowSurface = new WindowSurface(eglCore, this.f31157e.a(), true);
+                this.f31153a = windowSurface;
                 windowSurface.makeCurrent();
-                this.f31108c = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+                this.f31155c = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
                 return true;
             } catch (IOException e2) {
                 if (aVar != null && !TextUtils.isEmpty(e2.getMessage())) {
-                    aVar.f31016e = e2.getMessage();
+                    aVar.f31063e = e2.getMessage();
                 }
                 c.a.x0.t.c.g(e2);
                 return false;
@@ -1070,7 +1070,7 @@ public class a {
                 if (aVar != null && !TextUtils.isEmpty(e.getMessage())) {
                     message = e.getMessage();
                     e = e;
-                    aVar.f31016e = message;
+                    aVar.f31063e = message;
                 }
                 c.a.x0.t.c.g(e);
                 this.N = false;
@@ -1080,7 +1080,7 @@ public class a {
                 if (aVar != null && !TextUtils.isEmpty(e.getMessage())) {
                     message = e.getMessage();
                     e = e;
-                    aVar.f31016e = message;
+                    aVar.f31063e = message;
                 }
                 c.a.x0.t.c.g(e);
                 this.N = false;

@@ -1,7 +1,7 @@
 package com.baidu.tieba.easterEgg;
 
 import android.app.Fragment;
-import c.a.r0.k0.a;
+import c.a.r0.l0.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;

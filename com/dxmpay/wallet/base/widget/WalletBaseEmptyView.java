@@ -21,22 +21,22 @@ public class WalletBaseEmptyView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f70025e;
+    public ImageView f70060e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f70026f;
+    public TextView f70061f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f70027g;
+    public TextView f70062g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f70028h;
+    public Button f70063h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f70029i;
+    public View f70064i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f70030j;
+    public View f70065j;
     public EmptyBtnClickListener k;
     public boolean l;
 
@@ -51,7 +51,7 @@ public class WalletBaseEmptyView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WalletBaseEmptyView f70031e;
+        public final /* synthetic */ WalletBaseEmptyView f70066e;
 
         public a(WalletBaseEmptyView walletBaseEmptyView) {
             Interceptable interceptable = $ic;
@@ -68,19 +68,19 @@ public class WalletBaseEmptyView extends LinearLayout {
                     return;
                 }
             }
-            this.f70031e = walletBaseEmptyView;
+            this.f70066e = walletBaseEmptyView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f70031e.k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f70066e.k == null) {
                 return;
             }
-            if (this.f70031e.l) {
-                this.f70031e.showLoadingPage(true);
+            if (this.f70066e.l) {
+                this.f70066e.showLoadingPage(true);
             }
-            this.f70031e.k.onBtnClick();
+            this.f70066e.k.onBtnClick();
         }
     }
 
@@ -110,20 +110,20 @@ public class WalletBaseEmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(ResUtils.layout(context, "dxm_wallet_base_empty_layout"), this);
-            this.f70025e = (ImageView) findViewById(ResUtils.id(context, "empty_image"));
-            this.f70026f = (TextView) findViewById(ResUtils.id(context, "empty_tip_1"));
-            this.f70027g = (TextView) findViewById(ResUtils.id(context, "empty_tip_2"));
-            this.f70028h = (Button) findViewById(ResUtils.id(context, "reload_btn"));
-            this.f70029i = findViewById(ResUtils.id(context, "progress_layout"));
-            this.f70030j = findViewById(ResUtils.id(context, "reload_layout"));
-            this.f70028h.setOnClickListener(new a(this));
+            this.f70060e = (ImageView) findViewById(ResUtils.id(context, "empty_image"));
+            this.f70061f = (TextView) findViewById(ResUtils.id(context, "empty_tip_1"));
+            this.f70062g = (TextView) findViewById(ResUtils.id(context, "empty_tip_2"));
+            this.f70063h = (Button) findViewById(ResUtils.id(context, "reload_btn"));
+            this.f70064i = findViewById(ResUtils.id(context, "progress_layout"));
+            this.f70065j = findViewById(ResUtils.id(context, "reload_layout"));
+            this.f70063h.setOnClickListener(new a(this));
         }
     }
 
     public void setRetryBtnVisiablity(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f70028h.setVisibility(i2);
+            this.f70063h.setVisibility(i2);
         }
     }
 
@@ -145,12 +145,12 @@ public class WalletBaseEmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
-                this.f70029i.setVisibility(0);
-                this.f70030j.setVisibility(8);
+                this.f70064i.setVisibility(0);
+                this.f70065j.setVisibility(8);
                 return;
             }
-            this.f70029i.setVisibility(8);
-            this.f70030j.setVisibility(0);
+            this.f70064i.setVisibility(8);
+            this.f70065j.setVisibility(0);
         }
     }
 
@@ -158,10 +158,10 @@ public class WalletBaseEmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, charSequence) == null) {
             showLoadingPage(false);
-            this.f70025e.setBackgroundResource(i2);
-            this.f70026f.setText(charSequence);
-            this.f70027g.setVisibility(4);
-            this.f70028h.setVisibility(8);
+            this.f70060e.setBackgroundResource(i2);
+            this.f70061f.setText(charSequence);
+            this.f70062g.setVisibility(4);
+            this.f70063h.setVisibility(8);
         }
     }
 
@@ -169,11 +169,11 @@ public class WalletBaseEmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), charSequence, charSequence2, emptyBtnClickListener}) == null) {
             showLoadingPage(false);
-            this.f70025e.setBackgroundResource(i2);
-            this.f70026f.setText(charSequence);
-            this.f70027g.setVisibility(4);
-            this.f70028h.setVisibility(0);
-            this.f70028h.setText(charSequence2);
+            this.f70060e.setBackgroundResource(i2);
+            this.f70061f.setText(charSequence);
+            this.f70062g.setVisibility(4);
+            this.f70063h.setVisibility(0);
+            this.f70063h.setText(charSequence2);
             this.k = emptyBtnClickListener;
         }
     }
@@ -182,11 +182,11 @@ public class WalletBaseEmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048583, this, i2, charSequence, charSequence2) == null) {
             showLoadingPage(false);
-            this.f70025e.setBackgroundResource(i2);
-            this.f70026f.setText(charSequence);
-            this.f70027g.setVisibility(0);
-            this.f70027g.setText(charSequence2);
-            this.f70028h.setVisibility(8);
+            this.f70060e.setBackgroundResource(i2);
+            this.f70061f.setText(charSequence);
+            this.f70062g.setVisibility(0);
+            this.f70062g.setText(charSequence2);
+            this.f70063h.setVisibility(8);
         }
     }
 
@@ -194,12 +194,12 @@ public class WalletBaseEmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), charSequence, charSequence2, charSequence3, emptyBtnClickListener}) == null) {
             showLoadingPage(false);
-            this.f70025e.setBackgroundResource(i2);
-            this.f70026f.setText(charSequence);
-            this.f70027g.setVisibility(0);
-            this.f70027g.setText(charSequence2);
-            this.f70028h.setVisibility(0);
-            this.f70028h.setText(charSequence3);
+            this.f70060e.setBackgroundResource(i2);
+            this.f70061f.setText(charSequence);
+            this.f70062g.setVisibility(0);
+            this.f70062g.setText(charSequence2);
+            this.f70063h.setVisibility(0);
+            this.f70063h.setText(charSequence3);
             this.k = emptyBtnClickListener;
         }
     }

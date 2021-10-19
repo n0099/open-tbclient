@@ -1,6 +1,6 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
-import c.a.r0.l2.b;
+import c.a.r0.m2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;

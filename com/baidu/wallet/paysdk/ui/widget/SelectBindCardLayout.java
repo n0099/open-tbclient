@@ -34,13 +34,13 @@ public class SelectBindCardLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f63602a;
+    public BindFastRequest f63637a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f63603b;
+    public boolean f63638b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f63604c;
+    public b f63639c;
 
     /* loaded from: classes8.dex */
     public class BindCardItemView extends LinearLayout {
@@ -48,19 +48,19 @@ public class SelectBindCardLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectBindCardLayout f63610a;
+        public final /* synthetic */ SelectBindCardLayout f63645a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetImageView f63611b;
+        public NetImageView f63646b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f63612c;
+        public TextView f63647c;
 
         /* renamed from: d  reason: collision with root package name */
-        public BorderTipTextView f63613d;
+        public BorderTipTextView f63648d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ProgressBar f63614e;
+        public ProgressBar f63649e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public BindCardItemView(SelectBindCardLayout selectBindCardLayout, Context context) {
@@ -80,40 +80,40 @@ public class SelectBindCardLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f63610a = selectBindCardLayout;
+            this.f63645a = selectBindCardLayout;
             View inflate = LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_cashdesk_select_bindcard_list_item_view"), this);
-            this.f63611b = (NetImageView) inflate.findViewById(ResUtils.id(getContext(), "ebpay_paytype_logo"));
-            this.f63612c = (TextView) inflate.findViewById(ResUtils.id(getContext(), "paytype_name"));
-            this.f63613d = (BorderTipTextView) inflate.findViewById(ResUtils.id(getContext(), "paytype_tip"));
+            this.f63646b = (NetImageView) inflate.findViewById(ResUtils.id(getContext(), "ebpay_paytype_logo"));
+            this.f63647c = (TextView) inflate.findViewById(ResUtils.id(getContext(), "paytype_name"));
+            this.f63648d = (BorderTipTextView) inflate.findViewById(ResUtils.id(getContext(), "paytype_tip"));
             ProgressBar progressBar = (ProgressBar) findViewById(ResUtils.id(getContext(), "ebpay_mini_progress_bar"));
-            this.f63614e = progressBar;
+            this.f63649e = progressBar;
             progressBar.setVisibility(8);
         }
 
         public void setData(CardData.BondCard bondCard) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bondCard) == null) {
-                this.f63611b.setImageUrl(bondCard.bank_url);
+                this.f63646b.setImageUrl(bondCard.bank_url);
                 findViewById(ResUtils.id(getContext(), "paytype_recommended")).setVisibility(bondCard != null && "1".equals(bondCard.is_recommended) ? 0 : 4);
-                this.f63612c.setText(bondCard.getCardDesc(getContext(), true));
-                if (this.f63610a.f63602a.mBindFrom != 4 && this.f63610a.f63602a.mBindFrom != 5) {
+                this.f63647c.setText(bondCard.getCardDesc(getContext(), true));
+                if (this.f63645a.f63637a.mBindFrom != 4 && this.f63645a.f63637a.mBindFrom != 5) {
                     if ("1".equals(bondCard.card_state) && !TextUtils.isEmpty(bondCard.channelDiscountDesc)) {
                         TextView textView = (TextView) findViewById(ResUtils.id(getContext(), "paytype_free_amount"));
                         textView.setVisibility(0);
                         textView.setText(bondCard.channelDiscountDesc);
                     }
                     if (!TextUtils.isEmpty(bondCard.bank_card_msg)) {
-                        this.f63613d.setVisibility(0);
-                        this.f63613d.setText(bondCard.bank_card_msg);
-                        this.f63613d.setVisibility(0);
+                        this.f63648d.setVisibility(0);
+                        this.f63648d.setText(bondCard.bank_card_msg);
+                        this.f63648d.setVisibility(0);
                         return;
                     }
-                    this.f63613d.setVisibility(8);
+                    this.f63648d.setVisibility(8);
                 } else if (!bondCard.getCanFindPWDBySms() && !TextUtils.isEmpty(bondCard.unsupport_find_pwd_msg)) {
-                    this.f63613d.setVisibility(0);
-                    this.f63613d.setText(bondCard.unsupport_find_pwd_msg);
+                    this.f63648d.setVisibility(0);
+                    this.f63648d.setText(bondCard.unsupport_find_pwd_msg);
                 } else {
-                    this.f63613d.setVisibility(8);
+                    this.f63648d.setVisibility(8);
                 }
             }
         }
@@ -121,7 +121,7 @@ public class SelectBindCardLayout extends LinearLayout {
         public void setProgressBarVisible(boolean z) {
             ProgressBar progressBar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (progressBar = this.f63614e) == null) {
+            if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (progressBar = this.f63649e) == null) {
                 return;
             }
             progressBar.setVisibility(z ? 0 : 8);
@@ -134,7 +134,7 @@ public class SelectBindCardLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectBindCardLayout f63615a;
+        public final /* synthetic */ SelectBindCardLayout f63650a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SelectBindCardLayout selectBindCardLayout, Context context) {
@@ -154,7 +154,7 @@ public class SelectBindCardLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f63615a = selectBindCardLayout;
+            this.f63650a = selectBindCardLayout;
             a(context);
         }
 
@@ -205,12 +205,12 @@ public class SelectBindCardLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, bondCardArr, z) == null) {
             CardData.BondCard[] a2 = a(bondCardArr);
-            this.f63603b = false;
+            this.f63638b = false;
             removeAllViews();
             if (a2 == null || a2.length <= 0) {
                 return;
             }
-            if (this.f63602a.mBindFrom == 2) {
+            if (this.f63637a.mBindFrom == 2) {
                 TextView textView = (TextView) LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_title_left"), (ViewGroup) null);
                 textView.setText(ResUtils.getString(getContext(), "wallet_bindcard_selectcard_tip"));
                 int dimension = (int) ResUtils.getDimension(getContext(), "dxm_wallet_base_margin");
@@ -232,13 +232,13 @@ public class SelectBindCardLayout extends LinearLayout {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ BindCardItemView f63605a;
+                        public final /* synthetic */ BindCardItemView f63640a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ CardData.BondCard f63606b;
+                        public final /* synthetic */ CardData.BondCard f63641b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ SelectBindCardLayout f63607c;
+                        public final /* synthetic */ SelectBindCardLayout f63642c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -255,18 +255,18 @@ public class SelectBindCardLayout extends LinearLayout {
                                     return;
                                 }
                             }
-                            this.f63607c = this;
-                            this.f63605a = bindCardItemView;
-                            this.f63606b = bondCard;
+                            this.f63642c = this;
+                            this.f63640a = bindCardItemView;
+                            this.f63641b = bondCard;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f63607c.f63604c == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f63642c.f63639c == null) {
                                 return;
                             }
-                            this.f63607c.f63604c.enableCardClick(this.f63605a, this.f63606b);
+                            this.f63642c.f63639c.enableCardClick(this.f63640a, this.f63641b);
                         }
                     });
                     linearLayout.addView(bindCardItemView);
@@ -287,20 +287,20 @@ public class SelectBindCardLayout extends LinearLayout {
     public void setBindCardItemClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f63604c = bVar;
+            this.f63639c = bVar;
         }
     }
 
     public void setBindFrom(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f63602a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BindFastRequest.categoryToId(BindFastRequest.getCategory(i2)));
+            this.f63637a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BindFastRequest.categoryToId(BindFastRequest.getCategory(i2)));
         }
     }
 
     private void a(ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65538, this, viewGroup, z) == null) || this.f63603b) {
+        if (!(interceptable == null || interceptable.invokeLZ(65538, this, viewGroup, z) == null) || this.f63638b) {
             return;
         }
         a aVar = new a(this, getContext());
@@ -313,10 +313,10 @@ public class SelectBindCardLayout extends LinearLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ boolean f63608a;
+            public final /* synthetic */ boolean f63643a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ SelectBindCardLayout f63609b;
+            public final /* synthetic */ SelectBindCardLayout f63644b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -333,27 +333,27 @@ public class SelectBindCardLayout extends LinearLayout {
                         return;
                     }
                 }
-                this.f63609b = this;
-                this.f63608a = z;
+                this.f63644b = this;
+                this.f63643a = z;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    if (this.f63608a) {
-                        if (this.f63609b.f63604c != null) {
-                            this.f63609b.f63604c.addNewCardClick();
+                    if (this.f63643a) {
+                        if (this.f63644b.f63639c != null) {
+                            this.f63644b.f63639c.addNewCardClick();
                             return;
                         }
                         return;
                     }
-                    GlobalUtils.toast(this.f63609b.getContext(), ResUtils.getString(this.f63609b.getContext(), "ebpay_bank_count_beyond"));
+                    GlobalUtils.toast(this.f63644b.getContext(), ResUtils.getString(this.f63644b.getContext(), "ebpay_bank_count_beyond"));
                 }
             }
         });
         viewGroup.addView(aVar);
-        this.f63603b = true;
+        this.f63638b = true;
     }
 
     private CardData.BondCard[] a(CardData.BondCard[] bondCardArr) {
@@ -384,7 +384,7 @@ public class SelectBindCardLayout extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, bondCard)) == null) {
-            int i2 = this.f63602a.mBindFrom;
+            int i2 = this.f63637a.mBindFrom;
             if (i2 != 4 && i2 != 5) {
                 if ("1".equals(bondCard.card_state)) {
                     return true;

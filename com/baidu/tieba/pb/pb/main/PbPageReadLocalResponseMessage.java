@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.j2.h.e;
+import c.a.r0.k2.h.e;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,10 +50,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         if (getError() == 0 && pbPageResIdl.data != null) {
             e eVar = new e();
             this.pbData = eVar;
-            eVar.v0(1);
+            eVar.w0(1);
             try {
-                this.pbData.u0(pbPageResIdl.data, this.context);
-                if (!this.pbData.o0()) {
+                this.pbData.v0(pbPageResIdl.data, this.context);
+                if (!this.pbData.p0()) {
                     this.pbData = null;
                 } else if (!isMarkCache() || this.pbData.u() == null || this.pbData.u().equals(this.postId)) {
                 } else {

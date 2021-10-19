@@ -110,19 +110,19 @@ public class BdNetTask implements INoProGuard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f64235a;
+        public static final b f64270a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f64236b;
+        public static final b f64271b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f64237c;
+        public static final b f64272c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f64238d;
+        public static final b f64273d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ b[] f64239e;
+        public static final /* synthetic */ b[] f64274e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -138,12 +138,12 @@ public class BdNetTask implements INoProGuard {
                     return;
                 }
             }
-            f64235a = new b("PRIORITY_HIGHER", 0);
-            f64236b = new b("PRIORITY_NORMAL", 1);
-            f64237c = new b("PRIORITY_LOWER", 2);
+            f64270a = new b("PRIORITY_HIGHER", 0);
+            f64271b = new b("PRIORITY_NORMAL", 1);
+            f64272c = new b("PRIORITY_LOWER", 2);
             b bVar = new b("PRIORITY_IDLE", 3);
-            f64238d = bVar;
-            f64239e = new b[]{f64235a, f64236b, f64237c, bVar};
+            f64273d = bVar;
+            f64274e = new b[]{f64270a, f64271b, f64272c, bVar};
         }
 
         public b(String str, int i2) {
@@ -174,7 +174,7 @@ public class BdNetTask implements INoProGuard {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f64239e.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f64274e.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -217,7 +217,7 @@ public class BdNetTask implements INoProGuard {
         this.mConnectionTimeOut = 0;
         this.mFollowRedirects = true;
         this.isUseCorenet = true;
-        this.mTaskPriority = b.f64236b;
+        this.mTaskPriority = b.f64271b;
     }
 
     private void clearForRecycle() {
@@ -467,7 +467,7 @@ public class BdNetTask implements INoProGuard {
     public boolean isHigherPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mTaskPriority == b.f64235a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mTaskPriority == b.f64270a : invokeV.booleanValue;
     }
 
     public boolean isRedirect() {

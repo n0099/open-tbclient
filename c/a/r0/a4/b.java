@@ -1,152 +1,44 @@
 package c.a.r0.a4;
 
-import c.a.e.e.j.a.e;
-import c.a.e.e.p.k;
-import c.a.e.e.p.q;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes3.dex */
-public class b extends BdAsyncTask<Void, Void, String> {
+public class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f15861d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f15862a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f15863b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public a f15864c;
-
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(boolean z, String str, String str2);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1779307978, "Lc/a/r0/a4/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1779307978, "Lc/a/r0/a4/b;");
-                return;
-            }
-        }
-        f15861d = File.separator;
-    }
-
-    public b(String str, String str2, a aVar) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ENTER_VIDEO_PAGE);
+            if (TextUtils.isEmpty(str)) {
+                statisticItem.param("obj_type", "1");
+            } else {
+                statisticItem.param("obj_type", "2");
+                statisticItem.param("obj_id", str);
             }
-        }
-        this.f15862a = str;
-        this.f15863b = str2;
-        this.f15864c = aVar;
-    }
-
-    public final void b(File file) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, file) == null) || k.isEmpty(this.f15862a)) {
-            return;
-        }
-        File file2 = new File(this.f15862a);
-        if (!file2.exists() || (listFiles = file2.listFiles()) == null) {
-            return;
-        }
-        for (File file3 : listFiles) {
-            if (file3 != null && !file3.equals(file)) {
-                FileHelper.deleteFileOrDir(file3);
-            }
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: c */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
+    public static void b(String str, boolean z, long j2, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (!k.isEmpty(this.f15862a) && !k.isEmpty(this.f15863b)) {
-                new File(this.f15862a).mkdirs();
-                String str = this.f15862a + f15861d + "videosplash.temp";
-                File file = new File(str);
-                if (file.exists()) {
-                    file.delete();
-                }
-                e eVar = new e();
-                eVar.b().s(this.f15863b);
-                if (new c.a.e.e.j.a.c(eVar).c(str, null, 3, 3000, -1, -1, true, true)) {
-                    return d();
-                }
-            }
-            return "";
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Boolean.valueOf(z), Long.valueOf(j2), str2, str3, str4}) == null) {
         }
-        return (String) invokeL.objValue;
     }
 
-    public final String d() {
-        InterceptResult invokeV;
+    public static void c(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            File file = new File(this.f15862a + f15861d + "videosplash.temp");
-            StringBuilder sb = new StringBuilder();
-            sb.append(q.c(this.f15863b));
-            sb.append(".mp4");
-            String sb2 = sb.toString();
-            File file2 = new File(this.f15862a + f15861d + sb2);
-            if (file2.exists()) {
-                file2.delete();
-            }
-            if (file.renameTo(file2)) {
-                b(file2);
-                return file2.getAbsolutePath();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f15864c == null) {
-            return;
-        }
-        if (!k.isEmpty(str)) {
-            this.f15864c.a(true, str, this.f15863b);
-        } else {
-            this.f15864c.a(false, null, null);
+        if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_ACCOUNT_EXPOSURE);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_type", i2);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

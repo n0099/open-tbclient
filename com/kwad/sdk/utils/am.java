@@ -15,7 +15,7 @@ public class am {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f74208a = "";
+    public static String f74243a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -100,7 +100,7 @@ public class am {
     public static String d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? !TextUtils.isEmpty(f74208a) ? f74208a : context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("appTag", "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? !TextUtils.isEmpty(f74243a) ? f74243a : context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("appTag", "") : (String) invokeL.objValue;
     }
 
     public static void d(@NonNull Context context, String str) {
@@ -139,7 +139,7 @@ public class am {
     public static void h(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, context, str) == null) {
-            f74208a = str;
+            f74243a = str;
             if (context == null) {
                 return;
             }

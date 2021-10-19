@@ -67,7 +67,7 @@ public class q {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof c.a.r0.j3.r0.k) && ((c.a.r0.j3.r0.k) data).f21130b) {
+            if ((data instanceof c.a.r0.k3.r0.k) && ((c.a.r0.k3.r0.k) data).f21310b) {
                 this.f12653a.e();
             }
         }

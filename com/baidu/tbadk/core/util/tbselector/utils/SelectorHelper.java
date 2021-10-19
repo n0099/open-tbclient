@@ -9,7 +9,7 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.j3.c;
+import c.a.r0.k3.c;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;

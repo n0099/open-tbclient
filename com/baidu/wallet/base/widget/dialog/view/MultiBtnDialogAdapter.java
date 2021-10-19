@@ -19,7 +19,7 @@ public class MultiBtnDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MultiBtnDialogModel f60872a;
+    public MultiBtnDialogModel f60907a;
 
     /* loaded from: classes8.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
@@ -27,7 +27,7 @@ public class MultiBtnDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MultiBtnDialogAdapter f60873a;
+        public final /* synthetic */ MultiBtnDialogAdapter f60908a;
         public final MultiBtnDialogBinding binding;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,7 +48,7 @@ public class MultiBtnDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
                     return;
                 }
             }
-            this.f60873a = multiBtnDialogAdapter;
+            this.f60908a = multiBtnDialogAdapter;
             this.binding = multiBtnDialogBinding;
         }
     }
@@ -68,7 +68,7 @@ public class MultiBtnDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
                 return;
             }
         }
-        this.f60872a = multiBtnDialogModel;
+        this.f60907a = multiBtnDialogModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class MultiBtnDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public void onBindViewHolder(BaseHolder baseHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseHolder) == null) {
-            baseHolder.binding.setViewModel(this.f60872a);
+            baseHolder.binding.setViewModel(this.f60907a);
         }
     }
 

@@ -21,7 +21,7 @@ public abstract class BaseItemLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f61390d;
+    public int f61425d;
     public HomeCfgResponse.ConfigData mConfigData;
     public b mWalletHomeInterface;
 
@@ -43,7 +43,7 @@ public abstract class BaseItemLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f61390d = -1;
+        this.f61425d = -1;
     }
 
     public void dispatchShowPoint(String str) {
@@ -103,11 +103,11 @@ public abstract class BaseItemLayout extends RelativeLayout {
     public void setConfigData(HomeCfgResponse.ConfigData configData, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, configData, bVar) == null) {
-            if (this.mConfigData == null || ((bVar instanceof WalletNewHomeActivity.r) && ((WalletNewHomeActivity.r) bVar).f61343a.f61324a > this.f61390d)) {
+            if (this.mConfigData == null || ((bVar instanceof WalletNewHomeActivity.r) && ((WalletNewHomeActivity.r) bVar).f61378a.f61359a > this.f61425d)) {
                 this.mConfigData = configData;
                 this.mWalletHomeInterface = bVar;
                 if (bVar instanceof WalletNewHomeActivity.r) {
-                    this.f61390d = ((WalletNewHomeActivity.r) bVar).f61343a.f61324a;
+                    this.f61425d = ((WalletNewHomeActivity.r) bVar).f61378a.f61359a;
                 }
                 if (!isDataValid() || this.mWalletHomeInterface == null) {
                     return;
@@ -146,6 +146,6 @@ public abstract class BaseItemLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f61390d = -1;
+        this.f61425d = -1;
     }
 }

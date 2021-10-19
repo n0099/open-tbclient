@@ -23,35 +23,35 @@ public class c implements i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final ArrayList<String> f35415j;
+    public static final ArrayList<String> f35419j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f35416a;
+    public final String f35420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<com.ss.android.socialbase.downloader.model.c> f35417b;
+    public List<com.ss.android.socialbase.downloader.model.c> f35421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f35418c;
+    public Map<String, String> f35422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35419d;
+    public int f35423d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f35420e;
+    public long f35424e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f35421f;
+    public final Object f35425f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f35422g;
+    public boolean f35426g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f35423h;
+    public boolean f35427h;
 
     /* renamed from: i  reason: collision with root package name */
-    public i f35424i;
+    public i f35428i;
 
     static {
         InterceptResult invokeClinit;
@@ -67,13 +67,13 @@ public class c implements i {
             }
         }
         ArrayList<String> arrayList = new ArrayList<>(6);
-        f35415j = arrayList;
+        f35419j = arrayList;
         arrayList.add("Content-Length");
-        f35415j.add("Content-Range");
-        f35415j.add("Transfer-Encoding");
-        f35415j.add(Util.ACCEPT_RANGES);
-        f35415j.add(Util.ETAG);
-        f35415j.add("Content-Disposition");
+        f35419j.add("Content-Range");
+        f35419j.add("Transfer-Encoding");
+        f35419j.add(Util.ACCEPT_RANGES);
+        f35419j.add(Util.ETAG);
+        f35419j.add("Content-Disposition");
     }
 
     public c(String str, List<com.ss.android.socialbase.downloader.model.c> list, long j2) {
@@ -91,10 +91,10 @@ public class c implements i {
                 return;
             }
         }
-        this.f35418c = null;
-        this.f35421f = new Object();
-        this.f35416a = str;
-        this.f35417b = list;
+        this.f35422c = null;
+        this.f35425f = new Object();
+        this.f35420a = str;
+        this.f35421b = list;
     }
 
     @Override // c.p.a.e.b.o.i
@@ -102,11 +102,11 @@ public class c implements i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Map<String, String> map = this.f35418c;
+            Map<String, String> map = this.f35422c;
             if (map != null) {
                 return map.get(str);
             }
-            i iVar = this.f35424i;
+            i iVar = this.f35428i;
             if (iVar != null) {
                 return iVar.a(str);
             }
@@ -119,14 +119,14 @@ public class c implements i {
     public int b() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35419d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35423d : invokeV.intValue;
     }
 
     @Override // c.p.a.e.b.o.i
     public void c() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (iVar = this.f35424i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (iVar = this.f35428i) == null) {
             return;
         }
         iVar.c();
@@ -135,9 +135,9 @@ public class c implements i {
     public void d() throws InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this.f35421f) {
-                if (this.f35423h && this.f35418c == null) {
-                    this.f35421f.wait();
+            synchronized (this.f35425f) {
+                if (this.f35427h && this.f35422c == null) {
+                    this.f35425f.wait();
                 }
             }
         }
@@ -146,34 +146,34 @@ public class c implements i {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public void e() throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f35418c == null) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f35422c == null) {
             try {
-                this.f35423h = true;
-                this.f35424i = e.x(this.f35416a, this.f35417b);
-                synchronized (this.f35421f) {
-                    if (this.f35424i != null) {
+                this.f35427h = true;
+                this.f35428i = e.x(this.f35420a, this.f35421b);
+                synchronized (this.f35425f) {
+                    if (this.f35428i != null) {
                         HashMap hashMap = new HashMap();
-                        this.f35418c = hashMap;
-                        f(this.f35424i, hashMap);
-                        this.f35419d = this.f35424i.b();
-                        this.f35420e = System.currentTimeMillis();
-                        this.f35422g = g(this.f35419d);
+                        this.f35422c = hashMap;
+                        f(this.f35428i, hashMap);
+                        this.f35423d = this.f35428i.b();
+                        this.f35424e = System.currentTimeMillis();
+                        this.f35426g = g(this.f35423d);
                     }
-                    this.f35423h = false;
-                    this.f35421f.notifyAll();
+                    this.f35427h = false;
+                    this.f35425f.notifyAll();
                 }
             } catch (Throwable th) {
-                synchronized (this.f35421f) {
-                    if (this.f35424i != null) {
+                synchronized (this.f35425f) {
+                    if (this.f35428i != null) {
                         HashMap hashMap2 = new HashMap();
-                        this.f35418c = hashMap2;
-                        f(this.f35424i, hashMap2);
-                        this.f35419d = this.f35424i.b();
-                        this.f35420e = System.currentTimeMillis();
-                        this.f35422g = g(this.f35419d);
+                        this.f35422c = hashMap2;
+                        f(this.f35428i, hashMap2);
+                        this.f35423d = this.f35428i.b();
+                        this.f35424e = System.currentTimeMillis();
+                        this.f35426g = g(this.f35423d);
                     }
-                    this.f35423h = false;
-                    this.f35421f.notifyAll();
+                    this.f35427h = false;
+                    this.f35425f.notifyAll();
                     throw th;
                 }
             }
@@ -185,7 +185,7 @@ public class c implements i {
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, iVar, map) == null) || iVar == null || map == null) {
             return;
         }
-        Iterator<String> it = f35415j.iterator();
+        Iterator<String> it = f35419j.iterator();
         while (it.hasNext()) {
             String next = it.next();
             map.put(next, iVar.a(next));
@@ -201,30 +201,30 @@ public class c implements i {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f35422g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f35426g : invokeV.booleanValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? System.currentTimeMillis() - this.f35420e < b.f35412d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? System.currentTimeMillis() - this.f35424e < b.f35416d : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f35423h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f35427h : invokeV.booleanValue;
     }
 
     public List<com.ss.android.socialbase.downloader.model.c> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f35417b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f35421b : (List) invokeV.objValue;
     }
 
     public Map<String, String> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f35418c : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f35422c : (Map) invokeV.objValue;
     }
 }

@@ -26,42 +26,42 @@ public class a extends ThreadPoolExecutor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f65331a;
+    public String f65366a;
 
     /* renamed from: com.bytedance.sdk.component.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1891a {
+    public static class C1893a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f65339a;
+        public String f65374a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f65340b;
+        public int f65375b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f65341c;
+        public long f65376c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TimeUnit f65342d;
+        public TimeUnit f65377d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f65343e;
+        public int f65378e;
 
         /* renamed from: f  reason: collision with root package name */
-        public BlockingQueue<Runnable> f65344f;
+        public BlockingQueue<Runnable> f65379f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ThreadFactory f65345g;
+        public ThreadFactory f65380g;
 
         /* renamed from: h  reason: collision with root package name */
-        public RejectedExecutionHandler f65346h;
+        public RejectedExecutionHandler f65381h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f65347i;
+        public int f65382i;
 
-        public C1891a() {
+        public C1893a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,100 +74,100 @@ public class a extends ThreadPoolExecutor {
                     return;
                 }
             }
-            this.f65339a = "io";
-            this.f65340b = 1;
-            this.f65341c = 30L;
-            this.f65342d = TimeUnit.SECONDS;
-            this.f65343e = Integer.MAX_VALUE;
-            this.f65344f = null;
-            this.f65345g = null;
-            this.f65347i = 5;
+            this.f65374a = "io";
+            this.f65375b = 1;
+            this.f65376c = 30L;
+            this.f65377d = TimeUnit.SECONDS;
+            this.f65378e = Integer.MAX_VALUE;
+            this.f65379f = null;
+            this.f65380g = null;
+            this.f65382i = 5;
         }
 
-        public C1891a a(String str) {
+        public C1893a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f65339a = str;
+                this.f65374a = str;
                 return this;
             }
-            return (C1891a) invokeL.objValue;
+            return (C1893a) invokeL.objValue;
         }
 
-        public C1891a b(int i2) {
+        public C1893a b(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-                this.f65347i = i2;
+                this.f65382i = i2;
                 return this;
             }
-            return (C1891a) invokeI.objValue;
+            return (C1893a) invokeI.objValue;
         }
 
-        public C1891a a(int i2) {
+        public C1893a a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f65340b = i2;
+                this.f65375b = i2;
                 return this;
             }
-            return (C1891a) invokeI.objValue;
+            return (C1893a) invokeI.objValue;
         }
 
-        public C1891a a(long j2) {
+        public C1893a a(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-                this.f65341c = j2;
+                this.f65376c = j2;
                 return this;
             }
-            return (C1891a) invokeJ.objValue;
+            return (C1893a) invokeJ.objValue;
         }
 
-        public C1891a a(TimeUnit timeUnit) {
+        public C1893a a(TimeUnit timeUnit) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, timeUnit)) == null) {
-                this.f65342d = timeUnit;
+                this.f65377d = timeUnit;
                 return this;
             }
-            return (C1891a) invokeL.objValue;
+            return (C1893a) invokeL.objValue;
         }
 
-        public C1891a a(BlockingQueue<Runnable> blockingQueue) {
+        public C1893a a(BlockingQueue<Runnable> blockingQueue) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, blockingQueue)) == null) {
-                this.f65344f = blockingQueue;
+                this.f65379f = blockingQueue;
                 return this;
             }
-            return (C1891a) invokeL.objValue;
+            return (C1893a) invokeL.objValue;
         }
 
-        public C1891a a(RejectedExecutionHandler rejectedExecutionHandler) {
+        public C1893a a(RejectedExecutionHandler rejectedExecutionHandler) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, rejectedExecutionHandler)) == null) {
-                this.f65346h = rejectedExecutionHandler;
+                this.f65381h = rejectedExecutionHandler;
                 return this;
             }
-            return (C1891a) invokeL.objValue;
+            return (C1893a) invokeL.objValue;
         }
 
         public a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                if (this.f65345g == null) {
-                    this.f65345g = new h(this.f65347i, this.f65339a);
+                if (this.f65380g == null) {
+                    this.f65380g = new h(this.f65382i, this.f65374a);
                 }
-                if (this.f65346h == null) {
-                    this.f65346h = e.f();
+                if (this.f65381h == null) {
+                    this.f65381h = e.f();
                 }
-                if (this.f65344f == null) {
-                    this.f65344f = new LinkedBlockingQueue();
+                if (this.f65379f == null) {
+                    this.f65379f = new LinkedBlockingQueue();
                 }
-                return new a(this.f65339a, this.f65340b, this.f65343e, this.f65341c, this.f65342d, this.f65344f, this.f65345g, this.f65346h);
+                return new a(this.f65374a, this.f65375b, this.f65378e, this.f65376c, this.f65377d, this.f65379f, this.f65380g, this.f65381h);
             }
             return (a) invokeV.objValue;
         }
@@ -192,7 +192,7 @@ public class a extends ThreadPoolExecutor {
                 return;
             }
         }
-        this.f65331a = str;
+        this.f65366a = str;
     }
 
     private void a(Runnable runnable) {
@@ -214,10 +214,10 @@ public class a extends ThreadPoolExecutor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, th) == null) {
             super.afterExecute(runnable, th);
-            if (!e.e() || TextUtils.isEmpty(this.f65331a) || (queue = getQueue()) == null) {
+            if (!e.e() || TextUtils.isEmpty(this.f65366a) || (queue = getQueue()) == null) {
                 return;
             }
-            String str = this.f65331a;
+            String str = this.f65366a;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 3366) {
@@ -255,10 +255,10 @@ public class a extends ThreadPoolExecutor {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Runnable f65332a;
+                    public final /* synthetic */ Runnable f65367a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f65333b;
+                    public final /* synthetic */ a f65368b;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -278,23 +278,23 @@ public class a extends ThreadPoolExecutor {
                                 return;
                             }
                         }
-                        this.f65333b = this;
-                        this.f65332a = runnable;
+                        this.f65368b = this;
+                        this.f65367a = runnable;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f65332a.run();
+                            this.f65367a.run();
                         }
                     }
                 }, this));
             }
-            if (!e.e() || TextUtils.isEmpty(this.f65331a) || (queue = getQueue()) == null) {
+            if (!e.e() || TextUtils.isEmpty(this.f65366a) || (queue = getQueue()) == null) {
                 return;
             }
-            String str = this.f65331a;
+            String str = this.f65366a;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 3366) {
@@ -309,7 +309,7 @@ public class a extends ThreadPoolExecutor {
                 c2 = 0;
             }
             if (c2 == 0) {
-                a(queue, e.f65365a + 2, getCorePoolSize() * 2);
+                a(queue, e.f65400a + 2, getCorePoolSize() * 2);
             } else if (c2 == 1) {
                 a(queue, 4, 4);
             } else if (c2 != 2) {
@@ -322,7 +322,7 @@ public class a extends ThreadPoolExecutor {
     @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.ExecutorService
     public void shutdown() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || "io".equals(this.f65331a) || "aidl".equals(this.f65331a)) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || "io".equals(this.f65366a) || "aidl".equals(this.f65366a)) {
             return;
         }
         super.shutdown();
@@ -333,7 +333,7 @@ public class a extends ThreadPoolExecutor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!"io".equals(this.f65331a) && !"aidl".equals(this.f65331a)) {
+            if (!"io".equals(this.f65366a) && !"aidl".equals(this.f65366a)) {
                 return super.shutdownNow();
             }
             return Collections.emptyList();
@@ -367,7 +367,7 @@ public class a extends ThreadPoolExecutor {
         }
         try {
             setCorePoolSize(i2);
-            k.b("ADThreadPoolExecutor", "reduceCoreThreadSize: reduce poolType =  ", this.f65331a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
+            k.b("ADThreadPoolExecutor", "reduceCoreThreadSize: reduce poolType =  ", this.f65366a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
         } catch (Exception e2) {
             k.c("ADThreadPoolExecutor", e2.getMessage());
         }
@@ -380,7 +380,7 @@ public class a extends ThreadPoolExecutor {
         }
         try {
             setCorePoolSize(i2);
-            k.b("ADThreadPoolExecutor", "increaseCoreThreadSize: increase poolType =  ", this.f65331a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
+            k.b("ADThreadPoolExecutor", "increaseCoreThreadSize: increase poolType =  ", this.f65366a, " coreSize=", Integer.valueOf(getCorePoolSize()), "  maxSize=", Integer.valueOf(getMaximumPoolSize()));
         } catch (Exception e2) {
             k.c("ADThreadPoolExecutor", e2.getMessage());
         }
@@ -389,6 +389,6 @@ public class a extends ThreadPoolExecutor {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65331a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65366a : (String) invokeV.objValue;
     }
 }

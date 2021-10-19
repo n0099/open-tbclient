@@ -15,7 +15,7 @@ public class CameraConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f70548a;
+    public long f70583a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -111,7 +111,7 @@ public class CameraConfig {
                 return;
             }
         }
-        this.f70548a = 0L;
+        this.f70583a = 0L;
     }
 
     public static native void nativeDestroyCameraConfig(long j2);
@@ -127,10 +127,10 @@ public class CameraConfig {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.f70548a;
+            long j2 = this.f70583a;
             if (j2 != 0) {
                 nativeDestroyCameraConfig(j2);
-                this.f70548a = 0L;
+                this.f70583a = 0L;
             }
             super.finalize();
         }

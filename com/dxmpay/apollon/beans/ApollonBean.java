@@ -21,7 +21,7 @@ public abstract class ApollonBean<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f69609a;
+    public String f69644a;
     public Context mContext;
     public RestTemplate mRestTemplate;
     public IBeanResponseCallback mRspCallback;
@@ -32,13 +32,13 @@ public abstract class ApollonBean<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Class f69610e;
+        public final /* synthetic */ Class f69645e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Class f69611f;
+        public final /* synthetic */ Class f69646f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ApollonBean f69612g;
+        public final /* synthetic */ ApollonBean f69647g;
 
         public a(ApollonBean apollonBean, Class cls, Class cls2) {
             Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public abstract class ApollonBean<T> {
                     return;
                 }
             }
-            this.f69612g = apollonBean;
-            this.f69610e = cls;
-            this.f69611f = cls2;
+            this.f69647g = apollonBean;
+            this.f69645e = cls;
+            this.f69646f = cls2;
         }
 
         @Override // java.lang.Runnable
@@ -66,13 +66,13 @@ public abstract class ApollonBean<T> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     try {
-                        this.f69612g.prepareRestTemplate();
-                        this.f69612g.executeAndHandleResponse(this.f69610e, this.f69611f);
+                        this.f69647g.prepareRestTemplate();
+                        this.f69647g.executeAndHandleResponse(this.f69645e, this.f69646f);
                     } catch (Exception e2) {
-                        this.f69612g.handleCommonErrors(e2);
+                        this.f69647g.handleCommonErrors(e2);
                     }
                 } finally {
-                    this.f69612g.mRspCallback = null;
+                    this.f69647g.mRspCallback = null;
                 }
             }
         }
@@ -93,7 +93,7 @@ public abstract class ApollonBean<T> {
                 return;
             }
         }
-        this.f69609a = "";
+        this.f69644a = "";
         this.mContext = context.getApplicationContext();
         getClass().getName();
     }
@@ -102,7 +102,7 @@ public abstract class ApollonBean<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.mRspCallback = null;
-            TaskManager.getInstance("DxmBeanTaskManager").cancelTask("DxmApollonBeanTask", this.f69609a);
+            TaskManager.getInstance("DxmBeanTaskManager").cancelTask("DxmApollonBeanTask", this.f69644a);
             RestTemplate restTemplate = this.mRestTemplate;
             if (restTemplate != null) {
                 restTemplate.setRequestInterceptor(null);
@@ -190,9 +190,9 @@ public abstract class ApollonBean<T> {
                 return;
             }
             TaskManager taskManager = TaskManager.getInstance("DxmBeanTaskManager");
-            this.f69609a = "BeanTask_" + getBeanId() + "_" + System.currentTimeMillis();
+            this.f69644a = "BeanTask_" + getBeanId() + "_" + System.currentTimeMillis();
             taskManager.getClass();
-            taskManager.addTask(new TaskManager.Task(taskManager, 0L, 0L, false, this.f69609a, aVar), "DxmApollonBeanTask");
+            taskManager.addTask(new TaskManager.Task(taskManager, 0L, 0L, false, this.f69644a, aVar), "DxmApollonBeanTask");
         }
     }
 }

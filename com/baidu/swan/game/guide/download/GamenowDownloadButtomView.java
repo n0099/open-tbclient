@@ -26,22 +26,22 @@ public class GamenowDownloadButtomView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f47060e;
+    public Paint f46972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47061f;
+    public int f46973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47062g;
+    public int f46974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f47063h;
+    public boolean f46975h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47064i;
+    public int f46976i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f47065j;
+    public boolean f46977j;
     public Paint k;
     public int l;
     public float m;
@@ -55,7 +55,7 @@ public class GamenowDownloadButtomView extends View {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f47066a;
+        public static final /* synthetic */ int[] f46978a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -72,17 +72,17 @@ public class GamenowDownloadButtomView extends View {
                 }
             }
             int[] iArr = new int[DownloadState.values().length];
-            f47066a = iArr;
+            f46978a = iArr;
             try {
                 iArr[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f47066a[DownloadState.DOWNLOADING.ordinal()] = 2;
+                f46978a[DownloadState.DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f47066a[DownloadState.DOWNLOADED.ordinal()] = 3;
+                f46978a[DownloadState.DOWNLOADED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -106,88 +106,88 @@ public class GamenowDownloadButtomView extends View {
                 return;
             }
         }
-        this.f47060e = new Paint();
+        this.f46972e = new Paint();
         this.k = new Paint();
         this.l = -1;
         this.o = 100;
         this.p = DownloadState.NOT_START;
         this.q = -1.0f;
-        this.f47060e.setAntiAlias(true);
+        this.f46972e.setAntiAlias(true);
         this.k.setAntiAlias(true);
         this.m = getResources().getDimensionPixelOffset(f.aiapps_game_dimens_14dp);
-        this.f47061f = context.getResources().getColor(e.aiapps_download_button_default_bg_color);
-        this.f47062g = context.getResources().getColor(e.aiapps_download_button_default_fg_color);
+        this.f46973f = context.getResources().getColor(e.aiapps_download_button_default_bg_color);
+        this.f46974g = context.getResources().getColor(e.aiapps_download_button_default_fg_color);
     }
 
     public final void a(Canvas canvas, RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, rectF) == null) {
-            int i2 = a.f47066a[this.p.ordinal()];
+            int i2 = a.f46978a[this.p.ordinal()];
             float f2 = 0.0f;
             if (i2 != 1 && i2 != 2) {
-                this.f47060e.setColor(this.f47061f);
-                this.f47060e.setStyle(Paint.Style.FILL);
+                this.f46972e.setColor(this.f46973f);
+                this.f46972e.setStyle(Paint.Style.FILL);
                 float f3 = this.q;
                 if (f3 > 0.0f) {
                     f2 = f3;
-                } else if (this.f47063h) {
+                } else if (this.f46975h) {
                     f2 = rectF.height() / 2.0f;
                 }
-                canvas.drawRoundRect(rectF, f2, f2, this.f47060e);
+                canvas.drawRoundRect(rectF, f2, f2, this.f46972e);
                 return;
             }
-            this.f47060e.setColor(this.f47061f);
-            this.f47060e.setStyle(Paint.Style.STROKE);
-            this.f47060e.setStrokeWidth(1.0f);
+            this.f46972e.setColor(this.f46973f);
+            this.f46972e.setStyle(Paint.Style.STROKE);
+            this.f46972e.setStrokeWidth(1.0f);
             float f4 = this.q;
             if (f4 > 0.0f) {
                 f2 = f4;
-            } else if (this.f47063h) {
+            } else if (this.f46975h) {
                 f2 = rectF.height() / 2.0f;
             }
-            canvas.drawRoundRect(rectF, f2, f2, this.f47060e);
+            canvas.drawRoundRect(rectF, f2, f2, this.f46972e);
         }
     }
 
     public final void b(Canvas canvas, RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, rectF) == null) {
-            int i2 = a.f47066a[this.p.ordinal()];
+            int i2 = a.f46978a[this.p.ordinal()];
             float f2 = 0.0f;
             if (i2 == 1 || i2 == 2) {
                 Paint paint = new Paint();
                 paint.setStyle(Paint.Style.FILL);
                 float f3 = 1;
                 RectF rectF2 = new RectF(f3, f3, getWidth() - 2, getHeight() - 2);
-                float f4 = this.f47064i / this.o;
-                paint.setShader(new LinearGradient(0.0f, 0.0f, rectF2.width(), 0.0f, new int[]{this.f47062g, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
+                float f4 = this.f46976i / this.o;
+                paint.setShader(new LinearGradient(0.0f, 0.0f, rectF2.width(), 0.0f, new int[]{this.f46974g, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
                 float f5 = this.q;
                 if (f5 > 0.0f) {
                     f2 = f5;
-                } else if (this.f47063h) {
+                } else if (this.f46975h) {
                     f2 = rectF2.height() / 2.0f;
                 }
                 canvas.drawRoundRect(rectF2, f2, f2, paint);
             } else if (i2 != 3) {
-                this.f47060e.setColor(this.f47061f);
-                this.f47060e.setStyle(Paint.Style.FILL);
+                this.f46972e.setColor(this.f46973f);
+                this.f46972e.setStyle(Paint.Style.FILL);
                 float f6 = this.q;
                 if (f6 > 0.0f) {
                     f2 = f6;
-                } else if (this.f47063h) {
+                } else if (this.f46975h) {
                     f2 = rectF.height() / 2.0f;
                 }
-                canvas.drawRoundRect(rectF, f2, f2, this.f47060e);
+                canvas.drawRoundRect(rectF, f2, f2, this.f46972e);
             } else {
-                this.f47060e.setColor(this.f47062g);
-                this.f47060e.setStyle(Paint.Style.FILL);
+                this.f46972e.setColor(this.f46974g);
+                this.f46972e.setStyle(Paint.Style.FILL);
                 float f7 = this.q;
                 if (f7 > 0.0f) {
                     f2 = f7;
-                } else if (this.f47063h) {
+                } else if (this.f46975h) {
                     f2 = rectF.height() / 2.0f;
                 }
-                canvas.drawRoundRect(rectF, f2, f2, this.f47060e);
+                canvas.drawRoundRect(rectF, f2, f2, this.f46972e);
             }
         }
     }
@@ -222,7 +222,7 @@ public class GamenowDownloadButtomView extends View {
             if (getWidth() == 0 || getHeight() == 0 || TextUtils.isEmpty(this.n)) {
                 return;
             }
-            if (!this.f47065j) {
+            if (!this.f46977j) {
                 e(canvas);
             } else {
                 d(canvas);
@@ -235,13 +235,13 @@ public class GamenowDownloadButtomView extends View {
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             float f2 = 0;
             RectF rectF = new RectF(f2, f2, getWidth() + 0, getHeight() + 0);
-            this.f47060e.setColor(this.f47061f);
-            this.f47060e.setStyle(Paint.Style.FILL);
+            this.f46972e.setColor(this.f46973f);
+            this.f46972e.setStyle(Paint.Style.FILL);
             float f3 = this.q;
             if (f3 <= 0.0f) {
-                f3 = this.f47063h ? rectF.height() / 2.0f : 0.0f;
+                f3 = this.f46975h ? rectF.height() / 2.0f : 0.0f;
             }
-            canvas.drawRoundRect(rectF, f3, f3, this.f47060e);
+            canvas.drawRoundRect(rectF, f3, f3, this.f46972e);
             this.k.setColor(this.l);
             this.k.setTextSize(this.m);
             Paint.FontMetrics fontMetrics = this.k.getFontMetrics();
@@ -260,7 +260,7 @@ public class GamenowDownloadButtomView extends View {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.f47063h = z;
+            this.f46975h = z;
             return this;
         }
         return (GamenowDownloadButtomView) invokeZ.objValue;
@@ -270,7 +270,7 @@ public class GamenowDownloadButtomView extends View {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.f47065j = z;
+            this.f46977j = z;
             return this;
         }
         return (GamenowDownloadButtomView) invokeZ.objValue;
@@ -280,7 +280,7 @@ public class GamenowDownloadButtomView extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            this.f47061f = i2;
+            this.f46973f = i2;
             return this;
         }
         return (GamenowDownloadButtomView) invokeI.objValue;
@@ -290,7 +290,7 @@ public class GamenowDownloadButtomView extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            this.f47062g = i2;
+            this.f46974g = i2;
             return this;
         }
         return (GamenowDownloadButtomView) invokeI.objValue;
@@ -313,7 +313,7 @@ public class GamenowDownloadButtomView extends View {
             if (i2 > i3) {
                 i2 = i3;
             }
-            this.f47064i = i2;
+            this.f46976i = i2;
         }
     }
 

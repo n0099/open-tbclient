@@ -27,11 +27,11 @@ public class Static {
 
         /* renamed from: com.baidu.tbadk.coreExtra.messageCenter.Static$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC1745a implements Runnable {
+        public class RunnableC1747a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC1745a(a aVar) {
+            public RunnableC1747a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public class Static {
                     b.g0().h();
                     return null;
                 } else if (TbadkCoreApplication.getInst() != null) {
-                    TbadkCoreApplication.getInst().handler.post(new RunnableC1745a(this));
+                    TbadkCoreApplication.getInst().handler.post(new RunnableC1747a(this));
                     return null;
                 } else {
                     return null;

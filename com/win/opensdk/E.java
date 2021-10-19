@@ -14,10 +14,10 @@ public class E implements g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public A1 f77098a;
+    public A1 f77133a;
 
     /* renamed from: b  reason: collision with root package name */
-    public F f77099b;
+    public F f77134b;
 
     public E(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -35,20 +35,20 @@ public class E implements g {
             }
         }
         A1 a1 = new A1(context, str);
-        this.f77098a = a1;
-        a1.f77078f = new D(this);
+        this.f77133a = a1;
+        a1.f77113f = new D(this);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.f77098a != null) {
-                    this.f77098a.a();
-                    this.f77098a = null;
+                if (this.f77133a != null) {
+                    this.f77133a.a();
+                    this.f77133a = null;
                 }
-                if (this.f77099b != null) {
-                    this.f77099b = null;
+                if (this.f77134b != null) {
+                    this.f77134b = null;
                 }
             } catch (Exception unused) {
             }
@@ -58,7 +58,7 @@ public class E implements g {
     public void a(View view, PBMediaView pBMediaView) {
         A1 a1;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, pBMediaView) == null) || (a1 = this.f77098a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, pBMediaView) == null) || (a1 = this.f77133a) == null) {
             return;
         }
         a1.a(view, pBMediaView);
@@ -68,8 +68,8 @@ public class E implements g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            A1 a1 = this.f77098a;
-            return (a1 == null || !a1.b()) ? "" : a1.f77075c.getLoad_type();
+            A1 a1 = this.f77133a;
+            return (a1 == null || !a1.b()) ? "" : a1.f77110c.getLoad_type();
         }
         return (String) invokeV.objValue;
     }
@@ -78,7 +78,7 @@ public class E implements g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            A1 a1 = this.f77098a;
+            A1 a1 = this.f77133a;
             return a1 != null && a1.b();
         }
         return invokeV.booleanValue;

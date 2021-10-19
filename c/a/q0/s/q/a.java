@@ -175,13 +175,13 @@ public abstract class a extends BaseCardInfo implements c.a.q0.b.f.n {
     public boolean showNewPicCut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? c.a.q0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.q0.b.f.l.f12745c), "11_7_index_b") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? c.a.q0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.q0.b.f.l.f12751c), "11_7_index_b") : invokeV.booleanValue;
     }
 
     public boolean showNewUI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? c.a.q0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.q0.b.f.l.f12745c), "11_7_index_a") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? c.a.q0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.q0.b.f.l.f12751c), "11_7_index_a") : invokeV.booleanValue;
     }
 
     public boolean showNoName() {
@@ -196,7 +196,7 @@ public abstract class a extends BaseCardInfo implements c.a.q0.b.f.n {
     public boolean showNoReadState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? c.a.q0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.q0.b.f.l.f12745c), "11_7_index_e") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? c.a.q0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.q0.b.f.l.f12751c), "11_7_index_e") : invokeV.booleanValue;
     }
 
     public boolean showWeakenName() {

@@ -137,16 +137,10 @@ public class StringHelper extends k {
         }
     }
 
-    public static String GetPostTimeString(Date date2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, date2)) == null) ? date2 == null ? "" : getPostTimeString(new Date(), date2) : (String) invokeL.objValue;
-    }
-
     public static String JsonArrayToString(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
             if (jSONArray == null) {
                 return "";
             }
@@ -172,7 +166,7 @@ public class StringHelper extends k {
     public static int compareVersion(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             if (str == null) {
                 return -1;
             }
@@ -201,7 +195,7 @@ public class StringHelper extends k {
     public static String cutChineseAndEnglishWithEmoji(String str, int i2, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, null, str, i2, str2)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2, str2)) == null) {
             if (str == null || i2 <= 0) {
                 return "";
             }
@@ -234,7 +228,7 @@ public class StringHelper extends k {
     public static String cutChineseAndEnglishWithSuffix(String str, int i2, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, null, str, i2, str2)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.BAIDU_LOGO_ID, null, str, i2, str2)) == null) {
             if (str == null || i2 <= 0) {
                 return "";
             }
@@ -263,7 +257,7 @@ public class StringHelper extends k {
     public static String cutForumNameWithSuffix(String str, int i2, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65544, null, str, i2, str2)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, null, str, i2, str2)) == null) {
             if (str == null || i2 <= 0) {
                 return "";
             }
@@ -295,7 +289,7 @@ public class StringHelper extends k {
     public static String cutHotTopicShow(String str, int i2, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65545, null, str, i2, str2)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65544, null, str, i2, str2)) == null) {
             if (str == null || i2 <= 0) {
                 return "";
             }
@@ -337,13 +331,13 @@ public class StringHelper extends k {
     public static String cutStringWithEllipsis(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, str, i2)) == null) ? (str == null || i2 < 0 || str.length() == i2) ? str : cutStringWithSuffix(str, i2 - 1, "...") : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i2)) == null) ? (str == null || i2 < 0 || str.length() == i2) ? str : cutStringWithSuffix(str, i2 - 1, "...") : (String) invokeLI.objValue;
     }
 
     public static String cutStringWithEllipsisNew(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, str, i2)) == null) {
             if (StringUtils.isNull(str)) {
                 return "";
             }
@@ -367,7 +361,7 @@ public class StringHelper extends k {
     public static String cutStringWithEllipsisStrict(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i2)) == null) {
             if (str == null || i2 <= 0) {
                 return "";
             }
@@ -395,7 +389,7 @@ public class StringHelper extends k {
     public static String cutStringWithSuffix(String str, int i2, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65549, null, str, i2, str2)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65548, null, str, i2, str2)) == null) {
             if (str == null || i2 < 0 || str.length() <= i2) {
                 return str;
             }
@@ -414,7 +408,7 @@ public class StringHelper extends k {
     public static String dateToConstellation(Date date2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, date2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, date2)) == null) {
             if (date2 == null) {
                 return null;
             }
@@ -445,7 +439,7 @@ public class StringHelper extends k {
     public static boolean equals(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, str2)) == null) {
             if (str == null) {
                 return false;
             }
@@ -457,7 +451,7 @@ public class StringHelper extends k {
     public static String forceLToR(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             if (k.isEmpty(str)) {
                 return "";
             }
@@ -469,7 +463,7 @@ public class StringHelper extends k {
     public static String formatDayOrHourTime(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65554, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j2)) == null) {
             int i2 = (int) (j2 / 3600000);
             if (i2 >= 24) {
                 return ((i2 / 24) + 1) + TIME_DAY;
@@ -482,7 +476,7 @@ public class StringHelper extends k {
     public static String formatDayTime(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65555, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65554, null, j2)) == null) {
             return (((j2 / 3600000) / 24) + 1) + TIME_DAY;
         }
         return (String) invokeJ.objValue;
@@ -491,7 +485,7 @@ public class StringHelper extends k {
     public static String formatDistanceNum(double d2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Double.valueOf(d2)})) == null) {
             String format = String.format(Locale.getDefault(), "%.1f", Double.valueOf(d2));
             if (format.endsWith(".0")) {
                 format = format.substring(0, format.length() - 2);
@@ -508,7 +502,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65556, null, j2)) == null) {
             if (j2 < 0) {
                 j2 = 0;
             }
@@ -544,7 +538,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65558, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j2)) == null) {
             if (j2 < 0) {
                 j2 = 0;
             }
@@ -579,7 +573,7 @@ public class StringHelper extends k {
     public static String formatOverBaiwanNum(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65559, null, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65558, null, f2)) == null) {
             if (f2 < 0.0f) {
                 f2 = 0.0f;
             }
@@ -607,7 +601,7 @@ public class StringHelper extends k {
     public static String formatSecondsTime(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65561, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i2)) == null) {
             int i3 = i2 / 1000;
             int i4 = i3 % 60;
             int i5 = (i3 / 60) % 60;
@@ -623,14 +617,14 @@ public class StringHelper extends k {
     public static String formatTosepara(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65563, null, i2)) == null) ? new DecimalFormat("#,###").format(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65562, null, i2)) == null) ? new DecimalFormat("#,###").format(i2) : (String) invokeI.objValue;
     }
 
     public static String formatYdouOverBaiwanNum(float f2) {
         InterceptResult invokeF;
         float f3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65565, null, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65564, null, f2)) == null) {
             if (f2 < 0.0f) {
                 f2 = 0.0f;
             }
@@ -660,7 +654,7 @@ public class StringHelper extends k {
     public static String getBaAgeAutoYearAndMonth(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_less_one_year), 1);
             }
@@ -677,13 +671,13 @@ public class StringHelper extends k {
     public static String getChatTimeString(Date date2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65567, null, date2)) == null) ? getChatTimeString(new Date(), date2) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65566, null, date2)) == null) ? getChatTimeString(new Date(), date2) : (String) invokeL.objValue;
     }
 
     public static int getChineseAndEnglishLength(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, str)) == null) {
             if (str == null) {
                 return 0;
             }
@@ -701,7 +695,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65571, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65570, null, j2)) == null) {
             Date date2 = new Date(j2);
             synchronized (FORMATE_DATE_SECOND_CHINESE) {
                 format = FORMATE_DATE_SECOND_CHINESE.format(date2);
@@ -714,7 +708,7 @@ public class StringHelper extends k {
     public static String getChineseMonthBytime(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65572, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65571, null, j2)) == null) {
             switch (new Date(j2).getMonth() + 1) {
                 case 1:
                     return "一月";
@@ -750,7 +744,7 @@ public class StringHelper extends k {
     public static String getChineseYearBytime(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65573, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65572, null, j2)) == null) {
             return getYearBytime(j2) + "年";
         }
         return (String) invokeJ.objValue;
@@ -760,7 +754,7 @@ public class StringHelper extends k {
         InterceptResult invokeV;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
             Date date2 = new Date();
             synchronized (k.FORMATE_DATE_MS) {
                 format = k.FORMATE_DATE_MS.format(date2);
@@ -774,7 +768,7 @@ public class StringHelper extends k {
         InterceptResult invokeV;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             Date date2 = new Date();
             synchronized (k.FORMATE_DATE_DAY) {
                 format = k.FORMATE_DATE_DAY.format(date2);
@@ -788,7 +782,7 @@ public class StringHelper extends k {
         InterceptResult invokeV;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
             Date date2 = new Date();
             synchronized (FORMATE_DATE_SECOND) {
                 format = FORMATE_DATE_SECOND.format(date2);
@@ -801,7 +795,7 @@ public class StringHelper extends k {
     public static String getDateBytime(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65577, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65576, null, j2)) == null) {
             int date2 = new Date(j2).getDate();
             if (date2 < 10) {
                 return "0" + String.valueOf(date2);
@@ -815,7 +809,7 @@ public class StringHelper extends k {
         InterceptResult invokeL;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, date2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, date2)) == null) {
             synchronized (FORMATE_DATE_DAY_TIME) {
                 format = FORMATE_DATE_DAY_TIME.format(date2);
             }
@@ -828,7 +822,7 @@ public class StringHelper extends k {
         InterceptResult invokeL;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, date2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, date2)) == null) {
             synchronized (k.FORMATE_DATE_DAY_1) {
                 format = k.FORMATE_DATE_DAY_1.format(date2);
             }
@@ -841,7 +835,7 @@ public class StringHelper extends k {
         InterceptResult invokeL;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, date2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, date2)) == null) {
             synchronized (k.FORMATE_DATE_DAY_NO_YEAR) {
                 format = k.FORMATE_DATE_DAY_NO_YEAR.format(date2);
             }
@@ -854,7 +848,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65581, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65580, null, j2)) == null) {
             Date date2 = new Date(j2);
             synchronized (FORMATE_DATE_HOUR) {
                 format = FORMATE_DATE_HOUR.format(date2);
@@ -868,7 +862,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65582, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65581, null, j2)) == null) {
             Date date2 = new Date(j2);
             synchronized (FORMAT_DATE_MONTH_SECOND_) {
                 format = FORMAT_DATE_MONTH_SECOND_.format(date2);
@@ -882,7 +876,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65583, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65582, null, j2)) == null) {
             Date date2 = new Date(j2);
             synchronized (FORMATE_MONTH_DAY) {
                 format = FORMATE_MONTH_DAY.format(date2);
@@ -896,7 +890,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65584, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65583, null, j2)) == null) {
             Date date2 = new Date(j2);
             synchronized (FORMAT_MONTH_DAY_CHINEASE) {
                 format = FORMAT_MONTH_DAY_CHINEASE.format(date2);
@@ -910,7 +904,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65585, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65584, null, j2)) == null) {
             Date date2 = new Date(j2);
             synchronized (FORMATE_MONTH_DAY_HOUR_MINUTE) {
                 format = FORMATE_MONTH_DAY_HOUR_MINUTE.format(date2);
@@ -924,7 +918,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65586, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65585, null, j2)) == null) {
             Date date2 = new Date(j2);
             synchronized (FORMATE_DATE_SECOND) {
                 format = FORMATE_DATE_SECOND.format(date2);
@@ -938,7 +932,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65587, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65586, null, j2)) == null) {
             Date date2 = new Date(j2);
             synchronized (FORMAT_DATE_YEAR_SECOND) {
                 format = FORMAT_DATE_YEAR_SECOND.format(date2);
@@ -952,7 +946,7 @@ public class StringHelper extends k {
         InterceptResult invokeL;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, date2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65587, null, date2)) == null) {
             synchronized (FORMATE_DATE_YEAR_M_D) {
                 format = FORMATE_DATE_YEAR_M_D.format(date2);
             }
@@ -965,7 +959,7 @@ public class StringHelper extends k {
         InterceptResult invokeL;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, date2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, date2)) == null) {
             synchronized (k.FORMATE_DATE_DAY_WEEK) {
                 format = k.FORMATE_DATE_DAY_WEEK.format(date2);
             }
@@ -977,7 +971,7 @@ public class StringHelper extends k {
     public static String getFixedText(String str, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65590, null, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65589, null, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
@@ -1007,7 +1001,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String formatAlaLiveTime;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65591, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65590, null, j2)) == null) {
             synchronized (date) {
                 date.setTime(j2);
                 formatAlaLiveTime = getFormatAlaLiveTime(date);
@@ -1020,7 +1014,7 @@ public class StringHelper extends k {
     public static String getFormatSize(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65593, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65592, null, j2)) == null) {
             float f2 = (float) j2;
             return f2 >= SIZE_FLOAT_G ? String.format(Locale.getDefault(), "%.1fG", Float.valueOf(f2 / SIZE_FLOAT_G)) : f2 >= SIZE_FLOAT_M ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(f2 / SIZE_FLOAT_M)) : f2 >= SIZE_FLOAT_K / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(f2 / SIZE_FLOAT_K)) : TbadkCoreApplication.getInst().getString(R.string.less_than_zero_dot_one_k);
         }
@@ -1031,7 +1025,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String formatTime;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65594, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65593, null, j2)) == null) {
             synchronized (date) {
                 date.setTime(j2);
                 formatTime = getFormatTime(date, false);
@@ -1045,7 +1039,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String formatTimeForAlaCardCreate;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65596, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65595, null, j2)) == null) {
             synchronized (date) {
                 date.setTime(j2);
                 formatTimeForAlaCardCreate = getFormatTimeForAlaCardCreate(date);
@@ -1059,7 +1053,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String formatTimeHomeC;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65598, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65597, null, j2)) == null) {
             synchronized (date) {
                 date.setTime(j2);
                 formatTimeHomeC = getFormatTimeHomeC(date);
@@ -1073,7 +1067,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String formatTimeForJustNow;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65599, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65598, null, j2)) == null) {
             synchronized (date) {
                 date.setTime(j2);
                 formatTimeForJustNow = getFormatTimeForJustNow(date, false);
@@ -1086,7 +1080,7 @@ public class StringHelper extends k {
     public static String getFormatTimeHomeC(Date date2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, date2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65600, null, date2)) == null) {
             if (date2 == null) {
                 return "";
             }
@@ -1113,7 +1107,7 @@ public class StringHelper extends k {
         InterceptResult invokeJ;
         String formatTime;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65602, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65601, null, j2)) == null) {
             synchronized (date) {
                 date.setTime(j2);
                 formatTime = getFormatTime(date, true);
@@ -1126,7 +1120,7 @@ public class StringHelper extends k {
     public static String getHighLightString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65603, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65602, null, str, str2)) == null) {
             if (StringUtils.isNull(str)) {
                 return "";
             }
@@ -1148,7 +1142,7 @@ public class StringHelper extends k {
     public static String getNameFromUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65604, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65603, null, str)) == null) {
             try {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
@@ -1170,13 +1164,13 @@ public class StringHelper extends k {
     public static String getNegativeInfinity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65605, null)) == null) ? "-∞" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65604, null)) == null) ? "-∞" : (String) invokeV.objValue;
     }
 
     public static String getPostTimeInterval(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65606, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65605, null, j2)) == null) {
             long abs = Math.abs(System.currentTimeMillis() - (j2 * 1000));
             if (abs <= AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
                 return "刚刚";
@@ -1192,35 +1186,10 @@ public class StringHelper extends k {
         return (String) invokeJ.objValue;
     }
 
-    public static String getPostTimeString(Date date2, Date date3) {
-        InterceptResult invokeLL;
+    public static String getPostTimeString(Date date2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65607, null, date2, date3)) == null) {
-            if (date3 == null) {
-                return "";
-            }
-            int day = date2.getDay() - date3.getDay();
-            long time = date2.getTime() - date3.getTime();
-            if (time < 0) {
-                return time > -120000 ? "刚刚" : k.getDateStringDay(date3);
-            } else if (time < 30000) {
-                return "刚刚";
-            } else {
-                if (time < 60000) {
-                    return "半分钟前";
-                }
-                if (time < 3600000) {
-                    return String.valueOf((time * 60) / 3600000) + "分钟前";
-                } else if (time < 86400000) {
-                    return day == 0 ? k.getDateStringHm(date3) : "1天前";
-                } else if (time >= 2678400000L) {
-                    return time < 2764800000L ? "1个月前" : k.getDateStringDay(date3);
-                } else {
-                    return String.valueOf((time * 31) / 2678400000L) + "天前";
-                }
-            }
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65606, null, date2)) == null) ? date2 == null ? "" : getPostTimeString(new Date(), date2) : (String) invokeL.objValue;
     }
 
     public static int getRealSize(String str) {
@@ -2267,10 +2236,41 @@ public class StringHelper extends k {
         return (interceptable == null || (invokeL = interceptable.invokeL(65661, null, str)) == null) ? str != null ? str.trim() : "" : (String) invokeL.objValue;
     }
 
+    public static String getPostTimeString(Date date2, Date date3) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65607, null, date2, date3)) == null) {
+            if (date3 == null) {
+                return "";
+            }
+            int day = date2.getDay() - date3.getDay();
+            long time = date2.getTime() - date3.getTime();
+            if (time < 0) {
+                return time > -120000 ? "刚刚" : k.getDateStringDay(date3);
+            } else if (time < 30000) {
+                return "刚刚";
+            } else {
+                if (time < 60000) {
+                    return "半分钟前";
+                }
+                if (time < 3600000) {
+                    return String.valueOf((time * 60) / 3600000) + "分钟前";
+                } else if (time < 86400000) {
+                    return day == 0 ? k.getDateStringHm(date3) : "1天前";
+                } else if (time >= 2678400000L) {
+                    return time < 2764800000L ? "1个月前" : k.getDateStringDay(date3);
+                } else {
+                    return String.valueOf((time * 31) / 2678400000L) + "天前";
+                }
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public static SpannableStringBuilder forceLToR(SpannableStringBuilder spannableStringBuilder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, spannableStringBuilder)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, spannableStringBuilder)) == null) {
             if (spannableStringBuilder == null) {
                 return new SpannableStringBuilder("");
             }
@@ -2282,7 +2282,7 @@ public class StringHelper extends k {
     public static String formatTosepara(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65564, null, j2)) == null) ? new DecimalFormat("#,###").format(j2) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65563, null, j2)) == null) ? new DecimalFormat("#,###").format(j2) : (String) invokeJ.objValue;
     }
 
     public static String getChatTimeString(Date date2, Date date3) {
@@ -2290,7 +2290,7 @@ public class StringHelper extends k {
         String format;
         String format2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65568, null, date2, date3)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65567, null, date2, date3)) == null) {
             if (date3 == null) {
                 return "";
             }
@@ -2332,7 +2332,7 @@ public class StringHelper extends k {
     public static int getChineseAndEnglishLength(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, charSequence)) == null) {
             if (charSequence == null) {
                 return 0;
             }
@@ -2369,7 +2369,7 @@ public class StringHelper extends k {
     public static CharSequence cutChineseAndEnglishWithSuffix(CharSequence charSequence, int i2, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.BAIDU_LOGO_ID, null, charSequence, i2, str)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, null, charSequence, i2, str)) == null) {
             if (charSequence == null || i2 <= 0) {
                 return "";
             }
@@ -2398,7 +2398,7 @@ public class StringHelper extends k {
     public static String getFormatAlaLiveTime(Date date2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65592, null, date2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, date2)) == null) {
             if (date2 == null) {
                 return "";
             }
@@ -2424,7 +2424,7 @@ public class StringHelper extends k {
     public static String getFormatTime(Date date2, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65595, null, date2, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65594, null, date2, z)) == null) {
             if (date2 == null) {
                 return "";
             }
@@ -2453,7 +2453,7 @@ public class StringHelper extends k {
     public static String getFormatTimeForAlaCardCreate(Date date2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65597, null, date2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65596, null, date2)) == null) {
             if (date2 == null) {
                 return "";
             }
@@ -2478,7 +2478,7 @@ public class StringHelper extends k {
     public static String getFormatTimeForJustNow(Date date2, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65600, null, date2, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65599, null, date2, z)) == null) {
             if (date2 == null) {
                 return "";
             }
@@ -2503,7 +2503,7 @@ public class StringHelper extends k {
     public static String formatOverBaiwanNum(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65560, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65559, null, j2)) == null) {
             if (j2 < 0) {
                 j2 = 0;
             }
@@ -2530,7 +2530,7 @@ public class StringHelper extends k {
     public static String formatSecondsTime(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65562, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65561, null, j2)) == null) {
             long j3 = j2 % 60;
             long j4 = (j2 / 60) % 60;
             long j5 = j2 / 3600;

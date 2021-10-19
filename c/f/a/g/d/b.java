@@ -16,7 +16,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f32305a;
+    public String f32309a;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public class b {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32305a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32309a : (String) invokeV.objValue;
     }
 
     @SuppressLint({"DefaultLocale"})

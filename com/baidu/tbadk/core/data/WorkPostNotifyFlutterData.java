@@ -1,0 +1,318 @@
+package com.baidu.tbadk.core.data;
+
+import android.text.TextUtils;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import c.a.r0.k3.r0.g;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class WorkPostNotifyFlutterData {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f47448a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f47449b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f47450c;
+    @Nullable
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f47451d;
+    @Nullable
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f47452e;
+    @NonNull
+
+    /* renamed from: f  reason: collision with root package name */
+    public NewWriteThreadData4Flutter f47453f;
+    @NonNull
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f47454g;
+
+    @Keep
+    /* loaded from: classes6.dex */
+    public static class NewWriteThreadData4Flutter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Author author;
+        public String barName;
+        public Location location;
+        @SerializedName("thread_type")
+        public int threadType;
+        public String title;
+        @SerializedName(WriteActivityConfig.VIDEO_INFO)
+        public VideoInfo videoInfo;
+
+        @Keep
+        /* loaded from: classes6.dex */
+        public static class Author {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public String id;
+            public String name;
+            @SerializedName("name_show")
+            public String nameShow;
+            public String portrait;
+
+            public Author() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        @Keep
+        /* loaded from: classes6.dex */
+        public static class Location {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public String name;
+
+            public Location() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        @Keep
+        /* loaded from: classes6.dex */
+        public static class VideoInfo {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            @SerializedName(TiebaStatic.Params.IS_VERTICAL)
+            public int isVertical;
+            @SerializedName(TiebaStatic.Params.POST_TYPE)
+            public int postType;
+            @SerializedName("thumbnail_height")
+            public int thumbnailHeight;
+            @SerializedName("thumbnail_url")
+            public String thumbnailUrl;
+            @SerializedName("thumbnail_width")
+            public int thumbnailWidth;
+            @SerializedName("video_height")
+            public int videoHeight;
+            @SerializedName("video_url")
+            public String videoUrl;
+            @SerializedName("video_width")
+            public int videoWidth;
+
+            public VideoInfo() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        public NewWriteThreadData4Flutter() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ NewWriteThreadData4Flutter(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    public WorkPostNotifyFlutterData(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f47448a = str;
+        this.f47449b = str2;
+        this.f47450c = str3;
+    }
+
+    public static WorkPostNotifyFlutterData e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new WorkPostNotifyFlutterData("102", "", str) : (WorkPostNotifyFlutterData) invokeL.objValue;
+    }
+
+    public static WorkPostNotifyFlutterData f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? new WorkPostNotifyFlutterData("2", str, "") : (WorkPostNotifyFlutterData) invokeL.objValue;
+    }
+
+    public static WorkPostNotifyFlutterData g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new WorkPostNotifyFlutterData("1", "", "") : (WorkPostNotifyFlutterData) invokeV.objValue;
+    }
+
+    public static NewWriteThreadData4Flutter h(@NonNull WriteData writeData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, writeData)) == null) {
+            NewWriteThreadData4Flutter.VideoInfo videoInfo = new NewWriteThreadData4Flutter.VideoInfo();
+            VideoInfo videoInfo2 = writeData.getVideoInfo();
+            String m = g.j().m();
+            if (TextUtils.isEmpty(m)) {
+                m = videoInfo2.getThumbPath();
+            }
+            videoInfo.thumbnailUrl = m;
+            videoInfo.thumbnailWidth = videoInfo2.getVideoWidth();
+            videoInfo.thumbnailHeight = videoInfo2.getVideoHeight();
+            videoInfo.videoWidth = videoInfo2.getVideoWidth();
+            videoInfo.videoHeight = videoInfo2.getVideoHeight();
+            videoInfo.isVertical = videoInfo2.getVideoHeight() > videoInfo2.getVideoWidth() ? 1 : 0;
+            videoInfo.postType = writeData.getType();
+            videoInfo.videoUrl = videoInfo2.getVideoUrl();
+            NewWriteThreadData4Flutter.Location location = new NewWriteThreadData4Flutter.Location();
+            location.name = TbadkCoreApplication.getInst().getString(R.string.video_is_checking_novisible);
+            NewWriteThreadData4Flutter.Author author = new NewWriteThreadData4Flutter.Author();
+            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+            if (currentAccountInfo != null) {
+                author.id = currentAccountInfo.getID();
+                author.nameShow = currentAccountInfo.getAccountNameShow();
+                author.name = currentAccountInfo.getAccount();
+                author.portrait = currentAccountInfo.getPortrait();
+            }
+            NewWriteThreadData4Flutter newWriteThreadData4Flutter = new NewWriteThreadData4Flutter(null);
+            newWriteThreadData4Flutter.videoInfo = videoInfo;
+            newWriteThreadData4Flutter.location = location;
+            newWriteThreadData4Flutter.author = author;
+            newWriteThreadData4Flutter.threadType = 40;
+            newWriteThreadData4Flutter.title = writeData.getTitle();
+            newWriteThreadData4Flutter.barName = writeData.getForumName();
+            return newWriteThreadData4Flutter;
+        }
+        return (NewWriteThreadData4Flutter) invokeL.objValue;
+    }
+
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47454g : (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47451d : (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47452e : (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public Map<String, Object> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            NewWriteThreadData4Flutter newWriteThreadData4Flutter = this.f47453f;
+            if (newWriteThreadData4Flutter == null) {
+                return null;
+            }
+            return DataExt.h(newWriteThreadData4Flutter);
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public void i(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f47454g = str;
+        }
+    }
+
+    public void j(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.f47451d = str;
+        }
+    }
+
+    public void k(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f47452e = str;
+        }
+    }
+
+    public void l(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
+            this.f47453f = h(writeData);
+        }
+    }
+}

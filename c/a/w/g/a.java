@@ -13,8 +13,8 @@ public final class a {
     public static final int app_name = 2131690142;
     public static final int liveshow_plugin_impl_load_fail = 2131691984;
     public static final int liveshow_plugin_installing = 2131691985;
-    public static final int predownload_net_error_msg = 2131693338;
-    public static final int predownload_no_available_msg = 2131693339;
-    public static final int status_bar_notification_info_overflow = 2131694266;
+    public static final int predownload_net_error_msg = 2131693343;
+    public static final int predownload_no_available_msg = 2131693344;
+    public static final int status_bar_notification_info_overflow = 2131694279;
     public transient /* synthetic */ FieldHolder $fh;
 }

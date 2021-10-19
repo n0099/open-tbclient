@@ -42,7 +42,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.TimerTask;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes6.dex */
 public class NetWorkCoreByBdHttp implements INetWorkCore {
@@ -53,43 +52,6 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
     public Context mContext;
     public a manager;
     public final HttpNetContext netContext;
-
-    /* loaded from: classes6.dex */
-    public class CancleTask extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NetWorkCoreByBdHttp this$0;
-
-        public CancleTask(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {netWorkCoreByBdHttp};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = netWorkCoreByBdHttp;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.this$0.cancelNetConnect();
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -297,9 +259,9 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                             bVar.d(dVar.f2313h);
                             bVar.b(dVar.q + "_" + dVar.n + "_" + dVar.l + "_" + dVar.m + "_" + dVar.o);
                             bVar.f(dVar.s);
-                            bVar.f14583f = dVar.w;
-                            bVar.f14584g = dVar.x;
-                            bVar.f14585h = dVar.y;
+                            bVar.f14603f = dVar.w;
+                            bVar.f14604g = dVar.x;
+                            bVar.f14605h = dVar.y;
                         }
                     }
                 } catch (OutOfMemoryError e4) {
@@ -318,9 +280,9 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                             bVar.d(dVar2.f2313h);
                             bVar.b(dVar2.q + "_" + dVar2.n + "_" + dVar2.l + "_" + dVar2.m + "_" + dVar2.o);
                             bVar.f(dVar2.s);
-                            bVar.f14583f = dVar2.w;
-                            bVar.f14584g = dVar2.x;
-                            bVar.f14585h = dVar2.y;
+                            bVar.f14603f = dVar2.w;
+                            bVar.f14604g = dVar2.x;
+                            bVar.f14605h = dVar2.y;
                         }
                     }
                 }
@@ -398,9 +360,9 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         bVar.d(dVar3.f2313h);
                         bVar.b(dVar3.q + "_" + dVar3.n + "_" + dVar3.l + "_" + dVar3.m + "_" + dVar3.o);
                         bVar.f(dVar3.s);
-                        bVar.f14583f = dVar3.w;
-                        bVar.f14584g = dVar3.x;
-                        bVar.f14585h = dVar3.y;
+                        bVar.f14603f = dVar3.w;
+                        bVar.f14604g = dVar3.x;
+                        bVar.f14605h = dVar3.y;
                     }
                     handler.dispatchMessage(handler.obtainMessage(-1, i5, -1, bVar));
                 }
@@ -419,9 +381,9 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         bVar2.d(dVar4.f2313h);
                         bVar2.b(dVar4.q + "_" + dVar4.n + "_" + dVar4.l + "_" + dVar4.m + "_" + dVar4.o);
                         bVar2.f(dVar4.s);
-                        bVar2.f14583f = dVar4.w;
-                        bVar2.f14584g = dVar4.x;
-                        bVar2.f14585h = dVar4.y;
+                        bVar2.f14603f = dVar4.w;
+                        bVar2.f14604g = dVar4.x;
+                        bVar2.f14605h = dVar4.y;
                     }
                     handler.dispatchMessage(handler.obtainMessage(-1, i6, -1, bVar2));
                 }

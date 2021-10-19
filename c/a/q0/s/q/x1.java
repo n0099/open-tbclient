@@ -16,17 +16,17 @@ public class x1 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f14355h;
+    public static final BdUniqueId f14375h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14356e;
+    public String f14376e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14357f;
+    public String f14377f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14358g;
+    public int f14378g;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class x1 extends BaseCardInfo {
                 return;
             }
         }
-        f14355h = BdUniqueId.gen();
+        f14375h = BdUniqueId.gen();
     }
 
     public x1() {
@@ -63,15 +63,15 @@ public class x1 extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, generalResource) == null) || generalResource == null) {
             return;
         }
-        this.f14356e = generalResource.res_image;
-        this.f14357f = generalResource.res_link;
-        this.f14358g = generalResource.res_floor.intValue();
+        this.f14376e = generalResource.res_image;
+        this.f14377f = generalResource.res_link;
+        this.f14378g = generalResource.res_floor.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14355h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14375h : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -28,22 +28,22 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c.a.q0.f1.i.a.b f13213a;
+    public final c.a.q0.f1.i.a.b f13218a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BitmapRegionDecoder f13214b;
+    public final BitmapRegionDecoder f13219b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.e.e.k.a<a.C0656a, c.a.q0.f1.i.a.a> f13215c;
+    public c.a.e.e.k.a<a.C0656a, c.a.q0.f1.i.a.a> f13220c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.e.e.k.b<c.a.q0.f1.i.a.a> f13216d;
+    public c.a.e.e.k.b<c.a.q0.f1.i.a.a> f13221d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ThreadPoolExecutor f13217e;
+    public final ThreadPoolExecutor f13222e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdAsyncTask<Void, Void, Void> f13218f;
+    public BdAsyncTask<Void, Void, Void> f13223f;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Void, Void, Void> {
@@ -51,7 +51,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f13219a;
+        public final /* synthetic */ c f13224a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class c {
                     return;
                 }
             }
-            this.f13219a = cVar;
+            this.f13224a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,13 +78,13 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
                 try {
-                    this.f13219a.f13217e.shutdownNow();
-                    this.f13219a.f13217e.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
+                    this.f13224a.f13222e.shutdownNow();
+                    this.f13224a.f13222e.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                if (this.f13219a.f13214b != null) {
-                    this.f13219a.f13214b.recycle();
+                if (this.f13224a.f13219b != null) {
+                    this.f13224a.f13219b.recycle();
                     return null;
                 }
                 return null;
@@ -129,7 +129,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c f13220h;
+        public final /* synthetic */ c f13225h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public C0658c(c cVar, int i2) {
@@ -149,7 +149,7 @@ public class c {
                     return;
                 }
             }
-            this.f13220h = cVar;
+            this.f13225h = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -157,11 +157,11 @@ public class c {
         /* renamed from: o */
         public void b(boolean z, a.C0656a c0656a, c.a.q0.f1.i.a.a aVar, c.a.q0.f1.i.a.a aVar2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), c0656a, aVar, aVar2}) == null) || !z || this.f13220h.f13216d == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), c0656a, aVar, aVar2}) == null) || !z || this.f13225h.f13221d == null || aVar == null) {
                 return;
             }
             aVar.a();
-            this.f13220h.f13216d.e(aVar);
+            this.f13225h.f13221d.e(aVar);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -186,22 +186,22 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f13221e;
+        public int f13226e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f13222f;
+        public int f13227f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f13223g;
+        public int f13228g;
 
         /* renamed from: h  reason: collision with root package name */
-        public c.a.q0.f1.i.a.b f13224h;
+        public c.a.q0.f1.i.a.b f13229h;
 
         /* renamed from: i  reason: collision with root package name */
-        public BitmapRegionDecoder f13225i;
+        public BitmapRegionDecoder f13230i;
 
         /* renamed from: j  reason: collision with root package name */
-        public c.a.e.e.k.a<a.C0656a, c.a.q0.f1.i.a.a> f13226j;
+        public c.a.e.e.k.a<a.C0656a, c.a.q0.f1.i.a.a> f13231j;
         public c.a.q0.f1.i.b.a k;
         public c l;
 
@@ -220,17 +220,17 @@ public class c {
                     return;
                 }
             }
-            this.f13221e = i2;
-            this.f13222f = i3;
-            this.f13223g = i4;
+            this.f13226e = i2;
+            this.f13227f = i3;
+            this.f13228g = i4;
         }
 
         public final void b(c cVar, c.a.q0.f1.i.a.b bVar, BitmapRegionDecoder bitmapRegionDecoder, c.a.e.e.k.a<a.C0656a, c.a.q0.f1.i.a.a> aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048576, this, cVar, bVar, bitmapRegionDecoder, aVar) == null) {
-                this.f13224h = bVar;
-                this.f13225i = bitmapRegionDecoder;
-                this.f13226j = aVar;
+                this.f13229h = bVar;
+                this.f13230i = bitmapRegionDecoder;
+                this.f13231j = aVar;
                 this.l = cVar;
             }
         }
@@ -252,9 +252,9 @@ public class c {
         public void run() {
             c.a.q0.f1.i.a.a c2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f13226j != null && this.f13224h.b(this.f13221e, this.f13222f, this.f13223g)) {
-                Rect j2 = this.f13224h.j(this.f13221e, this.f13222f, this.f13223g);
-                this.f13224h.a(j2);
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f13231j != null && this.f13229h.b(this.f13226e, this.f13227f, this.f13228g)) {
+                Rect j2 = this.f13229h.j(this.f13226e, this.f13227f, this.f13228g);
+                this.f13229h.a(j2);
                 if (c(j2)) {
                     return;
                 }
@@ -266,36 +266,36 @@ public class c {
                             c2.a();
                         }
                     } else {
-                        c2 = this.f13224h.c();
+                        c2 = this.f13229h.c();
                     }
                 } catch (Throwable unused) {
                     TbadkCoreApplication.getInst().onAppMemoryLow();
-                    c.a.e.e.k.a<a.C0656a, c.a.q0.f1.i.a.a> aVar = this.f13226j;
+                    c.a.e.e.k.a<a.C0656a, c.a.q0.f1.i.a.a> aVar = this.f13231j;
                     aVar.k((int) (aVar.g() * 0.8d));
                     System.gc();
                     try {
-                        c2 = this.f13224h.c();
+                        c2 = this.f13229h.c();
                     } catch (Throwable unused2) {
                         return;
                     }
                 }
                 BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inSampleSize = this.f13223g;
+                options.inSampleSize = this.f13228g;
                 options.inBitmap = c2.b();
                 options.inMutable = true;
                 System.currentTimeMillis();
-                Bitmap decodeRegion = this.f13225i.decodeRegion(j2, options);
+                Bitmap decodeRegion = this.f13230i.decodeRegion(j2, options);
                 if (decodeRegion == null) {
                     options.inBitmap = null;
-                    decodeRegion = this.f13225i.decodeRegion(j2, options);
+                    decodeRegion = this.f13230i.decodeRegion(j2, options);
                     if (decodeRegion == null) {
                         return;
                     }
                 }
                 decodeRegion.prepareToDraw();
                 c2.h(decodeRegion);
-                c2.j(this.f13221e, this.f13222f, this.f13223g);
-                this.f13226j.h(c2.d(), c2);
+                c2.j(this.f13226e, this.f13227f, this.f13228g);
+                this.f13231j.h(c2.d(), c2);
                 c.a.q0.f1.i.b.a aVar2 = this.k;
                 if (aVar2 != null) {
                     aVar2.onLoadFinished();
@@ -334,23 +334,23 @@ public class c {
                 return;
             }
         }
-        this.f13213a = bVar;
-        this.f13214b = bitmapRegionDecoder;
+        this.f13218a = bVar;
+        this.f13219b = bitmapRegionDecoder;
         c.a.q0.c0.c.k().u((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
-        this.f13217e = new ThreadPoolExecutor(0, 10, 60L, TimeUnit.SECONDS, new SynchronousQueue(), new b(this));
-        this.f13215c = new C0658c(this, (int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f));
-        c.a.e.e.k.b<c.a.q0.f1.i.a.a> p = c.a.q0.c0.c.k().p(this.f13213a.e());
-        this.f13216d = p;
+        this.f13222e = new ThreadPoolExecutor(0, 10, 60L, TimeUnit.SECONDS, new SynchronousQueue(), new b(this));
+        this.f13220c = new C0658c(this, (int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f));
+        c.a.e.e.k.b<c.a.q0.f1.i.a.a> p = c.a.q0.c0.c.k().p(this.f13218a.e());
+        this.f13221d = p;
         p.f(6);
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f13217e.purge();
-            if (z && this.f13218f == null) {
+            this.f13222e.purge();
+            if (z && this.f13223f == null) {
                 a aVar = new a(this);
-                this.f13218f = aVar;
+                this.f13223f = aVar;
                 aVar.execute(new Void[0]);
             }
         }
@@ -359,34 +359,34 @@ public class c {
     public c.a.e.e.k.a<a.C0656a, c.a.q0.f1.i.a.a> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13215c : (c.a.e.e.k.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13220c : (c.a.e.e.k.a) invokeV.objValue;
     }
 
     public c.a.e.e.k.b<c.a.q0.f1.i.a.a> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13216d : (c.a.e.e.k.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13221d : (c.a.e.e.k.b) invokeV.objValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             d(true);
-            c.a.e.e.k.a<a.C0656a, c.a.q0.f1.i.a.a> aVar = this.f13215c;
+            c.a.e.e.k.a<a.C0656a, c.a.q0.f1.i.a.a> aVar = this.f13220c;
             if (aVar != null) {
                 aVar.k(0);
-                this.f13215c.a();
-                this.f13215c = null;
+                this.f13220c.a();
+                this.f13220c = null;
             }
-            this.f13216d = null;
+            this.f13221d = null;
         }
     }
 
     public void h(d dVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) && dVar != null && this.f13218f == null) {
-            dVar.b(this, this.f13213a, this.f13214b, e());
-            this.f13217e.submit(dVar);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) && dVar != null && this.f13223f == null) {
+            dVar.b(this, this.f13218a, this.f13219b, e());
+            this.f13222e.submit(dVar);
         }
     }
 }

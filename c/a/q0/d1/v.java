@@ -1,60 +1,68 @@
 package c.a.q0.d1;
 
-import android.content.Context;
-import android.text.style.ClickableSpan;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class v extends ClickableSpan {
-    public static /* synthetic */ Interceptable $ic;
+public class v {
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f13042a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f13043b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f13044c = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f13045d = "floor";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Context f13032e;
-
-    public v(Context context) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(39179453, "Lc/a/q0/d1/v;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(39179453, "Lc/a/q0/d1/v;");
+        }
+    }
+
+    public static void a(String str, String str2, String str3, int i2, c.a.e.a.f fVar, BaijiahaoData baijiahaoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i2), fVar, baijiahaoData}) == null) {
+            f13043b = str;
+            f13044c = str2;
+            f13042a = str3;
+            if (StringUtils.isNull(str3) || fVar == null || fVar.getPageActivity() == null) {
                 return;
             }
-        }
-        this.f13032e = null;
-        this.f13032e = context;
-    }
-
-    public Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13032e : (Context) invokeV.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f13032e).createNormalCfg(str, null, null)));
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            c.a.q0.m.a.l(this.f13032e, str);
+            if (f13045d.equals(f13042a)) {
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(fVar.getPageActivity()).createSubPbActivityConfig(f13043b, f13044c, "search_post", true);
+                createSubPbActivityConfig.setKeyPageStartFrom(8);
+                createSubPbActivityConfig.setBjhData(baijiahaoData);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+                return;
+            }
+            PbActivityConfig createNormalCfg = new PbActivityConfig(fVar.getPageActivity()).createNormalCfg(f13043b, f13044c, "search_post");
+            createNormalCfg.setStartFrom(8);
+            createNormalCfg.setBjhData(baijiahaoData);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
         }
     }
 }

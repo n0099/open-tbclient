@@ -21,10 +21,10 @@ public class c implements com.bytedance.sdk.openadsdk.j.c.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f68267a;
+    public final b f68302a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<a> f68268b;
+    public final List<a> f68303b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class c implements com.bytedance.sdk.openadsdk.j.c.a {
                 return;
             }
         }
-        this.f68268b = Collections.synchronizedList(new LinkedList());
-        this.f68267a = b.a();
+        this.f68303b = Collections.synchronizedList(new LinkedList());
+        this.f68302a = b.a();
     }
 
     public static com.bytedance.sdk.openadsdk.j.c.a c() {
@@ -65,7 +65,7 @@ public class c implements com.bytedance.sdk.openadsdk.j.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f68269a;
+                public final /* synthetic */ c f68304a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -85,18 +85,18 @@ public class c implements com.bytedance.sdk.openadsdk.j.c.a {
                             return;
                         }
                     }
-                    this.f68269a = this;
+                    this.f68304a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        List<a> d2 = this.f68269a.f68267a.d();
+                        List<a> d2 = this.f68304a.f68302a.d();
                         if (d2 != null) {
-                            this.f68269a.f68268b.addAll(d2);
+                            this.f68304a.f68303b.addAll(d2);
                         }
-                        this.f68269a.f68267a.c();
+                        this.f68304a.f68302a.c();
                     }
                 }
             }, 5);
@@ -130,10 +130,10 @@ public class c implements com.bytedance.sdk.openadsdk.j.c.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f68270a;
+        public final String f68305a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final JSONObject f68271b;
+        public final JSONObject f68306b;
 
         public a(String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -150,8 +150,8 @@ public class c implements com.bytedance.sdk.openadsdk.j.c.a {
                     return;
                 }
             }
-            this.f68270a = str;
-            this.f68271b = jSONObject;
+            this.f68305a = str;
+            this.f68306b = jSONObject;
         }
 
         public static a a(String str) {
@@ -179,20 +179,20 @@ public class c implements com.bytedance.sdk.openadsdk.j.c.a {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68270a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68305a : (String) invokeV.objValue;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (TextUtils.isEmpty(this.f68270a) || this.f68271b == null) {
+                if (TextUtils.isEmpty(this.f68305a) || this.f68306b == null) {
                     return null;
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("localId", this.f68270a);
-                    jSONObject.put("event", this.f68271b);
+                    jSONObject.put("localId", this.f68305a);
+                    jSONObject.put("event", this.f68306b);
                 } catch (Throwable unused) {
                 }
                 return jSONObject.toString();

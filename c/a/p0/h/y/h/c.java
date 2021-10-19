@@ -94,7 +94,7 @@ public class c extends WebSocketEventTarget {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, aVar, str) == null) {
             String format = String.format("%s:ok", str);
-            boolean z = WebSocketEventTarget.f47149f;
+            boolean z = WebSocketEventTarget.f47061f;
             c.a.p0.h.m0.c.a(aVar, true, new f(format));
         }
     }
@@ -208,7 +208,7 @@ public class c extends WebSocketEventTarget {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jsObject) == null) {
             c.a.p0.a.y.b.a D = D(jsObject);
-            int i2 = a.f11642a[this.f47150e.ordinal()];
+            int i2 = a.f11642a[this.f47062e.ordinal()];
             if (i2 == 1) {
                 z(D, "SocketTask.send", "SocketTask.readyState is not OPEN");
             } else if (i2 != 2) {
@@ -276,7 +276,7 @@ public class c extends WebSocketEventTarget {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, aVar, str, str2) == null) {
             String format = String.format("%s:fail %s", str, str2);
-            boolean z = WebSocketEventTarget.f47149f;
+            boolean z = WebSocketEventTarget.f47061f;
             c.a.p0.h.m0.c.a(aVar, false, new f(format));
         }
     }
@@ -286,7 +286,7 @@ public class c extends WebSocketEventTarget {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
             c.a.p0.a.y.b.a D = D(jsObject);
-            if (this.f47150e == WebSocketEventTarget.SocketTaskState.CLOSE) {
+            if (this.f47062e == WebSocketEventTarget.SocketTaskState.CLOSE) {
                 z(D, "SocketTask.close", "SocketTask.readyState is CLOSED");
                 return;
             }

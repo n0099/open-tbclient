@@ -16,7 +16,7 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14209a;
+    public String f14232a;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class i {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14209a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14232a : (String) invokeV.objValue;
     }
 
     public void b(JSONObject jSONObject) {
@@ -45,7 +45,7 @@ public class i {
         }
         try {
             jSONObject.optString("game_icon");
-            this.f14209a = jSONObject.optString("post_url");
+            this.f14232a = jSONObject.optString("post_url");
             jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
         } catch (Exception e2) {
             BdLog.e(e2.toString());
@@ -58,7 +58,7 @@ public class i {
             return;
         }
         String str = appCode.game_icon;
-        this.f14209a = appCode.post_url;
+        this.f14232a = appCode.post_url;
         String str2 = appCode.button_text;
     }
 }

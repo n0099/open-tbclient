@@ -18,16 +18,16 @@ public abstract class h<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Future<SharedPreferences> f78694a;
+    public final Future<SharedPreferences> f78729a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f78695b;
+    public final a f78730b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f78696c;
+    public final String f78731c;
 
     /* renamed from: d  reason: collision with root package name */
-    public T f78697d;
+    public T f78732d;
 
     /* loaded from: classes10.dex */
     public interface a<T> {
@@ -53,9 +53,9 @@ public abstract class h<T> {
                 return;
             }
         }
-        this.f78694a = future;
-        this.f78695b = aVar;
-        this.f78696c = str;
+        this.f78729a = future;
+        this.f78730b = aVar;
+        this.f78731c = str;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x001b A[Catch: all -> 0x0012, DONT_GENERATE, TryCatch #1 {, blocks: (B:6:0x0009, B:14:0x001b, B:16:0x001d, B:18:0x0034, B:20:0x003b, B:19:0x0038, B:11:0x0015), top: B:28:0x0009, inners: #3 }] */
@@ -67,10 +67,10 @@ public abstract class h<T> {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-            this.f78697d = t;
-            synchronized (this.f78694a) {
+            this.f78732d = t;
+            synchronized (this.f78729a) {
                 try {
-                    sharedPreferences = this.f78694a.get();
+                    sharedPreferences = this.f78729a.get();
                 } catch (InterruptedException unused) {
                     sharedPreferences = null;
                     if (sharedPreferences == null) {
@@ -85,7 +85,7 @@ public abstract class h<T> {
                     return;
                 }
                 SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putString(this.f78696c, this.f78695b.a(this.f78697d));
+                edit.putString(this.f78731c, this.f78730b.a(this.f78732d));
                 if (Build.VERSION.SDK_INT >= 9) {
                     edit.apply();
                 } else {
@@ -102,29 +102,29 @@ public abstract class h<T> {
         Object load;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f78697d == null) {
-                synchronized (this.f78694a) {
+            if (this.f78732d == null) {
+                synchronized (this.f78729a) {
                     String str = null;
                     try {
-                        SharedPreferences sharedPreferences = this.f78694a.get();
+                        SharedPreferences sharedPreferences = this.f78729a.get();
                         if (sharedPreferences != null) {
-                            str = sharedPreferences.getString(this.f78696c, null);
+                            str = sharedPreferences.getString(this.f78731c, null);
                         }
                     } catch (InterruptedException unused) {
                     } catch (ExecutionException e2) {
                         e2.getCause();
                     }
                     if (str == null) {
-                        load = this.f78695b.create();
+                        load = this.f78730b.create();
                     } else {
-                        load = this.f78695b.load(str);
+                        load = this.f78730b.load(str);
                     }
                     if (load != null) {
                         a(load);
                     }
                 }
             }
-            return this.f78697d;
+            return this.f78732d;
         }
         return (T) invokeV.objValue;
     }

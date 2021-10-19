@@ -31,19 +31,19 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f45490a;
+    public static Context f45402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<Integer, a> f45491b;
+    public static Map<Integer, a> f45403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<Integer, List<String>> f45492c;
+    public static Map<Integer, List<String>> f45404c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<String> f45493d;
+    public static List<String> f45405d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f45494e;
+    public static a f45406e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,10 +59,10 @@ public class b {
                 return;
             }
         }
-        f45491b = new HashMap();
-        f45492c = new HashMap();
-        f45493d = new ArrayList();
-        f45494e = new a.AbstractBinderC1722a() { // from class: com.baidu.sofire.mutiprocess.b.1
+        f45403b = new HashMap();
+        f45404c = new HashMap();
+        f45405d = new ArrayList();
+        f45406e = new a.AbstractBinderC1724a() { // from class: com.baidu.sofire.mutiprocess.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -173,15 +173,15 @@ public class b {
                 bundle.setClassLoader(b.class.getClassLoader());
                 int i2 = bundle.getInt("bundle_key_pid");
                 BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("bundle_key_binder_holder");
-                if (i2 > 0 && binderHolder != null && binderHolder.f45487a != null) {
-                    f45491b.put(Integer.valueOf(i2), a.AbstractBinderC1722a.a(binderHolder.f45487a));
-                    if (f45493d.size() <= 0) {
+                if (i2 > 0 && binderHolder != null && binderHolder.f45399a != null) {
+                    f45403b.put(Integer.valueOf(i2), a.AbstractBinderC1724a.a(binderHolder.f45399a));
+                    if (f45405d.size() <= 0) {
                         return a(0);
                     }
                     com.baidu.sofire.core.c a2 = com.baidu.sofire.core.c.a();
                     f a3 = f.a();
                     if (a2 != null && a3 != null) {
-                        for (String str : f45493d) {
+                        for (String str : f45405d) {
                             ApkInfo d2 = a3.d(str);
                             if (d2 == null) {
                                 return a(0);
@@ -227,14 +227,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, bundle)) == null) {
             try {
-                if (f45490a == null) {
+                if (f45402a == null) {
                     return a(-104);
                 }
                 String string = bundle.getString("bundle_key_plugin_package_name");
                 if (TextUtils.isEmpty(string)) {
                     return a(-101);
                 }
-                com.baidu.sofire.core.c a2 = com.baidu.sofire.core.c.a(f45490a);
+                com.baidu.sofire.core.c a2 = com.baidu.sofire.core.c.a(f45402a);
                 if (a2 == null) {
                     return a(-105);
                 }
@@ -255,7 +255,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, bundle)) == null) {
             try {
-                if (f45490a == null) {
+                if (f45402a == null) {
                     return a(-104);
                 }
                 String string = bundle.getString("bundle_key_plugin_package_name");
@@ -298,7 +298,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
             try {
-                if (f45492c == null || (entrySet = f45492c.entrySet()) == null) {
+                if (f45404c == null || (entrySet = f45404c.entrySet()) == null) {
                     return;
                 }
                 for (Map.Entry<Integer, List<String>> entry : entrySet) {
@@ -329,10 +329,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             try {
-                if (f45491b == null) {
+                if (f45403b == null) {
                     return null;
                 }
-                return f45491b.keySet();
+                return f45403b.keySet();
             } catch (Throwable unused) {
                 c.a();
                 return null;
@@ -348,10 +348,10 @@ public class b {
         }
         try {
             if (c.b(context, "ampf")) {
-                f45490a = context.getApplicationContext();
+                f45402a = context.getApplicationContext();
                 Bundle bundle = new Bundle();
                 bundle.putInt("bundle_key_pid", Process.myPid());
-                bundle.putParcelable("bundle_key_binder_holder", new BinderHolder(f45494e.asBinder()));
+                bundle.putParcelable("bundle_key_binder_holder", new BinderHolder(f45406e.asBinder()));
                 w.a(context, "sub_process_register_sub_process", bundle);
             }
         } catch (Throwable unused) {
@@ -367,10 +367,10 @@ public class b {
                 if (TextUtils.isEmpty(str)) {
                     return -201;
                 }
-                if (f45491b == null) {
+                if (f45403b == null) {
                     return -200;
                 }
-                a aVar = f45491b.get(Integer.valueOf(i2));
+                a aVar = f45403b.get(Integer.valueOf(i2));
                 if (aVar == null) {
                     return -202;
                 }
@@ -378,11 +378,11 @@ public class b {
                 bundle.putInt("bundle_key_ctrl_action", z ? 1 : 2);
                 bundle.putString("bundle_key_plugin_package_name", str);
                 int i3 = aVar.a(bundle).getInt("bundle_key_error_code", -200);
-                if (i3 == 0 && f45492c != null) {
-                    List<String> list = f45492c.get(Integer.valueOf(i2));
+                if (i3 == 0 && f45404c != null) {
+                    List<String> list = f45404c.get(Integer.valueOf(i2));
                     if (list == null) {
                         list = new ArrayList<>();
-                        f45492c.put(Integer.valueOf(i2), list);
+                        f45404c.put(Integer.valueOf(i2), list);
                     }
                     if (z && !list.contains(str)) {
                         list.add(str);
@@ -441,11 +441,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             try {
-                if (TextUtils.isEmpty(str) || f45491b == null) {
+                if (TextUtils.isEmpty(str) || f45403b == null) {
                     return null;
                 }
                 HashMap hashMap = new HashMap();
-                for (Integer num : f45491b.keySet()) {
+                for (Integer num : f45403b.keySet()) {
                     hashMap.put(num, Integer.valueOf(a(num.intValue(), str, true)));
                 }
                 return hashMap;
@@ -465,10 +465,10 @@ public class b {
                 if (bundle == null) {
                     return a(-201);
                 }
-                if (f45491b == null) {
+                if (f45403b == null) {
                     return a(-200);
                 }
-                a aVar = f45491b.get(Integer.valueOf(i2));
+                a aVar = f45403b.get(Integer.valueOf(i2));
                 if (aVar == null) {
                     return a(-202);
                 }
@@ -493,13 +493,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65547, null, str, z) == null) {
             try {
-                if (TextUtils.isEmpty(str) || f45493d == null) {
+                if (TextUtils.isEmpty(str) || f45405d == null) {
                     return;
                 }
                 if (z) {
-                    f45493d.add(str);
+                    f45405d.add(str);
                 } else {
-                    f45493d.remove(str);
+                    f45405d.remove(str);
                 }
             } catch (Throwable unused) {
                 c.a();
@@ -515,10 +515,10 @@ public class b {
                 if (TextUtils.isEmpty(str)) {
                     return a(-201);
                 }
-                if (f45491b == null) {
+                if (f45403b == null) {
                     return a(-200);
                 }
-                a aVar = f45491b.get(Integer.valueOf(i2));
+                a aVar = f45403b.get(Integer.valueOf(i2));
                 if (aVar == null) {
                     return a(-202);
                 }
@@ -539,13 +539,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bundle)) == null) {
             try {
-                if (f45490a == null) {
+                if (f45402a == null) {
                     return a(-204);
                 }
                 if (bundle == null) {
                     return a(-201);
                 }
-                return w.a(f45490a, "sub_process_call_main_plugin", bundle);
+                return w.a(f45402a, "sub_process_call_main_plugin", bundle);
             } catch (Throwable unused) {
                 c.a();
                 return a(-200);

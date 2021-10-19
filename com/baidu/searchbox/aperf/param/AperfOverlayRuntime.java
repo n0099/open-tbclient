@@ -1,6 +1,6 @@
 package com.baidu.searchbox.aperf.param;
 
-import c.a.r0.e3.b;
+import c.a.r0.f3.b;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;

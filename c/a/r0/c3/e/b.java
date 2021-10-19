@@ -1,5 +1,0 @@
-package c.a.r0.c3.e;
-/* loaded from: classes3.dex */
-public interface b {
-    void onShare(int i2, int i3);
-}

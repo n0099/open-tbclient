@@ -20,34 +20,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f15547a;
+    public AtomicBoolean f15570a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f15548b;
+    public int f15571b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f15549c;
+    public int f15572c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f15550d;
+    public int f15573d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15551e;
+    public int f15574e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f15552f;
+    public long f15575f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15553g;
+    public int f15576g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15554h;
+    public int f15577h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15555i;
+    public int f15578i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f15556j;
+    public String f15579j;
     public int k;
     public int l;
     public int m;
@@ -87,7 +87,7 @@ public class a {
                 return;
             }
         }
-        this.f15547a = new AtomicBoolean(false);
+        this.f15570a = new AtomicBoolean(false);
     }
 
     public static a h() {
@@ -105,16 +105,16 @@ public class a {
     public void B(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            boolean z = this.f15547a.get();
+            boolean z = this.f15570a.get();
             if (jSONObject == null || z) {
                 return;
             }
-            this.f15547a.set(true);
-            this.f15548b = jSONObject.optInt("tieba_lazy_launch_switch", 1);
-            this.f15549c = jSONObject.optInt("tieba_lazy_launch_internal", 60);
-            this.f15550d = jSONObject.optInt("tieba_max_fake_progress", 50);
-            this.f15551e = jSONObject.optInt("tieba_max_fake_time", 60);
-            this.f15552f = jSONObject.optLong("tieba_max_fake_speed", 768000L);
+            this.f15570a.set(true);
+            this.f15571b = jSONObject.optInt("tieba_lazy_launch_switch", 1);
+            this.f15572c = jSONObject.optInt("tieba_lazy_launch_internal", 60);
+            this.f15573d = jSONObject.optInt("tieba_max_fake_progress", 50);
+            this.f15574e = jSONObject.optInt("tieba_max_fake_time", 60);
+            this.f15575f = jSONObject.optLong("tieba_max_fake_speed", 768000L);
             SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0);
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putInt("pic_page_insert_mode", jSONObject.optInt("pic_page_insert_mode", 2));
@@ -127,10 +127,10 @@ public class a {
             edit.putInt("pic_page_req_gap_time", jSONObject.optInt("pic_page_req_gap_time", 30));
             edit.commit();
             jSONObject.optInt("tieba_landing_page_type_switch", -1);
-            this.f15553g = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
-            this.f15554h = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
-            this.f15555i = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
-            this.f15556j = jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
+            this.f15576g = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
+            this.f15577h = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
+            this.f15578i = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
+            this.f15579j = jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
             this.k = jSONObject.optInt("tieba_follow_up_expire_time", 7);
             this.l = jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
             this.m = jSONObject.optInt("tieba_follow_up_gap_time", 5);
@@ -150,31 +150,31 @@ public class a {
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15555i == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15578i == 1 : invokeV.booleanValue;
     }
 
     public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15554h == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15577h == 1 : invokeV.booleanValue;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15552f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15575f : invokeV.longValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15550d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15573d : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15551e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15574e : invokeV.intValue;
     }
 
     public int d() {
@@ -198,13 +198,13 @@ public class a {
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f15556j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f15579j : (String) invokeV.objValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f15549c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f15572c : invokeV.intValue;
     }
 
     public int j() {
@@ -289,7 +289,7 @@ public class a {
     public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f15548b == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f15571b == 1 : invokeV.booleanValue;
     }
 
     public boolean w() {
@@ -313,6 +313,6 @@ public class a {
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f15553g == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f15576g == 1 : invokeV.booleanValue;
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public final class c implements a.InterfaceC1401a {
+public final class c implements a.InterfaceC1404a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,36 +28,36 @@ public final class c implements a.InterfaceC1401a {
         }
     }
 
-    @Override // c.a.v0.a.e.a.InterfaceC1401a
+    @Override // c.a.v0.a.e.a.InterfaceC1404a
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // c.a.v0.a.e.a.InterfaceC1401a
+    @Override // c.a.v0.a.e.a.InterfaceC1404a
     public final void a(Activity activity) {
         d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            dVar = d.a.f30329a;
+            dVar = d.a.f30376a;
             dVar.c(new WeakReference<>(activity));
         }
     }
 
-    @Override // c.a.v0.a.e.a.InterfaceC1401a
+    @Override // c.a.v0.a.e.a.InterfaceC1404a
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    @Override // c.a.v0.a.e.a.InterfaceC1401a
+    @Override // c.a.v0.a.e.a.InterfaceC1404a
     public final void onActivityDestroyed(Activity activity) {
         d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            dVar = d.a.f30329a;
+            dVar = d.a.f30376a;
             dVar.d(activity);
         }
     }

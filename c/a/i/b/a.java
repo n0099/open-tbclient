@@ -36,10 +36,10 @@ public class a extends m {
                 return;
             }
         }
-        this.f15093b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
-        this.f15095d = R.drawable.icon_pure_post_speak24;
-        this.f15098g = false;
-        this.f15099h = true;
+        this.f15124b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
+        this.f15126d = R.drawable.icon_pure_post_speak24;
+        this.f15129g = false;
+        this.f15130h = true;
         this.m = true;
         this.l = 5;
         this.k = new SendVoiceView(context);

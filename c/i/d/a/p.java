@@ -17,23 +17,23 @@ public final class p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final t f34190a;
+    public final t f34194a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34191b;
+    public boolean f34195b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f34192c;
+    public long f34196c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f34193d;
+    public long f34197d;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f34194a;
+        public static final /* synthetic */ int[] f34198a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,33 +50,33 @@ public final class p {
                 }
             }
             int[] iArr = new int[TimeUnit.values().length];
-            f34194a = iArr;
+            f34198a = iArr;
             try {
                 iArr[TimeUnit.NANOSECONDS.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f34194a[TimeUnit.MICROSECONDS.ordinal()] = 2;
+                f34198a[TimeUnit.MICROSECONDS.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f34194a[TimeUnit.MILLISECONDS.ordinal()] = 3;
+                f34198a[TimeUnit.MILLISECONDS.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f34194a[TimeUnit.SECONDS.ordinal()] = 4;
+                f34198a[TimeUnit.SECONDS.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f34194a[TimeUnit.MINUTES.ordinal()] = 5;
+                f34198a[TimeUnit.MINUTES.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f34194a[TimeUnit.HOURS.ordinal()] = 6;
+                f34198a[TimeUnit.HOURS.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f34194a[TimeUnit.DAYS.ordinal()] = 7;
+                f34198a[TimeUnit.DAYS.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
         }
@@ -95,14 +95,14 @@ public final class p {
                 return;
             }
         }
-        this.f34190a = t.b();
+        this.f34194a = t.b();
     }
 
     public static String a(TimeUnit timeUnit) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, timeUnit)) == null) {
-            switch (a.f34194a[timeUnit.ordinal()]) {
+            switch (a.f34198a[timeUnit.ordinal()]) {
                 case 1:
                     return NotificationStyle.NOTIFICATION_STYLE;
                 case 2:
@@ -177,22 +177,22 @@ public final class p {
     public final long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34191b ? (this.f34190a.a() - this.f34193d) + this.f34192c : this.f34192c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34195b ? (this.f34194a.a() - this.f34197d) + this.f34196c : this.f34196c : invokeV.longValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34191b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34195b : invokeV.booleanValue;
     }
 
     public p h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n.x(!this.f34191b, "This stopwatch is already running.");
-            this.f34191b = true;
-            this.f34193d = this.f34190a.a();
+            n.x(!this.f34195b, "This stopwatch is already running.");
+            this.f34195b = true;
+            this.f34197d = this.f34194a.a();
             return this;
         }
         return (p) invokeV.objValue;
@@ -202,10 +202,10 @@ public final class p {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long a2 = this.f34190a.a();
-            n.x(this.f34191b, "This stopwatch is already stopped.");
-            this.f34191b = false;
-            this.f34192c += a2 - this.f34193d;
+            long a2 = this.f34194a.a();
+            n.x(this.f34195b, "This stopwatch is already stopped.");
+            this.f34195b = false;
+            this.f34196c += a2 - this.f34197d;
             return this;
         }
         return (p) invokeV.objValue;

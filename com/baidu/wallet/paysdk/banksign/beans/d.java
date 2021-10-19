@@ -28,7 +28,7 @@ public class d extends BaseBean<QueryResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62646a;
+    public String f62681a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context) {
@@ -48,7 +48,7 @@ public class d extends BaseBean<QueryResponse> {
                 return;
             }
         }
-        this.f62646a = null;
+        this.f62681a = null;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -85,17 +85,17 @@ public class d extends BaseBean<QueryResponse> {
             }
             String b2 = com.baidu.wallet.paysdk.banksign.a.a.a().b();
             if (!TextUtils.isEmpty(b2)) {
-                this.f62646a = b2;
+                this.f62681a = b2;
             } else if (PayDataCache.getInstance().isFromPreCashier()) {
-                this.f62646a = PayDataCache.getInstance().getSelectedCardNo();
+                this.f62681a = PayDataCache.getInstance().getSelectedCardNo();
             } else {
                 CardData.BondCard selectCard = PayRequestCache.getInstance().getSelectCard();
                 if (selectCard != null) {
-                    this.f62646a = selectCard.account_no;
+                    this.f62681a = selectCard.account_no;
                 }
             }
-            if (!TextUtils.isEmpty(this.f62646a)) {
-                arrayList.add(new RestNameValuePair("selected_card_no", this.f62646a));
+            if (!TextUtils.isEmpty(this.f62681a)) {
+                arrayList.add(new RestNameValuePair("selected_card_no", this.f62681a));
             }
             String sessionId = NetworkBean.SessionCache.getInstance().getSessionId(null);
             if (!TextUtils.isEmpty(sessionId)) {

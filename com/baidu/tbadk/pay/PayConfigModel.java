@@ -28,10 +28,10 @@ public class PayConfigModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.p0.a f48558e;
+    public c.a.q0.p0.a f48482e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.e.c.g.a f48559f;
+    public final c.a.e.c.g.a f48483f;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.e.c.g.a {
@@ -39,7 +39,7 @@ public class PayConfigModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PayConfigModel f48560a;
+        public final /* synthetic */ PayConfigModel f48484a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PayConfigModel payConfigModel, int i2, int i3) {
@@ -60,19 +60,19 @@ public class PayConfigModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48560a = payConfigModel;
+            this.f48484a = payConfigModel;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.f48560a.z(responsedMessage)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.f48484a.z(responsedMessage)) {
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
-                        this.f48560a.A(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+                        this.f48484a.A(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                         return;
                     } else if (responsedMessage instanceof ClientConfigSocketResponse) {
-                        this.f48560a.A(((ClientConfigSocketResponse) responsedMessage).getData());
+                        this.f48484a.A(((ClientConfigSocketResponse) responsedMessage).getData());
                         return;
                     } else {
                         return;
@@ -83,8 +83,8 @@ public class PayConfigModel extends BdBaseModel {
                 if (StringUtils.isNull(errorString)) {
                     errorString = string;
                 }
-                if (this.f48560a.f48558e != null) {
-                    this.f48560a.f48558e.onError(errorString);
+                if (this.f48484a.f48482e != null) {
+                    this.f48484a.f48482e.onError(errorString);
                 }
             }
         }
@@ -109,8 +109,8 @@ public class PayConfigModel extends BdBaseModel {
             }
         }
         a aVar2 = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.f48559f = aVar2;
-        this.f48558e = aVar;
+        this.f48483f = aVar2;
+        this.f48482e = aVar;
         registerListener(aVar2);
     }
 
@@ -120,23 +120,23 @@ public class PayConfigModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
             if (dataRes != null && (cPayType = dataRes.payType) != null) {
                 if (cPayType.pay_type.intValue() == 1) {
-                    c.a.q0.p0.a aVar = this.f48558e;
+                    c.a.q0.p0.a aVar = this.f48482e;
                     if (aVar != null) {
                         aVar.b();
                     }
                 } else if (dataRes.payType.pay_type.intValue() == 2) {
-                    c.a.q0.p0.a aVar2 = this.f48558e;
+                    c.a.q0.p0.a aVar2 = this.f48482e;
                     if (aVar2 != null) {
                         aVar2.a();
                     }
                 } else {
-                    c.a.q0.p0.a aVar3 = this.f48558e;
+                    c.a.q0.p0.a aVar3 = this.f48482e;
                     if (aVar3 != null) {
                         aVar3.onError("");
                     }
                 }
-            } else if (this.f48558e != null) {
-                this.f48558e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
+            } else if (this.f48482e != null) {
+                this.f48482e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
             }
         }
     }
@@ -145,12 +145,12 @@ public class PayConfigModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!d.c().g()) {
-                c.a.q0.p0.a aVar = this.f48558e;
+                c.a.q0.p0.a aVar = this.f48482e;
                 if (aVar != null) {
                     aVar.a();
                 }
             } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                c.a.q0.p0.a aVar2 = this.f48558e;
+                c.a.q0.p0.a aVar2 = this.f48482e;
                 if (aVar2 != null) {
                     aVar2.b();
                 }
@@ -163,7 +163,7 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -173,7 +173,7 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -185,7 +185,7 @@ public class PayConfigModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f48559f);
+            MessageManager.getInstance().unRegisterListener(this.f48483f);
         }
     }
 
@@ -214,8 +214,8 @@ public class PayConfigModel extends BdBaseModel {
             }
         }
         a aVar2 = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.f48559f = aVar2;
-        this.f48558e = aVar;
+        this.f48483f = aVar2;
+        this.f48482e = aVar;
         registerListener(aVar2);
     }
 }

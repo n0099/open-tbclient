@@ -95,7 +95,7 @@ public class s extends h {
         } else {
             this.l = new ItemCardView(context);
         }
-        v();
+        x();
         q(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
@@ -119,16 +119,42 @@ public class s extends h {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             q(m);
             p(0);
-            u(this.l, m, 0);
+            w(this.l, m, 0);
         }
+    }
+
+    public int s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ItemCardView itemCardView = this.l;
+            if (itemCardView != null) {
+                return itemCardView.getButtonType();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public int t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ItemCardView itemCardView = this.l;
+            if (itemCardView != null) {
+                return itemCardView.getPosition();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    /* renamed from: s */
+    /* renamed from: u */
     public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().s0() != null) {
                 this.l.setVisibility(0);
                 this.l.setData(aVar.getThreadData().z2, 13, aVar.getThreadData().E);
@@ -138,16 +164,16 @@ public class s extends h {
         }
     }
 
-    public void t(boolean z) {
+    public void v(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.l.setIsShowRightBtn(z);
         }
     }
 
-    public final void u(View view, int i2, int i3) {
+    public final void w(View view, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048582, this, view, i2, i3) == null) && view != null && (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i2, i3) == null) && view != null && (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
             if (marginLayoutParams.topMargin == i2 && marginLayoutParams.bottomMargin == i3) {
                 return;
@@ -158,19 +184,19 @@ public class s extends h {
         }
     }
 
-    public final void v() {
+    public final void x() {
         ItemCardView itemCardView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (itemCardView = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (itemCardView = this.l) == null) {
             return;
         }
         itemCardView.setOnClickListenerOfRightBtn(new a(this));
     }
 
-    public void w(int i2) {
+    public void y(int i2) {
         ItemCardView itemCardView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (itemCardView = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (itemCardView = this.l) == null) {
             return;
         }
         itemCardView.setPosition(i2);

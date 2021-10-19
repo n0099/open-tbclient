@@ -12,10 +12,10 @@ public class r1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final LinkedList<p> f31440a;
+    public static final LinkedList<p> f31444a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final LinkedList<p> f31441b;
+    public static final LinkedList<p> f31445b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,8 +31,8 @@ public class r1 {
                 return;
             }
         }
-        f31440a = new LinkedList<>();
-        f31441b = new LinkedList<>();
+        f31444a = new LinkedList<>();
+        f31445b = new LinkedList<>();
     }
 
     public static void a() {
@@ -40,11 +40,11 @@ public class r1 {
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             LinkedList linkedList = new LinkedList();
             LinkedList linkedList2 = new LinkedList();
-            synchronized (f31440a) {
-                linkedList.addAll(f31440a);
-                linkedList2.addAll(f31441b);
-                f31440a.clear();
-                f31441b.clear();
+            synchronized (f31444a) {
+                linkedList.addAll(f31444a);
+                linkedList2.addAll(f31445b);
+                f31444a.clear();
+                f31445b.clear();
             }
             while (!linkedList.isEmpty()) {
                 j1.d((p) linkedList.poll());
@@ -68,12 +68,12 @@ public class r1 {
     public static void b(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, pVar) == null) {
-            synchronized (f31440a) {
-                if (f31440a.size() > 200) {
+            synchronized (f31444a) {
+                if (f31444a.size() > 200) {
                     h0.c("drop event in cache", null);
-                    f31441b.add(f31440a.poll());
+                    f31445b.add(f31444a.poll());
                 }
-                f31440a.add(pVar);
+                f31444a.add(pVar);
             }
         }
     }

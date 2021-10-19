@@ -1,6 +1,5 @@
 package kotlin;
 
-import com.baidu.media.duplayer.LibsInfoDef;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import kotlin.coroutines.Continuation;
 import kotlin.internal.InlineOnly;
@@ -10,7 +9,7 @@ import kotlin.jvm.functions.Function1;
 public final class SuspendKt {
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlin.jvm.functions.Function1<? super kotlin.coroutines.Continuation<? super R>, ? extends java.lang.Object> */
     /* JADX WARN: Multi-variable type inference failed */
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     @InlineOnly
     public static final <R> Function1<Continuation<? super R>, Object> suspend(Function1<? super Continuation<? super R>, ? extends Object> function1) {
         return function1;

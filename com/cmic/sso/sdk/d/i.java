@@ -19,17 +19,17 @@ public class i {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f69502a = "i";
+    public static final String f69537a = "i";
 
     /* renamed from: d  reason: collision with root package name */
-    public static i f69503d;
+    public static i f69538d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public PublicKey f69504b;
+    public PublicKey f69539b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PublicKey f69505c;
+    public PublicKey f69540c;
 
     static {
         InterceptResult invokeClinit;
@@ -59,8 +59,8 @@ public class i {
                 return;
             }
         }
-        this.f69504b = null;
-        this.f69505c = null;
+        this.f69539b = null;
+        this.f69540c = null;
         if (0 == 0) {
             try {
                 b();
@@ -69,7 +69,7 @@ public class i {
                 return;
             }
         }
-        if (this.f69505c == null) {
+        if (this.f69540c == null) {
             c();
         }
     }
@@ -78,10 +78,10 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f69503d == null) {
-                f69503d = new i();
+            if (f69538d == null) {
+                f69538d = new i();
             }
-            return f69503d;
+            return f69538d;
         }
         return (i) invokeV.objValue;
     }
@@ -90,7 +90,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
-                this.f69505c = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6YCzxZS0FaWDOdtwgcHJ\n4aw0AoExz4atTkUlZJIf9eNLj7ogTlQGANNzE2R/uskFse2GsCqJKFTk4UraBkzf\naQu/yuFwKjURi0gEqyna1wQ3Anh3e6J/Pvhrp7vJyyRF3gZQCHElna1CWEN1zyT9\n+APJWeeIsUEJHi0FSf3EmwAtNgcJwLYed8Lrem+2+qvFY8RRjH3w4jT/wl2HKGEY\nYal33Q/OxoAE80SAD+DuXjpeynY1slzFV/Pi2qYmsnuBsnlDPQgJzxQKfCHl8xLf\nsjV57o+phSlqM0B5aPiMScxWJmCzFRX4NKcjt6KGP+3GpzmTyrpavnYQtHasperH\nmQIDAQAB\n", 0)));
+                this.f69540c = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6YCzxZS0FaWDOdtwgcHJ\n4aw0AoExz4atTkUlZJIf9eNLj7ogTlQGANNzE2R/uskFse2GsCqJKFTk4UraBkzf\naQu/yuFwKjURi0gEqyna1wQ3Anh3e6J/Pvhrp7vJyyRF3gZQCHElna1CWEN1zyT9\n+APJWeeIsUEJHi0FSf3EmwAtNgcJwLYed8Lrem+2+qvFY8RRjH3w4jT/wl2HKGEY\nYal33Q/OxoAE80SAD+DuXjpeynY1slzFV/Pi2qYmsnuBsnlDPQgJzxQKfCHl8xLf\nsjV57o+phSlqM0B5aPiMScxWJmCzFRX4NKcjt6KGP+3GpzmTyrpavnYQtHasperH\nmQIDAQAB\n", 0)));
             } catch (NullPointerException unused) {
                 throw new Exception("公钥输入流为空");
             }
@@ -101,13 +101,13 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (this.f69504b == null) {
-                c.a(f69502a, "mServerPublicKey == null");
+            if (this.f69539b == null) {
+                c.a(f69537a, "mServerPublicKey == null");
                 return null;
             }
             try {
                 Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, this.f69505c);
+                cipher.init(1, this.f69540c);
                 return Base64.encodeToString(cipher.doFinal(bArr), 0);
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -121,13 +121,13 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            if (this.f69504b == null) {
-                c.a(f69502a, "mServerPublicKey == null");
+            if (this.f69539b == null) {
+                c.a(f69537a, "mServerPublicKey == null");
                 return "";
             }
             try {
                 Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, this.f69504b);
+                cipher.init(1, this.f69539b);
                 return s.a(cipher.doFinal(bArr));
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -141,7 +141,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             try {
-                this.f69504b = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/YHP9utFGOhGk7Xf5L7jOgQz5\nv2JKxdrIE3yzYsHoZJwzKC7Ttx380UZmBFzr5I1k6FFMn/YGXd4ts6UHT/nzsCIc\ngZlTTem7Pjdm1V9bJgQ6iQvFHsvT+vNgJ3wAIRd+iCMXm8y96yZhD2+SH5odBYS2\nZzwTYXBQDvB/rTfdjwIDAQAB", 0)));
+                this.f69539b = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/YHP9utFGOhGk7Xf5L7jOgQz5\nv2JKxdrIE3yzYsHoZJwzKC7Ttx380UZmBFzr5I1k6FFMn/YGXd4ts6UHT/nzsCIc\ngZlTTem7Pjdm1V9bJgQ6iQvFHsvT+vNgJ3wAIRd+iCMXm8y96yZhD2+SH5odBYS2\nZzwTYXBQDvB/rTfdjwIDAQAB", 0)));
             } catch (NullPointerException e2) {
                 e2.printStackTrace();
             }

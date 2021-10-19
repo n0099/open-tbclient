@@ -21,7 +21,7 @@ public class i0 extends SharedPrefsWrapper {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final i0 f30037a;
+        public static final i0 f30084a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -37,7 +37,7 @@ public class i0 extends SharedPrefsWrapper {
                     return;
                 }
             }
-            f30037a = new i0();
+            f30084a = new i0();
         }
     }
 
@@ -62,6 +62,6 @@ public class i0 extends SharedPrefsWrapper {
     public static i0 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f30037a : (i0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f30084a : (i0) invokeV.objValue;
     }
 }

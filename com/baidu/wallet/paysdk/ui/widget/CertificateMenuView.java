@@ -30,20 +30,20 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f63554a;
+    public static final String f63589a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f63555b;
+    public boolean f63590b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ListView f63556c;
+    public ListView f63591c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f63557d;
+    public a f63592d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f63558e;
+    public b f63593e;
 
     /* loaded from: classes8.dex */
     public class a extends BaseAdapter {
@@ -51,10 +51,10 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CertificateMenuView f63560a;
+        public final /* synthetic */ CertificateMenuView f63595a;
 
         /* renamed from: b  reason: collision with root package name */
-        public GetCardInfoResponse.CertificateTypeInfo[] f63561b;
+        public GetCardInfoResponse.CertificateTypeInfo[] f63596b;
 
         public a(CertificateMenuView certificateMenuView) {
             Interceptable interceptable = $ic;
@@ -71,13 +71,13 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
                     return;
                 }
             }
-            this.f63560a = certificateMenuView;
+            this.f63595a = certificateMenuView;
         }
 
         public void a(GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, certificateTypeInfoArr) == null) {
-                this.f63561b = certificateTypeInfoArr;
+                this.f63596b = certificateTypeInfoArr;
             }
         }
 
@@ -86,7 +86,7 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr = this.f63561b;
+                GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr = this.f63596b;
                 if (certificateTypeInfoArr != null) {
                     return certificateTypeInfoArr.length;
                 }
@@ -122,11 +122,11 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
                 if (view == null) {
-                    certificateMenuItemView = new CertificateMenuItemView(this.f63560a.getContext());
+                    certificateMenuItemView = new CertificateMenuItemView(this.f63595a.getContext());
                 } else {
                     certificateMenuItemView = (CertificateMenuItemView) view;
                 }
-                certificateMenuItemView.updateItem(this.f63561b[i2]);
+                certificateMenuItemView.updateItem(this.f63596b[i2]);
                 return certificateMenuItemView;
             }
             return (View) invokeILL.objValue;
@@ -151,7 +151,7 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
                 return;
             }
         }
-        f63554a = CertificateMenuView.class.getSimpleName();
+        f63589a = CertificateMenuView.class.getSimpleName();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -174,7 +174,7 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
                 return;
             }
         }
-        this.f63555b = false;
+        this.f63590b = false;
         a();
     }
 
@@ -211,16 +211,16 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
     public void layoutMenu(GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, certificateTypeInfoArr) == null) {
-            a aVar = this.f63557d;
+            a aVar = this.f63592d;
             if (aVar != null) {
                 aVar.a(certificateTypeInfoArr);
-                this.f63557d.notifyDataSetChanged();
+                this.f63592d.notifyDataSetChanged();
                 return;
             }
             a aVar2 = new a(this);
-            this.f63557d = aVar2;
+            this.f63592d = aVar2;
             aVar2.a(certificateTypeInfoArr);
-            this.f63556c.setAdapter((ListAdapter) this.f63557d);
+            this.f63591c.setAdapter((ListAdapter) this.f63592d);
         }
     }
 
@@ -235,14 +235,14 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
     public void onMenuSetChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f63555b = false;
+            this.f63590b = false;
         }
     }
 
     public void setCertificertSelectListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f63558e = bVar;
+            this.f63593e = bVar;
         }
     }
 
@@ -251,17 +251,17 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             setBackgroundResource(ResUtils.drawable(getContext(), getBackgroundResId()));
-            this.f63556c = new ListView(getContext());
+            this.f63591c = new ListView(getContext());
             int dip2px = DisplayUtils.dip2px(getContext(), 115.0f);
-            this.f63556c.setDivider(new ColorDrawable(getSeparatorColor()));
-            this.f63556c.setDividerHeight(1);
-            this.f63556c.setSelector(new ColorDrawable(0));
-            this.f63556c.setOnItemClickListener(new AdapterView.OnItemClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.widget.CertificateMenuView.1
+            this.f63591c.setDivider(new ColorDrawable(getSeparatorColor()));
+            this.f63591c.setDividerHeight(1);
+            this.f63591c.setSelector(new ColorDrawable(0));
+            this.f63591c.setOnItemClickListener(new AdapterView.OnItemClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.widget.CertificateMenuView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CertificateMenuView f63559a;
+                public final /* synthetic */ CertificateMenuView f63594a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -278,7 +278,7 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
                             return;
                         }
                     }
-                    this.f63559a = this;
+                    this.f63594a = this;
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
@@ -286,13 +286,13 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && view != null && (view instanceof CertificateMenuItemView)) {
                         GetCardInfoResponse.CertificateTypeInfo certificateTypeInfo = ((CertificateMenuItemView) view).getCertificateTypeInfo();
-                        if (this.f63559a.f63558e != null) {
-                            this.f63559a.f63558e.a(certificateTypeInfo);
+                        if (this.f63594a.f63593e != null) {
+                            this.f63594a.f63593e.a(certificateTypeInfo);
                         }
                     }
                 }
             });
-            addView(this.f63556c, new LinearLayout.LayoutParams(dip2px, -2));
+            addView(this.f63591c, new LinearLayout.LayoutParams(dip2px, -2));
             setFocusableInTouchMode(true);
         }
     }
@@ -316,7 +316,7 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
                 return;
             }
         }
-        this.f63555b = false;
+        this.f63590b = false;
         a();
     }
 
@@ -338,7 +338,7 @@ public class CertificateMenuView extends LinearLayout implements BdMenu.OnMenuSe
                 return;
             }
         }
-        this.f63555b = false;
+        this.f63590b = false;
         a();
     }
 }

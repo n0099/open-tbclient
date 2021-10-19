@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.j;
-import c.a.q0.d1.r;
+import c.a.q0.d1.q;
 import c.a.q0.s.s.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -46,24 +46,24 @@ import java.util.List;
 public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r<Boolean> delDataCallBack;
+    public q<Boolean> delDataCallBack;
     public PopupDialog deleteItemDialog;
-    public r<LinkedList<GroupNewsPojo>> getDataCallBack;
+    public q<LinkedList<GroupNewsPojo>> getDataCallBack;
     public boolean isEditMode;
     public Runnable loadImageRunnable;
     public CustomMessageListener mCustomListener;
     public c.a.e.c.g.c mListener;
     public UpdatesModel model;
     public UpdatesItemData pendingToDel;
-    public c.a.r0.k1.j.c updatesView;
+    public c.a.r0.l1.j.c updatesView;
 
     /* loaded from: classes7.dex */
-    public class a implements r<LinkedList<GroupNewsPojo>> {
+    public class a implements q<LinkedList<GroupNewsPojo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f53248a;
+        public final /* synthetic */ UpdatesActivity f53179a;
 
         public a(UpdatesActivity updatesActivity) {
             Interceptable interceptable = $ic;
@@ -80,22 +80,22 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f53248a = updatesActivity;
+            this.f53179a = updatesActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.r
+        @Override // c.a.q0.d1.q
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             ImMessageCenterPojo imMessageCenterPojo;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, linkedList) == null) {
                 List<UpdatesItemData> convertToUpdatesItemData = UpdatesModel.convertToUpdatesItemData(linkedList);
-                this.f53248a.updatesView.m(convertToUpdatesItemData);
-                this.f53248a.model.calculateSelects(convertToUpdatesItemData);
-                this.f53248a.updatesView.o(false);
-                this.f53248a.updatesView.n(this.f53248a.model.getDeleteSize());
-                this.f53248a.loadImage();
+                this.f53179a.updatesView.m(convertToUpdatesItemData);
+                this.f53179a.model.calculateSelects(convertToUpdatesItemData);
+                this.f53179a.updatesView.o(false);
+                this.f53179a.updatesView.n(this.f53179a.model.getDeleteSize());
+                this.f53179a.loadImage();
                 if (convertToUpdatesItemData == null || convertToUpdatesItemData.size() <= 0) {
                     imMessageCenterPojo = null;
                 } else {
@@ -107,28 +107,28 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 if (convertToUpdatesItemData == null || convertToUpdatesItemData.size() != 0) {
                     return;
                 }
-                this.f53248a.finish();
+                this.f53179a.finish();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements r<Boolean> {
+    public class b implements q<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ r f53249a;
+        public final /* synthetic */ q f53180a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f53250b;
+        public final /* synthetic */ UpdatesActivity f53181b;
 
-        public b(UpdatesActivity updatesActivity, r rVar) {
+        public b(UpdatesActivity updatesActivity, q qVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {updatesActivity, rVar};
+                Object[] objArr = {updatesActivity, qVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -138,31 +138,31 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f53250b = updatesActivity;
-            this.f53249a = rVar;
+            this.f53181b = updatesActivity;
+            this.f53180a = qVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.r
+        @Override // c.a.q0.d1.q
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                this.f53250b.model.clearSelect();
-                this.f53250b.updatesView.c();
-                this.f53250b.setEditMode(false);
-                UpdatesModel.requestUpdatesDataFromDB(this.f53249a);
+                this.f53181b.model.clearSelect();
+                this.f53181b.updatesView.c();
+                this.f53181b.setEditMode(false);
+                UpdatesModel.requestUpdatesDataFromDB(this.f53180a);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements r<LinkedList<GroupNewsPojo>> {
+    public class c implements q<LinkedList<GroupNewsPojo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f53251a;
+        public final /* synthetic */ UpdatesActivity f53182a;
 
         public c(UpdatesActivity updatesActivity) {
             Interceptable interceptable = $ic;
@@ -179,21 +179,21 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f53251a = updatesActivity;
+            this.f53182a = updatesActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.r
+        @Override // c.a.q0.d1.q
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, linkedList) == null) {
                 List<UpdatesItemData> convertToUpdatesItemData = UpdatesModel.convertToUpdatesItemData(linkedList);
-                this.f53251a.updatesView.m(convertToUpdatesItemData);
-                this.f53251a.model.calculateSelects(convertToUpdatesItemData);
-                this.f53251a.updatesView.o(false);
-                this.f53251a.updatesView.n(this.f53251a.model.getDeleteSize());
-                this.f53251a.loadImage();
+                this.f53182a.updatesView.m(convertToUpdatesItemData);
+                this.f53182a.model.calculateSelects(convertToUpdatesItemData);
+                this.f53182a.updatesView.o(false);
+                this.f53182a.updatesView.n(this.f53182a.model.getDeleteSize());
+                this.f53182a.loadImage();
             }
         }
     }
@@ -204,7 +204,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f53252e;
+        public final /* synthetic */ UpdatesActivity f53183e;
 
         public d(UpdatesActivity updatesActivity) {
             Interceptable interceptable = $ic;
@@ -221,21 +221,21 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f53252e = updatesActivity;
+            this.f53183e = updatesActivity;
         }
 
         @Override // c.a.q0.s.s.i.e
         public void onItemClick(i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                if (this.f53252e.deleteItemDialog != null && this.f53252e.deleteItemDialog.isShowing()) {
-                    this.f53252e.deleteItemDialog.dismiss();
+                if (this.f53183e.deleteItemDialog != null && this.f53183e.deleteItemDialog.isShowing()) {
+                    this.f53183e.deleteItemDialog.dismiss();
                 }
                 if (i2 != 0) {
                     return;
                 }
-                this.f53252e.updatesView.o(true);
-                UpdatesActivity updatesActivity = this.f53252e;
+                this.f53183e.updatesView.o(true);
+                UpdatesActivity updatesActivity = this.f53183e;
                 updatesActivity.processDel(updatesActivity.pendingToDel);
             }
         }
@@ -247,7 +247,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f53253a;
+        public final /* synthetic */ UpdatesActivity f53184a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(UpdatesActivity updatesActivity, int i2) {
@@ -267,7 +267,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f53253a = updatesActivity;
+            this.f53184a = updatesActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -275,21 +275,21 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.f53253a.updatesView.o(false);
+                this.f53184a.updatesView.o(false);
                 if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage) && 202004 == socketResponsedMessage.getCmd()) {
                     ResponseDelSystemMessage responseDelSystemMessage = (ResponseDelSystemMessage) socketResponsedMessage;
                     RequestDelSystemMessage requestDelSystemMessage = (RequestDelSystemMessage) responseDelSystemMessage.getOrginalMessage();
                     if (responseDelSystemMessage.getError() != 0) {
                         return;
                     }
-                    if (this.f53253a.pendingToDel != null) {
-                        UpdatesModel.deleteUpdatesData(this.f53253a.pendingToDel, this.f53253a.delDataCallBack);
-                        this.f53253a.pendingToDel = null;
+                    if (this.f53184a.pendingToDel != null) {
+                        UpdatesModel.deleteUpdatesData(this.f53184a.pendingToDel, this.f53184a.delDataCallBack);
+                        this.f53184a.pendingToDel = null;
                     }
-                    if (this.f53253a.model == null || this.f53253a.model.getDeleteSize() <= 0) {
+                    if (this.f53184a.model == null || this.f53184a.model.getDeleteSize() <= 0) {
                         return;
                     }
-                    this.f53253a.model.deleteDatas(this.f53253a.delDataCallBack);
+                    this.f53184a.model.deleteDatas(this.f53184a.delDataCallBack);
                 }
             }
         }
@@ -301,7 +301,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f53254a;
+        public final /* synthetic */ UpdatesActivity f53185a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(UpdatesActivity updatesActivity, int i2) {
@@ -321,7 +321,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f53254a = updatesActivity;
+            this.f53185a = updatesActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -329,11 +329,11 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f53254a.updatesView.o(false);
+                this.f53185a.updatesView.o(false);
                 if (customResponsedMessage != null && (customResponsedMessage instanceof ResponsedMessage)) {
                     int cmd = customResponsedMessage.getCmd();
                     if (2001132 == cmd || 2001133 == cmd || 2001130 == cmd || 2001129 == cmd || 2001137 == cmd) {
-                        UpdatesModel.requestUpdatesDataFromDB(this.f53254a.getDataCallBack);
+                        UpdatesModel.requestUpdatesDataFromDB(this.f53185a.getDataCallBack);
                     }
                 }
             }
@@ -393,12 +393,12 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         if (interceptable == null || interceptable.invokeL(65549, this, updatesItemData) == null) {
             if (!j.z()) {
                 showToast(R.string.neterror);
-            } else if (updatesItemData == null || TextUtils.isEmpty(c.a.r0.k1.p.b.b().c()) || !TextUtils.isDigitsOnly(c.a.r0.k1.p.b.b().c()) || TextUtils.isEmpty(updatesItemData.getNotice_id()) || !TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
+            } else if (updatesItemData == null || TextUtils.isEmpty(c.a.r0.l1.p.b.b().c()) || !TextUtils.isDigitsOnly(c.a.r0.l1.p.b.b().c()) || TextUtils.isEmpty(updatesItemData.getNotice_id()) || !TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
             } else {
                 try {
                     this.updatesView.o(true);
                     RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-                    requestDelSystemMessage.setGroupId(c.a.e.e.m.b.g(c.a.r0.k1.p.b.b().c(), 0L));
+                    requestDelSystemMessage.setGroupId(c.a.e.e.m.b.g(c.a.r0.l1.p.b.b().c(), 0L));
                     long parseLong = Long.parseLong(updatesItemData.getNotice_id());
                     requestDelSystemMessage.setMsgIds("" + (parseLong / 100));
                     MessageManager.getInstance().sendMessage(requestDelSystemMessage);
@@ -430,7 +430,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.r0.k1.j.c cVar = this.updatesView;
+            c.a.r0.l1.j.c cVar = this.updatesView;
             if (cVar != null) {
                 cVar.onChangeSkinType(i2);
             }
@@ -460,7 +460,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        c.a.r0.k1.j.c cVar;
+        c.a.r0.l1.j.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || view == null || (cVar = this.updatesView) == null) {
             return;
@@ -495,7 +495,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             this.model = new UpdatesModel();
-            this.updatesView = new c.a.r0.k1.j.c(this);
+            this.updatesView = new c.a.r0.l1.j.c(this);
             initDataCallBack();
             registerListener(2001132, this.mCustomListener);
             registerListener(2001133, this.mCustomListener);
@@ -513,7 +513,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            c.a.r0.k1.j.c cVar = this.updatesView;
+            c.a.r0.l1.j.c cVar = this.updatesView;
             if (cVar != null) {
                 cVar.destroy();
             }
@@ -660,7 +660,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 showToast(R.string.neterror);
             } else if (TextUtils.isEmpty(str)) {
             } else {
-                String c2 = c.a.r0.k1.p.b.b().c();
+                String c2 = c.a.r0.l1.p.b.b().c();
                 if (TextUtils.isEmpty(c2) || !TextUtils.isDigitsOnly(c2)) {
                     return;
                 }

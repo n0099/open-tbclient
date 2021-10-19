@@ -23,19 +23,19 @@ public class BannerWrapFrameView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f40903e;
+    public Context f40907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SimpleDraweeView f40904f;
+    public SimpleDraweeView f40908f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f40905g;
+    public FrameLayout f40909g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f40906h;
+    public View f40910h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LiveBannerEntity f40907i;
+    public LiveBannerEntity f40911i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BannerWrapFrameView(@NonNull Context context) {
@@ -61,29 +61,29 @@ public class BannerWrapFrameView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f40903e).inflate(d.live_feed_page_banner_wrapper_layout, this);
-            this.f40906h = inflate;
-            this.f40904f = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_banner_img_id);
-            this.f40905g = (FrameLayout) this.f40906h.findViewById(c.live_feed_page_banner_status_id);
+            View inflate = LayoutInflater.from(this.f40907e).inflate(d.live_feed_page_banner_wrapper_layout, this);
+            this.f40910h = inflate;
+            this.f40908f = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_banner_img_id);
+            this.f40909g = (FrameLayout) this.f40910h.findViewById(c.live_feed_page_banner_status_id);
         }
     }
 
     public LiveBannerEntity getLiveBannerEntity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40907i : (LiveBannerEntity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40911i : (LiveBannerEntity) invokeV.objValue;
     }
 
     public SimpleDraweeView getSimpleDraweeView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40904f : (SimpleDraweeView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40908f : (SimpleDraweeView) invokeV.objValue;
     }
 
     public FrameLayout getStatusViewContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40905g : (FrameLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40909g : (FrameLayout) invokeV.objValue;
     }
 
     public void onDarkModeChange(String str) {
@@ -95,7 +95,7 @@ public class BannerWrapFrameView extends FrameLayout {
     public void setData(LiveBannerEntity liveBannerEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, liveBannerEntity) == null) {
-            this.f40907i = liveBannerEntity;
+            this.f40911i = liveBannerEntity;
         }
     }
 
@@ -145,7 +145,7 @@ public class BannerWrapFrameView extends FrameLayout {
                 return;
             }
         }
-        this.f40903e = context;
+        this.f40907e = context;
         a();
     }
 }

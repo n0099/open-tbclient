@@ -13,10 +13,10 @@ public class Z implements N0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f77257a;
+    public final /* synthetic */ View f77292a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d0 f77258b;
+    public final /* synthetic */ d0 f77293b;
 
     public Z(d0 d0Var, View view) {
         Interceptable interceptable = $ic;
@@ -33,34 +33,34 @@ public class Z implements N0 {
                 return;
             }
         }
-        this.f77258b = d0Var;
-        this.f77257a = view;
+        this.f77293b = d0Var;
+        this.f77292a = view;
     }
 
     @Override // com.win.opensdk.N0
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f77257a == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f77292a == null) {
             return;
         }
-        this.f77258b.f77322f.a(z);
+        this.f77293b.f77357f.a(z);
     }
 
     @Override // com.win.opensdk.N0
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f77257a == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f77292a == null) {
             return;
         }
-        this.f77258b.f77322f.onDisplayed();
+        this.f77293b.f77357f.onDisplayed();
     }
 
     @Override // com.win.opensdk.N0
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f77257a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f77292a == null) {
             return;
         }
-        new Handler().postDelayed(new Y(this), this.f77258b.f77319c.getSpet());
+        new Handler().postDelayed(new Y(this), this.f77293b.f77354c.getSpet());
     }
 }

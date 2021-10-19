@@ -113,7 +113,7 @@ public class PrefetchEvent extends SwanAppIPCData {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public PrefetchEvent f46019a;
+        public PrefetchEvent f45931a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -128,14 +128,14 @@ public class PrefetchEvent extends SwanAppIPCData {
                     return;
                 }
             }
-            this.f46019a = new PrefetchEvent();
+            this.f45931a = new PrefetchEvent();
         }
 
         public b a(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.f46019a.appId = str;
+                this.f45931a.appId = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -144,14 +144,14 @@ public class PrefetchEvent extends SwanAppIPCData {
         public PrefetchEvent b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46019a : (PrefetchEvent) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45931a : (PrefetchEvent) invokeV.objValue;
         }
 
         public b c(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f46019a.scene = str;
+                this.f45931a.scene = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -161,7 +161,7 @@ public class PrefetchEvent extends SwanAppIPCData {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f46019a.schema = str;
+                this.f45931a.schema = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -171,7 +171,7 @@ public class PrefetchEvent extends SwanAppIPCData {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f46019a.state = str;
+                this.f45931a.state = str;
                 return this;
             }
             return (b) invokeL.objValue;

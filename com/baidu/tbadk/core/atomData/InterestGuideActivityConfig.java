@@ -9,9 +9,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class InterestGuideActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int INTEREST_GUID_SHOW_SCENE_FIRST_START = 1;
+    public static final int INTEREST_GUID_SHOW_SCENE_FIRST_START = 4;
     public static final int INTEREST_GUID_SHOW_SCENE_OTHER = 2;
     public static final String KEY_INTEREST_GUID_SHOW_SCENE = "interest_guid_show_scene";
+    public static final int SCENE_HOME_RECOMMEND_INTEREST_CARD = 5;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

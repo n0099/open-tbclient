@@ -12,7 +12,7 @@ public class b implements InfoWindow.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaiduMap f41726a;
+    public final /* synthetic */ BaiduMap f41730a;
 
     public b(BaiduMap baiduMap) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class b implements InfoWindow.a {
                 return;
             }
         }
-        this.f41726a = baiduMap;
+        this.f41730a = baiduMap;
     }
 
     @Override // com.baidu.mapapi.map.InfoWindow.a
     public void a(InfoWindow infoWindow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, infoWindow) == null) {
-            this.f41726a.hideInfoWindow(infoWindow);
+            this.f41730a.hideInfoWindow(infoWindow);
         }
     }
 
@@ -44,7 +44,7 @@ public class b implements InfoWindow.a {
     public void b(InfoWindow infoWindow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, infoWindow) == null) {
-            this.f41726a.a(infoWindow);
+            this.f41730a.a(infoWindow);
         }
     }
 }

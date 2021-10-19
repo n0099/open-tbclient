@@ -1,7 +1,7 @@
 package com.baidu.tieba.hottopic.controller;
 
 import c.a.e.a.f;
-import c.a.r0.i1.c.j;
+import c.a.r0.j1.c.j;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -23,10 +23,10 @@ public class HotRanklistModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f52786e;
+    public b f52717e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.e.c.g.a f52787f;
+    public c.a.e.c.g.a f52718f;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -34,7 +34,7 @@ public class HotRanklistModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotRanklistModel f52788a;
+        public final /* synthetic */ HotRanklistModel f52719a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HotRanklistModel hotRanklistModel, int i2, int i3) {
@@ -55,7 +55,7 @@ public class HotRanklistModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f52788a = hotRanklistModel;
+            this.f52719a = hotRanklistModel;
         }
 
         @Override // c.a.e.c.g.a
@@ -64,11 +64,11 @@ public class HotRanklistModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            if (((responsedMessage instanceof ResponseHttpHotRanklistMessage) || (responsedMessage instanceof ResponseSocketHotRanklistMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f52788a.getUniqueId()) {
+            if (((responsedMessage instanceof ResponseHttpHotRanklistMessage) || (responsedMessage instanceof ResponseSocketHotRanklistMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f52719a.getUniqueId()) {
                 if (!responsedMessage.hasError()) {
-                    this.f52788a.z(responsedMessage);
+                    this.f52719a.z(responsedMessage);
                 } else {
-                    this.f52788a.f52786e.loadNetDataCallback(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
+                    this.f52719a.f52717e.loadNetDataCallback(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
         }
@@ -97,9 +97,9 @@ public class HotRanklistModel extends BdBaseModel {
                 return;
             }
         }
-        this.f52786e = null;
+        this.f52717e = null;
         a aVar = new a(this, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, 309289);
-        this.f52787f = aVar;
+        this.f52718f = aVar;
         registerListener(aVar);
     }
 
@@ -118,26 +118,26 @@ public class HotRanklistModel extends BdBaseModel {
     public void B(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f52786e = bVar;
+            this.f52717e = bVar;
         }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             cancelMessage();
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -178,12 +178,12 @@ public class HotRanklistModel extends BdBaseModel {
                         jVar = responseSocketHotRanklistMessage.getHotRanklistData();
                     }
                 }
-                if (!StringUtils.isNull(str) && !ListUtils.isEmpty(jVar.f19310b)) {
-                    jVar.f19309a = jVar.f19310b.get(0).f19337f;
+                if (!StringUtils.isNull(str) && !ListUtils.isEmpty(jVar.f19481b)) {
+                    jVar.f19480a = jVar.f19481b.get(0).f19508f;
                 } else {
-                    jVar.f19309a = str;
+                    jVar.f19480a = str;
                 }
-                this.f52786e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+                this.f52717e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
             }
         }
         str = null;
@@ -193,7 +193,7 @@ public class HotRanklistModel extends BdBaseModel {
         }
         if (!StringUtils.isNull(str)) {
         }
-        jVar.f19309a = str;
-        this.f52786e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+        jVar.f19480a = str;
+        this.f52717e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
     }
 }

@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import c.a.l.p;
 import c.a.q0.s.q.a;
 import c.a.q0.s.q.d2;
-import c.a.r0.a0.b0;
+import c.a.r0.b0.c0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
@@ -24,7 +24,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b0<a> f38849e;
+    public c0<a> f38853e;
     public AppletsCellView mAppletsCellView;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -58,10 +58,10 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
         }
     }
 
-    public b0<a> getSubClickListener() {
+    public c0<a> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38849e : (b0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38853e : (c0) invokeV.objValue;
     }
 
     public void setFromCDN(boolean z) {
@@ -70,10 +70,10 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
         }
     }
 
-    public void setSubClickListener(b0<a> b0Var) {
+    public void setSubClickListener(c0<a> c0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, b0Var) == null) {
-            this.f38849e = b0Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, c0Var) == null) {
+            this.f38853e = c0Var;
         }
     }
 

@@ -1,8 +1,8 @@
 package com.baidu.tieba.square;
 
 import android.os.Bundle;
-import c.a.r0.g3.a;
-import c.a.r0.g3.b;
+import c.a.r0.h3.a;
+import c.a.r0.h3.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            b bVar = this.mDelegate.f18638d;
+            b bVar = this.mDelegate.f18809d;
             if (bVar != null) {
                 bVar.a(i2);
             }
@@ -63,7 +63,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
             a aVar = new a(this, getPageContext());
             this.mDelegate = aVar;
             aVar.l(getIntent());
-            setContentView(this.mDelegate.f18638d.d());
+            setContentView(this.mDelegate.f18809d.d());
             this.mDelegate.o();
         }
     }

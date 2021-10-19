@@ -13,7 +13,7 @@ public class F0 extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ O0 f77111a;
+    public final /* synthetic */ O0 f77146a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public F0(O0 o0, Looper looper) {
@@ -33,7 +33,7 @@ public class F0 extends Handler {
                 return;
             }
         }
-        this.f77111a = o0;
+        this.f77146a = o0;
     }
 
     @Override // android.os.Handler
@@ -44,17 +44,17 @@ public class F0 extends Handler {
             if (message.what != 1101) {
                 return;
             }
-            this.f77111a.f77148e.removeMessages(1101);
-            O0 o0 = this.f77111a;
-            if (!o0.f77145b && o0.a(o0.f77144a)) {
-                N0 n0 = this.f77111a.f77146c;
+            this.f77146a.f77183e.removeMessages(1101);
+            O0 o0 = this.f77146a;
+            if (!o0.f77180b && o0.a(o0.f77179a)) {
+                N0 n0 = this.f77146a.f77181c;
                 if (n0 != null) {
                     n0.a();
                 }
-                this.f77111a.f77145b = true;
+                this.f77146a.f77180b = true;
                 return;
             }
-            this.f77111a.f77148e.sendEmptyMessageDelayed(1101, 300L);
+            this.f77146a.f77183e.sendEmptyMessageDelayed(1101, 300L);
         }
     }
 }

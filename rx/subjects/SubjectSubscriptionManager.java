@@ -34,10 +34,10 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f79846e;
+        public final /* synthetic */ c f79881e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SubjectSubscriptionManager f79847f;
+        public final /* synthetic */ SubjectSubscriptionManager f79882f;
 
         public a(SubjectSubscriptionManager subjectSubscriptionManager, c cVar) {
             Interceptable interceptable = $ic;
@@ -54,15 +54,15 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
                     return;
                 }
             }
-            this.f79847f = subjectSubscriptionManager;
-            this.f79846e = cVar;
+            this.f79882f = subjectSubscriptionManager;
+            this.f79881e = cVar;
         }
 
         @Override // i.n.a
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f79847f.remove(this.f79846e);
+                this.f79882f.remove(this.f79881e);
             }
         }
     }
@@ -72,20 +72,20 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final c[] f79848c;
+        public static final c[] f79883c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f79849d;
+        public static final b f79884d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f79850e;
+        public static final b f79885e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f79851a;
+        public final boolean f79886a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final c[] f79852b;
+        public final c[] f79887b;
 
         static {
             InterceptResult invokeClinit;
@@ -101,9 +101,9 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
                 }
             }
             c[] cVarArr = new c[0];
-            f79848c = cVarArr;
-            f79849d = new b(true, cVarArr);
-            f79850e = new b(false, f79848c);
+            f79883c = cVarArr;
+            f79884d = new b(true, cVarArr);
+            f79885e = new b(false, f79883c);
         }
 
         public b(boolean z, c[] cVarArr) {
@@ -121,20 +121,20 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
                     return;
                 }
             }
-            this.f79851a = z;
-            this.f79852b = cVarArr;
+            this.f79886a = z;
+            this.f79887b = cVarArr;
         }
 
         public b a(c cVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-                c[] cVarArr = this.f79852b;
+                c[] cVarArr = this.f79887b;
                 int length = cVarArr.length;
                 c[] cVarArr2 = new c[length + 1];
                 System.arraycopy(cVarArr, 0, cVarArr2, 0, length);
                 cVarArr2[length] = cVar;
-                return new b(this.f79851a, cVarArr2);
+                return new b(this.f79886a, cVarArr2);
             }
             return (b) invokeL.objValue;
         }
@@ -143,10 +143,10 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
-                c[] cVarArr = this.f79852b;
+                c[] cVarArr = this.f79887b;
                 int length = cVarArr.length;
                 if (length == 1 && cVarArr[0] == cVar) {
-                    return f79850e;
+                    return f79885e;
                 }
                 if (length == 0) {
                     return this;
@@ -164,14 +164,14 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
                     }
                 }
                 if (i3 == 0) {
-                    return f79850e;
+                    return f79885e;
                 }
                 if (i3 < i2) {
                     c[] cVarArr3 = new c[i3];
                     System.arraycopy(cVarArr2, 0, cVarArr3, 0, i3);
                     cVarArr2 = cVarArr3;
                 }
-                return new b(this.f79851a, cVarArr2);
+                return new b(this.f79886a, cVarArr2);
             }
             return (b) invokeL.objValue;
         }
@@ -183,19 +183,19 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final j<? super T> f79853e;
+        public final j<? super T> f79888e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f79854f;
+        public boolean f79889f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f79855g;
+        public boolean f79890g;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<Object> f79856h;
+        public List<Object> f79891h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f79857i;
+        public boolean f79892i;
 
         public c(j<? super T> jVar) {
             Interceptable interceptable = $ic;
@@ -212,8 +212,8 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
                     return;
                 }
             }
-            this.f79854f = true;
-            this.f79853e = jVar;
+            this.f79889f = true;
+            this.f79888e = jVar;
         }
 
         public void a(Object obj) {
@@ -221,16 +221,16 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || obj == null) {
                 return;
             }
-            NotificationLite.a(this.f79853e, obj);
+            NotificationLite.a(this.f79888e, obj);
         }
 
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 synchronized (this) {
-                    if (this.f79854f && !this.f79855g) {
-                        this.f79854f = false;
-                        this.f79855g = obj != null;
+                    if (this.f79889f && !this.f79890g) {
+                        this.f79889f = false;
+                        this.f79890g = obj != null;
                         if (obj != null) {
                             c(null, obj);
                         }
@@ -269,10 +269,10 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
                     try {
                         synchronized (this) {
                             try {
-                                list = this.f79856h;
-                                this.f79856h = null;
+                                list = this.f79891h;
+                                this.f79891h = null;
                                 if (list == null) {
-                                    this.f79855g = false;
+                                    this.f79890g = false;
                                     return;
                                 }
                             } catch (Throwable th2) {
@@ -289,7 +289,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
                         th = th4;
                         if (!z) {
                             synchronized (this) {
-                                this.f79855g = false;
+                                this.f79890g = false;
                             }
                         }
                         throw th;
@@ -301,20 +301,20 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         public void d(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                if (!this.f79857i) {
+                if (!this.f79892i) {
                     synchronized (this) {
-                        this.f79854f = false;
-                        if (this.f79855g) {
-                            if (this.f79856h == null) {
-                                this.f79856h = new ArrayList();
+                        this.f79889f = false;
+                        if (this.f79890g) {
+                            if (this.f79891h == null) {
+                                this.f79891h = new ArrayList();
                             }
-                            this.f79856h.add(obj);
+                            this.f79891h.add(obj);
                             return;
                         }
-                        this.f79857i = true;
+                        this.f79892i = true;
                     }
                 }
-                NotificationLite.a(this.f79853e, obj);
+                NotificationLite.a(this.f79888e, obj);
             }
         }
 
@@ -322,7 +322,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f79853e.onCompleted();
+                this.f79888e.onCompleted();
             }
         }
 
@@ -330,7 +330,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-                this.f79853e.onError(th);
+                this.f79888e.onError(th);
             }
         }
 
@@ -338,14 +338,14 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-                this.f79853e.onNext(t);
+                this.f79888e.onNext(t);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SubjectSubscriptionManager() {
-        super(b.f79850e);
+        super(b.f79885e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -372,7 +372,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
             do {
                 bVar = get();
-                if (bVar.f79851a) {
+                if (bVar.f79886a) {
                     this.onTerminated.call(cVar);
                     return false;
                 }
@@ -406,7 +406,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             setLatest(obj);
-            return get().f79852b;
+            return get().f79887b;
         }
         return (c[]) invokeL.objValue;
     }
@@ -414,7 +414,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     public c<T>[] observers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? get().f79852b : (c[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? get().f79887b : (c[]) invokeV.objValue;
     }
 
     public void remove(c<T> cVar) {
@@ -424,7 +424,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
             do {
                 bVar = get();
-                if (bVar.f79851a || (b2 = bVar.b(cVar)) == bVar) {
+                if (bVar.f79886a || (b2 = bVar.b(cVar)) == bVar) {
                     return;
                 }
             } while (!compareAndSet(bVar, b2));
@@ -444,10 +444,10 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
             setLatest(obj);
             this.active = false;
-            if (get().f79851a) {
-                return b.f79848c;
+            if (get().f79886a) {
+                return b.f79883c;
             }
-            return getAndSet(b.f79849d).f79852b;
+            return getAndSet(b.f79884d).f79887b;
         }
         return (c[]) invokeL.objValue;
     }

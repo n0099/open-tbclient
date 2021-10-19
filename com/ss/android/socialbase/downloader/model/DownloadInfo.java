@@ -228,14 +228,14 @@ public class DownloadInfo implements Parcelable {
     private void convertRetryDelayStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, this, i2) == null) {
-            if (i2 == g.f76164b.ordinal()) {
-                this.retryDelayStatus = g.f76164b;
-            } else if (i2 == g.f76165c.ordinal()) {
-                this.retryDelayStatus = g.f76165c;
-            } else if (i2 == g.f76166d.ordinal()) {
-                this.retryDelayStatus = g.f76166d;
+            if (i2 == g.f76199b.ordinal()) {
+                this.retryDelayStatus = g.f76199b;
+            } else if (i2 == g.f76200c.ordinal()) {
+                this.retryDelayStatus = g.f76200c;
+            } else if (i2 == g.f76201d.ordinal()) {
+                this.retryDelayStatus = g.f76201d;
             } else {
-                this.retryDelayStatus = g.f76163a;
+                this.retryDelayStatus = g.f76198a;
             }
         }
     }
@@ -695,7 +695,7 @@ public class DownloadInfo implements Parcelable {
     public boolean canReStartAsyncTask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getStatus() != -3 && this.asyncHandleStatus == com.ss.android.socialbase.downloader.constants.a.f76145b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getStatus() != -3 && this.asyncHandleStatus == com.ss.android.socialbase.downloader.constants.a.f76180b : invokeV.booleanValue;
     }
 
     public boolean canReplaceHttpForRetry() {
@@ -716,7 +716,7 @@ public class DownloadInfo implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             int status = getStatus();
-            return status == 7 || this.retryDelayStatus == g.f76164b || status == 8 || (aVar = this.asyncHandleStatus) == com.ss.android.socialbase.downloader.constants.a.f76145b || aVar == com.ss.android.socialbase.downloader.constants.a.f76146c || this.byteInvalidRetryStatus == com.ss.android.socialbase.downloader.constants.b.f76151b;
+            return status == 7 || this.retryDelayStatus == g.f76199b || status == 8 || (aVar = this.asyncHandleStatus) == com.ss.android.socialbase.downloader.constants.a.f76180b || aVar == com.ss.android.socialbase.downloader.constants.a.f76181c || this.byteInvalidRetryStatus == com.ss.android.socialbase.downloader.constants.b.f76186b;
         }
         return invokeV.booleanValue;
     }
@@ -724,7 +724,7 @@ public class DownloadInfo implements Parcelable {
     public boolean canStartRetryDelayTask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? isNeedRetryDelay() && getStatus() != -3 && this.retryDelayStatus == g.f76164b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? isNeedRetryDelay() && getStatus() != -3 && this.retryDelayStatus == g.f76199b : invokeV.booleanValue;
     }
 
     public void changeSkipStatus() {
@@ -732,14 +732,14 @@ public class DownloadInfo implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             int status = getStatus();
-            if (status == 7 || this.retryDelayStatus == g.f76164b) {
-                setRetryDelayStatus(g.f76165c);
+            if (status == 7 || this.retryDelayStatus == g.f76199b) {
+                setRetryDelayStatus(g.f76200c);
             }
-            if (status == 8 || (aVar = this.asyncHandleStatus) == com.ss.android.socialbase.downloader.constants.a.f76145b || aVar == com.ss.android.socialbase.downloader.constants.a.f76146c) {
-                setAsyncHandleStatus(com.ss.android.socialbase.downloader.constants.a.f76147d);
+            if (status == 8 || (aVar = this.asyncHandleStatus) == com.ss.android.socialbase.downloader.constants.a.f76180b || aVar == com.ss.android.socialbase.downloader.constants.a.f76181c) {
+                setAsyncHandleStatus(com.ss.android.socialbase.downloader.constants.a.f76182d);
             }
-            if (this.byteInvalidRetryStatus == com.ss.android.socialbase.downloader.constants.b.f76151b) {
-                setByteInvalidRetryStatus(com.ss.android.socialbase.downloader.constants.b.f76152c);
+            if (this.byteInvalidRetryStatus == com.ss.android.socialbase.downloader.constants.b.f76186b) {
+                setByteInvalidRetryStatus(com.ss.android.socialbase.downloader.constants.b.f76187c);
             }
         }
     }
@@ -3086,9 +3086,9 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.needDefaultHttpServiceBackUp = true;
-        this.retryDelayStatus = g.f76163a;
+        this.retryDelayStatus = g.f76198a;
         this.needReuseFirstConnection = false;
-        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.f76144a;
+        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.f76179a;
         this.supportPartial = true;
         this.needSDKMonitor = true;
         this.expiredRedownload = false;
@@ -3097,7 +3097,7 @@ public class DownloadInfo implements Parcelable {
         this.chunkCount = 1;
         this.isFirstDownload = true;
         this.isFirstSuccess = true;
-        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.f76150a;
+        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.f76185a;
         this.enqueueType = EnqueueType.ENQUEUE_NONE;
         this.lastNotifyProgressTime = new AtomicLong(0L);
         this.isAutoInstallWithoutNotification = null;
@@ -3144,34 +3144,34 @@ public class DownloadInfo implements Parcelable {
         public boolean X;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f76295a;
+        public String f76330a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f76296b;
+        public String f76331b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f76297c;
+        public String f76332c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f76298d;
+        public String f76333d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f76299e;
+        public String f76334e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f76300f;
+        public boolean f76335f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f76301g;
+        public String f76336g;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<c> f76302h;
+        public List<c> f76337h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f76303i;
+        public int f76338i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String[] f76304j;
+        public String[] f76339j;
         public int[] k;
         public int l;
         public int m;
@@ -3213,7 +3213,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.f76295a = str;
+                this.f76330a = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -3233,7 +3233,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-                this.f76302h = list;
+                this.f76337h = list;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -3253,7 +3253,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f76300f = z;
+                this.f76335f = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -3309,7 +3309,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-                this.f76296b = str;
+                this.f76331b = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -3359,7 +3359,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-                this.f76297c = str;
+                this.f76332c = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -3379,7 +3379,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-                this.f76298d = str;
+                this.f76333d = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -3429,7 +3429,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-                this.f76301g = str;
+                this.f76336g = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -3625,7 +3625,7 @@ public class DownloadInfo implements Parcelable {
             this.y = true;
             this.H = EnqueueType.ENQUEUE_NONE;
             this.Q = true;
-            this.f76297c = str;
+            this.f76332c = str;
         }
     }
 
@@ -3645,9 +3645,9 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.needDefaultHttpServiceBackUp = true;
-        this.retryDelayStatus = g.f76163a;
+        this.retryDelayStatus = g.f76198a;
         this.needReuseFirstConnection = false;
-        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.f76144a;
+        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.f76179a;
         this.supportPartial = true;
         this.needSDKMonitor = true;
         this.expiredRedownload = false;
@@ -3656,17 +3656,17 @@ public class DownloadInfo implements Parcelable {
         this.chunkCount = 1;
         this.isFirstDownload = true;
         this.isFirstSuccess = true;
-        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.f76150a;
+        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.f76185a;
         this.enqueueType = EnqueueType.ENQUEUE_NONE;
         this.lastNotifyProgressTime = new AtomicLong(0L);
         this.isAutoInstallWithoutNotification = null;
         if (bVar == null) {
             return;
         }
-        this.name = bVar.f76295a;
-        this.title = bVar.f76296b;
-        this.url = bVar.f76297c;
-        String str = bVar.f76298d;
+        this.name = bVar.f76330a;
+        this.title = bVar.f76331b;
+        this.url = bVar.f76332c;
+        String str = bVar.f76333d;
         if (TextUtils.isEmpty(str)) {
             try {
                 str = f.I0();
@@ -3675,7 +3675,7 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.savePath = str;
-        String str2 = bVar.f76299e;
+        String str2 = bVar.f76334e;
         this.tempPath = str2;
         if (TextUtils.isEmpty(str2) && !f.U0(str)) {
             this.tempPath = f.N0();
@@ -3690,14 +3690,14 @@ public class DownloadInfo implements Parcelable {
         }
         this.status = new AtomicInteger(0);
         this.curBytes = new AtomicLong(0L);
-        this.extra = bVar.f76301g;
-        this.onlyWifi = bVar.f76300f;
-        this.extraHeaders = bVar.f76302h;
-        this.maxBytes = bVar.f76303i;
+        this.extra = bVar.f76336g;
+        this.onlyWifi = bVar.f76335f;
+        this.extraHeaders = bVar.f76337h;
+        this.maxBytes = bVar.f76338i;
         this.retryCount = bVar.l;
         this.backUpUrlRetryCount = bVar.m;
         this.force = bVar.n;
-        this.outIp = bVar.f76304j;
+        this.outIp = bVar.f76339j;
         this.outSize = bVar.k;
         this.needPostProgress = bVar.o;
         this.maxProgressCount = bVar.p;
@@ -3760,9 +3760,9 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.needDefaultHttpServiceBackUp = true;
-        this.retryDelayStatus = g.f76163a;
+        this.retryDelayStatus = g.f76198a;
         this.needReuseFirstConnection = false;
-        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.f76144a;
+        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.f76179a;
         this.supportPartial = true;
         this.needSDKMonitor = true;
         this.expiredRedownload = false;
@@ -3771,7 +3771,7 @@ public class DownloadInfo implements Parcelable {
         this.chunkCount = 1;
         this.isFirstDownload = true;
         this.isFirstSuccess = true;
-        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.f76150a;
+        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.f76185a;
         this.enqueueType = EnqueueType.ENQUEUE_NONE;
         this.lastNotifyProgressTime = new AtomicLong(0L);
         this.isAutoInstallWithoutNotification = null;
@@ -3795,9 +3795,9 @@ public class DownloadInfo implements Parcelable {
         }
         boolean z = true;
         this.needDefaultHttpServiceBackUp = true;
-        this.retryDelayStatus = g.f76163a;
+        this.retryDelayStatus = g.f76198a;
         this.needReuseFirstConnection = false;
-        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.f76144a;
+        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.f76179a;
         this.supportPartial = true;
         this.needSDKMonitor = true;
         this.expiredRedownload = false;
@@ -3806,7 +3806,7 @@ public class DownloadInfo implements Parcelable {
         this.chunkCount = 1;
         this.isFirstDownload = true;
         this.isFirstSuccess = true;
-        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.f76150a;
+        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.f76185a;
         this.enqueueType = EnqueueType.ENQUEUE_NONE;
         this.lastNotifyProgressTime = new AtomicLong(0L);
         this.isAutoInstallWithoutNotification = null;
@@ -3925,14 +3925,14 @@ public class DownloadInfo implements Parcelable {
             int columnIndex27 = cursor.getColumnIndex("retryDelayStatus");
             if (columnIndex27 != -1) {
                 int i4 = cursor.getInt(columnIndex27);
-                if (i4 == g.f76164b.ordinal()) {
-                    this.retryDelayStatus = g.f76164b;
-                } else if (i4 == g.f76165c.ordinal()) {
-                    this.retryDelayStatus = g.f76165c;
-                } else if (i4 == g.f76166d.ordinal()) {
-                    this.retryDelayStatus = g.f76166d;
+                if (i4 == g.f76199b.ordinal()) {
+                    this.retryDelayStatus = g.f76199b;
+                } else if (i4 == g.f76200c.ordinal()) {
+                    this.retryDelayStatus = g.f76200c;
+                } else if (i4 == g.f76201d.ordinal()) {
+                    this.retryDelayStatus = g.f76201d;
                 } else {
-                    this.retryDelayStatus = g.f76163a;
+                    this.retryDelayStatus = g.f76198a;
                 }
             }
             int columnIndex28 = cursor.getColumnIndex("defaultHttpServiceBackUp");

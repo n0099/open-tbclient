@@ -48,7 +48,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
             }
         }
         sEmptyList = new Locale[0];
-        LOCALE_EN_XA = new Locale(h.f39556a, "XA");
+        LOCALE_EN_XA = new Locale(h.f39560a, "XA");
         LOCALE_AR_XB = new Locale("ar", "XB");
         EN_LATN = LocaleListCompat.forLanguageTagCompat("en-Latn");
     }

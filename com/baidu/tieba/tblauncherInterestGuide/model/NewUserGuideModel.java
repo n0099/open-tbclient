@@ -27,17 +27,17 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int OFFSET = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f57483h;
+    public static final String f57417h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f57484e;
+    public boolean f57418e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterestFrsData f57485f;
+    public InterestFrsData f57419f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f57486g;
+    public a f57420g;
 
     /* loaded from: classes7.dex */
     public static class a extends BdAsyncTask<Void, Void, InterestFrsData> {
@@ -45,16 +45,16 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f57487a;
+        public int f57421a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57488b;
+        public int f57422b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f57489c;
+        public int f57423c;
 
         /* renamed from: d  reason: collision with root package name */
-        public WeakReference<b> f57490d;
+        public WeakReference<b> f57424d;
 
         public a(int i2, int i3, int i4, b bVar) {
             Interceptable interceptable = $ic;
@@ -71,10 +71,10 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
                     return;
                 }
             }
-            this.f57487a = i2;
-            this.f57488b = i3;
-            this.f57489c = i4;
-            this.f57490d = new WeakReference<>(bVar);
+            this.f57421a = i2;
+            this.f57422b = i3;
+            this.f57423c = i4;
+            this.f57424d = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -85,10 +85,10 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                NetWork netWork = new NetWork(NewUserGuideModel.f57483h);
-                netWork.addPostData("user_type", String.valueOf(this.f57487a));
-                netWork.addPostData("offset", String.valueOf(this.f57488b));
-                netWork.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(this.f57489c));
+                NetWork netWork = new NetWork(NewUserGuideModel.f57417h);
+                netWork.addPostData("user_type", String.valueOf(this.f57421a));
+                netWork.addPostData("offset", String.valueOf(this.f57422b));
+                netWork.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(this.f57423c));
                 String postNetData = netWork.postNetData();
                 if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                     try {
@@ -116,7 +116,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interestFrsData) == null) {
                 super.onPostExecute(interestFrsData);
-                b bVar = this.f57490d.get();
+                b bVar = this.f57424d.get();
                 if (bVar != null) {
                     if (interestFrsData.getErrno() == 0) {
                         bVar.a(interestFrsData);
@@ -148,7 +148,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        f57483h = TbConfig.SERVER_ADDRESS + "c/s/gettaglist";
+        f57417h = TbConfig.SERVER_ADDRESS + "c/s/gettaglist";
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -175,7 +175,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bVar}) == null) {
             a aVar = new a(i2, i3, i4, bVar);
-            this.f57486g = aVar;
+            this.f57420g = aVar;
             aVar.execute(new Void[0]);
         }
     }
@@ -183,19 +183,19 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public void B(InterestFrsData interestFrsData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interestFrsData) == null) {
-            this.f57485f = interestFrsData;
+            this.f57419f = interestFrsData;
         }
     }
 
     public void C(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f57484e = z;
+            this.f57418e = z;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -205,7 +205,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -217,7 +217,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public void x() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f57486g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f57420g) == null) {
             return;
         }
         aVar.cancel();
@@ -226,12 +226,12 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public InterestFrsData y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f57485f : (InterestFrsData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f57419f : (InterestFrsData) invokeV.objValue;
     }
 
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f57484e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f57418e : invokeV.booleanValue;
     }
 }

@@ -186,7 +186,7 @@ public class e extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             SwanAppConfigData swanAppConfigData = this.f4568h;
-            if (swanAppConfigData == null || (kVar = swanAppConfigData.f46658d) == null || (map = kVar.f46697a) == null) {
+            if (swanAppConfigData == null || (kVar = swanAppConfigData.f46570d) == null || (map = kVar.f46609a) == null) {
                 return null;
             }
             return map.get(str);
@@ -291,10 +291,10 @@ public class e extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             SwanAppConfigData swanAppConfigData = this.f4568h;
-            if (swanAppConfigData == null || (jVar = swanAppConfigData.f46657c) == null || jVar.f46693c == null) {
+            if (swanAppConfigData == null || (jVar = swanAppConfigData.f46569c) == null || jVar.f46605c == null) {
                 return null;
             }
-            return this.f4568h.f46657c.f46693c.get(c.a.p0.a.c2.f.p0.j.b(str));
+            return this.f4568h.f46569c.f46605c.get(c.a.p0.a.c2.f.p0.j.b(str));
         }
         return (String) invokeL.objValue;
     }
@@ -519,7 +519,7 @@ public class e extends m {
         SwanAppConfigData.d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f4568h) == null || (dVar = swanAppConfigData.f46656b) == null) {
+            if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f4568h) == null || (dVar = swanAppConfigData.f46568b) == null) {
                 return false;
             }
             return dVar.c(str);
@@ -552,11 +552,11 @@ public class e extends m {
         Map<String, Boolean> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f4568h) == null || (jVar = swanAppConfigData.f46657c) == null || (map = jVar.f46692b) == null || !map.containsKey(str)) {
+            if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f4568h) == null || (jVar = swanAppConfigData.f46569c) == null || (map = jVar.f46604b) == null || !map.containsKey(str)) {
                 return false;
             }
             boolean z = y;
-            return this.f4568h.f46657c.f46692b.get(str).booleanValue();
+            return this.f4568h.f46569c.f46604b.get(str).booleanValue();
         }
         return invokeL.booleanValue;
     }
@@ -814,12 +814,12 @@ public class e extends m {
         SwanAppConfigData swanAppConfigData;
         SwanAppConfigData.j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048636, this, str, z) == null) || TextUtils.isEmpty(str) || (swanAppConfigData = this.f4568h) == null || (jVar = swanAppConfigData.f46657c) == null || jVar.f46692b == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048636, this, str, z) == null) || TextUtils.isEmpty(str) || (swanAppConfigData = this.f4568h) == null || (jVar = swanAppConfigData.f46569c) == null || jVar.f46604b == null) {
             return;
         }
         if (y) {
             String str2 = "更新内存缓存信息: " + str + ": " + z;
         }
-        this.f4568h.f46657c.f46692b.put(str, Boolean.valueOf(z));
+        this.f4568h.f46569c.f46604b.put(str, Boolean.valueOf(z));
     }
 }

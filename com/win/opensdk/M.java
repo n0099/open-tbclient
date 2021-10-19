@@ -14,25 +14,25 @@ public final class M {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final M f77132a;
+    public static final M f77167a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final M f77133b;
+    public static final M f77168b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final M f77134c;
+    public static final M f77169c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final M f77135d;
+    public static final M f77170d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final M f77136e;
+    public static final M f77171e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final M f77137f;
+    public static final M f77172f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ M[] f77138g;
+    public static final /* synthetic */ M[] f77173g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,14 +48,14 @@ public final class M {
                 return;
             }
         }
-        f77132a = new M("BANNER", 0);
-        f77133b = new M("INTERSTITIAL", 1);
-        f77134c = new M(Constant.TYPE_NATIVE, 2);
-        f77135d = new M("Video", 3);
-        f77136e = new M("SPLASH", 4);
+        f77167a = new M("BANNER", 0);
+        f77168b = new M("INTERSTITIAL", 1);
+        f77169c = new M(Constant.TYPE_NATIVE, 2);
+        f77170d = new M("Video", 3);
+        f77171e = new M("SPLASH", 4);
         M m = new M("DRAW_VIDEO", 5);
-        f77137f = m;
-        f77138g = new M[]{f77132a, f77133b, f77134c, f77135d, f77136e, m};
+        f77172f = m;
+        f77173g = new M[]{f77167a, f77168b, f77169c, f77170d, f77171e, m};
     }
 
     public M(String str, int i2) {
@@ -86,6 +86,6 @@ public final class M {
     public static M[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (M[]) f77138g.clone() : (M[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (M[]) f77173g.clone() : (M[]) invokeV.objValue;
     }
 }

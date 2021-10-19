@@ -20,26 +20,26 @@ public class e1 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f31354f;
+    public static int f31358f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static w f31355g;
+    public static w f31359g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static w f31356h;
+    public static w f31360h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static long f31357i;
+    public static long f31361i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f31358j;
+    public static String f31362j;
     public static Object k;
     public static Object l;
     public static final HashSet<Integer> m;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final IPicker f31359e;
+    public final IPicker f31363e;
 
     static {
         InterceptResult invokeClinit;
@@ -72,7 +72,7 @@ public class e1 implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f31359e = iPicker;
+        this.f31363e = iPicker;
     }
 
     public static w a(w wVar, long j2) {
@@ -80,8 +80,8 @@ public class e1 implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, wVar, j2)) == null) {
             w wVar2 = (w) wVar.clone();
-            wVar2.f31412e = j2;
-            long j3 = j2 - wVar.f31412e;
+            wVar2.f31416e = j2;
+            long j3 = j2 - wVar.f31416e;
             if (j3 >= 0) {
                 wVar2.m = j3;
             } else {
@@ -103,7 +103,7 @@ public class e1 implements Application.ActivityLifecycleCallbacks {
             } else {
                 wVar.o = str;
             }
-            wVar.f31412e = j2;
+            wVar.f31416e = j2;
             wVar.m = -1L;
             if (str3 == null) {
                 str3 = "";
@@ -141,16 +141,16 @@ public class e1 implements Application.ActivityLifecycleCallbacks {
     public void onActivityPaused(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            if (f31356h != null) {
+            if (f31360h != null) {
                 c(l);
             }
-            w wVar = f31355g;
+            w wVar = f31359g;
             if (wVar != null) {
-                f31358j = wVar.o;
+                f31362j = wVar.o;
                 long currentTimeMillis = System.currentTimeMillis();
-                f31357i = currentTimeMillis;
-                a(f31355g, currentTimeMillis);
-                f31355g = null;
+                f31361i = currentTimeMillis;
+                a(f31359g, currentTimeMillis);
+                f31359g = null;
                 activity.isChild();
             }
         }
@@ -160,8 +160,8 @@ public class e1 implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            w b2 = b(activity.getClass().getName(), "", System.currentTimeMillis(), f31358j);
-            f31355g = b2;
+            w b2 = b(activity.getClass().getName(), "", System.currentTimeMillis(), f31362j);
+            f31359g = b2;
             b2.p = !m.remove(Integer.valueOf(activity.hashCode())) ? 1 : 0;
             if (activity.isChild()) {
                 return;
@@ -187,9 +187,9 @@ public class e1 implements Application.ActivityLifecycleCallbacks {
         IPicker iPicker;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-            int i2 = f31354f + 1;
-            f31354f = i2;
-            if (i2 != 1 || (iPicker = this.f31359e) == null) {
+            int i2 = f31358f + 1;
+            f31358f = i2;
+            if (i2 != 1 || (iPicker = this.f31363e) == null) {
                 return;
             }
             iPicker.show(true);
@@ -199,15 +199,15 @@ public class e1 implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, activity) == null) || f31358j == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, activity) == null) || f31362j == null) {
             return;
         }
-        int i2 = f31354f - 1;
-        f31354f = i2;
+        int i2 = f31358f - 1;
+        f31358f = i2;
         if (i2 <= 0) {
-            f31358j = null;
-            f31357i = 0L;
-            IPicker iPicker = this.f31359e;
+            f31362j = null;
+            f31361i = 0L;
+            IPicker iPicker = this.f31363e;
             if (iPicker != null) {
                 iPicker.show(false);
             }

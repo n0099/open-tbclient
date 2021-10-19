@@ -21,7 +21,7 @@ public class b implements InvocationHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object f32389e;
+    public Object f32393e;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -31,11 +31,11 @@ public class b implements InvocationHandler {
 
     /* renamed from: c.f.b.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1474b {
+    public static class C1476b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f32390a;
+        public static final b f32394a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,7 +51,7 @@ public class b implements InvocationHandler {
                     return;
                 }
             }
-            f32390a = new b(null);
+            f32394a = new b(null);
         }
     }
 
@@ -62,7 +62,7 @@ public class b implements InvocationHandler {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1474b.f32390a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1476b.f32394a : (b) invokeV.objValue;
     }
 
     public final void b(WindowManager.LayoutParams layoutParams) {
@@ -93,7 +93,7 @@ public class b implements InvocationHandler {
             Field declaredField = PopupWindow.class.getDeclaredField("mWindowManager");
             declaredField.setAccessible(true);
             Object obj = declaredField.get(popupWindow);
-            this.f32389e = obj;
+            this.f32393e = obj;
             if (obj == null) {
                 return;
             }
@@ -119,7 +119,7 @@ public class b implements InvocationHandler {
                     e2.printStackTrace();
                 }
             }
-            return method.invoke(this.f32389e, objArr);
+            return method.invoke(this.f32393e, objArr);
         }
         return invokeLLL.objValue;
     }

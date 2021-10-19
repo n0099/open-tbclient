@@ -15,13 +15,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f66711a;
+    public String f66746a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66712b;
+    public String f66747b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f66713c;
+    public Map<String, String> f66748c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -40,21 +40,21 @@ public class d {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f66711a = str;
+            this.f66746a = str;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f66712b = str;
+            this.f66747b = str;
         }
     }
 
     public void a(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            this.f66713c = map;
+            this.f66748c = map;
         }
     }
 
@@ -63,13 +63,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (!TextUtils.isEmpty(this.f66711a) && !TextUtils.isEmpty(this.f66712b)) {
+            if (!TextUtils.isEmpty(this.f66746a) && !TextUtils.isEmpty(this.f66747b)) {
                 try {
-                    jSONObject.put("url", this.f66711a);
-                    jSONObject.put("html", this.f66712b);
+                    jSONObject.put("url", this.f66746a);
+                    jSONObject.put("html", this.f66747b);
                     JSONObject jSONObject2 = new JSONObject();
-                    if (this.f66713c != null && this.f66713c.size() > 0) {
-                        for (Map.Entry<String, String> entry : this.f66713c.entrySet()) {
+                    if (this.f66748c != null && this.f66748c.size() > 0) {
+                        for (Map.Entry<String, String> entry : this.f66748c.entrySet()) {
                             jSONObject2.put(entry.getKey(), entry.getValue());
                         }
                     }

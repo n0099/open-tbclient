@@ -26,10 +26,10 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char f73032a;
+    public static final char f73067a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f73033b;
+    public static final String f73068b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,11 +45,11 @@ public class h {
                 return;
             }
         }
-        f73032a = File.separatorChar;
+        f73067a = File.separatorChar;
         StringBuilderWriter stringBuilderWriter = new StringBuilderWriter(4);
         PrintWriter printWriter = new PrintWriter(stringBuilderWriter);
         printWriter.println();
-        f73033b = stringBuilderWriter.toString();
+        f73068b = stringBuilderWriter.toString();
         printWriter.close();
     }
 

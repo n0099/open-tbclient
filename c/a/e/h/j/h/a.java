@@ -70,7 +70,7 @@ public class a {
             synchronized (this.f2870a) {
                 arrayList = new ArrayList(this.f2870a.size());
                 for (Map.Entry<String, PluginStatus> entry : this.f2870a.entrySet()) {
-                    if (entry != null && (value = entry.getValue()) != null && value.f36400g == PluginPackageManager.PluginStatus.ERROR) {
+                    if (entry != null && (value = entry.getValue()) != null && value.f36404g == PluginPackageManager.PluginStatus.ERROR) {
                         arrayList.add(value);
                     }
                 }
@@ -92,7 +92,7 @@ public class a {
                 pluginStatus = this.f2870a.get(str);
                 if (pluginStatus == null) {
                     pluginStatus = new PluginStatus();
-                    pluginStatus.f36398e = str;
+                    pluginStatus.f36402e = str;
                     this.f2870a.put(str, pluginStatus);
                 }
             }
@@ -153,10 +153,10 @@ public class a {
                 if (c2 == null) {
                     c2 = new PluginStatus();
                 }
-                c2.f36400g = PluginPackageManager.PluginStatus.ERROR;
-                c2.f36402i = string;
-                c2.f36403j = string2;
-                c2.f36401h = i2;
+                c2.f36404g = PluginPackageManager.PluginStatus.ERROR;
+                c2.f36406i = string;
+                c2.f36407j = string2;
+                c2.f36405h = i2;
                 c2.k = false;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, c2));
             }
@@ -164,10 +164,10 @@ public class a {
             c2 = c(str);
             if (c2 == null) {
             }
-            c2.f36400g = PluginPackageManager.PluginStatus.ERROR;
-            c2.f36402i = string;
-            c2.f36403j = string2;
-            c2.f36401h = i2;
+            c2.f36404g = PluginPackageManager.PluginStatus.ERROR;
+            c2.f36406i = string;
+            c2.f36407j = string2;
+            c2.f36405h = i2;
             c2.k = false;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, c2));
         }
@@ -178,7 +178,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             PluginStatus c2 = b().c(str);
             if (c2 != null) {
-                c2.f36400g = PluginPackageManager.PluginStatus.NROMAL;
+                c2.f36404g = PluginPackageManager.PluginStatus.NROMAL;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, c2));
         }
@@ -191,10 +191,10 @@ public class a {
             if (c2 == null) {
                 c2 = new PluginStatus();
             }
-            c2.f36400g = PluginPackageManager.PluginStatus.ERROR;
-            c2.f36401h = 100;
-            c2.f36402i = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-            c2.f36403j = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+            c2.f36404g = PluginPackageManager.PluginStatus.ERROR;
+            c2.f36405h = 100;
+            c2.f36406i = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
+            c2.f36407j = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, c2));
         }
     }

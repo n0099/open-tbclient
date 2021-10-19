@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.https;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.t.c.a0;
+import c.a.q0.t.c.b0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbSingleton;
@@ -227,7 +227,7 @@ public class HttpsUtil {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (a0.a(str)) {
+            if (b0.a(str)) {
                 return true;
             }
             List<String> hostWhiteList = TbSingleton.getInstance().getHostWhiteList();

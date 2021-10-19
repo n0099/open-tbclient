@@ -13,16 +13,16 @@ public final class b implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f59720a;
+    public final /* synthetic */ String f59755a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f59721b;
+    public final /* synthetic */ String f59756b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ n f59722c;
+    public final /* synthetic */ n f59757c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f59723d;
+    public final /* synthetic */ a f59758d;
 
     public b(a aVar, String str, String str2, n nVar) {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public final class b implements Runnable {
                 return;
             }
         }
-        this.f59723d = aVar;
-        this.f59720a = str;
-        this.f59721b = str2;
-        this.f59722c = nVar;
+        this.f59758d = aVar;
+        this.f59755a = str;
+        this.f59756b = str2;
+        this.f59757c = nVar;
     }
 
     @Override // java.lang.Runnable
@@ -51,15 +51,15 @@ public final class b implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                Bitmap a2 = a.a(this.f59720a);
+                Bitmap a2 = a.a(this.f59755a);
                 if (a2 == null) {
-                    this.f59722c.obtainMessage(0, null).sendToTarget();
+                    this.f59757c.obtainMessage(0, null).sendToTarget();
                     return;
                 }
-                hashMap = a.f59718b;
-                hashMap.put(this.f59721b, new SoftReference(a2));
-                f.a().a(a2, this.f59721b);
-                this.f59722c.obtainMessage(0, a2).sendToTarget();
+                hashMap = a.f59753b;
+                hashMap.put(this.f59756b, new SoftReference(a2));
+                f.a().a(a2, this.f59756b);
+                this.f59757c.obtainMessage(0, a2).sendToTarget();
             } catch (Exception e2) {
                 e2.printStackTrace();
             } catch (OutOfMemoryError e3) {

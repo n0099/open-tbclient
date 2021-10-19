@@ -13,6 +13,8 @@ import com.squareup.wire.ProtoField;
 public final class TopicList extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Long DEFAULT_DISCUSS_NUM;
+    public static final Integer DEFAULT_IS_VIDEO_TOPIC;
+    public static final String DEFAULT_SLOGAN = "";
     public static final Integer DEFAULT_TAG;
     public static final String DEFAULT_TOPIC_DESC = "";
     public static final Long DEFAULT_TOPIC_ID;
@@ -21,6 +23,10 @@ public final class TopicList extends Message {
     public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 3, type = Message.Datatype.UINT64)
     public final Long discuss_num;
+    @ProtoField(tag = 7, type = Message.Datatype.INT32)
+    public final Integer is_video_topic;
+    @ProtoField(tag = 8, type = Message.Datatype.STRING)
+    public final String slogan;
     @ProtoField(tag = 4, type = Message.Datatype.INT32)
     public final Integer tag;
     @ProtoField(tag = 5, type = Message.Datatype.STRING)
@@ -37,6 +43,8 @@ public final class TopicList extends Message {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Long discuss_num;
+        public Integer is_video_topic;
+        public String slogan;
         public Integer tag;
         public String topic_desc;
         public Long topic_id;
@@ -84,6 +92,8 @@ public final class TopicList extends Message {
             this.tag = topicList.tag;
             this.topic_desc = topicList.topic_desc;
             this.topic_pic = topicList.topic_pic;
+            this.is_video_topic = topicList.is_video_topic;
+            this.slogan = topicList.slogan;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,6 +128,7 @@ public final class TopicList extends Message {
         DEFAULT_TOPIC_ID = 0L;
         DEFAULT_DISCUSS_NUM = 0L;
         DEFAULT_TAG = 0;
+        DEFAULT_IS_VIDEO_TOPIC = 0;
     }
 
     public /* synthetic */ TopicList(Builder builder, boolean z, a aVar) {
@@ -176,9 +187,21 @@ public final class TopicList extends Message {
             String str3 = builder.topic_pic;
             if (str3 == null) {
                 this.topic_pic = "";
-                return;
             } else {
                 this.topic_pic = str3;
+            }
+            Integer num2 = builder.is_video_topic;
+            if (num2 == null) {
+                this.is_video_topic = DEFAULT_IS_VIDEO_TOPIC;
+            } else {
+                this.is_video_topic = num2;
+            }
+            String str4 = builder.slogan;
+            if (str4 == null) {
+                this.slogan = "";
+                return;
+            } else {
+                this.slogan = str4;
                 return;
             }
         }
@@ -188,5 +211,7 @@ public final class TopicList extends Message {
         this.tag = builder.tag;
         this.topic_desc = builder.topic_desc;
         this.topic_pic = builder.topic_pic;
+        this.is_video_topic = builder.is_video_topic;
+        this.slogan = builder.slogan;
     }
 }

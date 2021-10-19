@@ -19,19 +19,19 @@ public class FiltersView extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48256e;
+    public int f48177e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f48257f;
+    public Runnable f48178f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f48258g;
+    public Context f48179g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f48259h;
+    public View f48180h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f48260i;
+    public View f48181i;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -39,7 +39,7 @@ public class FiltersView extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FiltersView f48261e;
+        public final /* synthetic */ FiltersView f48182e;
 
         public a(FiltersView filtersView) {
             Interceptable interceptable = $ic;
@@ -56,34 +56,34 @@ public class FiltersView extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f48261e = filtersView;
+            this.f48182e = filtersView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f48261e.f48259h == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f48182e.f48180h == null) {
                 return;
             }
-            int childCount = ((LinearLayout) this.f48261e.getChildAt(0)).getChildCount();
+            int childCount = ((LinearLayout) this.f48182e.getChildAt(0)).getChildCount();
             int i3 = 0;
             while (true) {
                 if (i3 >= childCount) {
                     i2 = 0;
                     break;
                 }
-                View childAt = ((LinearLayout) this.f48261e.getChildAt(0)).getChildAt(i3);
-                if (childAt == this.f48261e.f48259h) {
+                View childAt = ((LinearLayout) this.f48182e.getChildAt(0)).getChildAt(i3);
+                if (childAt == this.f48182e.f48180h) {
                     i2 = childAt.getRight();
                     break;
                 }
                 i3++;
             }
-            this.f48261e.f48259h = null;
-            int width = i2 - this.f48261e.getWidth();
+            this.f48182e.f48180h = null;
+            int width = i2 - this.f48182e.getWidth();
             if (width > 0) {
-                this.f48261e.scrollBy(width, 0);
+                this.f48182e.scrollBy(width, 0);
             }
         }
     }
@@ -106,25 +106,25 @@ public class FiltersView extends HorizontalScrollView {
                 return;
             }
         }
-        this.f48256e = 0;
-        this.f48257f = new a(this);
-        this.f48258g = null;
-        this.f48259h = null;
-        this.f48260i = null;
-        this.f48258g = tbPageContextSupport.getPageContext().getContext();
+        this.f48177e = 0;
+        this.f48178f = new a(this);
+        this.f48179g = null;
+        this.f48180h = null;
+        this.f48181i = null;
+        this.f48179g = tbPageContextSupport.getPageContext().getContext();
         c();
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f48258g.getResources().getDimension(R.dimen.ds4);
-            this.f48256e = (int) this.f48258g.getResources().getDimension(R.dimen.ds30);
-            LinearLayout linearLayout = new LinearLayout(this.f48258g);
+            this.f48179g.getResources().getDimension(R.dimen.ds4);
+            this.f48177e = (int) this.f48179g.getResources().getDimension(R.dimen.ds30);
+            LinearLayout linearLayout = new LinearLayout(this.f48179g);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             linearLayout.setGravity(16);
             linearLayout.setOrientation(0);
-            linearLayout.setPadding(this.f48256e, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
+            linearLayout.setPadding(this.f48177e, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
             setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             addView(linearLayout);
         }
@@ -134,7 +134,7 @@ public class FiltersView extends HorizontalScrollView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view = this.f48260i;
+            View view = this.f48181i;
             return view != null ? (String) ((View) view.getTag()).getTag() : "normal";
         }
         return (String) invokeV.objValue;
@@ -145,8 +145,8 @@ public class FiltersView extends HorizontalScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (this.f48259h != null) {
-                post(this.f48257f);
+            if (this.f48180h != null) {
+                post(this.f48178f);
             }
         }
     }
@@ -170,10 +170,10 @@ public class FiltersView extends HorizontalScrollView {
                 return;
             }
         }
-        this.f48256e = 0;
-        this.f48257f = new a(this);
-        this.f48258g = null;
-        this.f48259h = null;
-        this.f48260i = null;
+        this.f48177e = 0;
+        this.f48178f = new a(this);
+        this.f48179g = null;
+        this.f48180h = null;
+        this.f48181i = null;
     }
 }

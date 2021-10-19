@@ -19,13 +19,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36928a;
+    public Context f36932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36929b;
+    public String f36933b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36930c;
+    public String f36934c;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class b {
                 return;
             }
         }
-        this.f36928a = context;
+        this.f36932a = context;
     }
 
     public boolean a() {
@@ -50,26 +50,26 @@ public class b {
         b.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = new File(this.f36930c).exists() ? a.a(this.f36928a, this.f36930c) : a.a();
+            String a2 = new File(this.f36934c).exists() ? a.a(this.f36932a, this.f36934c) : a.a();
             if (!TextUtils.isEmpty(a2)) {
                 try {
                     byte[] decode = Base64.decode(a2.getBytes(), 2);
                     if (decode != null && decode.length > 0) {
-                        this.f36929b = new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), "utf-8");
+                        this.f36933b = new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), "utf-8");
                     }
                 } catch (Exception e2) {
                     e = e2;
-                    cVar = new b.c(this.f36928a);
+                    cVar = new b.c(this.f36932a);
                     cVar.a(Log.getStackTraceString(e)).a();
-                    return !TextUtils.isEmpty(this.f36929b);
+                    return !TextUtils.isEmpty(this.f36933b);
                 } catch (UnsatisfiedLinkError e3) {
                     e = e3;
-                    cVar = new b.c(this.f36928a);
+                    cVar = new b.c(this.f36932a);
                     cVar.a(Log.getStackTraceString(e)).a();
-                    return !TextUtils.isEmpty(this.f36929b);
+                    return !TextUtils.isEmpty(this.f36933b);
                 }
             }
-            return !TextUtils.isEmpty(this.f36929b);
+            return !TextUtils.isEmpty(this.f36933b);
         }
         return invokeV.booleanValue;
     }
@@ -77,6 +77,6 @@ public class b {
     public boolean a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) ? a.a(context, this.f36930c, str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) ? a.a(context, this.f36934c, str) : invokeLL.booleanValue;
     }
 }

@@ -12,7 +12,7 @@ import c.a.e.e.p.j;
 import c.a.q0.g0.g;
 import c.a.q0.g0.h;
 import c.a.q0.u.i;
-import c.a.r0.e;
+import c.a.r0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -29,27 +29,27 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class LatelyView extends FrameLayout implements e<String> {
+public class LatelyView extends FrameLayout implements f<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53830e;
+    public int f53761e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f53831f;
+    public RecyclerView f53762f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SelectForumItemAdapter f53832g;
+    public SelectForumItemAdapter f53763g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayoutManager f53833h;
+    public LinearLayoutManager f53764h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f53834i;
+    public g f53765i;
 
     /* renamed from: j  reason: collision with root package name */
-    public h f53835j;
+    public h f53766j;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -57,7 +57,7 @@ public class LatelyView extends FrameLayout implements e<String> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LatelyView f53836e;
+        public final /* synthetic */ LatelyView f53767e;
 
         public a(LatelyView latelyView) {
             Interceptable interceptable = $ic;
@@ -74,14 +74,14 @@ public class LatelyView extends FrameLayout implements e<String> {
                     return;
                 }
             }
-            this.f53836e = latelyView;
+            this.f53767e = latelyView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && j.A()) {
-                this.f53836e.request((String) null);
+                this.f53767e.request((String) null);
             }
         }
     }
@@ -111,18 +111,18 @@ public class LatelyView extends FrameLayout implements e<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.select_forum_lately_layout, (ViewGroup) this, true);
-            this.f53831f = (RecyclerView) findViewById(R.id.select_forum_list);
+            this.f53762f = (RecyclerView) findViewById(R.id.select_forum_list);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
-            this.f53832g = selectForumItemAdapter;
+            this.f53763g = selectForumItemAdapter;
             selectForumItemAdapter.setType(1);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-            this.f53833h = linearLayoutManager;
-            this.f53831f.setLayoutManager(linearLayoutManager);
-            this.f53831f.setAdapter(this.f53832g);
+            this.f53764h = linearLayoutManager;
+            this.f53762f.setLayoutManager(linearLayoutManager);
+            this.f53762f.setAdapter(this.f53763g);
         }
     }
 
-    @Override // c.a.r0.e
+    @Override // c.a.r0.f
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -132,22 +132,22 @@ public class LatelyView extends FrameLayout implements e<String> {
     public void hideLoadingView() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gVar = this.f53834i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gVar = this.f53765i) == null) {
             return;
         }
         gVar.dettachView(this);
-        this.f53834i = null;
+        this.f53765i = null;
     }
 
     public void hideNetRefreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            h hVar = this.f53835j;
+            h hVar = this.f53766j;
             if (hVar != null) {
                 hVar.dettachView(this);
-                this.f53835j = null;
+                this.f53766j = null;
             }
-            this.f53831f.setVisibility(0);
+            this.f53762f.setVisibility(0);
         }
     }
 
@@ -155,7 +155,7 @@ public class LatelyView extends FrameLayout implements e<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            g gVar = this.f53834i;
+            g gVar = this.f53765i;
             if (gVar != null) {
                 return gVar.isViewAttached();
             }
@@ -168,7 +168,7 @@ public class LatelyView extends FrameLayout implements e<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            h hVar = this.f53835j;
+            h hVar = this.f53766j;
             if (hVar != null) {
                 return hVar.isViewAttached();
             }
@@ -177,26 +177,26 @@ public class LatelyView extends FrameLayout implements e<String> {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.e
+    @Override // c.a.r0.f
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f53830e) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f53761e) {
             return;
         }
-        this.f53830e = skinType;
-        g gVar = this.f53834i;
+        this.f53761e = skinType;
+        g gVar = this.f53765i;
         if (gVar != null) {
             gVar.onChangeSkinType();
         }
-        h hVar = this.f53835j;
+        h hVar = this.f53766j;
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
-        this.f53832g.notifyDataSetChanged();
+        this.f53763g.notifyDataSetChanged();
     }
 
-    @Override // c.a.r0.e
+    @Override // c.a.r0.f
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -209,12 +209,12 @@ public class LatelyView extends FrameLayout implements e<String> {
         if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || isLoadingViewShowing()) {
             return;
         }
-        if (this.f53834i == null) {
+        if (this.f53765i == null) {
             g gVar = new g(getContext());
-            this.f53834i = gVar;
+            this.f53765i = gVar;
             gVar.onChangeSkinType();
         }
-        this.f53834i.attachView(this, z);
+        this.f53765i.attachView(this, z);
     }
 
     public void showNetRefreshView(boolean z, boolean z2) {
@@ -222,22 +222,22 @@ public class LatelyView extends FrameLayout implements e<String> {
         if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || isRefreshViewShowing()) {
             return;
         }
-        if (this.f53835j == null) {
-            this.f53835j = new h(getContext(), new a(this));
+        if (this.f53766j == null) {
+            this.f53766j = new h(getContext(), new a(this));
         }
-        this.f53835j.j(getResources().getDimensionPixelSize(R.dimen.tbds380));
-        this.f53835j.attachView(this, z);
+        this.f53766j.j(getResources().getDimensionPixelSize(R.dimen.tbds380));
+        this.f53766j.attachView(this, z);
         if (z2) {
-            this.f53835j.o();
+            this.f53766j.o();
         } else {
-            this.f53835j.h(R.drawable.new_pic_emotion_01);
-            this.f53835j.e();
+            this.f53766j.h(R.drawable.new_pic_emotion_01);
+            this.f53766j.e();
         }
-        this.f53835j.n(getContext().getString(R.string.activity_select_forum_empty));
-        this.f53831f.setVisibility(8);
+        this.f53766j.n(getContext().getString(R.string.activity_select_forum_empty));
+        this.f53762f.setVisibility(8);
     }
 
-    @Override // c.a.r0.e
+    @Override // c.a.r0.f
     public void showTip(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
@@ -266,11 +266,11 @@ public class LatelyView extends FrameLayout implements e<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.e
+    @Override // c.a.r0.f
     public void request(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            RecentlyVisitedForumData j2 = c.a.r0.n0.g.a.l().j();
+            RecentlyVisitedForumData j2 = c.a.r0.o0.g.a.l().j();
             if (j2 == null) {
                 showNetRefreshView(false, false);
                 return;
@@ -288,26 +288,26 @@ public class LatelyView extends FrameLayout implements e<String> {
                 VisitedForumData next = it.next();
                 if (next != null) {
                     i iVar = new i();
-                    iVar.f15036a = next.getForumId();
-                    iVar.f15037b = next.y();
-                    iVar.f15038c = next.getForumName();
-                    iVar.f15039d = next.getLevel();
-                    iVar.f15040e = next.H();
-                    iVar.f15041f = next.G();
-                    iVar.f15042g = next.w();
-                    iVar.f15043h = next.C();
-                    iVar.f15044i = next.A();
-                    if (iVar.f15040e) {
+                    iVar.f15059a = next.getForumId();
+                    iVar.f15060b = next.y();
+                    iVar.f15061c = next.getForumName();
+                    iVar.f15062d = next.getLevel();
+                    iVar.f15063e = next.H();
+                    iVar.f15064f = next.G();
+                    iVar.f15065g = next.w();
+                    iVar.f15066h = next.C();
+                    iVar.f15067i = next.A();
+                    if (iVar.f15063e) {
                         arrayList2.add(iVar);
                     } else {
                         arrayList.add(iVar);
                     }
-                    iVar.f15045j = next.isForumBusinessAccount;
+                    iVar.f15068j = next.isForumBusinessAccount;
                 }
             }
             arrayList2.addAll(arrayList);
-            this.f53832g.setDataList(arrayList2);
-            this.f53832g.notifyDataSetChanged();
+            this.f53763g.setDataList(arrayList2);
+            this.f53763g.notifyDataSetChanged();
         }
     }
 
@@ -330,7 +330,7 @@ public class LatelyView extends FrameLayout implements e<String> {
                 return;
             }
         }
-        this.f53830e = 3;
+        this.f53761e = 3;
         a();
     }
 }

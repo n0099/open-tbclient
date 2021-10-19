@@ -568,12 +568,12 @@ public class g {
                 if (!TextUtils.isEmpty(f2) && f2.startsWith(File.separator)) {
                     f2 = f2.substring(1);
                 }
-                if (swanAppConfigData != null && swanAppConfigData.f46656b != null) {
+                if (swanAppConfigData != null && swanAppConfigData.f46568b != null) {
                     String c2 = j.c(f2, swanAppConfigData);
-                    if (swanAppConfigData.f46656b.c(c2)) {
+                    if (swanAppConfigData.f46568b.c(c2)) {
                         return false;
                     }
-                    String str = swanAppConfigData.f46657c.f46693c.get(c2);
+                    String str = swanAppConfigData.f46569c.f46605c.get(c2);
                     if (!TextUtils.isEmpty(str)) {
                         if (c.a.p0.n.g.a.h().m(bVar.H(), bVar.u1(), str)) {
                             return !new File(e.C0114e.i(bVar.H(), bVar.u1()), str).exists();

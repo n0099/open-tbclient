@@ -13,19 +13,19 @@ public class q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42337a;
+    public int f42341a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42338b;
+    public String f42342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42339c;
+    public int f42343c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42340d;
+    public int f42344d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<q> f42341e;
+    public ArrayList<q> f42345e;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -44,13 +44,13 @@ public class q {
     public ArrayList<q> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42341e : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42345e : (ArrayList) invokeV.objValue;
     }
 
     public void a(ArrayList<q> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.f42341e = arrayList;
+            this.f42345e = arrayList;
         }
     }
 }

@@ -116,7 +116,7 @@ public final class BackStackState implements Parcelable {
                 iArr[i5] = dVar2.f12097c;
                 int i7 = i6 + 1;
                 Fragment fragment = dVar2.f12098d;
-                iArr[i6] = fragment != null ? fragment.f47335j : -1;
+                iArr[i6] = fragment != null ? fragment.f47247j : -1;
                 int[] iArr2 = this.mOps;
                 int i8 = i7 + 1;
                 iArr2[i7] = dVar2.f12099e;
@@ -133,7 +133,7 @@ public final class BackStackState implements Parcelable {
                     this.mOps[i11] = size;
                     int i13 = 0;
                     while (i13 < size) {
-                        this.mOps[i12] = dVar2.f12103i.get(i13).f47335j;
+                        this.mOps[i12] = dVar2.f12103i.get(i13).f47247j;
                         i13++;
                         i12++;
                     }

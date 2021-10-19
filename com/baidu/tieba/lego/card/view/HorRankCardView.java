@@ -9,9 +9,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.r0.j3.w;
-import c.a.r0.p1.i;
-import c.a.r0.p1.o.j.c;
+import c.a.r0.k3.w;
+import c.a.r0.q1.i;
+import c.a.r0.q1.o.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -33,19 +33,19 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f53980f;
+    public LinearLayout f53911f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HorizontalScrollListView f53981g;
+    public HorizontalScrollListView f53912g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f53982h;
+    public RelativeLayout f53913h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f53983i;
+    public View f53914i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f53984j;
+    public TextView f53915j;
     public MoreButton k;
     public ImageView l;
     public ImageView m;
@@ -56,10 +56,10 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HorRankCard f53985e;
+        public final /* synthetic */ HorRankCard f53916e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HorRankCardView f53986f;
+        public final /* synthetic */ HorRankCardView f53917f;
 
         public a(HorRankCardView horRankCardView, HorRankCard horRankCard) {
             Interceptable interceptable = $ic;
@@ -76,18 +76,18 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
                     return;
                 }
             }
-            this.f53986f = horRankCardView;
-            this.f53985e = horRankCard;
+            this.f53917f = horRankCardView;
+            this.f53916e = horRankCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f53985e.getScheme())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f53916e.getScheme())) {
                 return;
             }
-            i.e(this.f53985e).d(TiebaStatic.Params.OBJ_URL, this.f53985e.getScheme()).b("obj_locate", this.f53986f.getStatPosition()).a(this.f53985e);
-            w.c(this.f53986f.mContext, this.f53985e.getScheme());
+            i.e(this.f53916e).d(TiebaStatic.Params.OBJ_URL, this.f53916e.getScheme()).b("obj_locate", this.f53917f.getStatPosition()).a(this.f53916e);
+            w.c(this.f53917f.mContext, this.f53916e.getScheme());
         }
     }
 
@@ -128,15 +128,15 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_horizontal, (ViewGroup) null, false);
-            this.f53980f = linearLayout;
-            this.f53981g = (HorizontalScrollListView) findViewById(linearLayout, R.id.horizontal_view);
-            this.f53982h = (RelativeLayout) findViewById(this.f53980f, R.id.rlTop);
-            this.f53983i = (View) findViewById(this.f53980f, R.id.left);
-            this.f53984j = (TextView) findViewById(this.f53980f, R.id.hor_title);
-            this.k = (MoreButton) findViewById(this.f53980f, R.id.right_textview);
-            this.l = (ImageView) findViewById(this.f53980f, R.id.rightIcon);
-            this.m = (ImageView) findViewById(this.f53980f, R.id.divider);
-            return this.f53980f;
+            this.f53911f = linearLayout;
+            this.f53912g = (HorizontalScrollListView) findViewById(linearLayout, R.id.horizontal_view);
+            this.f53913h = (RelativeLayout) findViewById(this.f53911f, R.id.rlTop);
+            this.f53914i = (View) findViewById(this.f53911f, R.id.left);
+            this.f53915j = (TextView) findViewById(this.f53911f, R.id.hor_title);
+            this.k = (MoreButton) findViewById(this.f53911f, R.id.right_textview);
+            this.l = (ImageView) findViewById(this.f53911f, R.id.rightIcon);
+            this.m = (ImageView) findViewById(this.f53911f, R.id.divider);
+            return this.f53911f;
         }
         return (View) invokeV.objValue;
     }
@@ -147,12 +147,12 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, horRankCard, i2) == null) {
             c.a.q0.w0.a.a(this.mContext, getRootView());
-            SkinManager.setBackgroundColor(this.f53983i, R.color.CAM_X0308);
+            SkinManager.setBackgroundColor(this.f53914i, R.color.CAM_X0308);
             SkinManager.setBackgroundColor(this.m, R.color.CAM_X0201);
             SkinManager.setImageResource(this.m, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f53980f, R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.f53982h, R.drawable.addresslist_item_bg);
-            this.f53981g.onSkinTypeChanged(this.mSkinType);
+            SkinManager.setBackgroundColor(this.f53911f, R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.f53913h, R.drawable.addresslist_item_bg);
+            this.f53912g.onSkinTypeChanged(this.mSkinType);
             setMoreColor(horRankCard.getRightText());
         }
     }
@@ -163,32 +163,32 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, horRankCard) == null) {
             List<HorRankCard.a> rankInfoList = horRankCard.getRankInfoList();
-            this.f53983i.setVisibility(horRankCard.isShowLeft() ? 0 : 8);
+            this.f53914i.setVisibility(horRankCard.isShowLeft() ? 0 : 8);
             this.m.setVisibility(horRankCard.isShowSep() ? 0 : 8);
             if (rankInfoList != null && rankInfoList.size() != 0) {
-                this.f53981g.setRound(horRankCard.getPicType() == 1);
-                this.f53981g.setDisplayNum(horRankCard.getDisplayNum());
-                this.f53981g.setRatio(horRankCard.getRatio());
-                this.f53981g.setVisibility(0);
-                this.f53981g.setHorizontalScrollBarEnabled(horRankCard.isScrollEnabled());
-                this.f53981g.setData(rankInfoList, this.mContext);
+                this.f53912g.setRound(horRankCard.getPicType() == 1);
+                this.f53912g.setDisplayNum(horRankCard.getDisplayNum());
+                this.f53912g.setRatio(horRankCard.getRatio());
+                this.f53912g.setVisibility(0);
+                this.f53912g.setHorizontalScrollBarEnabled(horRankCard.isScrollEnabled());
+                this.f53912g.setData(rankInfoList, this.mContext);
             } else {
-                this.f53981g.setVisibility(8);
+                this.f53912g.setVisibility(8);
             }
             if (!TextUtils.isEmpty(horRankCard.getCardTitle())) {
-                this.f53984j.setVisibility(0);
-                setTextColor(this.f53984j, horRankCard.getTitleColor(), horRankCard.getTitleColorNight(), R.color.CAM_X0105);
-                this.f53984j.setText(horRankCard.getCardTitle());
+                this.f53915j.setVisibility(0);
+                setTextColor(this.f53915j, horRankCard.getTitleColor(), horRankCard.getTitleColorNight(), R.color.CAM_X0105);
+                this.f53915j.setText(horRankCard.getCardTitle());
             } else {
-                this.f53984j.setVisibility(8);
+                this.f53915j.setVisibility(8);
             }
             setMoreColor(horRankCard.getRightText());
             if (!TextUtils.isEmpty(horRankCard.getScheme())) {
-                SkinManager.setBackgroundResource(this.f53980f, R.drawable.addresslist_item_bg);
-                this.f53980f.setOnClickListener(new a(this, horRankCard));
+                SkinManager.setBackgroundResource(this.f53911f, R.drawable.addresslist_item_bg);
+                this.f53911f.setOnClickListener(new a(this, horRankCard));
             } else {
-                SkinManager.setBackgroundColor(this.f53980f, R.color.CAM_X0201);
-                this.f53980f.setOnClickListener(null);
+                SkinManager.setBackgroundColor(this.f53911f, R.color.CAM_X0201);
+                this.f53911f.setOnClickListener(null);
             }
             c rightText = horRankCard.getRightText();
             if (rightText.f()) {

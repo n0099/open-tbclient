@@ -1,6 +1,6 @@
 package com.baidu.tieba.location.data;
 
-import c.a.r0.t1.c.a;
+import c.a.r0.u1.c.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;

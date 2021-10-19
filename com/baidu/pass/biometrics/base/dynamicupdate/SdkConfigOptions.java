@@ -23,7 +23,7 @@ public class SdkConfigOptions {
     public static final String TAG = "SdkConfigOptions";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f44044a = "liveness_config_option";
+    public static final String f43956a = "liveness_config_option";
     public transient /* synthetic */ FieldHolder $fh;
     public LivenessConfigOption livenessConfigOption;
 
@@ -48,7 +48,7 @@ public class SdkConfigOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             SdkConfigOptions sdkConfigOptions = new SdkConfigOptions();
-            sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject.optJSONObject(f44044a));
+            sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject.optJSONObject(f43956a));
             return sdkConfigOptions;
         }
         return (SdkConfigOptions) invokeL.objValue;
@@ -71,7 +71,7 @@ public class SdkConfigOptions {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f44044a, this.livenessConfigOption == null ? "" : this.livenessConfigOption.toJSON());
+                jSONObject.put(f43956a, this.livenessConfigOption == null ? "" : this.livenessConfigOption.toJSON());
                 return jSONObject;
             } catch (JSONException unused) {
                 return null;
@@ -132,36 +132,36 @@ public class SdkConfigOptions {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f44045a;
+        public String f43957a;
         public List<Integer> action;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f44046b;
+        public String f43958b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f44047c;
+        public String f43959c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f44048d;
+        public String f43960d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f44049e;
+        public String f43961e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f44050f;
+        public String f43962f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f44051g;
+        public String f43963g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f44052h;
+        public String f43964h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f44053i;
+        public String f43965i;
         public List<Integer> illumList;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f44054j;
+        public String f43966j;
         public String k;
         public boolean mCloseFace;
         public String minFaceSize;
@@ -186,16 +186,16 @@ public class SdkConfigOptions {
             }
             this.illumList = new ArrayList();
             this.minFaceSize = String.valueOf(100);
-            this.f44045a = String.valueOf(40);
-            this.f44046b = String.valueOf(300);
-            this.f44047c = String.valueOf(300);
-            this.f44048d = String.valueOf(15);
-            this.f44049e = String.valueOf(15);
-            this.f44050f = String.valueOf(15);
-            this.f44051g = String.valueOf(10000);
-            this.f44052h = String.valueOf(3);
-            this.f44053i = String.valueOf(300);
-            this.f44054j = String.valueOf(3);
+            this.f43957a = String.valueOf(40);
+            this.f43958b = String.valueOf(300);
+            this.f43959c = String.valueOf(300);
+            this.f43960d = String.valueOf(15);
+            this.f43961e = String.valueOf(15);
+            this.f43962f = String.valueOf(15);
+            this.f43963g = String.valueOf(10000);
+            this.f43964h = String.valueOf(3);
+            this.f43965i = String.valueOf(300);
+            this.f43966j = String.valueOf(3);
             this.k = String.valueOf(256);
             this.action = new ArrayList();
         }
@@ -222,16 +222,16 @@ public class SdkConfigOptions {
                     return livenessConfigOption;
                 }
                 livenessConfigOption.minFaceSize = jSONObject.optString(l);
-                livenessConfigOption.f44045a = jSONObject.optString(m);
-                livenessConfigOption.f44046b = jSONObject.optString(n);
-                livenessConfigOption.f44047c = jSONObject.optString(o);
-                livenessConfigOption.f44048d = jSONObject.optString(p);
-                livenessConfigOption.f44049e = jSONObject.optString(q);
-                livenessConfigOption.f44050f = jSONObject.optString("roll");
-                livenessConfigOption.f44051g = jSONObject.optString(s);
-                livenessConfigOption.f44052h = jSONObject.optString(t);
-                livenessConfigOption.f44053i = jSONObject.optString(u);
-                livenessConfigOption.f44054j = jSONObject.optString(v);
+                livenessConfigOption.f43957a = jSONObject.optString(m);
+                livenessConfigOption.f43958b = jSONObject.optString(n);
+                livenessConfigOption.f43959c = jSONObject.optString(o);
+                livenessConfigOption.f43960d = jSONObject.optString(p);
+                livenessConfigOption.f43961e = jSONObject.optString(q);
+                livenessConfigOption.f43962f = jSONObject.optString("roll");
+                livenessConfigOption.f43963g = jSONObject.optString(s);
+                livenessConfigOption.f43964h = jSONObject.optString(t);
+                livenessConfigOption.f43965i = jSONObject.optString(u);
+                livenessConfigOption.f43966j = jSONObject.optString(v);
                 livenessConfigOption.k = jSONObject.optString(w);
                 livenessConfigOption.switchRecordVideo = jSONObject.optString(x);
                 livenessConfigOption.recogActionType = jSONObject.optString(y);
@@ -282,9 +282,9 @@ public class SdkConfigOptions {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (!TextUtils.isEmpty(this.f44054j)) {
+                if (!TextUtils.isEmpty(this.f43966j)) {
                     try {
-                        int parseInt = Integer.parseInt(this.f44054j);
+                        int parseInt = Integer.parseInt(this.f43966j);
                         if (parseInt < 256 || parseInt > 768) {
                             return 256;
                         }
@@ -302,9 +302,9 @@ public class SdkConfigOptions {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (!TextUtils.isEmpty(this.f44047c)) {
+                if (!TextUtils.isEmpty(this.f43959c)) {
                     try {
-                        int parseInt = Integer.parseInt(this.f44047c);
+                        int parseInt = Integer.parseInt(this.f43959c);
                         if (parseInt < 100 || parseInt > 500) {
                             return 300;
                         }
@@ -322,9 +322,9 @@ public class SdkConfigOptions {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (!TextUtils.isEmpty(this.f44045a)) {
+                if (!TextUtils.isEmpty(this.f43957a)) {
                     try {
-                        int parseInt = Integer.parseInt(this.f44045a);
+                        int parseInt = Integer.parseInt(this.f43957a);
                         if (parseInt < 0 || parseInt > 255) {
                             return 40;
                         }
@@ -342,9 +342,9 @@ public class SdkConfigOptions {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (!TextUtils.isEmpty(this.f44052h)) {
+                if (!TextUtils.isEmpty(this.f43964h)) {
                     try {
-                        int parseInt = Integer.parseInt(this.f44052h);
+                        int parseInt = Integer.parseInt(this.f43964h);
                         if (parseInt < 1 || parseInt > 3) {
                             return 3;
                         }
@@ -381,7 +381,7 @@ public class SdkConfigOptions {
         public String getOriginImg() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f44051g : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f43963g : (String) invokeV.objValue;
         }
 
         public int getOriginImgRandomControl() {
@@ -394,9 +394,9 @@ public class SdkConfigOptions {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                if (!TextUtils.isEmpty(this.f44049e)) {
+                if (!TextUtils.isEmpty(this.f43961e)) {
                     try {
-                        int parseInt = Integer.parseInt(this.f44049e);
+                        int parseInt = Integer.parseInt(this.f43961e);
                         if (parseInt < 10 || parseInt > 15) {
                             return 15;
                         }
@@ -414,9 +414,9 @@ public class SdkConfigOptions {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                if (!TextUtils.isEmpty(this.f44053i)) {
+                if (!TextUtils.isEmpty(this.f43965i)) {
                     try {
-                        int parseInt = Integer.parseInt(this.f44053i);
+                        int parseInt = Integer.parseInt(this.f43965i);
                         if (parseInt < 100 || parseInt > 300) {
                             return 300;
                         }
@@ -485,9 +485,9 @@ public class SdkConfigOptions {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-                if (!TextUtils.isEmpty(this.f44050f)) {
+                if (!TextUtils.isEmpty(this.f43962f)) {
                     try {
-                        int parseInt = Integer.parseInt(this.f44050f);
+                        int parseInt = Integer.parseInt(this.f43962f);
                         if (parseInt < 10 || parseInt > 15) {
                             return 15;
                         }
@@ -505,9 +505,9 @@ public class SdkConfigOptions {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-                if (!TextUtils.isEmpty(this.f44046b)) {
+                if (!TextUtils.isEmpty(this.f43958b)) {
                     try {
-                        int parseInt = Integer.parseInt(this.f44046b);
+                        int parseInt = Integer.parseInt(this.f43958b);
                         if (parseInt < 100 || parseInt > 300) {
                             return 300;
                         }
@@ -525,9 +525,9 @@ public class SdkConfigOptions {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                if (!TextUtils.isEmpty(this.f44048d)) {
+                if (!TextUtils.isEmpty(this.f43960d)) {
                     try {
-                        int parseInt = Integer.parseInt(this.f44048d);
+                        int parseInt = Integer.parseInt(this.f43960d);
                         if (parseInt < 10 || parseInt > 15) {
                             return 15;
                         }
@@ -571,16 +571,16 @@ public class SdkConfigOptions {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(l, this.minFaceSize);
-                    jSONObject.put(m, this.f44045a);
-                    jSONObject.put(n, this.f44046b);
-                    jSONObject.put(o, this.f44047c);
-                    jSONObject.put(p, this.f44048d);
-                    jSONObject.put(q, this.f44049e);
-                    jSONObject.put("roll", this.f44050f);
-                    jSONObject.put(s, this.f44051g);
-                    jSONObject.put(t, this.f44052h);
-                    jSONObject.put(u, this.f44053i);
-                    jSONObject.put(v, this.f44054j);
+                    jSONObject.put(m, this.f43957a);
+                    jSONObject.put(n, this.f43958b);
+                    jSONObject.put(o, this.f43959c);
+                    jSONObject.put(p, this.f43960d);
+                    jSONObject.put(q, this.f43961e);
+                    jSONObject.put("roll", this.f43962f);
+                    jSONObject.put(s, this.f43963g);
+                    jSONObject.put(t, this.f43964h);
+                    jSONObject.put(u, this.f43965i);
+                    jSONObject.put(v, this.f43966j);
                     jSONObject.put(w, this.k);
                     jSONObject.put(x, this.switchRecordVideo);
                     jSONObject.put(y, this.recogActionType);
@@ -603,7 +603,7 @@ public class SdkConfigOptions {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-                return "LivenessConfigOption{illumList=" + this.illumList + ", minFaceSize='" + this.minFaceSize + ExtendedMessageFormat.QUOTE + ", illumThr='" + this.f44045a + ExtendedMessageFormat.QUOTE + ", trackInterval='" + this.f44046b + ExtendedMessageFormat.QUOTE + ", detectInterval='" + this.f44047c + ExtendedMessageFormat.QUOTE + ", yaw='" + this.f44048d + ExtendedMessageFormat.QUOTE + ", pitch='" + this.f44049e + ExtendedMessageFormat.QUOTE + ", roll='" + this.f44050f + ExtendedMessageFormat.QUOTE + ", originImg='" + this.f44051g + ExtendedMessageFormat.QUOTE + ", maxRegImgNum='" + this.f44052h + ExtendedMessageFormat.QUOTE + ", prefetchRegImgInterval='" + this.f44053i + ExtendedMessageFormat.QUOTE + ", cropFaceSize='" + this.f44054j + ExtendedMessageFormat.QUOTE + ", cropFaceRatio='" + this.k + ExtendedMessageFormat.QUOTE + ", switchRecordVideo='" + this.switchRecordVideo + ExtendedMessageFormat.QUOTE + ", recogActionType='" + this.recogActionType + ExtendedMessageFormat.QUOTE + ", recogTimeInterval='" + this.recogTimeInterval + ExtendedMessageFormat.QUOTE + ", recogUploadPortraitCount='" + this.recogUploadPortraitCount + ExtendedMessageFormat.QUOTE + ", whiteBgIllumThr=" + this.whiteBgIllumThr + ", action=" + this.action + ExtendedMessageFormat.END_FE;
+                return "LivenessConfigOption{illumList=" + this.illumList + ", minFaceSize='" + this.minFaceSize + ExtendedMessageFormat.QUOTE + ", illumThr='" + this.f43957a + ExtendedMessageFormat.QUOTE + ", trackInterval='" + this.f43958b + ExtendedMessageFormat.QUOTE + ", detectInterval='" + this.f43959c + ExtendedMessageFormat.QUOTE + ", yaw='" + this.f43960d + ExtendedMessageFormat.QUOTE + ", pitch='" + this.f43961e + ExtendedMessageFormat.QUOTE + ", roll='" + this.f43962f + ExtendedMessageFormat.QUOTE + ", originImg='" + this.f43963g + ExtendedMessageFormat.QUOTE + ", maxRegImgNum='" + this.f43964h + ExtendedMessageFormat.QUOTE + ", prefetchRegImgInterval='" + this.f43965i + ExtendedMessageFormat.QUOTE + ", cropFaceSize='" + this.f43966j + ExtendedMessageFormat.QUOTE + ", cropFaceRatio='" + this.k + ExtendedMessageFormat.QUOTE + ", switchRecordVideo='" + this.switchRecordVideo + ExtendedMessageFormat.QUOTE + ", recogActionType='" + this.recogActionType + ExtendedMessageFormat.QUOTE + ", recogTimeInterval='" + this.recogTimeInterval + ExtendedMessageFormat.QUOTE + ", recogUploadPortraitCount='" + this.recogUploadPortraitCount + ExtendedMessageFormat.QUOTE + ", whiteBgIllumThr=" + this.whiteBgIllumThr + ", action=" + this.action + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }

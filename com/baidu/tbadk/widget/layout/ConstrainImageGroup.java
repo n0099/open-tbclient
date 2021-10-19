@@ -27,22 +27,22 @@ public class ConstrainImageGroup extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f48796e;
+    public BdUniqueId f48725e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b<ConstrainImageLayout> f48797f;
+    public b<ConstrainImageLayout> f48726f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b<TbImageView> f48798g;
+    public b<TbImageView> f48727g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f48799h;
+    public c f48728h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f48800i;
+    public int f48729i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f48801j;
+    public boolean f48730j;
     public double k;
     public d l;
     public View.OnClickListener m;
@@ -56,7 +56,7 @@ public class ConstrainImageGroup extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ConstrainImageGroup f48802e;
+        public final /* synthetic */ ConstrainImageGroup f48731e;
 
         public a(ConstrainImageGroup constrainImageGroup) {
             Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class ConstrainImageGroup extends LinearLayout {
                     return;
                 }
             }
-            this.f48802e = constrainImageGroup;
+            this.f48731e = constrainImageGroup;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -86,10 +86,10 @@ public class ConstrainImageGroup extends LinearLayout {
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof ConstrainImageLayout) && this.f48802e.f48797f != null) {
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof ConstrainImageLayout) && this.f48731e.f48726f != null) {
                 ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) view2;
                 constrainImageLayout.reset();
-                this.f48802e.f48797f.e(constrainImageLayout);
+                this.f48731e.f48726f.e(constrainImageLayout);
             }
         }
     }
@@ -112,8 +112,8 @@ public class ConstrainImageGroup extends LinearLayout {
                 return;
             }
         }
-        this.f48799h = new c.a.q0.f1.j.b();
-        this.f48801j = false;
+        this.f48728h = new c.a.q0.f1.j.b();
+        this.f48730j = false;
         this.o = new a(this);
         this.p = false;
         setOrientation(1);
@@ -124,13 +124,13 @@ public class ConstrainImageGroup extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            ConstrainImageLayout b2 = this.f48797f.b();
-            b2.setImagePadding(this.f48800i);
-            b2.setImageViewObjectPool(this.f48798g);
+            ConstrainImageLayout b2 = this.f48726f.b();
+            b2.setImagePadding(this.f48729i);
+            b2.setImageViewObjectPool(this.f48727g);
             b2.setImageMaxChildCount(-1);
             b2.setExtraCenterText(null);
             b2.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            b2.setPageUniqueId(this.f48796e);
+            b2.setPageUniqueId(this.f48725e);
             b2.setPreloadSizeReadyCallback(this.n);
             return b2;
         }
@@ -140,7 +140,7 @@ public class ConstrainImageGroup extends LinearLayout {
     public final void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            int b2 = this.f48799h.b(i2);
+            int b2 = this.f48728h.b(i2);
             int childCount = getChildCount() - b2;
             if (childCount > 0) {
                 removeViews(b2, childCount);
@@ -189,14 +189,14 @@ public class ConstrainImageGroup extends LinearLayout {
     public void setConstrainLayoutPool(b<ConstrainImageLayout> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f48797f = bVar;
+            this.f48726f = bVar;
         }
     }
 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f48801j = z;
+            this.f48730j = z;
         }
     }
 
@@ -220,16 +220,16 @@ public class ConstrainImageGroup extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             if (i2 >= 0) {
-                this.f48800i = i2;
+                this.f48729i = i2;
             } else {
-                this.f48800i = 0;
+                this.f48729i = 0;
             }
         }
     }
 
     public void setImageMediaList(List<MediaData> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) || ListUtils.isEmpty(list) || this.f48797f == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) || ListUtils.isEmpty(list) || this.f48726f == null) {
             return;
         }
         b(ListUtils.getCount(list));
@@ -240,7 +240,7 @@ public class ConstrainImageGroup extends LinearLayout {
             if (childAt instanceof ConstrainImageLayout) {
                 ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) childAt;
                 constrainImageLayout.setImageClickListener(this.l);
-                constrainImageLayout.setFromCDN(this.f48801j);
+                constrainImageLayout.setFromCDN(this.f48730j);
                 double d2 = this.k;
                 if (d2 > 0.0d) {
                     constrainImageLayout.setSingleImageRatio(d2);
@@ -252,7 +252,7 @@ public class ConstrainImageGroup extends LinearLayout {
                     constrainImageLayout.setOnClickListener(onClickListener);
                 }
                 constrainImageLayout.setSinglePicUseStyleV10(this.p);
-                i2 = this.f48799h.a(constrainImageLayout, list, i3, i2);
+                i2 = this.f48728h.a(constrainImageLayout, list, i3, i2);
             }
         }
     }
@@ -262,7 +262,7 @@ public class ConstrainImageGroup extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) || cVar == null) {
             return;
         }
-        this.f48799h = cVar;
+        this.f48728h = cVar;
     }
 
     @Deprecated
@@ -284,14 +284,14 @@ public class ConstrainImageGroup extends LinearLayout {
     public void setImageViewPool(b<TbImageView> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            this.f48798g = bVar;
+            this.f48727g = bVar;
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bdUniqueId) == null) {
-            this.f48796e = bdUniqueId;
+            this.f48725e = bdUniqueId;
         }
     }
 
@@ -342,8 +342,8 @@ public class ConstrainImageGroup extends LinearLayout {
                 return;
             }
         }
-        this.f48799h = new c.a.q0.f1.j.b();
-        this.f48801j = false;
+        this.f48728h = new c.a.q0.f1.j.b();
+        this.f48730j = false;
         this.o = new a(this);
         this.p = false;
         setOrientation(1);
@@ -369,8 +369,8 @@ public class ConstrainImageGroup extends LinearLayout {
                 return;
             }
         }
-        this.f48799h = new c.a.q0.f1.j.b();
-        this.f48801j = false;
+        this.f48728h = new c.a.q0.f1.j.b();
+        this.f48730j = false;
         this.o = new a(this);
         this.p = false;
         setOrientation(1);

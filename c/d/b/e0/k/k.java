@@ -14,10 +14,10 @@ public final class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f32035a;
+    public int f32039a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f32036b;
+    public final int[] f32040b;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -32,29 +32,29 @@ public final class k {
                 return;
             }
         }
-        this.f32036b = new int[10];
+        this.f32040b = new int[10];
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f32035a = 0;
-            Arrays.fill(this.f32036b, 0);
+            this.f32039a = 0;
+            Arrays.fill(this.f32040b, 0);
         }
     }
 
     public int b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f32036b[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f32040b[i2] : invokeI.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if ((this.f32035a & 2) != 0) {
-                return this.f32036b[1];
+            if ((this.f32039a & 2) != 0) {
+                return this.f32040b[1];
             }
             return -1;
         }
@@ -65,8 +65,8 @@ public final class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if ((this.f32035a & 128) != 0) {
-                return this.f32036b[7];
+            if ((this.f32039a & 128) != 0) {
+                return this.f32040b[7];
             }
             return 65535;
         }
@@ -76,19 +76,19 @@ public final class k {
     public int e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? (this.f32035a & 16) != 0 ? this.f32036b[4] : i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? (this.f32039a & 16) != 0 ? this.f32040b[4] : i2 : invokeI.intValue;
     }
 
     public int f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (this.f32035a & 32) != 0 ? this.f32036b[5] : i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (this.f32039a & 32) != 0 ? this.f32040b[5] : i2 : invokeI.intValue;
     }
 
     public boolean g(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? ((1 << i2) & this.f32035a) != 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? ((1 << i2) & this.f32039a) != 0 : invokeI.booleanValue;
     }
 
     public void h(k kVar) {
@@ -107,9 +107,9 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
             if (i2 >= 0) {
-                int[] iArr = this.f32036b;
+                int[] iArr = this.f32040b;
                 if (i2 < iArr.length) {
-                    this.f32035a = (1 << i2) | this.f32035a;
+                    this.f32039a = (1 << i2) | this.f32039a;
                     iArr[i2] = i3;
                 }
             }
@@ -121,6 +121,6 @@ public final class k {
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Integer.bitCount(this.f32035a) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Integer.bitCount(this.f32039a) : invokeV.intValue;
     }
 }

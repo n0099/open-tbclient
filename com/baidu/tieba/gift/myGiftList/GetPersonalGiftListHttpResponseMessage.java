@@ -1,6 +1,6 @@
 package com.baidu.tieba.gift.myGiftList;
 
-import c.a.r0.a1.c.a;
+import c.a.r0.b1.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

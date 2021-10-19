@@ -27,7 +27,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public String forumName;
     public BfbInfoModel.b mCallback;
     public BfbInfoModel mModel;
-    public c.a.r0.e1.a mView;
+    public c.a.r0.f1.a mView;
 
     /* loaded from: classes7.dex */
     public class a implements BfbInfoModel.b {
@@ -35,7 +35,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f52108a;
+        public final /* synthetic */ CreateBarGuideActivity f52035a;
 
         public a(CreateBarGuideActivity createBarGuideActivity) {
             Interceptable interceptable = $ic;
@@ -52,23 +52,23 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f52108a = createBarGuideActivity;
+            this.f52035a = createBarGuideActivity;
         }
 
         @Override // com.baidu.tieba.home.BfbInfoModel.b
         public void a(int i2, String str, UserBfbInfo userBfbInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, userBfbInfo) == null) {
-                CreateBarGuideActivity createBarGuideActivity = this.f52108a;
+                CreateBarGuideActivity createBarGuideActivity = this.f52035a;
                 createBarGuideActivity.hideLoadingView(createBarGuideActivity.mView.d());
-                this.f52108a.mView.g();
+                this.f52035a.mView.g();
                 if (i2 == 0) {
-                    this.f52108a.mView.h(this.f52108a.forumName, userBfbInfo);
+                    this.f52035a.mView.h(this.f52035a.forumName, userBfbInfo);
                     return;
                 }
-                this.f52108a.showToast(str);
+                this.f52035a.showToast(str);
                 if (i2 == 260211) {
-                    this.f52108a.showUpdateDialog(null);
+                    this.f52035a.showUpdateDialog(null);
                 }
             }
         }
@@ -80,10 +80,10 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f52109e;
+        public final /* synthetic */ c.a.q0.s.s.a f52036e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f52110f;
+        public final /* synthetic */ CreateBarGuideActivity f52037f;
 
         public b(CreateBarGuideActivity createBarGuideActivity, c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -100,16 +100,16 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f52110f = createBarGuideActivity;
-            this.f52109e = aVar;
+            this.f52037f = createBarGuideActivity;
+            this.f52036e = aVar;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f52109e.dismiss();
-                this.f52110f.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.f52110f.getPageContext().getPageActivity())));
+                this.f52036e.dismiss();
+                this.f52037f.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.f52037f.getPageContext().getPageActivity())));
             }
         }
     }
@@ -120,10 +120,10 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f52111e;
+        public final /* synthetic */ c.a.q0.s.s.a f52038e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f52112f;
+        public final /* synthetic */ CreateBarGuideActivity f52039f;
 
         public c(CreateBarGuideActivity createBarGuideActivity, c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -140,15 +140,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f52112f = createBarGuideActivity;
-            this.f52111e = aVar;
+            this.f52039f = createBarGuideActivity;
+            this.f52038e = aVar;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f52111e.dismiss();
+                this.f52038e.dismiss();
             }
         }
     }
@@ -190,7 +190,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.changeSkinType(i2);
-            c.a.r0.e1.a aVar = this.mView;
+            c.a.r0.f1.a aVar = this.mView;
             if (aVar != null) {
                 aVar.f();
             }
@@ -210,11 +210,11 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
             this.mModel = bfbInfoModel;
             bfbInfoModel.A(this.mCallback);
-            c.a.r0.e1.a aVar = new c.a.r0.e1.a(this);
+            c.a.r0.f1.a aVar = new c.a.r0.f1.a(this);
             this.mView = aVar;
             aVar.e();
             showLoadingView(this.mView.d());
-            this.mModel.LoadData();
+            this.mModel.loadData();
             TiebaStatic.log("c11222");
         }
     }

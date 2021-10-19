@@ -280,7 +280,7 @@ public abstract class MultimapBuilder<K0, V0> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Class f70990a;
+        public final /* synthetic */ Class f71025a;
 
         public a(Class cls) {
             Interceptable interceptable = $ic;
@@ -297,14 +297,14 @@ public abstract class MultimapBuilder<K0, V0> {
                     return;
                 }
             }
-            this.f70990a = cls;
+            this.f71025a = cls;
         }
 
         @Override // com.google.common.collect.MultimapBuilder.b
         public <K extends K0, V> Map<K, Collection<V>> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new EnumMap(this.f70990a) : (Map) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new EnumMap(this.f71025a) : (Map) invokeV.objValue;
         }
     }
 
@@ -319,10 +319,10 @@ public abstract class MultimapBuilder<K0, V0> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f70991a;
+            public final /* synthetic */ int f71026a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f70992b;
+            public final /* synthetic */ b f71027b;
 
             public a(b bVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -339,15 +339,15 @@ public abstract class MultimapBuilder<K0, V0> {
                         return;
                     }
                 }
-                this.f70992b = bVar;
-                this.f70991a = i2;
+                this.f71027b = bVar;
+                this.f71026a = i2;
             }
 
             @Override // com.google.common.collect.MultimapBuilder.c
             public <K extends K0, V> e1<K, V> b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Multimaps.f(this.f70992b.a(), new LinkedHashSetSupplier(this.f70991a)) : (e1) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Multimaps.f(this.f71027b.a(), new LinkedHashSetSupplier(this.f71026a)) : (e1) invokeV.objValue;
             }
         }
 

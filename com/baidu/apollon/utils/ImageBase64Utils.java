@@ -22,13 +22,13 @@ public class ImageBase64Utils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38294a = "ImageBase64Utils";
+    public static final String f38298a = "ImageBase64Utils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f38295b = 70;
+    public static int f38299b = 70;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ImageBase64Utils f38296c;
+    public static ImageBase64Utils f38300c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -42,16 +42,16 @@ public class ImageBase64Utils {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageBase64Utils f38297a;
+        public final /* synthetic */ ImageBase64Utils f38301a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageBase64Listener f38298b;
+        public ImageBase64Listener f38302b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f38299c;
+        public String f38303c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f38300d;
+        public int f38304d;
 
         public a(ImageBase64Utils imageBase64Utils, ImageBase64Listener imageBase64Listener, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -68,10 +68,10 @@ public class ImageBase64Utils {
                     return;
                 }
             }
-            this.f38297a = imageBase64Utils;
-            this.f38298b = imageBase64Listener;
-            this.f38299c = str;
-            this.f38300d = i2;
+            this.f38301a = imageBase64Utils;
+            this.f38302b = imageBase64Listener;
+            this.f38303c = str;
+            this.f38304d = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,7 +80,7 @@ public class ImageBase64Utils {
         public String doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? ImageBase64Utils.b(this.f38299c, this.f38300d) : (String) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? ImageBase64Utils.b(this.f38303c, this.f38304d) : (String) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,7 +90,7 @@ public class ImageBase64Utils {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 super.onPostExecute(str);
-                ImageBase64Listener imageBase64Listener = this.f38298b;
+                ImageBase64Listener imageBase64Listener = this.f38302b;
                 if (imageBase64Listener != null) {
                     imageBase64Listener.onBase64Result(str);
                 }
@@ -146,7 +146,7 @@ public class ImageBase64Utils {
                     options.inJustDecodeBounds = false;
                     Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    decodeFile.compress(Bitmap.CompressFormat.JPEG, f38295b, byteArrayOutputStream);
+                    decodeFile.compress(Bitmap.CompressFormat.JPEG, f38299b, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
                     LogUtil.d("ImageBase64Utils", "compress size:\t" + byteArray.length + "\tsampleSize" + a2 + "\twidth" + decodeFile.getWidth());
                     decodeFile.recycle();
@@ -170,10 +170,10 @@ public class ImageBase64Utils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f38296c == null) {
-                f38296c = new ImageBase64Utils();
+            if (f38300c == null) {
+                f38300c = new ImageBase64Utils();
             }
-            return f38296c;
+            return f38300c;
         }
         return (ImageBase64Utils) invokeV.objValue;
     }

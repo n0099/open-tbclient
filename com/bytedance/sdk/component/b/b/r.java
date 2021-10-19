@@ -17,16 +17,16 @@ public final class r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ae f65250a;
+    public final ae f65285a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final h f65251b;
+    public final h f65286b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<Certificate> f65252c;
+    public final List<Certificate> f65287c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Certificate> f65253d;
+    public final List<Certificate> f65288d;
 
     public r(ae aeVar, h hVar, List<Certificate> list, List<Certificate> list2) {
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public final class r {
                 return;
             }
         }
-        this.f65250a = aeVar;
-        this.f65251b = hVar;
-        this.f65252c = list;
-        this.f65253d = list2;
+        this.f65285a = aeVar;
+        this.f65286b = hVar;
+        this.f65287c = list;
+        this.f65288d = list2;
     }
 
     public static r a(SSLSession sSLSession) {
@@ -90,7 +90,7 @@ public final class r {
     public List<Certificate> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65252c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65287c : (List) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -99,7 +99,7 @@ public final class r {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             if (obj instanceof r) {
                 r rVar = (r) obj;
-                return this.f65250a.equals(rVar.f65250a) && this.f65251b.equals(rVar.f65251b) && this.f65252c.equals(rVar.f65252c) && this.f65253d.equals(rVar.f65253d);
+                return this.f65285a.equals(rVar.f65285a) && this.f65286b.equals(rVar.f65286b) && this.f65287c.equals(rVar.f65287c) && this.f65288d.equals(rVar.f65288d);
             }
             return false;
         }
@@ -109,12 +109,12 @@ public final class r {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((((((527 + this.f65250a.hashCode()) * 31) + this.f65251b.hashCode()) * 31) + this.f65252c.hashCode()) * 31) + this.f65253d.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((((((527 + this.f65285a.hashCode()) * 31) + this.f65286b.hashCode()) * 31) + this.f65287c.hashCode()) * 31) + this.f65288d.hashCode() : invokeV.intValue;
     }
 
     public h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65251b : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65286b : (h) invokeV.objValue;
     }
 }

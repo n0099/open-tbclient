@@ -23,16 +23,16 @@ public final class fd extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f60067a;
+    public Context f60102a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f60068b;
+    public JSONArray f60103b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f60069c;
+    public int f60104c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f60070d;
+    public boolean f60105d;
 
     public fd(Context context, JSONArray jSONArray, int i2, boolean z) {
         Interceptable interceptable = $ic;
@@ -49,11 +49,11 @@ public final class fd extends BaseAdapter {
                 return;
             }
         }
-        this.f60070d = false;
-        this.f60067a = context;
-        this.f60068b = jSONArray;
-        this.f60069c = i2;
-        this.f60070d = z;
+        this.f60105d = false;
+        this.f60102a = context;
+        this.f60103b = jSONArray;
+        this.f60104c = i2;
+        this.f60105d = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public final class fd extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
             try {
-                return ((JSONObject) this.f60068b.get(i2)).getString("name");
+                return ((JSONObject) this.f60103b.get(i2)).getString("name");
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return "";
@@ -78,7 +78,7 @@ public final class fd extends BaseAdapter {
     public final int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60068b.length() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60103b.length() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -103,18 +103,18 @@ public final class fd extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 feVar = new fe();
-                LinearLayout linearLayout2 = new LinearLayout(this.f60067a);
+                LinearLayout linearLayout2 = new LinearLayout(this.f60102a);
                 linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, -2));
-                TextView textView3 = new TextView(this.f60067a);
+                TextView textView3 = new TextView(this.f60102a);
                 textView3.setTextColor(-16777216);
                 textView3.setTextSize(com.baidu.ufosdk.b.R);
                 textView3.setGravity(16);
                 textView3.setSingleLine(true);
                 textView3.setEllipsize(TextUtils.TruncateAt.END);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-                layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f60067a, 10.0f), com.baidu.ufosdk.f.i.a(this.f60067a, 5.0f), 0, com.baidu.ufosdk.f.i.a(this.f60067a, 5.0f));
+                layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f60102a, 10.0f), com.baidu.ufosdk.f.i.a(this.f60102a, 5.0f), 0, com.baidu.ufosdk.f.i.a(this.f60102a, 5.0f));
                 linearLayout2.addView(textView3, layoutParams);
-                feVar.f60071a = textView3;
+                feVar.f60106a = textView3;
                 linearLayout2.setTag(feVar);
                 linearLayout = linearLayout2;
             } else {
@@ -122,31 +122,31 @@ public final class fd extends BaseAdapter {
                 feVar = (fe) view.getTag();
             }
             try {
-                jSONObject = (JSONObject) this.f60068b.get(i2);
+                jSONObject = (JSONObject) this.f60103b.get(i2);
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                feVar.f60071a.setText("");
+                feVar.f60106a.setText("");
             }
-            if (this.f60069c == 0) {
-                feVar.f60071a.setText(jSONObject.getString("question"));
-                feVar.f60071a.setSingleLine(true);
-                if (this.f60070d) {
-                    textView2 = feVar.f60071a;
+            if (this.f60104c == 0) {
+                feVar.f60106a.setText(jSONObject.getString("question"));
+                feVar.f60106a.setSingleLine(true);
+                if (this.f60105d) {
+                    textView2 = feVar.f60106a;
                     textView2.setTextColor(-13421773);
                     return linearLayout;
                 }
-                textView = feVar.f60071a;
+                textView = feVar.f60106a;
                 textView.setTextColor(-12814593);
                 return linearLayout;
             }
-            feVar.f60071a.setText(jSONObject.getString("name"));
-            feVar.f60071a.setSingleLine(true);
-            if (this.f60070d) {
-                textView2 = feVar.f60071a;
+            feVar.f60106a.setText(jSONObject.getString("name"));
+            feVar.f60106a.setSingleLine(true);
+            if (this.f60105d) {
+                textView2 = feVar.f60106a;
                 textView2.setTextColor(-13421773);
                 return linearLayout;
             }
-            textView = feVar.f60071a;
+            textView = feVar.f60106a;
             textView.setTextColor(-12814593);
             return linearLayout;
         }

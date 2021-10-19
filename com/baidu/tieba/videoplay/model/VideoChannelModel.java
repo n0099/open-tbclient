@@ -36,22 +36,22 @@ public class VideoChannelModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f58171e;
+    public TbPageContext f58107e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f58172f;
+    public c f58108f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f58173g;
+    public int f58109g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f58174h;
+    public boolean f58110h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f58175i;
+    public int f58111i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HttpMessageListener f58176j;
+    public HttpMessageListener f58112j;
     public final CustomMessageListener k;
 
     /* loaded from: classes7.dex */
@@ -60,7 +60,7 @@ public class VideoChannelModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelModel f58177a;
+        public final /* synthetic */ VideoChannelModel f58113a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(VideoChannelModel videoChannelModel, int i2, boolean z) {
@@ -81,7 +81,7 @@ public class VideoChannelModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f58177a = videoChannelModel;
+            this.f58113a = videoChannelModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -89,9 +89,9 @@ public class VideoChannelModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (this.f58177a.f58173g == 1) {
-                    this.f58177a.f58174h = false;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921576, Integer.valueOf(this.f58177a.f58175i)));
+                if (this.f58113a.f58109g == 1) {
+                    this.f58113a.f58110h = false;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921576, Integer.valueOf(this.f58113a.f58111i)));
                 }
                 if (httpResponsedMessage == null || httpResponsedMessage.getError() != 0) {
                     return;
@@ -101,14 +101,14 @@ public class VideoChannelModel extends BdBaseModel {
                     arrayList = ((VideoChannelHttpResponseMessage) httpResponsedMessage).getVideoItemDatas();
                 }
                 TbSingleton.getInstance().clearVideoRecord();
-                if (this.f58177a.f58172f != null) {
-                    if (this.f58177a.f58173g == 1) {
-                        this.f58177a.f58172f.a(arrayList, this.f58177a.f58174h);
+                if (this.f58113a.f58108f != null) {
+                    if (this.f58113a.f58109g == 1) {
+                        this.f58113a.f58108f.a(arrayList, this.f58113a.f58110h);
                     } else {
-                        this.f58177a.f58172f.b(arrayList);
+                        this.f58113a.f58108f.b(arrayList);
                     }
                 }
-                VideoChannelModel.x(this.f58177a);
+                VideoChannelModel.x(this.f58113a);
             }
         }
     }
@@ -119,7 +119,7 @@ public class VideoChannelModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelModel f58178a;
+        public final /* synthetic */ VideoChannelModel f58114a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(VideoChannelModel videoChannelModel, int i2, boolean z) {
@@ -140,7 +140,7 @@ public class VideoChannelModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f58178a = videoChannelModel;
+            this.f58114a = videoChannelModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -151,14 +151,14 @@ public class VideoChannelModel extends BdBaseModel {
                 return;
             }
             if (!j.z()) {
-                l.J(this.f58178a.f58171e.getPageActivity(), this.f58178a.f58171e.getResources().getString(R.string.neterror));
+                l.J(this.f58114a.f58107e.getPageActivity(), this.f58114a.f58107e.getResources().getString(R.string.neterror));
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof Integer) && ((Integer) data).intValue() == this.f58178a.f58175i && !this.f58178a.f58174h) {
-                this.f58178a.f58174h = true;
-                this.f58178a.E();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.f58178a.f58175i)));
+            if ((data instanceof Integer) && ((Integer) data).intValue() == this.f58114a.f58111i && !this.f58114a.f58110h) {
+                this.f58114a.f58110h = true;
+                this.f58114a.E();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.f58114a.f58111i)));
             }
         }
     }
@@ -188,10 +188,10 @@ public class VideoChannelModel extends BdBaseModel {
                 return;
             }
         }
-        this.f58174h = false;
-        this.f58176j = new a(this, CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED, true);
+        this.f58110h = false;
+        this.f58112j = new a(this, CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED, true);
         this.k = new b(this, 2921574, true);
-        this.f58171e = tbPageContext;
+        this.f58107e = tbPageContext;
         setUniqueId(bdUniqueId);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED, TbConfig.SERVER_ADDRESS + "c/f/video/feed");
         tbHttpMessageTask.setResponsedClass(VideoChannelHttpResponseMessage.class);
@@ -201,13 +201,13 @@ public class VideoChannelModel extends BdBaseModel {
         tbHttpMessageTask2.setResponsedClass(JumpYYLiveHttpResponseMessage.class);
         tbHttpMessageTask2.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
-        registerListener(this.f58176j);
+        registerListener(this.f58112j);
         registerListener(this.k);
     }
 
     public static /* synthetic */ int x(VideoChannelModel videoChannelModel) {
-        int i2 = videoChannelModel.f58173g;
-        videoChannelModel.f58173g = i2 + 1;
+        int i2 = videoChannelModel.f58109g;
+        videoChannelModel.f58109g = i2 + 1;
         return i2;
     }
 
@@ -229,7 +229,7 @@ public class VideoChannelModel extends BdBaseModel {
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f58173g = 1;
+            this.f58109g = 1;
             sendMessage(D(1));
         }
     }
@@ -237,19 +237,19 @@ public class VideoChannelModel extends BdBaseModel {
     public void F(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f58175i = i2;
+            this.f58111i = i2;
         }
     }
 
     public void G(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f58172f = cVar;
+            this.f58108f = cVar;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -259,7 +259,7 @@ public class VideoChannelModel extends BdBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -271,8 +271,8 @@ public class VideoChannelModel extends BdBaseModel {
     public void loadMore() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f58173g < 2) {
-                this.f58173g = 2;
+            if (this.f58109g < 2) {
+                this.f58109g = 2;
             }
             sendMessage(D(2));
         }

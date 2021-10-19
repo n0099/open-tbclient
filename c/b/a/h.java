@@ -16,10 +16,10 @@ public class h extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f31365e;
+    public final Context f31369e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final y1 f31366f;
+    public final y1 f31370f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(Context context, y1 y1Var) {
@@ -40,8 +40,8 @@ public class h extends s1 {
                 return;
             }
         }
-        this.f31365e = context;
-        this.f31366f = y1Var;
+        this.f31369e = context;
+        this.f31370f = y1Var;
     }
 
     @Override // c.b.a.s1
@@ -51,19 +51,19 @@ public class h extends s1 {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            String packageName = this.f31365e.getPackageName();
+            String packageName = this.f31369e.getPackageName();
             PackageInfo packageInfo = null;
-            if (TextUtils.isEmpty(this.f31366f.p())) {
+            if (TextUtils.isEmpty(this.f31370f.p())) {
                 jSONObject.put(AsInstallService.SCHEME_PACKAGE_ADDED, packageName);
             } else {
-                if (h0.f31368b) {
+                if (h0.f31372b) {
                     h0.a("has zijie pkg", null);
                 }
-                jSONObject.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.f31366f.p());
+                jSONObject.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.f31370f.p());
                 jSONObject.put("real_package_name", packageName);
             }
             try {
-                packageInfo = this.f31365e.getPackageManager().getPackageInfo(packageName, 0);
+                packageInfo = this.f31369e.getPackageManager().getPackageInfo(packageName, 0);
             } catch (Throwable unused) {
             }
             if (packageInfo != null) {
@@ -76,41 +76,41 @@ public class h extends s1 {
             } else {
                 i2 = 0;
             }
-            if (!TextUtils.isEmpty(this.f31366f.g())) {
-                jSONObject.put("app_version", this.f31366f.g());
+            if (!TextUtils.isEmpty(this.f31370f.g())) {
+                jSONObject.put("app_version", this.f31370f.g());
             } else {
                 jSONObject.put("app_version", packageInfo != null ? packageInfo.versionName : "");
             }
-            if (!TextUtils.isEmpty(this.f31366f.l())) {
-                jSONObject.put("app_version_minor", this.f31366f.l());
+            if (!TextUtils.isEmpty(this.f31370f.l())) {
+                jSONObject.put("app_version_minor", this.f31370f.l());
             } else {
                 jSONObject.put("app_version_minor", "");
             }
-            if (this.f31366f.d() != 0) {
-                jSONObject.put("version_code", this.f31366f.d());
+            if (this.f31370f.d() != 0) {
+                jSONObject.put("version_code", this.f31370f.d());
             } else {
                 jSONObject.put("version_code", i2);
             }
-            if (this.f31366f.e() != 0) {
-                jSONObject.put("update_version_code", this.f31366f.e());
+            if (this.f31370f.e() != 0) {
+                jSONObject.put("update_version_code", this.f31370f.e());
             } else {
                 jSONObject.put("update_version_code", i2);
             }
-            if (this.f31366f.f() != 0) {
-                jSONObject.put("manifest_version_code", this.f31366f.f());
+            if (this.f31370f.f() != 0) {
+                jSONObject.put("manifest_version_code", this.f31370f.f());
             } else {
                 jSONObject.put("manifest_version_code", i2);
             }
-            if (!TextUtils.isEmpty(this.f31366f.c())) {
-                jSONObject.put("app_name", this.f31366f.c());
+            if (!TextUtils.isEmpty(this.f31370f.c())) {
+                jSONObject.put("app_name", this.f31370f.c());
             }
-            if (!TextUtils.isEmpty(this.f31366f.h())) {
-                jSONObject.put("tweaked_channel", this.f31366f.h());
+            if (!TextUtils.isEmpty(this.f31370f.h())) {
+                jSONObject.put("tweaked_channel", this.f31370f.h());
             }
             if (packageInfo == null || packageInfo.applicationInfo == null || (i3 = packageInfo.applicationInfo.labelRes) <= 0) {
                 return true;
             }
-            jSONObject.put("display_name", this.f31365e.getString(i3));
+            jSONObject.put("display_name", this.f31369e.getString(i3));
             return true;
         }
         return invokeL.booleanValue;

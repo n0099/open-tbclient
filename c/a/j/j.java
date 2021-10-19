@@ -70,7 +70,7 @@ public class j implements i.a {
                         }
                     }
                 }
-            } else if (dVar.equals(i.d.f38555a) && this.f3558c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+            } else if (dVar.equals(i.d.f38559a) && this.f3558c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
                 for (String str2 : str.split(",")) {
                     this.f3556a.f(str2);
                 }

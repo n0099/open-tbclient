@@ -27,7 +27,7 @@ public final class Md5Utils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f39640a;
+    public static char[] f39644a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +43,7 @@ public final class Md5Utils {
                 return;
             }
         }
-        f39640a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f39644a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public Md5Utils() {
@@ -96,8 +96,8 @@ public final class Md5Utils {
                 if (i2 > 0 && ch != null) {
                     stringBuffer.append(ch.charValue());
                 }
-                stringBuffer.append(f39640a[i3]);
-                stringBuffer.append(f39640a[i4]);
+                stringBuffer.append(f39644a[i3]);
+                stringBuffer.append(f39644a[i4]);
             }
             return stringBuffer.toString();
         }

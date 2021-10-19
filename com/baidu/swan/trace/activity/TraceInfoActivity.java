@@ -40,7 +40,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TraceInfoActivity f47342e;
+        public final /* synthetic */ TraceInfoActivity f47254e;
 
         public a(TraceInfoActivity traceInfoActivity) {
             Interceptable interceptable = $ic;
@@ -57,14 +57,14 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
                     return;
                 }
             }
-            this.f47342e = traceInfoActivity;
+            this.f47254e = traceInfoActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47342e.showTextInUIThread(this.f47342e.getContent());
+                this.f47254e.showTextInUIThread(this.f47254e.getContent());
             }
         }
     }
@@ -75,10 +75,10 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47343e;
+        public final /* synthetic */ String f47255e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TraceInfoActivity f47344f;
+        public final /* synthetic */ TraceInfoActivity f47256f;
 
         public b(TraceInfoActivity traceInfoActivity, String str) {
             Interceptable interceptable = $ic;
@@ -95,17 +95,17 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
                     return;
                 }
             }
-            this.f47344f = traceInfoActivity;
-            this.f47343e = str;
+            this.f47256f = traceInfoActivity;
+            this.f47255e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47344f.mTraceInfo == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47256f.mTraceInfo == null) {
                 return;
             }
-            this.f47344f.mTraceInfo.setText(this.f47343e);
+            this.f47256f.mTraceInfo.setText(this.f47255e);
         }
     }
 

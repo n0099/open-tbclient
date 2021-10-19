@@ -17,23 +17,23 @@ public abstract class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f68979a;
+    public static final b f69014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f68980b;
+    public static final b f69015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f68981c;
+    public static final b f69016c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f68982d;
+    public a f69017d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f68983e;
+    public File f69018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f68984f;
+    public List<String> f69019f;
 
     static {
         InterceptResult invokeClinit;
@@ -48,9 +48,9 @@ public abstract class b {
                 return;
             }
         }
-        f68979a = new d();
-        f68980b = new f();
-        f68981c = new e();
+        f69014a = new d();
+        f69015b = new f();
+        f69016c = new e();
     }
 
     public b() {
@@ -72,9 +72,9 @@ public abstract class b {
     public void a(a aVar, File file, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, file, list) == null) {
-            this.f68982d = aVar;
-            this.f68983e = file;
-            this.f68984f = list;
+            this.f69017d = aVar;
+            this.f69018e = file;
+            this.f69019f = list;
         }
     }
 }

@@ -21,25 +21,25 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35033a = null;
+    public static String f35037a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35034b = "";
+    public static String f35038b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f35035c = "";
+    public static String f35039c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f35036d;
+    public static String f35040d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f35037e;
+    public static String f35041e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f35038f;
+    public static String f35042f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f35039g;
+    public static String f35043g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -68,81 +68,81 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             s();
-            String str2 = f35036d;
+            String str2 = f35040d;
             if (str2 != null) {
                 return str2.equals(str);
             }
             String g2 = g("ro.miui.ui.version.name");
-            f35037e = g2;
+            f35041e = g2;
             if (!TextUtils.isEmpty(g2)) {
-                f35036d = "MIUI";
-                f35038f = "com.xiaomi.market";
-                f35039g = f35037e;
+                f35040d = "MIUI";
+                f35042f = "com.xiaomi.market";
+                f35043g = f35041e;
             } else {
                 String g3 = g("ro.build.version.emui");
-                f35037e = g3;
+                f35041e = g3;
                 if (!TextUtils.isEmpty(g3)) {
-                    f35036d = "EMUI";
-                    f35038f = "com.huawei.appmarket";
+                    f35040d = "EMUI";
+                    f35042f = "com.huawei.appmarket";
                 } else {
-                    String g4 = g(f35034b);
-                    f35037e = g4;
+                    String g4 = g(f35038b);
+                    f35041e = g4;
                     if (!TextUtils.isEmpty(g4)) {
-                        f35036d = f35033a;
-                        if (j.a(f35035c) > -1) {
-                            f35038f = f35035c;
+                        f35040d = f35037a;
+                        if (j.a(f35039c) > -1) {
+                            f35042f = f35039c;
                         } else {
-                            f35038f = "com.heytap.market";
+                            f35042f = "com.heytap.market";
                         }
                     } else {
                         String g5 = g("ro.vivo.os.version");
-                        f35037e = g5;
+                        f35041e = g5;
                         if (!TextUtils.isEmpty(g5)) {
-                            f35036d = "VIVO";
-                            f35038f = "com.bbk.appstore";
+                            f35040d = "VIVO";
+                            f35042f = "com.bbk.appstore";
                         } else {
                             String g6 = g("ro.smartisan.version");
-                            f35037e = g6;
+                            f35041e = g6;
                             if (!TextUtils.isEmpty(g6)) {
-                                f35036d = "SMARTISAN";
-                                f35038f = "com.smartisanos.appstore";
+                                f35040d = "SMARTISAN";
+                                f35042f = "com.smartisanos.appstore";
                             } else {
                                 String g7 = g(RomUtils.KEY_VERSION_GIONEE);
-                                f35037e = g7;
+                                f35041e = g7;
                                 if (!TextUtils.isEmpty(g7)) {
-                                    f35036d = "QIONEE";
-                                    f35038f = "com.gionee.aora.market";
+                                    f35040d = "QIONEE";
+                                    f35042f = "com.gionee.aora.market";
                                 } else {
                                     String g8 = g("ro.lenovo.lvp.version");
-                                    f35037e = g8;
+                                    f35041e = g8;
                                     if (!TextUtils.isEmpty(g8)) {
-                                        f35036d = "LENOVO";
-                                        f35038f = "com.lenovo.leos.appstore";
+                                        f35040d = "LENOVO";
+                                        f35042f = "com.lenovo.leos.appstore";
                                     } else if (n().toUpperCase().contains("SAMSUNG")) {
-                                        f35036d = "SAMSUNG";
-                                        f35038f = "com.sec.android.app.samsungapps";
+                                        f35040d = "SAMSUNG";
+                                        f35042f = "com.sec.android.app.samsungapps";
                                     } else if (n().toUpperCase().contains("ZTE")) {
-                                        f35036d = "ZTE";
-                                        f35038f = "zte.com.market";
+                                        f35040d = "ZTE";
+                                        f35042f = "zte.com.market";
                                     } else if (n().toUpperCase().contains(RomUtils.ROM_NUBIA)) {
-                                        f35036d = RomUtils.ROM_NUBIA;
-                                        f35038f = "cn.nubia.neostore";
+                                        f35040d = RomUtils.ROM_NUBIA;
+                                        f35042f = "cn.nubia.neostore";
                                     } else if (o().toUpperCase().contains("FLYME")) {
-                                        f35036d = "FLYME";
-                                        f35038f = "com.meizu.mstore";
-                                        f35037e = o();
+                                        f35040d = "FLYME";
+                                        f35042f = "com.meizu.mstore";
+                                        f35041e = o();
                                     } else if (n().toUpperCase().contains(RomTypeUtil.ROM_ONEPLUS)) {
-                                        f35036d = RomTypeUtil.ROM_ONEPLUS;
-                                        f35037e = g("ro.rom.version");
-                                        if (j.a(f35035c) > -1) {
-                                            f35038f = f35035c;
+                                        f35040d = RomTypeUtil.ROM_ONEPLUS;
+                                        f35041e = g("ro.rom.version");
+                                        if (j.a(f35039c) > -1) {
+                                            f35042f = f35039c;
                                         } else {
-                                            f35038f = "com.heytap.market";
+                                            f35042f = "com.heytap.market";
                                         }
                                     } else {
-                                        f35036d = n().toUpperCase();
-                                        f35038f = "";
-                                        f35037e = "";
+                                        f35040d = n().toUpperCase();
+                                        f35042f = "";
+                                        f35041e = "";
                                     }
                                 }
                             }
@@ -150,7 +150,7 @@ public class e {
                     }
                 }
             }
-            return f35036d.equals(str);
+            return f35040d.equals(str);
         }
         return invokeL.booleanValue;
     }
@@ -218,7 +218,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             s();
-            return b(f35033a);
+            return b(f35037a);
         }
         return invokeV.booleanValue;
     }
@@ -239,10 +239,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (f35036d == null) {
+            if (f35040d == null) {
                 b("");
             }
-            return f35036d;
+            return f35040d;
         }
         return (String) invokeV.objValue;
     }
@@ -251,10 +251,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (f35037e == null) {
+            if (f35041e == null) {
                 b("");
             }
-            return f35037e;
+            return f35041e;
         }
         return (String) invokeV.objValue;
     }
@@ -263,10 +263,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (f35038f == null) {
+            if (f35042f == null) {
                 b("");
             }
-            return f35038f;
+            return f35042f;
         }
         return (String) invokeV.objValue;
     }
@@ -298,7 +298,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
             t();
-            return "V10".equals(f35039g);
+            return "V10".equals(f35043g);
         }
         return invokeV.booleanValue;
     }
@@ -308,7 +308,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
             t();
-            return "V11".equals(f35039g);
+            return "V11".equals(f35043g);
         }
         return invokeV.booleanValue;
     }
@@ -318,34 +318,34 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
             t();
-            return "V12".equals(f35039g);
+            return "V12".equals(f35043g);
         }
         return invokeV.booleanValue;
     }
 
     public static void s() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65555, null) == null) && TextUtils.isEmpty(f35033a)) {
+        if ((interceptable == null || interceptable.invokeV(65555, null) == null) && TextUtils.isEmpty(f35037a)) {
             c.p.a.e.b.g.e.f();
-            f35033a = c.p.a.e.b.d.c.f35103b;
-            f35034b = "ro.build.version." + c.p.a.e.b.d.c.f35104c + "rom";
-            f35035c = "com." + c.p.a.e.b.d.c.f35104c + ".market";
+            f35037a = c.p.a.e.b.d.c.f35107b;
+            f35038b = "ro.build.version." + c.p.a.e.b.d.c.f35108c + "rom";
+            f35039c = "com." + c.p.a.e.b.d.c.f35108c + ".market";
         }
     }
 
     public static void t() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65556, null) == null) && f35039g == null) {
+        if ((interceptable == null || interceptable.invokeV(65556, null) == null) && f35043g == null) {
             try {
-                f35039g = g("ro.miui.ui.version.name");
+                f35043g = g("ro.miui.ui.version.name");
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            String str = f35039g;
+            String str = f35043g;
             if (str == null) {
                 str = "";
             }
-            f35039g = str;
+            f35043g = str;
         }
     }
 }

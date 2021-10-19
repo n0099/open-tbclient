@@ -147,7 +147,7 @@ public class MediaInfo {
             if (j2 > 0) {
                 isMore3s = j3 >= j2 && isMore3s();
             }
-            if (t.f31194a) {
+            if (t.f31241a) {
                 return isMore3s;
             }
             return this.duration <= 15000;

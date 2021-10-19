@@ -40,7 +40,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c.a.r0.g1.k.a.a {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c.a.r0.h1.k.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -58,7 +58,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TopicDetailActivity f52605a;
+        public final /* synthetic */ TopicDetailActivity f52536a;
 
         public a(TopicDetailActivity topicDetailActivity) {
             Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                     return;
                 }
             }
-            this.f52605a = topicDetailActivity;
+            this.f52536a = topicDetailActivity;
         }
 
         @Override // c.a.q0.a.g.b
@@ -86,7 +86,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.f52605a.topicID = b.g(str, -1L);
+                this.f52536a.topicID = b.g(str, -1L);
             }
         }
     }
@@ -174,7 +174,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a024" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.g1.k.a.a
+    @Override // c.a.r0.h1.k.a.a
     public void loadData() {
         int i2;
         String substring;
@@ -231,12 +231,12 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // c.a.r0.g1.k.a.a
-    public void netCallback(int i2, c.a.r0.g1.k.a.c.a aVar) {
+    @Override // c.a.r0.h1.k.a.a
+    public void netCallback(int i2, c.a.r0.h1.k.a.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, aVar) == null) {
             this.mTopicDetailView.hideLoadingView();
-            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f18486f)) {
+            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f18657f)) {
                 this.mTopicDetailView.hideNetRefreshView();
                 this.mTopicDetailView.setData(aVar);
                 return;
@@ -245,7 +245,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // c.a.r0.g1.k.a.a
+    @Override // c.a.r0.h1.k.a.a
     public void netThreadCallback(int i2, boolean z, List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), list}) == null) {
@@ -288,7 +288,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             adjustResizeForSoftInput();
             this.mTopicDetailModel.D(this);
             loadData();
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.f().h("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.g().i("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {

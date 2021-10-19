@@ -12,11 +12,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile int f30574b;
+    public static volatile int f30621b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30575a;
+    public int f30622a;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class b {
                 return;
             }
         }
-        this.f30575a = 0;
+        this.f30622a = 0;
     }
 
     public static synchronized b a() {
@@ -55,12 +55,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (b.class) {
-                if (f30574b < 1000000) {
-                    f30574b = 1000000;
+                if (f30621b < 1000000) {
+                    f30621b = 1000000;
                 }
                 bVar = new b();
-                bVar.f30575a = f30574b;
-                f30574b++;
+                bVar.f30622a = f30621b;
+                f30621b++;
             }
             return bVar;
         }
@@ -70,6 +70,6 @@ public class b {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30575a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30622a : invokeV.intValue;
     }
 }

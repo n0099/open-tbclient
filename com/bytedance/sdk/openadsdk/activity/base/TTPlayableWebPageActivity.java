@@ -83,34 +83,34 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
     public j J;
 
     /* renamed from: a  reason: collision with root package name */
-    public TTAdDislike f65829a;
+    public TTAdDislike f65864a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f65830b;
+    public g f65865b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.i.d f65831c;
+    public com.bytedance.sdk.openadsdk.i.d f65866c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SSWebView f65832d;
+    public SSWebView f65867d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SSWebView f65833e;
+    public SSWebView f65868e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f65834f;
+    public boolean f65869f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f65835g;
+    public boolean f65870g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f65836h;
+    public RelativeLayout f65871h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f65837i;
+    public View f65872i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f65838j;
+    public ImageView f65873j;
     public Context k;
     public int l;
     public ProgressBar m;
@@ -190,20 +190,20 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 return;
             }
         }
-        this.f65834f = true;
-        this.f65835g = true;
+        this.f65869f = true;
+        this.f65870g = true;
         this.v = "embeded_ad";
         this.x = new w(Looper.getMainLooper(), this);
         this.B = new AtomicBoolean(false);
         this.D = 0;
         this.E = 0;
         this.H = false;
-        this.f65831c = new com.bytedance.sdk.openadsdk.i.d(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.5
+        this.f65866c = new com.bytedance.sdk.openadsdk.i.d(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TTPlayableWebPageActivity f65845a;
+            public final /* synthetic */ TTPlayableWebPageActivity f65880a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -220,23 +220,23 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                         return;
                     }
                 }
-                this.f65845a = this;
+                this.f65880a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.i.d
             public void a() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f65845a.isFinishing() && o.f(this.f65845a.w) && o.h(this.f65845a.w)) {
-                    this.f65845a.x.removeMessages(2);
-                    this.f65845a.x.sendMessage(this.f65845a.b(1));
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f65880a.isFinishing() && o.f(this.f65880a.w) && o.h(this.f65880a.w)) {
+                    this.f65880a.x.removeMessages(2);
+                    this.f65880a.x.sendMessage(this.f65880a.b(1));
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.i.d
             public void b() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && o.f(this.f65845a.w) && o.g(this.f65845a.w)) {
-                    this.f65845a.x.sendMessageDelayed(this.f65845a.b(0), 1000L);
+                if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && o.f(this.f65880a.w) && o.g(this.f65880a.w)) {
+                    this.f65880a.x.sendMessageDelayed(this.f65880a.b(0), 1000L);
                 }
             }
 
@@ -244,14 +244,14 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
             public boolean c() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) ? this.f65845a.n != null && this.f65845a.n.getVisibility() == 0 : invokeV.booleanValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) ? this.f65880a.n != null && this.f65880a.n.getVisibility() == 0 : invokeV.booleanValue;
             }
 
             @Override // com.bytedance.sdk.openadsdk.i.d
             public void a(int i4) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4) == null) && o.f(this.f65845a.w) && this.f65845a.n != null) {
-                    this.f65845a.n.setProgress(i4);
+                if ((interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4) == null) && o.f(this.f65880a.w) && this.f65880a.n != null) {
+                    this.f65880a.n.setProgress(i4);
                 }
             }
         };
@@ -333,7 +333,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
             this.F = com.bytedance.sdk.openadsdk.f.a.a().b();
             com.bytedance.sdk.openadsdk.e.d.a(this.w, this);
             g gVar = new g(getApplicationContext());
-            this.f65830b = gVar;
+            this.f65865b = gVar;
             gVar.a(this);
         }
     }
@@ -363,13 +363,13 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 d.a.a(this.E, this.D, this.w);
             }
             com.bytedance.sdk.openadsdk.f.a.a().a(this.F);
-            aa.a(this.k, this.f65832d);
-            aa.a(this.f65832d);
-            SSWebView sSWebView = this.f65832d;
+            aa.a(this.k, this.f65867d);
+            aa.a(this.f65867d);
+            SSWebView sSWebView = this.f65867d;
             if (sSWebView != null) {
                 sSWebView.destroy();
             }
-            this.f65832d = null;
+            this.f65867d = null;
             com.bytedance.sdk.openadsdk.core.w wVar2 = this.q;
             if (wVar2 != null) {
                 wVar2.s();
@@ -387,7 +387,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
             if (jVar != null) {
                 jVar.e();
             }
-            this.f65830b = null;
+            this.f65865b = null;
         }
     }
 
@@ -412,10 +412,10 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 this.G.p();
                 this.G.b(false);
             }
-            g gVar = this.f65830b;
+            g gVar = this.f65865b;
             if (gVar != null) {
                 gVar.c();
-                this.f65830b.a((f) null);
+                this.f65865b.a((f) null);
             }
         }
     }
@@ -428,7 +428,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
             com.bytedance.sdk.openadsdk.core.w wVar = this.q;
             if (wVar != null) {
                 wVar.q();
-                SSWebView sSWebView = this.f65832d;
+                SSWebView sSWebView = this.f65867d;
                 if (sSWebView != null) {
                     this.q.b(sSWebView.getVisibility() == 0);
                 }
@@ -446,11 +446,11 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
             if (jVar != null) {
                 jVar.c();
             }
-            g gVar = this.f65830b;
+            g gVar = this.f65865b;
             if (gVar != null) {
                 gVar.a(this);
-                this.f65830b.b();
-                if (this.f65830b.d() == 0) {
+                this.f65865b.b();
+                if (this.f65865b.d() == 0) {
                     this.H = true;
                 }
                 b(this.H);
@@ -516,7 +516,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
             if (i2 >= 0) {
                 this.x.sendEmptyMessageDelayed(1, i2 * 1000);
             } else {
-                s.a((View) this.f65836h, 0);
+                s.a((View) this.f65871h, 0);
             }
         }
     }
@@ -524,19 +524,19 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
     private void g() {
         SSWebView sSWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65558, this) == null) || (sSWebView = this.f65832d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65558, this) == null) || (sSWebView = this.f65867d) == null) {
             return;
         }
         j b2 = new j(this, this.w, sSWebView).b(true);
         this.J = b2;
         b2.a("embeded_ad");
         this.J.a(this.I);
-        this.f65832d.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.e(this, this.k, this.q, this.o, this.J) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.9
+        this.f65867d.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.e(this, this.k, this.q, this.o, this.J) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TTPlayableWebPageActivity f65850a;
+            public final /* synthetic */ TTPlayableWebPageActivity f65885a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -557,7 +557,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                         return;
                     }
                 }
-                this.f65850a = this;
+                this.f65885a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.e, android.webkit.WebViewClient
@@ -565,25 +565,25 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
                     super.onPageFinished(webView, str);
-                    if (this.f65850a.isFinishing()) {
+                    if (this.f65885a.isFinishing()) {
                         return;
                     }
-                    if (this.f65850a.G != null) {
-                        this.f65850a.G.h(str);
+                    if (this.f65885a.G != null) {
+                        this.f65885a.G.h(str);
                     }
                     try {
-                        this.f65850a.f65831c.b();
+                        this.f65885a.f65866c.b();
                     } catch (Throwable unused) {
                     }
                     try {
-                        if (this.f65850a.m != null) {
-                            this.f65850a.m.setVisibility(8);
+                        if (this.f65885a.m != null) {
+                            this.f65885a.m.setVisibility(8);
                         }
-                        if (this.f65850a.f65834f) {
-                            this.f65850a.i();
-                            this.f65850a.a("py_loading_success");
-                            if (this.f67777b != null) {
-                                this.f67777b.b(true);
+                        if (this.f65885a.f65869f) {
+                            this.f65885a.i();
+                            this.f65885a.a("py_loading_success");
+                            if (this.f67812b != null) {
+                                this.f67812b.b(true);
                             }
                         }
                     } catch (Throwable unused2) {
@@ -596,8 +596,8 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                     super.onPageStarted(webView, str, bitmap);
-                    if (this.f65850a.G != null) {
-                        this.f65850a.G.g(str);
+                    if (this.f65885a.G != null) {
+                        this.f65885a.G.g(str);
                     }
                 }
             }
@@ -607,7 +607,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(1048579, this, webView, webResourceRequest, webResourceError) == null) {
                     super.onReceivedError(webView, webResourceRequest, webResourceError);
-                    this.f65850a.f65834f = false;
+                    this.f65885a.f65869f = false;
                 }
             }
 
@@ -616,12 +616,12 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
             public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(1048580, this, webView, webResourceRequest, webResourceResponse) == null) {
-                    if (this.f65850a.t != null && webResourceRequest != null && webResourceRequest.getUrl() != null && this.f65850a.t.equals(webResourceRequest.getUrl().toString())) {
-                        this.f65850a.f65834f = false;
+                    if (this.f65885a.t != null && webResourceRequest != null && webResourceRequest.getUrl() != null && this.f65885a.t.equals(webResourceRequest.getUrl().toString())) {
+                        this.f65885a.f65869f = false;
                     }
-                    if (this.f65850a.G != null) {
+                    if (this.f65885a.G != null) {
                         try {
-                            this.f65850a.G.a(webResourceRequest.getUrl().toString(), webResourceResponse.getStatusCode());
+                            this.f65885a.G.a(webResourceRequest.getUrl().toString(), webResourceResponse.getStatusCode());
                         } catch (Throwable unused) {
                         }
                     }
@@ -635,28 +635,28 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048581, this, webView, str)) == null) {
                     try {
-                        if (this.f65850a.G != null) {
-                            this.f65850a.G.i(str);
+                        if (this.f65885a.G != null) {
+                            this.f65885a.G.i(str);
                         }
-                        if (!TextUtils.isEmpty(this.f65850a.C)) {
-                            TTPlayableWebPageActivity.k(this.f65850a);
+                        if (!TextUtils.isEmpty(this.f65885a.C)) {
+                            TTPlayableWebPageActivity.k(this.f65885a);
                         }
                         long currentTimeMillis = System.currentTimeMillis();
-                        WebResourceResponse a2 = com.bytedance.sdk.openadsdk.f.a.a().a(this.f65850a.F, this.f65850a.C, str);
+                        WebResourceResponse a2 = com.bytedance.sdk.openadsdk.f.a.a().a(this.f65885a.F, this.f65885a.C, str);
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (this.f65850a.I != null) {
+                        if (this.f65885a.I != null) {
                             e.a a3 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
                             int i2 = a2 != null ? 1 : 2;
-                            if (a3 == e.a.f67756a) {
-                                this.f65850a.I.a(str, currentTimeMillis, currentTimeMillis2, i2);
-                            } else if (a3 == e.a.f67758c) {
-                                this.f65850a.I.b(str, currentTimeMillis, currentTimeMillis2, i2);
+                            if (a3 == e.a.f67791a) {
+                                this.f65885a.I.a(str, currentTimeMillis, currentTimeMillis2, i2);
+                            } else if (a3 == e.a.f67793c) {
+                                this.f65885a.I.b(str, currentTimeMillis, currentTimeMillis2, i2);
                             }
                         }
                         if (a2 != null) {
-                            TTPlayableWebPageActivity.n(this.f65850a);
-                            if (this.f65850a.G != null) {
-                                this.f65850a.G.j(str);
+                            TTPlayableWebPageActivity.n(this.f65885a);
+                            if (this.f65885a.G != null) {
+                                this.f65885a.G.j(str);
                             }
                             return a2;
                         }
@@ -673,23 +673,23 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
                     super.onReceivedError(webView, i2, str, str2);
-                    this.f65850a.f65834f = false;
-                    if (this.f65850a.G != null) {
-                        this.f65850a.G.a(i2, str, str2);
+                    this.f65885a.f65869f = false;
+                    if (this.f65885a.G != null) {
+                        this.f65885a.G.a(i2, str, str2);
                     }
                 }
             }
         });
-        a(this.f65832d);
-        a(this.f65833e);
+        a(this.f65867d);
+        a(this.f65868e);
         j();
-        this.f65832d.loadUrl(this.t);
-        this.f65832d.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.d(this, this.q, this.J) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.10
+        this.f65867d.loadUrl(this.t);
+        this.f65867d.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.d(this, this.q, this.J) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.10
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TTPlayableWebPageActivity f65839a;
+            public final /* synthetic */ TTPlayableWebPageActivity f65874a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -710,7 +710,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                         return;
                     }
                 }
-                this.f65839a = this;
+                this.f65874a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.d, android.webkit.WebChromeClient
@@ -718,20 +718,20 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLI(1048576, this, webView, i2) == null) {
                     super.onProgressChanged(webView, i2);
-                    if (this.f65839a.isFinishing()) {
+                    if (this.f65874a.isFinishing()) {
                         return;
                     }
                     try {
-                        this.f65839a.f65831c.a(i2);
+                        this.f65874a.f65866c.a(i2);
                     } catch (Throwable unused) {
                     }
-                    if (this.f65839a.m != null) {
-                        if (i2 != 100 || !this.f65839a.m.isShown()) {
-                            this.f65839a.m.setProgress(i2);
+                    if (this.f65874a.m != null) {
+                        if (i2 != 100 || !this.f65874a.m.isShown()) {
+                            this.f65874a.m.setProgress(i2);
                             return;
                         }
-                        this.f65839a.m.setVisibility(8);
-                        this.f65839a.i();
+                        this.f65874a.m.setVisibility(8);
+                        this.f65874a.i();
                     }
                 }
             }
@@ -742,17 +742,17 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
             this.n = (PlayableLoadingView) findViewById(t.e(this, "tt_playable_loading"));
-            this.f65832d = (SSWebView) findViewById(t.e(this, "tt_browser_webview"));
-            this.f65833e = (SSWebView) findViewById(t.e(this, "tt_browser_webview_loading"));
+            this.f65867d = (SSWebView) findViewById(t.e(this, "tt_browser_webview"));
+            this.f65868e = (SSWebView) findViewById(t.e(this, "tt_browser_webview_loading"));
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(t.e(this, "tt_playable_ad_close_layout"));
-            this.f65836h = relativeLayout;
+            this.f65871h = relativeLayout;
             if (relativeLayout != null) {
                 relativeLayout.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.11
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ TTPlayableWebPageActivity f65840a;
+                    public final /* synthetic */ TTPlayableWebPageActivity f65875a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -769,32 +769,32 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                                 return;
                             }
                         }
-                        this.f65840a = this;
+                        this.f65875a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            if (this.f65840a.I != null) {
-                                this.f65840a.I.n();
+                            if (this.f65875a.I != null) {
+                                this.f65875a.I.n();
                             }
-                            this.f65840a.a("playable_close");
-                            this.f65840a.n();
-                            this.f65840a.finish();
+                            this.f65875a.a("playable_close");
+                            this.f65875a.n();
+                            this.f65875a.finish();
                         }
                     }
                 });
             }
             this.m = (ProgressBar) findViewById(t.e(this, "tt_browser_progress"));
             View findViewById = findViewById(t.e(this, "tt_playable_ad_dislike"));
-            this.f65837i = findViewById;
+            this.f65872i = findViewById;
             findViewById.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.12
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTPlayableWebPageActivity f65841a;
+                public final /* synthetic */ TTPlayableWebPageActivity f65876a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -811,25 +811,25 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                             return;
                         }
                     }
-                    this.f65841a = this;
+                    this.f65876a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f65841a.b();
+                        this.f65876a.b();
                     }
                 }
             });
             ImageView imageView = (ImageView) findViewById(t.e(this, "tt_playable_ad_mute"));
-            this.f65838j = imageView;
+            this.f65873j = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTPlayableWebPageActivity f65842a;
+                public final /* synthetic */ TTPlayableWebPageActivity f65877a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -846,27 +846,27 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                             return;
                         }
                     }
-                    this.f65842a = this;
+                    this.f65877a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        TTPlayableWebPageActivity tTPlayableWebPageActivity = this.f65842a;
+                        TTPlayableWebPageActivity tTPlayableWebPageActivity = this.f65877a;
                         tTPlayableWebPageActivity.H = !tTPlayableWebPageActivity.H;
-                        TTPlayableWebPageActivity tTPlayableWebPageActivity2 = this.f65842a;
+                        TTPlayableWebPageActivity tTPlayableWebPageActivity2 = this.f65877a;
                         tTPlayableWebPageActivity2.b(tTPlayableWebPageActivity2.H);
-                        if (this.f65842a.G != null) {
-                            this.f65842a.G.a(this.f65842a.H);
+                        if (this.f65877a.G != null) {
+                            this.f65877a.G.a(this.f65877a.H);
                         }
                     }
                 }
             });
-            this.f65832d.setBackgroundColor(-16777216);
-            this.f65833e.setBackgroundColor(-16777216);
-            s.a((View) this.f65832d, 4);
-            s.a((View) this.f65833e, 0);
+            this.f65867d.setBackgroundColor(-16777216);
+            this.f65868e.setBackgroundColor(-16777216);
+            s.a((View) this.f65867d, 4);
+            s.a((View) this.f65868e, 0);
         }
     }
 
@@ -874,28 +874,28 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
     public void i() {
         SSWebView sSWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65563, this) == null) || this.B.getAndSet(true) || (sSWebView = this.f65832d) == null || this.f65833e == null) {
+        if (!(interceptable == null || interceptable.invokeV(65563, this) == null) || this.B.getAndSet(true) || (sSWebView = this.f65867d) == null || this.f65868e == null) {
             return;
         }
         s.a((View) sSWebView, 0);
-        s.a((View) this.f65833e, 8);
+        s.a((View) this.f65868e, 8);
     }
 
     private void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.f65833e == null) {
+        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.f65868e == null) {
             return;
         }
         String k = k();
         if (TextUtils.isEmpty(k)) {
             return;
         }
-        this.f65833e.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.e(this, this.k, this.r, this.o, null) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.4
+        this.f65868e.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.e(this, this.k, this.r, this.o, null) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TTPlayableWebPageActivity f65844a;
+            public final /* synthetic */ TTPlayableWebPageActivity f65879a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -916,7 +916,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                         return;
                     }
                 }
-                this.f65844a = this;
+                this.f65879a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.widget.webview.e, android.webkit.WebViewClient
@@ -924,8 +924,8 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
                     super.onPageFinished(webView, str);
-                    if (this.f65844a.f65835g) {
-                        this.f65844a.a("loading_h5_success");
+                    if (this.f65879a.f65870g) {
+                        this.f65879a.a("loading_h5_success");
                     }
                 }
             }
@@ -935,7 +935,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest, webResourceError) == null) {
                     super.onReceivedError(webView, webResourceRequest, webResourceError);
-                    this.f65844a.f65835g = false;
+                    this.f65879a.f65870g = false;
                 }
             }
 
@@ -944,7 +944,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(1048579, this, webView, webResourceRequest, webResourceResponse) == null) {
                     super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
-                    this.f65844a.f65835g = false;
+                    this.f65879a.f65870g = false;
                 }
             }
 
@@ -953,11 +953,11 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i2, str, str2) == null) {
                     super.onReceivedError(webView, i2, str, str2);
-                    this.f65844a.f65835g = false;
+                    this.f65879a.f65870g = false;
                 }
             }
         });
-        this.f65833e.loadUrl(k);
+        this.f65868e.loadUrl(k);
     }
 
     private String k() {
@@ -1018,10 +1018,10 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
             this.I = new q(3, "embeded_ad", this.w);
             com.bytedance.sdk.openadsdk.core.w wVar = new com.bytedance.sdk.openadsdk.core.w(this);
             this.q = wVar;
-            wVar.b(this.f65832d).a(this.w).a(arrayList).b(this.o).c(this.p).a(this.s).a(this).a(this.I).a(this.f65831c).a(this.f65832d).d(com.bytedance.sdk.openadsdk.q.q.i(this.w));
+            wVar.b(this.f65867d).a(this.w).a(arrayList).b(this.o).c(this.p).a(this.s).a(this).a(this.I).a(this.f65866c).a(this.f65867d).d(com.bytedance.sdk.openadsdk.q.q.i(this.w));
             com.bytedance.sdk.openadsdk.core.w wVar2 = new com.bytedance.sdk.openadsdk.core.w(this);
             this.r = wVar2;
-            wVar2.b(this.f65833e).a(this.w).b(this.o).c(this.p).a(this).a(this.s).c(false).a(this.I).a(this.f65833e).d(com.bytedance.sdk.openadsdk.q.q.i(this.w));
+            wVar2.b(this.f65868e).a(this.w).b(this.o).c(this.p).a(this).a(this.s).c(false).a(this.I).a(this.f65868e).d(com.bytedance.sdk.openadsdk.q.q.i(this.w));
             d();
         }
     }
@@ -1031,7 +1031,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
         m mVar;
         Bitmap b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65573, this) == null) || (mVar = this.w) == null || this.f65832d == null || !o.a(mVar) || (b2 = s.b((WebView) this.f65832d)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65573, this) == null) || (mVar = this.w) == null || this.f65867d == null || !o.a(mVar) || (b2 = s.b((WebView) this.f65867d)) == null) {
             return;
         }
         s.a(com.bytedance.sdk.openadsdk.core.o.a(), this.w, "embeded_ad", "playable_show_status", b2, false, 1);
@@ -1061,7 +1061,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTPlayableWebPageActivity f65846a;
+                public final /* synthetic */ TTPlayableWebPageActivity f65881a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1078,7 +1078,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                             return;
                         }
                     }
-                    this.f65846a = this;
+                    this.f65881a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.a
@@ -1120,17 +1120,17 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                                 if (c2 != 2) {
                                     if (c2 != 3) {
                                         if (c2 != 4) {
-                                            return c.f68297f;
+                                            return c.f68332f;
                                         }
-                                        return c.f68296e;
+                                        return c.f68331e;
                                     }
-                                    return c.f68295d;
+                                    return c.f68330d;
                                 }
-                                return c.f68294c;
+                                return c.f68329c;
                             }
-                            return c.f68293b;
+                            return c.f68328b;
                         }
-                        return c.f68292a;
+                        return c.f68327a;
                     }
                     return (c) invokeV.objValue;
                 }
@@ -1160,7 +1160,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 public void c(JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048580, this, jSONObject) == null) {
-                        com.bytedance.sdk.openadsdk.e.d.b(this.f65846a.getApplicationContext(), this.f65846a.w, "embeded_ad", "playable_track", jSONObject);
+                        com.bytedance.sdk.openadsdk.e.d.b(this.f65881a.getApplicationContext(), this.f65881a.w, "embeded_ad", "playable_track", jSONObject);
                     }
                 }
             };
@@ -1169,7 +1169,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTPlayableWebPageActivity f65847a;
+                public final /* synthetic */ TTPlayableWebPageActivity f65882a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1186,14 +1186,14 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                             return;
                         }
                     }
-                    this.f65847a = this;
+                    this.f65882a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.b
                 public void a(String str, JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, jSONObject) == null) {
-                        this.f65847a.q.a(str, jSONObject);
+                        this.f65882a.q.a(str, jSONObject);
                     }
                 }
             };
@@ -1203,7 +1203,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 jSONObject.put("log_extra", this.p);
             } catch (Throwable unused) {
             }
-            this.G = com.bytedance.sdk.openadsdk.l.f.a(getApplicationContext(), this.f65832d, bVar, aVar).f(this.t).e(com.bytedance.sdk.openadsdk.c.a.a(com.bytedance.sdk.openadsdk.core.o.a())).a(com.bytedance.sdk.openadsdk.c.a.a()).a(jSONObject).b(com.bytedance.sdk.openadsdk.c.a.e()).a("sdkEdition", com.bytedance.sdk.openadsdk.c.a.c()).d(com.bytedance.sdk.openadsdk.c.a.d()).c(false).a(this.H).b(true);
+            this.G = com.bytedance.sdk.openadsdk.l.f.a(getApplicationContext(), this.f65867d, bVar, aVar).f(this.t).e(com.bytedance.sdk.openadsdk.c.a.a(com.bytedance.sdk.openadsdk.core.o.a())).a(com.bytedance.sdk.openadsdk.c.a.a()).a(jSONObject).b(com.bytedance.sdk.openadsdk.c.a.e()).a("sdkEdition", com.bytedance.sdk.openadsdk.c.a.c()).d(com.bytedance.sdk.openadsdk.c.a.d()).c(false).a(this.H).b(true);
             if (!TextUtils.isEmpty(o.c(this.w))) {
                 this.G.c(o.c(this.w));
             }
@@ -1216,10 +1216,10 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ WeakReference f65848a;
+                        public final /* synthetic */ WeakReference f65883a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ TTPlayableWebPageActivity f65849b;
+                        public final /* synthetic */ TTPlayableWebPageActivity f65884b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1236,8 +1236,8 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                                     return;
                                 }
                             }
-                            this.f65849b = this;
-                            this.f65848a = weakReference;
+                            this.f65884b = this;
+                            this.f65883a = weakReference;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -1247,7 +1247,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject2, fVar)) == null) {
                                 try {
-                                    com.bytedance.sdk.openadsdk.l.f fVar2 = (com.bytedance.sdk.openadsdk.l.f) this.f65848a.get();
+                                    com.bytedance.sdk.openadsdk.l.f fVar2 = (com.bytedance.sdk.openadsdk.l.f) this.f65883a.get();
                                     if (fVar2 == null) {
                                         return null;
                                     }
@@ -1279,7 +1279,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f65829a = new com.bytedance.sdk.openadsdk.dislike.ui.a(this, this.w.aG(), "embeded_ad", true);
+            this.f65864a = new com.bytedance.sdk.openadsdk.dislike.ui.a(this, this.w.aG(), "embeded_ad", true);
         }
     }
 
@@ -1343,10 +1343,10 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.w == null || isFinishing()) {
             return;
         }
-        if (this.f65829a == null) {
+        if (this.f65864a == null) {
             c();
         }
-        this.f65829a.showDislikeDialog();
+        this.f65864a.showDislikeDialog();
     }
 
     public void b(boolean z) {
@@ -1360,7 +1360,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 } else {
                     d2 = t.d(this.k, "tt_unmute");
                 }
-                this.f65838j.setImageResource(d2);
+                this.f65873j.setImageResource(d2);
                 this.G.a(z);
             } catch (Exception unused) {
             }
@@ -1384,7 +1384,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTPlayableWebPageActivity f65843a;
+                public final /* synthetic */ TTPlayableWebPageActivity f65878a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1405,7 +1405,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                             return;
                         }
                     }
-                    this.f65843a = this;
+                    this.f65878a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.b.a, com.bytedance.sdk.openadsdk.core.b.b, com.bytedance.sdk.openadsdk.core.b.c
@@ -1413,12 +1413,12 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
                         super.a(view, i2, i3, i4, i5);
-                        this.f65843a.y = true;
-                        this.f65843a.z = true;
+                        this.f65878a.y = true;
+                        this.f65878a.z = true;
                         HashMap hashMap = new HashMap();
-                        hashMap.put("playable_url", this.f65843a.t);
-                        TTPlayableWebPageActivity tTPlayableWebPageActivity = this.f65843a;
-                        com.bytedance.sdk.openadsdk.e.d.j(tTPlayableWebPageActivity, tTPlayableWebPageActivity.w, this.f66526d, "click_playable_download_button_loading", hashMap);
+                        hashMap.put("playable_url", this.f65878a.t);
+                        TTPlayableWebPageActivity tTPlayableWebPageActivity = this.f65878a;
+                        com.bytedance.sdk.openadsdk.e.d.j(tTPlayableWebPageActivity, tTPlayableWebPageActivity.w, this.f66561d, "click_playable_download_button_loading", hashMap);
                     }
                 }
             };
@@ -1457,7 +1457,7 @@ public class TTPlayableWebPageActivity extends Activity implements w.a, d, f {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
             int i2 = message.what;
             if (i2 == 1) {
-                s.a((View) this.f65836h, 0);
+                s.a((View) this.f65871h, 0);
             } else if (i2 != 2) {
             } else {
                 k.a("playable hidden loading , type:" + message.arg1);

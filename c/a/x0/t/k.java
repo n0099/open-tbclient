@@ -20,13 +20,13 @@ public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Toast f31184a = null;
+    public static Toast f31231a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f31185b = -1;
+    public static int f31232b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f31186c = -1;
+    public static int f31233c = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -75,20 +75,20 @@ public class k {
     public static void e(String str, int i2, String str2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{str, Integer.valueOf(i2), str2, Integer.valueOf(i3)}) == null) {
-            if (f31185b != -1 && f31186c != -1) {
-                Toast toast = f31184a;
+            if (f31232b != -1 && f31233c != -1) {
+                Toast toast = f31231a;
                 if (toast != null) {
                     toast.cancel();
                 }
                 Toast toast2 = new Toast(c.a.x0.b.d().b());
-                f31184a = toast2;
+                f31231a = toast2;
                 if (i3 > -1) {
                     toast2.setGravity(i3, 0, 0);
                 }
-                f31184a.setDuration(i2);
+                f31231a.setDuration(i2);
                 try {
-                    View inflate = LayoutInflater.from(c.a.x0.b.d().b()).inflate(f31185b, (ViewGroup) null);
-                    TextView textView = (TextView) inflate.findViewById(f31186c);
+                    View inflate = LayoutInflater.from(c.a.x0.b.d().b()).inflate(f31232b, (ViewGroup) null);
+                    TextView textView = (TextView) inflate.findViewById(f31233c);
                     if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str) && str.contains(str2)) {
                         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(c.a.x0.b.d().b().getResources().getColor(c.a.x0.o.a.app_theme_color)), str.indexOf(str2), str.indexOf(str2) + str2.length(), 33);
@@ -96,32 +96,32 @@ public class k {
                     } else {
                         textView.setText(str);
                     }
-                    f31184a.setView(inflate);
-                    f31184a.show();
+                    f31231a.setView(inflate);
+                    f31231a.show();
                     return;
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return;
                 }
             }
-            Toast toast3 = f31184a;
+            Toast toast3 = f31231a;
             if (toast3 == null) {
                 Toast makeText = Toast.makeText(c.a.x0.b.d().b(), str, i2);
-                f31184a = makeText;
+                f31231a = makeText;
                 if (i3 > -1) {
                     makeText.setGravity(i3, 0, 0);
                 }
             } else {
                 toast3.cancel();
                 Toast makeText2 = Toast.makeText(c.a.x0.b.d().b(), str, i2);
-                f31184a = makeText2;
+                f31231a = makeText2;
                 if (i3 > -1) {
                     makeText2.setGravity(i3, 0, 0);
                 }
-                f31184a.setDuration(i2);
+                f31231a.setDuration(i2);
             }
             try {
-                f31184a.show();
+                f31231a.show();
             } catch (Exception unused) {
             }
         }

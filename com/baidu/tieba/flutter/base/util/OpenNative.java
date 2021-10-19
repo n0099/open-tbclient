@@ -9,10 +9,9 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.q0.d1.o;
 import c.a.q0.j0.h;
 import c.a.q0.m.a;
-import c.a.r0.p1.o.k.b;
+import c.a.r0.q1.o.k.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -88,8 +87,10 @@ import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.module.hottopic.VideoHotTopicParams;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.frs.SerializableItemInfo;
 import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
@@ -915,12 +916,12 @@ public class OpenNative {
         }
     }
 
-    public static void openNativeVideoMiddleNoTabPage(@NonNull Context context, @Nullable Map<String, Object> map) {
+    public static void openNativeVideoMiddleFromPersonalPage(@NonNull Context context, @Nullable Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65589, null, context, map) == null) || map == null || map.isEmpty()) {
             return;
         }
-        VideoRecommentPlayActivityConfig.PersonalPageParams personalPageParams = (VideoRecommentPlayActivityConfig.PersonalPageParams) o.b(map, VideoRecommentPlayActivityConfig.PersonalPageParams.class);
+        VideoRecommentPlayActivityConfig.PersonalPageParams personalPageParams = (VideoRecommentPlayActivityConfig.PersonalPageParams) DataExt.b(map, VideoRecommentPlayActivityConfig.PersonalPageParams.class);
         if (personalPageParams.getDataList() == null) {
             return;
         }
@@ -936,7 +937,31 @@ public class OpenNative {
         }
         VideoPlayActivityConfig.bigDataList = arrayList;
         VideoRecommentPlayActivityConfig.bigPersonalPageParams = personalPageParams;
-        new VideoRecommentPlayActivityConfig(context, i2).start();
+        new VideoRecommentPlayActivityConfig(context, i2, VideoRecommentPlayActivityConfig.FROM_PERSONAL_PAGE).start();
+    }
+
+    public static void openNativeVideoMiddleFromVideoHotTopic(@NonNull Context context, @Nullable Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65590, null, context, map) == null) || map == null || map.isEmpty()) {
+            return;
+        }
+        VideoHotTopicParams videoHotTopicParams = (VideoHotTopicParams) DataExt.b(map, VideoHotTopicParams.class);
+        if (videoHotTopicParams.getDataList() == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        int i2 = 0;
+        for (int i3 = 0; i3 < videoHotTopicParams.getDataList().size(); i3++) {
+            VideoItemData videoItemData = new VideoItemData();
+            videoItemData.buildWithFlutterMap(videoHotTopicParams.getDataList().get(i3));
+            arrayList.add(videoItemData);
+            if (TextUtils.equals(videoHotTopicParams.getThreadId(), videoItemData.getThreadId())) {
+                i2 = i3;
+            }
+        }
+        VideoPlayActivityConfig.bigDataList = arrayList;
+        VideoRecommentPlayActivityConfig.bigVideoHotTopicParams = videoHotTopicParams;
+        new VideoRecommentPlayActivityConfig(context, i2, VideoRecommentPlayActivityConfig.FROM_VIDEO_HOT_TOPIC).start();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r13v3, resolved type: com.baidu.tbadk.core.atomData.VideoPlayActivityConfig */
@@ -944,7 +969,7 @@ public class OpenNative {
     public static void openNativeVideoMiddlePage(Context context, Map<String, Object> map) {
         VideoMiddlePageActivityConfig videoMiddlePageActivityConfig;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65590, null, context, map) == null) || map == null || map.isEmpty() || !(map.get(WriteActivityConfig.VIDEO_INFO) instanceof HashMap)) {
+        if (!(interceptable == null || interceptable.invokeLL(65591, null, context, map) == null) || map == null || map.isEmpty() || !(map.get(WriteActivityConfig.VIDEO_INFO) instanceof HashMap)) {
             return;
         }
         boolean equals = "1".equals(((HashMap) map.get(WriteActivityConfig.VIDEO_INFO)).get(TiebaStatic.Params.IS_VERTICAL));
@@ -981,21 +1006,21 @@ public class OpenNative {
 
     public static void openNativeViewHistory(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65591, null, context, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(65592, null, context, map) == null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(context)));
         }
     }
 
     public static void openNativeVipCenterWKWebView(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65592, null, context, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(65593, null, context, map) == null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MembercenterActivityConfig(context)));
         }
     }
 
     public static void openNativeVitalityPB(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65593, null, context, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(65594, null, context, map) == null) {
             String str = (String) map.get("tid");
             int e2 = c.a.e.e.m.b.e((String) map.get("threadType"), 0);
             if (k.isEmpty(str)) {
@@ -1036,27 +1061,27 @@ public class OpenNative {
 
     public static void openNativeWKWebView(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65594, null, context, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(65595, null, context, map) == null) {
             String str = (String) map.get("title");
             String str2 = (String) map.get("url");
             if (k.isEmpty(str2)) {
                 BdLog.e("openNativeWKWebView param is empty.");
             } else {
-                a.u(true, context, str, str2);
+                a.w(true, context, str, str2);
             }
         }
     }
 
     public static void openNativeWallet(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65595, null, context, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(65596, null, context, map) == null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2001451));
         }
     }
 
     public static void openNativeWebView(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65596, null, context, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(65597, null, context, map) == null) {
             String str = (String) map.get("url");
             if (k.isEmpty(str)) {
                 BdLog.e("openPageByUrl param is empty.");
@@ -1074,7 +1099,7 @@ public class OpenNative {
 
     public static void openNativeWebViewWithTitle(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65597, null, context, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(65598, null, context, map) == null) {
             String str = (String) map.get("title");
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(TbadkCoreApplication.getInst().getContext(), str, (String) map.get("url"), true)));
         }
@@ -1083,7 +1108,7 @@ public class OpenNative {
     public static void openNativefourmBigImagePage(Context context, Map<String, Object> map) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65598, null, context, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(65599, null, context, map) == null) {
             if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
                 l.M(context, "大图功能安装失败,请稍候重试");
                 return;
@@ -1145,7 +1170,7 @@ public class OpenNative {
     public static Rect parseFrameInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65599, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65600, null, str)) == null) {
             Rect rect = new Rect();
             if (!TextUtils.isEmpty(str)) {
                 String[] split = str.split(",");
@@ -1162,7 +1187,7 @@ public class OpenNative {
     public static boolean requestWriteExternalStoragePermission(Activity activity, IntentConfig intentConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65600, null, activity, intentConfig)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65601, null, activity, intentConfig)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
             permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
@@ -1205,7 +1230,7 @@ public class OpenNative {
     public static boolean toNativePage(Context context, String str, Map<String, Object> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65601, null, context, str, map)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65602, null, context, str, map)) == null) {
             if (kNativePageKeyBlockedFans.equals(str)) {
                 openNativeBlockedFans(context, map);
                 return true;
@@ -1372,12 +1397,17 @@ public class OpenNative {
                 openNativeCreateForumPage(context, map);
                 return true;
             } else if (kNativePageKeyVideoMiddlePage.equals(str)) {
-                if (TextUtils.equals((String) map.get("enter_type"), "12")) {
-                    openNativeVideoMiddleNoTabPage(context, map);
+                String str2 = (String) map.get("enter_type");
+                if (TextUtils.equals(str2, "12")) {
+                    openNativeVideoMiddleFromPersonalPage(context, map);
+                    return true;
+                } else if (TextUtils.equals(str2, "13")) {
+                    openNativeVideoMiddleFromVideoHotTopic(context, map);
+                    return true;
+                } else {
+                    openNativeVideoMiddlePage(context, map);
                     return true;
                 }
-                openNativeVideoMiddlePage(context, map);
-                return true;
             } else if (kNativePageKeyTreasureTroveMore.equals(str)) {
                 openNativeTreasureTroveMorePage(context, map);
                 return true;

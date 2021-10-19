@@ -24,13 +24,13 @@ public class PlayableLoadingView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ProgressBar f67553a;
+    public ProgressBar f67588a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f67554b;
+    public TextView f67589b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f67555c;
+    public TextView f67590c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlayableLoadingView(@NonNull Context context) {
@@ -60,9 +60,9 @@ public class PlayableLoadingView extends FrameLayout {
             setClickable(true);
             setVisibility(8);
             LayoutInflater.from(context).inflate(t.f(context, "tt_playable_loading_layout"), (ViewGroup) this, true);
-            this.f67553a = (ProgressBar) findViewById(t.e(context, "tt_playable_pb_view"));
-            this.f67554b = (TextView) findViewById(t.e(context, "tt_playable_progress_tip"));
-            this.f67555c = (TextView) findViewById(t.e(context, "tt_playable_play"));
+            this.f67588a = (ProgressBar) findViewById(t.e(context, "tt_playable_pb_view"));
+            this.f67589b = (TextView) findViewById(t.e(context, "tt_playable_progress_tip"));
+            this.f67590c = (TextView) findViewById(t.e(context, "tt_playable_play"));
         }
     }
 
@@ -76,7 +76,7 @@ public class PlayableLoadingView extends FrameLayout {
     public TextView getPlayView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67555c : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67590c : (TextView) invokeV.objValue;
     }
 
     public void setProgress(int i2) {
@@ -88,11 +88,11 @@ public class PlayableLoadingView extends FrameLayout {
             if (i2 > 100) {
                 i2 = 100;
             }
-            ProgressBar progressBar = this.f67553a;
+            ProgressBar progressBar = this.f67588a;
             if (progressBar != null) {
                 progressBar.setProgress(i2);
             }
-            TextView textView = this.f67554b;
+            TextView textView = this.f67589b;
             if (textView != null) {
                 textView.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i2)));
             }

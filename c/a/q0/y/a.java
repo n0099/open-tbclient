@@ -28,19 +28,19 @@ public class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f15191a;
+    public View f15214a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f15192b;
+    public ImageView f15215b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f15193c;
+    public ImageView f15216c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15194d;
+    public TextView f15217d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15195e;
+    public LinearLayout f15218e;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -58,25 +58,25 @@ public class a implements c {
             }
         }
         View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
-        this.f15191a = inflate;
-        this.f15192b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
-        this.f15194d = (TextView) this.f15191a.findViewById(R.id.floating_view_title);
-        this.f15193c = (ImageView) this.f15191a.findViewById(R.id.floating_view_arrow);
-        this.f15195e = (LinearLayout) this.f15191a.findViewById(R.id.floating_view_main);
-        this.f15194d.setText(R.string.frs_forum_bcast_return_info);
+        this.f15214a = inflate;
+        this.f15215b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
+        this.f15217d = (TextView) this.f15214a.findViewById(R.id.floating_view_title);
+        this.f15216c = (ImageView) this.f15214a.findViewById(R.id.floating_view_arrow);
+        this.f15218e = (LinearLayout) this.f15214a.findViewById(R.id.floating_view_main);
+        this.f15217d.setText(R.string.frs_forum_bcast_return_info);
         changeSkin();
     }
 
     @Override // c.a.q0.y.c
     public void changeSkin() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f15191a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f15214a == null) {
             return;
         }
-        SkinManager.setViewTextColor(this.f15194d, R.color.CAM_X0101);
-        SkinManager.setImageResource(this.f15192b, R.drawable.pic_float_return_broadcast32);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15193c, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(211).tlRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.f15195e);
+        SkinManager.setViewTextColor(this.f15217d, R.color.CAM_X0101);
+        SkinManager.setImageResource(this.f15215b, R.drawable.pic_float_return_broadcast32);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f15216c, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(211).tlRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.f15218e);
     }
 
     @Override // c.a.q0.y.c
@@ -84,7 +84,7 @@ public class a implements c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view = this.f15191a;
+            View view = this.f15214a;
             return view != null ? view : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
         }
         return (View) invokeV.objValue;

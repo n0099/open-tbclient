@@ -18,13 +18,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerC0711d f14968a;
+    public HandlerC0713d f14992a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f14969b;
+    public c f14993b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f14970c;
+    public b f14994c;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -38,10 +38,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Process f14971a;
+        public Process f14995a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f14972b;
+        public final /* synthetic */ d f14996b;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class d {
                     return;
                 }
             }
-            this.f14972b = dVar;
-            this.f14971a = null;
+            this.f14996b = dVar;
+            this.f14995a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -67,7 +67,7 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.onCancelled();
-                Process process = this.f14971a;
+                Process process = this.f14995a;
                 if (process != null) {
                     try {
                         process.destroy();
@@ -75,11 +75,11 @@ public class d {
                         th.printStackTrace();
                     }
                 }
-                if (this.f14972b.f14969b != null) {
-                    this.f14972b.f14969b.a(false);
+                if (this.f14996b.f14993b != null) {
+                    this.f14996b.f14993b.a(false);
                 }
-                if (this.f14972b.f14968a != null) {
-                    this.f14972b.f14968a.removeMessages(0);
+                if (this.f14996b.f14992a != null) {
+                    this.f14996b.f14992a.removeMessages(0);
                 }
             }
         }
@@ -96,7 +96,7 @@ public class d {
                         try {
                             try {
                                 Process exec = Runtime.getRuntime().exec(strArr[0]);
-                                this.f14971a = exec;
+                                this.f14995a = exec;
                                 if (exec.waitFor() == 0) {
                                     z = true;
                                 }
@@ -107,7 +107,7 @@ public class d {
                             e3.printStackTrace();
                         }
                     } finally {
-                        this.f14971a.destroy();
+                        this.f14995a.destroy();
                     }
                 }
                 return Boolean.valueOf(z);
@@ -120,11 +120,11 @@ public class d {
         public void onPostExecute(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
-                if (this.f14972b.f14969b != null) {
-                    this.f14972b.f14969b.a(bool == null ? false : bool.booleanValue());
+                if (this.f14996b.f14993b != null) {
+                    this.f14996b.f14993b.a(bool == null ? false : bool.booleanValue());
                 }
-                if (this.f14972b.f14968a != null) {
-                    this.f14972b.f14968a.removeMessages(0);
+                if (this.f14996b.f14992a != null) {
+                    this.f14996b.f14992a.removeMessages(0);
                 }
             }
         }
@@ -141,14 +141,14 @@ public class d {
 
     /* renamed from: c.a.q0.t.j.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class HandlerC0711d extends Handler {
+    public static class HandlerC0713d extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<d> f14973a;
+        public final WeakReference<d> f14997a;
 
-        public HandlerC0711d(d dVar) {
+        public HandlerC0713d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,7 +163,7 @@ public class d {
                     return;
                 }
             }
-            this.f14973a = new WeakReference<>(dVar);
+            this.f14997a = new WeakReference<>(dVar);
         }
 
         @Override // android.os.Handler
@@ -172,7 +172,7 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                if (message.what != 0 || (dVar = this.f14973a.get()) == null) {
+                if (message.what != 0 || (dVar = this.f14997a.get()) == null) {
                     return;
                 }
                 dVar.e();
@@ -195,17 +195,17 @@ public class d {
                 return;
             }
         }
-        this.f14968a = null;
-        this.f14969b = null;
-        this.f14970c = null;
-        HandlerC0711d handlerC0711d = new HandlerC0711d(this);
-        this.f14968a = handlerC0711d;
-        this.f14969b = cVar;
-        handlerC0711d.sendEmptyMessageDelayed(0, 50000L);
+        this.f14992a = null;
+        this.f14993b = null;
+        this.f14994c = null;
+        HandlerC0713d handlerC0713d = new HandlerC0713d(this);
+        this.f14992a = handlerC0713d;
+        this.f14993b = cVar;
+        handlerC0713d.sendEmptyMessageDelayed(0, 50000L);
         b bVar = new b(this, null);
-        this.f14970c = bVar;
+        this.f14994c = bVar;
         bVar.setSelfExecute(true);
-        b bVar2 = this.f14970c;
+        b bVar2 = this.f14994c;
         bVar2.execute(d() + str);
     }
 
@@ -222,13 +222,13 @@ public class d {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b bVar = this.f14970c;
+            b bVar = this.f14994c;
             if (bVar != null) {
                 bVar.cancel(true);
             }
-            HandlerC0711d handlerC0711d = this.f14968a;
-            if (handlerC0711d != null) {
-                handlerC0711d.removeMessages(0);
+            HandlerC0713d handlerC0713d = this.f14992a;
+            if (handlerC0713d != null) {
+                handlerC0713d.removeMessages(0);
             }
         }
     }

@@ -19,13 +19,13 @@ public class m extends ContextThemeWrapper implements ResContext {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ContextThemeWrapper f71475a;
+    public final ContextThemeWrapper f71510a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Resources.Theme f71476b;
+    public Resources.Theme f71511b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f71477c;
+    public int f71512c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(ContextThemeWrapper contextThemeWrapper) {
@@ -46,8 +46,8 @@ public class m extends ContextThemeWrapper implements ResContext {
                 return;
             }
         }
-        this.f71475a = contextThemeWrapper;
-        this.f71477c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
+        this.f71510a = contextThemeWrapper;
+        this.f71512c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -79,7 +79,7 @@ public class m extends ContextThemeWrapper implements ResContext {
     public Context getDelegatedContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71475a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71510a : (Context) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -123,12 +123,12 @@ public class m extends ContextThemeWrapper implements ResContext {
             }
             Resources externalResource = Loader.get().getExternalResource();
             if (externalResource != null) {
-                if (this.f71476b == null) {
+                if (this.f71511b == null) {
                     Resources.Theme newTheme = externalResource.newTheme();
-                    this.f71476b = newTheme;
-                    newTheme.applyStyle(this.f71477c, true);
+                    this.f71511b = newTheme;
+                    newTheme.applyStyle(this.f71512c, true);
                 }
-                return this.f71476b;
+                return this.f71511b;
             }
             return theme;
         }
@@ -139,7 +139,7 @@ public class m extends ContextThemeWrapper implements ResContext {
     public void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, componentCallbacks) == null) {
-            this.f71475a.registerComponentCallbacks(componentCallbacks);
+            this.f71510a.registerComponentCallbacks(componentCallbacks);
         }
     }
 
@@ -147,7 +147,7 @@ public class m extends ContextThemeWrapper implements ResContext {
     public void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, componentCallbacks) == null) {
-            this.f71475a.unregisterComponentCallbacks(componentCallbacks);
+            this.f71510a.unregisterComponentCallbacks(componentCallbacks);
         }
     }
 }

@@ -70,7 +70,7 @@ public class t extends a<c.a.q0.s.q.a> {
             if (aVar != null && aVar.getThreadData() != null) {
                 this.m = aVar;
                 d2 threadData = aVar.getThreadData();
-                c.a.r0.a0.m.j(threadData, this.l);
+                c.a.r0.b0.m.j(threadData, this.l);
                 this.k.setData(threadData);
                 return;
             }
@@ -87,7 +87,7 @@ public class t extends a<c.a.q0.s.q.a> {
             if (aVar == null || aVar.getThreadData() == null) {
                 return;
             }
-            c.a.r0.a0.m.l(this.l, this.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            c.a.r0.b0.m.l(this.l, this.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 }

@@ -33,35 +33,35 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile f f68551d;
+    public static volatile f f68586d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile ServerSocket f68552a;
+    public volatile ServerSocket f68587a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f68553b;
+    public volatile int f68588b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f68554c;
+    public final AtomicInteger f68589c;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.n.b.c f68555e;
+    public volatile com.bytedance.sdk.openadsdk.n.b.c f68590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.n.a.c f68556f;
+    public volatile com.bytedance.sdk.openadsdk.n.a.c f68591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.n.a.b f68557g;
+    public volatile com.bytedance.sdk.openadsdk.n.a.b f68592g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final SparseArray<Set<g>> f68558h;
+    public final SparseArray<Set<g>> f68593h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final g.c f68559i;
+    public final g.c f68594i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile c f68560j;
+    public volatile c f68595j;
     public volatile c k;
     public final Runnable l;
     public final AtomicBoolean m;
@@ -72,10 +72,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f68567a;
+        public final String f68602a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f68568b;
+        public final int f68603b;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -92,8 +92,8 @@ public class f {
                     return;
                 }
             }
-            this.f68567a = str;
-            this.f68568b = i2;
+            this.f68602a = str;
+            this.f68603b = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -106,11 +106,11 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    socket = new Socket(this.f68567a, this.f68568b);
+                    socket = new Socket(this.f68602a, this.f68603b);
                     try {
                         socket.setSoTimeout(2000);
                         OutputStream outputStream = socket.getOutputStream();
-                        outputStream.write("Ping\n".getBytes(com.bytedance.sdk.openadsdk.n.g.d.f68613a));
+                        outputStream.write("Ping\n".getBytes(com.bytedance.sdk.openadsdk.n.g.d.f68648a));
                         outputStream.flush();
                         if (StatHelper.SENSOR_OK.equals(new BufferedReader(new InputStreamReader(socket.getInputStream())).readLine())) {
                             return Boolean.TRUE;
@@ -150,14 +150,14 @@ public class f {
                 return;
             }
         }
-        this.f68554c = new AtomicInteger(0);
-        this.f68558h = new SparseArray<>(2);
-        this.f68559i = new g.c(this) { // from class: com.bytedance.sdk.openadsdk.n.f.1
+        this.f68589c = new AtomicInteger(0);
+        this.f68593h = new SparseArray<>(2);
+        this.f68594i = new g.c(this) { // from class: com.bytedance.sdk.openadsdk.n.f.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ f f68561a;
+            public final /* synthetic */ f f68596a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -174,15 +174,15 @@ public class f {
                         return;
                     }
                 }
-                this.f68561a = this;
+                this.f68596a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.n.g.c
             public void a(g gVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, gVar) == null) {
-                    synchronized (this.f68561a.f68558h) {
-                        Set set = (Set) this.f68561a.f68558h.get(gVar.f());
+                    synchronized (this.f68596a.f68593h) {
+                        Set set = (Set) this.f68596a.f68593h.get(gVar.f());
                         if (set != null) {
                             set.add(gVar);
                         }
@@ -194,12 +194,12 @@ public class f {
             public void b(g gVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) {
-                    if (e.f68533c) {
+                    if (e.f68568c) {
                         String str = "afterExecute, ProxyTask: " + gVar;
                     }
                     int f2 = gVar.f();
-                    synchronized (this.f68561a.f68558h) {
-                        Set set = (Set) this.f68561a.f68558h.get(f2);
+                    synchronized (this.f68596a.f68593h) {
+                        Set set = (Set) this.f68596a.f68593h.get(f2);
                         if (set != null) {
                             set.remove(gVar);
                         }
@@ -212,7 +212,7 @@ public class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ f f68562a;
+            public final /* synthetic */ f f68597a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -229,7 +229,7 @@ public class f {
                         return;
                     }
                 }
-                this.f68562a = this;
+                this.f68597a = this;
             }
 
             @Override // java.lang.Runnable
@@ -238,28 +238,28 @@ public class f {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
                         int i4 = 0;
-                        this.f68562a.f68552a = new ServerSocket(0, 50, InetAddress.getByName("127.0.0.1"));
-                        f fVar = this.f68562a;
-                        fVar.f68553b = fVar.f68552a.getLocalPort();
-                        if (this.f68562a.f68553b != -1) {
-                            j.a("127.0.0.1", this.f68562a.f68553b);
-                            if (this.f68562a.g() && this.f68562a.f68554c.compareAndSet(0, 1)) {
-                                boolean z = e.f68533c;
-                                while (this.f68562a.f68554c.get() == 1) {
+                        this.f68597a.f68587a = new ServerSocket(0, 50, InetAddress.getByName("127.0.0.1"));
+                        f fVar = this.f68597a;
+                        fVar.f68588b = fVar.f68587a.getLocalPort();
+                        if (this.f68597a.f68588b != -1) {
+                            j.a("127.0.0.1", this.f68597a.f68588b);
+                            if (this.f68597a.g() && this.f68597a.f68589c.compareAndSet(0, 1)) {
+                                boolean z = e.f68568c;
+                                while (this.f68597a.f68589c.get() == 1) {
                                     try {
                                         try {
-                                            Socket accept = this.f68562a.f68552a.accept();
-                                            com.bytedance.sdk.openadsdk.n.b.c cVar = this.f68562a.f68555e;
+                                            Socket accept = this.f68597a.f68587a.accept();
+                                            com.bytedance.sdk.openadsdk.n.b.c cVar = this.f68597a.f68590e;
                                             if (cVar != null) {
-                                                com.bytedance.sdk.component.d.e.a().execute(new com.bytedance.sdk.component.d.g(this, "ProxyTask", 10, new g.a().a(cVar).a(accept).a(this.f68562a.f68559i).a()) { // from class: com.bytedance.sdk.openadsdk.n.f.2.1
+                                                com.bytedance.sdk.component.d.e.a().execute(new com.bytedance.sdk.component.d.g(this, "ProxyTask", 10, new g.a().a(cVar).a(accept).a(this.f68597a.f68594i).a()) { // from class: com.bytedance.sdk.openadsdk.n.f.2.1
                                                     public static /* synthetic */ Interceptable $ic;
                                                     public transient /* synthetic */ FieldHolder $fh;
 
                                                     /* renamed from: a  reason: collision with root package name */
-                                                    public final /* synthetic */ g f68563a;
+                                                    public final /* synthetic */ g f68598a;
 
                                                     /* renamed from: b  reason: collision with root package name */
-                                                    public final /* synthetic */ AnonymousClass2 f68564b;
+                                                    public final /* synthetic */ AnonymousClass2 f68599b;
 
                                                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                                                     {
@@ -280,15 +280,15 @@ public class f {
                                                                 return;
                                                             }
                                                         }
-                                                        this.f68564b = this;
-                                                        this.f68563a = r11;
+                                                        this.f68599b = this;
+                                                        this.f68598a = r11;
                                                     }
 
                                                     @Override // java.lang.Runnable
                                                     public void run() {
                                                         Interceptable interceptable3 = $ic;
                                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                            this.f68563a.run();
+                                                            this.f68598a.run();
                                                         }
                                                     }
                                                 });
@@ -309,27 +309,27 @@ public class f {
                                         f.b("error", stackTraceString);
                                     }
                                 }
-                                boolean z2 = e.f68533c;
-                                this.f68562a.e();
+                                boolean z2 = e.f68568c;
+                                this.f68597a.e();
                                 return;
                             }
                             return;
                         }
                         f.b("socket not bound", "");
-                        this.f68562a.e();
+                        this.f68597a.e();
                     } catch (IOException e3) {
-                        if (e.f68533c) {
+                        if (e.f68568c) {
                             String str2 = "create ServerSocket error!  " + Log.getStackTraceString(e3);
                         }
                         f.b("create ServerSocket error", Log.getStackTraceString(e3));
-                        this.f68562a.e();
+                        this.f68597a.e();
                     }
                 }
             }
         };
         this.m = new AtomicBoolean();
-        this.f68558h.put(0, new HashSet());
-        this.f68558h.put(1, new HashSet());
+        this.f68593h.put(0, new HashSet());
+        this.f68593h.put(1, new HashSet());
     }
 
     public static void b(String str, String str2) {
@@ -342,8 +342,8 @@ public class f {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            if (this.f68554c.compareAndSet(1, 2) || this.f68554c.compareAndSet(0, 2)) {
-                com.bytedance.sdk.openadsdk.n.g.d.a(this.f68552a);
+            if (this.f68589c.compareAndSet(1, 2) || this.f68589c.compareAndSet(0, 2)) {
+                com.bytedance.sdk.openadsdk.n.g.d.a(this.f68587a);
                 f();
             }
         }
@@ -353,10 +353,10 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             ArrayList arrayList = new ArrayList();
-            synchronized (this.f68558h) {
-                int size = this.f68558h.size();
+            synchronized (this.f68593h) {
+                int size = this.f68593h.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    Set<g> set = this.f68558h.get(this.f68558h.keyAt(i2));
+                    Set<g> set = this.f68593h.get(this.f68593h.keyAt(i2));
                     if (set != null) {
                         arrayList.addAll(set);
                         set.clear();
@@ -375,16 +375,16 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
-            com.bytedance.sdk.component.d.f fVar = new com.bytedance.sdk.component.d.f(new a("127.0.0.1", this.f68553b), 5, 1);
+            com.bytedance.sdk.component.d.f fVar = new com.bytedance.sdk.component.d.f(new a("127.0.0.1", this.f68588b), 5, 1);
             com.bytedance.sdk.component.d.e.a(new com.bytedance.sdk.component.d.g(this, "pingTest", fVar) { // from class: com.bytedance.sdk.openadsdk.n.f.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.component.d.f f68565a;
+                public final /* synthetic */ com.bytedance.sdk.component.d.f f68600a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f f68566b;
+                public final /* synthetic */ f f68601b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -404,8 +404,8 @@ public class f {
                             return;
                         }
                     }
-                    this.f68566b = this;
-                    this.f68565a = fVar;
+                    this.f68601b = this;
+                    this.f68600a = fVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -413,7 +413,7 @@ public class f {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         com.bytedance.sdk.component.utils.k.b("TTExecutor", "pingTest.....run");
-                        this.f68565a.run();
+                        this.f68600a.run();
                     }
                 }
             });
@@ -424,7 +424,7 @@ public class f {
                     e();
                     return false;
                 }
-                boolean z = e.f68533c;
+                boolean z = e.f68568c;
                 return true;
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -442,11 +442,11 @@ public class f {
             Socket socket = null;
             try {
                 try {
-                    socket = this.f68552a.accept();
+                    socket = this.f68587a.accept();
                     socket.setSoTimeout(2000);
                     if ("Ping".equals(new BufferedReader(new InputStreamReader(socket.getInputStream())).readLine())) {
                         OutputStream outputStream = socket.getOutputStream();
-                        outputStream.write("OK\n".getBytes(com.bytedance.sdk.openadsdk.n.g.d.f68613a));
+                        outputStream.write("OK\n".getBytes(com.bytedance.sdk.openadsdk.n.g.d.f68648a));
                         outputStream.flush();
                     }
                 } catch (IOException e2) {
@@ -462,7 +462,7 @@ public class f {
     public c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68560j : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68595j : (c) invokeV.objValue;
     }
 
     public c c() {
@@ -487,11 +487,11 @@ public class f {
             if (str == null) {
                 return false;
             }
-            synchronized (this.f68558h) {
-                Set<g> set = this.f68558h.get(i2);
+            synchronized (this.f68593h) {
+                Set<g> set = this.f68593h.get(i2);
                 if (set != null) {
                     for (g gVar : set) {
-                        if (gVar != null && str.equals(gVar.f68454h)) {
+                        if (gVar != null && str.equals(gVar.f68489h)) {
                             return true;
                         }
                     }
@@ -506,14 +506,14 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f68551d == null) {
+            if (f68586d == null) {
                 synchronized (f.class) {
-                    if (f68551d == null) {
-                        f68551d = new f();
+                    if (f68586d == null) {
+                        f68586d = new f();
                     }
                 }
             }
-            return f68551d;
+            return f68586d;
         }
         return (f) invokeV.objValue;
     }
@@ -521,14 +521,14 @@ public class f {
     public void a(com.bytedance.sdk.openadsdk.n.b.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f68555e = cVar;
+            this.f68590e = cVar;
         }
     }
 
     public void a(com.bytedance.sdk.openadsdk.n.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f68556f = cVar;
+            this.f68591f = cVar;
         }
     }
 
@@ -540,15 +540,15 @@ public class f {
                 if (TextUtils.isEmpty(str)) {
                     b("key", "key is empty");
                     return strArr[0];
-                } else if (this.f68555e == null) {
+                } else if (this.f68590e == null) {
                     b(IMTrackDatabase.DbEnum.TABLE_NAME, "VideoProxyDB is null");
                     return strArr[0];
                 } else {
-                    if ((z ? this.f68557g : this.f68556f) == null) {
+                    if ((z ? this.f68592g : this.f68591f) == null) {
                         b(SapiOptions.KEY_CACHE, "Cache is null");
                         return strArr[0];
                     }
-                    int i2 = this.f68554c.get();
+                    int i2 = this.f68589c.get();
                     if (i2 != 1) {
                         b("state", "ProxyServer is not running, " + i2);
                         return strArr[0];
@@ -563,9 +563,9 @@ public class f {
                         b("url", "combine proxy url error");
                         return strArr[0];
                     } else if (z) {
-                        return "http://127.0.0.1:" + this.f68553b + "?f=1&" + a3;
+                        return "http://127.0.0.1:" + this.f68588b + "?f=1&" + a3;
                     } else {
-                        return "http://127.0.0.1:" + this.f68553b + "?" + a3;
+                        return "http://127.0.0.1:" + this.f68588b + "?" + a3;
                     }
                 }
             }

@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
-import io.flutter.embedding.android.FlutterView;
 import java.util.Map;
 /* loaded from: classes10.dex */
 public abstract class Platform {
@@ -47,8 +46,6 @@ public abstract class Platform {
     public abstract boolean isDebug();
 
     public abstract void openContainer(Context context, String str, Map<String, Object> map, int i2, Map<String, Object> map2);
-
-    public abstract FlutterView.RenderMode renderMode();
 
     public abstract int whenEngineStart();
 }

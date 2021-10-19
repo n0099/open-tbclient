@@ -19,7 +19,7 @@ public class a extends BaseBean {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62840a;
+    public String f62875a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -39,13 +39,13 @@ public class a extends BaseBean {
                 return;
             }
         }
-        this.f62840a = null;
+        this.f62875a = null;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f62840a = str;
+            this.f62875a = str;
         }
     }
 
@@ -63,8 +63,8 @@ public class a extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (this.f62840a != null) {
-                arrayList.add(new RestNameValuePair("serial_num", SecurePay.getInstance().encryptProxy(this.f62840a)));
+            if (this.f62875a != null) {
+                arrayList.add(new RestNameValuePair("serial_num", SecurePay.getInstance().encryptProxy(this.f62875a)));
             }
             arrayList.add(new RestNameValuePair("pay_type", "1"));
             return arrayList;

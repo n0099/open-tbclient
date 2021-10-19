@@ -2,8 +2,8 @@ package com.baidu.tieba.chosen.posts;
 
 import android.os.Bundle;
 import c.a.q0.k0.c.a;
-import c.a.r0.b0.a.b;
-import c.a.r0.b0.a.c.d;
+import c.a.r0.c0.a.b;
+import c.a.r0.c0.a.c.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;

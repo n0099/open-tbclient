@@ -20,35 +20,35 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f76703a;
+    public static SimpleDateFormat f76738a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f76704b;
+    public String f76739b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f76705c;
+    public int f76740c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f76706d;
+    public int f76741d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f76707e;
+    public int f76742e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f76708f;
+    public long f76743f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f76709g;
+    public File f76744g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f76710h;
+    public int f76745h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f76711i;
+    public String f76746i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f76712j;
+    public long f76747j;
 
     static {
         InterceptResult invokeClinit;
@@ -63,7 +63,7 @@ public class b {
                 return;
             }
         }
-        f76703a = d.C2098d.a("yy.MM.dd.HH");
+        f76738a = d.C2100d.a("yy.MM.dd.HH");
     }
 
     public b(File file, int i2, int i3, int i4, String str, long j2, int i5, String str2, long j3) {
@@ -81,14 +81,14 @@ public class b {
                 return;
             }
         }
-        this.f76704b = "Tracer.File";
-        this.f76705c = Integer.MAX_VALUE;
-        this.f76706d = Integer.MAX_VALUE;
-        this.f76707e = 4096;
-        this.f76708f = 10000L;
-        this.f76710h = 10;
-        this.f76711i = ".log";
-        this.f76712j = Long.MAX_VALUE;
+        this.f76739b = "Tracer.File";
+        this.f76740c = Integer.MAX_VALUE;
+        this.f76741d = Integer.MAX_VALUE;
+        this.f76742e = 4096;
+        this.f76743f = 10000L;
+        this.f76745h = 10;
+        this.f76746i = ".log";
+        this.f76747j = Long.MAX_VALUE;
         a(file);
         b(i2);
         a(i3);
@@ -162,74 +162,74 @@ public class b {
     public File e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f76709g : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f76744g : (File) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f76710h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f76745h : invokeV.intValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f76704b = str;
+            this.f76739b = str;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f76705c = i2;
+            this.f76740c = i2;
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f76706d = i2;
+            this.f76741d = i2;
         }
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f76708f = j2;
+            this.f76743f = j2;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f76711i = str;
+            this.f76746i = str;
         }
     }
 
     public void a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
-            this.f76709g = file;
+            this.f76744g = file;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f76712j = j2;
+            this.f76747j = j2;
         }
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f76707e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f76742e : invokeV.intValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f76710h = i2;
+            this.f76745h = i2;
         }
     }
 
@@ -245,13 +245,13 @@ public class b {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f76704b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f76739b : (String) invokeV.objValue;
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f76707e = i2;
+            this.f76742e = i2;
         }
     }
 }

@@ -19,7 +19,7 @@ public class PerformanceStatisticApi implements f {
     public int xc;
     public boolean xd;
     public a xe;
-    public a.C1636a xf;
+    public a.C1638a xf;
     public f.a xg;
 
     public PerformanceStatisticApi() {
@@ -44,12 +44,12 @@ public class PerformanceStatisticApi implements f {
     private void gs() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.xf == null) {
-            a.C1636a c1636a = new a.C1636a();
-            this.xf = c1636a;
+            a.C1638a c1638a = new a.C1638a();
+            this.xf = c1638a;
             int i2 = this.xc + 1;
             this.xc = i2;
-            c1636a.xn = i2;
-            this.xe.xm.add(c1636a);
+            c1638a.xn = i2;
+            this.xe.xm.add(c1638a);
         }
     }
 
@@ -105,12 +105,12 @@ public class PerformanceStatisticApi implements f {
             try {
                 if (this.xd) {
                     gs();
-                    a.C1636a.C1637a c1637a = new a.C1636a.C1637a();
-                    c1637a.name = str;
-                    c1637a.xr = str2;
-                    c1637a.xs = j2;
-                    c1637a.count = i2;
-                    this.xf.xq.add(c1637a);
+                    a.C1638a.C1639a c1639a = new a.C1638a.C1639a();
+                    c1639a.name = str;
+                    c1639a.xr = str2;
+                    c1639a.xs = j2;
+                    c1639a.count = i2;
+                    this.xf.xq.add(c1639a);
                 }
             } catch (RuntimeException e2) {
                 e2.printStackTrace();

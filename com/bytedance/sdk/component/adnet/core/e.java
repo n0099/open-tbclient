@@ -13,16 +13,16 @@ public class e implements com.bytedance.sdk.component.adnet.face.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64614a;
+    public int f64649a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64615b;
+    public int f64650b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64616c;
+    public int f64651c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final float f64617d;
+    public final float f64652d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e() {
@@ -47,7 +47,7 @@ public class e implements com.bytedance.sdk.component.adnet.face.d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            this.f64614a = i2;
+            this.f64649a = i2;
             return this;
         }
         return (e) invokeI.objValue;
@@ -57,7 +57,7 @@ public class e implements com.bytedance.sdk.component.adnet.face.d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            this.f64616c = i2;
+            this.f64651c = i2;
             return this;
         }
         return (e) invokeI.objValue;
@@ -66,7 +66,7 @@ public class e implements com.bytedance.sdk.component.adnet.face.d {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64615b <= this.f64616c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64650b <= this.f64651c : invokeV.booleanValue;
     }
 
     public e(int i2, int i3, float f2) {
@@ -84,32 +84,32 @@ public class e implements com.bytedance.sdk.component.adnet.face.d {
                 return;
             }
         }
-        this.f64614a = i2;
-        this.f64616c = i3;
-        this.f64617d = f2;
+        this.f64649a = i2;
+        this.f64651c = i3;
+        this.f64652d = f2;
     }
 
     @Override // com.bytedance.sdk.component.adnet.face.d
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64614a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64649a : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.component.adnet.face.d
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64615b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64650b : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.component.adnet.face.d
     public void a(VAdError vAdError) throws VAdError {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vAdError) == null) {
-            this.f64615b++;
-            int i2 = this.f64614a;
-            this.f64614a = i2 + ((int) (i2 * this.f64617d));
+            this.f64650b++;
+            int i2 = this.f64649a;
+            this.f64649a = i2 + ((int) (i2 * this.f64652d));
             if (!c()) {
                 throw vAdError;
             }

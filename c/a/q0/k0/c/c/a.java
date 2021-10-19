@@ -57,7 +57,10 @@ public abstract class a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
-            if (bVar != null && bVar.e() == null) {
+            if (bVar == null) {
+                return false;
+            }
+            if (bVar.e() == null) {
                 bVar.i(this.uniqueId);
             }
             if (this.eventDelegates != null) {

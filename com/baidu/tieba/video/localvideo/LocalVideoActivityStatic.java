@@ -56,14 +56,14 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<c.a.r0.e0.b> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<c.a.r0.f0.b> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage == null || !(customMessage.getData() instanceof c.a.r0.x3.b)) {
+                if (customMessage == null || !(customMessage.getData() instanceof c.a.r0.y3.b)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921466, new c.a.r0.x3.i.h.b((c.a.r0.x3.b) customMessage.getData()));
+                return new CustomResponsedMessage<>(2921466, new c.a.r0.y3.i.h.b((c.a.r0.y3.b) customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -80,16 +80,16 @@ public class LocalVideoActivityStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public String f57763a;
+            public String f57697a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f57764b;
+            public String f57698b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f57765c;
+            public String f57699c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f57766d;
+            public final /* synthetic */ CustomResponsedMessage f57700d;
 
             public a(b bVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class LocalVideoActivityStatic {
                         return;
                     }
                 }
-                this.f57766d = customResponsedMessage;
+                this.f57700d = customResponsedMessage;
             }
 
             @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -134,16 +134,16 @@ public class LocalVideoActivityStatic {
                     return;
                 }
                 if ("libnama.so".equals(packageInfo.name)) {
-                    this.f57763a = BdBaseApplication.getInst().getResHashMap().get("libnama.so");
+                    this.f57697a = BdBaseApplication.getInst().getResHashMap().get("libnama.so");
                 }
                 if ("face_beautification.mp3".equals(packageInfo.name)) {
-                    this.f57764b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
+                    this.f57698b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
                 }
                 if ("v3.mp3".equals(packageInfo.name)) {
-                    this.f57765c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
+                    this.f57699c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
                 }
-                if (!StringUtils.isNull(this.f57763a) && !StringUtils.isNull(this.f57764b) && !StringUtils.isNull(this.f57765c)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f57766d.getData()));
+                if (!StringUtils.isNull(this.f57697a) && !StringUtils.isNull(this.f57698b) && !StringUtils.isNull(this.f57699c)) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f57700d.getData()));
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
             }

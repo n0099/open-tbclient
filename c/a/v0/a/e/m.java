@@ -17,33 +17,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubs.analytics.a.n;
 import java.util.UUID;
 /* loaded from: classes4.dex */
-public final class m implements a.InterfaceC1401a {
+public final class m implements a.InterfaceC1404a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static n f30353f;
+    public static n f30400f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f30354g;
+    public static long f30401g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f30355h;
+    public static long f30402h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f30356a;
+    public boolean f30403a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30357b;
+    public boolean f30404b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f30358c;
+    public Handler f30405c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Runnable f30359d;
+    public Runnable f30406d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f30360e;
+    public e f30407e;
 
     /* loaded from: classes4.dex */
     public class a implements e {
@@ -51,15 +51,15 @@ public final class m implements a.InterfaceC1401a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f30361a;
+        public final /* synthetic */ m f30408a;
 
         /* renamed from: c.a.v0.a.e.m$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1402a extends c.a.v0.a.f.c {
+        public class C1405a extends c.a.v0.a.f.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1402a(a aVar) {
+            public C1405a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public final class m implements a.InterfaceC1401a {
                     return;
                 }
             }
-            this.f30361a = mVar;
+            this.f30408a = mVar;
         }
 
         @Override // c.a.v0.a.e.m.e
@@ -110,11 +110,11 @@ public final class m implements a.InterfaceC1401a {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 c.a.v0.a.f.a.b("app   went foreground ");
-                if (currentTimeMillis - m.f30355h > m.f30354g) {
-                    this.f30361a.m(currentTimeMillis);
+                if (currentTimeMillis - m.f30402h > m.f30401g) {
+                    this.f30408a.m(currentTimeMillis);
                 }
                 if (c.a.v0.a.c.i().h()) {
-                    c.a.v0.a.f.b.a(new C1402a(this));
+                    c.a.v0.a.f.b.a(new C1405a(this));
                 }
             }
         }
@@ -124,11 +124,11 @@ public final class m implements a.InterfaceC1401a {
             c.a.v0.a.e.d dVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                dVar = d.a.f30329a;
+                dVar = d.a.f30376a;
                 if (dVar.a().size() == 0) {
                     c.a.v0.a.f.a.b("后台应用退出了 了               ");
                     c.a.v0.a.c.i().d(true);
-                    long unused = m.f30355h = 0L;
+                    long unused = m.f30402h = 0L;
                     return;
                 }
                 c.a.v0.a.f.a.b("进入后台但没退出                  ");
@@ -142,7 +142,7 @@ public final class m implements a.InterfaceC1401a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f30362e;
+        public final /* synthetic */ m f30409e;
 
         public b(m mVar) {
             Interceptable interceptable = $ic;
@@ -159,16 +159,16 @@ public final class m implements a.InterfaceC1401a {
                     return;
                 }
             }
-            this.f30362e = mVar;
+            this.f30409e = mVar;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f30362e.f30356a && this.f30362e.f30357b) {
-                this.f30362e.f30356a = false;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f30409e.f30403a && this.f30409e.f30404b) {
+                this.f30409e.f30403a = false;
                 try {
-                    this.f30362e.f30360e.b();
+                    this.f30409e.f30407e.b();
                 } catch (Exception e2) {
                     c.a.v0.a.f.i.b("Listener threw exception!:" + e2.toString());
                 }
@@ -202,17 +202,17 @@ public final class m implements a.InterfaceC1401a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                m.f30353f.z(String.valueOf(currentTimeMillis));
+                m.f30400f.z(String.valueOf(currentTimeMillis));
                 try {
-                    m.f30353f.A(String.valueOf(currentTimeMillis - Long.parseLong(m.f30353f.N())));
+                    m.f30400f.A(String.valueOf(currentTimeMillis - Long.parseLong(m.f30400f.N())));
                 } catch (NumberFormatException e2) {
                     c.a.v0.a.f.a.b(e2.getLocalizedMessage());
                 }
                 c.l lVar = new c.l();
-                if (lVar.b(m.f30353f.I())) {
-                    lVar.e(m.f30353f);
+                if (lVar.b(m.f30400f.I())) {
+                    lVar.e(m.f30400f);
                 } else {
-                    lVar.f(m.f30353f);
+                    lVar.f(m.f30400f);
                 }
             }
         }
@@ -244,7 +244,7 @@ public final class m implements a.InterfaceC1401a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.v0.a.f.a.b("超时了……………… 一个新的session");
-                new c.l().f(m.f30353f);
+                new c.l().f(m.f30400f);
             }
         }
     }
@@ -269,7 +269,7 @@ public final class m implements a.InterfaceC1401a {
                 return;
             }
         }
-        f30354g = f.a();
+        f30401g = f.a();
     }
 
     public m() {
@@ -285,35 +285,35 @@ public final class m implements a.InterfaceC1401a {
                 return;
             }
         }
-        this.f30356a = false;
-        this.f30357b = true;
-        this.f30358c = new Handler();
-        this.f30360e = new a(this);
+        this.f30403a = false;
+        this.f30404b = true;
+        this.f30405c = new Handler();
+        this.f30407e = new a(this);
         long currentTimeMillis = System.currentTimeMillis();
-        f30355h = currentTimeMillis;
+        f30402h = currentTimeMillis;
         m(currentTimeMillis);
     }
 
     public static n e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f30353f : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f30400f : (n) invokeV.objValue;
     }
 
-    @Override // c.a.v0.a.e.a.InterfaceC1401a
+    @Override // c.a.v0.a.e.a.InterfaceC1404a
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30357b = false;
-            boolean z = !this.f30356a;
-            this.f30356a = true;
-            Runnable runnable = this.f30359d;
+            this.f30404b = false;
+            boolean z = !this.f30403a;
+            this.f30403a = true;
+            Runnable runnable = this.f30406d;
             if (runnable != null) {
-                this.f30358c.removeCallbacks(runnable);
+                this.f30405c.removeCallbacks(runnable);
             }
             if (z) {
                 try {
-                    this.f30360e.a();
+                    this.f30407e.a();
                 } catch (Exception e2) {
                     c.a.v0.a.f.i.b("Listener threw exception!:" + e2.toString());
                 }
@@ -321,28 +321,28 @@ public final class m implements a.InterfaceC1401a {
         }
     }
 
-    @Override // c.a.v0.a.e.a.InterfaceC1401a
+    @Override // c.a.v0.a.e.a.InterfaceC1404a
     public final void a(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
         }
     }
 
-    @Override // c.a.v0.a.e.a.InterfaceC1401a
+    @Override // c.a.v0.a.e.a.InterfaceC1404a
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f30357b = true;
-            Runnable runnable = this.f30359d;
+            this.f30404b = true;
+            Runnable runnable = this.f30406d;
             if (runnable != null) {
-                this.f30358c.removeCallbacks(runnable);
-                this.f30359d = null;
+                this.f30405c.removeCallbacks(runnable);
+                this.f30406d = null;
             }
-            f30355h = System.currentTimeMillis();
+            f30402h = System.currentTimeMillis();
             c.a.v0.a.f.b.c(new c(this));
-            Handler handler = this.f30358c;
+            Handler handler = this.f30405c;
             b bVar = new b(this);
-            this.f30359d = bVar;
+            this.f30406d = bVar;
             handler.postDelayed(bVar, 1000L);
         }
     }
@@ -351,14 +351,14 @@ public final class m implements a.InterfaceC1401a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             n nVar = new n();
-            f30353f = nVar;
+            f30400f = nVar;
             nVar.setStartTime(String.valueOf(j2));
-            f30353f.x(UUID.randomUUID().toString().replace("-", ""));
+            f30400f.x(UUID.randomUUID().toString().replace("-", ""));
             c.a.v0.a.f.b.c(new d(this));
         }
     }
 
-    @Override // c.a.v0.a.e.a.InterfaceC1401a
+    @Override // c.a.v0.a.e.a.InterfaceC1404a
     public final void onActivityDestroyed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {

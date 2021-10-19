@@ -22,10 +22,10 @@ public class BdBaseImageView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f46334e;
+    public boolean f46246e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46335f;
+    public int f46247f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdBaseImageView(Context context) {
@@ -45,8 +45,8 @@ public class BdBaseImageView extends ImageView {
                 return;
             }
         }
-        this.f46334e = true;
-        this.f46335f = 0;
+        this.f46246e = true;
+        this.f46247f = 0;
     }
 
     public final boolean a() {
@@ -58,7 +58,7 @@ public class BdBaseImageView extends ImageView {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46334e || this.f46335f != b0.d(getContext()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46246e || this.f46247f != b0.d(getContext()) : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -67,8 +67,8 @@ public class BdBaseImageView extends ImageView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             if (b()) {
                 b0.b(getContext(), getDrawable());
-                this.f46335f = b0.d(getContext());
-                this.f46334e = false;
+                this.f46247f = b0.d(getContext());
+                this.f46246e = false;
             }
             super.draw(canvas);
         }
@@ -90,7 +90,7 @@ public class BdBaseImageView extends ImageView {
     public void setImageDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
-            this.f46334e = true;
+            this.f46246e = true;
             super.setImageDrawable(drawable);
         }
     }
@@ -114,8 +114,8 @@ public class BdBaseImageView extends ImageView {
                 return;
             }
         }
-        this.f46334e = true;
-        this.f46335f = 0;
+        this.f46246e = true;
+        this.f46247f = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -137,7 +137,7 @@ public class BdBaseImageView extends ImageView {
                 return;
             }
         }
-        this.f46334e = true;
-        this.f46335f = 0;
+        this.f46246e = true;
+        this.f46247f = 0;
     }
 }

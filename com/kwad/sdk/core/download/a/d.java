@@ -14,22 +14,22 @@ public class d extends com.kwad.sdk.core.e.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f71955a;
+    public int f71990a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f71956b;
+    public e f71991b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f71957c;
+    public AdBaseFrameLayout f71992c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f71958d;
+    public AdTemplate f71993d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f71959e;
+    public com.kwad.sdk.core.download.b.b f71994e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class d extends com.kwad.sdk.core.e.b {
     public void a() {
         com.kwad.sdk.core.download.b.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f71959e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f71994e) == null) {
             return;
         }
         bVar.f();

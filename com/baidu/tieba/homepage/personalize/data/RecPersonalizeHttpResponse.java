@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.personalize.data;
 
-import c.a.r0.g1.h.j.i;
+import c.a.r0.h1.h.j.i;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -65,10 +65,10 @@ public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
             }
             setErrorString(personalizedResIdl.error.usermsg);
         }
-        i.f18360a = false;
+        i.f18530a = false;
         if (i.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
             this.resultData = i.b();
-            i.f18360a = true;
+            i.f18530a = true;
             i.a();
             return;
         }

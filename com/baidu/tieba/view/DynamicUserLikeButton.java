@@ -109,13 +109,13 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
             if (this.t) {
                 if (z) {
                     c.a.q0.s.f0.n.b bVar = new c.a.q0.s.f0.n.b();
-                    bVar.p();
+                    bVar.q();
                     setConfig(bVar);
                     setClickable(true);
                     setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
                 } else {
                     c.a.q0.s.f0.n.b bVar2 = new c.a.q0.s.f0.n.b();
-                    bVar2.s(R.color.CAM_X0105);
+                    bVar2.t(R.color.CAM_X0105);
                     bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
                     bVar2.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
                     bVar2.h(R.color.CAM_X0105);
@@ -125,13 +125,13 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
                 }
             } else if (z) {
                 c.a.q0.s.f0.n.b bVar3 = new c.a.q0.s.f0.n.b();
-                bVar3.r(R.color.CAM_X0109);
+                bVar3.s(R.color.CAM_X0109);
                 setConfig(bVar3);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
                 c.a.q0.s.f0.n.b bVar4 = new c.a.q0.s.f0.n.b();
-                bVar4.q(R.color.CAM_X0302);
+                bVar4.r(R.color.CAM_X0302);
                 if (this.s) {
                     bVar4.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
                     bVar4.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -185,7 +185,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
             }
         }
         c.a.q0.s.f0.n.b bVar = new c.a.q0.s.f0.n.b();
-        bVar.q(R.color.CAM_X0302);
+        bVar.r(R.color.CAM_X0302);
         setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
     }

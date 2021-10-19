@@ -23,32 +23,32 @@ public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final AtomicLong f14551i;
+    public static final AtomicLong f14571i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f14552a;
+    public final String f14572a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f14553b;
+    public final String f14573b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, Object> f14554c;
+    public final Map<String, Object> f14574c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, Object> f14555d;
+    public final Map<String, Object> f14575d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f14556e;
+    public final int f14576e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f14557f;
+    public final String f14577f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f14558g;
+    public final long f14578g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final long f14559h;
+    public final long f14579h;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -62,7 +62,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public final k f14560j;
+        public final k f14580j;
 
         public /* synthetic */ b(int i2, String str, String str2, Map map, Map map2, String str3, k kVar, long j2, a aVar) {
             this(i2, str, str2, map, map2, str3, kVar, j2);
@@ -72,7 +72,7 @@ public class m {
         public void g(int i2, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, th) == null) {
-                this.f14560j.b(i2, th);
+                this.f14580j.b(i2, th);
             }
         }
 
@@ -80,7 +80,7 @@ public class m {
         public void h(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-                this.f14560j.a(this, jSONObject);
+                this.f14580j.a(this, jSONObject);
             }
         }
 
@@ -103,7 +103,7 @@ public class m {
                     return;
                 }
             }
-            this.f14560j = kVar;
+            this.f14580j = kVar;
         }
     }
 
@@ -120,7 +120,7 @@ public class m {
                 return;
             }
         }
-        f14551i = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+        f14571i = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
     }
 
     public /* synthetic */ m(int i2, String str, String str2, Map map, Map map2, String str3, long j2, a aVar) {
@@ -140,7 +140,7 @@ public class m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            long andIncrement = f14551i.getAndIncrement();
+            long andIncrement = f14571i.getAndIncrement();
             return "TBCWebViewJsBridge_callback_ID_" + andIncrement;
         }
         return (String) invokeV.objValue;
@@ -169,27 +169,27 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (!TextUtils.isEmpty(this.f14552a)) {
-                jSONObject.put("cmd", this.f14552a);
+            if (!TextUtils.isEmpty(this.f14572a)) {
+                jSONObject.put("cmd", this.f14572a);
             }
-            if (!TextUtils.isEmpty(this.f14553b)) {
-                jSONObject.put("method", this.f14553b);
+            if (!TextUtils.isEmpty(this.f14573b)) {
+                jSONObject.put("method", this.f14573b);
             }
-            Map<String, Object> map = this.f14554c;
+            Map<String, Object> map = this.f14574c;
             if (map != null && !map.isEmpty()) {
                 JSONObject jSONObject2 = new JSONObject();
-                e(this.f14554c, jSONObject2);
+                e(this.f14574c, jSONObject2);
                 jSONObject.put("inputData", jSONObject2);
             }
-            Map<String, Object> map2 = this.f14555d;
+            Map<String, Object> map2 = this.f14575d;
             if (map2 != null && !map2.isEmpty()) {
                 JSONObject jSONObject3 = new JSONObject();
-                e(this.f14555d, jSONObject3);
+                e(this.f14575d, jSONObject3);
                 jSONObject.put("outputData", jSONObject3);
             }
             jSONObject.put("messageType", f());
-            if (!TextUtils.isEmpty(this.f14557f)) {
-                jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.f14557f);
+            if (!TextUtils.isEmpty(this.f14577f)) {
+                jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.f14577f);
             }
             return c(jSONObject.toString());
         }
@@ -219,7 +219,7 @@ public class m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = this.f14556e;
+            int i2 = this.f14576e;
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 == 3) {
@@ -261,13 +261,13 @@ public class m {
                 return;
             }
         }
-        this.f14552a = str;
-        this.f14553b = str2;
-        this.f14554c = map;
-        this.f14555d = map2;
-        this.f14556e = i2;
-        this.f14557f = str3;
-        this.f14558g = j2;
-        this.f14559h = System.currentTimeMillis();
+        this.f14572a = str;
+        this.f14573b = str2;
+        this.f14574c = map;
+        this.f14575d = map2;
+        this.f14576e = i2;
+        this.f14577f = str3;
+        this.f14578g = j2;
+        this.f14579h = System.currentTimeMillis();
     }
 }

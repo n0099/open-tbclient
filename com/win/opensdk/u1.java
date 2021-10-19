@@ -12,7 +12,7 @@ public class u1 implements n1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ A1 f77501a;
+    public final /* synthetic */ A1 f77536a;
 
     public u1(A1 a1) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class u1 implements n1 {
                 return;
             }
         }
-        this.f77501a = a1;
+        this.f77536a = a1;
     }
 
     @Override // com.win.opensdk.n1
@@ -45,12 +45,12 @@ public class u1 implements n1 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             Info info = (Info) obj;
             try {
-                this.f77501a.f77075c = info;
-                if (this.f77501a.f77078f != null) {
+                this.f77536a.f77110c = info;
+                if (this.f77536a.f77113f != null) {
                     if (info == null || info.getType() != 51) {
-                        this.f77501a.f77078f.onFail(PBError.PID_TYPE_ERROR);
-                    } else if (this.f77501a.b()) {
-                        this.f77501a.f77078f.onLoaded();
+                        this.f77536a.f77113f.onFail(PBError.PID_TYPE_ERROR);
+                    } else if (this.f77536a.b()) {
+                        this.f77536a.f77113f.onLoaded();
                     }
                 }
             } catch (Exception unused) {
@@ -62,7 +62,7 @@ public class u1 implements n1 {
     public void onFail(PBError pBError) {
         F f2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (f2 = this.f77501a.f77078f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (f2 = this.f77536a.f77113f) == null) {
             return;
         }
         f2.onFail(pBError);

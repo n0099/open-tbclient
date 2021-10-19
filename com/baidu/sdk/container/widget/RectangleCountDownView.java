@@ -22,13 +22,13 @@ public class RectangleCountDownView extends AbsCountDownView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f45175f;
+    public long f45087f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f45176g;
+    public long f45088g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f45177h;
+    public long f45089h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RectangleCountDownView(Context context) {
@@ -62,7 +62,7 @@ public class RectangleCountDownView extends AbsCountDownView {
             gradientDrawable.setCornerRadius(h.a(context, 15.0f));
             gradientDrawable.setColor(Color.parseColor("#33000000"));
             setBackground(gradientDrawable);
-            setText(String.format("跳过 %02d", Long.valueOf(this.f45176g / 1000)));
+            setText(String.format("跳过 %02d", Long.valueOf(this.f45088g / 1000)));
         }
     }
 
@@ -71,7 +71,7 @@ public class RectangleCountDownView extends AbsCountDownView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            setText(String.format("跳过 %02d", Integer.valueOf(Math.round(((float) this.f45177h) / 1000.0f))));
+            setText(String.format("跳过 %02d", Integer.valueOf(Math.round(((float) this.f45089h) / 1000.0f))));
         }
     }
 
@@ -79,8 +79,8 @@ public class RectangleCountDownView extends AbsCountDownView {
     public void setTimeMillis(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f45176g = j2;
-            this.f45177h = j2;
+            this.f45088g = j2;
+            this.f45089h = j2;
         }
     }
 
@@ -89,8 +89,8 @@ public class RectangleCountDownView extends AbsCountDownView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setTaskPeriod(250L);
-            this.f45175f = System.currentTimeMillis();
-            setText(String.format("跳过 %02d", Long.valueOf(this.f45176g / 1000)));
+            this.f45087f = System.currentTimeMillis();
+            setText(String.format("跳过 %02d", Long.valueOf(this.f45088g / 1000)));
             super.start();
         }
     }
@@ -107,8 +107,8 @@ public class RectangleCountDownView extends AbsCountDownView {
     public void updateProTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            long currentTimeMillis = this.f45176g - (System.currentTimeMillis() - this.f45175f);
-            this.f45177h = currentTimeMillis;
+            long currentTimeMillis = this.f45088g - (System.currentTimeMillis() - this.f45087f);
+            this.f45089h = currentTimeMillis;
             if (currentTimeMillis > 0) {
                 postInvalidate();
                 return;
@@ -125,7 +125,7 @@ public class RectangleCountDownView extends AbsCountDownView {
     public void updateProgres(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            this.f45177h = i3;
+            this.f45089h = i3;
             postInvalidate();
         }
     }
@@ -170,7 +170,7 @@ public class RectangleCountDownView extends AbsCountDownView {
                 return;
             }
         }
-        this.f45175f = 0L;
+        this.f45087f = 0L;
         initialize(context, attributeSet);
     }
 }

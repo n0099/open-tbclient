@@ -17,7 +17,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f64350a;
+    public static final byte[] f64385a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class d {
                 return;
             }
         }
-        f64350a = "#PART#".getBytes();
+        f64385a = "#PART#".getBytes();
     }
 
     public static String a(String str) {
@@ -68,7 +68,7 @@ public class d {
                 if (i4 == 117 || i3 == length - 1) {
                     i5++;
                     if (i5 != 1) {
-                        for (byte b2 : f64350a) {
+                        for (byte b2 : f64385a) {
                             arrayList.add(Byte.valueOf(b2));
                         }
                     }

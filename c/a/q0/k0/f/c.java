@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.q0.k0.d.b;
 import c.a.q0.k0.f.a;
-import c.a.r0.j3.u;
+import c.a.r0.k3.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -30,22 +30,22 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<D> f13539e;
+    public List<D> f13558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<H> f13540f;
+    public final List<H> f13559f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseArray<H> f13541g;
+    public final SparseArray<H> f13560g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final TbPageContext<?> f13542h;
+    public final TbPageContext<?> f13561h;
 
     /* renamed from: i  reason: collision with root package name */
-    public S f13543i;
+    public S f13562i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final ViewEventCenter f13544j;
+    public final ViewEventCenter f13563j;
     public boolean k;
     public NoDataView l;
     public FrameLayout m;
@@ -69,11 +69,11 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
                 return;
             }
         }
-        this.f13540f = new ArrayList();
-        this.f13541g = new SparseArray<>();
+        this.f13559f = new ArrayList();
+        this.f13560g = new SparseArray<>();
         this.k = true;
-        this.f13542h = tbPageContext;
-        this.f13544j = viewEventCenter;
+        this.f13561h = tbPageContext;
+        this.f13563j = viewEventCenter;
     }
 
     public View a() {
@@ -81,10 +81,10 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.m == null) {
-                this.m = new FrameLayout(this.f13542h.getPageActivity());
+                this.m = new FrameLayout(this.f13561h.getPageActivity());
             }
             if (this.l == null) {
-                this.l = NoDataViewFactory.a(this.f13542h.getPageActivity(), this.m, this.o, this.n, this.p);
+                this.l = NoDataViewFactory.a(this.f13561h.getPageActivity(), this.m, this.o, this.n, this.p);
             }
             this.l.setVisibility(0);
             FrameLayout.LayoutParams layoutParams = this.q;
@@ -92,7 +92,7 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
                 this.l.setLayoutParams(layoutParams);
             }
             this.m.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-            this.l.onChangeSkinType(this.f13542h, TbadkCoreApplication.getInst().getSkinType());
+            this.l.onChangeSkinType(this.f13561h, TbadkCoreApplication.getInst().getSkinType());
             return this.m;
         }
         return (View) invokeV.objValue;
@@ -113,7 +113,7 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<D> list = this.f13539e;
+            List<D> list = this.f13558e;
             if (list == null) {
                 return 0;
             }
@@ -126,10 +126,10 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f13539e == null) {
+            if (this.f13558e == null) {
                 return new ArrayList();
             }
-            return new ArrayList(this.f13539e);
+            return new ArrayList(this.f13558e);
         }
         return (List) invokeV.objValue;
     }
@@ -138,7 +138,7 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<D> list = this.f13539e;
+            List<D> list = this.f13558e;
             return list != null && list.size() == 0;
         }
         return invokeV.booleanValue;
@@ -149,10 +149,10 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{view, Integer.valueOf(i2), cls, Integer.valueOf(i3)})) == null) {
             H g2 = g(view, cls, i3);
-            if (this.f13541g.indexOfValue(g2) >= 0) {
-                this.f13541g.remove(g2.n());
+            if (this.f13560g.indexOfValue(g2) >= 0) {
+                this.f13560g.remove(g2.n());
             }
-            this.f13541g.put(i2, g2);
+            this.f13560g.put(i2, g2);
             m(g2, i2);
             return g2.g();
         }
@@ -166,12 +166,12 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
             if (view != null && view.getTag() != null) {
                 return (H) view.getTag();
             }
-            View inflate = this.f13542h.getPageActivity().getLayoutInflater().inflate(i2, (ViewGroup) null);
+            View inflate = this.f13561h.getPageActivity().getLayoutInflater().inflate(i2, (ViewGroup) null);
             try {
-                H h2 = (H) cls.getConstructor(TbPageContext.class, View.class, ViewEventCenter.class).newInstance(this.f13542h, inflate, this.f13544j);
-                h2.onChangeSkinType(this.f13542h, TbadkCoreApplication.getInst().getSkinType());
+                H h2 = (H) cls.getConstructor(TbPageContext.class, View.class, ViewEventCenter.class).newInstance(this.f13561h, inflate, this.f13563j);
+                h2.onChangeSkinType(this.f13561h, TbadkCoreApplication.getInst().getSkinType());
                 inflate.setTag(h2);
-                this.f13540f.add(h2);
+                this.f13559f.add(h2);
                 return h2;
             } catch (IllegalAccessException e2) {
                 throw new RuntimeException(e2);
@@ -195,14 +195,14 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<D> list = this.f13539e;
+            List<D> list = this.f13558e;
             if (list == null) {
                 return 0;
             }
             if (list.size() == 0 && this.k) {
                 return 1;
             }
-            return this.f13539e.size();
+            return this.f13558e.size();
         }
         return invokeV.intValue;
     }
@@ -212,9 +212,9 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            List<D> list = this.f13539e;
-            if (list != null && list.size() != 0 && i2 >= 0 && i2 < this.f13539e.size()) {
-                return this.f13539e.get(i2);
+            List<D> list = this.f13558e;
+            if (list != null && list.size() != 0 && i2 >= 0 && i2 < this.f13558e.size()) {
+                return this.f13558e.get(i2);
             }
             return null;
         }
@@ -226,8 +226,8 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            List<D> list = this.f13539e;
-            if (list != null && list.size() != 0 && i2 >= 0 && i2 < this.f13539e.size()) {
+            List<D> list = this.f13558e;
+            if (list != null && list.size() != 0 && i2 >= 0 && i2 < this.f13558e.size()) {
                 return i2;
             }
             return 0L;
@@ -238,7 +238,7 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
     public void h(D d2) {
         List<D> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, d2) == null) || d2 == null || (list = this.f13539e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, d2) == null) || d2 == null || (list = this.f13558e) == null) {
             return;
         }
         list.remove(d2);
@@ -250,10 +250,10 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
         if (!(interceptable == null || interceptable.invokeL(1048587, this, list) == null) || list == null) {
             return;
         }
-        if (this.f13539e == null) {
-            this.f13539e = new ArrayList();
+        if (this.f13558e == null) {
+            this.f13558e = new ArrayList();
         }
-        this.f13539e.addAll(list);
+        this.f13558e.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -289,12 +289,12 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
         if (!(interceptable == null || interceptable.invokeL(1048590, this, list) == null) || list == null) {
             return;
         }
-        if (this.f13539e == null) {
-            this.f13539e = new ArrayList();
+        if (this.f13558e == null) {
+            this.f13558e = new ArrayList();
         }
-        this.f13539e.clear();
-        this.f13539e.addAll(list);
-        this.f13541g.clear();
+        this.f13558e.clear();
+        this.f13558e.addAll(list);
+        this.f13560g.clear();
     }
 
     public final void m(H h2, int i2) {
@@ -303,35 +303,35 @@ public abstract class c<D, S extends c.a.q0.k0.d.b, H extends a<D, S>> extends B
         if (!(interceptable == null || interceptable.invokeLI(1048591, this, h2, i2) == null) || (item = getItem(i2)) == null) {
             return;
         }
-        h2.f13538j = i2;
-        h2.l(item, this.f13543i);
+        h2.f13557j = i2;
+        h2.l(item, this.f13562i);
     }
 
     public void n(D d2) {
         List<D> list;
         H h2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, d2) == null) || d2 == null || (list = this.f13539e) == null || !list.contains(d2) || (h2 = this.f13541g.get(this.f13539e.indexOf(d2))) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, d2) == null) || d2 == null || (list = this.f13558e) == null || !list.contains(d2) || (h2 = this.f13560g.get(this.f13558e.indexOf(d2))) == null) {
             return;
         }
         h2.k(d2);
     }
 
-    @Override // c.a.r0.j3.u
+    @Override // c.a.r0.k3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, tbPageContext, i2)) == null) {
-            int size = this.f13540f.size();
+            int size = this.f13559f.size();
             for (int i3 = 0; i3 < size; i3++) {
-                H h2 = this.f13540f.get(i3);
+                H h2 = this.f13559f.get(i3);
                 if (h2 != null) {
                     h2.onChangeSkinType(tbPageContext, i2);
                 }
             }
             NoDataView noDataView = this.l;
             if (noDataView != null) {
-                noDataView.onChangeSkinType(this.f13542h, i2);
+                noDataView.onChangeSkinType(this.f13561h, i2);
                 return true;
             }
             return true;

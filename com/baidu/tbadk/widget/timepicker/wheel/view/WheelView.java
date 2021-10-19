@@ -60,22 +60,22 @@ public class WheelView extends View {
     public float W;
 
     /* renamed from: e  reason: collision with root package name */
-    public DividerType f49080e;
+    public DividerType f49007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f49081f;
+    public Context f49008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f49082g;
+    public Handler f49009g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GestureDetector f49083h;
+    public GestureDetector f49010h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f49084i;
+    public b f49011i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f49085j;
+    public boolean f49012j;
     public boolean k;
     public ScheduledExecutorService l;
     public ScheduledFuture<?> m;
@@ -221,7 +221,7 @@ public class WheelView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WheelView f49086e;
+        public final /* synthetic */ WheelView f49013e;
 
         public a(WheelView wheelView) {
             Interceptable interceptable = $ic;
@@ -238,14 +238,14 @@ public class WheelView extends View {
                     return;
                 }
             }
-            this.f49086e = wheelView;
+            this.f49013e = wheelView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49086e.f49084i.a(this.f49086e.getCurrentItem());
+                this.f49013e.f49011i.a(this.f49013e.getCurrentItem());
             }
         }
     }
@@ -311,10 +311,10 @@ public class WheelView extends View {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f49081f = context;
-            this.f49082g = new c.a.q0.f1.p.b.d.b(this);
+            this.f49008f = context;
+            this.f49009g = new c.a.q0.f1.p.b.d.b(this);
             GestureDetector gestureDetector = new GestureDetector(context, new c.a.q0.f1.p.b.c.a(this));
-            this.f49083h = gestureDetector;
+            this.f49010h = gestureDetector;
             gestureDetector.setIsLongpressEnabled(false);
             this.C = true;
             this.G = 0.0f;
@@ -404,7 +404,7 @@ public class WheelView extends View {
     public Handler getHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f49082g : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f49009g : (Handler) invokeV.objValue;
     }
 
     public int getInitPosition() {
@@ -470,7 +470,7 @@ public class WheelView extends View {
                 this.U = (this.N - rect.width()) - ((int) this.W);
             } else if (i2 != 17) {
             } else {
-                if (!this.f49085j && (str2 = this.r) != null && !str2.equals("") && this.k) {
+                if (!this.f49012j && (str2 = this.r) != null && !str2.equals("") && this.k) {
                     this.U = (int) ((this.N - rect.width()) * 0.25d);
                 } else {
                     this.U = (int) ((this.N - rect.width()) * 0.5d);
@@ -492,7 +492,7 @@ public class WheelView extends View {
                 this.V = (this.N - rect.width()) - ((int) this.W);
             } else if (i2 != 17) {
             } else {
-                if (!this.f49085j && (str2 = this.r) != null && !str2.equals("") && this.k) {
+                if (!this.f49012j && (str2 = this.r) != null && !str2.equals("") && this.k) {
                     this.V = (int) ((this.N - rect.width()) * 0.25d);
                 } else {
                     this.V = (int) ((this.N - rect.width()) * 0.5d);
@@ -605,7 +605,7 @@ public class WheelView extends View {
             }
             i4++;
         }
-        if (this.f49080e == DividerType.WRAP) {
+        if (this.f49007e == DividerType.WRAP) {
             if (TextUtils.isEmpty(this.r)) {
                 i2 = (this.N - this.t) / 2;
             } else {
@@ -698,7 +698,7 @@ public class WheelView extends View {
 
     public final void onItemSelected() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || this.f49084i == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || this.f49011i == null) {
             return;
         }
         postDelayed(new a(this), 200L);
@@ -719,7 +719,7 @@ public class WheelView extends View {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, motionEvent)) == null) {
-            boolean onTouchEvent = this.f49083h.onTouchEvent(motionEvent);
+            boolean onTouchEvent = this.f49010h.onTouchEvent(motionEvent);
             float f2 = (-this.H) * this.w;
             float a2 = ((this.q.a() - 1) - this.H) * this.w;
             int action = motionEvent.getAction();
@@ -808,7 +808,7 @@ public class WheelView extends View {
     public void setDividerType(DividerType dividerType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, dividerType) == null) {
-            this.f49080e = dividerType;
+            this.f49007e = dividerType;
         }
     }
 
@@ -822,7 +822,7 @@ public class WheelView extends View {
     public void setIsOptions(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
-            this.f49085j = z;
+            this.f49012j = z;
         }
     }
 
@@ -852,7 +852,7 @@ public class WheelView extends View {
     public final void setOnItemSelectedListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, bVar) == null) {
-            this.f49084i = bVar;
+            this.f49011i = bVar;
         }
     }
 
@@ -877,7 +877,7 @@ public class WheelView extends View {
         if (!(interceptable == null || interceptable.invokeF(1048616, this, f2) == null) || f2 <= 0.0f) {
             return;
         }
-        int i2 = (int) (this.f49081f.getResources().getDisplayMetrics().density * f2);
+        int i2 = (int) (this.f49008f.getResources().getDisplayMetrics().density * f2);
         this.s = i2;
         this.n.setTextSize(i2);
         this.o.setTextSize(this.s);
@@ -947,7 +947,7 @@ public class WheelView extends View {
                 return;
             }
         }
-        this.f49085j = false;
+        this.f49012j = false;
         this.k = true;
         this.l = Executors.newSingleThreadScheduledExecutor();
         this.x = Typeface.MONOSPACE;

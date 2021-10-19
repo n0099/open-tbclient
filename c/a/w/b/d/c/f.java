@@ -13,19 +13,19 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30445a;
+    public String f30492a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30446b;
+    public int f30493b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30447c;
+    public int f30494c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f30448d;
+    public long f30495d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f30449e;
+    public long f30496e;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -47,11 +47,11 @@ public class f {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("id", this.f30445a);
-                jSONObject.put("show", this.f30446b);
-                jSONObject.put("show_ts", this.f30448d);
-                jSONObject.put("clk", this.f30447c);
-                jSONObject.put("clk_ts", this.f30449e);
+                jSONObject.put("id", this.f30492a);
+                jSONObject.put("show", this.f30493b);
+                jSONObject.put("show_ts", this.f30495d);
+                jSONObject.put("clk", this.f30494c);
+                jSONObject.put("clk_ts", this.f30496e);
                 return jSONObject;
             } catch (JSONException e2) {
                 e2.printStackTrace();

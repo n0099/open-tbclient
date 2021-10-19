@@ -10,34 +10,34 @@ public class Config {
     public static final String LOG_TYPE_NORMAL = "normal_log";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38209a = "wallet_stastics";
+    public static final String f38213a = "wallet_stastics";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f38210b = false;
+    public static final boolean f38214b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f38211c = 204800;
+    public static final int f38215c = 204800;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f38212d = 51200;
+    public static final int f38216d = 51200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f38213e = 604800000;
+    public static final long f38217e = 604800000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f38214f = 86400000;
+    public static final long f38218f = 86400000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38215g = "publish_data";
+    public static final String f38219g = "publish_data";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f38216h = "sign";
+    public static final String f38220h = "sign";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f38217i = "mk";
+    public static final String f38221i = "mk";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f38218j = "array";
+    public static final String f38222j = "array";
     public static final String k = "exception";
     public static final String l = "dim_excep_time";
     public static final String m = "dim_excep_owner";

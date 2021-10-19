@@ -1,20 +1,28 @@
 package c.a.q0.t.c;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class x {
+public final class x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<y> f14765a;
+    public int f14789a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f14790b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f14791c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f14792d;
 
     public x() {
         Interceptable interceptable = $ic;
@@ -26,44 +34,43 @@ public class x {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f14791c = -1;
     }
 
-    public void a(JSONArray jSONArray) {
-        boolean z;
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-            this.f14765a = new ArrayList();
-            try {
-                if (jSONArray == null) {
-                    c.a.q0.s.d0.b.j().x("key_index_tab_info_list", "[]");
-                    return;
-                }
-                JSONArray jSONArray2 = new JSONArray(c.a.q0.s.d0.b.j().p("key_index_tab_info_list", "[]"));
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    y yVar = new y();
-                    y yVar2 = new y();
-                    yVar.b(jSONArray.getJSONObject(i2));
-                    for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
-                        yVar2.b(jSONArray2.getJSONObject(i3));
-                        if (yVar.f14768c != null && yVar.f14768c.equals(yVar2.f14768c)) {
-                            if (!TextUtils.isEmpty(yVar2.f14770e) && yVar2.f14770e.equals(yVar.f14770e)) {
-                                z = false;
-                                yVar.f14771f = z;
-                            }
-                            z = true;
-                            yVar.f14771f = z;
-                        }
-                    }
-                    if (!yVar.a()) {
-                        this.f14765a.add(yVar);
-                    }
-                }
-                c.a.q0.s.d0.b.j().x("key_index_tab_info_list", jSONArray.toString());
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14791c : invokeV.intValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14792d : invokeV.intValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14790b : invokeV.intValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14789a : invokeV.intValue;
+    }
+
+    public final void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            this.f14789a = jSONObject.optInt("match_cond_registry", 0);
+            this.f14790b = jSONObject.optInt("match_cond_login", 0);
+            this.f14791c = jSONObject.optInt("cond_day_after_close", -1);
+            this.f14792d = jSONObject.optInt("cond_time_close", 0);
         }
     }
 }

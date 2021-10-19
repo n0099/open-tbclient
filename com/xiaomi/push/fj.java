@@ -21,7 +21,7 @@ public class fj implements fx {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f77952a;
+    public static boolean f77987a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -40,7 +40,7 @@ public class fj implements fx {
     public SimpleDateFormat f392a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f77953b;
+    public a f77988b;
 
     /* loaded from: classes10.dex */
     public class a implements fq, fy {
@@ -48,7 +48,7 @@ public class fj implements fx {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ fj f77954a;
+        public final /* synthetic */ fj f77989a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f393a;
@@ -71,7 +71,7 @@ public class fj implements fx {
                     return;
                 }
             }
-            this.f77954a = fjVar;
+            this.f77989a = fjVar;
             this.f394a = true;
             this.f394a = z;
             this.f393a = z ? " RCV " : " Sent ";
@@ -83,16 +83,16 @@ public class fj implements fx {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, faVar) == null) {
-                if (fj.f77952a) {
+                if (fj.f77987a) {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
-                    sb.append(this.f77954a.f392a.format(new Date()));
+                    sb.append(this.f77989a.f392a.format(new Date()));
                     sb.append(this.f393a);
                     str = faVar.toString();
                 } else {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
-                    sb.append(this.f77954a.f392a.format(new Date()));
+                    sb.append(this.f77989a.f392a.format(new Date()));
                     sb.append(this.f393a);
                     sb.append(" Blob [");
                     sb.append(faVar.m305a());
@@ -134,13 +134,13 @@ public class fj implements fx {
                         faVar4.a(faVar.e());
                         faVar4.a(faVar.m307a());
                         faVar4.b(faVar.f());
-                        faVar4.a(faVar.m310a(com.xiaomi.push.service.av.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), faVar.g()).f78456h), (String) null);
+                        faVar4.a(faVar.m310a(com.xiaomi.push.service.av.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), faVar.g()).f78491h), (String) null);
                         faVar2 = faVar4;
                     }
                 }
                 if (faVar2 != null) {
-                    for (Map.Entry<fq, fl.a> entry : this.f77954a.f389a.m325a().entrySet()) {
-                        if (this.f77954a.f388a != entry.getKey()) {
+                    for (Map.Entry<fq, fl.a> entry : this.f77989a.f389a.m325a().entrySet()) {
+                        if (this.f77989a.f388a != entry.getKey()) {
                             entry.getValue().a(faVar2);
                         }
                     }
@@ -154,17 +154,17 @@ public class fj implements fx {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gcVar) == null) {
-                if (fj.f77952a) {
+                if (fj.f77987a) {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
-                    sb.append(this.f77954a.f392a.format(new Date()));
+                    sb.append(this.f77989a.f392a.format(new Date()));
                     sb.append(this.f393a);
                     sb.append(" PKT ");
                     str = gcVar.m348a();
                 } else {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
-                    sb.append(this.f77954a.f392a.format(new Date()));
+                    sb.append(this.f77989a.f392a.format(new Date()));
                     sb.append(this.f393a);
                     sb.append(" PKT [");
                     sb.append(gcVar.k());
@@ -221,7 +221,7 @@ public class fj implements fx {
         this.f392a = new SimpleDateFormat("hh:mm:ss aaa");
         this.f389a = null;
         this.f388a = null;
-        this.f77953b = null;
+        this.f77988b = null;
         this.f390a = null;
         this.f391a = "[Slim] ";
         this.f389a = flVar;
@@ -232,12 +232,12 @@ public class fj implements fx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             this.f388a = new a(this, true);
-            this.f77953b = new a(this, false);
+            this.f77988b = new a(this, false);
             fl flVar = this.f389a;
             a aVar = this.f388a;
             flVar.a(aVar, aVar);
             fl flVar2 = this.f389a;
-            a aVar2 = this.f77953b;
+            a aVar2 = this.f77988b;
             flVar2.b(aVar2, aVar2);
             this.f390a = new fk(this);
         }

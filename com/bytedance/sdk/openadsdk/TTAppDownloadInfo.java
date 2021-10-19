@@ -13,22 +13,22 @@ public class TTAppDownloadInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f65715a;
+    public long f65750a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65716b;
+    public int f65751b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f65717c;
+    public long f65752c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f65718d;
+    public long f65753d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f65719e;
+    public String f65754e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f65720f;
+    public String f65755f;
 
     public TTAppDownloadInfo() {
         Interceptable interceptable = $ic;
@@ -47,78 +47,78 @@ public class TTAppDownloadInfo {
     public String getAppName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65720f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65755f : (String) invokeV.objValue;
     }
 
     public long getCurrBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65718d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65753d : invokeV.longValue;
     }
 
     public String getFileName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65719e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65754e : (String) invokeV.objValue;
     }
 
     public long getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65715a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65750a : invokeV.longValue;
     }
 
     public int getInternalStatusKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f65716b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f65751b : invokeV.intValue;
     }
 
     public long getTotalBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f65717c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f65752c : invokeV.longValue;
     }
 
     public void setAppName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f65720f = str;
+            this.f65755f = str;
         }
     }
 
     public void setCurrBytes(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f65718d = j2;
+            this.f65753d = j2;
         }
     }
 
     public void setFileName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f65719e = str;
+            this.f65754e = str;
         }
     }
 
     public void setId(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.f65715a = j2;
+            this.f65750a = j2;
         }
     }
 
     public void setInternalStatusKey(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f65716b = i2;
+            this.f65751b = i2;
         }
     }
 
     public void setTotalBytes(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.f65717c = j2;
+            this.f65752c = j2;
         }
     }
 }

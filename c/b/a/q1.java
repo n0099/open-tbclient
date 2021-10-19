@@ -14,10 +14,10 @@ public class q1 extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f31438e;
+    public final Context f31442e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final y1 f31439f;
+    public final y1 f31443f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q1(Context context, y1 y1Var) {
@@ -38,8 +38,8 @@ public class q1 extends s1 {
                 return;
             }
         }
-        this.f31438e = context;
-        this.f31439f = y1Var;
+        this.f31442e = context;
+        this.f31443f = y1Var;
     }
 
     @Override // c.b.a.s1
@@ -47,22 +47,22 @@ public class q1 extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            if (!TextUtils.isEmpty(this.f31439f.i())) {
-                jSONObject.put("ab_client", this.f31439f.i());
+            if (!TextUtils.isEmpty(this.f31443f.i())) {
+                jSONObject.put("ab_client", this.f31443f.i());
             }
-            if (!TextUtils.isEmpty(this.f31439f.U())) {
-                if (h0.f31368b) {
-                    h0.a("init config has abversion:" + this.f31439f.U(), null);
+            if (!TextUtils.isEmpty(this.f31443f.U())) {
+                if (h0.f31372b) {
+                    h0.a("init config has abversion:" + this.f31443f.U(), null);
                 }
-                jSONObject.put("ab_version", this.f31439f.U());
+                jSONObject.put("ab_version", this.f31443f.U());
             }
-            if (!TextUtils.isEmpty(this.f31439f.j())) {
-                jSONObject.put("ab_group", this.f31439f.j());
+            if (!TextUtils.isEmpty(this.f31443f.j())) {
+                jSONObject.put("ab_group", this.f31443f.j());
             }
-            if (TextUtils.isEmpty(this.f31439f.k())) {
+            if (TextUtils.isEmpty(this.f31443f.k())) {
                 return true;
             }
-            jSONObject.put("ab_feature", this.f31439f.k());
+            jSONObject.put("ab_feature", this.f31443f.k());
             return true;
         }
         return invokeL.booleanValue;

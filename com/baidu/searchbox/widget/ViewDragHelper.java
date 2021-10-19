@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ViewDragHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BASE_SETTLE_DURATION = 256;
@@ -67,7 +67,7 @@ public class ViewDragHelper {
     public int mTrackingEdges;
     public VelocityTracker mVelocityTracker;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -13,7 +13,7 @@ public final class cp implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ co f59923a;
+    public final /* synthetic */ co f59958a;
 
     public cp(co coVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class cp implements Runnable {
                 return;
             }
         }
-        this.f59923a = coVar;
+        this.f59958a = coVar;
     }
 
     @Override // java.lang.Runnable
@@ -42,17 +42,17 @@ public final class cp implements Runnable {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FeedbackInputActivity feedbackInputActivity = this.f59923a.f59920b.f59908a;
+            FeedbackInputActivity feedbackInputActivity = this.f59958a.f59955b.f59943a;
             feedbackInputActivity.B = false;
             Context applicationContext = feedbackInputActivity.getApplicationContext();
             String str4 = UfoSDK.clientid;
-            FeedbackInputActivity feedbackInputActivity2 = this.f59923a.f59920b.f59908a;
-            String str5 = feedbackInputActivity2.f59806e;
+            FeedbackInputActivity feedbackInputActivity2 = this.f59958a.f59955b.f59943a;
+            String str5 = feedbackInputActivity2.f59841e;
             str = feedbackInputActivity2.ar;
-            str2 = this.f59923a.f59922d;
-            str3 = this.f59923a.f59920b.f59908a.aA;
-            handler = this.f59923a.f59920b.f59908a.aK;
-            i2 = this.f59923a.f59921c;
+            str2 = this.f59958a.f59957d;
+            str3 = this.f59958a.f59955b.f59943a.aA;
+            handler = this.f59958a.f59955b.f59943a.aK;
+            i2 = this.f59958a.f59956c;
             feedbackInputActivity.a(applicationContext, str4, str5, str, str2, str3, (String) null, handler, i2);
         }
     }

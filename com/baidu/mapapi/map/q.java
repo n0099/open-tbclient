@@ -15,13 +15,13 @@ public class q extends AnimatorListenerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ViewGroup.LayoutParams f41754a;
+    public final /* synthetic */ ViewGroup.LayoutParams f41758a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f41755b;
+    public final /* synthetic */ int f41759b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f41756c;
+    public final /* synthetic */ SwipeDismissTouchListener f41760c;
 
     public q(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams, int i2) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class q extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.f41756c = swipeDismissTouchListener;
-        this.f41754a = layoutParams;
-        this.f41755b = i2;
+        this.f41760c = swipeDismissTouchListener;
+        this.f41758a = layoutParams;
+        this.f41759b = i2;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -52,15 +52,15 @@ public class q extends AnimatorListenerAdapter {
         View view3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            dismissCallbacks = this.f41756c.f41648f;
-            view = this.f41756c.f41647e;
-            obj = this.f41756c.l;
+            dismissCallbacks = this.f41760c.f41652f;
+            view = this.f41760c.f41651e;
+            obj = this.f41760c.l;
             dismissCallbacks.onDismiss(view, obj);
-            view2 = this.f41756c.f41647e;
+            view2 = this.f41760c.f41651e;
             view2.setTranslationX(0.0f);
-            this.f41754a.height = this.f41755b;
-            view3 = this.f41756c.f41647e;
-            view3.setLayoutParams(this.f41754a);
+            this.f41758a.height = this.f41759b;
+            view3 = this.f41760c.f41651e;
+            view3.setLayoutParams(this.f41758a);
         }
     }
 }

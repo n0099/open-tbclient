@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.widget.ImageView;
 import c.a.q0.t.d.d;
-import c.a.r0.k1.f.i.c;
+import c.a.r0.l1.f.i.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public class StrangerListAdapter extends c {
         }
     }
 
-    @Override // c.a.r0.k1.f.i.c
+    @Override // c.a.r0.l1.f.i.c
     public boolean d(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class StrangerListAdapter extends c {
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.r0.k1.f.i.c
+    @Override // c.a.r0.l1.f.i.c
     public boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -58,12 +58,12 @@ public class StrangerListAdapter extends c {
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.r0.k1.f.i.c
+    @Override // c.a.r0.l1.f.i.c
     public void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.f21254b.setDrawBorder(true);
-            aVar.f21254b.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            aVar.f21434b.setDrawBorder(true);
+            aVar.f21434b.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String friendBjhAvatar = imMessageCenterShowItemData.getFriendBjhAvatar();
             if (TextUtils.isEmpty(friendBjhAvatar)) {
                 friendBjhAvatar = imMessageCenterShowItemData.getFriendPortrait();
@@ -71,11 +71,11 @@ public class StrangerListAdapter extends c {
             if (TextUtils.isEmpty(friendBjhAvatar)) {
                 return;
             }
-            aVar.f21254b.startLoad(friendBjhAvatar, 12, false);
+            aVar.f21434b.startLoad(friendBjhAvatar, 12, false);
         }
     }
 
-    @Override // c.a.r0.k1.f.i.c
+    @Override // c.a.r0.l1.f.i.c
     public BasicNameValuePair p(ImMessageCenterShowItemData imMessageCenterShowItemData, int i2, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;

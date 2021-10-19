@@ -16,7 +16,7 @@ public class MobileConfig implements e {
     public String apk;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f75956c;
+    public int f75991c;
     public String cm;
     public String n;
     public long r;
@@ -37,7 +37,7 @@ public class MobileConfig implements e {
         }
         this.apk = BaseConfig.apk;
         this.cm = BaseConfig.cm;
-        this.f75956c = 1;
+        this.f75991c = 1;
         this.v = "1.0";
         this.n = "ZzxOAuth";
         this.r = System.currentTimeMillis();

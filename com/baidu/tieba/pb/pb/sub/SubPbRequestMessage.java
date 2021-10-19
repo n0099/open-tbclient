@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.sub;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -88,7 +88,7 @@ public class SubPbRequestMessage extends NetMessage {
             builder.top_ugc_pid = this.oriUgcTopPid;
             builder.forum_id = Long.valueOf(this.forumId);
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             PbFloorReqIdl.Builder builder2 = new PbFloorReqIdl.Builder();
             builder2.data = builder.build(false);

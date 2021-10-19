@@ -34,22 +34,22 @@ public class TTMiddlePageActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f65822a;
+    public LinearLayout f65857a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTNativeExpressAd f65823b;
+    public TTNativeExpressAd f65858b;
 
     /* renamed from: c  reason: collision with root package name */
-    public m f65824c;
+    public m f65859c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdSlot f65825d;
+    public AdSlot f65860d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f65826e;
+    public b f65861e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f65827f;
+    public boolean f65862f;
 
     public TTMiddlePageActivity() {
         Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class TTMiddlePageActivity extends Activity {
                 return;
             }
         }
-        this.f65827f = false;
+        this.f65862f = false;
     }
 
     @Override // android.app.Activity
@@ -78,15 +78,15 @@ public class TTMiddlePageActivity extends Activity {
             if (intent != null) {
                 try {
                     m a2 = com.bytedance.sdk.openadsdk.core.b.a(new JSONObject(intent.getStringExtra("middle_page_material_meta")));
-                    this.f65824c = a2;
+                    this.f65859c = a2;
                     AdSlot b2 = b(a2);
-                    this.f65825d = b2;
-                    this.f65823b = new com.bytedance.sdk.openadsdk.core.nativeexpress.t(this, this.f65824c, b2);
+                    this.f65860d = b2;
+                    this.f65858b = new com.bytedance.sdk.openadsdk.core.nativeexpress.t(this, this.f65859c, b2);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
-            TTNativeExpressAd tTNativeExpressAd = this.f65823b;
+            TTNativeExpressAd tTNativeExpressAd = this.f65858b;
             if (tTNativeExpressAd == null) {
                 finish();
                 return;
@@ -96,25 +96,25 @@ public class TTMiddlePageActivity extends Activity {
                 finish();
                 return;
             }
-            this.f65822a = (LinearLayout) findViewById(t.e(this, "tt_middle_page_layout"));
+            this.f65857a = (LinearLayout) findViewById(t.e(this, "tt_middle_page_layout"));
             if (expressAdView instanceof NativeExpressVideoView) {
-                this.f65826e = ((NativeExpressVideoView) expressAdView).getClickListener();
+                this.f65861e = ((NativeExpressVideoView) expressAdView).getClickListener();
             } else if (expressAdView instanceof NativeExpressView) {
-                this.f65826e = ((NativeExpressView) expressAdView).getClickListener();
+                this.f65861e = ((NativeExpressView) expressAdView).getClickListener();
             }
-            m mVar = this.f65824c;
+            m mVar = this.f65859c;
             if (mVar != null && mVar.aD() == 2 && (expressAdView instanceof NativeExpressView) && (jsObject = ((NativeExpressView) expressAdView).getJsObject()) != null) {
-                jsObject.a(this.f65825d);
+                jsObject.a(this.f65860d);
             }
-            this.f65823b.setCanInterruptVideoPlay(true);
-            this.f65822a.removeAllViews();
-            this.f65822a.addView(expressAdView);
-            this.f65823b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTMiddlePageActivity.1
+            this.f65858b.setCanInterruptVideoPlay(true);
+            this.f65857a.removeAllViews();
+            this.f65857a.addView(expressAdView);
+            this.f65858b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTMiddlePageActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTMiddlePageActivity f65828a;
+                public final /* synthetic */ TTMiddlePageActivity f65863a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -131,7 +131,7 @@ public class TTMiddlePageActivity extends Activity {
                             return;
                         }
                     }
-                    this.f65828a = this;
+                    this.f65863a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -151,26 +151,26 @@ public class TTMiddlePageActivity extends Activity {
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
                 public void onRenderFail(View view, String str, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view, str, i2) == null) || this.f65828a.f65827f) {
+                    if (!(interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view, str, i2) == null) || this.f65863a.f65862f) {
                         return;
                     }
-                    if (this.f65828a.f65824c != null && this.f65828a.f65824c.aD() == 1 && this.f65828a.f65826e != null) {
-                        this.f65828a.f65827f = true;
-                        this.f65828a.f65826e.e();
+                    if (this.f65863a.f65859c != null && this.f65863a.f65859c.aD() == 1 && this.f65863a.f65861e != null) {
+                        this.f65863a.f65862f = true;
+                        this.f65863a.f65861e.e();
                     }
-                    this.f65828a.finish();
+                    this.f65863a.finish();
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
                 public void onRenderSuccess(View view, float f2, float f3) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f65828a.isFinishing() || this.f65828a.f65824c == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f65863a.isFinishing() || this.f65863a.f65859c == null) {
                         return;
                     }
-                    d.b(o.a(), this.f65828a.f65824c, "feed_video_middle_page", "middle_page_show");
+                    d.b(o.a(), this.f65863a.f65859c, "feed_video_middle_page", "middle_page_show");
                 }
             });
-            this.f65823b.render();
+            this.f65858b.render();
         }
     }
 
@@ -179,11 +179,11 @@ public class TTMiddlePageActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            if (this.f65823b != null) {
-                this.f65823b = null;
+            if (this.f65858b != null) {
+                this.f65858b = null;
             }
-            if (this.f65824c != null) {
-                this.f65824c = null;
+            if (this.f65859c != null) {
+                this.f65859c = null;
             }
         }
     }

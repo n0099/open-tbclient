@@ -26,13 +26,13 @@ public class RoundImageView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67560a;
+    public int f67595a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67561b;
+    public int f67596b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67562c;
+    public int f67597c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundImageView(Context context) {
@@ -52,9 +52,9 @@ public class RoundImageView extends ImageView {
                 return;
             }
         }
-        this.f67560a = 0;
-        this.f67561b = 0;
-        this.f67562c = 0;
+        this.f67595a = 0;
+        this.f67596b = 0;
+        this.f67597c = 0;
     }
 
     private Bitmap a(Bitmap bitmap, int i2) {
@@ -116,14 +116,14 @@ public class RoundImageView extends ImageView {
             super.onDraw(canvas);
             return;
         }
-        if (this.f67560a == 0) {
-            this.f67560a = getWidth();
+        if (this.f67595a == 0) {
+            this.f67595a = getWidth();
         }
-        if (this.f67561b == 0) {
-            this.f67561b = getHeight();
+        if (this.f67596b == 0) {
+            this.f67596b = getHeight();
         }
-        int i3 = this.f67560a;
-        int i4 = this.f67561b;
+        int i3 = this.f67595a;
+        int i4 = this.f67596b;
         if (i3 >= i4) {
             i3 = i4;
         }
@@ -135,7 +135,7 @@ public class RoundImageView extends ImageView {
         if (bitmap3 == null) {
             super.onDraw(canvas);
         } else {
-            canvas.drawBitmap(bitmap3, (this.f67560a / 2) - i2, (this.f67561b / 2) - i2, (Paint) null);
+            canvas.drawBitmap(bitmap3, (this.f67595a / 2) - i2, (this.f67596b / 2) - i2, (Paint) null);
         }
     }
 
@@ -157,12 +157,12 @@ public class RoundImageView extends ImageView {
                 return;
             }
         }
-        this.f67560a = 0;
-        this.f67561b = 0;
-        this.f67562c = 0;
-        this.f67562c = i2;
-        this.f67560a = i3;
-        this.f67561b = i4;
+        this.f67595a = 0;
+        this.f67596b = 0;
+        this.f67597c = 0;
+        this.f67597c = i2;
+        this.f67595a = i3;
+        this.f67596b = i4;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -184,9 +184,9 @@ public class RoundImageView extends ImageView {
                 return;
             }
         }
-        this.f67560a = 0;
-        this.f67561b = 0;
-        this.f67562c = 0;
+        this.f67595a = 0;
+        this.f67596b = 0;
+        this.f67597c = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -208,8 +208,8 @@ public class RoundImageView extends ImageView {
                 return;
             }
         }
-        this.f67560a = 0;
-        this.f67561b = 0;
-        this.f67562c = 0;
+        this.f67595a = 0;
+        this.f67596b = 0;
+        this.f67597c = 0;
     }
 }

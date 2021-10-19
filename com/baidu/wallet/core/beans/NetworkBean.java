@@ -140,7 +140,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static final SessionCache f61060a;
+            public static final SessionCache f61095a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -156,7 +156,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
                         return;
                     }
                 }
-                f61060a = new SessionCache(null);
+                f61095a = new SessionCache(null);
             }
 
             public a() {
@@ -181,7 +181,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         public static SessionCache getInstance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61060a : (SessionCache) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61095a : (SessionCache) invokeV.objValue;
         }
 
         public static synchronized void sync(SessionCache sessionCache) {
@@ -189,7 +189,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
             if (interceptable == null || interceptable.invokeL(65539, null, sessionCache) == null) {
                 synchronized (SessionCache.class) {
                     if (sessionCache != null) {
-                        a.f61060a.mCache = sessionCache.mCache;
+                        a.f61095a.mCache = sessionCache.mCache;
                     }
                 }
             }

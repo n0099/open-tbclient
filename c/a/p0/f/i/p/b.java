@@ -672,9 +672,9 @@ public class b implements c.a.p0.f.i.l.b, c.a.p0.f.i.l.c, c.a.p0.f.i.l.a, c.a.p0
     public final void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (c.a.p0.f.i.r.g.a(this.f10661a, this.s.f46997b)) {
+            if (c.a.p0.f.i.r.g.a(this.f10661a, this.s.f46909b)) {
                 this.n = H;
-                h0(this.f10661a, this.s.f46997b);
+                h0(this.f10661a, this.s.f46909b);
                 this.q.c("appinstallopen");
                 return;
             }
@@ -699,7 +699,7 @@ public class b implements c.a.p0.f.i.l.b, c.a.p0.f.i.l.c, c.a.p0.f.i.l.a, c.a.p0
                 c.a.p0.f.i.m.a.b().b(this.f10661a, this.s.a(), DownloadParams.SwanAppDownloadType.TYPE_INSTALL_APP, this.t);
             }
             if (this.r == DownloadState.INSTALLED) {
-                h0(this.f10661a, this.s.f46997b);
+                h0(this.f10661a, this.s.f46909b);
             }
         }
     }

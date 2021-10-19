@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.c;
 import c.a.f.d;
-import c.a.r0.p1.o.h.b;
-import c.a.r0.p1.o.l.i;
-import c.a.r0.y2.i0.b.a;
-import c.a.r0.y2.i0.b.g;
+import c.a.r0.q1.o.h.b;
+import c.a.r0.q1.o.l.i;
+import c.a.r0.z2.i0.b.a;
+import c.a.r0.z2.i0.b.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
@@ -92,8 +92,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, c.a.f.
         b.a aVar = new b.a();
         this.parallelChargeInfo = aVar;
         aVar.a(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.f29504a)) {
-            this.operateData.f29504a = this.userName;
+        if (TextUtils.isEmpty(this.operateData.f29680a)) {
+            this.operateData.f29680a = this.userName;
         }
     }
 
@@ -164,15 +164,15 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, c.a.f.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             a aVar = this.operateData;
-            if (aVar != null && !TextUtils.isEmpty(aVar.f29506c)) {
-                return this.operateData.f29506c;
+            if (aVar != null && !TextUtils.isEmpty(aVar.f29682c)) {
+                return this.operateData.f29682c;
             }
             return this.scheme;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.p1.o.h.b
+    @Override // c.a.r0.q1.o.h.b
     public b.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -203,7 +203,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, c.a.f.
         }
     }
 
-    @Override // c.a.r0.p1.o.l.i
+    @Override // c.a.r0.q1.o.l.i
     public void setAutoPlay(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
@@ -211,7 +211,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, c.a.f.
         }
     }
 
-    @Override // c.a.r0.p1.o.l.i
+    @Override // c.a.r0.q1.o.l.i
     public void setWaitConfirm(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {

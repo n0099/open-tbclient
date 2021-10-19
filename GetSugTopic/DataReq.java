@@ -15,6 +15,7 @@ public final class DataReq extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Long DEFAULT_FID;
     public static final String DEFAULT_FIRST_DIR = "";
+    public static final Integer DEFAULT_IS_VIDEO_TOPIC;
     public static final String DEFAULT_PREFIX = "";
     public static final String DEFAULT_SECOND_DIR = "";
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,6 +27,8 @@ public final class DataReq extends Message {
     public final Long fid;
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
     public final String first_dir;
+    @ProtoField(tag = 6, type = Message.Datatype.INT32)
+    public final Integer is_video_topic;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String prefix;
     @ProtoField(tag = 5, type = Message.Datatype.STRING)
@@ -40,6 +43,7 @@ public final class DataReq extends Message {
         public CommonReq f1002common;
         public Long fid;
         public String first_dir;
+        public Integer is_video_topic;
         public String prefix;
         public String second_dir;
 
@@ -83,6 +87,7 @@ public final class DataReq extends Message {
             this.fid = dataReq.fid;
             this.first_dir = dataReq.first_dir;
             this.second_dir = dataReq.second_dir;
+            this.is_video_topic = dataReq.is_video_topic;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -115,6 +120,7 @@ public final class DataReq extends Message {
             }
         }
         DEFAULT_FID = 0L;
+        DEFAULT_IS_VIDEO_TOPIC = 0;
     }
 
     public /* synthetic */ DataReq(Builder builder, boolean z, a aVar) {
@@ -162,9 +168,15 @@ public final class DataReq extends Message {
             String str3 = builder.second_dir;
             if (str3 == null) {
                 this.second_dir = "";
-                return;
             } else {
                 this.second_dir = str3;
+            }
+            Integer num = builder.is_video_topic;
+            if (num == null) {
+                this.is_video_topic = DEFAULT_IS_VIDEO_TOPIC;
+                return;
+            } else {
+                this.is_video_topic = num;
                 return;
             }
         }
@@ -173,5 +185,6 @@ public final class DataReq extends Message {
         this.fid = builder.fid;
         this.first_dir = builder.first_dir;
         this.second_dir = builder.second_dir;
+        this.is_video_topic = builder.is_video_topic;
     }
 }

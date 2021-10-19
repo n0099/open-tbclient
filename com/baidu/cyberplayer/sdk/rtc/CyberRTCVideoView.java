@@ -16,7 +16,7 @@ public class CyberRTCVideoView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RTCVideoViewProvider f39264a;
+    public RTCVideoViewProvider f39268a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CyberRTCVideoView(Context context) {
@@ -75,14 +75,14 @@ public class CyberRTCVideoView {
                 return;
             }
         }
-        this.f39264a = a.a().a(context, attributeSet, z);
+        this.f39268a = a.a().a(context, attributeSet, z);
     }
 
     public SurfaceView getRTCVideoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            RTCVideoViewProvider rTCVideoViewProvider = this.f39264a;
+            RTCVideoViewProvider rTCVideoViewProvider = this.f39268a;
             if (rTCVideoViewProvider != null) {
                 return rTCVideoViewProvider.getRTCVideoView();
             }

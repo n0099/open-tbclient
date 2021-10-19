@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.commontab;
 
 import c.a.e.e.p.l;
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import c.a.q0.k0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
@@ -73,7 +73,7 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
             builder.scr_dip = Integer.valueOf((int) l.h(TbadkCoreApplication.getInst()));
             builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
             builder.ad_ext_params = this.adExtParams;
-            a0.c(builder, true, false, true);
+            z.c(builder, true, false, true);
             GeneralTabListReqIdl.Builder builder2 = new GeneralTabListReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

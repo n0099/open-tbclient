@@ -3,6 +3,8 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
 import com.baidu.adp.BdUniqueId;
@@ -23,6 +25,7 @@ public class WebViewActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_AD_DEEPLINK_URL = "tag_ad_deeplink_url";
     public static final String TAG_AD_EXT_INFO = "tag_ad_ext_info";
+    public static final String TAG_BUNDLE = "tag_bundle";
     public static final String TAG_COOKIE = "tag_cookie";
     public static final String TAG_DOWNLOAD_AD_ID = "tag_download_ad_id";
     public static final String TAG_ENABLE_JS = "tag_enable_js";
@@ -102,9 +105,17 @@ public class WebViewActivityConfig extends IntentConfig {
         return invokeV.booleanValue;
     }
 
+    public void setBundle(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) || getIntent() == null) {
+            return;
+        }
+        getIntent().putExtra(TAG_BUNDLE, bundle);
+    }
+
     public void setFixTitle(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TAG_FIX_TITLE, z);
@@ -112,15 +123,23 @@ public class WebViewActivityConfig extends IntentConfig {
 
     public void setLoadType(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TAG_LOAD_BY_WEB_CLIENT, z);
     }
 
+    public void setNeedImmerSiveSticky(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || getIntent() == null) {
+            return;
+        }
+        getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, z);
+    }
+
     public void setNoMenu(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TAG_NO_MENU, z);
@@ -128,7 +147,7 @@ public class WebViewActivityConfig extends IntentConfig {
 
     public void setNoShare(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TAG_NO_SHARE, z);
@@ -136,7 +155,7 @@ public class WebViewActivityConfig extends IntentConfig {
 
     public void setPageTranslucent(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TAG_PAGE_TRANSLUCENT, str);
@@ -197,37 +216,6 @@ public class WebViewActivityConfig extends IntentConfig {
         getIntent().putExtra(TAG_COOKIE, z2);
         getIntent().putExtra(TAG_ENABLE_JS, z3);
         getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, true);
-        addPageIdParams(context);
-        if (!(getContext() instanceof Activity)) {
-            getIntent().addFlags(268435456);
-        }
-        setIntentAction(IntentAction.Activity);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WebViewActivityConfig(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        getIntent().putExtra(TAG_TITLE, str);
-        getIntent().putExtra(TAG_URL, addTiebaParams(str2));
-        getIntent().putExtra(TAG_NAV_BAR, z);
-        getIntent().putExtra(TAG_COOKIE, z2);
-        getIntent().putExtra(TAG_ENABLE_JS, z3);
-        getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, z4);
         addPageIdParams(context);
         if (!(getContext() instanceof Activity)) {
             getIntent().addFlags(268435456);

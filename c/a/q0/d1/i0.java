@@ -1,99 +1,27 @@
 package c.a.q0.d1;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class i0 {
+public abstract class i0<T> {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f12968a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f12969b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1214550268, "Lc/a/q0/d1/i0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1214550268, "Lc/a/q0/d1/i0;");
-                return;
+    public i0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        f12968a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
-        f12969b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c.a.q0.b.d.R()) {
-                Date date = new Date(c.a.q0.s.d0.b.j().l("show_login_dialog_strategy_key", 0L));
-                long currentTimeMillis = System.currentTimeMillis();
-                Date date2 = new Date(currentTimeMillis);
-                c.a.q0.s.d0.b.j().w("show_login_dialog_strategy_key", currentTimeMillis);
-                return !TimeHelper.isSameDay(date, date2);
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (c.a.e.e.p.k.isEmpty(str)) {
-                return false;
-            }
-            return f12968a.matcher(str.toLowerCase()).find();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (c.a.e.e.p.k.isEmpty(str)) {
-                return false;
-            }
-            return f12969b.matcher(str.toLowerCase()).find();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (c.a.e.e.p.k.isEmpty(str)) {
-                return false;
-            }
-            return "person".equalsIgnoreCase(Uri.parse(str).getAuthority());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? b(str) || c(str) || d(str) : invokeL.booleanValue;
-    }
+    public abstract T doInBackground();
 }

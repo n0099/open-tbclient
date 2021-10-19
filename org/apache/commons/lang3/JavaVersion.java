@@ -2,7 +2,6 @@ package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.media.duplayer.LibsInfoDef;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -49,7 +48,7 @@ public final class JavaVersion {
         }
         JAVA_0_9 = new JavaVersion("JAVA_0_9", 0, 1.5f, "0.9");
         JAVA_1_1 = new JavaVersion("JAVA_1_1", 1, 1.1f, "1.1");
-        JAVA_1_2 = new JavaVersion("JAVA_1_2", 2, 1.2f, LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION);
+        JAVA_1_2 = new JavaVersion("JAVA_1_2", 2, 1.2f, "1.2");
         JAVA_1_3 = new JavaVersion("JAVA_1_3", 3, 1.3f, "1.3");
         JAVA_1_4 = new JavaVersion("JAVA_1_4", 4, 1.4f, "1.4");
         JAVA_1_5 = new JavaVersion("JAVA_1_5", 5, 1.5f, "1.5");
@@ -95,7 +94,7 @@ public final class JavaVersion {
             if ("1.1".equals(str)) {
                 return JAVA_1_1;
             }
-            if (LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION.equals(str)) {
+            if ("1.2".equals(str)) {
                 return JAVA_1_2;
             }
             if ("1.3".equals(str)) {

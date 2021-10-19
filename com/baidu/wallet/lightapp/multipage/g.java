@@ -20,7 +20,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Collection<Collection<c>> f62336a;
+    public Collection<Collection<c>> f62371a;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.g$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -34,7 +34,7 @@ public class g {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static g f62337a;
+        public static g f62372a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public class g {
                     return;
                 }
             }
-            f62337a = new g(null);
+            f62372a = new g(null);
         }
     }
 
@@ -61,7 +61,7 @@ public class g {
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62337a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62372a : (g) invokeV.objValue;
     }
 
     public void b(Collection<c> collection) {
@@ -69,7 +69,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, collection) == null) || collection == null) {
             return;
         }
-        this.f62336a.remove(collection);
+        this.f62371a.remove(collection);
     }
 
     public float c() {
@@ -97,7 +97,7 @@ public class g {
                 return;
             }
         }
-        this.f62336a = new Vector();
+        this.f62371a = new Vector();
     }
 
     public void a(Collection<c> collection) {
@@ -105,7 +105,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, collection) == null) || collection == null) {
             return;
         }
-        this.f62336a.add(collection);
+        this.f62371a.add(collection);
     }
 
     public int b() {
@@ -113,7 +113,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int i2 = 0;
-            for (Collection<c> collection : this.f62336a) {
+            for (Collection<c> collection : this.f62371a) {
                 i2 += collection.size();
             }
             LogUtil.d("LangbridgeRamMonitor", "UsingCellCount:" + i2);

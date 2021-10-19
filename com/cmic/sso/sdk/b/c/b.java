@@ -13,10 +13,10 @@ public class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f69461b;
+    public final e f69496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f69462c;
+    public boolean f69497c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(String str, e eVar, String str2, String str3) {
@@ -37,20 +37,20 @@ public class b extends c {
                 return;
             }
         }
-        this.f69462c = false;
-        this.f69461b = eVar;
+        this.f69497c = false;
+        this.f69496b = eVar;
     }
 
     public void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f69462c) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f69497c) {
             return;
         }
         String a2 = r.a(true);
         String a3 = r.a(true, "1".equals(aVar.b("operatortype", "")));
         aVar.a("ipv4_list", a2);
         aVar.a("ipv6_list", a3);
-        com.cmic.sso.sdk.b.b.a c2 = this.f69461b.c();
+        com.cmic.sso.sdk.b.b.a c2 = this.f69496b.c();
         if (!aVar.b("isCloseIpv4", false)) {
             c2.s(a2);
         }
@@ -58,9 +58,9 @@ public class b extends c {
             c2.t(a3);
         }
         c2.p(c2.w(aVar.b("appkey")));
-        this.f69461b.a(c2);
-        this.f69461b.a(true);
-        this.f69463a = this.f69461b.b().toString();
-        this.f69462c = true;
+        this.f69496b.a(c2);
+        this.f69496b.a(true);
+        this.f69498a = this.f69496b.b().toString();
+        this.f69497c = true;
     }
 }

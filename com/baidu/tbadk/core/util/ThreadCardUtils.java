@@ -17,16 +17,16 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
 import c.a.e.e.p.t;
 import c.a.q0.b.d;
-import c.a.q0.d1.x;
-import c.a.q0.f1.m.e;
+import c.a.q0.d1.w;
+import c.a.q0.f1.m.f;
 import c.a.q0.s.f0.b;
 import c.a.q0.s.q.a;
 import c.a.q0.s.q.d2;
 import c.a.q0.s.q.n1;
 import c.a.q0.s.u.c;
-import c.a.r0.a0.m;
-import c.a.r0.b4.h;
-import c.a.r0.w0.l;
+import c.a.r0.b0.m;
+import c.a.r0.c4.h;
+import c.a.r0.x0.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -189,7 +189,7 @@ public final class ThreadCardUtils {
         String str = i2 == 3 ? "frs" : i2 == 2 ? "index" : "";
         videoItemData.buildWithThreadData(d2Var);
         arrayList.add(videoItemData);
-        x.d(context, arrayList, d2Var.L() != null ? d2Var.L().oriUgcNid : null, videoItemData.isVerticalVideo == 1, 0, rect, "from_nani_video", "personalize_page", "", str, str, false, d2Var.n);
+        w.e(context, arrayList, d2Var.L() != null ? d2Var.L().oriUgcNid : null, videoItemData.isVerticalVideo == 1, 0, rect, "from_nani_video", "personalize_page", "", str, str, false, d2Var.n, true);
     }
 
     public static boolean isNoThreadAbstract(d2 d2Var) {
@@ -248,9 +248,9 @@ public final class ThreadCardUtils {
         return invokeL.booleanValue;
     }
 
-    public static void jumpToPB(a aVar, Context context, int i2, boolean z, boolean z2, boolean z3, Rect rect, boolean z4) {
+    public static void jumpToPB(a aVar, Context context, int i2, boolean z, boolean z2, boolean z3, Rect rect, boolean z4, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{aVar, context, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), rect, Boolean.valueOf(z4)}) == null) || aVar == null || aVar.getThreadData() == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{aVar, context, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), rect, Boolean.valueOf(z4), str, str2}) == null) || aVar == null || aVar.getThreadData() == null || context == null) {
             return;
         }
         d2 threadData = aVar.getThreadData();
@@ -270,6 +270,12 @@ public final class ThreadCardUtils {
                 createFromThreadCfg.setFrom("from_frs");
             } else {
                 createFromThreadCfg.setFrom("from_personalize");
+            }
+            if (!StringUtils.isNull(str2)) {
+                createFromThreadCfg.setHottopicSubjectName(str2);
+            }
+            if (!StringUtils.isNull(str)) {
+                createFromThreadCfg.setHottopicId(str);
             }
             createFromThreadCfg.setForumName(threadData.Z());
             createFromThreadCfg.setStartFrom(i2);
@@ -303,7 +309,7 @@ public final class ThreadCardUtils {
 
     public static void jumpToPBCommentArea(a aVar, Context context, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65559, null, aVar, context, i2, i3) == null) || aVar == null || context == null || aVar.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLLII(65561, null, aVar, context, i2, i3) == null) || aVar == null || context == null || aVar.getThreadData() == null) {
             return;
         }
         d2 threadData = aVar.getThreadData();
@@ -346,21 +352,21 @@ public final class ThreadCardUtils {
 
     public static void setAbstract(TextView textView, TextView textView2, d2 d2Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65562, null, textView, textView2, d2Var, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(65564, null, textView, textView2, d2Var, i2) == null) {
             setAbstract(textView, textView2, d2Var, i2, false);
         }
     }
 
     public static void setAbstractStyleAb(TextView textView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65564, null, textView) == null) && textView != null && d.m()) {
-            c.d(textView).A(R.dimen.T_X05);
+        if ((interceptable == null || interceptable.invokeL(65566, null, textView) == null) && textView != null && d.m()) {
+            c.d(textView).z(R.dimen.T_X05);
         }
     }
 
     public static void setOfficialPrefix(SpannableStringBuilder spannableStringBuilder) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65565, null, spannableStringBuilder) == null) || spannableStringBuilder == null) {
+        if (!(interceptable == null || interceptable.invokeL(65567, null, spannableStringBuilder) == null) || spannableStringBuilder == null) {
             return;
         }
         spannableStringBuilder.insert(0, "官方");
@@ -383,23 +389,23 @@ public final class ThreadCardUtils {
 
     public static void setTitle(TextView textView, d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65566, null, textView, d2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(65568, null, textView, d2Var) == null) {
             setTitle(textView, d2Var, 0, false);
         }
     }
 
     public static void setTitleStyleAb(TextView textView, d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65570, null, textView, d2Var) == null) || textView == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65572, null, textView, d2Var) == null) || textView == null) {
             return;
         }
         setAbstractStyleAb(textView);
         int i2 = d2Var.i0;
         if (d.m()) {
             if (i2 != 40) {
-                c.d(textView).B(R.string.F_X02);
+                c.d(textView).A(R.string.F_X02);
             } else {
-                c.d(textView).B(R.string.F_X01);
+                c.d(textView).A(R.string.F_X01);
             }
         }
     }
@@ -407,20 +413,20 @@ public final class ThreadCardUtils {
     @Deprecated
     public static void setWorksPrefix(SpannableStringBuilder spannableStringBuilder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65571, null, spannableStringBuilder) == null) {
+        if (interceptable == null || interceptable.invokeL(65573, null, spannableStringBuilder) == null) {
         }
     }
 
     public static void startImageViewer(View view, boolean z, List<MediaData> list, int i2, d2 d2Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65572, null, new Object[]{view, Boolean.valueOf(z), list, Integer.valueOf(i2), d2Var, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65574, null, new Object[]{view, Boolean.valueOf(z), list, Integer.valueOf(i2), d2Var, str}) == null) {
             startImageViewer(view, z, list, i2, d2Var, str, false);
         }
     }
 
     public static void setAbstract(TextView textView, TextView textView2, d2 d2Var, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{textView, textView2, d2Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65565, null, new Object[]{textView, textView2, d2Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (d2Var != null && textView2 != null) {
                 d2Var.s4(false);
                 SpannableStringBuilder spannableStringBuilder = null;
@@ -476,14 +482,14 @@ public final class ThreadCardUtils {
 
     public static void setTitle(TextView textView, d2 d2Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65569, null, textView, d2Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(65571, null, textView, d2Var, z) == null) {
             setTitle(textView, d2Var, 0, z);
         }
     }
 
     public static void startImageViewer(View view, boolean z, List<MediaData> list, int i2, d2 d2Var, String str, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65573, null, new Object[]{view, Boolean.valueOf(z), list, Integer.valueOf(i2), d2Var, str, Boolean.valueOf(z2)}) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65575, null, new Object[]{view, Boolean.valueOf(z), list, Integer.valueOf(i2), d2Var, str, Boolean.valueOf(z2)}) == null) || view == null) {
             return;
         }
         Context context = view.getContext();
@@ -551,7 +557,7 @@ public final class ThreadCardUtils {
 
     public static void setTitle(TextView textView, d2 d2Var, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65568, null, new Object[]{textView, d2Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || textView == null || d2Var == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65570, null, new Object[]{textView, d2Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || textView == null || d2Var == null) {
             return;
         }
         SpannableStringBuilder spannableStringBuilder = d2Var.u1() != null ? new SpannableStringBuilder(d2Var.u1()) : null;
@@ -600,7 +606,7 @@ public final class ThreadCardUtils {
             spannableStringBuilder2.setSpan(new c.a.q0.s.f0.r.b(c.a.e.e.p.l.g(textView.getContext(), i3)), 0, spannableStringBuilder2.length(), 17);
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(i2));
             if (z) {
-                spannableStringBuilder3.setSpan(new e(2, null), 0, spannableStringBuilder3.length(), 33);
+                spannableStringBuilder3.setSpan(new f(2, null), 0, spannableStringBuilder3.length(), 33);
             }
             SpannableStringBuilder spannableStringBuilder4 = new SpannableStringBuilder(" ");
             spannableStringBuilder4.setSpan(new c.a.q0.s.f0.r.b(c.a.e.e.p.l.g(textView.getContext(), R.dimen.tbds1)), 0, spannableStringBuilder2.length(), 17);
@@ -626,7 +632,7 @@ public final class ThreadCardUtils {
 
     public static void setTitle(TextView textView, d2 d2Var, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65567, null, new Object[]{textView, d2Var, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) || textView == null || d2Var == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65569, null, new Object[]{textView, d2Var, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) || textView == null || d2Var == null) {
             return;
         }
         SpannableStringBuilder spannableStringBuilder = d2Var.u1() != null ? new SpannableStringBuilder(d2Var.u1()) : null;
@@ -659,33 +665,33 @@ public final class ThreadCardUtils {
 
     public static void jumpToPB(OriginalThreadInfo originalThreadInfo, Context context, int i2, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65557, null, originalThreadInfo, context, i2, rect) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65559, null, originalThreadInfo, context, i2, rect) == null) {
             jumpToPB(originalThreadInfo, context, i2, rect, (String) null);
         }
     }
 
     public static void jumpToPB(OriginalThreadInfo originalThreadInfo, Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65556, null, originalThreadInfo, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65558, null, originalThreadInfo, context, i2) == null) {
             jumpToPB(originalThreadInfo, context, i2, (Rect) null);
         }
     }
 
     public static void jumpToPB(OriginalThreadInfo originalThreadInfo, Context context, int i2, Rect rect, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{originalThreadInfo, context, Integer.valueOf(i2), rect, str}) == null) || originalThreadInfo == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{originalThreadInfo, context, Integer.valueOf(i2), rect, str}) == null) || originalThreadInfo == null || context == null) {
             return;
         }
-        PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(originalThreadInfo.f47524f, originalThreadInfo.n, null);
-        createNormalCfg.setForumId(String.valueOf(originalThreadInfo.f47523e));
+        PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(originalThreadInfo.f47437f, originalThreadInfo.n, null);
+        createNormalCfg.setForumId(String.valueOf(originalThreadInfo.f47436e));
         if (i2 == 3) {
             createNormalCfg.setFrom("from_frs");
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(originalThreadInfo.f47523e)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(originalThreadInfo.f47436e)));
         } else {
             createNormalCfg.setFrom("from_personalize");
         }
         if (TextUtils.isEmpty(str)) {
-            createNormalCfg.setForumName(originalThreadInfo.f47522d);
+            createNormalCfg.setForumName(originalThreadInfo.f47435d);
         } else {
             createNormalCfg.setForumName(str);
         }
@@ -702,7 +708,7 @@ public final class ThreadCardUtils {
 
     public static void setAbstract(TextView textView, TextView textView2, SpannableString spannableString, d2 d2Var, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{textView, textView2, spannableString, d2Var, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{textView, textView2, spannableString, d2Var, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (d2Var != null) {
                 d2Var.s4(false);
                 if (spannableString != null && !k.isEmptyStringAfterTrim(spannableString.toString())) {
@@ -747,27 +753,41 @@ public final class ThreadCardUtils {
     public static void jumpToPB(a aVar, Context context, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{aVar, context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            jumpToPB(aVar, context, i2, z, false, false, null, false);
+            jumpToPB(aVar, context, i2, z, false, false, null, false, "", "");
+        }
+    }
+
+    public static void jumpToPB(a aVar, Context context, int i2, boolean z, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{aVar, context, Integer.valueOf(i2), Boolean.valueOf(z), str, str2}) == null) {
+            jumpToPB(aVar, context, i2, z, null, str, str2);
+        }
+    }
+
+    public static void jumpToPB(a aVar, Context context, int i2, boolean z, Rect rect, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{aVar, context, Integer.valueOf(i2), Boolean.valueOf(z), rect, str, str2}) == null) {
+            jumpToPB(aVar, context, i2, z, false, false, rect, false, str, str2);
         }
     }
 
     public static void jumpToPB(a aVar, Context context, int i2, boolean z, Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{aVar, context, Integer.valueOf(i2), Boolean.valueOf(z), rect}) == null) {
-            jumpToPB(aVar, context, i2, z, false, false, rect, false);
+            jumpToPB(aVar, context, i2, z, false, false, rect, false, "", "");
         }
     }
 
     public static void jumpToPB(a aVar, Context context, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{aVar, context, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            jumpToPB(aVar, context, i2, z, false, false, null, z2);
+        if (interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{aVar, context, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            jumpToPB(aVar, context, i2, z, false, false, null, z2, "", "");
         }
     }
 
     public static void setAbstract(TextView textView, SpannableString spannableString, d2 d2Var, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{textView, spannableString, d2Var, Float.valueOf(f2)}) == null) || textView == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{textView, spannableString, d2Var, Float.valueOf(f2)}) == null) || textView == null) {
             return;
         }
         if (d2Var != null && spannableString != null && !k.isEmptyStringAfterTrim(spannableString.toString())) {

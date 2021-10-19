@@ -13,8 +13,8 @@ import c.a.e.l.e.q;
 import c.a.q0.q0.k;
 import c.a.q0.s.f0.f;
 import c.a.q0.s.s.a;
-import c.a.r0.f3.h;
-import c.a.r0.f3.j;
+import c.a.r0.g3.h;
+import c.a.r0.g3.j;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -73,7 +73,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumActivity f56944a;
+        public final /* synthetic */ SignAllForumActivity f56878a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SignAllForumActivity signAllForumActivity, int i2) {
@@ -93,7 +93,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                     return;
                 }
             }
-            this.f56944a = signAllForumActivity;
+            this.f56878a = signAllForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -104,7 +104,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (num = (Integer) customResponsedMessage.getData()) == null || num.intValue() != 2) {
                 return;
             }
-            this.f56944a.mView.k().setHasPrivilege(true);
+            this.f56878a.mView.k().setHasPrivilege(true);
         }
     }
 
@@ -114,7 +114,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumActivity f56945a;
+        public final /* synthetic */ SignAllForumActivity f56879a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SignAllForumActivity signAllForumActivity, int i2) {
@@ -134,19 +134,19 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                     return;
                 }
             }
-            this.f56945a = signAllForumActivity;
+            this.f56879a = signAllForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.a.r0.f3.c g2;
+            c.a.r0.g3.c g2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof SignData) || (g2 = this.f56945a.mView.g()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof SignData) || (g2 = this.f56879a.mView.g()) == null) {
                 return;
             }
             g2.E((SignData) customResponsedMessage.getData());
-            this.f56945a.mView.f().notifyDataSetChanged();
+            this.f56879a.mView.f().notifyDataSetChanged();
         }
     }
 
@@ -156,7 +156,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumActivity f56946a;
+        public final /* synthetic */ SignAllForumActivity f56880a;
 
         /* loaded from: classes7.dex */
         public class a implements MessageQueue.IdleHandler {
@@ -164,13 +164,13 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f56947a;
+            public final /* synthetic */ long f56881a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f56948b;
+            public final /* synthetic */ long f56882b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ c f56949c;
+            public final /* synthetic */ c f56883c;
 
             public a(c cVar, long j2, long j3) {
                 Interceptable interceptable = $ic;
@@ -187,9 +187,9 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                         return;
                     }
                 }
-                this.f56949c = cVar;
-                this.f56947a = j2;
-                this.f56948b = j3;
+                this.f56883c = cVar;
+                this.f56881a = j2;
+                this.f56882b = j3;
             }
 
             @Override // android.os.MessageQueue.IdleHandler
@@ -197,7 +197,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    this.f56949c.f56946a.logCostTimeLog(this.f56947a, this.f56948b);
+                    this.f56883c.f56880a.logCostTimeLog(this.f56881a, this.f56882b);
                     return false;
                 }
                 return invokeV.booleanValue;
@@ -219,25 +219,25 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                     return;
                 }
             }
-            this.f56946a = signAllForumActivity;
+            this.f56880a = signAllForumActivity;
         }
 
         @Override // com.baidu.tieba.signall.GetForumListModel.b
-        public void a(c.a.r0.f3.c cVar) {
+        public void a(c.a.r0.g3.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                this.f56946a.mView.d();
-                c.a.r0.f3.a i2 = cVar.i();
+                this.f56880a.mView.d();
+                c.a.r0.g3.a i2 = cVar.i();
                 if (i2 != null) {
                     if (i2.a() == 0) {
-                        this.f56946a.mView.m(cVar, this.f56946a.mGetForumListModel.D());
+                        this.f56880a.mView.m(cVar, this.f56880a.mGetForumListModel.D());
                     } else {
-                        this.f56946a.showToast(i2.b(), false);
-                        this.f56946a.finish();
+                        this.f56880a.showToast(i2.b(), false);
+                        this.f56880a.finish();
                     }
                 }
-                Looper.myQueue().addIdleHandler(new a(this, this.f56946a.beginTime > 0 ? System.currentTimeMillis() - this.f56946a.beginTime : (System.currentTimeMillis() - this.f56946a.refrehStartTime) + this.f56946a.creatTime, System.currentTimeMillis() - currentTimeMillis));
+                Looper.myQueue().addIdleHandler(new a(this, this.f56880a.beginTime > 0 ? System.currentTimeMillis() - this.f56880a.beginTime : (System.currentTimeMillis() - this.f56880a.refrehStartTime) + this.f56880a.creatTime, System.currentTimeMillis() - currentTimeMillis));
             }
         }
 
@@ -245,9 +245,9 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         public void onNetError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f56946a.mView.d();
-                this.f56946a.showToast(str, false);
-                this.f56946a.finish();
+                this.f56880a.mView.d();
+                this.f56880a.showToast(str, false);
+                this.f56880a.finish();
             }
         }
     }
@@ -258,7 +258,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumActivity f56950a;
+        public final /* synthetic */ SignAllForumActivity f56884a;
 
         public d(SignAllForumActivity signAllForumActivity) {
             Interceptable interceptable = $ic;
@@ -275,7 +275,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                     return;
                 }
             }
-            this.f56950a = signAllForumActivity;
+            this.f56884a = signAllForumActivity;
         }
 
         @Override // com.baidu.tieba.signall.SignAllForumModel.a
@@ -284,49 +284,49 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             if (!(interceptable == null || interceptable.invokeL(1048576, this, hVar) == null) || hVar == null) {
                 return;
             }
-            if (hVar.a() == 3250013 && this.f56950a.isClickAllSign) {
-                this.f56950a.isClickAllSign = false;
+            if (hVar.a() == 3250013 && this.f56884a.isClickAllSign) {
+                this.f56884a.isClickAllSign = false;
                 BdToast.h(TbadkCoreApplication.getInst().getContext(), hVar.c(), R.drawable.icon_pure_toast_mistake40_svg, 3000, true).q();
-                if (this.f56950a.mView == null || this.f56950a.mView.k() == null) {
+                if (this.f56884a.mView == null || this.f56884a.mView.k() == null) {
                     return;
                 }
-                this.f56950a.mView.k().setSignBefore(0);
+                this.f56884a.mView.k().setSignBefore(0);
                 return;
             }
-            c.a.r0.f3.a b2 = hVar.b();
+            c.a.r0.g3.a b2 = hVar.b();
             if (b2 != null) {
                 if (b2.a() == 0) {
-                    c.a.r0.f3.c g2 = this.f56950a.mView.g();
+                    c.a.r0.g3.c g2 = this.f56884a.mView.g();
                     g2.D(hVar);
-                    if (this.f56950a.isBack) {
-                        Intent intent = new Intent(this.f56950a.getPageContext().getPageActivity(), SignAllForumActivity.class);
+                    if (this.f56884a.isBack) {
+                        Intent intent = new Intent(this.f56884a.getPageContext().getPageActivity(), SignAllForumActivity.class);
                         intent.addFlags(805306368);
                         intent.putExtra("signall_noyify_click", true);
-                        this.f56950a.showNotification(this.f56950a.getPageContext().getPageActivity().getString(R.string.signallforum_back_finish, new Object[]{Integer.valueOf(g2.s()), Integer.valueOf(g2.j())}), PendingIntent.getActivity(this.f56950a.getPageContext().getPageActivity(), 0, intent, 134217728), false);
-                        if (this.f56950a.isDestory) {
+                        this.f56884a.showNotification(this.f56884a.getPageContext().getPageActivity().getString(R.string.signallforum_back_finish, new Object[]{Integer.valueOf(g2.s()), Integer.valueOf(g2.j())}), PendingIntent.getActivity(this.f56884a.getPageContext().getPageActivity(), 0, intent, 134217728), false);
+                        if (this.f56884a.isDestory) {
                             return;
                         }
                     }
-                    this.f56950a.mView.f().notifyDataSetChanged();
-                    SignAllForumProgressView k = this.f56950a.mView.k();
+                    this.f56884a.mView.f().notifyDataSetChanged();
+                    SignAllForumProgressView k = this.f56884a.mView.k();
                     if (!g2.A()) {
                         if (hVar.h() != 0) {
-                            this.f56950a.createAlertDialog(hVar.f());
-                            this.f56950a.mDialog.show();
+                            this.f56884a.createAlertDialog(hVar.f());
+                            this.f56884a.mDialog.show();
                         } else if (hVar.e() != 0) {
-                            this.f56950a.showToast(hVar.g());
+                            this.f56884a.showToast(hVar.g());
                         } else {
-                            this.f56950a.showToast(R.string.signallforum_error);
+                            this.f56884a.showToast(R.string.signallforum_error);
                         }
                     }
-                    if (this.f56950a.mDialog == null || !this.f56950a.mDialog.isShowing()) {
-                        this.f56950a.checkAndShowTimePicker();
+                    if (this.f56884a.mDialog == null || !this.f56884a.mDialog.isShowing()) {
+                        this.f56884a.checkAndShowTimePicker();
                     }
                     k.setSignSuccess();
-                    this.f56950a.showAdvert(g2);
+                    this.f56884a.showAdvert(g2);
                     return;
                 }
-                this.f56950a.signFailed(b2.b());
+                this.f56884a.signFailed(b2.b());
             }
         }
 
@@ -334,7 +334,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         public void onNetError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f56950a.signFailed(str);
+                this.f56884a.signFailed(str);
             }
         }
     }
@@ -345,7 +345,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumActivity f56951a;
+        public final /* synthetic */ SignAllForumActivity f56885a;
 
         public e(SignAllForumActivity signAllForumActivity) {
             Interceptable interceptable = $ic;
@@ -362,7 +362,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                     return;
                 }
             }
-            this.f56951a = signAllForumActivity;
+            this.f56885a = signAllForumActivity;
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
@@ -388,16 +388,16 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f56952e;
+        public final /* synthetic */ String f56886e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f56953f;
+        public final /* synthetic */ String f56887f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f56954g;
+        public final /* synthetic */ boolean f56888g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumActivity f56955h;
+        public final /* synthetic */ SignAllForumActivity f56889h;
 
         public f(SignAllForumActivity signAllForumActivity, String str, String str2, boolean z) {
             Interceptable interceptable = $ic;
@@ -414,17 +414,17 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                     return;
                 }
             }
-            this.f56955h = signAllForumActivity;
-            this.f56952e = str;
-            this.f56953f = str2;
-            this.f56954g = z;
+            this.f56889h = signAllForumActivity;
+            this.f56886e = str;
+            this.f56887f = str2;
+            this.f56888g = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56955h.sendMessage(new CustomMessage(2002001, new SignAllForumAdvertActivityConfig(this.f56955h.getPageContext().getPageActivity(), this.f56952e, this.f56953f, Boolean.valueOf(this.f56954g))));
+                this.f56889h.sendMessage(new CustomMessage(2002001, new SignAllForumAdvertActivityConfig(this.f56889h.getPageContext().getPageActivity(), this.f56886e, this.f56887f, Boolean.valueOf(this.f56888g))));
             }
         }
     }
@@ -435,7 +435,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumActivity f56956e;
+        public final /* synthetic */ SignAllForumActivity f56890e;
 
         public g(SignAllForumActivity signAllForumActivity) {
             Interceptable interceptable = $ic;
@@ -452,7 +452,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                     return;
                 }
             }
-            this.f56956e = signAllForumActivity;
+            this.f56890e = signAllForumActivity;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -555,7 +555,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void showAdvert(c.a.r0.f3.c cVar) {
+    public void showAdvert(c.a.r0.g3.c cVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65558, this, cVar) == null) || cVar == null) {
             return;
@@ -580,11 +580,11 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     private void signAllForum() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            c.a.r0.f3.c g2 = this.mView.g();
+            c.a.r0.g3.c g2 = this.mView.g();
             this.mView.k().setDuration(Math.max(g2.x().size() * 50, 2000));
             this.mView.k().setSigning(0);
             this.mSignAllForumModel.D(g2);
-            this.mSignAllForumModel.LoadData();
+            this.mSignAllForumModel.loadData();
             this.mView.f().notifyDataSetChanged();
         }
     }
@@ -594,7 +594,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65561, this, str) == null) {
             if (this.isBack) {
-                c.a.r0.f3.c g2 = this.mView.g();
+                c.a.r0.g3.c g2 = this.mView.g();
                 Intent intent = new Intent(getPageContext().getPageActivity(), SignAllForumActivity.class);
                 intent.addFlags(805306368);
                 intent.putExtra("signall_noyify_click", true);
@@ -607,10 +607,10 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             }
             showToast(str);
             this.mView.k().setSignSuccess();
-            ArrayList<c.a.r0.f3.d> x = this.mView.g().x();
+            ArrayList<c.a.r0.g3.d> x = this.mView.g().x();
             int size = x.size();
             for (int i2 = 0; i2 < size; i2++) {
-                c.a.r0.f3.d dVar = x.get(i2);
+                c.a.r0.g3.d dVar = x.get(i2);
                 dVar.s(true);
                 dVar.t(false);
                 dVar.u(false);
@@ -682,7 +682,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
-            c.a.r0.f3.c g2 = this.mView.g();
+            c.a.r0.g3.c g2 = this.mView.g();
             if (view != this.mView.j()) {
                 if (view == this.mView.h()) {
                     TiebaStatic.eventStat(getPageContext().getPageActivity(), "consume_3", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
@@ -722,7 +722,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             this.beginTime = System.currentTimeMillis();
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.f().h("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.g().i("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -744,7 +744,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             initData();
             initUI();
             this.creatTime = System.currentTimeMillis() - this.beginTime;
-            c.a.r0.e0.a.a(getIntent(), getPageContext(), 25050);
+            c.a.r0.f0.a.a(getIntent(), getPageContext(), 25050);
         }
     }
 
@@ -799,7 +799,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
-        c.a.r0.f3.d dVar;
+        c.a.r0.g3.d dVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.mView.f().getItemViewType(i2) != 0 || this.mView.g() == null || this.mView.g().k() == null || this.mView.g().k().size() <= i2 || (dVar = this.mView.g().k().get(i2)) == null) {
             return;
@@ -821,7 +821,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             GetForumListModel getForumListModel = this.mGetForumListModel;
             if (getForumListModel == null) {
                 showToast(R.string.neterror);
-            } else if (getForumListModel.LoadData()) {
+            } else if (getForumListModel.loadData()) {
             } else {
                 this.mView.d();
             }

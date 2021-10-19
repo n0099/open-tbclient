@@ -19,34 +19,34 @@ public final class ResUtils {
     public static final String ANIM = "anim";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38327a = "id";
+    public static final String f38331a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38328b = "string";
+    public static final String f38332b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38329c = "layout";
+    public static final String f38333c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38330d = "style";
+    public static final String f38334d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38331e = "drawable";
+    public static final String f38335e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38332f = "color";
+    public static final String f38336f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38333g = "array";
+    public static final String f38337g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f38334h = "attr";
+    public static final String f38338h = "attr";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f38335i = "dimen";
+    public static final String f38339i = "dimen";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f38336j = "xml";
+    public static final String f38340j = "xml";
     public static final String k = "integer";
     public static final String l = "raw";
     public transient /* synthetic */ FieldHolder $fh;

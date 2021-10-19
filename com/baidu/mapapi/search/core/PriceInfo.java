@@ -17,10 +17,10 @@ public class PriceInfo implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41812a;
+    public int f41816a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f41813b;
+    public double f41817b;
 
     static {
         InterceptResult invokeClinit;
@@ -67,8 +67,8 @@ public class PriceInfo implements Parcelable {
                 return;
             }
         }
-        this.f41812a = parcel.readInt();
-        this.f41813b = parcel.readDouble();
+        this.f41816a = parcel.readInt();
+        this.f41817b = parcel.readDouble();
     }
 
     @Override // android.os.Parcelable
@@ -84,26 +84,26 @@ public class PriceInfo implements Parcelable {
     public double getTicketPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41813b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41817b : invokeV.doubleValue;
     }
 
     public int getTicketType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41812a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41816a : invokeV.intValue;
     }
 
     public void setTicketPrice(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f41813b = d2;
+            this.f41817b = d2;
         }
     }
 
     public void setTicketType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f41812a = i2;
+            this.f41816a = i2;
         }
     }
 
@@ -111,8 +111,8 @@ public class PriceInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
-            parcel.writeInt(this.f41812a);
-            parcel.writeDouble(this.f41813b);
+            parcel.writeInt(this.f41816a);
+            parcel.writeDouble(this.f41817b);
         }
     }
 }

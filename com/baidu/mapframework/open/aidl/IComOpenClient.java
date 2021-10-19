@@ -22,14 +22,14 @@ public interface IComOpenClient extends IInterface {
 
         /* renamed from: com.baidu.mapframework.open.aidl.IComOpenClient$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C1667a implements IComOpenClient {
+        public static class C1669a implements IComOpenClient {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f42103a;
+            public IBinder f42107a;
 
-            public C1667a(IBinder iBinder) {
+            public C1669a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,7 +44,7 @@ public interface IComOpenClient extends IInterface {
                         return;
                     }
                 }
-                this.f42103a = iBinder;
+                this.f42107a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.IComOpenClient
@@ -57,7 +57,7 @@ public interface IComOpenClient extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IComOpenClient");
                         obtain.writeString(str);
-                        this.f42103a.transact(1, obtain, obtain2, 0);
+                        this.f42107a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -85,7 +85,7 @@ public interface IComOpenClient extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.f42103a.transact(2, obtain, obtain2, 0);
+                        this.f42107a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -100,7 +100,7 @@ public interface IComOpenClient extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42103a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42107a : (IBinder) invokeV.objValue;
             }
         }
 
@@ -112,7 +112,7 @@ public interface IComOpenClient extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C1667a(iBinder) : (IComOpenClient) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C1669a(iBinder) : (IComOpenClient) queryLocalInterface;
             }
             return (IComOpenClient) invokeL.objValue;
         }

@@ -51,9 +51,9 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
             return;
         }
         String str = getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false) ? "tbNewVideo/temp/" : "tbVideo/temp/";
-        String SaveFile = FileHelper.SaveFile(str, System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX, clip, 90);
+        String saveBitmapByRelativelyPath = FileHelper.saveBitmapByRelativelyPath(str, System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX, clip, 90);
         Intent intent = new Intent();
-        intent.putExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH, SaveFile);
+        intent.putExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH, saveBitmapByRelativelyPath);
         setResult(-1, intent);
         finish();
     }

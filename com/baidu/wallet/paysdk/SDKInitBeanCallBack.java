@@ -30,11 +30,11 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f62562b;
+    public static int f62597b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f62563a;
+    public Context f62598a;
 
     static {
         InterceptResult invokeClinit;
@@ -66,7 +66,7 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
                 return;
             }
         }
-        this.f62563a = context;
+        this.f62598a = context;
     }
 
     public static Map<String, Set<String>> a(String str) throws JSONException {
@@ -127,20 +127,20 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
             if (DebugConfig.getInstance().isOnline()) {
                 if (checkIsJson(sdkInitResponse.domainConfig)) {
                     DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.ONLINE, sdkInitResponse.domainConfig);
-                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f62563a), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
+                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f62598a), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
                 }
                 if (checkIsJson(sdkInitResponse.appDomainConfig)) {
                     com.baidu.apollon.heartbeat.a.c().a(sdkInitResponse.appDomainConfig);
-                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f62563a), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, BeanConstants.DOMAIN_CONFIG_KEY_FOR_APP, sdkInitResponse.appDomainConfig);
+                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f62598a), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, BeanConstants.DOMAIN_CONFIG_KEY_FOR_APP, sdkInitResponse.appDomainConfig);
                 }
             } else {
                 if (checkIsJson(sdkInitResponse.domainConfig)) {
                     DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.QA, sdkInitResponse.domainConfig);
-                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f62563a), BeanConstants.DOMAIN_CONFIG_NAME_QA, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
+                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f62598a), BeanConstants.DOMAIN_CONFIG_NAME_QA, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
                 }
                 if (checkIsJson(sdkInitResponse.appDomainConfig)) {
                     com.baidu.apollon.heartbeat.a.c().a(sdkInitResponse.appDomainConfig);
-                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f62563a), BeanConstants.DOMAIN_CONFIG_NAME_QA, BeanConstants.DOMAIN_CONFIG_KEY_FOR_APP, sdkInitResponse.appDomainConfig);
+                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f62598a), BeanConstants.DOMAIN_CONFIG_NAME_QA, BeanConstants.DOMAIN_CONFIG_KEY_FOR_APP, sdkInitResponse.appDomainConfig);
                 }
             }
             if (TextUtils.isEmpty(sdkInitResponse.publicKeyPins)) {

@@ -19,10 +19,10 @@ public class m extends SQLiteOpenHelper {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43942a;
+    public String f43854a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SQLiteDatabase f43943b;
+    public SQLiteDatabase f43855b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(Context context, String str) throws SQLiteException {
@@ -43,7 +43,7 @@ public class m extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f43942a = str;
+        this.f43854a = str;
     }
 
     public synchronized boolean a() {
@@ -53,14 +53,14 @@ public class m extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
                 z = false;
-                if (this.f43943b == null || !this.f43943b.isOpen()) {
+                if (this.f43855b == null || !this.f43855b.isOpen()) {
                     try {
-                        this.f43943b = getWritableDatabase();
+                        this.f43855b = getWritableDatabase();
                     } catch (NullPointerException unused) {
                         throw new NullPointerException("db path is null");
                     }
                 }
-                if (this.f43943b != null && this.f43943b.isOpen()) {
+                if (this.f43855b != null && this.f43855b.isOpen()) {
                     z = true;
                 }
             }
@@ -76,8 +76,8 @@ public class m extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             Cursor cursor = null;
             try {
-                SQLiteDatabase sQLiteDatabase = this.f43943b;
-                cursor = sQLiteDatabase.rawQuery("SELECT COUNT(*) FROM " + this.f43942a, null);
+                SQLiteDatabase sQLiteDatabase = this.f43855b;
+                cursor = sQLiteDatabase.rawQuery("SELECT COUNT(*) FROM " + this.f43854a, null);
                 if (cursor == null || !cursor.moveToNext()) {
                     if (cursor != null) {
                         cursor.close();
@@ -100,9 +100,9 @@ public class m extends SQLiteOpenHelper {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             synchronized (this) {
                 super.close();
-                if (this.f43943b != null) {
-                    this.f43943b.close();
-                    this.f43943b = null;
+                if (this.f43855b != null) {
+                    this.f43855b.close();
+                    this.f43855b = null;
                 }
             }
         }
@@ -140,7 +140,7 @@ public class m extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
-            this.f43943b = sQLiteDatabase;
+            this.f43855b = sQLiteDatabase;
         }
     }
 
@@ -169,18 +169,18 @@ public class m extends SQLiteOpenHelper {
     public Cursor a(String[] strArr, String str, String[] strArr2, String str2, String str3, String str4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{strArr, str, strArr2, str2, str3, str4, str5})) == null) ? this.f43943b.query(this.f43942a, strArr, str, strArr2, str2, str3, str4, str5) : (Cursor) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{strArr, str, strArr2, str2, str3, str4, str5})) == null) ? this.f43855b.query(this.f43854a, strArr, str, strArr2, str2, str3, str4, str5) : (Cursor) invokeCommon.objValue;
     }
 
     public long a(String str, ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, contentValues)) == null) ? this.f43943b.insert(this.f43942a, str, contentValues) : invokeLL.longValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, contentValues)) == null) ? this.f43855b.insert(this.f43854a, str, contentValues) : invokeLL.longValue;
     }
 
     public int a(String str, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) ? this.f43943b.delete(this.f43942a, str, strArr) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) ? this.f43855b.delete(this.f43854a, str, strArr) : invokeLL.intValue;
     }
 }

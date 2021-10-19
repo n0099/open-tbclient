@@ -27,6 +27,8 @@ public class YYLiveUtil {
     public static final String SOURCE_FRS_LIVE_CARD_TAB = "frs_tab_live_card";
     public static final String SOURCE_FRS_LIVE_HEAD_ = "frs_feed_head_";
     public static final String SOURCE_FRS_SERVICE_AREA = "frs_service_area";
+    public static final String SOURCE_HOMEPAGE_VIDEO_CHANNEL = "video_bar_icon";
+    public static final String SOURCE_HOMEPAGE_VIDEO_MIDDLE = "video_immer_icon";
     public static final String SOURCE_HOME_CONCERN_LIVE_HEAD = "home_guanzhu_live_head";
     public static final String SOURCE_HOME_CONCERN_TUWEN_HEAD = "home_guanzhu_tuwen_head";
     public static final String SOURCE_HOME_CONCERN_VIDEO_HEAD = "home_guanzhu_video_head";

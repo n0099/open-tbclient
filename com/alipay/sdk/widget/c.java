@@ -18,17 +18,17 @@ public abstract class c extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f36160c = "v1";
+    public static final String f36164c = "v1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36161d = "v2";
+    public static final String f36165d = "v2";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f36162a;
+    public Activity f36166a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f36163b;
+    public final String f36167b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Activity activity, String str) {
@@ -48,8 +48,8 @@ public abstract class c extends FrameLayout {
                 return;
             }
         }
-        this.f36162a = activity;
-        this.f36163b = str;
+        this.f36166a = activity;
+        this.f36167b = str;
     }
 
     public abstract void a(String str);
@@ -59,7 +59,7 @@ public abstract class c extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        CookieSyncManager.createInstance(this.f36162a.getApplicationContext()).sync();
+        CookieSyncManager.createInstance(this.f36166a.getApplicationContext()).sync();
         CookieManager.getInstance().setCookie(str, str2);
         CookieSyncManager.getInstance().sync();
     }
@@ -71,7 +71,7 @@ public abstract class c extends FrameLayout {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "v1".equals(this.f36163b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "v1".equals(this.f36167b) : invokeV.booleanValue;
     }
 
     public static void a(WebView webView) {

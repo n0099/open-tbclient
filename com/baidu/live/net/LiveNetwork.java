@@ -28,10 +28,10 @@ public final class LiveNetwork {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41003a;
+    public String f41007a;
 
     /* renamed from: b  reason: collision with root package name */
-    public INetWork f41004b;
+    public INetWork f41008b;
 
     /* loaded from: classes5.dex */
     public static final class a<T> {
@@ -39,10 +39,10 @@ public final class LiveNetwork {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final NetResponse f41005a;
+        public final NetResponse f41009a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f41006b;
+        public final T f41010b;
 
         public a(NetResponse netResponse, T t) {
             Interceptable interceptable = $ic;
@@ -59,20 +59,20 @@ public final class LiveNetwork {
                     return;
                 }
             }
-            this.f41005a = netResponse;
-            this.f41006b = t;
+            this.f41009a = netResponse;
+            this.f41010b = t;
         }
 
         public final T a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41006b : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41010b : (T) invokeV.objValue;
         }
 
         public final NetResponse b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41005a : (NetResponse) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41009a : (NetResponse) invokeV.objValue;
         }
 
         public boolean equals(Object obj) {
@@ -82,7 +82,7 @@ public final class LiveNetwork {
                 if (this != obj) {
                     if (obj instanceof a) {
                         a aVar = (a) obj;
-                        return Intrinsics.areEqual(this.f41005a, aVar.f41005a) && Intrinsics.areEqual(this.f41006b, aVar.f41006b);
+                        return Intrinsics.areEqual(this.f41009a, aVar.f41009a) && Intrinsics.areEqual(this.f41010b, aVar.f41010b);
                     }
                     return false;
                 }
@@ -95,9 +95,9 @@ public final class LiveNetwork {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                NetResponse netResponse = this.f41005a;
+                NetResponse netResponse = this.f41009a;
                 int hashCode = (netResponse != null ? netResponse.hashCode() : 0) * 31;
-                T t = this.f41006b;
+                T t = this.f41010b;
                 return hashCode + (t != null ? t.hashCode() : 0);
             }
             return invokeV.intValue;
@@ -107,7 +107,7 @@ public final class LiveNetwork {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return "Response(response=" + this.f41005a + ", data=" + this.f41006b + SmallTailInfo.EMOTION_SUFFIX;
+                return "Response(response=" + this.f41009a + ", data=" + this.f41010b + SmallTailInfo.EMOTION_SUFFIX;
             }
             return (String) invokeV.objValue;
         }
@@ -119,13 +119,13 @@ public final class LiveNetwork {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveNetwork f41007a;
+        public final /* synthetic */ LiveNetwork f41011a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Map f41008b;
+        public final /* synthetic */ Map f41012b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.w.f.a f41009c;
+        public final /* synthetic */ c.a.w.f.a f41013c;
 
         public b(LiveNetwork liveNetwork, Map map, c.a.w.f.a aVar) {
             Interceptable interceptable = $ic;
@@ -142,9 +142,9 @@ public final class LiveNetwork {
                     return;
                 }
             }
-            this.f41007a = liveNetwork;
-            this.f41008b = map;
-            this.f41009c = aVar;
+            this.f41011a = liveNetwork;
+            this.f41012b = map;
+            this.f41013c = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -154,14 +154,14 @@ public final class LiveNetwork {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                INetWork iNetWork = this.f41007a.f41004b;
+                INetWork iNetWork = this.f41011a.f41008b;
                 if (iNetWork == null) {
                     Intrinsics.throwNpe();
                 }
-                NetResponse res = iNetWork.postSync(this.f41008b);
+                NetResponse res = iNetWork.postSync(this.f41012b);
                 Object obj = null;
                 try {
-                    c.a.w.f.a aVar = this.f41009c;
+                    c.a.w.f.a aVar = this.f41013c;
                     if (aVar != null) {
                         obj = aVar.onParseResponseInBackground(res);
                     }
@@ -181,7 +181,7 @@ public final class LiveNetwork {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.w.f.a f41010a;
+        public final /* synthetic */ c.a.w.f.a f41014a;
 
         public c(c.a.w.f.a aVar) {
             Interceptable interceptable = $ic;
@@ -198,7 +198,7 @@ public final class LiveNetwork {
                     return;
                 }
             }
-            this.f41010a = aVar;
+            this.f41014a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -209,7 +209,7 @@ public final class LiveNetwork {
         public final void onReturnDataInUI(a<ResponseDataT> aVar) {
             c.a.w.f.a aVar2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (aVar2 = this.f41010a) == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (aVar2 = this.f41014a) == 0) {
                 return;
             }
             aVar2.onNetResponse(aVar != 0 ? aVar.b() : null, aVar != 0 ? aVar.a() : null);
@@ -247,13 +247,13 @@ public final class LiveNetwork {
         }
         LazyKt__LazyJVMKt.lazy(LiveNetwork$handler$2.INSTANCE);
         NetworkAgentService networkAgentService = (NetworkAgentService) ServiceManager.getService(NetworkAgentService.SERVICE_REFERENCE);
-        this.f41004b = networkAgentService != null ? networkAgentService.buildNetworkInstance() : null;
+        this.f41008b = networkAgentService != null ? networkAgentService.buildNetworkInstance() : null;
     }
 
     public final <ResponseDataT> void b(Map<String, ? extends Object> map, c.a.w.f.a<ResponseDataT> aVar) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, map, aVar) == null) || (str = this.f41003a) == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.f41004b == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, map, aVar) == null) || (str = this.f41007a) == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.f41008b == null) {
             return;
         }
         c.a.w.h.a.a(new b(this, map, aVar), new c(aVar));
@@ -262,7 +262,7 @@ public final class LiveNetwork {
     public final void c(Map<String, ? extends Object> map) {
         INetWork iNetWork;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) || (iNetWork = this.f41004b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) || (iNetWork = this.f41008b) == null) {
             return;
         }
         iNetWork.setExtra(map);
@@ -271,7 +271,7 @@ public final class LiveNetwork {
     public final void d(int i2) {
         INetWork iNetWork;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (iNetWork = this.f41004b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (iNetWork = this.f41008b) == null) {
             return;
         }
         iNetWork.setRetryCount(i2);
@@ -280,8 +280,8 @@ public final class LiveNetwork {
     public final void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f41003a = str;
-            INetWork iNetWork = this.f41004b;
+            this.f41007a = str;
+            INetWork iNetWork = this.f41008b;
             if (iNetWork != null) {
                 iNetWork.setUrl(str);
             }

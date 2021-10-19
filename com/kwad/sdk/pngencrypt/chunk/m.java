@@ -11,7 +11,7 @@ public class m extends aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int[] f73488h;
+    public int[] f73523h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(com.kwad.sdk.pngencrypt.k kVar) {
@@ -32,7 +32,7 @@ public class m extends aa {
                 return;
             }
         }
-        this.f73488h = new int[0];
+        this.f73523h = new int[0];
     }
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
@@ -41,17 +41,17 @@ public class m extends aa {
         if (interceptable != null && interceptable.invokeL(1048576, this, dVar) != null) {
             return;
         }
-        if (!this.f73438e.f73537g) {
+        if (!this.f73473e.f73572g) {
             throw new PngjException("only indexed images accept a HIST chunk");
         }
-        this.f73488h = new int[dVar.f73462d.length / 2];
+        this.f73523h = new int[dVar.f73497d.length / 2];
         int i2 = 0;
         while (true) {
-            int[] iArr = this.f73488h;
+            int[] iArr = this.f73523h;
             if (i2 >= iArr.length) {
                 return;
             }
-            iArr[i2] = com.kwad.sdk.pngencrypt.n.b(dVar.f73462d, i2 * 2);
+            iArr[i2] = com.kwad.sdk.pngencrypt.n.b(dVar.f73497d, i2 * 2);
             i2++;
         }
     }

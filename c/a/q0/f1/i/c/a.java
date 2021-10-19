@@ -15,10 +15,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int[] f13210a;
+    public final int[] f13215a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f13211b;
+    public Context f13216b;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class a {
                 return;
             }
         }
-        this.f13210a = new int[2];
-        this.f13211b = context;
+        this.f13215a = new int[2];
+        this.f13216b = context;
     }
 
     public BitmapRegionDecoder a(byte[] bArr) throws IOException {
@@ -47,8 +47,8 @@ public class a {
                 return null;
             }
             BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, false);
-            this.f13210a[0] = newInstance.getWidth();
-            this.f13210a[1] = newInstance.getHeight();
+            this.f13215a[0] = newInstance.getWidth();
+            this.f13215a[1] = newInstance.getHeight();
             return newInstance;
         }
         return (BitmapRegionDecoder) invokeL.objValue;
@@ -57,6 +57,6 @@ public class a {
     public int[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13210a : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13215a : (int[]) invokeV.objValue;
     }
 }

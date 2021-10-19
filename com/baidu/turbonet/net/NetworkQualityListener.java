@@ -11,12 +11,12 @@ public abstract class NetworkQualityListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f59552a;
+    public final Executor f59587a;
 
     public Executor a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59552a : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59587a : (Executor) invokeV.objValue;
     }
 
     public abstract void b(int i2);

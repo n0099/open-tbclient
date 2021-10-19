@@ -15,7 +15,7 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f65555a;
+    public static final a f65590a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bytedance.sdk.component.utils.j$1  reason: invalid class name */
@@ -127,16 +127,16 @@ public class j {
             }
         }
         if (Build.VERSION.SDK_INT >= 19) {
-            f65555a = new b(null);
+            f65590a = new b(null);
         } else {
-            f65555a = new a(null);
+            f65590a = new a(null);
         }
     }
 
     public static void a(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, webView, str) == null) {
-            f65555a.a(webView, str);
+            f65590a.a(webView, str);
         }
     }
 }

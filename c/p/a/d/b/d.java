@@ -33,11 +33,11 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f34664b;
+    public static volatile d f34668b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<Long, Runnable> f34665a;
+    public ConcurrentHashMap<Long, Runnable> f34669a;
 
     /* loaded from: classes4.dex */
     public class a implements c.g {
@@ -45,16 +45,16 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f34666a;
+        public final /* synthetic */ g f34670a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f34667b;
+        public final /* synthetic */ int f34671b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.a.a.d.d f34668c;
+        public final /* synthetic */ c.p.a.a.a.d.d f34672c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d f34669d;
+        public final /* synthetic */ d f34673d;
 
         public a(d dVar, g gVar, int i2, c.p.a.a.a.d.d dVar2) {
             Interceptable interceptable = $ic;
@@ -71,17 +71,17 @@ public class d {
                     return;
                 }
             }
-            this.f34669d = dVar;
-            this.f34666a = gVar;
-            this.f34667b = i2;
-            this.f34668c = dVar2;
+            this.f34673d = dVar;
+            this.f34670a = gVar;
+            this.f34671b = i2;
+            this.f34672c = dVar2;
         }
 
         @Override // c.p.a.d.c.g
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f34669d.d(this.f34666a, z, this.f34667b, this.f34668c);
+                this.f34673d.d(this.f34670a, z, this.f34671b, this.f34672c);
             }
         }
     }
@@ -92,7 +92,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f34670a;
+        public int f34674a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class d {
             long j4;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), tVar})) == null) {
-                c.p.a.e.b.j.a d2 = c.p.a.e.b.j.a.d(this.f34670a);
+                c.p.a.e.b.j.a d2 = c.p.a.e.b.j.a.d(this.f34674a);
                 if (e(d2)) {
                     long currentTimeMillis = System.currentTimeMillis();
                     e.a().h();
@@ -154,22 +154,22 @@ public class d {
                 if (B != null) {
                     B.a();
                 }
-                C1525d.a();
-                C1525d.e();
+                C1527d.a();
+                C1527d.e();
             }
         }
 
         public void c(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f34670a = i2;
+                this.f34674a = i2;
             }
         }
 
         public final void d(long j2, long j3, long j4, long j5, long j6) {
             DownloadInfo f2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) || (f2 = c.p.a.e.b.g.a.H(l.a()).f(this.f34670a)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) || (f2 = c.p.a.e.b.g.a.H(l.a()).f(this.f34674a)) == null) {
                 return;
             }
             try {
@@ -221,7 +221,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public DownloadInfo f34671e;
+        public DownloadInfo f34675e;
 
         /* loaded from: classes4.dex */
         public class a implements f {
@@ -260,26 +260,26 @@ public class d {
                     return;
                 }
             }
-            this.f34671e = downloadInfo;
+            this.f34675e = downloadInfo;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             c.p.a.b.a.c.b c2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34671e == null || (c2 = c.g.e().c(this.f34671e)) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34675e == null || (c2 = c.g.e().c(this.f34675e)) == null) {
                 return;
             }
             e.c.a().m("cleanspace_task", c2);
-            long longValue = Double.valueOf((h.k.a(this.f34671e.getId()) + 1.0d) * this.f34671e.getTotalBytes()).longValue() - this.f34671e.getCurBytes();
+            long longValue = Double.valueOf((h.k.a(this.f34675e.getId()) + 1.0d) * this.f34675e.getTotalBytes()).longValue() - this.f34675e.getCurBytes();
             long d2 = h.r.d(0L);
             if (l.y() != null) {
                 l.y().e();
             }
-            C1525d.a();
-            C1525d.e();
+            C1527d.a();
+            C1527d.e();
             if (h.k.s(c2.s())) {
-                C1525d.b(l.a());
+                C1527d.b(l.a());
             }
             long d3 = h.r.d(0L);
             if (d3 >= longValue) {
@@ -292,11 +292,11 @@ public class d {
                     e2.printStackTrace();
                 }
                 e.c.a().r("cleanspace_download_after_quite_clean", jSONObject, c2);
-                c.p.a.e.b.g.a.H(l.a()).y(this.f34671e.getId());
+                c.p.a.e.b.g.a.H(l.a()).y(this.f34675e.getId());
             } else if (l.y() != null) {
                 c2.w0(false);
                 e.a().e(c2.a(), new a(this, c2));
-                if (l.y().a(this.f34671e.getId(), this.f34671e.getUrl(), true, longValue)) {
+                if (l.y().a(this.f34675e.getId(), this.f34675e.getUrl(), true, longValue)) {
                     c2.A0(true);
                 }
             } else {
@@ -313,7 +313,7 @@ public class d {
 
     /* renamed from: c.p.a.d.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1525d {
+    public class C1527d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -487,17 +487,17 @@ public class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: d  reason: collision with root package name */
-        public static volatile e f34672d;
+        public static volatile e f34676d;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f34673a;
+        public long f34677a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ConcurrentHashMap<String, f> f34674b;
+        public ConcurrentHashMap<String, f> f34678b;
 
         /* renamed from: c  reason: collision with root package name */
-        public HashMap<String, Integer> f34675c;
+        public HashMap<String, Integer> f34679c;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -512,9 +512,9 @@ public class d {
                     return;
                 }
             }
-            this.f34673a = 0L;
-            this.f34674b = new ConcurrentHashMap<>();
-            this.f34675c = new HashMap<>();
+            this.f34677a = 0L;
+            this.f34678b = new ConcurrentHashMap<>();
+            this.f34679c = new HashMap<>();
             new CopyOnWriteArrayList();
         }
 
@@ -522,14 +522,14 @@ public class d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (f34672d == null) {
+                if (f34676d == null) {
                     synchronized (e.class) {
-                        if (f34672d == null) {
-                            f34672d = new e();
+                        if (f34676d == null) {
+                            f34676d = new e();
                         }
                     }
                 }
-                return f34672d;
+                return f34676d;
             }
             return (e) invokeV.objValue;
         }
@@ -569,7 +569,7 @@ public class d {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f34674b.remove(str);
+            this.f34678b.remove(str);
         }
 
         public void e(String str, f fVar) {
@@ -577,7 +577,7 @@ public class d {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fVar) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f34674b.put(str, fVar);
+            this.f34678b.put(str, fVar);
         }
 
         public int f(String str) {
@@ -587,11 +587,11 @@ public class d {
                 if (TextUtils.isEmpty(str)) {
                     return 0;
                 }
-                if (this.f34675c == null) {
-                    this.f34675c = new HashMap<>();
+                if (this.f34679c == null) {
+                    this.f34679c = new HashMap<>();
                 }
-                if (this.f34675c.containsKey(str)) {
-                    return this.f34675c.get(str).intValue();
+                if (this.f34679c.containsKey(str)) {
+                    return this.f34679c.get(str).intValue();
                 }
                 return 0;
             }
@@ -601,13 +601,13 @@ public class d {
         public long g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34673a : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34677a : invokeV.longValue;
         }
 
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f34673a = System.currentTimeMillis();
+                this.f34677a = System.currentTimeMillis();
             }
         }
     }
@@ -644,22 +644,22 @@ public class d {
                 return;
             }
         }
-        this.f34665a = null;
-        this.f34665a = new ConcurrentHashMap<>();
+        this.f34669a = null;
+        this.f34669a = new ConcurrentHashMap<>();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f34664b == null) {
+            if (f34668b == null) {
                 synchronized (d.class) {
-                    if (f34664b == null) {
-                        f34664b = new d();
+                    if (f34668b == null) {
+                        f34668b = new d();
                     }
                 }
             }
-            return f34664b;
+            return f34668b;
         }
         return (d) invokeV.objValue;
     }
@@ -710,7 +710,7 @@ public class d {
                 b(d2, true, 1);
             } else if (i2 != 7) {
             } else {
-                Runnable remove = this.f34665a.remove(Long.valueOf(d2));
+                Runnable remove = this.f34669a.remove(Long.valueOf(d2));
                 if (z) {
                     e.c.a().c(d2, 1);
                     b(d2, true, 1);

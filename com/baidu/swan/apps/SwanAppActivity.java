@@ -97,7 +97,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45611e;
+        public final /* synthetic */ SwanAppActivity f45523e;
 
         public a(SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return;
                 }
             }
-            this.f45611e = swanAppActivity;
+            this.f45523e = swanAppActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,7 +123,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public void onCallback(i.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f45611e.showSwanAppStartView(true, aVar);
+                this.f45523e.showSwanAppStartView(true, aVar);
             }
         }
     }
@@ -134,7 +134,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45612a;
+        public final /* synthetic */ SwanAppActivity f45524a;
 
         public b(SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -151,7 +151,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return;
                 }
             }
-            this.f45612a = swanAppActivity;
+            this.f45524a = swanAppActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -160,7 +160,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public Boolean a(i.a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? Boolean.valueOf(!this.f45612a.isDestroyed()) : (Boolean) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? Boolean.valueOf(!this.f45524a.isDestroyed()) : (Boolean) invokeL.objValue;
         }
     }
 
@@ -170,7 +170,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45613e;
+        public final /* synthetic */ SwanAppActivity f45525e;
 
         public c(SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -187,14 +187,14 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return;
                 }
             }
-            this.f45613e = swanAppActivity;
+            this.f45525e = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45613e.tryFinishAndRemoveTask();
+                this.f45525e.tryFinishAndRemoveTask();
             }
         }
     }
@@ -205,7 +205,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45614e;
+        public final /* synthetic */ SwanAppActivity f45526e;
 
         public d(SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -222,7 +222,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return;
                 }
             }
-            this.f45614e = swanAppActivity;
+            this.f45526e = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
@@ -240,7 +240,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45615e;
+        public final /* synthetic */ SwanAppActivity f45527e;
 
         public e(SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -257,7 +257,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return;
                 }
             }
-            this.f45615e = swanAppActivity;
+            this.f45527e = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
@@ -268,7 +268,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                 if (c.a.p0.a.r1.l.e.l()) {
                     return;
                 }
-                p.i(this.f45615e);
+                p.i(this.f45527e);
             }
         }
     }
@@ -279,7 +279,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45616e;
+        public final /* synthetic */ SwanAppActivity f45528e;
 
         /* loaded from: classes6.dex */
         public class a extends OrientationEventListener {
@@ -331,19 +331,19 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return;
                 }
             }
-            this.f45616e = swanAppActivity;
+            this.f45528e = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SwanAppActivity swanAppActivity = this.f45616e;
+                SwanAppActivity swanAppActivity = this.f45528e;
                 if (swanAppActivity.mOrientationListener == null) {
-                    swanAppActivity.mOrientationListener = new a(this, this.f45616e, 2);
+                    swanAppActivity.mOrientationListener = new a(this, this.f45528e, 2);
                 }
-                if (this.f45616e.mResumed) {
-                    this.f45616e.mOrientationListener.enable();
+                if (this.f45528e.mResumed) {
+                    this.f45528e.mOrientationListener.enable();
                 }
             }
         }
@@ -355,7 +355,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45617e;
+        public final /* synthetic */ SwanAppActivity f45529e;
 
         public g(SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -372,7 +372,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return;
                 }
             }
-            this.f45617e = swanAppActivity;
+            this.f45529e = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
@@ -394,7 +394,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45618e;
+        public final /* synthetic */ SwanAppActivity f45530e;
 
         public h(SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -411,7 +411,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return;
                 }
             }
-            this.f45618e = swanAppActivity;
+            this.f45530e = swanAppActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -420,7 +420,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public void onCallback(i.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f45618e.syncFrameLifeStatus();
+                this.f45530e.syncFrameLifeStatus();
             }
         }
     }
@@ -431,7 +431,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45619e;
+        public final /* synthetic */ SwanAppActivity f45531e;
 
         public i(SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -448,7 +448,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return;
                 }
             }
-            this.f45619e = swanAppActivity;
+            this.f45531e = swanAppActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -457,7 +457,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public void onCallback(i.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f45619e.notifyInstallProgress(aVar);
+                this.f45531e.notifyInstallProgress(aVar);
             }
         }
     }
@@ -468,7 +468,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45620e;
+        public final /* synthetic */ SwanAppActivity f45532e;
 
         public j(SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -485,7 +485,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return;
                 }
             }
-            this.f45620e = swanAppActivity;
+            this.f45532e = swanAppActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -494,7 +494,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public void onCallback(i.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f45620e.onAppMaintainFinish();
+                this.f45532e.onAppMaintainFinish();
             }
         }
     }
@@ -505,7 +505,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45621e;
+        public final /* synthetic */ SwanAppActivity f45533e;
 
         public k(SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -522,7 +522,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return;
                 }
             }
-            this.f45621e = swanAppActivity;
+            this.f45533e = swanAppActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -531,7 +531,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public void onCallback(i.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f45621e.updateLoadingView(aVar);
+                this.f45533e.updateLoadingView(aVar);
             }
         }
     }
@@ -542,7 +542,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45622e;
+        public final /* synthetic */ SwanAppActivity f45534e;
 
         public l(SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -559,7 +559,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return;
                 }
             }
-            this.f45622e = swanAppActivity;
+            this.f45534e = swanAppActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -568,7 +568,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public void onCallback(i.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f45622e.onAppUpdated(aVar);
+                this.f45534e.onAppUpdated(aVar);
             }
         }
     }
@@ -579,7 +579,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f45623e;
+        public final /* synthetic */ SwanAppActivity f45535e;
 
         public m(SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -596,7 +596,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                     return;
                 }
             }
-            this.f45623e = swanAppActivity;
+            this.f45535e = swanAppActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -605,7 +605,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         public void onCallback(i.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f45623e.onAppOccupied(aVar);
+                this.f45535e.onAppOccupied(aVar);
             }
         }
     }

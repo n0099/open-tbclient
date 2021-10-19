@@ -25,7 +25,7 @@ public class SingleScaleAnimation extends Animation {
         public static final ScaleType SCALE_Y;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ ScaleType[] f41380a;
+        public static final /* synthetic */ ScaleType[] f41384a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,7 +44,7 @@ public class SingleScaleAnimation extends Animation {
             SCALE_X = new ScaleType("SCALE_X", 0);
             ScaleType scaleType = new ScaleType("SCALE_Y", 1);
             SCALE_Y = scaleType;
-            f41380a = new ScaleType[]{SCALE_X, scaleType};
+            f41384a = new ScaleType[]{SCALE_X, scaleType};
         }
 
         public ScaleType(String str, int i2) {
@@ -75,7 +75,7 @@ public class SingleScaleAnimation extends Animation {
         public static ScaleType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ScaleType[]) f41380a.clone() : (ScaleType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ScaleType[]) f41384a.clone() : (ScaleType[]) invokeV.objValue;
         }
     }
 

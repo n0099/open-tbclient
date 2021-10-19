@@ -17,13 +17,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f13492a;
+    public static b f13510a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f13493b;
+    public static a f13511b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f13494c;
+    public static boolean f13512c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,25 +61,25 @@ public class a {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            if (f13493b == null) {
+            if (f13511b == null) {
                 synchronized (a.class) {
-                    if (f13493b == null) {
-                        f13493b = new a();
-                        f13492a = b.a(baseFragmentActivity);
+                    if (f13511b == null) {
+                        f13511b = new a();
+                        f13510a = b.a(baseFragmentActivity);
                     }
                 }
             } else {
-                b bVar2 = f13492a;
+                b bVar2 = f13510a;
                 if (bVar2 != null) {
                     bVar2.j(baseFragmentActivity.getPageContext());
                 }
             }
-            if (f13494c && (bVar = f13492a) != null) {
+            if (f13512c && (bVar = f13510a) != null) {
                 bVar.d();
-                f13492a.c();
-                f13494c = false;
+                f13510a.c();
+                f13512c = false;
             }
-            return f13493b;
+            return f13511b;
         }
         return (a) invokeL.objValue;
     }
@@ -88,16 +88,16 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             try {
-                if (f13492a != null) {
-                    if (f13493b != null) {
-                        f13493b.j();
+                if (f13510a != null) {
+                    if (f13511b != null) {
+                        f13511b.j();
                     }
-                    f13492a.e();
-                    f13492a.i();
-                    f13492a = null;
+                    f13510a.e();
+                    f13510a.i();
+                    f13510a = null;
                 }
-                if (f13493b != null) {
-                    f13493b = null;
+                if (f13511b != null) {
+                    f13511b = null;
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -107,7 +107,7 @@ public class a {
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || f13492a == null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || f13510a == null) {
         }
     }
 
@@ -115,10 +115,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             b();
-            b bVar = f13492a;
+            b bVar = f13510a;
             if (bVar != null) {
                 bVar.d();
-                f13494c = false;
+                f13512c = false;
             }
         }
     }
@@ -127,10 +127,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             b();
-            b bVar = f13492a;
+            b bVar = f13510a;
             if (bVar != null) {
                 bVar.c();
-                f13494c = false;
+                f13512c = false;
             }
         }
     }
@@ -154,12 +154,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             b();
-            b bVar = f13492a;
+            b bVar = f13510a;
             if (bVar != null) {
                 if (bVar.b()) {
-                    f13492a.k(aVar);
+                    f13510a.k(aVar);
                 }
-                f13492a.f();
+                f13510a.f();
             }
         }
     }
@@ -168,12 +168,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, aVar) == null) {
             b();
-            b bVar = f13492a;
+            b bVar = f13510a;
             if (bVar != null) {
                 if (bVar.b()) {
-                    f13492a.k(aVar);
+                    f13510a.k(aVar);
                 }
-                f13492a.g(i2);
+                f13510a.g(i2);
             }
         }
     }
@@ -182,7 +182,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             b();
-            b bVar = f13492a;
+            b bVar = f13510a;
             if (bVar != null) {
                 bVar.h();
             }
@@ -202,7 +202,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             b();
-            b bVar = f13492a;
+            b bVar = f13510a;
             if (bVar != null) {
                 bVar.k(aVar);
             }
@@ -213,7 +213,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             b();
-            b bVar = f13492a;
+            b bVar = f13510a;
             if (bVar != null) {
                 bVar.l(z);
             }
@@ -224,10 +224,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             b();
-            b bVar = f13492a;
+            b bVar = f13510a;
             if (bVar != null) {
                 bVar.m();
-                f13494c = true;
+                f13512c = true;
             }
         }
     }

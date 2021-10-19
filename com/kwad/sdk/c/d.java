@@ -14,10 +14,10 @@ public class d extends KsFragment implements com.kwad.sdk.c.a.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.c.a.a f71609a;
+    public final com.kwad.sdk.c.a.a f71644a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f71610b;
+    public boolean f71645b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -32,15 +32,15 @@ public class d extends KsFragment implements com.kwad.sdk.c.a.b {
                 return;
             }
         }
-        this.f71609a = new com.kwad.sdk.c.a.a();
-        this.f71610b = true;
+        this.f71644a = new com.kwad.sdk.c.a.a();
+        this.f71645b = true;
     }
 
     @Override // com.kwad.sdk.c.a.b
     public boolean a_() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71609a.a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71644a.a() : invokeV.booleanValue;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -48,7 +48,7 @@ public class d extends KsFragment implements com.kwad.sdk.c.a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            if (!this.f71610b || getHost() == null) {
+            if (!this.f71645b || getHost() == null) {
                 return;
             }
             k.a(this);

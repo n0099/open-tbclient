@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import c.a.r0.q.e.e;
+import c.a.r0.r.e.e;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

@@ -27,22 +27,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f13325e;
+    public Context f13333e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f13326f;
+    public ViewGroup f13334f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f13327g;
+    public ViewGroup f13335g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f13328h;
+    public ViewGroup f13336h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.q0.f1.p.a.c.a f13329i;
+    public c.a.q0.f1.p.a.c.a f13337i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.q0.f1.p.a.d.c f13330j;
+    public c.a.q0.f1.p.a.d.c f13338j;
     public boolean k;
     public Animation l;
     public Animation m;
@@ -56,14 +56,14 @@ public class a {
 
     /* renamed from: c.a.q0.f1.p.a.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0661a implements View.OnClickListener {
+    public class View$OnClickListenerC0662a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13331e;
+        public final /* synthetic */ a f13339e;
 
-        public View$OnClickListenerC0661a(a aVar) {
+        public View$OnClickListenerC0662a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,14 +78,14 @@ public class a {
                     return;
                 }
             }
-            this.f13331e = aVar;
+            this.f13339e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f13331e.f();
+                this.f13339e.f();
             }
         }
     }
@@ -96,7 +96,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f13332a;
+        public final /* synthetic */ a f13340a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -113,14 +113,14 @@ public class a {
                     return;
                 }
             }
-            this.f13332a = aVar;
+            this.f13340a = aVar;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f13332a.h();
+                this.f13340a.h();
             }
         }
 
@@ -145,7 +145,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13333e;
+        public final /* synthetic */ a f13341e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -162,19 +162,19 @@ public class a {
                     return;
                 }
             }
-            this.f13333e = aVar;
+            this.f13341e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a aVar = this.f13333e;
-                aVar.f13329i.y.removeView(aVar.f13327g);
-                this.f13333e.n = false;
-                this.f13333e.k = false;
-                if (this.f13333e.f13330j != null) {
-                    this.f13333e.f13330j.a(this.f13333e);
+                a aVar = this.f13341e;
+                aVar.f13337i.y.removeView(aVar.f13335g);
+                this.f13341e.n = false;
+                this.f13341e.k = false;
+                if (this.f13341e.f13338j != null) {
+                    this.f13341e.f13338j.a(this.f13341e);
                 }
             }
         }
@@ -186,7 +186,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13334e;
+        public final /* synthetic */ a f13342e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -203,7 +203,7 @@ public class a {
                     return;
                 }
             }
-            this.f13334e = aVar;
+            this.f13342e = aVar;
         }
 
         @Override // android.view.View.OnKeyListener
@@ -211,8 +211,8 @@ public class a {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
-                if (i2 == 4 && keyEvent.getAction() == 0 && this.f13334e.p()) {
-                    this.f13334e.f();
+                if (i2 == 4 && keyEvent.getAction() == 0 && this.f13342e.p()) {
+                    this.f13342e.f();
                     return true;
                 }
                 return false;
@@ -227,7 +227,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13335e;
+        public final /* synthetic */ a f13343e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -244,7 +244,7 @@ public class a {
                     return;
                 }
             }
-            this.f13335e = aVar;
+            this.f13343e = aVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -253,7 +253,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f13335e.f();
+                    this.f13343e.f();
                     return false;
                 }
                 return false;
@@ -268,7 +268,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13336e;
+        public final /* synthetic */ a f13344e;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -285,16 +285,16 @@ public class a {
                     return;
                 }
             }
-            this.f13336e = aVar;
+            this.f13344e = aVar;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f13336e.f13330j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f13344e.f13338j == null) {
                 return;
             }
-            this.f13336e.f13330j.a(this.f13336e);
+            this.f13344e.f13338j.a(this.f13344e);
         }
     }
 
@@ -317,18 +317,18 @@ public class a {
         this.r = true;
         this.s = new d(this);
         this.t = new e(this);
-        this.f13325e = context;
+        this.f13333e = context;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13328h == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13336h == null) {
             return;
         }
-        Dialog dialog = new Dialog(this.f13325e, R.style.custom_dialog2);
+        Dialog dialog = new Dialog(this.f13333e, R.style.custom_dialog2);
         this.p = dialog;
-        dialog.setCancelable(this.f13329i.S);
-        this.p.setContentView(this.f13328h);
+        dialog.setCancelable(this.f13337i.S);
+        this.p.setContentView(this.f13336h);
         Window window = this.p.getWindow();
         if (window != null) {
             window.setWindowAnimations(R.style.picker_view_scale_anim);
@@ -346,7 +346,7 @@ public class a {
             } else {
                 if (this.r) {
                     this.l.setAnimationListener(new b(this));
-                    this.f13326f.startAnimation(this.l);
+                    this.f13334f.startAnimation(this.l);
                 } else {
                     h();
                 }
@@ -367,14 +367,14 @@ public class a {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f13329i.y.post(new c(this));
+            this.f13337i.y.post(new c(this));
         }
     }
 
     public View i(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f13326f.findViewById(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f13334f.findViewById(i2) : (View) invokeI.objValue;
     }
 
     public Dialog j() {
@@ -386,13 +386,13 @@ public class a {
     public final Animation k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? AnimationUtils.loadAnimation(this.f13325e, c.a.q0.f1.p.a.e.c.a(this.o, true)) : (Animation) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? AnimationUtils.loadAnimation(this.f13333e, c.a.q0.f1.p.a.e.c.a(this.o, true)) : (Animation) invokeV.objValue;
     }
 
     public final Animation l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? AnimationUtils.loadAnimation(this.f13325e, c.a.q0.f1.p.a.e.c.a(this.o, false)) : (Animation) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? AnimationUtils.loadAnimation(this.f13333e, c.a.q0.f1.p.a.e.c.a(this.o, false)) : (Animation) invokeV.objValue;
     }
 
     public void m() {
@@ -407,32 +407,32 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2, 80);
-            LayoutInflater from = LayoutInflater.from(this.f13325e);
+            LayoutInflater from = LayoutInflater.from(this.f13333e);
             if (o()) {
                 ViewGroup viewGroup = (ViewGroup) from.inflate(R.layout.layout_basepickerview, (ViewGroup) null, false);
-                this.f13328h = viewGroup;
+                this.f13336h = viewGroup;
                 viewGroup.setBackgroundColor(0);
-                ViewGroup viewGroup2 = (ViewGroup) this.f13328h.findViewById(R.id.content_container);
-                this.f13326f = viewGroup2;
+                ViewGroup viewGroup2 = (ViewGroup) this.f13336h.findViewById(R.id.content_container);
+                this.f13334f = viewGroup2;
                 layoutParams.leftMargin = 30;
                 layoutParams.rightMargin = 30;
                 viewGroup2.setLayoutParams(layoutParams);
                 e();
-                this.f13328h.setOnClickListener(new View$OnClickListenerC0661a(this));
+                this.f13336h.setOnClickListener(new View$OnClickListenerC0662a(this));
             } else {
-                c.a.q0.f1.p.a.c.a aVar = this.f13329i;
+                c.a.q0.f1.p.a.c.a aVar = this.f13337i;
                 if (aVar.y == null) {
-                    aVar.y = (ViewGroup) ((Activity) this.f13325e).getWindow().getDecorView();
+                    aVar.y = (ViewGroup) ((Activity) this.f13333e).getWindow().getDecorView();
                 }
-                ViewGroup viewGroup3 = (ViewGroup) from.inflate(R.layout.layout_basepickerview, this.f13329i.y, false);
-                this.f13327g = viewGroup3;
+                ViewGroup viewGroup3 = (ViewGroup) from.inflate(R.layout.layout_basepickerview, this.f13337i.y, false);
+                this.f13335g = viewGroup3;
                 viewGroup3.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-                int i2 = this.f13329i.P;
+                int i2 = this.f13337i.P;
                 if (i2 != -1) {
-                    this.f13327g.setBackgroundColor(i2);
+                    this.f13335g.setBackgroundColor(i2);
                 }
-                ViewGroup viewGroup4 = (ViewGroup) this.f13327g.findViewById(R.id.content_container);
-                this.f13326f = viewGroup4;
+                ViewGroup viewGroup4 = (ViewGroup) this.f13335g.findViewById(R.id.content_container);
+                this.f13334f = viewGroup4;
                 viewGroup4.setLayoutParams(layoutParams);
             }
             s(true);
@@ -448,7 +448,7 @@ public class a {
             if (o()) {
                 return false;
             }
-            return this.f13327g.getParent() != null || this.n;
+            return this.f13335g.getParent() != null || this.n;
         }
         return invokeV.booleanValue;
     }
@@ -456,9 +456,9 @@ public class a {
     public final void q(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, view) == null) {
-            this.f13329i.y.addView(view);
+            this.f13337i.y.addView(view);
             if (this.r) {
-                this.f13326f.startAnimation(this.m);
+                this.f13334f.startAnimation(this.m);
             }
         }
     }
@@ -469,7 +469,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (dialog = this.p) == null) {
             return;
         }
-        dialog.setCancelable(this.f13329i.S);
+        dialog.setCancelable(this.f13337i.S);
     }
 
     public void s(boolean z) {
@@ -477,9 +477,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             if (o()) {
-                viewGroup = this.f13328h;
+                viewGroup = this.f13336h;
             } else {
-                viewGroup = this.f13327g;
+                viewGroup = this.f13335g;
             }
             viewGroup.setFocusable(z);
             viewGroup.setFocusableInTouchMode(z);
@@ -495,7 +495,7 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-            ViewGroup viewGroup = this.f13327g;
+            ViewGroup viewGroup = this.f13335g;
             if (viewGroup != null) {
                 View findViewById = viewGroup.findViewById(R.id.outmost_container);
                 if (z) {
@@ -517,8 +517,8 @@ public class a {
             } else if (p()) {
             } else {
                 this.n = true;
-                q(this.f13327g);
-                this.f13327g.requestFocus();
+                q(this.f13335g);
+                this.f13335g.requestFocus();
             }
         }
     }

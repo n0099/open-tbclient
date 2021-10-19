@@ -18,7 +18,7 @@ import androidx.fragment.app.FragmentActivity;
 import c.a.e.a.i;
 import c.a.e.e.p.l;
 import c.a.e.l.e.q;
-import c.a.q0.d1.p;
+import c.a.q0.d1.o;
 import c.a.q0.g0.g;
 import c.a.q0.g0.h;
 import c.a.q0.m0.c;
@@ -87,7 +87,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseFragment f47467e;
+        public final /* synthetic */ BaseFragment f47380e;
 
         public a(BaseFragment baseFragment) {
             Interceptable interceptable = $ic;
@@ -104,14 +104,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
                     return;
                 }
             }
-            this.f47467e = baseFragment;
+            this.f47380e = baseFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BaseFragment baseFragment = this.f47467e;
+                BaseFragment baseFragment = this.f47380e;
                 baseFragment.onPreLoad(baseFragment.onGetPreLoadListView());
             }
         }
@@ -123,7 +123,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseFragment f47468e;
+        public final /* synthetic */ BaseFragment f47381e;
 
         public b(BaseFragment baseFragment) {
             Interceptable interceptable = $ic;
@@ -140,14 +140,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
                     return;
                 }
             }
-            this.f47468e = baseFragment;
+            this.f47381e = baseFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47468e.onNetRefreshButtonClicked();
+                this.f47381e.onNetRefreshButtonClicked();
             }
         }
 
@@ -351,9 +351,9 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             if (this.pageStayDurationItem == null) {
                 this.pageStayDurationItem = new d();
             }
-            this.pageStayDurationItem.q(getCurrentPageKey());
-            this.pageStayDurationItem.v(getCurrentPageSourceKeyList());
-            this.pageStayDurationItem.y(getTbPageExtra());
+            this.pageStayDurationItem.s(getCurrentPageKey());
+            this.pageStayDurationItem.x(getCurrentPageSourceKeyList());
+            this.pageStayDurationItem.A(getTbPageExtra());
             return this.pageStayDurationItem;
         }
         return (d) invokeV.objValue;
@@ -475,7 +475,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void normalLoad() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && getUserVisibleHint() && this.isPrepared && !p.a()) {
+        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && getUserVisibleHint() && this.isPrepared && !o.a()) {
             onLoad();
         }
     }
@@ -654,7 +654,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             if (this.needLogStayDuration && isPrimary() && this.lastResumeTime != 0 && !this.isInterceptStimeStat) {
                 long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
                 d pageStayDurationItem = getPageStayDurationItem();
-                pageStayDurationItem.w(currentTimeMillis);
+                pageStayDurationItem.y(currentTimeMillis);
                 e.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
                 this.lastResumeTime = System.currentTimeMillis();
             }
@@ -685,7 +685,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
             } else if (this.needLogStayDuration && this.lastResumeTime != 0 && !this.isInterceptStimeStat) {
                 long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
                 d pageStayDurationItem = getPageStayDurationItem();
-                pageStayDurationItem.w(currentTimeMillis);
+                pageStayDurationItem.y(currentTimeMillis);
                 e.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
                 this.lastResumeTime = System.currentTimeMillis();
             }

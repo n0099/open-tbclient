@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.personalize.data;
 
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public class ConcernUnreadTipReqMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 if (z) {
-                    a0.a(builder, true);
+                    z.a(builder, true);
                 }
                 UnreadTipReqIdl.Builder builder2 = new UnreadTipReqIdl.Builder();
                 builder2.data = builder.build(false);

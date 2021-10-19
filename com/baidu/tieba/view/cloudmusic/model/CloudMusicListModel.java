@@ -26,13 +26,13 @@ public class CloudMusicListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.b4.k.j.a<CloudMusicData.MusicTagList> f58558e;
+    public c.a.r0.c4.k.j.a<CloudMusicData.MusicTagList> f58502e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58559f;
+    public int f58503f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f58560g;
+    public final HttpMessageListener f58504g;
 
     /* loaded from: classes7.dex */
     public static class VideoCloudMusicListResponseMessage extends JsonHttpResponsedMessage {
@@ -79,7 +79,7 @@ public class CloudMusicListModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CloudMusicListModel f58561a;
+        public final /* synthetic */ CloudMusicListModel f58505a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CloudMusicListModel cloudMusicListModel, int i2) {
@@ -99,18 +99,18 @@ public class CloudMusicListModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f58561a = cloudMusicListModel;
+            this.f58505a = cloudMusicListModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003367 && (httpResponsedMessage instanceof VideoCloudMusicListResponseMessage) && this.f58561a.f58558e != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003367 && (httpResponsedMessage instanceof VideoCloudMusicListResponseMessage) && this.f58505a.f58502e != null) {
                 if (httpResponsedMessage.hasError() && httpResponsedMessage.getError() != 0) {
-                    CloudMusicListModel.x(this.f58561a);
+                    CloudMusicListModel.x(this.f58505a);
                 }
-                this.f58561a.f58558e.a(((VideoCloudMusicListResponseMessage) httpResponsedMessage).mCloudMusicWithTagData);
+                this.f58505a.f58502e.a(((VideoCloudMusicListResponseMessage) httpResponsedMessage).mCloudMusicWithTagData);
             }
         }
     }
@@ -133,61 +133,61 @@ public class CloudMusicListModel extends BdBaseModel {
                 return;
             }
         }
-        this.f58559f = 1;
-        this.f58560g = new a(this, CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
+        this.f58503f = 1;
+        this.f58504g = new a(this, CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
         z();
-        this.f58560g.setTag(getUniqueId());
-        this.f58560g.setSelfListener(true);
-        registerListener(this.f58560g);
+        this.f58504g.setTag(getUniqueId());
+        this.f58504g.setSelfListener(true);
+        registerListener(this.f58504g);
     }
 
     public static /* synthetic */ int x(CloudMusicListModel cloudMusicListModel) {
-        int i2 = cloudMusicListModel.f58559f;
-        cloudMusicListModel.f58559f = i2 - 1;
+        int i2 = cloudMusicListModel.f58503f;
+        cloudMusicListModel.f58503f = i2 - 1;
         return i2;
     }
 
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f58559f = 1;
+            this.f58503f = 1;
         }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void y(int i2, c.a.r0.b4.k.j.a<CloudMusicData.MusicTagList> aVar) {
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void y(int i2, c.a.r0.c4.k.j.a<CloudMusicData.MusicTagList> aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, aVar) == null) || aVar == null || i2 < 0) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
-        int i3 = this.f58559f + 1;
-        this.f58559f = i3;
+        int i3 = this.f58503f + 1;
+        this.f58503f = i3;
         httpMessage.addParam("pn", i3);
         httpMessage.addParam("rn", 10);
         httpMessage.addParam(TiebaStatic.Params.TAG_ID, i2);
         sendMessage(httpMessage);
-        this.f58558e = aVar;
+        this.f58502e = aVar;
     }
 
     public final void z() {

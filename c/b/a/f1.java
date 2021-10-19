@@ -14,7 +14,7 @@ public class f1 extends h1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f31362d;
+    public long f31366d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f1(j1 j1Var) {
@@ -51,11 +51,11 @@ public class f1 extends h1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long T = this.f31369a.i().T();
+            long T = this.f31373a.i().T();
             if (T < 600000) {
                 T = 600000;
             }
-            return this.f31362d + T;
+            return this.f31366d + T;
         }
         return invokeV.longValue;
     }
@@ -64,7 +64,7 @@ public class f1 extends h1 {
     public long[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? n1.f31403e : (long[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? n1.f31407e : (long[]) invokeV.objValue;
     }
 
     @Override // c.b.a.h1
@@ -72,23 +72,23 @@ public class f1 extends h1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject c2 = this.f31369a.j().c();
-            if (this.f31369a.j().D() == 0 || c2 == null) {
+            JSONObject c2 = this.f31373a.j().c();
+            if (this.f31373a.j().D() == 0 || c2 == null) {
                 return false;
             }
             long currentTimeMillis = System.currentTimeMillis();
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("header", this.f31369a.j().c());
+            jSONObject.put("header", this.f31373a.j().c());
             jSONObject.put("magic_tag", "ss_app_log");
             jSONObject.put("_gen_time", currentTimeMillis);
-            JSONObject i2 = n.i(n.d(o.a(this.f31369a.f(), this.f31369a.j().c(), this.f31369a.n().getAbUri(), true, AppLog.getIAppParam()), n.f31399e), jSONObject);
+            JSONObject i2 = n.i(n.d(o.a(this.f31373a.f(), this.f31373a.j().c(), this.f31373a.n().getAbUri(), true, AppLog.getIAppParam()), n.f31403e), jSONObject);
             if (i2 != null) {
                 AppLog.getDataObserver().onRemoteAbConfigGet(!i0.g(AppLog.getAbConfig(), i2), i2);
-                if (h0.f31368b) {
+                if (h0.f31372b) {
                     h0.a("getAbConfig " + i2, null);
                 }
-                this.f31369a.j().f(i2);
-                this.f31362d = currentTimeMillis;
+                this.f31373a.j().f(i2);
+                this.f31366d = currentTimeMillis;
                 return true;
             }
             return false;

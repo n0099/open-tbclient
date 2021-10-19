@@ -54,6 +54,6 @@ public class d {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b(Build.MODEL) && a() && NSGif.f36291f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b(Build.MODEL) && a() && NSGif.f36295f : invokeV.booleanValue;
     }
 }

@@ -18,10 +18,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f14499a;
+    public View f14519a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Drawable f14500b;
+    public Drawable f14520b;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -29,10 +29,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f14501e;
+        public final /* synthetic */ int f14521e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f14502f;
+        public final /* synthetic */ c f14522f;
 
         public a(c cVar, int i2) {
             Interceptable interceptable = $ic;
@@ -49,17 +49,17 @@ public class c {
                     return;
                 }
             }
-            this.f14502f = cVar;
-            this.f14501e = i2;
+            this.f14522f = cVar;
+            this.f14521e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c cVar = this.f14502f;
-                cVar.f14500b = c.a.q0.s.u.a.E(cVar.f14500b, this.f14501e, this.f14502f.f14499a.getMeasuredHeight());
-                this.f14502f.f14499a.setBackgroundDrawable(this.f14502f.f14500b);
+                c cVar = this.f14522f;
+                cVar.f14520b = c.a.q0.s.u.a.C(cVar.f14520b, this.f14521e, this.f14522f.f14519a.getMeasuredHeight());
+                this.f14522f.f14519a.setBackgroundDrawable(this.f14522f.f14520b);
             }
         }
     }
@@ -70,13 +70,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f14503e;
+        public final /* synthetic */ int f14523e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f14504f;
+        public final /* synthetic */ int f14524f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f14505g;
+        public final /* synthetic */ c f14525g;
 
         public b(c cVar, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -93,18 +93,18 @@ public class c {
                     return;
                 }
             }
-            this.f14505g = cVar;
-            this.f14503e = i2;
-            this.f14504f = i3;
+            this.f14525g = cVar;
+            this.f14523e = i2;
+            this.f14524f = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c cVar = this.f14505g;
-                cVar.f14500b = c.a.q0.s.u.a.F(cVar.f14500b, this.f14503e, this.f14504f, this.f14505g.f14499a.getMeasuredHeight());
-                this.f14505g.f14499a.setBackgroundDrawable(this.f14505g.f14500b);
+                c cVar = this.f14525g;
+                cVar.f14520b = c.a.q0.s.u.a.D(cVar.f14520b, this.f14523e, this.f14524f, this.f14525g.f14519a.getMeasuredHeight());
+                this.f14525g.f14519a.setBackgroundDrawable(this.f14525g.f14520b);
             }
         }
     }
@@ -124,8 +124,8 @@ public class c {
                 return;
             }
         }
-        this.f14499a = view;
-        this.f14500b = c.a.q0.s.u.a.d(view);
+        this.f14519a = view;
+        this.f14520b = c.a.q0.s.u.a.d(view);
     }
 
     public static c d(View view) {
@@ -138,23 +138,9 @@ public class c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            View view = this.f14499a;
+            View view = this.f14519a;
             if (view instanceof TextView) {
-                ((TextView) view).setTextSize(0, c.a.q0.s.u.a.o(i2));
-                return this;
-            }
-            return this;
-        }
-        return (c) invokeI.objValue;
-    }
-
-    public c B(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            View view = this.f14499a;
-            if (view instanceof TextView) {
-                ((TextView) view).setTypeface(c.a.q0.s.u.a.J(c.a.q0.s.u.a.G(i2)));
+                ((TextView) view).setTypeface(c.a.q0.s.u.a.H(c.a.q0.s.u.a.E(i2)));
                 return this;
             }
             return this;
@@ -165,74 +151,79 @@ public class c {
     public c e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (this.f14499a == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            if (this.f14519a == null) {
                 return this;
             }
-            this.f14500b = c.a.q0.s.u.a.b(this.f14500b, i2);
+            this.f14520b = c.a.q0.s.u.a.b(this.f14520b, i2);
             return this;
         }
         return (c) invokeI.objValue;
     }
 
     public void f(int i2) {
-        Drawable j2;
+        Drawable i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f14499a == null || (j2 = c.a.q0.s.u.a.j(this.f14500b, i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f14519a == null || (i3 = c.a.q0.s.u.a.i(this.f14520b, i2)) == null) {
             return;
         }
-        this.f14500b = j2;
-        this.f14499a.setBackgroundDrawable(j2);
+        this.f14520b = i3;
+        this.f14519a.setBackgroundDrawable(i3);
     }
 
-    public void g(String str) {
-        Drawable k;
+    public void g(int i2) {
+        Drawable w;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.f14499a == null || (k = c.a.q0.s.u.a.k(this.f14500b, str)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f14519a == null || (w = c.a.q0.s.u.a.w(this.f14520b, i2)) == null) {
             return;
         }
-        this.f14500b = k;
-        this.f14499a.setBackgroundDrawable(k);
+        this.f14520b = w;
+        this.f14519a.setBackgroundDrawable(w);
     }
 
     public void h(int i2) {
-        Drawable y;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || this.f14499a == null || (y = c.a.q0.s.u.a.y(this.f14500b, i2)) == null) {
-            return;
-        }
-        this.f14500b = y;
-        this.f14499a.setBackgroundDrawable(y);
-    }
-
-    public void i(int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (view = this.f14499a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (view = this.f14519a) == null) {
             return;
         }
         view.post(new a(this, i2));
     }
 
-    public void j(int i2, int i3) {
+    public void i(int i2, int i3) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) || (view = this.f14499a) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) || (view = this.f14519a) == null) {
             return;
         }
         view.post(new b(this, i2, i3));
     }
 
-    public c k(int i2) {
+    public c j(int i2) {
         InterceptResult invokeI;
         Drawable e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            if (this.f14499a == null || (e2 = c.a.q0.s.u.a.e(this.f14500b, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+            if (this.f14519a == null || (e2 = c.a.q0.s.u.a.e(this.f14520b, i2)) == null) {
                 return this;
             }
-            this.f14500b = e2;
-            this.f14499a.setBackgroundDrawable(e2);
+            this.f14520b = e2;
+            this.f14519a.setBackgroundDrawable(e2);
+            return this;
+        }
+        return (c) invokeI.objValue;
+    }
+
+    public c k(int i2) {
+        InterceptResult invokeI;
+        Drawable f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+            if (this.f14519a == null || (f2 = c.a.q0.s.u.a.f(this.f14520b, i2)) == null) {
+                return this;
+            }
+            this.f14520b = f2;
+            this.f14519a.setBackgroundDrawable(f2);
             return this;
         }
         return (c) invokeI.objValue;
@@ -240,14 +231,12 @@ public class c {
 
     public c l(int i2) {
         InterceptResult invokeI;
-        Drawable f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            if (this.f14499a == null || (f2 = c.a.q0.s.u.a.f(this.f14500b, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+            if (this.f14519a == null) {
                 return this;
             }
-            this.f14500b = f2;
-            this.f14499a.setBackgroundDrawable(f2);
+            this.f14520b = c.a.q0.s.u.a.g(this.f14520b, i2);
             return this;
         }
         return (c) invokeI.objValue;
@@ -256,11 +245,11 @@ public class c {
     public c m(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            if (this.f14499a == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+            if (this.f14519a == null) {
                 return this;
             }
-            this.f14500b = c.a.q0.s.u.a.g(this.f14500b, i2);
+            this.f14520b = c.a.q0.s.u.a.l(this.f14520b, i2);
             return this;
         }
         return (c) invokeI.objValue;
@@ -269,54 +258,41 @@ public class c {
     public c n(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            if (this.f14499a == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+            if (this.f14519a == null) {
                 return this;
             }
-            this.f14500b = c.a.q0.s.u.a.n(this.f14500b, i2);
+            this.f14520b = c.a.q0.s.u.a.k(this.f14520b, i2);
             return this;
         }
         return (c) invokeI.objValue;
     }
 
-    public c o(int i2) {
-        InterceptResult invokeI;
+    public void o(int[] iArr) {
+        Drawable p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            if (this.f14499a == null) {
-                return this;
-            }
-            this.f14500b = c.a.q0.s.u.a.m(this.f14500b, i2);
-            return this;
-        }
-        return (c) invokeI.objValue;
-    }
-
-    public void p(int[] iArr) {
-        Drawable r;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, iArr) == null) || this.f14499a == null || (r = c.a.q0.s.u.a.r(this.f14500b, Direction.BOTTOM, iArr)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, iArr) == null) || this.f14519a == null || (p = c.a.q0.s.u.a.p(this.f14520b, Direction.BOTTOM, iArr)) == null) {
             return;
         }
-        this.f14500b = r;
-        this.f14499a.setBackgroundDrawable(r);
+        this.f14520b = p;
+        this.f14519a.setBackgroundDrawable(p);
     }
 
-    public void q(int[] iArr, Direction direction) {
-        Drawable r;
+    public void p(int[] iArr, Direction direction) {
+        Drawable p;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048590, this, iArr, direction) == null) || this.f14499a == null || (r = c.a.q0.s.u.a.r(this.f14500b, direction, iArr)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048588, this, iArr, direction) == null) || this.f14519a == null || (p = c.a.q0.s.u.a.p(this.f14520b, direction, iArr)) == null) {
             return;
         }
-        this.f14500b = r;
-        this.f14499a.setBackgroundDrawable(r);
+        this.f14520b = p;
+        this.f14519a.setBackgroundDrawable(p);
     }
 
-    public c r(int i2) {
+    public c q(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            View view = this.f14499a;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
+            View view = this.f14519a;
             if (view == null) {
                 return this;
             }
@@ -326,11 +302,11 @@ public class c {
         return (c) invokeI.objValue;
     }
 
-    public c s(int i2) {
+    public c r(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            View view = this.f14499a;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
+            View view = this.f14519a;
             if (view instanceof TextView) {
                 ((TextView) view).setLinkTextColor(c.a.q0.s.u.a.h(i2));
                 return this;
@@ -340,26 +316,43 @@ public class c {
         return (c) invokeI.objValue;
     }
 
-    public void t(int i2) {
-        Drawable v;
+    public void s(int i2) {
+        Drawable t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || this.f14499a == null || (v = c.a.q0.s.u.a.v(this.f14500b, c.a.q0.s.u.a.H(i2))) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || this.f14519a == null || (t = c.a.q0.s.u.a.t(this.f14520b, c.a.q0.s.u.a.F(i2))) == null) {
             return;
         }
-        this.f14500b = v;
-        this.f14499a.setBackgroundDrawable(v);
+        this.f14520b = t;
+        this.f14519a.setBackgroundDrawable(t);
+    }
+
+    public c t(int i2) {
+        InterceptResult invokeI;
+        Drawable v;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+            if (this.f14519a == null || (v = c.a.q0.s.u.a.v(this.f14520b, i2)) == null) {
+                return this;
+            }
+            this.f14520b = v;
+            this.f14519a.setBackgroundDrawable(v);
+            return this;
+        }
+        return (c) invokeI.objValue;
     }
 
     public c u(int i2) {
         InterceptResult invokeI;
-        Drawable x;
+        Drawable A;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
-            if (this.f14499a == null || (x = c.a.q0.s.u.a.x(this.f14500b, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
+            View view = this.f14519a;
+            if (view == null || (A = c.a.q0.s.u.a.A(view, this.f14520b, c.a.q0.s.u.a.F(i2))) == null) {
                 return this;
             }
-            this.f14500b = x;
-            this.f14499a.setBackgroundDrawable(x);
+            this.f14520b = A;
+            this.f14519a.setBackgroundDrawable(A);
+            q(1);
             return this;
         }
         return (c) invokeI.objValue;
@@ -367,26 +360,9 @@ public class c {
 
     public c v(int i2) {
         InterceptResult invokeI;
-        Drawable C;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            View view = this.f14499a;
-            if (view == null || (C = c.a.q0.s.u.a.C(view, this.f14500b, c.a.q0.s.u.a.H(i2))) == null) {
-                return this;
-            }
-            this.f14500b = C;
-            this.f14499a.setBackgroundDrawable(C);
-            r(1);
-            return this;
-        }
-        return (c) invokeI.objValue;
-    }
-
-    public c w(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
-            View view = this.f14499a;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
+            View view = this.f14519a;
             if (view instanceof TextView) {
                 ((TextView) view).setTextColor(c.a.q0.s.u.a.h(i2));
                 return this;
@@ -396,13 +372,13 @@ public class c {
         return (c) invokeI.objValue;
     }
 
-    public c x(int i2) {
+    public c w(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
-            View view = this.f14499a;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
+            View view = this.f14519a;
             if (view instanceof EMTextView) {
-                ((EMTextView) view).setLineSpacing(c.a.q0.s.u.a.o(i2), ((EMTextView) this.f14499a).getLineSpacingMultiplier());
+                ((EMTextView) view).setLineSpacing(c.a.q0.s.u.a.m(i2), ((EMTextView) this.f14519a).getLineSpacingMultiplier());
                 return this;
             }
             throw new ClassCastException("When setting line spacing, use EMTextView to ensure UI effect.");
@@ -410,13 +386,27 @@ public class c {
         return (c) invokeI.objValue;
     }
 
+    public c x(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
+            View view = this.f14519a;
+            if (view instanceof TextView) {
+                ((TextView) view).setTextColor(c.a.q0.s.u.a.G(i2));
+                return this;
+            }
+            return this;
+        }
+        return (c) invokeI.objValue;
+    }
+
     public c y(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-            View view = this.f14499a;
-            if (view instanceof TextView) {
-                ((TextView) view).setTextColor(c.a.q0.s.u.a.I(i2));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
+            if (this.f14519a instanceof TextView) {
+                float[] B = c.a.q0.s.u.a.B(i2);
+                ((TextView) this.f14519a).setShadowLayer(B[1], B[2], B[3], (int) B[0]);
                 return this;
             }
             return this;
@@ -427,10 +417,10 @@ public class c {
     public c z(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
-            if (this.f14499a instanceof TextView) {
-                float[] D = c.a.q0.s.u.a.D(i2);
-                ((TextView) this.f14499a).setShadowLayer(D[1], D[2], D[3], (int) D[0]);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
+            View view = this.f14519a;
+            if (view instanceof TextView) {
+                ((TextView) view).setTextSize(0, c.a.q0.s.u.a.m(i2));
                 return this;
             }
             return this;

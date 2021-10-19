@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.model;
 
-import c.a.r0.k1.w.c;
+import c.a.r0.l1.w.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;

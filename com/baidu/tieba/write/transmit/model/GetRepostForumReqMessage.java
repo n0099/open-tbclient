@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.transmit.model;
 
 import c.a.e.e.m.b;
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -49,7 +49,7 @@ public class GetRepostForumReqMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 if (z) {
-                    a0.a(builder, true);
+                    z.a(builder, true);
                 }
                 builder.title = this.threadTitle;
                 builder.content = this.threadContent;

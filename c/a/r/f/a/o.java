@@ -19,7 +19,7 @@ public class o implements j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f15371a;
+    public a f15394a;
 
     /* loaded from: classes3.dex */
     public class a {
@@ -27,31 +27,31 @@ public class o implements j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f15372a;
+        public Context f15395a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a.C0735a f15373b;
+        public a.C0737a f15396b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f15374c;
+        public boolean f15397c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f15375d;
+        public boolean f15398d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f15376e;
+        public boolean f15399e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f15377f;
+        public long f15400f;
 
         /* renamed from: g  reason: collision with root package name */
-        public JSONObject f15378g;
+        public JSONObject f15401g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f15379h;
+        public JSONObject f15402h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f15380i;
+        public long f15403i;
 
         public a(o oVar, Context context) {
             Interceptable interceptable = $ic;
@@ -71,13 +71,13 @@ public class o implements j {
             if (context == null) {
                 throw new NullPointerException("context should not be null");
             }
-            this.f15373b = new c.a.r.g.d.a(context.getApplicationContext()).d().f("cloud").f("cstore");
+            this.f15396b = new c.a.r.g.d.a(context.getApplicationContext()).d().f("cloud").f("cstore");
         }
 
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f15379h = jSONObject;
+                this.f15402h = jSONObject;
             }
         }
 
@@ -94,10 +94,10 @@ public class o implements j {
                 synchronized (this) {
                     n();
                     o();
-                    boolean h2 = c.a.r.b.e(this.f15372a).h();
+                    boolean h2 = c.a.r.b.e(this.f15395a).h();
                     boolean z = false;
-                    if (this.f15374c && h2) {
-                        if (this.f15378g == null) {
+                    if (this.f15397c && h2) {
+                        if (this.f15401g == null) {
                             return true;
                         }
                         if (!f()) {
@@ -134,7 +134,7 @@ public class o implements j {
         public void d(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-                this.f15378g = jSONObject;
+                this.f15401g = jSONObject;
                 k();
             }
         }
@@ -144,11 +144,11 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 synchronized (this) {
-                    if (this.f15378g == null) {
+                    if (this.f15401g == null) {
                         return true;
                     }
-                    if (this.f15379h != null) {
-                        return c(this.f15378g, this.f15379h);
+                    if (this.f15402h != null) {
+                        return c(this.f15401g, this.f15402h);
                     }
                     throw new IllegalArgumentException("you forgot invoke methond :IMatchConditions.setComparedCStoreParams before ");
                 }
@@ -159,14 +159,14 @@ public class o implements j {
         public final boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Math.abs(System.currentTimeMillis() - this.f15380i) / 1000 > this.f15377f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Math.abs(System.currentTimeMillis() - this.f15403i) / 1000 > this.f15400f : invokeV.booleanValue;
         }
 
         public final long g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                JSONObject jSONObject = this.f15378g;
+                JSONObject jSONObject = this.f15401g;
                 if (jSONObject == null) {
                     return 0L;
                 }
@@ -179,10 +179,10 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 try {
-                    this.f15378g = n.a(this.f15373b.g("cs.dat", true));
-                    this.f15380i = g();
+                    this.f15401g = n.a(this.f15396b.g("cs.dat", true));
+                    this.f15403i = g();
                 } catch (Exception unused) {
-                    this.f15380i = 0L;
+                    this.f15403i = 0L;
                 }
             }
         }
@@ -191,14 +191,14 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
                 try {
-                    JSONObject a2 = n.a(this.f15373b.g("ct.dat", true));
+                    JSONObject a2 = n.a(this.f15396b.g("ct.dat", true));
                     if (a2 == null) {
-                        this.f15377f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
+                        this.f15400f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
                     } else {
-                        this.f15377f = a2.optLong("TIME_OUT", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME);
+                        this.f15400f = a2.optLong("TIME_OUT", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME);
                     }
                 } catch (Exception unused) {
-                    this.f15377f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
+                    this.f15400f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
                 }
             }
         }
@@ -207,14 +207,14 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
                 try {
-                    JSONObject a2 = n.a(this.f15373b.g("ci.dat", true));
+                    JSONObject a2 = n.a(this.f15396b.g("ci.dat", true));
                     if (a2 == null) {
-                        this.f15374c = true;
+                        this.f15397c = true;
                     } else {
-                        this.f15374c = a2.optBoolean("isOn", true);
+                        this.f15397c = a2.optBoolean("isOn", true);
                     }
                 } catch (Exception unused) {
-                    this.f15374c = true;
+                    this.f15397c = true;
                 }
             }
         }
@@ -224,7 +224,7 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 try {
-                    this.f15373b.i("cs.dat", this.f15378g.toString(), true);
+                    this.f15396b.i("cs.dat", this.f15401g.toString(), true);
                     return true;
                 } catch (Exception unused) {
                     return false;
@@ -239,8 +239,8 @@ public class o implements j {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("isOn", this.f15374c);
-                    this.f15373b.i("ci.dat", jSONObject.toString(), true);
+                    jSONObject.put("isOn", this.f15397c);
+                    this.f15396b.i("ci.dat", jSONObject.toString(), true);
                     return true;
                 } catch (Exception unused) {
                     return false;
@@ -255,8 +255,8 @@ public class o implements j {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("TIME_OUT", this.f15377f);
-                    this.f15373b.i("ct.dat", jSONObject.toString(), true);
+                    jSONObject.put("TIME_OUT", this.f15400f);
+                    this.f15396b.i("ct.dat", jSONObject.toString(), true);
                     return true;
                 } catch (Exception unused) {
                     return false;
@@ -270,14 +270,14 @@ public class o implements j {
             if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
                 synchronized (this) {
                     boolean z = true;
-                    if (this.f15375d) {
-                        this.f15375d = !l();
+                    if (this.f15398d) {
+                        this.f15398d = !l();
                     }
-                    if (this.f15376e) {
+                    if (this.f15399e) {
                         if (m()) {
                             z = false;
                         }
-                        this.f15376e = z;
+                        this.f15399e = z;
                     }
                 }
             }
@@ -311,8 +311,8 @@ public class o implements j {
         if (context == null) {
             throw new NullPointerException("context should not be null");
         }
-        if (this.f15371a == null) {
-            this.f15371a = new a(this, context.getApplicationContext());
+        if (this.f15394a == null) {
+            this.f15394a = new a(this, context.getApplicationContext());
         }
     }
 
@@ -341,7 +341,7 @@ public class o implements j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            this.f15371a.a(jSONObject);
+            this.f15394a.a(jSONObject);
             return this;
         }
         return (j) invokeL.objValue;
@@ -351,14 +351,14 @@ public class o implements j {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15371a.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15394a.b() : invokeV.booleanValue;
     }
 
     @Override // c.a.r.f.a.j
     public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.f15371a.d(jSONObject);
+            this.f15394a.d(jSONObject);
         }
     }
 }

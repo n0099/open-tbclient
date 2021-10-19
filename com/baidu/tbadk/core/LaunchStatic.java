@@ -3,7 +3,7 @@ package com.baidu.tbadk.core;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.l.d;
-import c.a.r0.k1.h.i;
+import c.a.r0.l1.h.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -197,12 +197,12 @@ public class LaunchStatic {
         b();
         c();
         SyncSwitch.initSyncSwitch();
-        c.a.r0.j3.n0.a.a();
-        c.a.r0.k1.y.b.a();
-        c.a.r0.k1.b.a();
+        c.a.r0.k3.n0.a.a();
+        c.a.r0.l1.y.b.a();
+        c.a.r0.l1.b.a();
         ImMemoryCacheRegister.j();
         i.i();
-        c.a.q0.m.c.e();
+        c.a.q0.m.c.f();
         c.a.q0.s.i.a();
         WalletStaticInit.init();
         c.a.q0.s.t.a.d();
@@ -295,8 +295,8 @@ public class LaunchStatic {
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
             c.a.q0.a0.b.a().c();
-            c.a.r0.j3.e0.a.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, c.a.r0.j3.e0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
+            c.a.r0.k3.e0.a.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, c.a.r0.k3.e0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

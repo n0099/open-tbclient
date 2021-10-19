@@ -1,219 +1,364 @@
 package c.a.r0.i1.b;
 
-import android.view.MotionEvent;
-import c.a.e.e.m.e;
-import c.a.r0.j0.a;
-import c.a.r0.p2.i;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.database.DataSetObserver;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.ListAdapter;
+import android.widget.WrapperListAdapter;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.horizonalList.widget.HListView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes3.dex */
-public class d {
+public class d implements WrapperListAdapter, Filterable {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final ArrayList<HListView.c> f19105j;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f19257a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public i f19258b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f19259c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f19260d;
-
     /* renamed from: e  reason: collision with root package name */
-    public boolean f19261e;
+    public final ListAdapter f19106e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.j0.a f19262f;
+    public ArrayList<HListView.c> f19107f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f19263g;
+    public ArrayList<HListView.c> f19108g;
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f19109h;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f19264e;
+    /* renamed from: i  reason: collision with root package name */
+    public final boolean f19110i;
 
-        public a(d dVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1057817920, "Lc/a/r0/i1/b/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.f19264e = dVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f19264e.f19258b.o();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1057817920, "Lc/a/r0/i1/b/d;");
+                return;
             }
         }
+        f19105j = new ArrayList<>();
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements a.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f19265a;
-
-        public b(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f19265a = dVar;
-        }
-
-        @Override // c.a.r0.j0.a.b
-        public void a(int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                this.f19265a.f19261e = false;
-            }
-        }
-
-        @Override // c.a.r0.j0.a.b
-        public void b(int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-                this.f19265a.f19261e = true;
-            }
-        }
-
-        @Override // c.a.r0.j0.a.b
-        public void c(int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            }
-        }
-
-        @Override // c.a.r0.j0.a.b
-        public void d(int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            }
-        }
-    }
-
-    public d(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
+    public d(ArrayList<HListView.c> arrayList, ArrayList<HListView.c> arrayList2, ListAdapter listAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {arrayList, arrayList2, listAdapter};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f19257a = true;
-        this.f19259c = 0;
-        this.f19260d = 0;
-        this.f19261e = false;
-        this.f19263g = new a(this);
-        this.f19258b = new i(tbPageContext, bdTypeListView);
-        c.a.r0.j0.a aVar = new c.a.r0.j0.a();
-        this.f19262f = aVar;
-        aVar.d(new b(this));
-    }
-
-    public void c() {
-        i iVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVar = this.f19258b) == null) {
-            return;
+        this.f19106e = listAdapter;
+        this.f19110i = listAdapter instanceof Filterable;
+        if (arrayList == null) {
+            this.f19107f = f19105j;
+        } else {
+            this.f19107f = arrayList;
         }
-        iVar.h();
+        if (arrayList2 == null) {
+            this.f19108g = f19105j;
+        } else {
+            this.f19108g = arrayList2;
+        }
+        this.f19109h = a(this.f19107f) && a(this.f19108g);
     }
 
-    public void d(boolean z) {
+    public final boolean a(ArrayList<HListView.c> arrayList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f19258b.q(!z);
-            e.a().removeCallbacks(this.f19263g);
-            if (z) {
-                this.f19258b.x();
-            } else {
-                e.a().postDelayed(this.f19263g, 200L);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
+            if (arrayList != null) {
+                Iterator<HListView.c> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    if (!it.next().f52699c) {
+                        return false;
+                    }
+                }
+                return true;
             }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void e(int i2, int i3) {
+    @Override // android.widget.ListAdapter
+    public boolean areAllItemsEnabled() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            this.f19259c = i2;
-            this.f19260d = (i2 + i3) - 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ListAdapter listAdapter = this.f19106e;
+            if (listAdapter != null) {
+                return this.f19109h && listAdapter.areAllItemsEnabled();
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public void f(MotionEvent motionEvent) {
-        c.a.r0.j0.a aVar;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) || (aVar = this.f19262f) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19108g.size() : invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19107f.size() : invokeV.intValue;
+    }
+
+    public boolean d(View view) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view)) == null) {
+            boolean z = false;
+            for (int i2 = 0; i2 < this.f19108g.size(); i2++) {
+                if (this.f19108g.get(i2).f52697a == view) {
+                    this.f19108g.remove(i2);
+                    if (a(this.f19107f) && a(this.f19108g)) {
+                        z = true;
+                    }
+                    this.f19109h = z;
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean e(View view) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view)) == null) {
+            boolean z = false;
+            for (int i2 = 0; i2 < this.f19107f.size(); i2++) {
+                if (this.f19107f.get(i2).f52697a == view) {
+                    this.f19107f.remove(i2);
+                    if (a(this.f19107f) && a(this.f19108g)) {
+                        z = true;
+                    }
+                    this.f19109h = z;
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        int b2;
+        int c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.f19106e != null) {
+                b2 = b() + c();
+                c2 = this.f19106e.getCount();
+            } else {
+                b2 = b();
+                c2 = c();
+            }
+            return b2 + c2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Filterable
+    public Filter getFilter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.f19110i) {
+                return ((Filterable) this.f19106e).getFilter();
+            }
+            return null;
+        }
+        return (Filter) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+            int c2 = c();
+            if (i2 < c2) {
+                return this.f19107f.get(i2).f52698b;
+            }
+            int i3 = i2 - c2;
+            int i4 = 0;
+            ListAdapter listAdapter = this.f19106e;
+            if (listAdapter != null && i3 < (i4 = listAdapter.getCount())) {
+                return this.f19106e.getItem(i3);
+            }
+            return this.f19108g.get(i3 - i4).f52698b;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i2) {
+        InterceptResult invokeI;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+            int c2 = c();
+            ListAdapter listAdapter = this.f19106e;
+            if (listAdapter == null || i2 < c2 || (i3 = i2 - c2) >= listAdapter.getCount()) {
+                return -1L;
+            }
+            return this.f19106e.getItemId(i3);
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getItemViewType(int i2) {
+        InterceptResult invokeI;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+            int c2 = c();
+            ListAdapter listAdapter = this.f19106e;
+            if (listAdapter == null || i2 < c2 || (i3 = i2 - c2) >= listAdapter.getCount()) {
+                return -2;
+            }
+            return this.f19106e.getItemViewType(i3);
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i2, View view, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i2, view, viewGroup)) == null) {
+            int c2 = c();
+            if (i2 < c2) {
+                return this.f19107f.get(i2).f52697a;
+            }
+            int i3 = i2 - c2;
+            int i4 = 0;
+            ListAdapter listAdapter = this.f19106e;
+            if (listAdapter != null && i3 < (i4 = listAdapter.getCount())) {
+                return this.f19106e.getView(i3, view, viewGroup);
+            }
+            return this.f19108g.get(i3 - i4).f52697a;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            ListAdapter listAdapter = this.f19106e;
+            if (listAdapter != null) {
+                return listAdapter.getViewTypeCount();
+            }
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.WrapperListAdapter
+    public ListAdapter getWrappedAdapter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f19106e : (ListAdapter) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public boolean hasStableIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            ListAdapter listAdapter = this.f19106e;
+            if (listAdapter != null) {
+                return listAdapter.hasStableIds();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            ListAdapter listAdapter = this.f19106e;
+            return listAdapter == null || listAdapter.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.ListAdapter
+    public boolean isEnabled(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+            int c2 = c();
+            if (i2 < c2) {
+                return this.f19107f.get(i2).f52699c;
+            }
+            int i3 = i2 - c2;
+            int i4 = 0;
+            ListAdapter listAdapter = this.f19106e;
+            if (listAdapter != null && i3 < (i4 = listAdapter.getCount())) {
+                return this.f19106e.isEnabled(i3);
+            }
+            return this.f19108g.get(i3 - i4).f52699c;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
+        ListAdapter listAdapter;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, dataSetObserver) == null) || (listAdapter = this.f19106e) == null) {
             return;
         }
-        aVar.c(motionEvent);
+        listAdapter.registerDataSetObserver(dataSetObserver);
     }
 
-    public void g() {
-        i iVar;
+    @Override // android.widget.Adapter
+    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
+        ListAdapter listAdapter;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (iVar = this.f19258b) != null && this.f19257a) {
-            iVar.m(this.f19259c, this.f19260d, this.f19261e, 1);
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, dataSetObserver) == null) || (listAdapter = this.f19106e) == null) {
+            return;
         }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f19257a = z;
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f19258b.w();
-            this.f19257a = false;
-        }
+        listAdapter.unregisterDataSetObserver(dataSetObserver);
     }
 }

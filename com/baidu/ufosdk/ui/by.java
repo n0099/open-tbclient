@@ -11,7 +11,7 @@ public final class by implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bx f59898a;
+    public final /* synthetic */ bx f59933a;
 
     public by(bx bxVar) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class by implements Runnable {
                 return;
             }
         }
-        this.f59898a = bxVar;
+        this.f59933a = bxVar;
     }
 
     @Override // java.lang.Runnable
@@ -36,7 +36,7 @@ public final class by implements Runnable {
         Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            handler = this.f59898a.f59897a.aK;
+            handler = this.f59933a.f59932a.aK;
             com.baidu.ufosdk.e.a.a(handler);
         }
     }

@@ -17,19 +17,19 @@ public final class j implements s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64727a;
+    public int f64762a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f64728b;
+    public final e f64763b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Inflater f64729c;
+    public final Inflater f64764c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final k f64730d;
+    public final k f64765d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CRC32 f64731e;
+    public final CRC32 f64766e;
 
     public j(s sVar) {
         Interceptable interceptable = $ic;
@@ -46,13 +46,13 @@ public final class j implements s {
                 return;
             }
         }
-        this.f64727a = 0;
-        this.f64731e = new CRC32();
+        this.f64762a = 0;
+        this.f64766e = new CRC32();
         if (sVar != null) {
-            this.f64729c = new Inflater(true);
+            this.f64764c = new Inflater(true);
             e a2 = l.a(sVar);
-            this.f64728b = a2;
-            this.f64730d = new k(a2, this.f64729c);
+            this.f64763b = a2;
+            this.f64765d = new k(a2, this.f64764c);
             return;
         }
         throw new IllegalArgumentException("source == null");
@@ -61,51 +61,51 @@ public final class j implements s {
     private void b() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f64728b.a(10L);
-            byte b2 = this.f64728b.c().b(3L);
+            this.f64763b.a(10L);
+            byte b2 = this.f64763b.c().b(3L);
             boolean z = ((b2 >> 1) & 1) == 1;
             if (z) {
-                a(this.f64728b.c(), 0L, 10L);
+                a(this.f64763b.c(), 0L, 10L);
             }
-            a("ID1ID2", 8075, this.f64728b.i());
-            this.f64728b.h(8L);
+            a("ID1ID2", 8075, this.f64763b.i());
+            this.f64763b.h(8L);
             if (((b2 >> 2) & 1) == 1) {
-                this.f64728b.a(2L);
+                this.f64763b.a(2L);
                 if (z) {
-                    a(this.f64728b.c(), 0L, 2L);
+                    a(this.f64763b.c(), 0L, 2L);
                 }
-                long k = this.f64728b.c().k();
-                this.f64728b.a(k);
+                long k = this.f64763b.c().k();
+                this.f64763b.a(k);
                 if (z) {
-                    a(this.f64728b.c(), 0L, k);
+                    a(this.f64763b.c(), 0L, k);
                 }
-                this.f64728b.h(k);
+                this.f64763b.h(k);
             }
             if (((b2 >> 3) & 1) == 1) {
-                long a2 = this.f64728b.a((byte) 0);
+                long a2 = this.f64763b.a((byte) 0);
                 if (a2 != -1) {
                     if (z) {
-                        a(this.f64728b.c(), 0L, a2 + 1);
+                        a(this.f64763b.c(), 0L, a2 + 1);
                     }
-                    this.f64728b.h(a2 + 1);
+                    this.f64763b.h(a2 + 1);
                 } else {
                     throw new EOFException();
                 }
             }
             if (((b2 >> 4) & 1) == 1) {
-                long a3 = this.f64728b.a((byte) 0);
+                long a3 = this.f64763b.a((byte) 0);
                 if (a3 != -1) {
                     if (z) {
-                        a(this.f64728b.c(), 0L, a3 + 1);
+                        a(this.f64763b.c(), 0L, a3 + 1);
                     }
-                    this.f64728b.h(a3 + 1);
+                    this.f64763b.h(a3 + 1);
                 } else {
                     throw new EOFException();
                 }
             }
             if (z) {
-                a("FHCRC", this.f64728b.k(), (short) this.f64731e.getValue());
-                this.f64731e.reset();
+                a("FHCRC", this.f64763b.k(), (short) this.f64766e.getValue());
+                this.f64766e.reset();
             }
         }
     }
@@ -113,8 +113,8 @@ public final class j implements s {
     private void c() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            a("CRC", this.f64728b.l(), (int) this.f64731e.getValue());
-            a("ISIZE", this.f64728b.l(), (int) this.f64729c.getBytesWritten());
+            a("CRC", this.f64763b.l(), (int) this.f64766e.getValue());
+            a("ISIZE", this.f64763b.l(), (int) this.f64764c.getBytesWritten());
         }
     }
 
@@ -129,23 +129,23 @@ public final class j implements s {
             } else if (i2 == 0) {
                 return 0L;
             } else {
-                if (this.f64727a == 0) {
+                if (this.f64762a == 0) {
                     b();
-                    this.f64727a = 1;
+                    this.f64762a = 1;
                 }
-                if (this.f64727a == 1) {
-                    long j3 = cVar.f64717b;
-                    long a2 = this.f64730d.a(cVar, j2);
+                if (this.f64762a == 1) {
+                    long j3 = cVar.f64752b;
+                    long a2 = this.f64765d.a(cVar, j2);
                     if (a2 != -1) {
                         a(cVar, j3, a2);
                         return a2;
                     }
-                    this.f64727a = 2;
+                    this.f64762a = 2;
                 }
-                if (this.f64727a == 2) {
+                if (this.f64762a == 2) {
                     c();
-                    this.f64727a = 3;
-                    if (!this.f64728b.e()) {
+                    this.f64762a = 3;
+                    if (!this.f64763b.e()) {
                         throw new IOException("gzip finished without exhausting source");
                     }
                 }
@@ -159,7 +159,7 @@ public final class j implements s {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f64730d.close();
+            this.f64765d.close();
         }
     }
 
@@ -167,28 +167,28 @@ public final class j implements s {
     public t a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64728b.a() : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64763b.a() : (t) invokeV.objValue;
     }
 
     private void a(c cVar, long j2, long j3) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{cVar, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            o oVar = cVar.f64716a;
+            o oVar = cVar.f64751a;
             while (true) {
-                int i3 = oVar.f64751c;
-                int i4 = oVar.f64750b;
+                int i3 = oVar.f64786c;
+                int i4 = oVar.f64785b;
                 if (j2 < i3 - i4) {
                     break;
                 }
                 j2 -= i3 - i4;
-                oVar = oVar.f64754f;
+                oVar = oVar.f64789f;
             }
             while (j3 > 0) {
-                int min = (int) Math.min(oVar.f64751c - i2, j3);
-                this.f64731e.update(oVar.f64749a, (int) (oVar.f64750b + j2), min);
+                int min = (int) Math.min(oVar.f64786c - i2, j3);
+                this.f64766e.update(oVar.f64784a, (int) (oVar.f64785b + j2), min);
                 j3 -= min;
-                oVar = oVar.f64754f;
+                oVar = oVar.f64789f;
                 j2 = 0;
             }
         }

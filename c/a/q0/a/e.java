@@ -811,8 +811,8 @@ public class e {
     public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.r0.j3.e0.a.h(309626, DecryptCodeSocketRespMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, c.a.r0.j3.e0.a.a(TbConfig.DECRYPT_CODE_URL, 309626));
+            c.a.r0.k3.e0.a.h(309626, DecryptCodeSocketRespMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, c.a.r0.k3.e0.a.a(TbConfig.DECRYPT_CODE_URL, 309626));
             tbHttpMessageTask.setResponsedClass(DecryptCodeHttpRespMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -831,8 +831,8 @@ public class e {
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            c.a.r0.j3.e0.a.h(309702, TiebaUidCheckSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, c.a.r0.j3.e0.a.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
+            c.a.r0.k3.e0.a.h(309702, TiebaUidCheckSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, c.a.r0.k3.e0.a.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
             tbHttpMessageTask.setResponsedClass(TiebaUidCheckHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

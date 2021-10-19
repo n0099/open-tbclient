@@ -15,10 +15,10 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f75663a;
+    public static String f75698a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f75664b;
+    public static String f75699b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,14 +34,14 @@ public final class d {
                 return;
             }
         }
-        f75663a = SystemUtil.buildNewPathByProcessName("e_qq_com_plugin");
-        f75664b = SystemUtil.buildNewPathByProcessName("e_qq_com_dex");
+        f75698a = SystemUtil.buildNewPathByProcessName("e_qq_com_plugin");
+        f75699b = SystemUtil.buildNewPathByProcessName("e_qq_com_dex");
     }
 
     public static File a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? context.getDir(f75664b, 0) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? context.getDir(f75699b, 0) : (File) invokeL.objValue;
     }
 
     public static File b(Context context) {
@@ -89,6 +89,6 @@ public final class d {
     public static File i(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? context.getDir(f75663a, 0) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? context.getDir(f75698a, 0) : (File) invokeL.objValue;
     }
 }

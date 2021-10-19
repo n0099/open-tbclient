@@ -28,14 +28,14 @@ public final class DpSessionDatasUploader {
     public static final String SAILOR_MONITOR = "sailor_monitor";
 
     /* renamed from: a  reason: collision with root package name */
-    public static DpSessionDatasUploader f39269a;
+    public static DpSessionDatasUploader f39273a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f39270b;
+    public d f39274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f39271c;
+    public d f39275c;
 
     public DpSessionDatasUploader() {
         Interceptable interceptable = $ic;
@@ -50,18 +50,18 @@ public final class DpSessionDatasUploader {
                 return;
             }
         }
-        this.f39270b = new d();
-        this.f39271c = new d("live_show_session");
+        this.f39274b = new d();
+        this.f39275c = new d("live_show_session");
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            d dVar = this.f39270b;
+            d dVar = this.f39274b;
             if (dVar != null) {
                 dVar.a();
             }
-            d dVar2 = this.f39271c;
+            d dVar2 = this.f39275c;
             if (dVar2 != null) {
                 dVar2.a();
             }
@@ -95,12 +95,12 @@ public final class DpSessionDatasUploader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, bArr, i2) == null) {
             if (i2 == 24) {
-                dVar = this.f39271c;
+                dVar = this.f39275c;
                 if (dVar == null) {
                     return;
                 }
             } else {
-                dVar = this.f39270b;
+                dVar = this.f39274b;
                 if (dVar == null) {
                     return;
                 }
@@ -133,10 +133,10 @@ public final class DpSessionDatasUploader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
             synchronized (DpSessionDatasUploader.class) {
-                if (f39269a == null) {
-                    f39269a = new DpSessionDatasUploader();
+                if (f39273a == null) {
+                    f39273a = new DpSessionDatasUploader();
                 }
-                dpSessionDatasUploader = f39269a;
+                dpSessionDatasUploader = f39273a;
             }
             return dpSessionDatasUploader;
         }
@@ -163,29 +163,29 @@ public final class DpSessionDatasUploader {
     public void a(Context context) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (dVar = this.f39270b) == null || this.f39271c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (dVar = this.f39274b) == null || this.f39275c == null) {
             return;
         }
         dVar.a(context);
-        this.f39271c.a(context);
+        this.f39275c.a(context);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x00e1 */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x008a, code lost:
-        if (r10 == null) goto L18;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x00df */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0088, code lost:
+        if (r10 == null) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x008c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x008a, code lost:
         r10.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00b7, code lost:
-        if (r10 == null) goto L18;
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00b5, code lost:
+        if (r10 == null) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x00d8, code lost:
-        if (r10 == null) goto L18;
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x00d6, code lost:
+        if (r10 == null) goto L17;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x00e4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x00ee A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x00ec A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x00e2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r10v0, types: [java.lang.CharSequence, java.lang.Object, java.lang.String] */
     /* JADX WARN: Type inference failed for: r10v1 */
     /* JADX WARN: Type inference failed for: r10v4, types: [java.net.HttpURLConnection] */
@@ -209,13 +209,55 @@ public final class DpSessionDatasUploader {
         try {
             try {
                 httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                try {
+                    httpURLConnection.setUseCaches(false);
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                    httpURLConnection.setRequestProperty("Cache-Control", "no-cache");
+                    if (z) {
+                        httpURLConnection.setRequestProperty("Content-Type", "application/x-gzip");
+                    }
+                    outputStream = httpURLConnection.getOutputStream();
+                    outputStream.write(bArr);
+                    outputStream.flush();
+                    i2 = httpURLConnection.getResponseCode();
+                    CyberLog.d("SessionDatasUploader", "upload response : " + i2);
+                    if (outputStream != null) {
+                        try {
+                            outputStream.close();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                } catch (Error e3) {
+                    e = e3;
+                    CyberLog.e("SessionDatasUploader", "upload error " + e);
+                    if (outputStream != null) {
+                        try {
+                            outputStream.close();
+                        } catch (Exception e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    CyberLog.e("SessionDatasUploader", "upload error " + e);
+                    if (outputStream != null) {
+                        try {
+                            outputStream.close();
+                        } catch (Exception e6) {
+                            e6.printStackTrace();
+                        }
+                    }
+                }
             } catch (Throwable th) {
                 th = th;
                 if (0 != 0) {
                     try {
                         outputStream.close();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e7) {
+                        e7.printStackTrace();
                     }
                 }
                 if (str != 0) {
@@ -226,11 +268,11 @@ public final class DpSessionDatasUploader {
                 }
                 throw th;
             }
-        } catch (Error e3) {
-            e = e3;
+        } catch (Error e8) {
+            e = e8;
             httpURLConnection = null;
-        } catch (Exception e4) {
-            e = e4;
+        } catch (Exception e9) {
+            e = e9;
             httpURLConnection = null;
         } catch (Throwable th2) {
             th = th2;
@@ -240,48 +282,6 @@ public final class DpSessionDatasUploader {
             if (str != 0) {
             }
             throw th;
-        }
-        try {
-            httpURLConnection.setUseCaches(false);
-            httpURLConnection.setDoOutput(true);
-            httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-            httpURLConnection.setRequestProperty("Cache-Control", "no-cache");
-            if (z) {
-                httpURLConnection.setRequestProperty("Content-Type", "application/x-gzip");
-            }
-            outputStream = httpURLConnection.getOutputStream();
-            outputStream.write(bArr);
-            outputStream.flush();
-            i2 = httpURLConnection.getResponseCode();
-            CyberLog.d("SessionDatasUploader", "upload response : " + i2);
-            if (outputStream != null) {
-                try {
-                    outputStream.close();
-                } catch (Exception e5) {
-                    e5.printStackTrace();
-                }
-            }
-        } catch (Error e6) {
-            e = e6;
-            CyberLog.e("SessionDatasUploader", "upload error " + e);
-            if (outputStream != null) {
-                try {
-                    outputStream.close();
-                } catch (Exception e7) {
-                    e7.printStackTrace();
-                }
-            }
-        } catch (Exception e8) {
-            e = e8;
-            CyberLog.e("SessionDatasUploader", "upload error " + e);
-            if (outputStream != null) {
-                try {
-                    outputStream.close();
-                } catch (Exception e9) {
-                    e9.printStackTrace();
-                }
-            }
         }
         return i2 == 200;
     }
@@ -295,13 +295,13 @@ public final class DpSessionDatasUploader {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f39272a;
+                public final /* synthetic */ String f39276a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f39273b;
+                public final /* synthetic */ String f39277b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DpSessionDatasUploader f39274c;
+                public final /* synthetic */ DpSessionDatasUploader f39278c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -318,16 +318,16 @@ public final class DpSessionDatasUploader {
                             return;
                         }
                     }
-                    this.f39274c = this;
-                    this.f39272a = str;
-                    this.f39273b = str2;
+                    this.f39278c = this;
+                    this.f39276a = str;
+                    this.f39277b = str2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f39274c.a(this.f39272a, this.f39273b, 1);
+                        this.f39278c.a(this.f39276a, this.f39277b, 1);
                     }
                 }
             });
@@ -343,16 +343,16 @@ public final class DpSessionDatasUploader {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f39275a;
+                public final /* synthetic */ int f39279a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f39276b;
+                public final /* synthetic */ String f39280b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f39277c;
+                public final /* synthetic */ String f39281c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DpSessionDatasUploader f39278d;
+                public final /* synthetic */ DpSessionDatasUploader f39282d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -369,20 +369,20 @@ public final class DpSessionDatasUploader {
                             return;
                         }
                     }
-                    this.f39278d = this;
-                    this.f39275a = i2;
-                    this.f39276b = str;
-                    this.f39277c = str2;
+                    this.f39282d = this;
+                    this.f39279a = i2;
+                    this.f39280b = str;
+                    this.f39281c = str2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (com.baidu.cyberplayer.sdk.c.a().c() && this.f39275a == 24) {
-                            this.f39278d.a(this.f39276b, this.f39277c, 24);
+                        if (com.baidu.cyberplayer.sdk.c.a().c() && this.f39279a == 24) {
+                            this.f39282d.a(this.f39280b, this.f39281c, 24);
                         }
-                        this.f39278d.a(this.f39276b, this.f39277c, 1);
+                        this.f39282d.a(this.f39280b, this.f39281c, 1);
                     }
                 }
             });

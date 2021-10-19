@@ -11,10 +11,10 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f75759a;
+    public long f75794a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f75760b;
+    public long f75795b;
 
     public c(a aVar, long j2) {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public final class c {
                 return;
             }
         }
-        this.f75759a = 1500L;
-        this.f75759a = 2000L;
-        this.f75760b = System.currentTimeMillis();
+        this.f75794a = 1500L;
+        this.f75794a = 2000L;
+        this.f75795b = System.currentTimeMillis();
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.f75760b > this.f75759a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.f75795b > this.f75794a : invokeV.booleanValue;
     }
 }

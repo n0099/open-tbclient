@@ -20,34 +20,34 @@ public final class GlobalSetting {
     public static final String TT_SDK_WRAPPER = "TT";
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile CustomLandingPageListener f75665a = null;
+    public static volatile CustomLandingPageListener f75700a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Integer f75666b = null;
+    public static volatile Integer f75701b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f75667c = false;
+    public static volatile boolean f75702c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile boolean f75668d = true;
+    public static volatile boolean f75703d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile Boolean f75669e = null;
+    public static volatile Boolean f75704e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f75670f = true;
+    public static volatile boolean f75705f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Map<String, String> f75671g;
+    public static final Map<String, String> f75706g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile String f75672h;
+    public static volatile String f75707h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile String f75673i;
+    public static volatile String f75708i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static volatile String f75674j;
+    public static volatile String f75709j;
     public static volatile String k;
     public static volatile String l;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,10 +65,10 @@ public final class GlobalSetting {
                 return;
             }
         }
-        f75671g = new HashMap();
-        f75672h = null;
-        f75673i = null;
-        f75674j = null;
+        f75706g = new HashMap();
+        f75707h = null;
+        f75708i = null;
+        f75709j = null;
         k = null;
         l = null;
     }
@@ -90,19 +90,19 @@ public final class GlobalSetting {
     public static Integer getChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f75666b : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f75701b : (Integer) invokeV.objValue;
     }
 
     public static String getCustomADActivityClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f75672h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f75707h : (String) invokeV.objValue;
     }
 
     public static CustomLandingPageListener getCustomLandingPageListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f75665a : (CustomLandingPageListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f75700a : (CustomLandingPageListener) invokeV.objValue;
     }
 
     public static String getCustomLandscapeActivityClassName() {
@@ -114,7 +114,7 @@ public final class GlobalSetting {
     public static String getCustomPortraitActivityClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f75673i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f75708i : (String) invokeV.objValue;
     }
 
     public static String getCustomRewardvideoLandscapeActivityClassName() {
@@ -126,27 +126,27 @@ public final class GlobalSetting {
     public static String getCustomRewardvideoPortraitActivityClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f75674j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f75709j : (String) invokeV.objValue;
     }
 
     public static Map<String, String> getPreloadAdapterMaps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f75671g : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f75706g : (Map) invokeV.objValue;
     }
 
     public static Boolean isAgreePrivacyStrategy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f75669e : (Boolean) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f75704e : (Boolean) invokeV.objValue;
     }
 
     public static boolean isAgreePrivacyStrategyNonNull() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (f75669e != null) {
-                return f75669e.booleanValue();
+            if (f75704e != null) {
+                return f75704e.booleanValue();
             }
             return true;
         }
@@ -156,53 +156,53 @@ public final class GlobalSetting {
     public static boolean isEnableMediationTool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f75667c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f75702c : invokeV.booleanValue;
     }
 
     public static boolean isEnableVideoDownloadingCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? f75668d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? f75703d : invokeV.booleanValue;
     }
 
     public static boolean isLocationAllowed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f75670f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f75705f : invokeV.booleanValue;
     }
 
     public static void setAgreePrivacyStrategy(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65551, null, z) == null) && f75669e == null) {
-            f75669e = Boolean.valueOf(z);
+        if ((interceptable == null || interceptable.invokeZ(65551, null, z) == null) && f75704e == null) {
+            f75704e = Boolean.valueOf(z);
         }
     }
 
     public static void setAllowLocation(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65552, null, z) == null) {
-            f75670f = z;
+            f75705f = z;
         }
     }
 
     public static void setChannel(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65553, null, i2) == null) && f75666b == null) {
-            f75666b = Integer.valueOf(i2);
+        if ((interceptable == null || interceptable.invokeI(65553, null, i2) == null) && f75701b == null) {
+            f75701b = Integer.valueOf(i2);
         }
     }
 
     public static void setCustomADActivityClassName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, null, str) == null) {
-            f75672h = str;
+            f75707h = str;
         }
     }
 
     public static void setCustomLandingPageListener(CustomLandingPageListener customLandingPageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, customLandingPageListener) == null) {
-            f75665a = customLandingPageListener;
+            f75700a = customLandingPageListener;
         }
     }
 
@@ -216,7 +216,7 @@ public final class GlobalSetting {
     public static void setCustomPortraitActivityClassName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
-            f75673i = str;
+            f75708i = str;
         }
     }
 
@@ -230,21 +230,21 @@ public final class GlobalSetting {
     public static void setCustomRewardvideoPortraitActivityClassName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65559, null, str) == null) {
-            f75674j = str;
+            f75709j = str;
         }
     }
 
     public static void setEnableMediationTool(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65560, null, z) == null) {
-            f75667c = z;
+            f75702c = z;
         }
     }
 
     public static void setEnableVideoDownloadingCache(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65561, null, z) == null) {
-            f75668d = z;
+            f75703d = z;
         }
     }
 
@@ -253,6 +253,6 @@ public final class GlobalSetting {
         if (!(interceptable == null || interceptable.invokeL(65562, null, map) == null) || map == null) {
             return;
         }
-        f75671g.putAll(map);
+        f75706g.putAll(map);
     }
 }

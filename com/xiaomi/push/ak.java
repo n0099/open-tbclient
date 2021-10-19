@@ -12,7 +12,7 @@ public class ak extends ai.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ai f77662a;
+    public final /* synthetic */ ai f77697a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak(ai aiVar, ai.a aVar) {
@@ -32,7 +32,7 @@ public class ak extends ai.b {
                 return;
             }
         }
-        this.f77662a = aiVar;
+        this.f77697a = aiVar;
     }
 
     @Override // com.xiaomi.push.ai.b
@@ -41,10 +41,10 @@ public class ak extends ai.b {
         Map map;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            obj = this.f77662a.f111a;
+            obj = this.f77697a.f111a;
             synchronized (obj) {
-                map = this.f77662a.f112a;
-                map.remove(super.f77660a.mo187a());
+                map = this.f77697a.f112a;
+                map.remove(super.f77695a.mo187a());
             }
         }
     }

@@ -22,19 +22,19 @@ public class g implements Executor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BlockingQueue<Runnable> f29916e;
+    public final BlockingQueue<Runnable> f29963e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f29917f;
+    public boolean f29964f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29918g;
+    public boolean f29965g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f29919h;
+    public long f29966h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f29920i;
+    public final String f29967i;
 
     static {
         InterceptResult invokeClinit;
@@ -65,11 +65,11 @@ public class g implements Executor {
                 return;
             }
         }
-        this.f29917f = false;
-        this.f29918g = false;
-        this.f29919h = -1L;
-        this.f29920i = str;
-        this.f29916e = new LinkedBlockingQueue();
+        this.f29964f = false;
+        this.f29965g = false;
+        this.f29966h = -1L;
+        this.f29967i = str;
+        this.f29963e = new LinkedBlockingQueue();
     }
 
     public void a() throws IOException {
@@ -84,16 +84,16 @@ public class g implements Executor {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             long nanoTime = System.nanoTime();
             long convert = TimeUnit.NANOSECONDS.convert(i2, TimeUnit.MILLISECONDS);
-            if (!this.f29918g) {
-                if (!this.f29917f) {
-                    this.f29917f = true;
-                    while (this.f29917f) {
+            if (!this.f29965g) {
+                if (!this.f29964f) {
+                    this.f29964f = true;
+                    while (this.f29964f) {
                         if (i2 == 0) {
                             try {
                                 c(false, 0L).run();
                             } catch (InterruptedIOException | RuntimeException e2) {
-                                this.f29917f = false;
-                                this.f29918g = true;
+                                this.f29964f = false;
+                                this.f29965g = true;
                                 throw e2;
                             }
                         } else {
@@ -115,14 +115,14 @@ public class g implements Executor {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
             try {
                 if (!z) {
-                    poll = this.f29916e.take();
+                    poll = this.f29963e.take();
                 } else {
-                    poll = this.f29916e.poll(j2, TimeUnit.NANOSECONDS);
+                    poll = this.f29963e.poll(j2, TimeUnit.NANOSECONDS);
                 }
                 if (poll != null) {
                     return poll;
                 }
-                c.a.s0.a.a.c("cr_CronetHttpURLConn", "****** Messageloop timeout exception, url is: %s", this.f29920i);
+                c.a.s0.a.a.c("cr_CronetHttpURLConn", "****** Messageloop timeout exception, url is: %s", this.f29967i);
                 throw new SocketTimeoutException();
             } catch (InterruptedException e2) {
                 InterruptedIOException interruptedIOException = new InterruptedIOException();
@@ -139,7 +139,7 @@ public class g implements Executor {
         if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
             if (runnable != null) {
                 try {
-                    this.f29916e.put(runnable);
+                    this.f29963e.put(runnable);
                     return;
                 } catch (InterruptedException e2) {
                     throw new RejectedExecutionException(e2);
@@ -152,7 +152,7 @@ public class g implements Executor {
     public void quit() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f29917f = false;
+            this.f29964f = false;
         }
     }
 }

@@ -156,7 +156,7 @@ public final class HttpUrl {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(a.f36022h);
+                    sb.append(a.f36026h);
                     sb.append(str2);
                 }
             }

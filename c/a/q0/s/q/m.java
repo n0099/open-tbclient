@@ -13,13 +13,13 @@ public class m implements c.a.q0.s.w.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14257a;
+    public String f14280a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14258b;
+    public String f14281b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14259c;
+    public String f14282c;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -39,32 +39,32 @@ public class m implements c.a.q0.s.w.b.a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14257a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14280a : (String) invokeV.objValue;
     }
 
     @Override // c.a.q0.s.w.b.a
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14258b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14281b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14258b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14281b : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14257a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14280a : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14259c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14282c : (String) invokeV.objValue;
     }
 
     public void f(BannerImage bannerImage) {
@@ -72,15 +72,15 @@ public class m implements c.a.q0.s.w.b.a {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, bannerImage) == null) || bannerImage == null) {
             return;
         }
-        this.f14257a = bannerImage.img_url;
-        this.f14258b = bannerImage.ahead_url;
-        this.f14259c = bannerImage.title;
+        this.f14280a = bannerImage.img_url;
+        this.f14281b = bannerImage.ahead_url;
+        this.f14282c = bannerImage.title;
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f14258b = str;
+            this.f14281b = str;
         }
     }
 }

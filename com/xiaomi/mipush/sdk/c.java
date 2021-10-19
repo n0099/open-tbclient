@@ -43,7 +43,7 @@ public class c implements ee {
             ieVar.c(hp.I.f513a);
             ieVar.a(com.xiaomi.push.service.at.a());
             ieVar.f654a = hashMap;
-            an.a(context).a((an) ieVar, hf.f78089i, true, (hs) null, true);
+            an.a(context).a((an) ieVar, hf.f78124i, true, (hs) null, true);
             com.xiaomi.channel.commonutils.logger.b.m73a("MoleInfo：\u3000send data in app layer");
         }
     }

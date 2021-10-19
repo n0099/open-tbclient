@@ -80,8 +80,8 @@ public class k extends h {
         int g3 = c.a.e.e.p.l.g(context, c.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
         q(g2);
         p(g3);
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14234e instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14234e.getParent() == null) {
-            this.m = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14234e;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14257e instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14257e.getParent() == null) {
+            this.m = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14257e;
         } else {
             this.m = new ForumEnterLayout(context);
         }
@@ -106,7 +106,7 @@ public class k extends h {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c.a.q0.b.d.h0()) {
+            if (c.a.q0.b.d.k0()) {
                 int g2 = c.a.e.e.p.l.g(this.f3783f, R.dimen.M_H_X003);
                 int g3 = c.a.e.e.p.l.g(this.f3783f, c.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
                 q(g2);

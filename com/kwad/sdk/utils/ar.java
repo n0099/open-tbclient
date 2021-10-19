@@ -16,7 +16,7 @@ public class ar {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f74227a;
+    public static final Handler f74262a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class ar {
                 return;
             }
         }
-        f74227a = new Handler(Looper.getMainLooper());
+        f74262a = new Handler(Looper.getMainLooper());
     }
 
     public static void a(Runnable runnable) {
@@ -41,7 +41,7 @@ public class ar {
             if (Looper.getMainLooper() == Looper.myLooper()) {
                 runnable.run();
             } else {
-                f74227a.post(runnable);
+                f74262a.post(runnable);
             }
         }
     }
@@ -49,9 +49,9 @@ public class ar {
     public static void a(Runnable runnable, Object obj, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, obj, Long.valueOf(j2)}) == null) {
-            Message obtain = Message.obtain(f74227a, runnable);
+            Message obtain = Message.obtain(f74262a, runnable);
             obtain.obj = obj;
-            f74227a.sendMessageDelayed(obtain, j2);
+            f74262a.sendMessageDelayed(obtain, j2);
         }
     }
 

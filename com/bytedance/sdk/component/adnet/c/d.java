@@ -12,34 +12,34 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f64545a;
+    public boolean f64580a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f64546b;
+    public boolean f64581b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f64547c;
+    public Map<String, Integer> f64582c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f64548d;
+    public Map<String, String> f64583d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64549e;
+    public int f64584e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64550f;
+    public int f64585f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f64551g;
+    public int f64586g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f64552h;
+    public int f64587h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f64553i;
+    public int f64588i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f64554j;
+    public int f64589j;
     public int k;
     public int l;
     public String m;
@@ -59,16 +59,16 @@ public class d {
                 return;
             }
         }
-        this.f64545a = false;
-        this.f64546b = true;
-        this.f64547c = null;
-        this.f64548d = null;
-        this.f64549e = 10;
-        this.f64550f = 1;
-        this.f64551g = 1;
-        this.f64552h = 10;
-        this.f64553i = 1;
-        this.f64554j = 1;
+        this.f64580a = false;
+        this.f64581b = true;
+        this.f64582c = null;
+        this.f64583d = null;
+        this.f64584e = 10;
+        this.f64585f = 1;
+        this.f64586g = 1;
+        this.f64587h = 10;
+        this.f64588i = 1;
+        this.f64589j = 1;
         this.k = 900;
         this.l = 120;
         this.m = null;
@@ -82,27 +82,27 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(" localEnable: ");
-            sb.append(this.f64545a);
+            sb.append(this.f64580a);
             sb.append(" probeEnable: ");
-            sb.append(this.f64546b);
+            sb.append(this.f64581b);
             sb.append(" hostFilter: ");
-            Map<String, Integer> map = this.f64547c;
+            Map<String, Integer> map = this.f64582c;
             sb.append(map != null ? map.size() : 0);
             sb.append(" hostMap: ");
-            Map<String, String> map2 = this.f64548d;
+            Map<String, String> map2 = this.f64583d;
             sb.append(map2 != null ? map2.size() : 0);
             sb.append(" reqTo: ");
-            sb.append(this.f64549e);
+            sb.append(this.f64584e);
             sb.append("#");
-            sb.append(this.f64550f);
+            sb.append(this.f64585f);
             sb.append("#");
-            sb.append(this.f64551g);
+            sb.append(this.f64586g);
             sb.append(" reqErr: ");
-            sb.append(this.f64552h);
+            sb.append(this.f64587h);
             sb.append("#");
-            sb.append(this.f64553i);
+            sb.append(this.f64588i);
             sb.append("#");
-            sb.append(this.f64554j);
+            sb.append(this.f64589j);
             sb.append(" updateInterval: ");
             sb.append(this.k);
             sb.append(" updateRandom: ");

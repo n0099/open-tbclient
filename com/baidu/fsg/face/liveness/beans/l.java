@@ -12,7 +12,7 @@ public abstract class l extends BaseBean {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40227a;
+    public String f40231a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(Context context) {
@@ -37,7 +37,7 @@ public abstract class l extends BaseBean {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f40227a = str;
+            this.f40231a = str;
         }
     }
 

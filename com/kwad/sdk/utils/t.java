@@ -20,11 +20,11 @@ public class t extends Observable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile t f74303a;
+    public static volatile t f74338a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Activity> f74304b;
+    public WeakReference<Activity> f74339b;
 
     public t() {
         Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class t extends Observable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f74303a == null) {
+            if (f74338a == null) {
                 synchronized (t.class) {
-                    if (f74303a == null) {
-                        f74303a = new t();
+                    if (f74338a == null) {
+                        f74338a = new t();
                     }
                 }
             }
-            return f74303a;
+            return f74338a;
         }
         return (t) invokeV.objValue;
     }
@@ -98,7 +98,7 @@ public class t extends Observable {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ t f74305a;
+                public final /* synthetic */ t f74340a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -115,7 +115,7 @@ public class t extends Observable {
                             return;
                         }
                     }
-                    this.f74305a = this;
+                    this.f74340a = this;
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -135,20 +135,20 @@ public class t extends Observable {
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityPaused(@NonNull Activity activity) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || this.f74305a.f74304b == null || this.f74305a.f74304b.get() == null || !((Activity) this.f74305a.f74304b.get()).equals(activity)) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || this.f74340a.f74339b == null || this.f74340a.f74339b.get() == null || !((Activity) this.f74340a.f74339b.get()).equals(activity)) {
                         return;
                     }
-                    this.f74305a.f74304b = null;
+                    this.f74340a.f74339b = null;
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityResumed(@NonNull Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, activity) == null) {
-                        if (!this.f74305a.b()) {
-                            this.f74305a.d();
+                        if (!this.f74340a.b()) {
+                            this.f74340a.d();
                         }
-                        this.f74305a.f74304b = new WeakReference(activity);
+                        this.f74340a.f74339b = new WeakReference(activity);
                     }
                 }
 
@@ -187,7 +187,7 @@ public class t extends Observable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            WeakReference<Activity> weakReference = this.f74304b;
+            WeakReference<Activity> weakReference = this.f74339b;
             if (weakReference == null) {
                 return null;
             }

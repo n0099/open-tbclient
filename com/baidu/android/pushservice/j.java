@@ -24,13 +24,13 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f37667a;
+    public static boolean f37671a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile j f37668b;
+    public static volatile j f37672b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f37669c;
+    public static Context f37673c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -66,15 +66,15 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f37668b == null) {
+            if (f37672b == null) {
                 synchronized (j.class) {
-                    if (f37668b == null) {
-                        f37668b = new j();
-                        f37669c = context;
+                    if (f37672b == null) {
+                        f37672b = new j();
+                        f37673c = context;
                     }
                 }
             }
-            return f37668b;
+            return f37672b;
         }
         return (j) invokeL.objValue;
     }
@@ -103,13 +103,13 @@ public class j {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, com.baidu.android.pushservice.j.i.a(f37669c, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"));
+                jSONObject2.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, com.baidu.android.pushservice.j.i.a(f37673c, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"));
                 jSONObject2.put("timestamp", (System.currentTimeMillis() / 1000) + "");
-                jSONObject2.put(IAdRequestParam.CELL_ID, com.baidu.android.pushservice.j.i.a(f37669c, IAdRequestParam.CELL_ID));
+                jSONObject2.put(IAdRequestParam.CELL_ID, com.baidu.android.pushservice.j.i.a(f37673c, IAdRequestParam.CELL_ID));
                 jSONObject2.put(HttpConstants.DEVICE_TYPE, "3");
                 jSONObject2.put("sdk_int", Build.VERSION.SDK_INT + "");
                 jSONObject2.put("push_sdk_version", ((int) a.a()) + "");
-                int i2 = m.o(f37669c) ? 3 : 2;
+                int i2 = m.o(f37673c) ? 3 : 2;
                 jSONObject2.put("connect_version", i2 + "");
                 jSONObject2.put("bind_name", Build.MODEL);
                 if (!TextUtils.isEmpty(str)) {
@@ -117,7 +117,7 @@ public class j {
                 }
                 jSONObject2.put(HttpConstants.OS_VERSION, Build.DISPLAY);
                 jSONObject2.put(HttpConstants.HTTP_MANUFACTURER, Build.MANUFACTURER);
-                jSONObject2.put("bind_notify_status", com.baidu.android.pushservice.j.h.b(f37669c));
+                jSONObject2.put("bind_notify_status", com.baidu.android.pushservice.j.h.b(f37673c));
                 jSONObject2.put("source", 2);
                 JSONArray a2 = com.baidu.android.pushservice.j.k.a(jSONObject2.toString(), 3, 2);
                 jSONObject.put("info", a2);
@@ -134,21 +134,21 @@ public class j {
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("Content-Type", "application/json");
-            com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c(this, "requestNewBind", (short) 100, str, h.f37332c + h.f37337h, hashMap) { // from class: com.baidu.android.pushservice.j.1
+            com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c(this, "requestNewBind", (short) 100, str, h.f37336c + h.f37341h, hashMap) { // from class: com.baidu.android.pushservice.j.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f37670a;
+                public final /* synthetic */ String f37674a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f37671b;
+                public final /* synthetic */ String f37675b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ HashMap f37672c;
+                public final /* synthetic */ HashMap f37676c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ j f37673d;
+                public final /* synthetic */ j f37677d;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -169,25 +169,25 @@ public class j {
                             return;
                         }
                     }
-                    this.f37673d = this;
-                    this.f37670a = str;
-                    this.f37671b = r12;
-                    this.f37672c = hashMap;
+                    this.f37677d = this;
+                    this.f37674a = str;
+                    this.f37675b = r12;
+                    this.f37676c = hashMap;
                 }
 
                 @Override // com.baidu.android.pushservice.h.c
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String b2 = this.f37673d.b(this.f37670a);
-                        com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(j.f37669c, this.f37671b, "POST", this.f37673d.c(this.f37670a), this.f37672c, "application/json");
+                        String b2 = this.f37677d.b(this.f37674a);
+                        com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(j.f37673c, this.f37675b, "POST", this.f37677d.c(this.f37674a), this.f37676c, "application/json");
                         if (a2 != null) {
                             try {
-                                com.baidu.android.pushservice.j.i.a(j.f37669c, IAdRequestParam.CELL_ID, new JSONObject(m.a(j.f37669c, a2.a())).getJSONObject("response_params").getString(IAdRequestParam.CELL_ID));
+                                com.baidu.android.pushservice.j.i.a(j.f37673c, IAdRequestParam.CELL_ID, new JSONObject(m.a(j.f37673c, a2.a())).getJSONObject("response_params").getString(IAdRequestParam.CELL_ID));
                                 if (TextUtils.isEmpty(b2)) {
                                     return;
                                 }
-                                com.baidu.android.pushservice.j.i.a(j.f37669c, "token", b2);
+                                com.baidu.android.pushservice.j.i.a(j.f37673c, "token", b2);
                             } catch (JSONException unused) {
                             }
                         }

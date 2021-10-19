@@ -19,34 +19,34 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.n.a.b f68531a;
+    public static volatile com.bytedance.sdk.openadsdk.n.a.b f68566a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.n.a.c f68532b;
+    public static volatile com.bytedance.sdk.openadsdk.n.a.c f68567b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f68533c;
+    public static final boolean f68568c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile boolean f68534d;
+    public static volatile boolean f68569d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f68535e;
+    public static volatile boolean f68570e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f68536f;
+    public static volatile boolean f68571f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile int f68537g;
+    public static volatile int f68572g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile int f68538h;
+    public static volatile int f68573h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile Integer f68539i;
+    public static volatile Integer f68574i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.n.b.c f68540j;
+    public static volatile com.bytedance.sdk.openadsdk.n.b.c f68575j;
     @SuppressLint({"StaticFieldLeak"})
     public static volatile Context k;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,10 +64,10 @@ public class e {
                 return;
             }
         }
-        f68533c = com.bytedance.sdk.component.utils.k.c();
-        f68535e = true;
-        f68537g = 0;
-        f68538h = 3;
+        f68568c = com.bytedance.sdk.component.utils.k.c();
+        f68570e = true;
+        f68572g = 0;
+        f68573h = 3;
     }
 
     public static Context a() {
@@ -79,33 +79,33 @@ public class e {
     public static void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
-            f68536f = z;
+            f68571f = z;
         }
     }
 
     public static com.bytedance.sdk.openadsdk.n.a.b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f68531a : (com.bytedance.sdk.openadsdk.n.a.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f68566a : (com.bytedance.sdk.openadsdk.n.a.b) invokeV.objValue;
     }
 
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            f68535e = z;
+            f68570e = z;
         }
     }
 
     public static com.bytedance.sdk.openadsdk.n.a.c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f68532b : (com.bytedance.sdk.openadsdk.n.a.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f68567b : (com.bytedance.sdk.openadsdk.n.a.c) invokeV.objValue;
     }
 
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f68537g = i2;
+            f68572g = i2;
         }
     }
 
@@ -114,16 +114,16 @@ public class e {
         if (interceptable == null || interceptable.invokeLL(65539, null, cVar, context) == null) {
             if (cVar != null && context != null) {
                 k = context.getApplicationContext();
-                if (f68532b != null) {
+                if (f68567b != null) {
                     return;
                 }
-                com.bytedance.sdk.openadsdk.n.a.b bVar = f68531a;
-                if (bVar != null && bVar.f68458a.getAbsolutePath().equals(cVar.f68460a.getAbsolutePath())) {
+                com.bytedance.sdk.openadsdk.n.a.b bVar = f68566a;
+                if (bVar != null && bVar.f68493a.getAbsolutePath().equals(cVar.f68495a.getAbsolutePath())) {
                     throw new IllegalArgumentException("DiskLruCache 和 DiskCache 不能使用相同的目录");
                 }
-                f68532b = cVar;
-                f68540j = com.bytedance.sdk.openadsdk.n.b.c.a(context);
-                f68532b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.n.e.1
+                f68567b = cVar;
+                f68575j = com.bytedance.sdk.openadsdk.n.b.c.a(context);
+                f68567b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.n.e.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -144,7 +144,7 @@ public class e {
                     @Override // com.bytedance.sdk.openadsdk.n.a.c.a
                     public void a(String str) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) && e.f68533c) {
+                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) && e.f68568c) {
                             String str2 = "new cache created: " + str;
                         }
                     }
@@ -153,8 +153,8 @@ public class e {
                     public void a(Set<String> set) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set) == null) {
-                            e.f68540j.a(set, 0);
-                            if (e.f68533c) {
+                            e.f68575j.a(set, 0);
+                            if (e.f68568c) {
                                 String str = "cache file removed, " + set;
                             }
                         }
@@ -162,10 +162,10 @@ public class e {
                 });
                 f a2 = f.a();
                 a2.a(cVar);
-                a2.a(f68540j);
+                a2.a(f68575j);
                 d c2 = d.c();
                 c2.a(cVar);
-                c2.a(f68540j);
+                c2.a(f68575j);
                 return;
             }
             throw new IllegalArgumentException("DiskLruCache and Context can't be null !!!");

@@ -7,10 +7,10 @@ import c.a.q0.s.k;
 import c.a.q0.s.q.d2;
 import c.a.q0.s.q.e;
 import c.a.q0.s.q.o0;
-import c.a.r0.p1.o.b;
-import c.a.r0.p1.o.k.a;
-import c.a.r0.y2.d0.c;
-import c.a.r0.y2.z;
+import c.a.r0.q1.o.b;
+import c.a.r0.q1.o.k.a;
+import c.a.r0.z2.d0.c;
+import c.a.r0.z2.z;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -361,7 +361,7 @@ public class AdvertAppInfo extends d2 implements o0, c {
         }
     }
 
-    @Override // c.a.r0.y2.d0.c
+    @Override // c.a.r0.z2.d0.c
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
@@ -369,7 +369,7 @@ public class AdvertAppInfo extends d2 implements o0, c {
         }
     }
 
-    @Override // c.a.r0.y2.d0.c
+    @Override // c.a.r0.z2.d0.c
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

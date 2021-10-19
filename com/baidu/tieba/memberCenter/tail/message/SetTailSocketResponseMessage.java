@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.tail.message;
 
-import c.a.r0.x1.h.a.f;
+import c.a.r0.y1.h.a.f;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;

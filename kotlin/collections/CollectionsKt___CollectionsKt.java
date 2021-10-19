@@ -2,7 +2,6 @@ package kotlin.collections;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.media.duplayer.LibsInfoDef;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
@@ -280,7 +279,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return d2 / i2;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T> List<List<T>> chunked(Iterable<? extends T> chunked, int i2) {
         Intrinsics.checkNotNullParameter(chunked, "$this$chunked");
         return windowed(chunked, i2, i2, true);
@@ -2699,7 +2698,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return mutableSet;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T> List<List<T>> windowed(Iterable<? extends T> windowed, int i2, int i3, boolean z) {
         Intrinsics.checkNotNullParameter(windowed, "$this$windowed");
         SlidingWindowKt.checkWindowSizeStep(i2, i3);
@@ -2767,7 +2766,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return arrayList;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T, R> List<R> zipWithNext(Iterable<? extends T> zipWithNext, Function2<? super T, ? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(zipWithNext, "$this$zipWithNext");
         Intrinsics.checkNotNullParameter(transform, "transform");
@@ -2785,7 +2784,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return CollectionsKt__CollectionsKt.emptyList();
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T, R> List<R> chunked(Iterable<? extends T> chunked, int i2, Function1<? super List<? extends T>, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(chunked, "$this$chunked");
         Intrinsics.checkNotNullParameter(transform, "transform");
@@ -3348,7 +3347,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         throw new NoSuchElementException("List is empty.");
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T> List<Pair<T, T>> zipWithNext(Iterable<? extends T> zipWithNext) {
         Intrinsics.checkNotNullParameter(zipWithNext, "$this$zipWithNext");
         Iterator<? extends T> it = zipWithNext.iterator();
@@ -3493,7 +3492,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         throw new NoSuchElementException("Collection contains no element matching the predicate.");
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T, R> List<R> windowed(Iterable<? extends T> windowed, int i2, int i3, boolean z, Function1<? super List<? extends T>, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(windowed, "$this$windowed");
         Intrinsics.checkNotNullParameter(transform, "transform");

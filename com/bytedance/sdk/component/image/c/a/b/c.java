@@ -16,16 +16,16 @@ public class c implements IRawCache {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f65506a;
+    public int f65541a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65507b;
+    public int f65542b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f65508c;
+    public int f65543c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LruCache<String, byte[]> f65509d;
+    public LruCache<String, byte[]> f65544d;
 
     public c(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class c implements IRawCache {
                 return;
             }
         }
-        this.f65508c = i2;
-        this.f65506a = i3;
-        this.f65509d = new LruCache<String, byte[]>(this, i2) { // from class: com.bytedance.sdk.component.image.c.a.b.c.1
+        this.f65543c = i2;
+        this.f65541a = i3;
+        this.f65544d = new LruCache<String, byte[]>(this, i2) { // from class: com.bytedance.sdk.component.image.c.a.b.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f65510a;
+            public final /* synthetic */ c f65545a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -69,7 +69,7 @@ public class c implements IRawCache {
                         return;
                     }
                 }
-                this.f65510a = this;
+                this.f65545a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -93,7 +93,7 @@ public class c implements IRawCache {
             if (str == null || bArr == null) {
                 return false;
             }
-            this.f65509d.put(str, bArr);
+            this.f65544d.put(str, bArr);
             return true;
         }
         return invokeLL.booleanValue;
@@ -105,7 +105,7 @@ public class c implements IRawCache {
     public byte[] a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f65509d.get(str) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f65544d.get(str) : (byte[]) invokeL.objValue;
     }
 
     @Override // com.bytedance.sdk.component.image.c.a.a
@@ -113,9 +113,9 @@ public class c implements IRawCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2)}) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                this.f65509d.trimToSize((int) (this.f65508c * d2));
+                this.f65544d.trimToSize((int) (this.f65543c * d2));
             } else {
-                this.f65509d.evictAll();
+                this.f65544d.evictAll();
             }
         }
     }

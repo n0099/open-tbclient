@@ -58,10 +58,10 @@ public class SwanAppAbTestStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f49442a;
+    public static boolean f49369a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static i f49443b;
+    public static i f49370b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -185,7 +185,7 @@ public class SwanAppAbTestStatic {
             PopupWindow a2;
             Activity b2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof c.a.q0.a.h) && (a2 = c.a.r0.u.b.a.a((c.a.q0.a.h) customResponsedMessage.getData())) != null && (b2 = c.a.e.a.b.f().b()) != null && b2.getWindow() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof c.a.q0.a.h) && (a2 = c.a.r0.v.b.a.a((c.a.q0.a.h) customResponsedMessage.getData())) != null && (b2 = c.a.e.a.b.g().b()) != null && b2.getWindow() != null) {
                 try {
                     a2.showAtLocation(b2.getWindow().getDecorView(), 17, 0, 0);
                 } catch (Exception unused) {
@@ -322,7 +322,7 @@ public class SwanAppAbTestStatic {
                     c.a.p0.a.k2.g.h.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
                     c.a.p0.a.k2.g.h.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
                     c.a.p0.a.k2.g.h.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
-                    c.a.r0.u.b.b.a.l().y(getUserInfoResult);
+                    c.a.r0.v.b.b.a.l().y(getUserInfoResult);
                 }
             }
         }
@@ -358,7 +358,7 @@ public class SwanAppAbTestStatic {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921328, TbadkCoreApplication.getInst().getApp()));
                 }
                 if (!SapiAccountManager.getInstance().isLogin()) {
-                    c.a.r0.u.b.b.a.l().y(null);
+                    c.a.r0.v.b.b.a.l().y(null);
                 }
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new a(this), SapiAccountManager.getInstance().getSession().bduss);
             }
@@ -478,11 +478,11 @@ public class SwanAppAbTestStatic {
                 return;
             }
         }
-        f49443b = new a();
+        f49370b = new a();
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             c();
         } else {
-            c.a.q0.j0.h.f().m(PrivacyPolicyEvent.class, f49443b, BdUniqueId.gen());
+            c.a.q0.j0.h.f().m(PrivacyPolicyEvent.class, f49370b, BdUniqueId.gen());
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -513,20 +513,20 @@ public class SwanAppAbTestStatic {
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f49442a) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f49369a) {
             return;
         }
-        f49442a = true;
+        f49369a = true;
         SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
         if (Build.VERSION.SDK_INT <= 21 || TbadkCoreApplication.getInst().isRemoteProcess()) {
             return;
         }
-        c.a.r0.u.b.k.a.b();
+        c.a.r0.v.b.k.a.b();
         if (ProcessUtils.isMainProcess() && !Fresco.hasBeenInitialized()) {
             Fresco.initialize(AppRuntime.getAppContext());
         }
-        c.a.r0.u.b.b.a.l().q(TbadkCoreApplication.getInst());
-        c.a.r0.u.b.j.c.a().b(TbadkCoreApplication.getInst());
+        c.a.r0.v.b.b.a.l().q(TbadkCoreApplication.getInst());
+        c.a.r0.v.b.j.c.a().b(TbadkCoreApplication.getInst());
         c.a.r.b.e(TbadkCoreApplication.getInst()).m(new g());
         q0.Y(new h(), 3000L);
     }

@@ -4,8 +4,8 @@ import c.a.e.a.f;
 import c.a.e.e.p.l;
 import c.a.q0.s.k;
 import c.a.q0.s.q.b1;
-import c.a.r0.i1.c.d;
-import c.a.r0.i1.c.e;
+import c.a.r0.j1.c.d;
+import c.a.r0.j1.c.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -27,16 +27,16 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f52789e;
+    public BaseActivity<?> f52720e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f52790f;
+    public c f52721f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f52791g;
+    public b f52722g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.e.c.g.a f52792h;
+    public c.a.e.c.g.a f52723h;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -44,7 +44,7 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotRelateThreadModel f52793a;
+        public final /* synthetic */ HotRelateThreadModel f52724a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HotRelateThreadModel hotRelateThreadModel, int i2, int i3) {
@@ -65,32 +65,32 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
                     return;
                 }
             }
-            this.f52793a = hotRelateThreadModel;
+            this.f52724a = hotRelateThreadModel;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (this.f52793a.f52791g != null) {
-                    this.f52793a.f52791g.complete();
+                if (this.f52724a.f52722g != null) {
+                    this.f52724a.f52722g.complete();
                 }
                 if (responsedMessage == null) {
                     return;
                 }
-                if (((responsedMessage instanceof ResponseHttpGetTopicRelateThreadMessage) || (responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f52793a.getUniqueId()) {
+                if (((responsedMessage instanceof ResponseHttpGetTopicRelateThreadMessage) || (responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f52724a.getUniqueId()) {
                     int i2 = 1;
                     if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
                         i2 = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
                     }
                     if (!responsedMessage.hasError()) {
-                        this.f52793a.B(responsedMessage);
+                        this.f52724a.B(responsedMessage);
                         return;
                     }
                     if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                        this.f52793a.f52789e.showToast(responsedMessage.getErrorString());
+                        this.f52724a.f52720e.showToast(responsedMessage.getErrorString());
                     }
-                    this.f52793a.f52790f.hotRelateThreadCallback(false, null, i2);
+                    this.f52724a.f52721f.hotRelateThreadCallback(false, null, i2);
                 }
             }
         }
@@ -125,8 +125,8 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, 309005);
-        this.f52792h = aVar;
-        this.f52789e = baseActivity;
+        this.f52723h = aVar;
+        this.f52720e = baseActivity;
         registerListener(aVar);
     }
 
@@ -156,13 +156,13 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
                 dVar = responseSocketGetTopicRelateThreadMessage.getHotThreadItemListData();
             }
         }
-        this.f52790f.hotRelateThreadCallback(!responsedMessage.hasError(), dVar, (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) ? 1 : ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue());
+        this.f52721f.hotRelateThreadCallback(!responsedMessage.hasError(), dVar, (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) ? 1 : ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue());
     }
 
     public final void C(e eVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, eVar, i2) == null) {
-            c.a.r0.i1.c.f h2 = eVar.h();
+            c.a.r0.j1.c.f h2 = eVar.h();
             b1 j2 = eVar.j();
             if (h2 == null || j2 == null) {
                 return;
@@ -171,8 +171,8 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
             double d2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int k = l.k(TbadkCoreApplication.getInst().getApp());
             int i3 = l.i(TbadkCoreApplication.getInst().getApp());
-            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(c.a.e.e.m.b.g(h2.f19294e, 0L)));
-            requestGetTopicRelateThreadMessage.setTopicName(h2.f19295f);
+            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(c.a.e.e.m.b.g(h2.f19465e, 0L)));
+            requestGetTopicRelateThreadMessage.setTopicName(h2.f19466f);
             Long l = h2.o;
             if (l != null && h2.p != null) {
                 requestGetTopicRelateThreadMessage.setPmy_topic_id(l);
@@ -200,19 +200,19 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
     public void D(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f52790f = cVar;
+            this.f52721f = cVar;
         }
     }
 
     public void E(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f52791g = bVar;
+            this.f52722g = bVar;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -222,7 +222,7 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

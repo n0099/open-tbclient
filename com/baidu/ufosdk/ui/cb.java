@@ -12,7 +12,7 @@ public final class cb implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59903a;
+    public final /* synthetic */ FeedbackInputActivity f59938a;
 
     public cb(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -29,16 +29,16 @@ public final class cb implements View.OnClickListener {
                 return;
             }
         }
-        this.f59903a = feedbackInputActivity;
+        this.f59938a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            Intent intent = new Intent(this.f59903a, FeedbackListActivity.class);
-            intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59688j);
-            this.f59903a.startActivity(intent);
+            Intent intent = new Intent(this.f59938a, FeedbackListActivity.class);
+            intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59723j);
+            this.f59938a.startActivity(intent);
         }
     }
 }

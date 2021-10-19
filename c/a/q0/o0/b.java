@@ -42,17 +42,17 @@ public abstract class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
-            if (dVar == null || dVar.n()) {
+            if (dVar == null || dVar.p()) {
                 return false;
             }
-            if (dVar.f13624a) {
-                dVar.v(c.b(dVar.h(), 6));
+            if (dVar.f13644a) {
+                dVar.x(c.b(dVar.h(), 6));
             } else {
                 int c2 = getMaxCost() > e.b().c() ? e.b().c() : getMaxCost();
                 if (c2 > 5) {
                     c2 = 5;
                 }
-                dVar.v(c.b(dVar.h(), c2));
+                dVar.x(c.b(dVar.h(), c2));
             }
             return true;
         }

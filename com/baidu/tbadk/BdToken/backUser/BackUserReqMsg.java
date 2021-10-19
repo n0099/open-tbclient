@@ -1,6 +1,6 @@
 package com.baidu.tbadk.BdToken.backUser;
 
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ public class BackUserReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                a0.c(builder, true, true, false);
+                z.c(builder, true, true, false);
                 BackUserReqIdl.Builder builder2 = new BackUserReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

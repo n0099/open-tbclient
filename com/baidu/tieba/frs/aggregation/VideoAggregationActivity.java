@@ -52,7 +52,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null && StringUtils.isNull(this.mId) && VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom)) {
-                pageStayDurationItem.A(b.g(this.mId, 0L));
+                pageStayDurationItem.C(b.g(this.mId, 0L));
             }
             return pageStayDurationItem;
         }

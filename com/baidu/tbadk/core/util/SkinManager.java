@@ -29,7 +29,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.b;
 import c.a.e.e.p.l;
 import c.a.q0.s.u.a;
-import c.a.r0.j3.c;
+import c.a.r0.k3.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -861,7 +861,7 @@ public class SkinManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65598, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             boolean isCurrentSystemDarkMode = isCurrentSystemDarkMode();
-            Activity b2 = b.f().b();
+            Activity b2 = b.g().b();
             if (b2 == null) {
                 return;
             }

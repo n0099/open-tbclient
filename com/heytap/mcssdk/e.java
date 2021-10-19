@@ -12,7 +12,7 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a */
-    public static final PushManager f71194a;
+    public static final PushManager f71229a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public final class e {
                 return;
             }
         }
-        f71194a = new PushManager(null);
+        f71229a = new PushManager(null);
     }
 
     public e() {
@@ -47,6 +47,6 @@ public final class e {
 
     /* JADX DEBUG: Method not inlined, still used in: [com.heytap.mcssdk.PushManager.getInstance():com.heytap.mcssdk.PushManager] */
     public static /* synthetic */ PushManager a() {
-        return f71194a;
+        return f71229a;
     }
 }

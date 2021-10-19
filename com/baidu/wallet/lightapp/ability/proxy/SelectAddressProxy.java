@@ -20,14 +20,14 @@ public class SelectAddressProxy extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f61767a;
+    public static b f61802a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ContactInfoPresenter f61768b;
+    public ContactInfoPresenter f61803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f61769c;
+    public boolean f61804c;
 
     static {
         InterceptResult invokeClinit;
@@ -57,13 +57,13 @@ public class SelectAddressProxy extends BaseActivity {
                 return;
             }
         }
-        this.f61769c = true;
+        this.f61804c = true;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f61768b = new ContactInfoPresenter(getActivity(), f61767a);
+            this.f61803b = new ContactInfoPresenter(getActivity(), f61802a);
             Intent intent = new Intent();
             intent.setAction("android.intent.action.PICK");
             intent.setType("vnd.android.cursor.dir/phone_v2");
@@ -74,8 +74,8 @@ public class SelectAddressProxy extends BaseActivity {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f61768b = null;
-            f61767a = null;
+            this.f61803b = null;
+            f61802a = null;
             finish();
         }
     }
@@ -83,7 +83,7 @@ public class SelectAddressProxy extends BaseActivity {
     public static void startSelectAddress(Activity activity, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, bVar) == null) {
-            f61767a = bVar;
+            f61802a = bVar;
             activity.startActivity(new Intent(activity, SelectAddressProxy.class));
         }
     }
@@ -112,11 +112,11 @@ public class SelectAddressProxy extends BaseActivity {
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
             if (i2 == 4) {
                 if (i3 == -1) {
-                    if (intent != null && intent.getData() != null && (contactInfoPresenter = this.f61768b) != null) {
+                    if (intent != null && intent.getData() != null && (contactInfoPresenter = this.f61803b) != null) {
                         contactInfoPresenter.a(intent.getData());
                     }
                 } else {
-                    b bVar = f61767a;
+                    b bVar = f61802a;
                     if (bVar != null) {
                         bVar.onContactsSelected("", 1, null, "取消", "0");
                     }
@@ -133,9 +133,9 @@ public class SelectAddressProxy extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onResume();
-            if (this.f61769c) {
+            if (this.f61804c) {
                 a();
-                this.f61769c = false;
+                this.f61804c = false;
             }
         }
     }

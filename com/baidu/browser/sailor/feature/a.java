@@ -18,22 +18,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, c.a.k.b.a.a> mClientsMap;
     public Context mContext;
-    public Enum<EnumC1638a> mStatus;
+    public Enum<EnumC1640a> mStatus;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.browser.sailor.feature.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class EnumC1638a {
+    public static final class EnumC1640a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final EnumC1638a f38605a;
+        public static final EnumC1640a f38609a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final EnumC1638a f38606b;
+        public static final EnumC1640a f38610b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ EnumC1638a[] f38607c;
+        public static final /* synthetic */ EnumC1640a[] f38611c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,13 +49,13 @@ public class a {
                     return;
                 }
             }
-            f38605a = new EnumC1638a("ENABLE", 0);
-            EnumC1638a enumC1638a = new EnumC1638a("DISABLE", 1);
-            f38606b = enumC1638a;
-            f38607c = new EnumC1638a[]{f38605a, enumC1638a};
+            f38609a = new EnumC1640a("ENABLE", 0);
+            EnumC1640a enumC1640a = new EnumC1640a("DISABLE", 1);
+            f38610b = enumC1640a;
+            f38611c = new EnumC1640a[]{f38609a, enumC1640a};
         }
 
-        public EnumC1638a(String str, int i2) {
+        public EnumC1640a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,16 +74,16 @@ public class a {
             }
         }
 
-        public static EnumC1638a valueOf(String str) {
+        public static EnumC1640a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC1638a) Enum.valueOf(EnumC1638a.class, str) : (EnumC1638a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC1640a) Enum.valueOf(EnumC1640a.class, str) : (EnumC1640a) invokeL.objValue;
         }
 
-        public static EnumC1638a[] values() {
+        public static EnumC1640a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC1638a[]) f38607c.clone() : (EnumC1638a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC1640a[]) f38611c.clone() : (EnumC1640a[]) invokeV.objValue;
         }
     }
 
@@ -120,14 +120,14 @@ public class a {
     public void disable() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mStatus = EnumC1638a.f38606b;
+            this.mStatus = EnumC1640a.f38610b;
         }
     }
 
     public void enable() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.mStatus = EnumC1638a.f38605a;
+            this.mStatus = EnumC1640a.f38609a;
         }
     }
 
@@ -146,7 +146,7 @@ public class a {
     public boolean isEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mStatus == EnumC1638a.f38605a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mStatus == EnumC1640a.f38609a : invokeV.booleanValue;
     }
 
     public void regActivityResultCallback(String str, c.a.k.b.a.a aVar) {

@@ -53,7 +53,7 @@ public abstract class BdMenu {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f69877e;
+        public final /* synthetic */ BdMenu f69912e;
 
         public a(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f69877e = bdMenu;
+            this.f69912e = bdMenu;
         }
 
         @Override // android.view.View.OnKeyListener
@@ -80,9 +80,9 @@ public abstract class BdMenu {
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
                 if (keyEvent.getAction() == 1) {
                     if (i2 == 4 || i2 == 82) {
-                        this.f69877e.dismiss();
-                        if (this.f69877e.mKeyClickListener != null) {
-                            this.f69877e.mKeyClickListener.onKey(view, i2, keyEvent);
+                        this.f69912e.dismiss();
+                        if (this.f69912e.mKeyClickListener != null) {
+                            this.f69912e.mKeyClickListener.onKey(view, i2, keyEvent);
                         }
                         return true;
                     }
@@ -100,7 +100,7 @@ public abstract class BdMenu {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f69878a;
+        public final /* synthetic */ BdMenu f69913a;
 
         public b(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -117,16 +117,16 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f69878a = bdMenu;
+            this.f69913a = bdMenu;
         }
 
         @Override // com.dxmpay.wallet.base.widget.BdMenuItem.OnItemClickListener
         public void onClick(BdMenuItem bdMenuItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bdMenuItem) == null) {
-                this.f69878a.dismiss();
-                if (this.f69878a.mMenuItemClickListener != null) {
-                    this.f69878a.mMenuItemClickListener.onClick(bdMenuItem);
+                this.f69913a.dismiss();
+                if (this.f69913a.mMenuItemClickListener != null) {
+                    this.f69913a.mMenuItemClickListener.onClick(bdMenuItem);
                 }
             }
         }
@@ -138,7 +138,7 @@ public abstract class BdMenu {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f69879a;
+        public final /* synthetic */ BdMenu f69914a;
 
         public c(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -155,16 +155,16 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f69879a = bdMenu;
+            this.f69914a = bdMenu;
         }
 
         @Override // com.dxmpay.wallet.base.widget.BdMenuItem.OnItemClickListener
         public void onClick(BdMenuItem bdMenuItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bdMenuItem) == null) {
-                this.f69879a.dismiss();
-                if (this.f69879a.mMenuItemClickListener != null) {
-                    this.f69879a.mMenuItemClickListener.onClick(bdMenuItem);
+                this.f69914a.dismiss();
+                if (this.f69914a.mMenuItemClickListener != null) {
+                    this.f69914a.mMenuItemClickListener.onClick(bdMenuItem);
                 }
             }
         }
@@ -176,7 +176,7 @@ public abstract class BdMenu {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f69880e;
+        public final /* synthetic */ BdMenu f69915e;
 
         public d(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -193,16 +193,16 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f69880e = bdMenu;
+            this.f69915e = bdMenu;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f69880e.mStateChangeListener == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f69915e.mStateChangeListener == null) {
                 return;
             }
-            this.f69880e.mStateChangeListener.onDismissMenu();
+            this.f69915e.mStateChangeListener.onDismissMenu();
         }
     }
 
@@ -212,7 +212,7 @@ public abstract class BdMenu {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f69881e;
+        public final /* synthetic */ BdMenu f69916e;
 
         public e(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -229,7 +229,7 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f69881e = bdMenu;
+            this.f69916e = bdMenu;
         }
 
         @Override // java.lang.Runnable
@@ -237,7 +237,7 @@ public abstract class BdMenu {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f69881e.showMenu(this.f69881e.mPopupWindow);
+                    this.f69916e.showMenu(this.f69916e.mPopupWindow);
                 } catch (Exception unused) {
                 }
             }

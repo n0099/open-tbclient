@@ -55,16 +55,16 @@ public class b extends a {
                 return;
             }
         }
-        Activity activity2 = this.f66042a;
-        this.f66047f = (SSWebView) activity2.findViewById(t.e(activity2, "tt_reward_browser_webview"));
+        Activity activity2 = this.f66077a;
+        this.f66082f = (SSWebView) activity2.findViewById(t.e(activity2, "tt_reward_browser_webview"));
         a();
     }
 
     private void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.t = this.f66043b.V() != null ? this.f66043b.V().j() : null;
-            float aJ = this.f66043b.aJ();
+            this.t = this.f66078b.V() != null ? this.f66078b.V().j() : null;
+            float aJ = this.f66078b.aJ();
             if (TextUtils.isEmpty(this.t)) {
                 return;
             }
@@ -114,7 +114,7 @@ public class b extends a {
     public void v() {
         SSWebView sSWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (sSWebView = this.f66047f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (sSWebView = this.f66082f) == null) {
             return;
         }
         sSWebView.loadUrl(this.t);
@@ -123,20 +123,20 @@ public class b extends a {
     public void a(boolean z, Map<String, Object> map, View view, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), map, view, eVar}) == null) {
-            this.f66049h = new q(2, this.f66044c, this.f66043b);
-            j b2 = new j(this.f66042a, this.f66043b, this.f66047f).b(true);
-            this.f66050i = b2;
+            this.f66084h = new q(2, this.f66079c, this.f66078b);
+            j b2 = new j(this.f66077a, this.f66078b, this.f66082f).b(true);
+            this.f66085i = b2;
             b2.a(u() ? "landingpage_endcard" : z ? "reward_endcard" : "fullscreen_endcard");
-            this.f66050i.a(true);
-            w wVar = new w(this.f66042a);
-            this.f66048g = wVar;
-            wVar.b(this.f66047f).a(this.f66043b).b(this.f66043b.ak()).c(this.f66043b.ao()).a(z ? 7 : 5).a(this.r).d(com.bytedance.sdk.openadsdk.q.q.i(this.f66043b)).a(this.f66047f).a(this.f66049h).a(this.f66044c).a(map).a(this.s).a(view).a(eVar);
-            this.f66048g.a(new com.bytedance.sdk.openadsdk.i.b(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.b.1
+            this.f66085i.a(true);
+            w wVar = new w(this.f66077a);
+            this.f66083g = wVar;
+            wVar.b(this.f66082f).a(this.f66078b).b(this.f66078b.ak()).c(this.f66078b.ao()).a(z ? 7 : 5).a(this.r).d(com.bytedance.sdk.openadsdk.q.q.i(this.f66078b)).a(this.f66082f).a(this.f66084h).a(this.f66079c).a(map).a(this.s).a(view).a(eVar);
+            this.f66083g.a(new com.bytedance.sdk.openadsdk.i.b(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f66055a;
+                public final /* synthetic */ b f66090a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -153,7 +153,7 @@ public class b extends a {
                             return;
                         }
                     }
-                    this.f66055a = this;
+                    this.f66090a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.i.b
@@ -162,11 +162,11 @@ public class b extends a {
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z2), Integer.valueOf(i2), str}) == null) {
                         k.b("end card load finish: ", "code=" + i2 + " msg=" + str + " isRenderSuc=" + z2);
                         if (z2) {
-                            this.f66055a.l = true;
+                            this.f66090a.l = true;
                         }
-                        if (m.d(this.f66055a.f66043b)) {
+                        if (m.d(this.f66090a.f66078b)) {
                             k.b("CommonEndCard", "TimeTrackLog report from js " + z2);
-                            this.f66055a.a(z2, i2, str);
+                            this.f66090a.a(z2, i2, str);
                         }
                     }
                 }
@@ -178,12 +178,12 @@ public class b extends a {
     public void a(DownloadListener downloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, downloadListener) == null) {
-            this.f66047f.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.e(this, this.f66042a, this.f66048g, this.f66043b.ak(), this.f66050i) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.b.2
+            this.f66082f.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.e(this, this.f66077a, this.f66083g, this.f66078b.ak(), this.f66085i) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f66056a;
+                public final /* synthetic */ b f66091a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -204,14 +204,14 @@ public class b extends a {
                             return;
                         }
                     }
-                    this.f66056a = this;
+                    this.f66091a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.widget.webview.e, android.webkit.WebViewClient
                 public void onPageFinished(WebView webView, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
-                        q qVar = this.f66056a.f66049h;
+                        q qVar = this.f66091a.f66084h;
                         if (qVar != null) {
                             qVar.k();
                         }
@@ -223,7 +223,7 @@ public class b extends a {
                 public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-                        q qVar = this.f66056a.f66049h;
+                        q qVar = this.f66091a.f66084h;
                         if (qVar != null) {
                             qVar.j();
                         }
@@ -235,18 +235,18 @@ public class b extends a {
                 public void onReceivedError(WebView webView, int i2, String str, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
-                        this.f66056a.m.set(false);
-                        b bVar = this.f66056a;
-                        bVar.f66051j = i2;
+                        this.f66091a.m.set(false);
+                        b bVar = this.f66091a;
+                        bVar.f66086j = i2;
                         bVar.k = str;
-                        if (bVar.f66049h != null) {
+                        if (bVar.f66084h != null) {
                             try {
                                 JSONObject jSONObject = new JSONObject();
                                 if (Build.VERSION.SDK_INT >= 23) {
                                     jSONObject.put("code", i2);
                                     jSONObject.put("msg", str);
                                 }
-                                this.f66056a.f66049h.a(jSONObject);
+                                this.f66091a.f66084h.a(jSONObject);
                             } catch (JSONException unused) {
                             }
                         }
@@ -259,22 +259,22 @@ public class b extends a {
                 public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048580, this, webView, webResourceRequest, webResourceResponse) == null) {
-                        if (this.f66056a.f66049h != null) {
+                        if (this.f66091a.f66084h != null) {
                             try {
                                 JSONObject jSONObject = new JSONObject();
                                 if (Build.VERSION.SDK_INT >= 21) {
                                     jSONObject.put("code", webResourceResponse.getStatusCode());
                                     jSONObject.put("msg", webResourceResponse.getReasonPhrase());
                                 }
-                                this.f66056a.f66049h.a(jSONObject);
+                                this.f66091a.f66084h.a(jSONObject);
                             } catch (JSONException unused) {
                             }
                         }
-                        if (this.f66056a.t.equals(String.valueOf(webResourceRequest.getUrl()))) {
-                            this.f66056a.m.set(false);
+                        if (this.f66091a.t.equals(String.valueOf(webResourceRequest.getUrl()))) {
+                            this.f66091a.m.set(false);
                             if (webResourceResponse != null) {
-                                this.f66056a.f66051j = webResourceResponse.getStatusCode();
-                                this.f66056a.k = "onReceivedHttpError";
+                                this.f66091a.f66086j = webResourceResponse.getStatusCode();
+                                this.f66091a.k = "onReceivedHttpError";
                             }
                         }
                         super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
@@ -309,33 +309,33 @@ public class b extends a {
                 public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048579, this, webView, webResourceRequest, webResourceError) == null) {
-                        this.f66056a.m.set(false);
-                        if (this.f66056a.f66049h != null) {
+                        this.f66091a.m.set(false);
+                        if (this.f66091a.f66084h != null) {
                             try {
                                 JSONObject jSONObject = new JSONObject();
                                 if (Build.VERSION.SDK_INT >= 23) {
                                     jSONObject.put("code", webResourceError.getErrorCode());
                                     jSONObject.put("msg", webResourceError.getDescription());
                                 }
-                                this.f66056a.f66049h.a(jSONObject);
+                                this.f66091a.f66084h.a(jSONObject);
                             } catch (JSONException unused) {
                             }
                         }
-                        this.f66056a.f66051j = webResourceError.getErrorCode();
-                        this.f66056a.k = String.valueOf(webResourceError.getDescription());
+                        this.f66091a.f66086j = webResourceError.getErrorCode();
+                        this.f66091a.k = String.valueOf(webResourceError.getDescription());
                         super.onReceivedError(webView, webResourceRequest, webResourceError);
                     }
                 }
             });
-            a(this.f66047f);
-            this.f66047f.setBackgroundColor(-1);
-            this.f66047f.getSettings().setDisplayZoomControls(false);
-            this.f66047f.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.d(this, this.f66048g, this.f66050i) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.b.3
+            a(this.f66082f);
+            this.f66082f.setBackgroundColor(-1);
+            this.f66082f.getSettings().setDisplayZoomControls(false);
+            this.f66082f.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.d(this, this.f66083g, this.f66085i) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.b.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f66057a;
+                public final /* synthetic */ b f66092a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -356,7 +356,7 @@ public class b extends a {
                             return;
                         }
                     }
-                    this.f66057a = this;
+                    this.f66092a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.widget.webview.d, android.webkit.WebChromeClient
@@ -367,7 +367,7 @@ public class b extends a {
                     }
                 }
             });
-            this.f66047f.setDownloadListener(downloadListener);
+            this.f66082f.setDownloadListener(downloadListener);
         }
     }
 }

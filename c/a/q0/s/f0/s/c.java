@@ -16,13 +16,13 @@ public class c implements SpanWatcher {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SpanGroupManager f13905e;
+    public SpanGroupManager f13925e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13906f;
+    public int f13926f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13907g;
+    public int f13927g;
 
     public c(@NonNull SpanGroupManager spanGroupManager) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class c implements SpanWatcher {
                 return;
             }
         }
-        this.f13905e = spanGroupManager;
+        this.f13925e = spanGroupManager;
     }
 
     @Override // android.text.SpanWatcher
@@ -53,16 +53,16 @@ public class c implements SpanWatcher {
     public void onSpanChanged(Spannable spannable, Object obj, int i2, int i3, int i4, int i5) {
         SpanGroupManager spanGroupManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (spanGroupManager = this.f13905e) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (spanGroupManager = this.f13925e) == null) {
             return;
         }
-        if (obj == Selection.SELECTION_END && this.f13907g != i4) {
-            this.f13907g = i4;
-            a y = spanGroupManager.y(i4);
-            if (y != null) {
-                int f2 = y.f();
-                int c2 = y.c();
-                if (Math.abs(this.f13907g - c2) <= Math.abs(this.f13907g - f2)) {
+        if (obj == Selection.SELECTION_END && this.f13927g != i4) {
+            this.f13927g = i4;
+            a B = spanGroupManager.B(i4);
+            if (B != null) {
+                int f2 = B.f();
+                int c2 = B.c();
+                if (Math.abs(this.f13927g - c2) <= Math.abs(this.f13927g - f2)) {
                     f2 = c2;
                 }
                 int selectionStart = Selection.getSelectionStart(spannable);
@@ -75,15 +75,15 @@ public class c implements SpanWatcher {
                 Selection.setSelection(spannable, selectionStart, f2);
             }
         }
-        if (obj != Selection.SELECTION_START || this.f13906f == i4) {
+        if (obj != Selection.SELECTION_START || this.f13926f == i4) {
             return;
         }
-        this.f13906f = i4;
-        a y2 = this.f13905e.y(i4);
-        if (y2 != null) {
-            int f3 = y2.f();
-            int c3 = y2.c();
-            if (Math.abs(this.f13906f - c3) <= Math.abs(this.f13906f - f3)) {
+        this.f13926f = i4;
+        a B2 = this.f13925e.B(i4);
+        if (B2 != null) {
+            int f3 = B2.f();
+            int c3 = B2.c();
+            if (Math.abs(this.f13926f - c3) <= Math.abs(this.f13926f - f3)) {
                 f3 = c3;
             }
             int selectionEnd = Selection.getSelectionEnd(spannable);

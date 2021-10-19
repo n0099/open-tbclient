@@ -14,13 +14,13 @@ public class e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f14152a;
+    public boolean f14175a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14153b;
+    public int f14176b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f14154c;
+    public boolean f14177c;
 
     public e0() {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public class e0 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f14152a = jSONObject.optInt("is_bawu") == 1;
-        this.f14153b = "manager".equals(jSONObject.optString("bawu_type")) ? 1 : PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(jSONObject.optString("bawu_type")) ? 2 : 0;
-        this.f14154c = jSONObject.optInt("is_deleted") == 1;
+        this.f14175a = jSONObject.optInt("is_bawu") == 1;
+        this.f14176b = "manager".equals(jSONObject.optString("bawu_type")) ? 1 : PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(jSONObject.optString("bawu_type")) ? 2 : 0;
+        this.f14177c = jSONObject.optInt("is_deleted") == 1;
     }
 
     public void b(MultiForumPerm multiForumPerm) {
@@ -51,8 +51,8 @@ public class e0 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiForumPerm) == null) || multiForumPerm == null) {
             return;
         }
-        this.f14152a = multiForumPerm.is_bawu.intValue() == 1;
-        this.f14153b = "manager".equals(multiForumPerm.bawu_type) ? 1 : PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(multiForumPerm.bawu_type) ? 2 : 0;
-        this.f14154c = multiForumPerm.is_deleted.intValue() == 1;
+        this.f14175a = multiForumPerm.is_bawu.intValue() == 1;
+        this.f14176b = "manager".equals(multiForumPerm.bawu_type) ? 1 : PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(multiForumPerm.bawu_type) ? 2 : 0;
+        this.f14177c = multiForumPerm.is_deleted.intValue() == 1;
     }
 }

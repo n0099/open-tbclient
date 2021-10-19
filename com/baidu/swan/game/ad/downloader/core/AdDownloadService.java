@@ -26,7 +26,7 @@ public class AdDownloadService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdDownloadService f46990e;
+        public final /* synthetic */ AdDownloadService f46902e;
 
         public a(AdDownloadService adDownloadService) {
             Interceptable interceptable = $ic;
@@ -43,23 +43,23 @@ public class AdDownloadService extends Service {
                     return;
                 }
             }
-            this.f46990e = adDownloadService;
+            this.f46902e = adDownloadService;
         }
 
         public void a(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) || downloadInfo == null || this.f46990e.mDownloadManager == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) || downloadInfo == null || this.f46902e.mDownloadManager == null) {
                 return;
             }
-            this.f46990e.mDownloadManager.b(downloadInfo);
+            this.f46902e.mDownloadManager.b(downloadInfo);
         }
 
         public DownloadInfo b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (this.f46990e.mDownloadManager != null) {
-                    return this.f46990e.mDownloadManager.g(str);
+                if (this.f46902e.mDownloadManager != null) {
+                    return this.f46902e.mDownloadManager.g(str);
                 }
                 return null;
             }
@@ -68,26 +68,26 @@ public class AdDownloadService extends Service {
 
         public void c(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) || downloadInfo == null || this.f46990e.mDownloadManager == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) || downloadInfo == null || this.f46902e.mDownloadManager == null) {
                 return;
             }
-            this.f46990e.mDownloadManager.d(downloadInfo);
+            this.f46902e.mDownloadManager.d(downloadInfo);
         }
 
         public void d(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) || downloadInfo == null || this.f46990e.mDownloadManager == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) || downloadInfo == null || this.f46902e.mDownloadManager == null) {
                 return;
             }
-            this.f46990e.mDownloadManager.a(downloadInfo);
+            this.f46902e.mDownloadManager.a(downloadInfo);
         }
 
         public void e(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) || downloadInfo == null || this.f46990e.mDownloadManager == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) || downloadInfo == null || this.f46902e.mDownloadManager == null) {
                 return;
             }
-            this.f46990e.mDownloadManager.c(downloadInfo);
+            this.f46902e.mDownloadManager.c(downloadInfo);
         }
     }
 

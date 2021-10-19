@@ -29,7 +29,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f48489e;
+    public final HttpMessageListener f48413e;
 
     /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
@@ -37,7 +37,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ActivityChangeSchemeModel f48490a;
+        public final /* synthetic */ ActivityChangeSchemeModel f48414a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ActivityChangeSchemeModel activityChangeSchemeModel, int i2) {
@@ -57,7 +57,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48490a = activityChangeSchemeModel;
+            this.f48414a = activityChangeSchemeModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -83,11 +83,11 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
                     b.c(scheme);
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
-                    this.f48490a.y();
+                    this.f48414a.y();
                 } else {
                     int a2 = c.a.q0.s.a0.b.a();
                     if (a2 != 2) {
-                        this.f48490a.z(a2);
+                        this.f48414a.z(a2);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
@@ -110,12 +110,12 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48489e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
+        this.f48413e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
         setUniqueId(BdUniqueId.gen());
         A();
-        this.f48489e.setTag(getUniqueId());
-        this.f48489e.setSelfListener(true);
-        registerListener(this.f48489e);
+        this.f48413e.setTag(getUniqueId());
+        this.f48413e.setSelfListener(true);
+        registerListener(this.f48413e);
     }
 
     public static void A() {
@@ -137,7 +137,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -147,7 +147,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -160,7 +160,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                Object invoke = c.a.e.a.b.f().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(c.a.e.a.b.f().b(), new Object[0]);
+                Object invoke = c.a.e.a.b.g().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(c.a.e.a.b.g().b(), new Object[0]);
                 b.b(invoke != null ? (String) invoke : null);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();

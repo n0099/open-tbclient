@@ -22,22 +22,22 @@ public final class MapMaker {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f70925a;
+    public boolean f70960a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f70926b;
+    public int f70961b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f70927c;
+    public int f70962c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MapMakerInternalMap.Strength f70928d;
+    public MapMakerInternalMap.Strength f70963d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MapMakerInternalMap.Strength f70929e;
+    public MapMakerInternalMap.Strength f70964e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Equivalence<Object> f70930f;
+    public Equivalence<Object> f70965f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -110,17 +110,17 @@ public final class MapMaker {
                 return;
             }
         }
-        this.f70926b = -1;
-        this.f70927c = -1;
+        this.f70961b = -1;
+        this.f70962c = -1;
     }
 
     public MapMaker a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            n.y(this.f70927c == -1, "concurrency level was already set to %s", this.f70927c);
+            n.y(this.f70962c == -1, "concurrency level was already set to %s", this.f70962c);
             n.d(i2 > 0);
-            this.f70927c = i2;
+            this.f70962c = i2;
             return this;
         }
         return (MapMaker) invokeI.objValue;
@@ -130,7 +130,7 @@ public final class MapMaker {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.f70927c;
+            int i2 = this.f70962c;
             if (i2 == -1) {
                 return 4;
             }
@@ -143,7 +143,7 @@ public final class MapMaker {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.f70926b;
+            int i2 = this.f70961b;
             if (i2 == -1) {
                 return 16;
             }
@@ -155,28 +155,28 @@ public final class MapMaker {
     public Equivalence<Object> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (Equivalence) j.a(this.f70930f, e().defaultEquivalence()) : (Equivalence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (Equivalence) j.a(this.f70965f, e().defaultEquivalence()) : (Equivalence) invokeV.objValue;
     }
 
     public MapMakerInternalMap.Strength e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (MapMakerInternalMap.Strength) j.a(this.f70928d, MapMakerInternalMap.Strength.STRONG) : (MapMakerInternalMap.Strength) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (MapMakerInternalMap.Strength) j.a(this.f70963d, MapMakerInternalMap.Strength.STRONG) : (MapMakerInternalMap.Strength) invokeV.objValue;
     }
 
     public MapMakerInternalMap.Strength f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (MapMakerInternalMap.Strength) j.a(this.f70929e, MapMakerInternalMap.Strength.STRONG) : (MapMakerInternalMap.Strength) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (MapMakerInternalMap.Strength) j.a(this.f70964e, MapMakerInternalMap.Strength.STRONG) : (MapMakerInternalMap.Strength) invokeV.objValue;
     }
 
     public MapMaker g(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            n.y(this.f70926b == -1, "initial capacity was already set to %s", this.f70926b);
+            n.y(this.f70961b == -1, "initial capacity was already set to %s", this.f70961b);
             n.d(i2 >= 0);
-            this.f70926b = i2;
+            this.f70961b = i2;
             return this;
         }
         return (MapMaker) invokeI.objValue;
@@ -186,10 +186,10 @@ public final class MapMaker {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, equivalence)) == null) {
-            n.A(this.f70930f == null, "key equivalence was already set to %s", this.f70930f);
+            n.A(this.f70965f == null, "key equivalence was already set to %s", this.f70965f);
             n.p(equivalence);
-            this.f70930f = equivalence;
-            this.f70925a = true;
+            this.f70965f = equivalence;
+            this.f70960a = true;
             return this;
         }
         return (MapMaker) invokeL.objValue;
@@ -199,7 +199,7 @@ public final class MapMaker {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!this.f70925a) {
+            if (!this.f70960a) {
                 return new ConcurrentHashMap(c(), 0.75f, b());
             }
             return MapMakerInternalMap.create(this);
@@ -211,11 +211,11 @@ public final class MapMaker {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, strength)) == null) {
-            n.A(this.f70928d == null, "Key strength was already set to %s", this.f70928d);
+            n.A(this.f70963d == null, "Key strength was already set to %s", this.f70963d);
             n.p(strength);
-            this.f70928d = strength;
+            this.f70963d = strength;
             if (strength != MapMakerInternalMap.Strength.STRONG) {
-                this.f70925a = true;
+                this.f70960a = true;
             }
             return this;
         }
@@ -226,11 +226,11 @@ public final class MapMaker {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, strength)) == null) {
-            n.A(this.f70929e == null, "Value strength was already set to %s", this.f70929e);
+            n.A(this.f70964e == null, "Value strength was already set to %s", this.f70964e);
             n.p(strength);
-            this.f70929e = strength;
+            this.f70964e = strength;
             if (strength != MapMakerInternalMap.Strength.STRONG) {
-                this.f70925a = true;
+                this.f70960a = true;
             }
             return this;
         }
@@ -262,23 +262,23 @@ public final class MapMaker {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             j.b c2 = j.c(this);
-            int i2 = this.f70926b;
+            int i2 = this.f70961b;
             if (i2 != -1) {
                 c2.b("initialCapacity", i2);
             }
-            int i3 = this.f70927c;
+            int i3 = this.f70962c;
             if (i3 != -1) {
                 c2.b("concurrencyLevel", i3);
             }
-            MapMakerInternalMap.Strength strength = this.f70928d;
+            MapMakerInternalMap.Strength strength = this.f70963d;
             if (strength != null) {
                 c2.d("keyStrength", a.c(strength.toString()));
             }
-            MapMakerInternalMap.Strength strength2 = this.f70929e;
+            MapMakerInternalMap.Strength strength2 = this.f70964e;
             if (strength2 != null) {
                 c2.d("valueStrength", a.c(strength2.toString()));
             }
-            if (this.f70930f != null) {
+            if (this.f70965f != null) {
                 c2.h("keyEquivalence");
             }
             return c2.toString();

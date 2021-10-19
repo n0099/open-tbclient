@@ -1,120 +1,161 @@
 package c.a.r0.v0.b;
 
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import c.a.e.e.p.l;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import c.a.q0.d1.m0;
+import c.a.r0.x0.k;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.forumMember.manito.ManitoMemberItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class c {
+/* loaded from: classes3.dex */
+public class c extends k<d, ManitoMemberItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View.OnClickListener x;
 
-    /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f26302a;
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final View f26303b;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ c f25419e;
 
-    /* renamed from: c  reason: collision with root package name */
-    public final RelativeLayout f26304c;
+        public a(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f25419e = cVar;
+        }
 
-    /* renamed from: d  reason: collision with root package name */
-    public final EditText f26305d;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                d dVar = (d) view.getTag();
+                TiebaStatic.log("c10624");
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f25419e.f2958e, dVar.i(), dVar.g(), "")));
+            }
+        }
+    }
 
-    /* renamed from: e  reason: collision with root package name */
-    public final ImageView f26306e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final TextView f26307f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final BdTypeListView f26308g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final ImageView f26309h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f26310i;
-
-    public c(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f26310i = 3;
-        this.f26302a = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.forum_search_main, (ViewGroup) null);
-        this.f26303b = inflate;
-        this.f26304c = (RelativeLayout) inflate.findViewById(R.id.search_area_root);
-        this.f26309h = (ImageView) this.f26303b.findViewById(R.id.search_bar_icon);
-        this.f26305d = (EditText) this.f26303b.findViewById(R.id.home_et_search);
-        this.f26306e = (ImageView) this.f26303b.findViewById(R.id.home_bt_search_del);
-        this.f26305d.setHint(R.string.search_bar_you_want_post_to_share);
-        TextView textView = (TextView) this.f26303b.findViewById(R.id.home_bt_search_cancel_s);
-        this.f26307f = textView;
-        textView.setText(tbPageContext.getString(R.string.cancel));
-        this.f26308g = (BdTypeListView) this.f26303b.findViewById(R.id.search_bar_list);
-        a();
-        b(TbadkCoreApplication.getInst().getSkinType());
+        this.x = new a(this);
     }
 
-    public final void a() {
+    @Override // c.a.r0.x0.k, c.a.e.l.e.a
+    public /* bridge */ /* synthetic */ View a0(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        x0(i2, view, viewGroup, (d) obj, (ManitoMemberItemViewHolder) viewHolder);
+        return view;
+    }
+
+    public final SpannableStringBuilder v0(String str, String[] strArr, int[] iArr) {
+        InterceptResult invokeLLL;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f26304c.getLayoutParams();
-            layoutParams.height = l.g(this.f26302a.getPageActivity(), R.dimen.ds88);
-            int g2 = l.g(this.f26302a.getPageActivity(), R.dimen.ds8);
-            layoutParams.rightMargin = g2;
-            layoutParams.leftMargin = g2;
-            int immersiveStickyBarHeight = UtilHelper.getImmersiveStickyBarHeight();
-            if (immersiveStickyBarHeight > 0) {
-                layoutParams.topMargin = immersiveStickyBarHeight;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, strArr, iArr)) == null) {
+            if (str == null || strArr == null || iArr == null || strArr.length <= 0 || iArr.length <= 0 || strArr.length != iArr.length) {
+                return null;
             }
-            this.f26304c.setLayoutParams(layoutParams);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            SpannableString spannableString = new SpannableString(str);
+            for (int i2 = 0; i2 < strArr.length; i2++) {
+                if (strArr[i2] != null && (indexOf = str.indexOf(strArr[i2])) >= 0) {
+                    spannableString.setSpan(new ForegroundColorSpan(iArr[i2]), indexOf, strArr[i2].length() + indexOf, 17);
+                }
+            }
+            spannableStringBuilder.append((CharSequence) spannableString);
+            return spannableStringBuilder;
         }
+        return (SpannableStringBuilder) invokeLLL.objValue;
     }
 
-    public void b(int i2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.e.l.e.a
+    /* renamed from: w0 */
+    public ManitoMemberItemViewHolder U(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f26310i == i2) {
-            return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ManitoMemberItemViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.manito_item_member, (ViewGroup) null)) : (ManitoMemberItemViewHolder) invokeL.objValue;
+    }
+
+    public View x0(int i2, View view, ViewGroup viewGroup, d dVar, ManitoMemberItemViewHolder manitoMemberItemViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, dVar, manitoMemberItemViewHolder})) == null) {
+            super.a0(i2, view, viewGroup, dVar, manitoMemberItemViewHolder);
+            if (dVar != null && manitoMemberItemViewHolder != null) {
+                if (manitoMemberItemViewHolder.mSkinType != this.r) {
+                    SkinManager.setBackgroundResource(manitoMemberItemViewHolder.getView(), R.drawable.frs_member_manito_bg);
+                    SkinManager.setViewTextColor(manitoMemberItemViewHolder.name, R.color.CAM_X0106, 1);
+                    SkinManager.setViewTextColor(manitoMemberItemViewHolder.intro, R.color.CAM_X0109, 1);
+                    SkinManager.setBackgroundColor(manitoMemberItemViewHolder.dividerLine, R.color.CAM_X0204);
+                    SkinManager.setViewTextColor(manitoMemberItemViewHolder.fans, R.color.CAM_X0109, 1);
+                }
+                manitoMemberItemViewHolder.head.startLoad(dVar.c(), 12, false);
+                manitoMemberItemViewHolder.name.setText(m0.e(dVar.h(), 16));
+                if (StringUtils.isNull(dVar.d())) {
+                    manitoMemberItemViewHolder.intro.setText(R.string.god_intro_default);
+                } else {
+                    manitoMemberItemViewHolder.intro.setText(m0.e(dVar.d(), 30));
+                }
+                int color = SkinManager.getColor(R.color.CAM_X0301);
+                String numberUniformFormat = StringHelper.numberUniformFormat(dVar.b());
+                manitoMemberItemViewHolder.fans.setText(v0(String.format(this.f2958e.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
+                manitoMemberItemViewHolder.getView().setTag(dVar);
+                manitoMemberItemViewHolder.getView().setOnClickListener(this.x);
+                manitoMemberItemViewHolder.mSkinType = this.r;
+            }
+            return view;
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f26309h, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-        SkinManager.setViewTextColor(this.f26307f, R.color.CAM_X0302, 1);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f26306e, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        if (i2 == 2) {
-            this.f26305d.setHintTextColor(SkinManager.getColor(R.color.s_navbar_title_color));
-        } else {
-            this.f26305d.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        }
-        SkinManager.setNavbarTitleColor(this.f26305d, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        this.f26310i = i2;
+        return (View) invokeCommon.objValue;
     }
 }

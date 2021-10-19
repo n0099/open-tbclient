@@ -16,17 +16,17 @@ public class p0 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f14279h;
+    public static final BdUniqueId f14302h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14280e;
+    public boolean f14303e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14281f;
+    public String f14304f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ICardInfo f14282g;
+    public ICardInfo f14305g;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class p0 extends BaseCardInfo {
                 return;
             }
         }
-        f14279h = BdUniqueId.gen();
+        f14302h = BdUniqueId.gen();
     }
 
     public p0() {
@@ -61,35 +61,35 @@ public class p0 extends BaseCardInfo {
     public ICardInfo g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14282g : (ICardInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14305g : (ICardInfo) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14279h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14302h : (BdUniqueId) invokeV.objValue;
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ICardInfo i2 = c.a.r0.p1.o.b.i(this.f14281f);
-            this.f14282g = i2;
-            this.f14280e = i2 != null;
+            ICardInfo i2 = c.a.r0.q1.o.b.i(this.f14304f);
+            this.f14305g = i2;
+            this.f14303e = i2 != null;
         }
     }
 
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14280e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14303e : invokeV.booleanValue;
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f14281f = str;
+            this.f14304f = str;
         }
     }
 }

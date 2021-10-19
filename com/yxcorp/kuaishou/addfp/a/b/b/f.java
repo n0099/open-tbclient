@@ -15,7 +15,7 @@ public final class f implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f78582a;
+    public IBinder f78617a;
 
     public f(IBinder iBinder) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class f implements d {
                 return;
             }
         }
-        this.f78582a = iBinder;
+        this.f78617a = iBinder;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -46,7 +46,7 @@ public final class f implements d {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                this.f78582a.transact(1, obtain, obtain2, 0);
+                this.f78617a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 str = obtain2.readString();
             } finally {
@@ -64,6 +64,6 @@ public final class f implements d {
     public final IBinder asBinder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78582a : (IBinder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78617a : (IBinder) invokeV.objValue;
     }
 }

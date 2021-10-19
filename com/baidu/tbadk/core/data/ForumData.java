@@ -11,7 +11,7 @@ import c.a.q0.s.q.g2;
 import c.a.q0.s.q.i2;
 import c.a.q0.s.q.l;
 import c.a.q0.s.q.m0;
-import c.a.q0.s.q.q2;
+import c.a.q0.s.q.p2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -123,7 +123,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
     public String topic_special_icon_right;
     public int user_level;
     public String warning_msg;
-    public q2 yuleData;
+    public p2 yuleData;
 
     static {
         InterceptResult invokeClinit;
@@ -188,7 +188,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         this.news_info = new i2();
         this.canAddPhotoLivePost = false;
         this.mMemberShowIconData = new d0();
-        this.yuleData = new q2();
+        this.yuleData = new p2();
         this.mIsLiveGameForum = 0;
         this.warning_msg = null;
         this.special_forum_type = null;
@@ -532,10 +532,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.warning_msg : (String) invokeV.objValue;
     }
 
-    public q2 getYuleData() {
+    public p2 getYuleData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.yuleData : (q2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.yuleData : (p2) invokeV.objValue;
     }
 
     public String getfShareImage() {
@@ -963,10 +963,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         }
     }
 
-    public void setYuleData(q2 q2Var) {
+    public void setYuleData(p2 p2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048675, this, q2Var) == null) {
-            this.yuleData = q2Var;
+        if (interceptable == null || interceptable.invokeL(1048675, this, p2Var) == null) {
+            this.yuleData = p2Var;
         }
     }
 

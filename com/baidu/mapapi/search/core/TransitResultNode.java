@@ -18,16 +18,16 @@ public class TransitResultNode implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41842a;
+    public int f41846a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41843b;
+    public String f41847b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f41844c;
+    public LatLng f41848c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41845d;
+    public String f41849d;
 
     static {
         InterceptResult invokeClinit;
@@ -60,13 +60,13 @@ public class TransitResultNode implements Parcelable {
                 return;
             }
         }
-        this.f41843b = null;
-        this.f41844c = null;
-        this.f41845d = null;
-        this.f41842a = i2;
-        this.f41843b = str;
-        this.f41844c = latLng;
-        this.f41845d = str2;
+        this.f41847b = null;
+        this.f41848c = null;
+        this.f41849d = null;
+        this.f41846a = i2;
+        this.f41847b = str;
+        this.f41848c = latLng;
+        this.f41849d = str2;
     }
 
     public TransitResultNode(Parcel parcel) {
@@ -84,13 +84,13 @@ public class TransitResultNode implements Parcelable {
                 return;
             }
         }
-        this.f41843b = null;
-        this.f41844c = null;
-        this.f41845d = null;
-        this.f41842a = parcel.readInt();
-        this.f41843b = parcel.readString();
-        this.f41844c = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f41845d = parcel.readString();
+        this.f41847b = null;
+        this.f41848c = null;
+        this.f41849d = null;
+        this.f41846a = parcel.readInt();
+        this.f41847b = parcel.readString();
+        this.f41848c = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f41849d = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -106,35 +106,35 @@ public class TransitResultNode implements Parcelable {
     public int getCityId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41842a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41846a : invokeV.intValue;
     }
 
     public String getCityName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41843b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41847b : (String) invokeV.objValue;
     }
 
     public LatLng getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41844c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41848c : (LatLng) invokeV.objValue;
     }
 
     public String getSearchWord() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41845d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41849d : (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
-            parcel.writeInt(this.f41842a);
-            parcel.writeString(this.f41843b);
-            parcel.writeValue(this.f41844c);
-            parcel.writeString(this.f41845d);
+            parcel.writeInt(this.f41846a);
+            parcel.writeString(this.f41847b);
+            parcel.writeValue(this.f41848c);
+            parcel.writeString(this.f41849d);
         }
     }
 }

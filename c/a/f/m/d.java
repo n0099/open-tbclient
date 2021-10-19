@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.f.m.f.a;
-import c.a.r0.y2.z;
+import c.a.r0.z2.z;
 import com.baidu.afd.videopaster.data.VideoPasterRequestData;
 import com.baidu.afd.videopaster.data.VideoPasterResponseData;
 import com.baidu.afd.videopaster.view.VideoPasterContentView;
@@ -137,7 +137,7 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.f3308a.f3302f.j(this.f3308a.q());
-                c.a.r0.p1.o.h.c.h(this.f3308a.f3303g);
+                c.a.r0.q1.o.h.c.h(this.f3308a.f3303g);
                 if (this.f3308a.f3303g != null) {
                     int d2 = z.d(this.f3308a.f3304h, this.f3308a.f3303g.f3314i, this.f3308a.f3303g.f3312g, this.f3308a.f3303g.q);
                     d dVar = this.f3308a;
@@ -172,7 +172,7 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 this.f3308a.f3302f.e(this.f3308a.q());
-                c.a.r0.p1.o.h.c.h(this.f3308a.f3303g);
+                c.a.r0.q1.o.h.c.h(this.f3308a.f3303g);
                 if (this.f3308a.f3303g != null) {
                     int d2 = z.d(this.f3308a.f3304h, this.f3308a.f3303g.f3314i, this.f3308a.f3303g.f3312g, this.f3308a.f3303g.q);
                     d dVar = this.f3308a;
@@ -186,7 +186,7 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 this.f3308a.f3302f.b(this.f3308a.q());
-                c.a.r0.p1.o.h.c.h(this.f3308a.f3303g);
+                c.a.r0.q1.o.h.c.h(this.f3308a.f3303g);
                 if (this.f3308a.f3303g != null) {
                     int d2 = z.d(this.f3308a.f3304h, this.f3308a.f3303g.f3314i, this.f3308a.f3303g.f3312g, this.f3308a.f3303g.q);
                     d dVar = this.f3308a;
@@ -432,7 +432,7 @@ public class d {
                 this.k = this.f3298b.getCurDuration();
                 if (!r()) {
                     this.f3302f.i(q());
-                    c.a.r0.p1.o.h.c.g(this.f3303g);
+                    c.a.r0.q1.o.h.c.g(this.f3303g);
                 }
                 this.f3298b.updateByData(z, z2, str);
                 InterfaceC0068d interfaceC0068d = this.f3301e;

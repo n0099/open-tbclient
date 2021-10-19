@@ -26,16 +26,16 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35006a = "c";
+    public static final String f35010a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<d.p> f35007b;
+    public static List<d.p> f35011b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static com.ss.android.socialbase.appdownloader.view.a f35008c;
+    public static com.ss.android.socialbase.appdownloader.view.a f35012c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static AlertDialog f35009d;
+    public static AlertDialog f35013d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -104,17 +104,17 @@ public class c {
 
     /* renamed from: c.p.a.e.a.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class DialogInterface$OnClickListenerC1544c implements DialogInterface.OnClickListener {
+    public static class DialogInterface$OnClickListenerC1546c implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f35010e;
+        public final /* synthetic */ Activity f35014e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.p f35011f;
+        public final /* synthetic */ d.p f35015f;
 
-        public DialogInterface$OnClickListenerC1544c(Activity activity, d.p pVar) {
+        public DialogInterface$OnClickListenerC1546c(Activity activity, d.p pVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,17 +129,17 @@ public class c {
                     return;
                 }
             }
-            this.f35010e = activity;
-            this.f35011f = pVar;
+            this.f35014e = activity;
+            this.f35015f = pVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                c.e(this.f35010e, this.f35011f);
+                c.e(this.f35014e, this.f35015f);
                 dialogInterface.cancel();
-                AlertDialog unused = c.f35009d = null;
+                AlertDialog unused = c.f35013d = null;
             }
         }
     }
@@ -157,7 +157,7 @@ public class c {
                 return;
             }
         }
-        f35007b = new ArrayList();
+        f35011b = new ArrayList();
     }
 
     public c() {
@@ -192,9 +192,9 @@ public class c {
                         int a3 = l.a(e.n(), "tt_appdownloader_notification_request_message");
                         int a4 = l.a(e.n(), "tt_appdownloader_notification_request_btn_yes");
                         int a5 = l.a(e.n(), "tt_appdownloader_notification_request_btn_no");
-                        f35007b.add(pVar);
-                        if (f35009d == null || !f35009d.isShowing()) {
-                            f35009d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface$OnClickListenerC1544c(activity, pVar)).setNegativeButton(a5, new b()).setOnKeyListener(new a()).setCancelable(false).show();
+                        f35011b.add(pVar);
+                        if (f35013d == null || !f35013d.isShowing()) {
+                            f35013d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface$OnClickListenerC1546c(activity, pVar)).setNegativeButton(a5, new b()).setOnKeyListener(new a()).setCancelable(false).show();
                         }
                         return;
                     }
@@ -209,11 +209,11 @@ public class c {
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             synchronized (c.class) {
                 try {
-                    if (f35009d != null) {
-                        f35009d.cancel();
-                        f35009d = null;
+                    if (f35013d != null) {
+                        f35013d.cancel();
+                        f35013d = null;
                     }
-                    for (d.p pVar : f35007b) {
+                    for (d.p pVar : f35011b) {
                         if (pVar != null) {
                             if (z) {
                                 pVar.a();
@@ -250,14 +250,14 @@ public class c {
                 try {
                     if (!activity.isFinishing()) {
                         FragmentManager fragmentManager = activity.getFragmentManager();
-                        com.ss.android.socialbase.appdownloader.view.a aVar = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f35006a);
-                        f35008c = aVar;
+                        com.ss.android.socialbase.appdownloader.view.a aVar = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f35010a);
+                        f35012c = aVar;
                         if (aVar == null) {
-                            f35008c = new com.ss.android.socialbase.appdownloader.view.a();
-                            fragmentManager.beginTransaction().add(f35008c, f35006a).commitAllowingStateLoss();
+                            f35012c = new com.ss.android.socialbase.appdownloader.view.a();
+                            fragmentManager.beginTransaction().add(f35012c, f35010a).commitAllowingStateLoss();
                             fragmentManager.executePendingTransactions();
                         }
-                        f35008c.a();
+                        f35012c.a();
                         return;
                     }
                 } catch (Throwable th) {

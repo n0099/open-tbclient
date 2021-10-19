@@ -17,10 +17,10 @@ public class j extends ImageSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13843e;
+    public int f13863e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<Drawable> f13844f;
+    public WeakReference<Drawable> f13864f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(Drawable drawable) {
@@ -46,11 +46,11 @@ public class j extends ImageSpan {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.f13844f;
+            WeakReference<Drawable> weakReference = this.f13864f;
             Drawable drawable = weakReference != null ? weakReference.get() : null;
             if (drawable == null) {
                 Drawable drawable2 = getDrawable();
-                this.f13844f = new WeakReference<>(drawable2);
+                this.f13864f = new WeakReference<>(drawable2);
                 return drawable2;
             }
             return drawable;
@@ -61,7 +61,7 @@ public class j extends ImageSpan {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f13843e = i2;
+            this.f13863e = i2;
         }
     }
 
@@ -71,7 +71,7 @@ public class j extends ImageSpan {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) {
             Drawable a2 = a();
             canvas.save();
-            canvas.translate(f2, (((i5 + paint.getFontMetricsInt().descent) - a2.getBounds().height()) / 2) + this.f13843e);
+            canvas.translate(f2, (((i5 + paint.getFontMetricsInt().descent) - a2.getBounds().height()) / 2) + this.f13863e);
             a2.draw(canvas);
             canvas.restore();
         }

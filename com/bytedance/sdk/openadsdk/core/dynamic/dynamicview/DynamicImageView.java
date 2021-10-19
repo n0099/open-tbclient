@@ -47,22 +47,22 @@ public class DynamicImageView extends DynamicBaseWidgetImp {
                 return;
             }
         }
-        if (this.f66682j.m() > 0.0f) {
+        if (this.f66717j.m() > 0.0f) {
             TTRoundRectImageView tTRoundRectImageView = new TTRoundRectImageView(context);
             this.n = tTRoundRectImageView;
-            tTRoundRectImageView.setXRound(s.d(context, this.f66682j.m()));
-            ((TTRoundRectImageView) this.n).setYRound(s.d(context, this.f66682j.m()));
+            tTRoundRectImageView.setXRound(s.d(context, this.f66717j.m()));
+            ((TTRoundRectImageView) this.n).setYRound(s.d(context, this.f66717j.m()));
         } else {
             this.n = new ImageView(context);
         }
         this.n.setTag(Integer.valueOf(getClickArea()));
-        addView(this.n, new FrameLayout.LayoutParams(this.f66677e, this.f66678f));
+        addView(this.n, new FrameLayout.LayoutParams(this.f66712e, this.f66713f));
     }
 
     private boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? !TextUtils.isEmpty(this.f66682j.k()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? !TextUtils.isEmpty(this.f66717j.k()) : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicBaseWidgetImp, com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicBaseWidget
@@ -71,16 +71,16 @@ public class DynamicImageView extends DynamicBaseWidgetImp {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.b();
-            ((ImageView) this.n).setBackgroundColor(this.f66682j.r());
-            ImageLoaderWrapper.from(this.f66682j.j()).to((ImageView) this.n);
+            ((ImageView) this.n).setBackgroundColor(this.f66717j.r());
+            ImageLoaderWrapper.from(this.f66717j.j()).to((ImageView) this.n);
             if (f() && Build.VERSION.SDK_INT >= 17) {
                 ((ImageView) this.n).setScaleType(ImageView.ScaleType.FIT_CENTER);
-                ImageLoaderWrapper.from(this.f66682j.j()).type(ResultType.BITMAP).to(new ILoaderListener<Bitmap>(this) { // from class: com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicImageView.1
+                ImageLoaderWrapper.from(this.f66717j.j()).type(ResultType.BITMAP).to(new ILoaderListener<Bitmap>(this) { // from class: com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicImageView.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ DynamicImageView f66683a;
+                    public final /* synthetic */ DynamicImageView f66718a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -97,7 +97,7 @@ public class DynamicImageView extends DynamicBaseWidgetImp {
                                 return;
                             }
                         }
-                        this.f66683a = this;
+                        this.f66718a = this;
                     }
 
                     @Override // com.bytedance.sdk.component.image.ILoaderListener
@@ -111,11 +111,11 @@ public class DynamicImageView extends DynamicBaseWidgetImp {
                     public void onSuccess(ImageResponse<Bitmap> imageResponse) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageResponse) == null) {
-                            Bitmap a2 = b.a(this.f66683a.f66681i, imageResponse.getResult(), 25);
+                            Bitmap a2 = b.a(this.f66718a.f66716i, imageResponse.getResult(), 25);
                             if (a2 == null) {
                                 return;
                             }
-                            this.f66683a.n.setBackground(new BitmapDrawable(this.f66683a.getResources(), a2));
+                            this.f66718a.n.setBackground(new BitmapDrawable(this.f66718a.getResources(), a2));
                         }
                     }
                 });

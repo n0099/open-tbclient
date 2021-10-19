@@ -21,20 +21,20 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f36725e;
+    public static final String f36729e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f36726a;
+    public String f36730a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36727b;
+    public String f36731b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36728c;
+    public int f36732c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36729d;
+    public int f36733d;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public final class a {
         }
         String str = new String(com.baidu.android.bbalbs.common.a.b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
         String str2 = new String(com.baidu.android.bbalbs.common.a.b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
-        f36725e = str + str2;
+        f36729e = str + str2;
     }
 
     public a() {
@@ -67,8 +67,8 @@ public final class a {
                 return;
             }
         }
-        this.f36728c = 0;
-        this.f36729d = 2;
+        this.f36732c = 0;
+        this.f36733d = 2;
     }
 
     public static boolean a(Context context) {
@@ -200,7 +200,7 @@ public final class a {
                 return null;
             }
             try {
-                return new String(com.baidu.android.bbalbs.common.a.a.b(f36725e, f36725e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
+                return new String(com.baidu.android.bbalbs.common.a.a.b(f36729e, f36729e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
             } catch (Exception e2) {
                 d.a(e2);
                 return "";
@@ -218,33 +218,33 @@ public final class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36726a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36730a : (String) invokeV.objValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f36728c = i2;
+            this.f36732c = i2;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f36726a = str;
+            this.f36730a = str;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36727b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36731b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f36727b = str;
+            this.f36731b = str;
         }
     }
 
@@ -260,7 +260,7 @@ public final class a {
             } else {
                 str = "0";
             }
-            this.f36727b = str;
+            this.f36731b = str;
             return true;
         }
         return invokeV.booleanValue;
@@ -269,12 +269,12 @@ public final class a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? b(this.f36728c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? b(this.f36732c) : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? e(this.f36727b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? e(this.f36731b) : invokeV.booleanValue;
     }
 }

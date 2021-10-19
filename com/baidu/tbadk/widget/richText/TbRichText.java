@@ -4,11 +4,14 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
+import c.a.q0.f1.m.e;
 import c.a.q0.f1.o.a;
+import c.a.q0.i0.c.b;
 import c.a.q0.s.q.d2;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,24 +31,24 @@ public class TbRichText extends OrmObject {
     public int appendLength;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f48938e;
+    public long f48879e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<TbRichTextItem> f48939f;
+    public ArrayList<TbRichTextItem> f48880f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<TbRichTextData> f48940g;
+    public ArrayList<TbRichTextData> f48881g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<TbRichTextImageInfo> f48941h;
+    public ArrayList<TbRichTextImageInfo> f48882h;
     public boolean hasAppendTime;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f48942i;
+    public String f48883i;
     public boolean isChanged;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f48943j;
+    public String f48884j;
     public String k;
     public String l;
 
@@ -64,9 +67,9 @@ public class TbRichText extends OrmObject {
                 return;
             }
         }
-        this.f48938e = -1L;
-        this.f48939f = null;
-        this.f48940g = null;
+        this.f48879e = -1L;
+        this.f48880f = null;
+        this.f48881g = null;
         this.l = "";
         this.isChanged = false;
         x(context, jSONArray, i2, false);
@@ -75,14 +78,14 @@ public class TbRichText extends OrmObject {
     public ArrayList<TbRichTextImageInfo> A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48941h : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48882h : (ArrayList) invokeV.objValue;
     }
 
     public final void B(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f48942i = context.getString(R.string.pic_str);
-            this.f48943j = context.getString(R.string.voice_str);
+            this.f48883i = context.getString(R.string.pic_str);
+            this.f48884j = context.getString(R.string.voice_str);
             this.k = context.getString(R.string.video_text);
         }
     }
@@ -95,123 +98,143 @@ public class TbRichText extends OrmObject {
     }
 
     public final void D(Context context, boolean z, String str, @Nullable PostData postData, @Nullable d2 d2Var, int i2) {
-        Pair<CharSequence, a> q;
         CharSequence charSequence;
+        TbRichTextCommInfo C;
+        Pair<CharSequence, a> p;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), str, postData, d2Var, Integer.valueOf(i2)}) == null) || this.f48939f == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), str, postData, d2Var, Integer.valueOf(i2)}) == null) || this.f48880f == null) {
             return;
         }
-        this.f48940g = new ArrayList<>();
-        ArrayList<TbRichTextImageInfo> arrayList = this.f48941h;
+        this.f48881g = new ArrayList<>();
+        ArrayList<TbRichTextImageInfo> arrayList = this.f48882h;
         if (arrayList != null) {
             arrayList.clear();
         } else {
-            this.f48941h = new ArrayList<>();
+            this.f48882h = new ArrayList<>();
         }
-        Iterator<TbRichTextItem> it = this.f48939f.iterator();
+        Iterator<TbRichTextItem> it = this.f48880f.iterator();
         TbRichTextData tbRichTextData = null;
         while (it.hasNext()) {
             TbRichTextItem next = it.next();
             if (next != null) {
                 if (next.getType() == 8) {
                     if (tbRichTextData != null) {
-                        this.f48940g.add(tbRichTextData);
+                        this.f48881g.add(tbRichTextData);
                         tbRichTextData = null;
                     }
                     TbRichTextData tbRichTextData2 = new TbRichTextData(8);
-                    tbRichTextData2.R(next.E());
-                    this.f48940g.add(tbRichTextData2);
-                    this.f48941h.add(next.E());
+                    tbRichTextData2.S(next.F());
+                    this.f48881g.add(tbRichTextData2);
+                    this.f48882h.add(next.F());
+                } else if (next.getType() == 37) {
+                    if (tbRichTextData != null) {
+                        this.f48881g.add(tbRichTextData);
+                        tbRichTextData = null;
+                    }
+                    if (next.G() != null) {
+                        TbRichTextData tbRichTextData3 = new TbRichTextData(37);
+                        tbRichTextData3.T(next.G());
+                        this.f48881g.add(tbRichTextData3);
+                    }
                 } else if (z && next.getType() == 32) {
                     if (tbRichTextData != null) {
-                        this.f48940g.add(tbRichTextData);
+                        this.f48881g.add(tbRichTextData);
                     }
-                    TbRichTextData tbRichTextData3 = new TbRichTextData(32);
-                    tbRichTextData3.setVideoUrl(next.getVideoUrl());
-                    tbRichTextData3.X(next.Q());
-                    this.f48940g.add(tbRichTextData3);
+                    TbRichTextData tbRichTextData4 = new TbRichTextData(32);
+                    tbRichTextData4.setVideoUrl(next.getVideoUrl());
+                    tbRichTextData4.Z(next.S());
+                    this.f48881g.add(tbRichTextData4);
                     tbRichTextData = new TbRichTextData(1);
-                    CharSequence L = next.L(tbRichTextData.y(), str);
-                    if (L != null) {
-                        tbRichTextData.x(L);
+                    CharSequence N = next.N(tbRichTextData.y(), str);
+                    if (N != null) {
+                        tbRichTextData.x(N);
                     }
                 } else if (next.getType() == 512) {
                     if (tbRichTextData != null) {
-                        this.f48940g.add(tbRichTextData);
+                        this.f48881g.add(tbRichTextData);
                         tbRichTextData = null;
                     }
-                    TbRichTextData tbRichTextData4 = new TbRichTextData(512);
-                    tbRichTextData4.Y(next.T());
-                    this.f48940g.add(tbRichTextData4);
+                    TbRichTextData tbRichTextData5 = new TbRichTextData(512);
+                    tbRichTextData5.a0(next.V());
+                    this.f48881g.add(tbRichTextData5);
                 } else if (next.getType() == 17) {
                     if (tbRichTextData != null) {
-                        this.f48940g.add(tbRichTextData);
+                        this.f48881g.add(tbRichTextData);
                         tbRichTextData = null;
                     }
-                    TbRichTextData tbRichTextData5 = new TbRichTextData(17);
-                    tbRichTextData5.N(next.C());
-                    this.f48940g.add(tbRichTextData5);
+                    TbRichTextData tbRichTextData6 = new TbRichTextData(17);
+                    tbRichTextData6.O(next.D());
+                    this.f48881g.add(tbRichTextData6);
                 } else if (next.getType() == 20) {
                     if (tbRichTextData != null) {
-                        this.f48940g.add(tbRichTextData);
+                        this.f48881g.add(tbRichTextData);
                         tbRichTextData = null;
                     }
-                    TbRichTextData tbRichTextData6 = new TbRichTextData(20);
-                    tbRichTextData6.U(next.J());
-                    this.f48940g.add(tbRichTextData6);
+                    TbRichTextData tbRichTextData7 = new TbRichTextData(20);
+                    tbRichTextData7.W(next.L());
+                    this.f48881g.add(tbRichTextData7);
                 } else if (next.getType() == 1280) {
                     if (tbRichTextData != null) {
-                        this.f48940g.add(tbRichTextData);
+                        this.f48881g.add(tbRichTextData);
                         tbRichTextData = null;
                     }
-                    TbRichTextData tbRichTextData7 = new TbRichTextData(1280);
-                    tbRichTextData7.T(next.H());
-                    this.f48940g.add(tbRichTextData7);
-                } else if (next.getType() != 50 && next.getType() != 33) {
+                    TbRichTextData tbRichTextData8 = new TbRichTextData(1280);
+                    tbRichTextData8.V(next.J());
+                    this.f48881g.add(tbRichTextData8);
+                } else if (next.getType() == 36) {
+                    if (tbRichTextData != null) {
+                        this.f48881g.add(tbRichTextData);
+                        tbRichTextData = null;
+                    }
+                    TbRichTextData tbRichTextData9 = new TbRichTextData(next.getType());
+                    tbRichTextData9.Y(next.Q(), d2Var);
+                    this.f48881g.add(tbRichTextData9);
+                } else {
                     int type = next.getType();
                     if (tbRichTextData == null) {
                         tbRichTextData = new TbRichTextData(1);
                     }
                     if (type == 1024) {
-                        TbRichTextData tbRichTextData8 = new TbRichTextData(1024);
-                        tbRichTextData8.S(next.F());
-                        this.f48940g.add(tbRichTextData8);
+                        TbRichTextData tbRichTextData10 = new TbRichTextData(1024);
+                        tbRichTextData10.U(next.H());
+                        this.f48881g.add(tbRichTextData10);
                     }
                     if (type == 18 || type == 2 || type == 39 || type == 1282) {
-                        tbRichTextData.Q(true);
+                        tbRichTextData.R(true);
                     }
-                    if ((type == 30 || type == 31) && (q = TbRichTextHelper.q(type, d2Var, next.P())) != null) {
-                        charSequence = q.first;
-                        a aVar = q.second;
+                    if (type != 35 || (p = e.p(type, d2Var, next.R())) == null) {
+                        charSequence = null;
+                    } else {
+                        charSequence = p.first;
+                        a aVar = p.second;
                         aVar.a(postData);
                         aVar.b(i2);
-                        tbRichTextData.Q(true);
+                        tbRichTextData.R(true);
                         tbRichTextData.w(aVar);
-                    } else {
-                        charSequence = null;
+                    }
+                    if (charSequence == null && type == 18 && (C = next.C()) != null) {
+                        PbContent z2 = C.z();
+                        if (d2Var != null && z2 != null) {
+                            b f2 = b.f(d2Var, z2);
+                            f2.c(postData);
+                            f2.b(HotTopicStat.Locate.VIDEO_MIDDLE_COMMENT);
+                            charSequence = e.o(f2);
+                        }
                     }
                     if (charSequence == null) {
-                        charSequence = next.L(tbRichTextData.y(), str);
+                        charSequence = next.N(tbRichTextData.y(), str);
                     }
                     if (charSequence != null) {
                         tbRichTextData.x(charSequence);
                     }
-                } else {
-                    if (tbRichTextData != null) {
-                        this.f48940g.add(tbRichTextData);
-                        tbRichTextData = null;
-                    }
-                    TbRichTextData tbRichTextData9 = new TbRichTextData(next.getType());
-                    tbRichTextData9.W(next.O(), d2Var);
-                    this.f48940g.add(tbRichTextData9);
                 }
             }
         }
         if (tbRichTextData != null) {
-            this.f48940g.add(tbRichTextData);
+            this.f48881g.add(tbRichTextData);
         }
-        this.f48939f.clear();
-        this.f48939f = null;
+        this.f48880f.clear();
+        this.f48880f = null;
     }
 
     public void E(int i2) {
@@ -223,7 +246,7 @@ public class TbRichText extends OrmObject {
     public void F(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.f48938e = j2;
+            this.f48879e = j2;
         }
     }
 
@@ -236,7 +259,7 @@ public class TbRichText extends OrmObject {
     public long getPostId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f48938e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f48879e : invokeV.longValue;
     }
 
     public void setAuthorId(String str) {
@@ -250,29 +273,29 @@ public class TbRichText extends OrmObject {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f48940g == null) {
+            if (this.f48881g == null) {
                 return "";
             }
             StringBuilder sb = new StringBuilder(100);
-            int size = this.f48940g.size();
+            int size = this.f48881g.size();
             for (int i2 = 0; i2 < size; i2++) {
-                TbRichTextData tbRichTextData = this.f48940g.get(i2);
+                TbRichTextData tbRichTextData = this.f48881g.get(i2);
                 String tbRichTextData2 = tbRichTextData.toString();
-                if (tbRichTextData.getType() == 1 && tbRichTextData.G() > 0) {
-                    tbRichTextData2 = tbRichTextData2.substring(tbRichTextData.G());
+                if (tbRichTextData.getType() == 1 && tbRichTextData.H() > 0) {
+                    tbRichTextData2 = tbRichTextData2.substring(tbRichTextData.H());
                 }
                 if (i2 == size - 1 && tbRichTextData.getType() == 1 && this.hasAppendTime) {
                     sb.append(tbRichTextData2.substring(0, tbRichTextData2.length() - this.appendLength));
                 } else if (tbRichTextData.getType() == 8) {
-                    sb.append(this.f48942i);
+                    sb.append(this.f48883i);
                 } else if (tbRichTextData.getType() == 512) {
-                    sb.append(this.f48943j);
-                } else if (tbRichTextData.getType() == 32 && tbRichTextData.K() != null) {
-                    if (StringUtils.isNull(tbRichTextData.K().a())) {
+                    sb.append(this.f48884j);
+                } else if (tbRichTextData.getType() == 32 && tbRichTextData.L() != null) {
+                    if (StringUtils.isNull(tbRichTextData.L().a())) {
                         sb.append(tbRichTextData2);
                     } else {
                         sb.append(this.k);
-                        sb.append(tbRichTextData.K().a());
+                        sb.append(tbRichTextData.L().a());
                     }
                 } else {
                     sb.append(tbRichTextData2);
@@ -288,15 +311,15 @@ public class TbRichText extends OrmObject {
         if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{context, list, Integer.valueOf(i2), Boolean.valueOf(z), str, postData, d2Var, Integer.valueOf(i3)}) == null) || list == null) {
             return;
         }
-        this.f48939f = new ArrayList<>();
+        this.f48880f = new ArrayList<>();
         int size = list.size();
         for (int i4 = 0; i4 < size; i4++) {
             PbContent pbContent = list.get(i4);
             if (pbContent != null) {
                 TbRichTextItem tbRichTextItem = new TbRichTextItem();
-                tbRichTextItem.V(pbContent);
+                tbRichTextItem.X(pbContent);
                 if ((tbRichTextItem.getType() & i2) != 0) {
-                    this.f48939f.add(tbRichTextItem);
+                    this.f48880f.add(tbRichTextItem);
                 }
             }
         }
@@ -309,13 +332,13 @@ public class TbRichText extends OrmObject {
         if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, jSONArray, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || jSONArray == null) {
             return;
         }
-        this.f48939f = new ArrayList<>();
+        this.f48880f = new ArrayList<>();
         int length = jSONArray.length();
         for (int i3 = 0; i3 < length; i3++) {
             TbRichTextItem tbRichTextItem = new TbRichTextItem();
             tbRichTextItem.parserJson(jSONArray.optJSONObject(i3));
             if ((tbRichTextItem.getType() & i2) != 0) {
-                this.f48939f.add(tbRichTextItem);
+                this.f48880f.add(tbRichTextItem);
             }
         }
         C(context, z, null);
@@ -325,14 +348,14 @@ public class TbRichText extends OrmObject {
     public ArrayList<TbRichTextData> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f48940g : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f48881g : (ArrayList) invokeV.objValue;
     }
 
     public int z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            ArrayList<TbRichTextImageInfo> arrayList = this.f48941h;
+            ArrayList<TbRichTextImageInfo> arrayList = this.f48882h;
             if (arrayList == null) {
                 return 0;
             }
@@ -377,9 +400,9 @@ public class TbRichText extends OrmObject {
                 return;
             }
         }
-        this.f48938e = -1L;
-        this.f48939f = null;
-        this.f48940g = null;
+        this.f48879e = -1L;
+        this.f48880f = null;
+        this.f48881g = null;
         this.l = "";
         this.isChanged = false;
         w(context, list, -1, z, str, postData, d2Var, i2);
@@ -400,9 +423,9 @@ public class TbRichText extends OrmObject {
                 return;
             }
         }
-        this.f48938e = -1L;
-        this.f48939f = null;
-        this.f48940g = null;
+        this.f48879e = -1L;
+        this.f48880f = null;
+        this.f48881g = null;
         this.l = "";
         this.isChanged = false;
         x(context, jSONArray, -1, z);
@@ -423,12 +446,12 @@ public class TbRichText extends OrmObject {
                 return;
             }
         }
-        this.f48938e = -1L;
-        this.f48939f = null;
-        this.f48940g = null;
+        this.f48879e = -1L;
+        this.f48880f = null;
+        this.f48881g = null;
         this.l = "";
         this.isChanged = false;
-        this.f48940g = arrayList;
+        this.f48881g = arrayList;
         B(context);
     }
 }

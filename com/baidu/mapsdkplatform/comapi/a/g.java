@@ -13,7 +13,7 @@ public class g implements Animator.AnimatorListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f42151a;
+    public final /* synthetic */ f f42155a;
 
     public g(f fVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class g implements Animator.AnimatorListener {
                 return;
             }
         }
-        this.f42151a = fVar;
+        this.f42155a = fVar;
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -39,9 +39,9 @@ public class g implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            animationListener = this.f42151a.f42147d;
+            animationListener = this.f42155a.f42151d;
             if (animationListener != null) {
-                animationListener2 = this.f42151a.f42147d;
+                animationListener2 = this.f42155a.f42151d;
                 animationListener2.onAnimationCancel();
             }
         }
@@ -53,9 +53,9 @@ public class g implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-            animationListener = this.f42151a.f42147d;
+            animationListener = this.f42155a.f42151d;
             if (animationListener != null) {
-                animationListener2 = this.f42151a.f42147d;
+                animationListener2 = this.f42155a.f42151d;
                 animationListener2.onAnimationEnd();
             }
         }
@@ -67,9 +67,9 @@ public class g implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            animationListener = this.f42151a.f42147d;
+            animationListener = this.f42155a.f42151d;
             if (animationListener != null) {
-                animationListener2 = this.f42151a.f42147d;
+                animationListener2 = this.f42155a.f42151d;
                 animationListener2.onAnimationRepeat();
             }
         }
@@ -81,9 +81,9 @@ public class g implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            animationListener = this.f42151a.f42147d;
+            animationListener = this.f42155a.f42151d;
             if (animationListener != null) {
-                animationListener2 = this.f42151a.f42147d;
+                animationListener2 = this.f42155a.f42151d;
                 animationListener2.onAnimationStart();
             }
         }

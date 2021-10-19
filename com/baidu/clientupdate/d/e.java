@@ -12,7 +12,7 @@ public final class e implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f38950a;
+    public final /* synthetic */ Context f38954a;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public final class e implements Runnable {
                 return;
             }
         }
-        this.f38950a = context;
+        this.f38954a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Toast.makeText(this.f38950a, "文件不可用", 0).show();
+            Toast.makeText(this.f38954a, "文件不可用", 0).show();
         }
     }
 }

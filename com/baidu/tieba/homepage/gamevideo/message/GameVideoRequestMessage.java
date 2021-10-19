@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.gamevideo.message;
 
-import c.a.q0.d1.a0;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class GameVideoRequestMessage extends NetMessage {
             builder.load_type = Integer.valueOf(this.load_type);
             builder.page_thread_count = Integer.valueOf(this.page_thread_count);
             if (z) {
-                a0.a(builder, true);
+                z.a(builder, true);
             }
             RecomVerticalReqIdl.Builder builder2 = new RecomVerticalReqIdl.Builder();
             builder2.data = builder.build(false);

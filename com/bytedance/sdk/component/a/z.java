@@ -25,14 +25,14 @@ public class z extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final /* synthetic */ boolean f64508j;
+    public static final /* synthetic */ boolean f64543j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f64509h;
+    public String f64544h;
 
     /* renamed from: i  reason: collision with root package name */
-    public WebView f64510i;
+    public WebView f64545i;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class z extends a {
                 return;
             }
         }
-        f64508j = !z.class.desiredAssertionStatus();
+        f64543j = !z.class.desiredAssertionStatus();
     }
 
     public z() {
@@ -70,11 +70,11 @@ public class z extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            Context context = jVar.f64446e;
+            Context context = jVar.f64481e;
             if (context != null) {
                 return context;
             }
-            WebView webView = jVar.f64442a;
+            WebView webView = jVar.f64477a;
             if (webView != null) {
                 return webView.getContext();
             }
@@ -88,8 +88,8 @@ public class z extends a {
     public void b(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jVar) == null) {
-            this.f64510i = jVar.f64442a;
-            this.f64509h = jVar.f64444c;
+            this.f64545i = jVar.f64477a;
+            this.f64544h = jVar.f64479c;
             if (Build.VERSION.SDK_INT < 17 || jVar.n) {
                 return;
             }
@@ -101,17 +101,17 @@ public class z extends a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (!f64508j && this.f64510i == null) {
+            if (!f64543j && this.f64545i == null) {
                 throw new AssertionError();
             }
-            this.f64510i.addJavascriptInterface(this, this.f64509h);
+            this.f64545i.addJavascriptInterface(this, this.f64544h);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f64510i.removeJavascriptInterface(this.f64509h);
+            this.f64545i.removeJavascriptInterface(this.f64544h);
         }
     }
 
@@ -128,7 +128,7 @@ public class z extends a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64510i.getUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64545i.getUrl() : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.a.a
@@ -144,8 +144,8 @@ public class z extends a {
     public void a(String str, @Nullable q qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, qVar) == null) {
-            if (qVar != null && !TextUtils.isEmpty(qVar.f64460h)) {
-                String str2 = qVar.f64460h;
+            if (qVar != null && !TextUtils.isEmpty(qVar.f64495h)) {
+                String str2 = qVar.f64495h;
                 a(str, String.format("javascript:(function(){   const iframe = document.querySelector(atob('%s'));   if (iframe && iframe.contentWindow) {        iframe.contentWindow.postMessage(%s, atob('%s'));   }})()", Base64.encodeToString(String.format("iframe[src=\"%s\"", str2).getBytes(), 2), str, Base64.encodeToString(str2.getBytes(), 2)));
                 return;
             }
@@ -157,13 +157,13 @@ public class z extends a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            a(str, "javascript:" + this.f64509h + "._handleMessageFromToutiao(" + str + SmallTailInfo.EMOTION_SUFFIX);
+            a(str, "javascript:" + this.f64544h + "._handleMessageFromToutiao(" + str + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) || this.f64409f || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) || this.f64444f || TextUtils.isEmpty(str2)) {
             return;
         }
         Runnable runnable = new Runnable(this, str2) { // from class: com.bytedance.sdk.component.a.z.1
@@ -171,10 +171,10 @@ public class z extends a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f64511a;
+            public final /* synthetic */ String f64546a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ z f64512b;
+            public final /* synthetic */ z f64547b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -191,28 +191,28 @@ public class z extends a {
                         return;
                     }
                 }
-                this.f64512b = this;
-                this.f64511a = str2;
+                this.f64547b = this;
+                this.f64546a = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f64512b.f64409f) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f64547b.f64444f) {
                     return;
                 }
                 if (Build.VERSION.SDK_INT >= 19) {
-                    i.a("Invoking Jsb using evaluateJavascript: " + this.f64511a);
-                    this.f64512b.f64510i.evaluateJavascript(this.f64511a, null);
+                    i.a("Invoking Jsb using evaluateJavascript: " + this.f64546a);
+                    this.f64547b.f64545i.evaluateJavascript(this.f64546a, null);
                     return;
                 }
-                i.a("Invoking Jsb using loadUrl: " + this.f64511a);
-                this.f64512b.f64510i.loadUrl(this.f64511a);
+                i.a("Invoking Jsb using loadUrl: " + this.f64546a);
+                this.f64547b.f64545i.loadUrl(this.f64546a);
             }
         };
         if (Looper.myLooper() != Looper.getMainLooper()) {
             i.a("Received call on sub-thread, posting to main thread: " + str2);
-            this.f64407d.post(runnable);
+            this.f64442d.post(runnable);
             return;
         }
         runnable.run();

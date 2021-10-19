@@ -11,7 +11,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, String> f67380a;
+    public static final ConcurrentHashMap<String, String> f67415a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,13 +27,13 @@ public class a {
                 return;
             }
         }
-        f67380a = new ConcurrentHashMap<>();
+        f67415a = new ConcurrentHashMap<>();
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            f67380a.put(str, str2);
+            f67415a.put(str, str2);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alasquare.adapter;
 
 import android.view.View;
 import c.a.e.l.e.a;
-import c.a.r0.v.f.i.b;
+import c.a.r0.w.f.i.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

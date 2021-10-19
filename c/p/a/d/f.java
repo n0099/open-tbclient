@@ -195,7 +195,7 @@ public class f implements c.p.a.a.a.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Runnable f34839a;
+            public final /* synthetic */ Runnable f34843a;
 
             public a(Runnable runnable) {
                 Interceptable interceptable = $ic;
@@ -212,7 +212,7 @@ public class f implements c.p.a.a.a.b {
                         return;
                     }
                 }
-                this.f34839a = runnable;
+                this.f34843a = runnable;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -222,7 +222,7 @@ public class f implements c.p.a.a.a.b {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    this.f34839a.run();
+                    this.f34843a.run();
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -279,7 +279,7 @@ public class f implements c.p.a.a.a.b {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static e f34840a;
+            public static e f34844a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -295,7 +295,7 @@ public class f implements c.p.a.a.a.b {
                         return;
                     }
                 }
-                f34840a = new e();
+                f34844a = new e();
             }
         }
 
@@ -316,7 +316,7 @@ public class f implements c.p.a.a.a.b {
         public static e b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f34840a : (e) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f34844a : (e) invokeV.objValue;
         }
 
         public static String c(Throwable th) {

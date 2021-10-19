@@ -14,11 +14,11 @@ public class w {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f42359a = "w";
+    public static final String f42363a = "w";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public v f42360b;
+    public v f42364b;
 
     static {
         InterceptResult invokeClinit;
@@ -72,7 +72,7 @@ public class w {
                         return;
                 }
             }
-            v vVar = this.f42360b;
+            v vVar = this.f42364b;
             if (vVar != null) {
                 vVar.a(message.arg1, message.arg2);
             }
@@ -82,14 +82,14 @@ public class w {
     public void a(v vVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vVar) == null) {
-            this.f42360b = vVar;
+            this.f42364b = vVar;
         }
     }
 
     public void b(v vVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vVar) == null) {
-            this.f42360b = null;
+            this.f42364b = null;
         }
     }
 }

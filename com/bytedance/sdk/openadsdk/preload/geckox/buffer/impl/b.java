@@ -17,13 +17,13 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RandomAccessFile f69018a;
+    public RandomAccessFile f69053a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f69019b;
+    public AtomicBoolean f69054b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f69020c;
+    public File f69055c;
 
     public b(File file) throws IOException {
         Interceptable interceptable = $ic;
@@ -40,13 +40,13 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
                 return;
             }
         }
-        this.f69019b = new AtomicBoolean(false);
-        this.f69020c = file;
+        this.f69054b = new AtomicBoolean(false);
+        this.f69055c = file;
         file.getParentFile().mkdirs();
         try {
-            this.f69018a = new RandomAccessFile(file, "rw");
+            this.f69053a = new RandomAccessFile(file, "rw");
         } catch (Exception e2) {
-            com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(this.f69018a);
+            com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(this.f69053a);
             throw new IOException("create raf mSwap failed! path: " + file.getAbsolutePath() + " caused by: " + e2.getMessage(), e2);
         }
     }
@@ -54,7 +54,7 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public void a() throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f69019b.get()) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f69054b.get()) {
             throw new IOException("released!");
         }
     }
@@ -63,7 +63,7 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
     public long b() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f69018a.length() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f69053a.length() : invokeV.longValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
@@ -71,8 +71,8 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (!this.f69019b.get()) {
-                return this.f69018a.getFilePointer();
+            if (!this.f69054b.get()) {
+                return this.f69053a.getFilePointer();
             }
             throw new IOException("released!");
         }
@@ -96,28 +96,28 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f69019b.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f69054b.getAndSet(true)) {
             return;
         }
-        com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(this.f69018a);
+        com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(this.f69053a);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public File f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f69020c : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f69055c : (File) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public void b(long j2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            if (!this.f69019b.get()) {
+            if (!this.f69054b.get()) {
                 if (j2 < 0) {
                     j2 = 0;
                 }
-                this.f69018a.seek(j2);
+                this.f69053a.seek(j2);
                 return;
             }
             throw new IOException("released!");
@@ -147,12 +147,12 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
             synchronized (this) {
-                if (this.f69019b.get()) {
+                if (this.f69054b.get()) {
                     throw new IOException("released!");
                 }
                 int i2 = (int) j2;
                 if (i2 == j2) {
-                    skipBytes = this.f69018a.skipBytes(i2);
+                    skipBytes = this.f69053a.skipBytes(i2);
                 } else {
                     throw new IOException("too large:" + j2);
                 }
@@ -175,7 +175,7 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
         int read;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) {
-            if (!this.f69019b.get()) {
+            if (!this.f69054b.get()) {
                 if (bArr == null || i3 < 1 || i2 < 0 || i2 >= bArr.length) {
                     return 0;
                 }
@@ -183,7 +183,7 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
                     i3 = bArr.length - i2;
                 }
                 synchronized (this) {
-                    read = this.f69018a.read(bArr, i2, i3);
+                    read = this.f69053a.read(bArr, i2, i3);
                 }
                 return read;
             }
@@ -197,7 +197,7 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            if (!this.f69019b.get()) {
+            if (!this.f69054b.get()) {
                 if (bArr == null || bArr.length == 0 || i3 < 1 || i2 < 0 || i2 >= bArr.length) {
                     return 0;
                 }
@@ -205,7 +205,7 @@ public class b implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
                     i3 = bArr.length - i2;
                 }
                 synchronized (this) {
-                    this.f69018a.write(bArr, i2, i3);
+                    this.f69053a.write(bArr, i2, i3);
                 }
                 return i3;
             }

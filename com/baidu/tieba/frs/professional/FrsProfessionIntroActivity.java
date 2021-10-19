@@ -56,7 +56,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsProfessionIntroActivity f51664e;
+        public final /* synthetic */ FrsProfessionIntroActivity f51591e;
 
         public a(FrsProfessionIntroActivity frsProfessionIntroActivity) {
             Interceptable interceptable = $ic;
@@ -73,35 +73,35 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
                     return;
                 }
             }
-            this.f51664e = frsProfessionIntroActivity;
+            this.f51591e = frsProfessionIntroActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view != this.f51664e.mBack) {
-                    if (view != this.f51664e.mGoPublishButton) {
-                        if (view == this.f51664e.mGotItButton) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f51664e.getActivity()).createNormalCfg(FrsProfessionIntroActivity.PROFESSION_THREAD_ID, null, "frs")));
+                if (view != this.f51591e.mBack) {
+                    if (view != this.f51591e.mGoPublishButton) {
+                        if (view == this.f51591e.mGotItButton) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f51591e.getActivity()).createNormalCfg(FrsProfessionIntroActivity.PROFESSION_THREAD_ID, null, "frs")));
                             Intent intent = new Intent();
                             intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
-                            this.f51664e.setResult(-1, intent);
-                            this.f51664e.finish();
+                            this.f51591e.setResult(-1, intent);
+                            this.f51591e.finish();
                             return;
                         }
                         return;
                     }
                     Intent intent2 = new Intent();
                     intent2.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, 1);
-                    this.f51664e.setResult(-1, intent2);
-                    this.f51664e.finish();
+                    this.f51591e.setResult(-1, intent2);
+                    this.f51591e.finish();
                     return;
                 }
                 Intent intent3 = new Intent();
                 intent3.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
-                this.f51664e.setResult(-1, intent3);
-                this.f51664e.finish();
+                this.f51591e.setResult(-1, intent3);
+                this.f51591e.finish();
             }
         }
     }

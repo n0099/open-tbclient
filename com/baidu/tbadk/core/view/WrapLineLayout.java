@@ -18,10 +18,10 @@ public class WrapLineLayout extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<List<View>> f48031e;
+    public List<List<View>> f47951e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<Integer> f48032f;
+    public List<Integer> f47952f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WrapLineLayout(Context context) {
@@ -41,8 +41,8 @@ public class WrapLineLayout extends ViewGroup {
                 return;
             }
         }
-        this.f48031e = new ArrayList();
-        this.f48032f = new ArrayList();
+        this.f47951e = new ArrayList();
+        this.f47952f = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -63,8 +63,8 @@ public class WrapLineLayout extends ViewGroup {
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            this.f48031e.clear();
-            this.f48032f.clear();
+            this.f47951e.clear();
+            this.f47952f.clear();
             int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
             ArrayList arrayList = new ArrayList();
             int childCount = getChildCount();
@@ -76,8 +76,8 @@ public class WrapLineLayout extends ViewGroup {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
                 if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i7 > width) {
-                    this.f48032f.add(Integer.valueOf(i6));
-                    this.f48031e.add(arrayList);
+                    this.f47952f.add(Integer.valueOf(i6));
+                    this.f47951e.add(arrayList);
                     arrayList = new ArrayList();
                     i7 = 0;
                 }
@@ -85,14 +85,14 @@ public class WrapLineLayout extends ViewGroup {
                 i6 = Math.max(i6, measuredHeight + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin);
                 arrayList.add(childAt);
             }
-            this.f48032f.add(Integer.valueOf(i6));
-            this.f48031e.add(arrayList);
+            this.f47952f.add(Integer.valueOf(i6));
+            this.f47951e.add(arrayList);
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            int size = this.f48031e.size();
+            int size = this.f47951e.size();
             for (int i9 = 0; i9 < size; i9++) {
-                List<View> list = this.f48031e.get(i9);
-                int intValue = this.f48032f.get(i9).intValue();
+                List<View> list = this.f47951e.get(i9);
+                int intValue = this.f47952f.get(i9).intValue();
                 for (int i10 = 0; i10 < list.size(); i10++) {
                     View view = list.get(i10);
                     if (view.getVisibility() != 8) {
@@ -187,7 +187,7 @@ public class WrapLineLayout extends ViewGroup {
                 return;
             }
         }
-        this.f48031e = new ArrayList();
-        this.f48032f = new ArrayList();
+        this.f47951e = new ArrayList();
+        this.f47952f = new ArrayList();
     }
 }

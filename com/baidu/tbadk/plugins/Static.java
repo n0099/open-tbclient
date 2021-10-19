@@ -26,7 +26,7 @@ public class Static {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f48577a;
+    public static final String[] f48501a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -93,6 +93,7 @@ public class Static {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             boolean z;
+            Throwable th;
             StackTraceElement[] stackTrace;
             Plugin plugin2;
             String str;
@@ -101,7 +102,7 @@ public class Static {
                 return;
             }
             ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-            String[] strArr = Static.f48577a;
+            String[] strArr = Static.f48501a;
             int length = strArr.length;
             int i2 = 0;
             while (true) {
@@ -117,8 +118,7 @@ public class Static {
                 }
                 i2++;
             }
-            Throwable th = exceptionData.mExcep;
-            if (th == null || th.getCause() == null || exceptionData.mExcep.getCause().getStackTrace() == null || !z || exceptionData == null || exceptionData.info == null) {
+            if (exceptionData == null || (th = exceptionData.mExcep) == null || th.getCause() == null || exceptionData.mExcep.getCause().getStackTrace() == null || !z || exceptionData.info == null) {
                 return;
             }
             try {
@@ -203,7 +203,7 @@ public class Static {
                 return;
             }
         }
-        f48577a = new String[]{"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+        f48501a = new String[]{"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
         MessageManager.getInstance().registerListener(new a(2001011));
         a();
         MessageManager.getInstance().registerListener(new b(2016301));

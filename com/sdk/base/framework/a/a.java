@@ -19,17 +19,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75746a = "com.sdk.base.framework.a.a";
+    public static final String f75781a = "com.sdk.base.framework.a.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f75747b;
+    public static Boolean f75782b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ConnectivityManager.NetworkCallback f75748d;
+    public static ConnectivityManager.NetworkCallback f75783d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpURLConnection f75749c;
+    public HttpURLConnection f75784c;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class a {
                 return;
             }
         }
-        f75747b = Boolean.valueOf(com.sdk.base.framework.c.f.f75869b);
+        f75782b = Boolean.valueOf(com.sdk.base.framework.c.f.f75904b);
     }
 
     public a(Context context, URL url) {
@@ -68,10 +68,10 @@ public class a {
             builder.addTransportType(0);
             NetworkRequest build = builder.build();
             b bVar = new b(this, url);
-            f75748d = bVar;
+            f75783d = bVar;
             ((ConnectivityManager) context.getSystemService("connectivity")).requestNetwork(build, bVar);
         } catch (Exception e2) {
-            com.sdk.base.framework.a.a.c.b(f75746a, e2.toString(), f75747b);
+            com.sdk.base.framework.a.a.c.b(f75781a, e2.toString(), f75782b);
         }
     }
 
@@ -81,7 +81,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c(this, 2000L);
             while (!cVar.a()) {
-                HttpURLConnection httpURLConnection = this.f75749c;
+                HttpURLConnection httpURLConnection = this.f75784c;
                 if (httpURLConnection != null) {
                     return httpURLConnection;
                 }

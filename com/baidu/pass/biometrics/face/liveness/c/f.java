@@ -25,7 +25,7 @@ public class f {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f44197a;
+        public static final /* synthetic */ int[] f44109a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,29 +42,29 @@ public class f {
                 }
             }
             int[] iArr = new int[HeadPose.values().length];
-            f44197a = iArr;
+            f44109a = iArr;
             try {
                 iArr[HeadPose.UP.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f44197a[HeadPose.DOWN.ordinal()] = 2;
+                f44109a[HeadPose.DOWN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f44197a[HeadPose.MOUTH_OPEN.ordinal()] = 3;
+                f44109a[HeadPose.MOUTH_OPEN.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f44197a[HeadPose.TURN_LEFT.ordinal()] = 4;
+                f44109a[HeadPose.TURN_LEFT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f44197a[HeadPose.TURN_RIGHT.ordinal()] = 5;
+                f44109a[HeadPose.TURN_RIGHT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f44197a[HeadPose.EYES_BLINK.ordinal()] = 6;
+                f44109a[HeadPose.EYES_BLINK.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -190,7 +190,7 @@ public class f {
                 list.clear();
             }
             for (HeadPose headPose : list2) {
-                int i2 = a.f44197a[headPose.ordinal()];
+                int i2 = a.f44109a[headPose.ordinal()];
                 if (i2 == 1) {
                     list.add(LivenessTypeEnum.HeadUp);
                 } else if (i2 == 2) {
@@ -243,7 +243,7 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, headPose)) == null) {
-            int i2 = a.f44197a[headPose.ordinal()];
+            int i2 = a.f44109a[headPose.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

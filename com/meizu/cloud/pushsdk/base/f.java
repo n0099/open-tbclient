@@ -9,17 +9,17 @@ import java.util.concurrent.TimeUnit;
 public class f extends i<Executor> implements Executor {
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f75062c;
+    public static f f75097c;
 
     public f(Executor executor) {
         super(executor);
     }
 
     public static f a() {
-        if (f75062c == null) {
+        if (f75097c == null) {
             synchronized (f.class) {
-                if (f75062c == null) {
-                    f75062c = new f(new ThreadPoolExecutor(0, 5, 30L, TimeUnit.SECONDS, new LinkedBlockingDeque(100), new RejectedExecutionHandler() { // from class: com.meizu.cloud.pushsdk.base.f.1
+                if (f75097c == null) {
+                    f75097c = new f(new ThreadPoolExecutor(0, 5, 30L, TimeUnit.SECONDS, new LinkedBlockingDeque(100), new RejectedExecutionHandler() { // from class: com.meizu.cloud.pushsdk.base.f.1
                         @Override // java.util.concurrent.RejectedExecutionHandler
                         public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
                             new Thread(runnable).start();
@@ -28,7 +28,7 @@ public class f extends i<Executor> implements Executor {
                 }
             }
         }
-        return f75062c;
+        return f75097c;
     }
 
     @Override // java.util.concurrent.Executor

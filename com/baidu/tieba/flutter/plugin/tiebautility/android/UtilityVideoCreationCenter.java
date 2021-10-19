@@ -1,7 +1,7 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import c.a.q0.s.m.b;
-import c.a.r0.c4.i;
+import c.a.r0.d4.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityVideoCreationCenterAuto;
@@ -32,7 +32,7 @@ public class UtilityVideoCreationCenter implements TiebaUtilityVideoCreationCent
     public void sendThread(TiebaUtilityVideoCreationCenterAuto.VideoCreationCenterSendParams videoCreationCenterSendParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoCreationCenterSendParams) == null) {
-            b.e(videoCreationCenterSendParams.getObjLocate(), videoCreationCenterSendParams.getPageId());
+            b.e(videoCreationCenterSendParams.getObjLocate(), videoCreationCenterSendParams.getPageId(), videoCreationCenterSendParams.getTopicName(), videoCreationCenterSendParams.getTopicId());
         }
     }
 

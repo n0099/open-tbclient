@@ -139,7 +139,7 @@ public class n extends h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
-                c.a.r0.a0.m.l(this.f3849a.l.getGodReplyContent(), this.f3849a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                c.a.r0.b0.m.l(this.f3849a.l.getGodReplyContent(), this.f3849a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -218,7 +218,7 @@ public class n extends h {
             PostData v1 = aVar.getThreadData().v1();
             if (this.n != null && v1 != null && v1.t() != null && v1.t().getUserId() != null) {
                 this.n.param("tid", aVar.getThreadData().E).param("post_id", v1.E()).param("uid", v1.t().getUserId());
-                c.a.r0.a0.t.b().a(this.n);
+                c.a.r0.b0.u.b().a(this.n);
             }
             this.l.setData(aVar.getThreadData());
         }

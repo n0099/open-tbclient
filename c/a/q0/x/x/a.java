@@ -1,66 +1,64 @@
 package c.a.q0.x.x;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.annotation.ColorRes;
-import c.a.q0.x.m;
-import c.a.q0.x.n;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.sendtool.SendView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class a extends m {
+public class a {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static a f15170b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(Context context) {
-        super(context, (String) null, 4);
+    /* renamed from: a  reason: collision with root package name */
+    public int f15171a;
+
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = false;
-        this.l = 2;
-        this.n = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
-        this.k = new SendView(context);
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
-        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-        ((View) this.k).setLayoutParams(layoutParams);
+        this.f15171a = 0;
     }
 
-    public void g(int i2) {
-        n nVar;
+    public static a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && (nVar = this.k) != null && (nVar instanceof TextView)) {
-            ((TextView) nVar).setText(i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f15170b == null) {
+                synchronized (a.class) {
+                    if (f15170b == null) {
+                        f15170b = new a();
+                    }
+                }
+            }
+            return f15170b;
         }
+        return (a) invokeV.objValue;
     }
 
-    public void h(@ColorRes int i2) {
-        n nVar;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (nVar = this.k) == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15171a : invokeV.intValue;
+    }
+
+    public void c(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f15171a = i2;
         }
-        ((SendView) nVar).setTextColor(i2);
     }
 }

@@ -11,7 +11,7 @@ public class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HandlerThread f41200a;
+    public static HandlerThread f41204a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,12 +35,12 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (u.class) {
-                if (f41200a == null) {
+                if (f41204a == null) {
                     HandlerThread handlerThread2 = new HandlerThread("ServiceStartArguments", 10);
-                    f41200a = handlerThread2;
+                    f41204a = handlerThread2;
                     handlerThread2.start();
                 }
-                handlerThread = f41200a;
+                handlerThread = f41204a;
             }
             return handlerThread;
         }

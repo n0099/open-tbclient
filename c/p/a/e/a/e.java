@@ -45,34 +45,34 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34971a;
+    public String f34975a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34972b;
+    public String f34976b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DownloadReceiver f34973c;
+    public DownloadReceiver f34977c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.e f34974d;
+    public d.e f34978d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.f f34975e;
+    public d.f f34979e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.j f34976f;
+    public d.j f34980f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.i f34977g;
+    public d.i f34981g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.o f34978h;
+    public d.o f34982h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.h f34979i;
+    public d.h f34983i;
 
     /* renamed from: j  reason: collision with root package name */
-    public d.l f34980j;
+    public d.l f34984j;
     public c.p.a.e.b.f.i k;
     public c.p.a.e.b.f.k l;
 
@@ -112,7 +112,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f34981a;
+        public final /* synthetic */ e f34985a;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -129,16 +129,16 @@ public class e {
                     return;
                 }
             }
-            this.f34981a = eVar;
+            this.f34985a = eVar;
         }
 
         @Override // c.p.a.e.b.f.s
         public void a(DownloadInfo downloadInfo, BaseException baseException, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, downloadInfo, baseException, i2) == null) || this.f34981a.f34976f == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, downloadInfo, baseException, i2) == null) || this.f34985a.f34980f == null) {
                 return;
             }
-            this.f34981a.f34976f.a(downloadInfo, baseException, i2);
+            this.f34985a.f34980f.a(downloadInfo, baseException, i2);
         }
     }
 
@@ -148,19 +148,19 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f34982a;
+        public final /* synthetic */ String f34986a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.e.b.n.a f34983b;
+        public final /* synthetic */ c.p.a.e.b.n.a f34987b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f34984c;
+        public final /* synthetic */ int f34988c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f34985d;
+        public final /* synthetic */ boolean f34989d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f34986e;
+        public final /* synthetic */ e f34990e;
 
         public c(e eVar, String str, c.p.a.e.b.n.a aVar, int i2, boolean z) {
             Interceptable interceptable = $ic;
@@ -177,11 +177,11 @@ public class e {
                     return;
                 }
             }
-            this.f34986e = eVar;
-            this.f34982a = str;
-            this.f34983b = aVar;
-            this.f34984c = i2;
-            this.f34985d = z;
+            this.f34990e = eVar;
+            this.f34986a = str;
+            this.f34987b = aVar;
+            this.f34988c = i2;
+            this.f34989d = z;
         }
 
         @Override // c.p.a.e.a.d.p
@@ -189,8 +189,8 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 String str = e.m;
-                c.p.a.e.b.c.a.g(str, "notification permission granted, start download :" + this.f34982a);
-                this.f34986e.r(this.f34983b, this.f34984c, this.f34985d);
+                c.p.a.e.b.c.a.g(str, "notification permission granted, start download :" + this.f34986a);
+                this.f34990e.r(this.f34987b, this.f34988c, this.f34989d);
             }
         }
 
@@ -199,8 +199,8 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 String str = e.m;
-                c.p.a.e.b.c.a.g(str, "notification permission denied, start download :" + this.f34982a);
-                this.f34986e.r(this.f34983b, this.f34984c, this.f34985d);
+                c.p.a.e.b.c.a.g(str, "notification permission denied, start download :" + this.f34986a);
+                this.f34990e.r(this.f34987b, this.f34988c, this.f34989d);
             }
         }
     }
@@ -211,10 +211,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<Integer> f34990a;
+        public List<Integer> f34994a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BroadcastReceiver f34991b;
+        public BroadcastReceiver f34995b;
 
         /* loaded from: classes4.dex */
         public class a implements Runnable {
@@ -222,13 +222,13 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ List f34992e;
+            public final /* synthetic */ List f34996e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f34993f;
+            public final /* synthetic */ int f34997f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ f f34994g;
+            public final /* synthetic */ f f34998g;
 
             public a(f fVar, List list, int i2) {
                 Interceptable interceptable = $ic;
@@ -245,9 +245,9 @@ public class e {
                         return;
                     }
                 }
-                this.f34994g = fVar;
-                this.f34992e = list;
-                this.f34993f = i2;
+                this.f34998g = fVar;
+                this.f34996e = list;
+                this.f34997f = i2;
             }
 
             @Override // java.lang.Runnable
@@ -255,7 +255,7 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
-                        this.f34994g.i(this.f34992e, this.f34993f);
+                        this.f34998g.i(this.f34996e, this.f34997f);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -269,7 +269,7 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ f f34995a;
+            public final /* synthetic */ f f34999a;
 
             /* loaded from: classes4.dex */
             public class a implements Runnable {
@@ -277,10 +277,10 @@ public class e {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Context f34996e;
+                public final /* synthetic */ Context f35000e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ b f34997f;
+                public final /* synthetic */ b f35001f;
 
                 public a(b bVar, Context context) {
                     Interceptable interceptable = $ic;
@@ -297,8 +297,8 @@ public class e {
                             return;
                         }
                     }
-                    this.f34997f = bVar;
-                    this.f34996e = context;
+                    this.f35001f = bVar;
+                    this.f35000e = context;
                 }
 
                 @Override // java.lang.Runnable
@@ -306,15 +306,15 @@ public class e {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                         try {
-                            if (this.f34997f.f34995a.f34990a != null && !this.f34997f.f34995a.f34990a.isEmpty()) {
-                                int size = this.f34997f.f34995a.f34990a.size();
+                            if (this.f35001f.f34999a.f34994a != null && !this.f35001f.f34999a.f34994a.isEmpty()) {
+                                int size = this.f35001f.f34999a.f34994a.size();
                                 Integer[] numArr = new Integer[size];
-                                this.f34997f.f34995a.f34990a.toArray(numArr);
-                                this.f34997f.f34995a.f34990a.clear();
+                                this.f35001f.f34999a.f34994a.toArray(numArr);
+                                this.f35001f.f34999a.f34994a.clear();
                                 for (int i2 = 0; i2 < size; i2++) {
-                                    DownloadInfo f2 = c.p.a.e.b.g.a.H(this.f34996e).f(numArr[i2].intValue());
+                                    DownloadInfo f2 = c.p.a.e.b.g.a.H(this.f35000e).f(numArr[i2].intValue());
                                     if (f2 != null && (f2.getRealStatus() == -5 || (f2.getRealStatus() == -2 && f2.isPauseReserveOnWifi()))) {
-                                        this.f34997f.f34995a.c(this.f34996e, f2, true, 2);
+                                        this.f35001f.f34999a.c(this.f35000e, f2, true, 2);
                                     }
                                 }
                             }
@@ -340,7 +340,7 @@ public class e {
                         return;
                     }
                 }
-                this.f34995a = fVar;
+                this.f34999a = fVar;
             }
 
             @Override // android.content.BroadcastReceiver
@@ -352,11 +352,11 @@ public class e {
                         c.p.a.e.b.c.a.g("LaunchResume", "onReceive : wifi connected !!!");
                         c.p.a.e.b.g.e.A0().execute(new a(this, applicationContext));
                         try {
-                            applicationContext.unregisterReceiver(this.f34995a.f34991b);
+                            applicationContext.unregisterReceiver(this.f34999a.f34995b);
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
-                        this.f34995a.f34991b = null;
+                        this.f34999a.f34995b = null;
                     }
                 }
             }
@@ -416,12 +416,12 @@ public class e {
                             boolean z5 = d2.b("failed_resume_need_wifi", 1) == 1;
                             boolean z6 = d2.b("failed_resume_need_wait_wifi", 0) == 1;
                             if (!z && z5 && z6) {
-                                if (this.f34990a == null) {
-                                    this.f34990a = new ArrayList();
+                                if (this.f34994a == null) {
+                                    this.f34994a = new ArrayList();
                                 }
                                 int id = downloadInfo.getId();
-                                if (!this.f34990a.contains(Integer.valueOf(id))) {
-                                    this.f34990a.add(Integer.valueOf(id));
+                                if (!this.f34994a.contains(Integer.valueOf(id))) {
+                                    this.f34994a.add(Integer.valueOf(id));
                                 }
                                 downloadInfo.setOnlyWifi(true);
                                 q.d().k(downloadInfo);
@@ -485,12 +485,12 @@ public class e {
                             J2.a(downloadInfo, 5, i2);
                         }
                     } else {
-                        if (this.f34990a == null) {
-                            this.f34990a = new ArrayList();
+                        if (this.f34994a == null) {
+                            this.f34994a = new ArrayList();
                         }
                         int id2 = downloadInfo.getId();
-                        if (!this.f34990a.contains(Integer.valueOf(id2))) {
-                            this.f34990a.add(Integer.valueOf(id2));
+                        if (!this.f34994a.contains(Integer.valueOf(id2))) {
+                            this.f34994a.add(Integer.valueOf(id2));
                         }
                         q.d().k(downloadInfo);
                         f(downloadInfo, context);
@@ -594,18 +594,18 @@ public class e {
             for (DownloadInfo downloadInfo : list) {
                 c(n, downloadInfo, g0, i2);
             }
-            List<Integer> list2 = this.f34990a;
-            if (list2 == null || list2.isEmpty() || this.f34991b != null) {
+            List<Integer> list2 = this.f34994a;
+            if (list2 == null || list2.isEmpty() || this.f34995b != null) {
                 return;
             }
-            this.f34991b = new b(this);
+            this.f34995b = new b(this);
             try {
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                n.registerReceiver(this.f34991b, intentFilter);
+                n.registerReceiver(this.f34995b, intentFilter);
             } catch (Throwable th) {
                 th.printStackTrace();
-                this.f34991b = null;
+                this.f34995b = null;
             }
         }
 
@@ -683,13 +683,13 @@ public class e {
     public String A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34972b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34976b : (String) invokeV.objValue;
     }
 
     public d.h B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34979i : (d.h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34983i : (d.h) invokeV.objValue;
     }
 
     public boolean C() {
@@ -701,7 +701,7 @@ public class e {
     public d.l D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34980j : (d.l) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34984j : (d.l) invokeV.objValue;
     }
 
     public File E() {
@@ -713,19 +713,19 @@ public class e {
     public String F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34971a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34975a : (String) invokeV.objValue;
     }
 
     public d.o H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34978h : (d.o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34982h : (d.o) invokeV.objValue;
     }
 
     public d.i I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f34977g : (d.i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f34981g : (d.i) invokeV.objValue;
     }
 
     public r J() {
@@ -751,8 +751,8 @@ public class e {
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || p) {
             return;
         }
-        if (this.f34973c == null) {
-            this.f34973c = new DownloadReceiver();
+        if (this.f34977c == null) {
+            this.f34977c = new DownloadReceiver();
         }
         try {
             IntentFilter intentFilter = new IntentFilter();
@@ -766,9 +766,9 @@ public class e {
             IntentFilter intentFilter3 = new IntentFilter();
             intentFilter3.addAction("android.intent.action.MEDIA_MOUNTED");
             intentFilter3.addDataScheme("file");
-            c.p.a.e.b.g.e.n().registerReceiver(this.f34973c, intentFilter);
-            c.p.a.e.b.g.e.n().registerReceiver(this.f34973c, intentFilter2);
-            c.p.a.e.b.g.e.n().registerReceiver(this.f34973c, intentFilter3);
+            c.p.a.e.b.g.e.n().registerReceiver(this.f34977c, intentFilter);
+            c.p.a.e.b.g.e.n().registerReceiver(this.f34977c, intentFilter2);
+            c.p.a.e.b.g.e.n().registerReceiver(this.f34977c, intentFilter3);
             p = true;
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -1164,7 +1164,7 @@ public class e {
     public d.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f34974d : (d.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f34978d : (d.e) invokeV.objValue;
     }
 
     public final c.p.a.e.b.f.e d(d.g gVar) {
@@ -1246,7 +1246,7 @@ public class e {
                 }
             }
             if (!z) {
-                arrayList.add(new com.ss.android.socialbase.downloader.model.c("User-Agent", c.h.f34960a));
+                arrayList.add(new com.ss.android.socialbase.downloader.model.c("User-Agent", c.h.f34964a));
             }
             return arrayList;
         }
@@ -1293,13 +1293,13 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048598, this, context, str, eVar, fVar, jVar) == null) {
             if (eVar != null) {
-                this.f34974d = eVar;
+                this.f34978d = eVar;
             }
             if (fVar != null) {
-                this.f34975e = fVar;
+                this.f34979e = fVar;
             }
             if (jVar != null) {
-                this.f34976f = jVar;
+                this.f34980f = jVar;
             }
             z(context);
         }
@@ -1308,14 +1308,14 @@ public class e {
     public void l(d.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, iVar) == null) {
-            this.f34977g = iVar;
+            this.f34981g = iVar;
         }
     }
 
     public void m(d.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, lVar) == null) {
-            this.f34980j = lVar;
+            this.f34984j = lVar;
         }
     }
 
@@ -1361,13 +1361,13 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048605, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f34972b = str;
+        this.f34976b = str;
     }
 
     public d.f u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f34975e : (d.f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f34979e : (d.f) invokeV.objValue;
     }
 
     public final DownloadInfo v(Context context, String str) {
@@ -1404,7 +1404,7 @@ public class e {
     public d.j y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f34976f : (d.j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f34980f : (d.j) invokeV.objValue;
     }
 
     public final void z(Context context) {
@@ -1422,12 +1422,12 @@ public class e {
 
     /* renamed from: c.p.a.e.a.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1543e extends d.AbstractC1542d {
+    public class C1545e extends d.AbstractC1544d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AlertDialog.Builder f34988a;
+        public AlertDialog.Builder f34992a;
 
         /* renamed from: c.p.a.e.a.e$e$a */
         /* loaded from: classes4.dex */
@@ -1436,7 +1436,7 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public AlertDialog f34989a;
+            public AlertDialog f34993a;
 
             public a(AlertDialog.Builder builder) {
                 Interceptable interceptable = $ic;
@@ -1454,7 +1454,7 @@ public class e {
                     }
                 }
                 if (builder != null) {
-                    this.f34989a = builder.show();
+                    this.f34993a = builder.show();
                 }
             }
 
@@ -1462,7 +1462,7 @@ public class e {
             public void a() {
                 AlertDialog alertDialog;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (alertDialog = this.f34989a) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (alertDialog = this.f34993a) == null) {
                     return;
                 }
                 alertDialog.show();
@@ -1473,7 +1473,7 @@ public class e {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    AlertDialog alertDialog = this.f34989a;
+                    AlertDialog alertDialog = this.f34993a;
                     if (alertDialog != null) {
                         return alertDialog.isShowing();
                     }
@@ -1483,7 +1483,7 @@ public class e {
             }
         }
 
-        public C1543e(Context context) {
+        public C1545e(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1498,7 +1498,7 @@ public class e {
                     return;
                 }
             }
-            this.f34988a = new AlertDialog.Builder(context);
+            this.f34992a = new AlertDialog.Builder(context);
         }
 
         @Override // c.p.a.e.a.d.n
@@ -1506,7 +1506,7 @@ public class e {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                AlertDialog.Builder builder = this.f34988a;
+                AlertDialog.Builder builder = this.f34992a;
                 if (builder != null) {
                     builder.setTitle(i2);
                 }
@@ -1520,7 +1520,7 @@ public class e {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i2, onClickListener)) == null) {
-                AlertDialog.Builder builder = this.f34988a;
+                AlertDialog.Builder builder = this.f34992a;
                 if (builder != null) {
                     builder.setPositiveButton(i2, onClickListener);
                 }
@@ -1534,7 +1534,7 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, onCancelListener)) == null) {
-                AlertDialog.Builder builder = this.f34988a;
+                AlertDialog.Builder builder = this.f34992a;
                 if (builder != null) {
                     builder.setOnCancelListener(onCancelListener);
                 }
@@ -1548,7 +1548,7 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                AlertDialog.Builder builder = this.f34988a;
+                AlertDialog.Builder builder = this.f34992a;
                 if (builder != null) {
                     builder.setMessage(str);
                 }
@@ -1562,7 +1562,7 @@ public class e {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, onClickListener)) == null) {
-                AlertDialog.Builder builder = this.f34988a;
+                AlertDialog.Builder builder = this.f34992a;
                 if (builder != null) {
                     builder.setNegativeButton(i2, onClickListener);
                 }
@@ -1575,7 +1575,7 @@ public class e {
         public d.m a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f34988a) : (d.m) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f34992a) : (d.m) invokeV.objValue;
         }
     }
 
@@ -1585,7 +1585,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.g f34987a;
+        public final /* synthetic */ d.g f34991a;
 
         public d(e eVar, d.g gVar) {
             Interceptable interceptable = $ic;
@@ -1602,7 +1602,7 @@ public class e {
                     return;
                 }
             }
-            this.f34987a = gVar;
+            this.f34991a = gVar;
         }
 
         @Override // c.p.a.e.b.f.e
@@ -1616,19 +1616,19 @@ public class e {
                         case 7:
                             break;
                         case 8:
-                            this.f34987a.b(i2, downloadInfo.getPackageName(), str, str2);
+                            this.f34991a.b(i2, downloadInfo.getPackageName(), str, str2);
                             return;
                         case 9:
-                            this.f34987a.a(c.p.a.e.b.g.e.n(), str);
+                            this.f34991a.a(c.p.a.e.b.g.e.n(), str);
                             return;
                         case 10:
-                            this.f34987a.a(downloadInfo);
+                            this.f34991a.a(downloadInfo);
                             return;
                         default:
                             return;
                     }
                 }
-                this.f34987a.a(i2, str, downloadInfo.getStatus(), downloadInfo.getDownloadTime());
+                this.f34991a.a(i2, str, downloadInfo.getStatus(), downloadInfo.getDownloadTime());
             }
         }
 
@@ -1636,14 +1636,14 @@ public class e {
         public boolean a(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) ? this.f34987a.a(z) : invokeZ.booleanValue;
+            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) ? this.f34991a.a(z) : invokeZ.booleanValue;
         }
 
         @Override // c.p.a.e.b.f.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34987a.a() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34991a.a() : (String) invokeV.objValue;
         }
     }
 }

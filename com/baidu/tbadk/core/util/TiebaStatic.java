@@ -366,6 +366,7 @@ public class TiebaStatic {
         public static final String TID_MERGE = "tids";
         public static final String TID_TYPE = "tid_type";
         public static final String TOPIC_ID = "topic_id";
+        public static final String TOPIC_TYPE = "topic_type";
         public static final String UGC_NID = "ugc_nid";
         public static final String UGC_TYPE = "ori_ugc_type";
         public static final String UGC_VID = "ugc_vid";

@@ -19,19 +19,19 @@ public abstract class a<T> extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13156b;
+    public int f13161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<T> f13157c;
+    public List<T> f13162c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f13158d;
+    public Context f13163d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LayoutInflater f13159e;
+    public LayoutInflater f13164e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e<T> f13160f;
+    public e<T> f13165f;
 
     /* renamed from: c.a.q0.f1.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -40,13 +40,13 @@ public abstract class a<T> extends b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public T f13161e;
+        public T f13166e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f13162f;
+        public int f13167f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f13163g;
+        public final /* synthetic */ a f13168g;
 
         public View$OnClickListenerC0655a(a aVar, T t, int i2) {
             Interceptable interceptable = $ic;
@@ -63,20 +63,20 @@ public abstract class a<T> extends b {
                     return;
                 }
             }
-            this.f13163g = aVar;
-            this.f13161e = t;
-            this.f13162f = i2;
+            this.f13168g = aVar;
+            this.f13166e = t;
+            this.f13167f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e<T> eVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (eVar = this.f13163g.f13160f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (eVar = this.f13168g.f13165f) == null) {
                 return;
             }
-            T t = this.f13161e;
-            int i2 = this.f13162f;
+            T t = this.f13166e;
+            int i2 = this.f13167f;
             eVar.a(view, t, i2, i2);
         }
     }
@@ -96,17 +96,17 @@ public abstract class a<T> extends b {
                 return;
             }
         }
-        this.f13158d = context;
-        this.f13157c = list == null ? new ArrayList() : new ArrayList(list);
-        this.f13156b = i2;
-        this.f13159e = LayoutInflater.from(this.f13158d);
+        this.f13163d = context;
+        this.f13162c = list == null ? new ArrayList() : new ArrayList(list);
+        this.f13161b = i2;
+        this.f13164e = LayoutInflater.from(this.f13163d);
     }
 
     @Override // c.a.q0.f1.f.a.b
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13157c.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13162c.size() : invokeV.intValue;
     }
 
     @Override // c.a.q0.f1.f.a.b
@@ -114,9 +114,9 @@ public abstract class a<T> extends b {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, viewGroup)) == null) {
-            View inflate = this.f13159e.inflate(this.f13156b, viewGroup, false);
+            View inflate = this.f13164e.inflate(this.f13161b, viewGroup, false);
             c cVar = new c(inflate);
-            T t = this.f13157c.get(i2);
+            T t = this.f13162c.get(i2);
             f(cVar, t, i2);
             cVar.c(new View$OnClickListenerC0655a(this, t, i2));
             return inflate;
@@ -132,7 +132,7 @@ public abstract class a<T> extends b {
             if (list == null) {
                 list = new ArrayList<>();
             }
-            this.f13157c = list;
+            this.f13162c = list;
             c();
         }
     }
@@ -140,7 +140,7 @@ public abstract class a<T> extends b {
     public void h(e<T> eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            this.f13160f = eVar;
+            this.f13165f = eVar;
         }
     }
 

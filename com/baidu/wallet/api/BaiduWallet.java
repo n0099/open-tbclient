@@ -42,7 +42,7 @@ public final class BaiduWallet implements IWalletFacade {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final IWalletFacade f60265a;
+        public static final IWalletFacade f60300a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,7 +58,7 @@ public final class BaiduWallet implements IWalletFacade {
                     return;
                 }
             }
-            f60265a = (IWalletFacade) Proxy.newProxyInstance(BaiduWallet.class.getClassLoader(), new Class[]{IWalletFacade.class}, new WalletFacadeAOP(new BaiduWallet(null)));
+            f60300a = (IWalletFacade) Proxy.newProxyInstance(BaiduWallet.class.getClassLoader(), new Class[]{IWalletFacade.class}, new WalletFacadeAOP(new BaiduWallet(null)));
         }
     }
 
@@ -100,7 +100,7 @@ public final class BaiduWallet implements IWalletFacade {
     public static IWalletFacade getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f60265a : (IWalletFacade) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f60300a : (IWalletFacade) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.api.IWalletPayFacade

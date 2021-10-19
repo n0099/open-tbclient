@@ -32,7 +32,7 @@ public class DoPhoneChargeAction implements RouterAction {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LoginBackListenerProxy f61185a;
+    public LoginBackListenerProxy f61220a;
 
     public DoPhoneChargeAction() {
         Interceptable interceptable = $ic;
@@ -96,21 +96,21 @@ public class DoPhoneChargeAction implements RouterAction {
                 } else {
                     intent.setFlags(268435456);
                 }
-                this.f61185a = new LoginBackListenerProxy(context, new ILoginBackListener(this, context, intent, z) { // from class: com.baidu.wallet.fastpay.entrance.DoPhoneChargeAction.1
+                this.f61220a = new LoginBackListenerProxy(context, new ILoginBackListener(this, context, intent, z) { // from class: com.baidu.wallet.fastpay.entrance.DoPhoneChargeAction.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f61186a;
+                    public final /* synthetic */ Context f61221a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Intent f61187b;
+                    public final /* synthetic */ Intent f61222b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ boolean f61188c;
+                    public final /* synthetic */ boolean f61223c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ DoPhoneChargeAction f61189d;
+                    public final /* synthetic */ DoPhoneChargeAction f61224d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -127,10 +127,10 @@ public class DoPhoneChargeAction implements RouterAction {
                                 return;
                             }
                         }
-                        this.f61189d = this;
-                        this.f61186a = context;
-                        this.f61187b = intent;
-                        this.f61188c = z;
+                        this.f61224d = this;
+                        this.f61221a = context;
+                        this.f61222b = intent;
+                        this.f61223c = z;
                     }
 
                     @Override // com.baidu.wallet.api.ILoginBackListener
@@ -138,19 +138,19 @@ public class DoPhoneChargeAction implements RouterAction {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
                             if (i2 == 603) {
-                                WalletLoginHelper.getInstance().onlyLogin(this.f61189d.f61185a);
+                                WalletLoginHelper.getInstance().onlyLogin(this.f61224d.f61220a);
                                 return;
                             }
-                            this.f61186a.startActivity(this.f61187b);
-                            Context context2 = this.f61186a;
+                            this.f61221a.startActivity(this.f61222b);
+                            Context context2 = this.f61221a;
                             if (context2 instanceof Activity) {
-                                if (this.f61188c) {
+                                if (this.f61223c) {
                                     BaiduWalletUtils.startActivityAnim(context2);
                                 } else {
                                     BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context2);
                                 }
                             }
-                            this.f61189d.f61185a = null;
+                            this.f61224d.f61220a = null;
                         }
                     }
 
@@ -158,20 +158,20 @@ public class DoPhoneChargeAction implements RouterAction {
                     public void onSuccess(int i2, String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                            this.f61186a.startActivity(this.f61187b);
-                            Context context2 = this.f61186a;
+                            this.f61221a.startActivity(this.f61222b);
+                            Context context2 = this.f61221a;
                             if (context2 instanceof Activity) {
-                                if (this.f61188c) {
+                                if (this.f61223c) {
                                     BaiduWalletUtils.startActivityAnim(context2);
                                 } else {
                                     BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context2);
                                 }
                             }
-                            this.f61189d.f61185a = null;
+                            this.f61224d.f61220a = null;
                         }
                     }
                 });
-                WalletLoginHelper.getInstance().verifyPassLogin(true, this.f61185a);
+                WalletLoginHelper.getInstance().verifyPassLogin(true, this.f61220a);
             }
         }
     }

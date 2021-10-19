@@ -1,93 +1,54 @@
 package c.a.q0.t.c;
 
-import android.net.Uri;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.dxmpay.wallet.core.Domains;
-import java.util.Arrays;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a0 {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f14616a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static List<String> f14617b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(300593371, "Lc/a/q0/t/c/a0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(300593371, "Lc/a/q0/t/c/a0;");
+    /* renamed from: a  reason: collision with root package name */
+    public int f14636a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f14637b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f14638c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f14639d;
+
+    public a0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        f14616a = Arrays.asList(Domains.BAIDU, Domains.NUOMI, Domains.BAIFUBAO, ".hao123.com");
+        this.f14636a = 0;
+        this.f14637b = 0;
+        this.f14638c = 0;
+        this.f14639d = 0;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        String p;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (c.a.e.e.p.k.isEmpty(str)) {
-                return false;
-            }
-            Uri parse = Uri.parse(str);
-            if (parse == null || !"file".equals(parse.getScheme()) || parse.getPath() == null || !parse.getPath().contains("bdtbNWCache")) {
-                if (f14617b == null && (p = c.a.q0.s.d0.b.j().p("js_host_white_list", null)) != null) {
-                    f14617b = b(p);
-                }
-                if (f14617b == null) {
-                    f14617b = f14616a;
-                }
-                if (parse != null) {
-                    String host = parse.getHost();
-                    for (String str2 : f14617b) {
-                        if (host.endsWith(str2)) {
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            }
-            return true;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static List<String> b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (c.a.e.e.p.k.isEmpty(str)) {
-                return null;
-            }
-            return Arrays.asList(str.split(";"));
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            if (str == null) {
-                c.a.q0.s.d0.b.j().x("js_host_white_list", "");
-            } else {
-                c.a.q0.s.d0.b.j().x("js_host_white_list", str);
-            }
-            f14617b = b(str);
-        }
+        this.f14636a = jSONObject.optInt("days_new_user", 0);
+        this.f14637b = jSONObject.optInt("days_low_active", 0);
+        this.f14638c = jSONObject.optInt("limit_day", 0);
+        this.f14639d = jSONObject.optInt("limit_count", 0);
     }
 }

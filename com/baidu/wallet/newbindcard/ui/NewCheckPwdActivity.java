@@ -49,34 +49,34 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SixNumberPwdView f62444a;
+    public SixNumberPwdView f62479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f62445b;
+    public TextView f62480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f62446c;
+    public TextView f62481c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f62447d;
+    public View f62482d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f62448e;
+    public boolean f62483e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f62449f;
+    public RelativeLayout f62484f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SafeScrollView f62450g;
+    public SafeScrollView f62485g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SafeKeyBoardEditText f62451h;
+    public SafeKeyBoardEditText f62486h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f62452i;
+    public final int f62487i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f62453j;
+    public final int f62488j;
     public String k;
     public int l;
 
@@ -93,9 +93,9 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                 return;
             }
         }
-        this.f62448e = false;
-        this.f62452i = 1;
-        this.f62453j = 2;
+        this.f62483e = false;
+        this.f62487i = 1;
+        this.f62488j = 2;
         this.l = 0;
     }
 
@@ -147,7 +147,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ NewCheckPwdActivity f62454a;
+                        public final /* synthetic */ NewCheckPwdActivity f62489a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -164,14 +164,14 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                                     return;
                                 }
                             }
-                            this.f62454a = this;
+                            this.f62489a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                WalletGlobalUtils.safeShowDialog(this.f62454a.mAct, 2, "");
+                                WalletGlobalUtils.safeShowDialog(this.f62489a.mAct, 2, "");
                             }
                         }
                     });
@@ -201,7 +201,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
             if (view == this.mLeftImg) {
                 onBackPressed();
-            } else if (view == this.f62447d) {
+            } else if (view == this.f62482d) {
                 a();
             }
         }
@@ -244,7 +244,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
             this.l = 0;
             a.a(PayStatServiceEvent.NEW_CHECK_PWD_COUNT, hashMap, a.a(), a.b(), "0");
             BeanManager.getInstance().removeAllBeans("NewCheckPwdActivity");
-            if (this.f62448e) {
+            if (this.f62483e) {
                 PasswordController.getPassWordInstance().clearForgetPasswdCallback();
             }
             EventBus.getInstance().unregister(this);
@@ -263,7 +263,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                     JSONObject jSONObject = new JSONObject((String) event.mEventObj);
                     if (jSONObject.has("is_succeed") && 1 == jSONObject.getInt("is_succeed")) {
                         a.a(PayStatServiceEvent.NEW_CHECK_PWD_FIND_PWD_RESULT, a.a(), a.b(), "0", "0", NewBindCardEntry.BING_CARD_SUCCESS_MSG);
-                        this.f62445b.setVisibility(4);
+                        this.f62480b.setVisibility(4);
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -296,7 +296,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NewCheckPwdActivity f62462a;
+                    public final /* synthetic */ NewCheckPwdActivity f62497a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -313,14 +313,14 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                                 return;
                             }
                         }
-                        this.f62462a = this;
+                        this.f62497a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f62462a.mAct, 3);
+                            WalletGlobalUtils.safeDismissDialog(this.f62497a.mAct, 3);
                         }
                     }
                 });
@@ -335,10 +335,10 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PromptDialog f62463a;
+                    public final /* synthetic */ PromptDialog f62498a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ NewCheckPwdActivity f62464b;
+                    public final /* synthetic */ NewCheckPwdActivity f62499b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -355,8 +355,8 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                                 return;
                             }
                         }
-                        this.f62464b = this;
-                        this.f62463a = promptDialog2;
+                        this.f62499b = this;
+                        this.f62498a = promptDialog2;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -364,7 +364,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             a.a(PayStatServiceEvent.NEW_CLICK_WHAT_PWD_DIALOG, a.a(), a.b(), "0");
-                            this.f62463a.dismiss();
+                            this.f62498a.dismiss();
                         }
                     }
                 });
@@ -377,7 +377,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NewCheckPwdActivity f62465a;
+                    public final /* synthetic */ NewCheckPwdActivity f62500a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -394,15 +394,15 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                                 return;
                             }
                         }
-                        this.f62465a = this;
+                        this.f62500a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f62465a.a();
-                            WalletGlobalUtils.safeDismissDialog(this.f62465a, 2);
+                            this.f62500a.a();
+                            WalletGlobalUtils.safeDismissDialog(this.f62500a, 2);
                         }
                     }
                 });
@@ -411,7 +411,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NewCheckPwdActivity f62466a;
+                    public final /* synthetic */ NewCheckPwdActivity f62501a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -428,14 +428,14 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                                 return;
                             }
                         }
-                        this.f62466a = this;
+                        this.f62501a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f62466a, 2);
+                            WalletGlobalUtils.safeDismissDialog(this.f62501a, 2);
                         }
                     }
                 });
@@ -465,7 +465,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             super.onWindowFocusChanged(z);
             if (z) {
-                this.f62451h.requestFocus();
+                this.f62486h.requestFocus();
             }
         }
     }
@@ -481,23 +481,23 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
             this.mActionBar.setVisibility(0);
-            this.f62449f = (RelativeLayout) findViewById(R.id.new_bind_card_check_pwd_layout);
-            this.f62444a = (SixNumberPwdView) findViewById(R.id.new_pwd_input_box);
-            this.f62445b = (TextView) findViewById(R.id.new_error_tip);
-            this.f62446c = (TextView) findViewById(R.id.tv_check_pwd_tip);
-            this.f62447d = findViewById(R.id.new_forget_pwd);
-            this.f62450g = (SafeScrollView) findViewById(R.id.new_check_pwd_scrollview);
-            SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f62444a.findViewById(ResUtils.id(getActivity(), "pwd_input"));
-            this.f62451h = safeKeyBoardEditText;
-            safeKeyBoardEditText.initSafeKeyBoardParams(this.f62449f, this.f62450g, safeKeyBoardEditText, false);
-            this.f62451h.setGap(20);
-            this.f62451h.setDisablePast(true);
-            this.f62444a.addSixNumberPwdChangedListenter(this);
-            setSafeScrollView(this.f62450g);
-            this.f62451h.requestFocus();
+            this.f62484f = (RelativeLayout) findViewById(R.id.new_bind_card_check_pwd_layout);
+            this.f62479a = (SixNumberPwdView) findViewById(R.id.new_pwd_input_box);
+            this.f62480b = (TextView) findViewById(R.id.new_error_tip);
+            this.f62481c = (TextView) findViewById(R.id.tv_check_pwd_tip);
+            this.f62482d = findViewById(R.id.new_forget_pwd);
+            this.f62485g = (SafeScrollView) findViewById(R.id.new_check_pwd_scrollview);
+            SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f62479a.findViewById(ResUtils.id(getActivity(), "pwd_input"));
+            this.f62486h = safeKeyBoardEditText;
+            safeKeyBoardEditText.initSafeKeyBoardParams(this.f62484f, this.f62485g, safeKeyBoardEditText, false);
+            this.f62486h.setGap(20);
+            this.f62486h.setDisablePast(true);
+            this.f62479a.addSixNumberPwdChangedListenter(this);
+            setSafeScrollView(this.f62485g);
+            this.f62486h.requestFocus();
             this.mLeftImg.setOnClickListener(this);
             a(ResUtils.getString(this, "wallet_base_new_bind_card_check_pwd_tip"), true);
-            this.f62447d.setOnClickListener(this);
+            this.f62482d.setOnClickListener(this);
         }
     }
 
@@ -508,7 +508,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
             v vVar = (v) PayBeanFactory.getInstance().getBean((Context) this, 606, "NewCheckPwdActivity");
             vVar.a(true);
             vVar.b("");
-            vVar.a(this.f62444a.getPwd());
+            vVar.a(this.f62479a.getPwd());
             vVar.setResponseCallback(this);
             vVar.execBean();
         }
@@ -522,7 +522,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NewCheckPwdActivity f62455a;
+                public final /* synthetic */ NewCheckPwdActivity f62490a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -539,14 +539,14 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f62455a = this;
+                    this.f62490a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f62455a.f62444a.resetPwd();
+                        this.f62490a.f62479a.resetPwd();
                     }
                 }
             });
@@ -563,7 +563,7 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
             }
             a.a(PayStatServiceEvent.NEW_CHECK_PWD_FORGET_PWD, a.a(), a.b(), "0");
             BaiduWalletDelegate.getInstance().openH5Module(getActivity(), findPayPwdUrl, false);
-            this.f62448e = true;
+            this.f62483e = true;
         }
     }
 
@@ -575,10 +575,10 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f62456a;
+                public final /* synthetic */ String f62491a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ NewCheckPwdActivity f62457b;
+                public final /* synthetic */ NewCheckPwdActivity f62492b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -595,15 +595,15 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f62457b = this;
-                    this.f62456a = str;
+                    this.f62492b = this;
+                    this.f62491a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        GlobalUtils.toast(this.f62457b, this.f62456a);
+                        GlobalUtils.toast(this.f62492b, this.f62491a);
                     }
                 }
             });
@@ -618,13 +618,13 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f62458a;
+                public final /* synthetic */ String f62493a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f62459b;
+                public final /* synthetic */ boolean f62494b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ NewCheckPwdActivity f62460c;
+                public final /* synthetic */ NewCheckPwdActivity f62495c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -641,27 +641,27 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f62460c = this;
-                    this.f62458a = str;
-                    this.f62459b = z;
+                    this.f62495c = this;
+                    this.f62493a = str;
+                    this.f62494b = z;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f62460c.f62445b.setText(this.f62458a);
-                        if (this.f62459b) {
-                            this.f62460c.f62445b.setTextColor(ResUtils.getColor(this.f62460c, "wallet_cashdesk_new_bind_card_7BE6"));
+                        this.f62495c.f62480b.setText(this.f62493a);
+                        if (this.f62494b) {
+                            this.f62495c.f62480b.setTextColor(ResUtils.getColor(this.f62495c, "wallet_cashdesk_new_bind_card_7BE6"));
                         } else {
-                            this.f62460c.f62445b.setTextColor(ResUtils.getColor(this.f62460c, "dxm_wallet_fp_promtion_text"));
+                            this.f62495c.f62480b.setTextColor(ResUtils.getColor(this.f62495c, "dxm_wallet_fp_promtion_text"));
                         }
-                        this.f62460c.f62445b.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.newbindcard.ui.NewCheckPwdActivity.4.1
+                        this.f62495c.f62480b.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.newbindcard.ui.NewCheckPwdActivity.4.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass4 f62461a;
+                            public final /* synthetic */ AnonymousClass4 f62496a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -678,16 +678,16 @@ public class NewCheckPwdActivity extends HalfProtocolScreenBaseActivity implemen
                                         return;
                                     }
                                 }
-                                this.f62461a = this;
+                                this.f62496a = this;
                             }
 
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, view) == null) {
-                                    AnonymousClass4 anonymousClass4 = this.f62461a;
-                                    if (anonymousClass4.f62459b) {
-                                        WalletGlobalUtils.safeShowDialog(anonymousClass4.f62460c.mAct, 1, "");
+                                    AnonymousClass4 anonymousClass4 = this.f62496a;
+                                    if (anonymousClass4.f62494b) {
+                                        WalletGlobalUtils.safeShowDialog(anonymousClass4.f62495c.mAct, 1, "");
                                     }
                                 }
                             }

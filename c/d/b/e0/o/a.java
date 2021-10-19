@@ -20,7 +20,7 @@ public final class a extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f32078a;
+    public final e f32082a;
 
     public a(e eVar) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class a extends c {
                 return;
             }
         }
-        this.f32078a = eVar;
+        this.f32082a = eVar;
     }
 
     @Override // c.d.b.e0.o.c
@@ -51,7 +51,7 @@ public final class a extends c {
             boolean z = false;
             for (int i2 = 0; i2 < 9; i2++) {
                 X509Certificate x509Certificate = (X509Certificate) arrayList.get(arrayList.size() - 1);
-                X509Certificate findByIssuerAndSignature = this.f32078a.findByIssuerAndSignature(x509Certificate);
+                X509Certificate findByIssuerAndSignature = this.f32082a.findByIssuerAndSignature(x509Certificate);
                 if (findByIssuerAndSignature != null) {
                     if (arrayList.size() > 1 || !x509Certificate.equals(findByIssuerAndSignature)) {
                         arrayList.add(findByIssuerAndSignature);
@@ -104,7 +104,7 @@ public final class a extends c {
             if (obj == this) {
                 return true;
             }
-            return (obj instanceof a) && ((a) obj).f32078a.equals(this.f32078a);
+            return (obj instanceof a) && ((a) obj).f32082a.equals(this.f32082a);
         }
         return invokeL.booleanValue;
     }
@@ -112,6 +112,6 @@ public final class a extends c {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32078a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32082a.hashCode() : invokeV.intValue;
     }
 }

@@ -13,7 +13,7 @@ public class WhiteScreenConfig implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Policy f62169a;
+    public static final Policy f62204a;
     public transient /* synthetic */ FieldHolder $fh;
     public Policy finishPolicy;
     public Policy resumePolicy;
@@ -86,7 +86,7 @@ public class WhiteScreenConfig implements NoProguard {
                 return;
             }
         }
-        f62169a = new Policy(1000, 1, 0.8d);
+        f62204a = new Policy(1000, 1, 0.8d);
     }
 
     public WhiteScreenConfig() {
@@ -113,7 +113,7 @@ public class WhiteScreenConfig implements NoProguard {
         this.wsc_area_detect = 9;
         this.wsc_general_detect = 1;
         this.wsc_simple_count = 3;
-        Policy policy = f62169a;
+        Policy policy = f62204a;
         this.resumePolicy = policy;
         this.startPolicy = policy;
         this.finishPolicy = policy;

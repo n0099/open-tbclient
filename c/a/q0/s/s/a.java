@@ -93,14 +93,14 @@ public class a {
 
     /* renamed from: c.a.q0.s.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0693a implements View.OnClickListener {
+    public class View$OnClickListenerC0695a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f14388e;
+        public final /* synthetic */ a f14408e;
 
-        public View$OnClickListenerC0693a(a aVar) {
+        public View$OnClickListenerC0695a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,18 +115,18 @@ public class a {
                     return;
                 }
             }
-            this.f14388e = aVar;
+            this.f14408e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                a aVar = this.f14388e;
+                a aVar = this.f14408e;
                 aVar.noTipAgainChecked = !aVar.noTipAgainChecked;
-                this.f14388e.setCheckBoxDrawable();
-                if (this.f14388e.onNoTipAgainCheckListener != null) {
-                    this.f14388e.onNoTipAgainCheckListener.a();
+                this.f14408e.setCheckBoxDrawable();
+                if (this.f14408e.onNoTipAgainCheckListener != null) {
+                    this.f14408e.onNoTipAgainCheckListener.a();
                 }
             }
         }
@@ -138,7 +138,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicBoolean f14389a;
+        public final /* synthetic */ AtomicBoolean f14409a;
 
         public b(a aVar, AtomicBoolean atomicBoolean) {
             Interceptable interceptable = $ic;
@@ -155,7 +155,7 @@ public class a {
                     return;
                 }
             }
-            this.f14389a = atomicBoolean;
+            this.f14409a = atomicBoolean;
         }
 
         @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
@@ -164,7 +164,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
                 if (view instanceof EditText) {
-                    this.f14389a.set(true);
+                    this.f14409a.set(true);
                     return true;
                 }
                 return false;
@@ -179,7 +179,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f14390e;
+        public final /* synthetic */ a f14410e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -196,14 +196,14 @@ public class a {
                     return;
                 }
             }
-            this.f14390e = aVar;
+            this.f14410e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f14390e.show(true);
+                this.f14410e.show(true);
             }
         }
     }
@@ -214,10 +214,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final a f14391e;
+        public final a f14411e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final e f14392f;
+        public final e f14412f;
 
         public d(a aVar, a aVar2, e eVar) {
             Interceptable interceptable = $ic;
@@ -234,18 +234,18 @@ public class a {
                     return;
                 }
             }
-            this.f14391e = aVar2;
-            this.f14392f = eVar;
+            this.f14411e = aVar2;
+            this.f14412f = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (eVar = this.f14392f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (eVar = this.f14412f) == null) {
                 return;
             }
-            eVar.onClick(this.f14391e);
+            eVar.onClick(this.f14411e);
         }
     }
 
@@ -311,15 +311,15 @@ public class a {
             TextView textView = this.noButton;
             if (textView != null) {
                 c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(textView);
-                d2.y(R.color.CAM_X0302);
-                d2.o(R.string.J_X06);
+                d2.x(R.color.CAM_X0302);
+                d2.n(R.string.J_X06);
                 d2.f(R.color.CAM_X0211);
             }
             TextView textView2 = this.yesButton;
             if (textView2 != null) {
                 c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(textView2);
-                d3.y(R.color.CAM_X0302);
-                d3.o(R.string.J_X06);
+                d3.x(R.color.CAM_X0302);
+                d3.n(R.string.J_X06);
                 d3.f(R.color.CAM_X0211);
             }
         }
@@ -361,7 +361,7 @@ public class a {
                 this.bdDialog_divider_line.setVisibility(8);
             } else if (z) {
                 c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.yesButton);
-                d2.o(R.string.J_X06);
+                d2.n(R.string.J_X06);
                 d2.f(R.color.CAM_X0211);
                 if (this.noButton == null || this.dividerWithButton == null || (view3 = this.bdDialog_divider_line) == null) {
                     return;
@@ -371,7 +371,7 @@ public class a {
                 this.noButton.setVisibility(8);
             } else if (z2) {
                 c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(this.noButton);
-                d3.o(R.string.J_X06);
+                d3.n(R.string.J_X06);
                 d3.f(R.color.CAM_X0211);
                 if (this.yesButton == null || this.dividerWithButton == null || (view2 = this.bdDialog_divider_line) == null) {
                     return;
@@ -485,7 +485,7 @@ public class a {
             if (fVar instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) fVar;
                 tbPageContext.getLayoutMode().k(skinType == 1);
-                tbPageContext.getLayoutMode().f13756e = !isAutoNight();
+                tbPageContext.getLayoutMode().f13776e = !isAutoNight();
                 tbPageContext.getLayoutMode().j(this.mRootView);
                 if (this.mContentView != null) {
                     tbPageContext.getLayoutMode().j(this.mContentView);
@@ -557,15 +557,15 @@ public class a {
             if (this.mButtonTextColorId != -1) {
                 TextView textView4 = this.yesButton;
                 if (textView4 != null) {
-                    c.a.q0.s.u.c.d(textView4).y(this.mButtonTextColorId);
+                    c.a.q0.s.u.c.d(textView4).x(this.mButtonTextColorId);
                 }
                 TextView textView5 = this.noButton;
                 if (textView5 != null) {
-                    c.a.q0.s.u.c.d(textView5).y(this.mButtonTextColorId);
+                    c.a.q0.s.u.c.d(textView5).x(this.mButtonTextColorId);
                 }
             }
             if (this.mNegativeTextColorId != -1 && (textView3 = this.noButton) != null) {
-                c.a.q0.s.u.c.d(textView3).y(this.mNegativeTextColorId);
+                c.a.q0.s.u.c.d(textView3).x(this.mNegativeTextColorId);
             }
             if (TextUtils.isEmpty(this.mPositiveButtonTip) || (textView2 = this.yesButton) == null) {
                 z = false;
@@ -607,7 +607,7 @@ public class a {
             this.noTipAgain = (TextView) inflate.findViewById(R.id.no_tip_again_text);
             this.noTipAgainCheckBox = (ImageView) inflate.findViewById(R.id.checkbox);
             setCheckBoxDrawable();
-            this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC0693a(this));
+            this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC0695a(this));
             return inflate;
         }
         return (View) invokeV.objValue;

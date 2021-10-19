@@ -33,7 +33,7 @@ public class BaseChromiumApplication extends Application {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseChromiumApplication f59396e;
+        public final /* synthetic */ BaseChromiumApplication f59431e;
 
         public a(BaseChromiumApplication baseChromiumApplication) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class BaseChromiumApplication extends Application {
                     return;
                 }
             }
-            this.f59396e = baseChromiumApplication;
+            this.f59431e = baseChromiumApplication;
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-                activity.getWindow().setCallback((Window.Callback) Proxy.newProxyInstance(Window.Callback.class.getClassLoader(), new Class[]{Window.Callback.class}, new b(this.f59396e, activity, activity.getWindow().getCallback())));
+                activity.getWindow().setCallback((Window.Callback) Proxy.newProxyInstance(Window.Callback.class.getClassLoader(), new Class[]{Window.Callback.class}, new b(this.f59431e, activity, activity.getWindow().getCallback())));
             }
         }
 
@@ -110,13 +110,13 @@ public class BaseChromiumApplication extends Application {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Window.Callback f59397e;
+        public final Window.Callback f59432e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Activity f59398f;
+        public final Activity f59433f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BaseChromiumApplication f59399g;
+        public final /* synthetic */ BaseChromiumApplication f59434g;
 
         public b(BaseChromiumApplication baseChromiumApplication, Activity activity, Window.Callback callback) {
             Interceptable interceptable = $ic;
@@ -133,18 +133,18 @@ public class BaseChromiumApplication extends Application {
                     return;
                 }
             }
-            this.f59399g = baseChromiumApplication;
-            this.f59397e = callback;
-            this.f59398f = activity;
+            this.f59434g = baseChromiumApplication;
+            this.f59432e = callback;
+            this.f59433f = activity;
         }
 
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f59397e.onWindowFocusChanged(z);
-                Iterator it = this.f59399g.mWindowFocusListeners.iterator();
+                this.f59432e.onWindowFocusChanged(z);
+                Iterator it = this.f59434g.mWindowFocusListeners.iterator();
                 while (it.hasNext()) {
-                    ((c) it.next()).a(this.f59398f, z);
+                    ((c) it.next()).a(this.f59433f, z);
                 }
             }
         }
@@ -159,7 +159,7 @@ public class BaseChromiumApplication extends Application {
                     return null;
                 }
                 try {
-                    return method.invoke(this.f59397e, objArr);
+                    return method.invoke(this.f59432e, objArr);
                 } catch (InvocationTargetException e2) {
                     if (e2.getCause() instanceof AbstractMethodError) {
                         throw e2.getCause();

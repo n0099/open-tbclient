@@ -14,31 +14,31 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30428a;
+    public int f30475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30429b;
+    public String f30476b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30430c;
+    public String f30477c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30431d;
+    public String f30478d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f30432e;
+    public a f30479e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f30433f;
+    public e f30480f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f30434g;
+    public g f30481g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LiveFeedWrapData f30435h;
+    public LiveFeedWrapData f30482h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f30436i;
+    public b f30483i;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -57,13 +57,13 @@ public class c {
     public void a(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
-            this.f30428a = i2;
-            this.f30429b = str2;
+            this.f30475a = i2;
+            this.f30476b = str2;
             g gVar = new g();
-            this.f30434g = gVar;
-            gVar.b(null, b(str), this.f30428a);
+            this.f30481g = gVar;
+            gVar.b(null, b(str), this.f30475a);
             b bVar = new b();
-            this.f30436i = bVar;
+            this.f30483i = bVar;
             bVar.a(null, b(str));
         }
     }
@@ -79,42 +79,42 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, i2) == null) || jSONObject == null) {
             return;
         }
-        this.f30428a = jSONObject.optInt("errno");
-        this.f30429b = jSONObject.optString("msg");
-        this.f30430c = jSONObject.optString("logid");
+        this.f30475a = jSONObject.optInt("errno");
+        this.f30476b = jSONObject.optString("msg");
+        this.f30477c = jSONObject.optString("logid");
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject == null) {
             return;
         }
-        this.f30431d = optJSONObject.optString("resource");
+        this.f30478d = optJSONObject.optString("resource");
         JSONObject optJSONObject2 = optJSONObject.optJSONObject("banner");
         if (optJSONObject2 != null) {
             a aVar = new a();
-            this.f30432e = aVar;
+            this.f30479e = aVar;
             aVar.a(optJSONObject2);
         }
         JSONObject optJSONObject3 = optJSONObject.optJSONObject("follow");
         if (optJSONObject3 != null) {
             e eVar = new e();
-            this.f30433f = eVar;
+            this.f30480f = eVar;
             eVar.a(optJSONObject3);
         }
         JSONObject optJSONObject4 = optJSONObject.optJSONObject("tab");
         if (optJSONObject4 != null) {
             g gVar = new g();
-            this.f30434g = gVar;
-            gVar.b(optJSONObject4, b(str), this.f30428a);
+            this.f30481g = gVar;
+            gVar.b(optJSONObject4, b(str), this.f30475a);
         }
         JSONObject optJSONObject5 = optJSONObject.optJSONObject("feed");
         if (optJSONObject5 != null) {
             LiveFeedWrapData liveFeedWrapData = new LiveFeedWrapData();
-            this.f30435h = liveFeedWrapData;
+            this.f30482h = liveFeedWrapData;
             liveFeedWrapData.parserJson(optJSONObject5, i2);
         }
         JSONObject optJSONObject6 = optJSONObject.optJSONObject("config");
         if (optJSONObject6 != null) {
             b bVar = new b();
-            this.f30436i = bVar;
+            this.f30483i = bVar;
             bVar.a(optJSONObject6, b(str));
         }
     }

@@ -44,9 +44,9 @@ public class d extends com.alipay.sdk.packet.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put(com.alipay.sdk.packet.e.f36043c, String.valueOf(z));
+            hashMap.put(com.alipay.sdk.packet.e.f36047c, String.valueOf(z));
             hashMap.put("content-type", "application/octet-stream");
-            hashMap.put(com.alipay.sdk.packet.e.f36049i, "CBC");
+            hashMap.put(com.alipay.sdk.packet.e.f36053i, "CBC");
             return hashMap;
         }
         return (Map) invokeZL.objValue;
@@ -81,6 +81,6 @@ public class d extends com.alipay.sdk.packet.e {
     public com.alipay.sdk.packet.b a(com.alipay.sdk.sys.a aVar, Context context, String str) throws Throwable {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, aVar, context, str)) == null) ? a(aVar, context, str, com.alipay.sdk.cons.a.f35959c, true) : (com.alipay.sdk.packet.b) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, aVar, context, str)) == null) ? a(aVar, context, str, com.alipay.sdk.cons.a.f35963c, true) : (com.alipay.sdk.packet.b) invokeLLL.objValue;
     }
 }

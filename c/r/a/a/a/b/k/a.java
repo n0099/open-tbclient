@@ -19,19 +19,19 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.j.a f35544a;
+    public com.yxcorp.kuaishou.addfp.a.b.j.a f35548a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f35545b;
+    public com.yxcorp.kuaishou.addfp.a.b.b f35549b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f35546c;
+    public Context f35550c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f35547d;
+    public CountDownLatch f35551d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f35548e;
+    public ServiceConnection f35552e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public final class a {
                 return;
             }
         }
-        this.f35544a = null;
-        this.f35547d = new CountDownLatch(1);
-        this.f35548e = new b(this);
+        this.f35548a = null;
+        this.f35551d = new CountDownLatch(1);
+        this.f35552e = new b(this);
     }
 
     public static boolean f(Context context) {
@@ -69,10 +69,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             try {
-                if (this.f35548e == null || context == null) {
+                if (this.f35552e == null || context == null) {
                     return;
                 }
-                context.unbindService(this.f35548e);
+                context.unbindService(this.f35552e);
             } catch (Throwable th) {
                 c.r.a.a.c.b.c.c(th);
             }
@@ -83,8 +83,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             try {
-                this.f35545b = bVar;
-                this.f35546c = context;
+                this.f35549b = bVar;
+                this.f35550c = context;
                 if (f(context)) {
                     String packageName = context.getPackageName();
                     Intent intent = new Intent();
@@ -98,12 +98,12 @@ public final class a {
                 intent2.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
                 intent2.setAction("com.bun.msa.action.bindto.service");
                 intent2.putExtra("com.bun.msa.param.pkgname", context.getPackageName());
-                if (!context.bindService(intent2, this.f35548e, 1)) {
+                if (!context.bindService(intent2, this.f35552e, 1)) {
                     d(false);
                     return;
                 }
-                this.f35547d.await(10L, TimeUnit.SECONDS);
-                if (this.f35544a != null) {
+                this.f35551d.await(10L, TimeUnit.SECONDS);
+                if (this.f35548a != null) {
                     d(true);
                 } else {
                     d(false);
@@ -120,9 +120,9 @@ public final class a {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
                 try {
-                    String a2 = this.f35544a.a();
+                    String a2 = this.f35548a.a();
                     if (!TextUtils.isEmpty(a2)) {
-                        this.f35545b.a(a2);
+                        this.f35549b.a(a2);
                         return;
                     }
                 } catch (Throwable th) {
@@ -130,7 +130,7 @@ public final class a {
                     return;
                 }
             }
-            this.f35545b.e();
+            this.f35549b.e();
         }
     }
 
@@ -139,7 +139,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return this.f35546c.getPackageManager().getPackageInfo("com.mdid.msa", 0) != null;
+                return this.f35550c.getPackageManager().getPackageInfo("com.mdid.msa", 0) != null;
             } catch (Throwable unused) {
                 return false;
             }

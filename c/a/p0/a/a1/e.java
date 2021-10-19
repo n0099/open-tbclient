@@ -98,7 +98,7 @@ public class e {
                 } else {
                     l = C0114e.l(this.f4502e, bVar, this.f4503f);
                 }
-                if (l == null || (swanAppConfigData = l.f4507b) == null || swanAppConfigData.f46656b == null) {
+                if (l == null || (swanAppConfigData = l.f4507b) == null || swanAppConfigData.f46568b == null) {
                     c.a.p0.a.q2.a aVar = bVar.f9297a;
                     if (aVar == null) {
                         aVar = new c.a.p0.a.q2.a();

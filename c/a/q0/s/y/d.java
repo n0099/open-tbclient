@@ -20,10 +20,10 @@ public abstract class d implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f14525a;
+    public final l f14545a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, Method> f14526b;
+    public final HashMap<String, Method> f14546b;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: c.a.q0.s.y.d */
     /* JADX WARN: Multi-variable type inference failed */
@@ -42,10 +42,10 @@ public abstract class d implements h {
                 return;
             }
         }
-        this.f14525a = lVar;
-        this.f14526b = new HashMap<>();
+        this.f14545a = lVar;
+        this.f14546b = new HashMap<>();
         c(getClass());
-        if (this.f14526b.isEmpty()) {
+        if (this.f14546b.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
@@ -55,7 +55,7 @@ public abstract class d implements h {
         Object invoke;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
-            Method method = this.f14526b.get(str);
+            Method method = this.f14546b.get(str);
             if (method != null) {
                 o oVar = (o) method.getAnnotation(o.class);
                 String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
@@ -121,7 +121,7 @@ public abstract class d implements h {
     public Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14525a.f() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14545a.f() : (Context) invokeV.objValue;
     }
 
     public final void c(Class<? extends d> cls) {
@@ -140,7 +140,7 @@ public abstract class d implements h {
                         str = method.getName();
                     }
                     method.setAccessible(true);
-                    this.f14526b.put(str, method);
+                    this.f14546b.put(str, method);
                 }
             }
             Class<? super Object> superclass = cls.getSuperclass();
@@ -171,7 +171,7 @@ public abstract class d implements h {
             if (jSONObject != null) {
                 hashMap.put("data", jSONObject);
             }
-            this.f14525a.c(m.k(str, hashMap));
+            this.f14545a.c(m.k(str, hashMap));
         }
     }
 
@@ -186,7 +186,7 @@ public abstract class d implements h {
             HashMap hashMap = new HashMap(4);
             hashMap.put("errNo", str2);
             hashMap.put("errMsg", str3);
-            this.f14525a.c(m.k(optString, hashMap));
+            this.f14545a.c(m.k(optString, hashMap));
         }
     }
 }

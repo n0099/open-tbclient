@@ -1,8 +1,9 @@
 package com.baidu.tieba.hottopicselect;
 
+import GetSugTopic.DataRes;
 import GetSugTopic.GetSugTopicResIdl;
 import c.a.q0.s.r.a;
-import c.a.r0.j1.c;
+import c.a.r0.k1.c;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -20,6 +21,7 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
     public transient /* synthetic */ FieldHolder $fh;
     public c mBangData;
     public c mUserData;
+    public c mVideoHotpicData;
     public int resultStatus;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,6 +43,7 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
     }
 
     public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+        DataRes dataRes;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bArr) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -58,22 +61,29 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
             } catch (IOException unused) {
                 this.resultStatus = 3;
             }
-            if (getSugTopicResIdl == null || getSugTopicResIdl.data == null) {
-                this.resultStatus = 3;
+            if (getSugTopicResIdl != null && (dataRes = getSugTopicResIdl.data) != null) {
+                if (dataRes.user_his_topic != null) {
+                    c cVar = new c();
+                    cVar.e(getSugTopicResIdl.data.user_his_topic);
+                    cVar.g(0);
+                    this.mUserData = cVar;
+                }
+                if (getSugTopicResIdl.data.bang_topic != null) {
+                    c cVar2 = new c();
+                    cVar2.e(getSugTopicResIdl.data.bang_topic);
+                    cVar2.g(1);
+                    this.mBangData = cVar2;
+                }
+                if (getSugTopicResIdl.data.video_topic != null) {
+                    c cVar3 = new c();
+                    cVar3.e(getSugTopicResIdl.data.video_topic);
+                    cVar3.g(2);
+                    this.mVideoHotpicData = cVar3;
+                }
+                this.resultStatus = 2;
+                return;
             }
-            if (getSugTopicResIdl.data.user_his_topic != null) {
-                c cVar = new c();
-                cVar.d(getSugTopicResIdl.data.user_his_topic);
-                cVar.f(0);
-                this.mUserData = cVar;
-            }
-            if (getSugTopicResIdl.data.bang_topic != null) {
-                c cVar2 = new c();
-                cVar2.d(getSugTopicResIdl.data.bang_topic);
-                cVar2.f(1);
-                this.mBangData = cVar2;
-            }
-            this.resultStatus = 2;
+            this.resultStatus = 3;
         }
     }
 

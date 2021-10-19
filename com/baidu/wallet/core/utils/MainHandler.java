@@ -12,7 +12,7 @@ public class MainHandler extends Handler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile MainHandler f61119a;
+    public static volatile MainHandler f61154a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -37,14 +37,14 @@ public class MainHandler extends Handler {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f61119a == null) {
+            if (f61154a == null) {
                 synchronized (MainHandler.class) {
-                    if (f61119a == null) {
-                        f61119a = new MainHandler();
+                    if (f61154a == null) {
+                        f61154a = new MainHandler();
                     }
                 }
             }
-            return f61119a;
+            return f61154a;
         }
         return (MainHandler) invokeV.objValue;
     }

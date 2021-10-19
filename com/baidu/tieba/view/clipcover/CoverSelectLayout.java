@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.q0.d1.k;
-import c.a.q0.d1.l0;
+import c.a.q0.d1.k0;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
@@ -35,22 +35,22 @@ public class CoverSelectLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f58535e;
+    public ImageView f58479e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ClipCoverView f58536f;
+    public ClipCoverView f58480f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f58537g;
+    public float f58481g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f58538h;
+    public float f58482h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f58539i;
+    public float f58483i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f58540j;
+    public float f58484j;
     public float k;
     public Matrix l;
     public Matrix m;
@@ -71,10 +71,10 @@ public class CoverSelectLayout extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f58541e;
+        public final /* synthetic */ String f58485e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CoverSelectLayout f58542f;
+        public final /* synthetic */ CoverSelectLayout f58486f;
 
         public a(CoverSelectLayout coverSelectLayout, String str) {
             Interceptable interceptable = $ic;
@@ -91,16 +91,16 @@ public class CoverSelectLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f58542f = coverSelectLayout;
-            this.f58541e = str;
+            this.f58486f = coverSelectLayout;
+            this.f58485e = str;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f58542f.initSrcPic(this.f58541e);
-                this.f58542f.f58535e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                this.f58486f.initSrcPic(this.f58485e);
+                this.f58486f.f58479e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
             }
         }
     }
@@ -131,15 +131,15 @@ public class CoverSelectLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RectF c2 = c(this.l);
-            int width = this.f58535e.getWidth();
-            int height = this.f58535e.getHeight();
+            int width = this.f58479e.getWidth();
+            int height = this.f58479e.getHeight();
             float f3 = width;
-            float f4 = this.f58540j;
+            float f4 = this.f58484j;
             if (c2.width() + 0.01d >= f3 - (f4 * 2.0f)) {
                 float f5 = c2.left;
                 f2 = f5 > f4 ? (-f5) + f4 : 0.0f;
                 float f6 = c2.right;
-                float f7 = this.f58540j;
+                float f7 = this.f58484j;
                 if (f6 < f3 - f7) {
                     f2 = (f3 - f7) - f6;
                 }
@@ -147,12 +147,12 @@ public class CoverSelectLayout extends RelativeLayout {
                 f2 = 0.0f;
             }
             float f8 = height;
-            float f9 = this.f58539i;
+            float f9 = this.f58483i;
             if (c2.height() + 0.01d >= f8 - (2.0f * f9)) {
                 float f10 = c2.top;
                 r11 = f10 > f9 ? (-f10) + f9 : 0.0f;
                 float f11 = c2.bottom;
-                float f12 = this.f58539i;
+                float f12 = this.f58483i;
                 if (f11 < f8 - f12) {
                     r11 = (f8 - f12) - f11;
                 }
@@ -166,7 +166,7 @@ public class CoverSelectLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, matrix)) == null) {
             RectF rectF = new RectF();
-            Drawable drawable = this.f58535e.getDrawable();
+            Drawable drawable = this.f58479e.getDrawable();
             if (drawable != null) {
                 rectF.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 matrix.mapRect(rectF);
@@ -181,16 +181,16 @@ public class CoverSelectLayout extends RelativeLayout {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f58535e.setDrawingCacheEnabled(true);
-            this.f58535e.buildDrawingCache();
-            RectF clipCoverRect = this.f58536f.getClipCoverRect();
+            this.f58479e.setDrawingCacheEnabled(true);
+            this.f58479e.buildDrawingCache();
+            RectF clipCoverRect = this.f58480f.getClipCoverRect();
             try {
-                bitmap = Bitmap.createBitmap(this.f58535e.getDrawingCache(), (int) clipCoverRect.left, (int) clipCoverRect.top, (int) clipCoverRect.width(), (int) clipCoverRect.height());
+                bitmap = Bitmap.createBitmap(this.f58479e.getDrawingCache(), (int) clipCoverRect.left, (int) clipCoverRect.top, (int) clipCoverRect.width(), (int) clipCoverRect.height());
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
                 bitmap = null;
             }
-            this.f58535e.destroyDrawingCache();
+            this.f58479e.destroyDrawingCache();
             return bitmap;
         }
         return (Bitmap) invokeV.objValue;
@@ -210,19 +210,19 @@ public class CoverSelectLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CoverSelectLayout);
-            this.f58537g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.CoverSelectLayout_horizontal, (int) TypedValue.applyDimension(1, 0.0f, getResources().getDisplayMetrics()));
-            this.f58538h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.CoverSelectLayout_vertivalPadding, (int) TypedValue.applyDimension(1, 0.0f, getResources().getDisplayMetrics()));
+            this.f58481g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.CoverSelectLayout_horizontal, (int) TypedValue.applyDimension(1, 0.0f, getResources().getDisplayMetrics()));
+            this.f58482h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.CoverSelectLayout_vertivalPadding, (int) TypedValue.applyDimension(1, 0.0f, getResources().getDisplayMetrics()));
             this.k = obtainStyledAttributes.getDimensionPixelSize(R$styleable.CoverSelectLayout_clipBorderWidth, (int) TypedValue.applyDimension(1, 1.0f, getResources().getDisplayMetrics()));
             obtainStyledAttributes.recycle();
             ClipCoverView clipCoverView = new ClipCoverView(context);
-            this.f58536f = clipCoverView;
+            this.f58480f = clipCoverView;
             clipCoverView.setClipBorderWidth(this.k);
-            this.f58536f.setmHorizontal(this.f58537g);
-            this.f58536f.setmVerticalPadding(this.f58538h);
-            this.f58535e = new ImageView(context);
+            this.f58480f.setmHorizontal(this.f58481g);
+            this.f58480f.setmVerticalPadding(this.f58482h);
+            this.f58479e = new ImageView(context);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            addView(this.f58535e, layoutParams);
-            addView(this.f58536f, layoutParams);
+            addView(this.f58479e, layoutParams);
+            addView(this.f58480f, layoutParams);
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
             this.u = displayMetrics.widthPixels;
             this.v = displayMetrics.heightPixels;
@@ -268,21 +268,21 @@ public class CoverSelectLayout extends RelativeLayout {
         matrix.setRotate(readPictureDegree);
         Bitmap createBitmap = Bitmap.createBitmap(b2, 0, 0, b2.getWidth(), b2.getHeight(), matrix, true);
         float width = (createBitmap.getWidth() * 1.0f) / createBitmap.getHeight();
-        RectF clipCoverRect = this.f58536f.getClipCoverRect();
+        RectF clipCoverRect = this.f58480f.getClipCoverRect();
         if (width <= clipCoverRect.width() / clipCoverRect.height()) {
-            height = this.f58535e.getWidth() / createBitmap.getWidth();
+            height = this.f58479e.getWidth() / createBitmap.getWidth();
             height2 = clipCoverRect.width() / createBitmap.getWidth();
             this.s = height2;
         } else {
-            height = this.f58535e.getHeight() / createBitmap.getHeight();
+            height = this.f58479e.getHeight() / createBitmap.getHeight();
             height2 = clipCoverRect.height() / createBitmap.getHeight();
             this.s = height2;
         }
         this.l.postScale(height, height);
-        this.l.postTranslate((this.f58535e.getWidth() * 0.5f) - ((int) ((createBitmap.getWidth() * height) * 0.5f)), (this.f58535e.getHeight() * 0.5f) - ((int) ((createBitmap.getHeight() * height) * 0.5f)));
-        this.f58535e.setScaleType(ImageView.ScaleType.MATRIX);
-        this.f58535e.setImageMatrix(this.l);
-        this.f58535e.setImageBitmap(createBitmap);
+        this.l.postTranslate((this.f58479e.getWidth() * 0.5f) - ((int) ((createBitmap.getWidth() * height) * 0.5f)), (this.f58479e.getHeight() * 0.5f) - ((int) ((createBitmap.getHeight() * height) * 0.5f)));
+        this.f58479e.setScaleType(ImageView.ScaleType.MATRIX);
+        this.f58479e.setImageMatrix(this.l);
+        this.f58479e.setImageBitmap(createBitmap);
     }
 
     @Override // android.view.View
@@ -301,19 +301,19 @@ public class CoverSelectLayout extends RelativeLayout {
                     this.l.set(this.m);
                     float x = motionEvent.getX() - this.o.x;
                     float y = motionEvent.getY() - this.o.y;
-                    this.f58539i = this.f58536f.getClipCoverRect().top;
-                    this.f58540j = this.f58536f.getClipCoverRect().left;
+                    this.f58483i = this.f58480f.getClipCoverRect().top;
+                    this.f58484j = this.f58480f.getClipCoverRect().left;
                     this.l.postTranslate(x, y);
                     b();
                 } else if (i2 == 2) {
-                    float d2 = l0.d(motionEvent);
+                    float d2 = k0.d(motionEvent);
                     if (d2 > 10.0f) {
                         float f2 = d2 / this.q;
                         if (f2 < 1.0f) {
                             if (getScale() > this.s) {
                                 this.l.set(this.m);
-                                this.f58539i = this.f58536f.getClipCoverRect().top;
-                                this.f58540j = this.f58536f.getClipCoverRect().left;
+                                this.f58483i = this.f58480f.getClipCoverRect().top;
+                                this.f58484j = this.f58480f.getClipCoverRect().left;
                                 Matrix matrix = this.l;
                                 PointF pointF = this.p;
                                 matrix.postScale(f2, f2, pointF.x, pointF.y);
@@ -326,21 +326,21 @@ public class CoverSelectLayout extends RelativeLayout {
                             b();
                         } else if (getScale() <= this.t) {
                             this.l.set(this.m);
-                            this.f58539i = this.f58536f.getClipCoverRect().top;
-                            this.f58540j = this.f58536f.getClipCoverRect().left;
+                            this.f58483i = this.f58480f.getClipCoverRect().top;
+                            this.f58484j = this.f58480f.getClipCoverRect().left;
                             Matrix matrix3 = this.l;
                             PointF pointF3 = this.p;
                             matrix3.postScale(f2, f2, pointF3.x, pointF3.y);
                         }
                     }
                 }
-                this.f58535e.setImageMatrix(this.l);
+                this.f58479e.setImageMatrix(this.l);
             } else if (action == 5) {
-                float d3 = l0.d(motionEvent);
+                float d3 = k0.d(motionEvent);
                 this.q = d3;
                 if (d3 > 10.0f) {
                     this.m.set(this.l);
-                    this.p = l0.b(motionEvent);
+                    this.p = k0.b(motionEvent);
                     this.n = 2;
                 }
             } else if (action == 6) {
@@ -356,24 +356,24 @@ public class CoverSelectLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             this.w = i2;
             if (i2 == 1) {
-                this.f58537g = UtilHelper.getDimenPixelSize(R.dimen.tbds920);
-                this.f58538h = UtilHelper.getDimenPixelSize(R.dimen.tbds520);
+                this.f58481g = UtilHelper.getDimenPixelSize(R.dimen.tbds920);
+                this.f58482h = UtilHelper.getDimenPixelSize(R.dimen.tbds520);
             } else if (i2 == 2) {
-                this.f58537g = UtilHelper.getDimenPixelSize(R.dimen.tbds920);
-                this.f58538h = UtilHelper.getDimenPixelSize(R.dimen.tbds1227);
+                this.f58481g = UtilHelper.getDimenPixelSize(R.dimen.tbds920);
+                this.f58482h = UtilHelper.getDimenPixelSize(R.dimen.tbds1227);
             }
             float dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.L_X04);
             this.k = dimenPixelSize;
-            this.f58536f.setClipBorderWidth(dimenPixelSize);
-            this.f58536f.setmHorizontal(this.f58537g);
-            this.f58536f.setmVerticalPadding(this.f58538h);
+            this.f58480f.setClipBorderWidth(dimenPixelSize);
+            this.f58480f.setmHorizontal(this.f58481g);
+            this.f58480f.setmVerticalPadding(this.f58482h);
         }
     }
 
     public void setImagSrc(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f58535e.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, str));
+            this.f58479e.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, str));
         }
     }
 

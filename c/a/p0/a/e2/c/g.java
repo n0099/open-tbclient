@@ -974,7 +974,7 @@ public class g implements r {
         if (!(interceptable == null || interceptable.invokeLL(1048593, this, view, fVar) == null) || view == null || fVar == null || (textView = (TextView) view.findViewById(c.a.p0.a.f.permission_function)) == null) {
             return;
         }
-        if (TextUtils.equals(fVar.f5547b, "mapp_location") && (s = c.a.p0.a.g1.f.V().s()) != null && (eVar = s.o) != null && (map = eVar.f46673a.get("scope.userLocation")) != null) {
+        if (TextUtils.equals(fVar.f5547b, "mapp_location") && (s = c.a.p0.a.g1.f.V().s()) != null && (eVar = s.o) != null && (map = eVar.f46585a.get("scope.userLocation")) != null) {
             String str = map.get("desc");
             if (!TextUtils.isEmpty(str)) {
                 fVar.m = str;

@@ -13,7 +13,7 @@ public final class eb implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f60000a;
+    public final /* synthetic */ FeedbackReportActivity f60035a;
 
     public eb(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class eb implements View.OnClickListener {
                 return;
             }
         }
-        this.f60000a = feedbackReportActivity;
+        this.f60035a = feedbackReportActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -42,22 +42,22 @@ public final class eb implements View.OnClickListener {
         SharedPreferences.Editor editor3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            z = this.f60000a.B;
+            z = this.f60035a.B;
             if (z) {
                 return;
             }
-            editText = this.f60000a.u;
+            editText = this.f60035a.u;
             String obj = editText.getText().toString();
             if (obj == null || obj.trim().length() <= 0) {
-                editor = this.f60000a.f59823b;
+                editor = this.f60035a.f59858b;
                 editor.putString("cryptContactData", "");
             } else {
-                editor3 = this.f60000a.f59823b;
+                editor3 = this.f60035a.f59858b;
                 editor3.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
             }
-            editor2 = this.f60000a.f59823b;
+            editor2 = this.f60035a.f59858b;
             editor2.commit();
-            FeedbackReportActivity.o(this.f60000a);
+            FeedbackReportActivity.o(this.f60035a);
         }
     }
 }

@@ -403,7 +403,7 @@ public class k {
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
             String a2 = f.a().a(str);
             if (TextUtils.isEmpty(a2)) {
-                a2 = c.a().a(str, c.a.f43863a);
+                a2 = c.a().a(str, c.a.f43775a);
             }
             return a2 == null ? "" : a2;
         }
@@ -559,7 +559,7 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            String a2 = c.a().a(str, c.a.f43864b);
+            String a2 = c.a().a(str, c.a.f43776b);
             return a2 == null ? "" : a2;
         }
         return (String) invokeL.objValue;

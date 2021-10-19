@@ -1,5 +1,6 @@
 package com.baidu.tbadk.switchs;
 
+import c.a.q0.b.d;
 import c.a.q0.s.d0.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -50,6 +51,9 @@ public class LaunchPreLoadAdSwitch extends BaseNormalSwitch {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d.C()) {
+                return false;
+            }
             if (type > 1) {
                 type = b.j().k("key_launch_preload_ad", 1);
             }

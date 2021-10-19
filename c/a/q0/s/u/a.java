@@ -29,10 +29,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, HashMap<String, Integer>> f14486a;
+    public static final HashMap<String, HashMap<String, Integer>> f14506a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SparseArray<String> f14487b;
+    public static final SparseArray<String> f14507b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,71 +48,32 @@ public class a {
                 return;
             }
         }
-        f14486a = new HashMap<>();
-        f14487b = new SparseArray<>();
+        f14506a = new HashMap<>();
+        f14507b = new SparseArray<>();
     }
 
-    public static float[] A(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (app == null) {
-                return K(0.0f);
-            }
-            String[] split = app.getString(i2).split(",");
-            int min = Math.min(split.length, 4);
-            float[] fArr = new float[8];
-            for (int i3 = 0; i3 < min; i3++) {
-                float z = z(split[i3]);
-                int i4 = i3 * 2;
-                fArr[i4] = z;
-                fArr[i4 + 1] = z;
-            }
-            return fArr;
-        }
-        return (float[]) invokeI.objValue;
-    }
-
-    public static float[] B(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, strArr)) == null) {
-            int min = Math.min(strArr.length, 4);
-            float[] fArr = new float[8];
-            for (int i2 = 0; i2 < min; i2++) {
-                float z = z(strArr[i2]);
-                int i3 = i2 * 2;
-                fArr[i3] = z;
-                fArr[i3 + 1] = z;
-            }
-            return fArr;
-        }
-        return (float[]) invokeL.objValue;
-    }
-
-    public static Drawable C(View view, Drawable drawable, String[] strArr) {
+    public static Drawable A(View view, Drawable drawable, String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, view, drawable, strArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, view, drawable, strArr)) == null) {
             String[] split = strArr[2].split(",");
             b bVar = (b) c(drawable).clone();
-            bVar.M(l(strArr[0]));
-            bVar.N(p(strArr[1]));
-            bVar.J(p(split[0]));
-            bVar.K(p(split[1]));
+            bVar.M(j(strArr[0]));
+            bVar.N(n(strArr[1]));
+            bVar.J(n(split[0]));
+            bVar.K(n(split[1]));
             return bVar.o(view);
         }
         return (Drawable) invokeLLL.objValue;
     }
 
-    public static float[] D(int i2) {
+    public static float[] B(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            String[] H = H(i2);
-            String[] split = H[2].split(",");
-            float[] fArr = {l(H[0]), p(H[1]), p(split[0]), p(split[1])};
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            String[] F = F(i2);
+            String[] split = F[2].split(",");
+            float[] fArr = {j(F[0]), n(F[1]), n(split[0]), n(split[1])};
             if (fArr[1] == 0.0f) {
                 fArr[1] = 0.01f;
             }
@@ -121,18 +82,18 @@ public class a {
         return (float[]) invokeI.objValue;
     }
 
-    public static Drawable E(Drawable drawable, int i2, int i3) {
+    public static Drawable C(Drawable drawable, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, drawable, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, drawable, i2, i3)) == null) {
             b c2 = c(drawable);
             c2.A();
             GradientDrawable m = c2.m(i3);
             m.setColor(h(i2));
-            m.setStroke((int) c2.u(), c.a.r0.j3.c.a(c2.t(), c2.s()));
+            m.setStroke((int) c2.u(), c.a.r0.k3.c.a(c2.t(), c2.s()));
             GradientDrawable m2 = c2.m(i3);
-            m2.setColor(c.a.r0.j3.c.a(h(i2), SkinManager.RESOURCE_ALPHA_PRESS));
-            m2.setStroke((int) c2.u(), c.a.r0.j3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_PRESS * c2.s()));
+            m2.setColor(c.a.r0.k3.c.a(h(i2), SkinManager.RESOURCE_ALPHA_PRESS));
+            m2.setStroke((int) c2.u(), c.a.r0.k3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_PRESS * c2.s()));
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842910, 16842919}, m2);
             stateListDrawable.addState(new int[]{16842910, 16842908}, m2);
@@ -142,18 +103,18 @@ public class a {
         return (Drawable) invokeLII.objValue;
     }
 
-    public static Drawable F(Drawable drawable, int i2, int i3, int i4) {
+    public static Drawable D(Drawable drawable, int i2, int i3, int i4) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(AdIconUtil.BAIDU_LOGO_ID, null, drawable, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, drawable, i2, i3, i4)) == null) {
             b c2 = c(drawable);
             c2.A();
             GradientDrawable m = c2.m(i4);
             m.setColor(h(i2));
-            m.setStroke((int) c2.u(), c.a.r0.j3.c.a(c2.t(), c2.s()));
+            m.setStroke((int) c2.u(), c.a.r0.k3.c.a(c2.t(), c2.s()));
             GradientDrawable m2 = c2.m(i4);
             m2.setColor(h(i3));
-            m2.setStroke((int) c2.u(), c.a.r0.j3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_PRESS * c2.s()));
+            m2.setStroke((int) c2.u(), c.a.r0.k3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_PRESS * c2.s()));
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842910, 16842919}, m2);
             stateListDrawable.addState(new int[]{16842910, 16842908}, m2);
@@ -163,32 +124,32 @@ public class a {
         return (Drawable) invokeLIII.objValue;
     }
 
-    public static String G(int i2) {
+    public static String E(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
             int idByABTest = EMABTest.getIdByABTest(i2, "string");
             return idByABTest == 0 ? "" : TbadkCoreApplication.getInst().getResources().getString(idByABTest);
         }
         return (String) invokeI.objValue;
     }
 
-    public static String[] H(int i2) {
+    public static String[] F(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) ? TbadkCoreApplication.getInst().getResources().getStringArray(EMABTest.getIdByABTest(i2, "array")) : (String[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? TbadkCoreApplication.getInst().getResources().getStringArray(EMABTest.getIdByABTest(i2, "array")) : (String[]) invokeI.objValue;
     }
 
-    public static ColorStateList I(int i2) {
+    public static ColorStateList G(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) ? SkinManager.createColorStateList(i2) : (ColorStateList) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? SkinManager.createColorStateList(i2) : (ColorStateList) invokeI.objValue;
     }
 
-    public static Typeface J(String str) {
+    public static Typeface H(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             if ("bold".equals(str)) {
                 return Typeface.DEFAULT_BOLD;
             }
@@ -197,10 +158,10 @@ public class a {
         return (Typeface) invokeL.objValue;
     }
 
-    public static float[] K(float f2) {
+    public static float[] I(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65547, null, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65545, null, f2)) == null) {
             float[] fArr = new float[8];
             Arrays.fill(fArr, f2);
             return fArr;
@@ -211,13 +172,13 @@ public class a {
     public static float a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i2)) == null) ? c.a.e.e.m.b.d(G(i2), 0.0f) : invokeI.floatValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) ? c.a.e.e.m.b.d(E(i2), 0.0f) : invokeI.floatValue;
     }
 
     public static Drawable b(Drawable drawable, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, drawable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, drawable, i2)) == null) {
             b bVar = (b) c(drawable).clone();
             bVar.B(a(i2));
             return bVar;
@@ -228,7 +189,7 @@ public class a {
     public static b c(Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, drawable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, drawable)) == null) {
             if (drawable instanceof b) {
                 return (b) drawable;
             }
@@ -240,7 +201,7 @@ public class a {
     public static b d(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, view)) == null) {
             Drawable background = view.getBackground();
             if (background instanceof b) {
                 return (b) background;
@@ -253,7 +214,7 @@ public class a {
     public static Drawable e(Drawable drawable, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, drawable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, drawable, i2)) == null) {
             b bVar = (b) c(drawable).clone();
             bVar.E(a(i2));
             return bVar;
@@ -264,7 +225,7 @@ public class a {
     public static Drawable f(Drawable drawable, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, drawable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, drawable, i2)) == null) {
             b bVar = (b) c(drawable).clone();
             bVar.F(h(i2));
             return bVar;
@@ -275,9 +236,9 @@ public class a {
     public static Drawable g(Drawable drawable, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, drawable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, drawable, i2)) == null) {
             b bVar = (b) c(drawable).clone();
-            bVar.G(o(i2));
+            bVar.G(m(i2));
             return bVar;
         }
         return (Drawable) invokeLI.objValue;
@@ -286,19 +247,13 @@ public class a {
     public static int h(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i2)) == null) ? SkinManager.getColor(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i2)) == null) ? SkinManager.getColor(i2) : invokeI.intValue;
     }
 
-    public static int i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) ? c.a.r0.j3.c.c(str) : invokeL.intValue;
-    }
-
-    public static Drawable j(Drawable drawable, int i2) {
+    public static Drawable i(Drawable drawable, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65557, null, drawable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, drawable, i2)) == null) {
             b bVar = (b) c(drawable).clone();
             bVar.C(h(i2));
             return bVar;
@@ -306,38 +261,27 @@ public class a {
         return (Drawable) invokeLI.objValue;
     }
 
-    public static Drawable k(Drawable drawable, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, drawable, str)) == null) {
-            b bVar = (b) c(drawable).clone();
-            bVar.C(i(str));
-            return bVar;
-        }
-        return (Drawable) invokeLL.objValue;
-    }
-
-    public static int l(String str) {
+    public static int j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) ? h(u(str, "color")) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) ? h(s(str, "color")) : invokeL.intValue;
     }
 
-    public static Drawable m(Drawable drawable, int i2) {
+    public static Drawable k(Drawable drawable, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65560, null, drawable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, drawable, i2)) == null) {
             b bVar = (b) c(drawable).clone();
-            bVar.Q(B(G(i2).split(",")));
+            bVar.Q(z(E(i2).split(",")));
             return bVar;
         }
         return (Drawable) invokeLI.objValue;
     }
 
-    public static Drawable n(Drawable drawable, int i2) {
+    public static Drawable l(Drawable drawable, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, drawable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65557, null, drawable, i2)) == null) {
             b bVar = (b) c(drawable).clone();
             bVar.H(i2);
             return bVar;
@@ -345,41 +289,41 @@ public class a {
         return (Drawable) invokeLI.objValue;
     }
 
-    public static int o(int i2) {
+    public static int m(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65562, null, i2)) == null) ? UtilHelper.getDimenPixelSize(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i2)) == null) ? UtilHelper.getDimenPixelSize(i2) : invokeI.intValue;
     }
 
-    public static int p(String str) {
+    public static int n(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, str)) == null) {
-            return o(u("tbds" + str, "dimen"));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
+            return m(s("tbds" + str, "dimen"));
         }
         return invokeL.intValue;
     }
 
-    public static String q(int i2) {
+    public static String o(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65564, null, i2)) == null) {
-            String str = f14487b.get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i2)) == null) {
+            String str = f14507b.get(i2);
             if (str == null) {
                 str = i2 == 0 ? "" : TbadkCoreApplication.getInst().getResources().getResourceEntryName(i2);
-                f14487b.put(i2, str);
+                f14507b.put(i2, str);
             }
             return str;
         }
         return (String) invokeI.objValue;
     }
 
-    public static Drawable r(Drawable drawable, Direction direction, int[] iArr) {
+    public static Drawable p(Drawable drawable, Direction direction, int[] iArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65565, null, drawable, direction, iArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65561, null, drawable, direction, iArr)) == null) {
             b bVar = (b) c(drawable).clone();
-            s(iArr);
+            q(iArr);
             bVar.D(iArr);
             bVar.I(direction);
             return bVar;
@@ -387,10 +331,10 @@ public class a {
         return (Drawable) invokeLLL.objValue;
     }
 
-    public static int[] s(int[] iArr) {
+    public static int[] q(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, iArr)) == null) {
             int length = iArr.length;
             for (int i2 = 0; i2 < length; i2++) {
                 iArr[i2] = h(iArr[i2]);
@@ -400,28 +344,28 @@ public class a {
         return (int[]) invokeL.objValue;
     }
 
-    public static int[] t(String[] strArr) {
+    public static int[] r(String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, strArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, strArr)) == null) {
             int length = strArr.length;
             int[] iArr = new int[length];
             for (int i2 = 0; i2 < length; i2++) {
-                iArr[i2] = l(strArr[i2]);
+                iArr[i2] = j(strArr[i2]);
             }
             return iArr;
         }
         return (int[]) invokeL.objValue;
     }
 
-    public static int u(String str, String str2) {
+    public static int s(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65568, null, str, str2)) == null) {
-            HashMap<String, Integer> hashMap = f14486a.get(str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, str, str2)) == null) {
+            HashMap<String, Integer> hashMap = f14506a.get(str2);
             if (hashMap == null) {
                 hashMap = new HashMap<>();
-                f14486a.put(str2, hashMap);
+                f14506a.put(str2, hashMap);
             }
             Integer num = hashMap.get(str);
             if (num == null) {
@@ -433,10 +377,10 @@ public class a {
         return invokeLL.intValue;
     }
 
-    public static Drawable v(Drawable drawable, String[] strArr) {
+    public static Drawable t(Drawable drawable, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, drawable, strArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, drawable, strArr)) == null) {
             String[] split = strArr[0].split(",");
             String[] split2 = strArr[1].split(",");
             String str = strArr[2];
@@ -444,17 +388,17 @@ public class a {
             if (!TextUtils.isEmpty(str)) {
                 bVar.I(Direction.valueOf(str.toUpperCase()));
             }
-            bVar.D(t(split));
-            bVar.L(w(split2));
+            bVar.D(r(split));
+            bVar.L(u(split2));
             return bVar;
         }
         return (Drawable) invokeLL.objValue;
     }
 
-    public static float[] w(String[] strArr) {
+    public static float[] u(String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, strArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, strArr)) == null) {
             int min = Math.min(strArr.length, 4);
             float[] fArr = new float[min];
             for (int i2 = 0; i2 < min; i2++) {
@@ -465,10 +409,10 @@ public class a {
         return (float[]) invokeL.objValue;
     }
 
-    public static Drawable x(Drawable drawable, int i2) {
+    public static Drawable v(Drawable drawable, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65571, null, drawable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65567, null, drawable, i2)) == null) {
             b bVar = (b) c(drawable).clone();
             bVar.F(i2);
             return bVar;
@@ -476,10 +420,10 @@ public class a {
         return (Drawable) invokeLI.objValue;
     }
 
-    public static Drawable y(Drawable drawable, int i2) {
+    public static Drawable w(Drawable drawable, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65572, null, drawable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65568, null, drawable, i2)) == null) {
             b bVar = (b) c(drawable).clone();
             bVar.C(i2);
             return bVar;
@@ -487,15 +431,54 @@ public class a {
         return (Drawable) invokeLI.objValue;
     }
 
-    public static float z(String str) {
+    public static float x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, str)) == null) {
             if (str.endsWith("H")) {
                 return Float.parseFloat(str.substring(0, str.length() - 1));
             }
-            return p(str);
+            return n(str);
         }
         return invokeL.floatValue;
+    }
+
+    public static float[] y(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65570, null, i2)) == null) {
+            Application app = BdBaseApplication.getInst().getApp();
+            if (app == null) {
+                return I(0.0f);
+            }
+            String[] split = app.getString(i2).split(",");
+            int min = Math.min(split.length, 4);
+            float[] fArr = new float[8];
+            for (int i3 = 0; i3 < min; i3++) {
+                float x = x(split[i3]);
+                int i4 = i3 * 2;
+                fArr[i4] = x;
+                fArr[i4 + 1] = x;
+            }
+            return fArr;
+        }
+        return (float[]) invokeI.objValue;
+    }
+
+    public static float[] z(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, strArr)) == null) {
+            int min = Math.min(strArr.length, 4);
+            float[] fArr = new float[8];
+            for (int i2 = 0; i2 < min; i2++) {
+                float x = x(strArr[i2]);
+                int i3 = i2 * 2;
+                fArr[i3] = x;
+                fArr[i3 + 1] = x;
+            }
+            return fArr;
+        }
+        return (float[]) invokeL.objValue;
     }
 }

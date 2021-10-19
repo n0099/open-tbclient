@@ -16,34 +16,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f13389a;
+    public View f13397a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC0664b f13390b;
+    public InterfaceC0665b f13398b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VelocityTracker f13391c;
+    public VelocityTracker f13399c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f13392d;
+    public float f13400d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f13393e;
+    public float f13401e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f13394f;
+    public long f13402f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f13395g;
+    public long f13403g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13396h;
+    public boolean f13404h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13397i;
+    public boolean f13405i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f13398j;
+    public int f13406j;
     public int k;
     public int l;
 
@@ -53,7 +53,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f13399e;
+        public final /* synthetic */ b f13407e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -70,22 +70,22 @@ public class b {
                     return;
                 }
             }
-            this.f13399e = bVar;
+            this.f13407e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13399e.f13397i || !this.f13399e.f13396h || this.f13399e.f13390b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13407e.f13405i || !this.f13407e.f13404h || this.f13407e.f13398b == null) {
                 return;
             }
-            this.f13399e.f13390b.onViewClick();
+            this.f13407e.f13398b.onViewClick();
         }
     }
 
     /* renamed from: c.a.q0.f1.q.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0664b {
+    public interface InterfaceC0665b {
         void onViewClick();
 
         void onViewDoubleClick(float f2, float f3);
@@ -108,55 +108,55 @@ public class b {
                 return;
             }
         }
-        this.f13389a = view;
+        this.f13397a = view;
         ViewConfiguration viewConfiguration = ViewConfiguration.get(view.getContext());
         if (viewConfiguration != null) {
             this.l = viewConfiguration.getScaledPagingTouchSlop();
         }
         this.k = ViewConfiguration.getMaximumFlingVelocity();
-        this.f13398j = ViewConfiguration.getMinimumFlingVelocity();
+        this.f13406j = ViewConfiguration.getMinimumFlingVelocity();
     }
 
     public boolean d(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        InterfaceC0664b interfaceC0664b;
+        InterfaceC0665b interfaceC0665b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (this.f13391c == null) {
-                this.f13391c = VelocityTracker.obtain();
+            if (this.f13399c == null) {
+                this.f13399c = VelocityTracker.obtain();
             }
-            this.f13391c.addMovement(motionEvent);
+            this.f13399c.addMovement(motionEvent);
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f13392d = motionEvent.getX();
-                this.f13393e = motionEvent.getY();
-                this.f13394f = System.currentTimeMillis();
-                this.f13396h = true;
+                this.f13400d = motionEvent.getX();
+                this.f13401e = motionEvent.getY();
+                this.f13402f = System.currentTimeMillis();
+                this.f13404h = true;
             } else if (action == 1) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.f13394f < 100 && currentTimeMillis - this.f13395g < 500) {
-                    this.f13397i = true;
+                if (currentTimeMillis - this.f13402f < 100 && currentTimeMillis - this.f13403g < 500) {
+                    this.f13405i = true;
                 } else {
-                    this.f13397i = false;
+                    this.f13405i = false;
                 }
-                VelocityTracker velocityTracker = this.f13391c;
+                VelocityTracker velocityTracker = this.f13399c;
                 velocityTracker.computeCurrentVelocity(1000, this.k);
-                if (Math.abs(velocityTracker.getYVelocity()) > this.f13398j && Math.abs(this.f13393e - motionEvent.getY()) > 50.0f) {
-                    this.f13397i = false;
-                    this.f13396h = false;
+                if (Math.abs(velocityTracker.getYVelocity()) > this.f13406j && Math.abs(this.f13401e - motionEvent.getY()) > 50.0f) {
+                    this.f13405i = false;
+                    this.f13404h = false;
                 }
-                if (this.f13397i) {
-                    InterfaceC0664b interfaceC0664b2 = this.f13390b;
-                    if (interfaceC0664b2 != null) {
-                        interfaceC0664b2.onViewDoubleClick(motionEvent.getRawX(), motionEvent.getRawY());
+                if (this.f13405i) {
+                    InterfaceC0665b interfaceC0665b2 = this.f13398b;
+                    if (interfaceC0665b2 != null) {
+                        interfaceC0665b2.onViewDoubleClick(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.f13392d - motionEvent.getX()) > this.l && (this.f13392d - motionEvent.getX()) - 50.0f > Math.abs(this.f13393e - motionEvent.getY()) && (interfaceC0664b = this.f13390b) != null) {
-                    interfaceC0664b.onViewDragToRight();
+                } else if (Math.abs(this.f13400d - motionEvent.getX()) > this.l && (this.f13400d - motionEvent.getX()) - 50.0f > Math.abs(this.f13401e - motionEvent.getY()) && (interfaceC0665b = this.f13398b) != null) {
+                    interfaceC0665b.onViewDragToRight();
                 }
-                if (!this.f13397i && this.f13396h && Math.abs(this.f13392d - motionEvent.getX()) < 30.0f && Math.abs(this.f13393e - motionEvent.getY()) < 30.0f) {
-                    this.f13389a.postDelayed(new a(this), 300L);
+                if (!this.f13405i && this.f13404h && Math.abs(this.f13400d - motionEvent.getX()) < 30.0f && Math.abs(this.f13401e - motionEvent.getY()) < 30.0f) {
+                    this.f13397a.postDelayed(new a(this), 300L);
                 }
-                this.f13395g = currentTimeMillis;
+                this.f13403g = currentTimeMillis;
                 e();
             } else if (action == 3) {
                 e();
@@ -169,18 +169,18 @@ public class b {
     public final void e() {
         VelocityTracker velocityTracker;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.f13391c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.f13399c) == null) {
             return;
         }
         velocityTracker.clear();
-        this.f13391c.recycle();
-        this.f13391c = null;
+        this.f13399c.recycle();
+        this.f13399c = null;
     }
 
-    public void f(InterfaceC0664b interfaceC0664b) {
+    public void f(InterfaceC0665b interfaceC0665b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0664b) == null) {
-            this.f13390b = interfaceC0664b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0665b) == null) {
+            this.f13398b = interfaceC0665b;
         }
     }
 }

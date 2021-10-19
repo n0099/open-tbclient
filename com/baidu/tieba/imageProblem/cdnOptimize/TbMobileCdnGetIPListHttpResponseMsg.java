@@ -21,13 +21,13 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53749a;
+        public String f53680a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53750b;
+        public String f53681b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<String> f53751c;
+        public ArrayList<String> f53682c;
 
         public TBCdnMobileListData() {
             Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                     return;
                 }
             }
-            this.f53749a = null;
-            this.f53750b = null;
-            this.f53751c = new ArrayList<>();
+            this.f53680a = null;
+            this.f53681b = null;
+            this.f53682c = new ArrayList<>();
         }
     }
 
@@ -86,15 +86,15 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("vips");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i3 = 0; i3 < optJSONArray.length() && this.mobileCdnData.f53751c.size() <= 5; i3++) {
+                    for (int i3 = 0; i3 < optJSONArray.length() && this.mobileCdnData.f53682c.size() <= 5; i3++) {
                         String string = optJSONArray.getString(i3);
                         if (string != null) {
-                            this.mobileCdnData.f53751c.add(string);
+                            this.mobileCdnData.f53682c.add(string);
                         }
                     }
                 }
-                this.mobileCdnData.f53749a = optJSONObject.optString("testimg_url");
-                this.mobileCdnData.f53750b = optJSONObject.optString("testimg_md5");
+                this.mobileCdnData.f53680a = optJSONObject.optString("testimg_url");
+                this.mobileCdnData.f53681b = optJSONObject.optString("testimg_md5");
             } catch (Exception e2) {
                 BdLog.e(e2);
             }

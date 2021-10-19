@@ -1,45 +1,85 @@
 package c.a.r0.g1;
 
-import android.content.Context;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
-import com.baidu.tbadk.core.view.FollowUserButton;
+import c.a.r0.h1.d.c;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class a<T, V extends TypeAdapter.ViewHolder> extends c.a.e.l.e.a<T, V> {
+public class a extends CustomMessageTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FollowUserButton.a m;
+
+    /* renamed from: c.a.r0.g1.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class C0867a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b implements CustomMessageTask.CustomRunnable<c> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<c> customMessage) {
+            InterceptResult invokeL;
+            c.a.r0.q1.s.a c2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof c)) {
+                    c data = customMessage.getData();
+                    if (data.d() == null && (c2 = c.a.r0.q1.r.b.d().c(data.c(), data.f())) != null) {
+                        c2.b(new c.a.r0.g1.b(data.e()));
+                        data.i(c2);
+                    }
+                }
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+
+        public /* synthetic */ b(C0867a c0867a) {
+            this();
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public a() {
+        super(2001406, new b(null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                Object[] objArr = newInitContext.callArgs;
+                super(((Integer) objArr[0]).intValue(), (CustomMessageTask.CustomRunnable) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    public void h0(FollowUserButton.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.m = aVar;
-        }
+        setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
     }
 }

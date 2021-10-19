@@ -12,19 +12,19 @@ public abstract class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f42794a;
+    public long f42706a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42795b;
+    public int f42707b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42796c;
+    public int f42708c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42797d;
+    public int f42709d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42798e;
+    public int f42710e;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public abstract class g {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42797d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42709d : invokeV.intValue;
     }
 
     public abstract b a(byte[] bArr, int i2, int i3);
@@ -51,12 +51,12 @@ public abstract class g {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42796c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42708c : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42798e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42710e : invokeV.intValue;
     }
 }

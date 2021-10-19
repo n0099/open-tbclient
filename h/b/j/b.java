@@ -12,7 +12,7 @@ public class b implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f78808a;
+    public final String f78843a;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class b implements a {
             }
         }
         if (str != null) {
-            this.f78808a = str;
+            this.f78843a = str;
             return;
         }
         throw new IllegalArgumentException();
@@ -49,7 +49,7 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             for (String str2 : str.replaceAll(" ", "").split(",")) {
-                if (this.f78808a.equals(str2)) {
+                if (this.f78843a.equals(str2)) {
                     return true;
                 }
             }
@@ -62,7 +62,7 @@ public class b implements a {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f78808a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f78843a : (String) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -75,7 +75,7 @@ public class b implements a {
             if (obj == null || b.class != obj.getClass()) {
                 return false;
             }
-            return this.f78808a.equals(((b) obj).f78808a);
+            return this.f78843a.equals(((b) obj).f78843a);
         }
         return invokeL.booleanValue;
     }
@@ -83,7 +83,7 @@ public class b implements a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f78808a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f78843a.hashCode() : invokeV.intValue;
     }
 
     @Override // h.b.j.a

@@ -3,7 +3,7 @@ package com.baidu.tieba.location.selectpoi;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
-import c.a.r0.t1.e.c;
+import c.a.r0.u1.e.c;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,7 +26,7 @@ public class SelectLocationActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectLocationActivity f54159a;
+        public final /* synthetic */ SelectLocationActivity f54090a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SelectLocationActivity selectLocationActivity, int i2) {
@@ -46,7 +46,7 @@ public class SelectLocationActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f54159a = selectLocationActivity;
+            this.f54090a = selectLocationActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -56,7 +56,7 @@ public class SelectLocationActivity extends SuspendedActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f54159a.finish();
+            this.f54090a.finish();
         }
     }
 

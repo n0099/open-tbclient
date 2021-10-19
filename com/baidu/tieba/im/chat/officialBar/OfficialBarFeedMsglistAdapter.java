@@ -27,13 +27,13 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f53058a;
+    public TbPageContext<?> f52989a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f53059b;
+    public c f52990b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<c.a.q0.k0.b.a> f53060c;
+    public ArrayList<c.a.q0.k0.b.a> f52991c;
 
     /* loaded from: classes7.dex */
     public static class a implements c.a.q0.k0.b.a {
@@ -41,19 +41,19 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f53061e;
+        public String f52992e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f53062f;
+        public String f52993f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f53063g;
+        public long f52994g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f53064h;
+        public int f52995h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f53065i;
+        public long f52996i;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -72,58 +72,58 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53061e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52992e : (String) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53062f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52993f : (String) invokeV.objValue;
         }
 
         public long d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53063g : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52994g : invokeV.longValue;
         }
 
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53064h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52995h : invokeV.intValue;
         }
 
         public long f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f53065i : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f52996i : invokeV.longValue;
         }
 
         public void g(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                this.f53061e = str;
+                this.f52992e = str;
             }
         }
 
         public void i(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                this.f53062f = str;
+                this.f52993f = str;
             }
         }
 
         public void j(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-                this.f53063g = j2;
+                this.f52994g = j2;
             }
         }
 
         public void k(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-                this.f53064h = i2;
+                this.f52995h = i2;
             }
         }
 
@@ -136,7 +136,7 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         public void o(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-                this.f53065i = j2;
+                this.f52996i = j2;
             }
         }
     }
@@ -147,19 +147,19 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public BarImageView f53066e;
+        public BarImageView f52997e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f53067f;
+        public TextView f52998f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f53068g;
+        public View f52999g;
 
         /* renamed from: h  reason: collision with root package name */
-        public a f53069h;
+        public a f53000h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarFeedMsglistAdapter f53070i;
+        public final /* synthetic */ OfficialBarFeedMsglistAdapter f53001i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(OfficialBarFeedMsglistAdapter officialBarFeedMsglistAdapter, View view) {
@@ -179,35 +179,35 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
                     return;
                 }
             }
-            this.f53070i = officialBarFeedMsglistAdapter;
-            this.f53066e = (BarImageView) view.findViewById(R.id.official_bar_image);
-            this.f53067f = (TextView) view.findViewById(R.id.official_bar_name);
-            this.f53068g = view.findViewById(R.id.official_bar_feed_red_dot);
-            this.f53066e.setShowOval(true);
-            this.f53066e.setPlaceHolder(2);
-            this.f53066e.setShowOuterBorder(false);
-            this.f53066e.setShowInnerBorder(true);
-            this.f53066e.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.f53001i = officialBarFeedMsglistAdapter;
+            this.f52997e = (BarImageView) view.findViewById(R.id.official_bar_image);
+            this.f52998f = (TextView) view.findViewById(R.id.official_bar_name);
+            this.f52999g = view.findViewById(R.id.official_bar_feed_red_dot);
+            this.f52997e.setShowOval(true);
+            this.f52997e.setPlaceHolder(2);
+            this.f52997e.setShowOuterBorder(false);
+            this.f52997e.setShowInnerBorder(true);
+            this.f52997e.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         }
 
         public void a(c.a.q0.k0.b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f53069h = (a) aVar;
-                SkinManager.setViewTextColor(this.f53067f, R.color.CAM_X0105);
-                SkinManager.setBackgroundResource(this.f53068g, R.drawable.icon_official_bar_red_dot);
-                this.f53066e.setStrokeColorResId(R.color.CAM_X0401);
-                this.f53066e.startLoad(this.f53069h.a(), 10, false);
-                if (StringHelper.getChineseAndEnglishLength(this.f53069h.b()) <= 10) {
-                    this.f53067f.setText(this.f53069h.b());
+                this.f53000h = (a) aVar;
+                SkinManager.setViewTextColor(this.f52998f, R.color.CAM_X0105);
+                SkinManager.setBackgroundResource(this.f52999g, R.drawable.icon_official_bar_red_dot);
+                this.f52997e.setStrokeColorResId(R.color.CAM_X0401);
+                this.f52997e.startLoad(this.f53000h.a(), 10, false);
+                if (StringHelper.getChineseAndEnglishLength(this.f53000h.b()) <= 10) {
+                    this.f52998f.setText(this.f53000h.b());
                 } else {
-                    this.f53067f.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f53069h.b(), 8, "..."));
+                    this.f52998f.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f53000h.b(), 8, "..."));
                 }
-                this.f53066e.setOnClickListener(this);
-                if (this.f53069h.e() > 0 && (this.f53069h.f() <= 0 || System.currentTimeMillis() - this.f53069h.f() < ImageLoader.f37991d)) {
-                    this.f53068g.setVisibility(0);
+                this.f52997e.setOnClickListener(this);
+                if (this.f53000h.e() > 0 && (this.f53000h.f() <= 0 || System.currentTimeMillis() - this.f53000h.f() < ImageLoader.f37995d)) {
+                    this.f52999g.setVisibility(0);
                 } else {
-                    this.f53068g.setVisibility(8);
+                    this.f52999g.setVisibility(8);
                 }
             }
         }
@@ -216,9 +216,9 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                this.f53068g.setVisibility(8);
-                if (this.f53070i.f53059b != null) {
-                    this.f53070i.f53059b.a(view, this.f53069h, getAdapterPosition(), getItemId());
+                this.f52999g.setVisibility(8);
+                if (this.f53001i.f52990b != null) {
+                    this.f53001i.f52990b.a(view, this.f53000h, getAdapterPosition(), getItemId());
                 }
             }
         }
@@ -244,9 +244,9 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
                 return;
             }
         }
-        this.f53060c = new ArrayList<>();
-        this.f53058a = tbPageContext;
-        this.f53059b = cVar;
+        this.f52991c = new ArrayList<>();
+        this.f52989a = tbPageContext;
+        this.f52990b = cVar;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -254,7 +254,7 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList<c.a.q0.k0.b.a> arrayList = this.f53060c;
+            ArrayList<c.a.q0.k0.b.a> arrayList = this.f52991c;
             if (arrayList == null) {
                 return 0;
             }
@@ -274,10 +274,10 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i2) {
         ArrayList<c.a.q0.k0.b.a> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewHolder, i2) == null) || (arrayList = this.f53060c) == null || arrayList.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewHolder, i2) == null) || (arrayList = this.f52991c) == null || arrayList.size() <= 0) {
             return;
         }
-        c.a.q0.k0.b.a aVar = this.f53060c.get(i2);
+        c.a.q0.k0.b.a aVar = this.f52991c.get(i2);
         if ((viewHolder instanceof b) && (aVar instanceof a)) {
             ((b) viewHolder).a(aVar);
         }
@@ -288,7 +288,7 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i2)) == null) ? new b(this, this.f53058a.getPageActivity().getLayoutInflater().inflate(R.layout.official_bar_feed_header_item, (ViewGroup) null)) : (RecyclerView.ViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i2)) == null) ? new b(this, this.f52989a.getPageActivity().getLayoutInflater().inflate(R.layout.official_bar_feed_header_item, (ViewGroup) null)) : (RecyclerView.ViewHolder) invokeLI.objValue;
     }
 
     public void setData(ArrayList<? extends c.a.q0.k0.b.a> arrayList) {
@@ -296,8 +296,8 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         if (!(interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) || arrayList == null) {
             return;
         }
-        this.f53060c.clear();
-        this.f53060c.addAll(arrayList);
+        this.f52991c.clear();
+        this.f52991c.addAll(arrayList);
         notifyDataSetChanged();
     }
 }

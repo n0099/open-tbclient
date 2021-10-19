@@ -16,7 +16,7 @@ public class a extends BaseBean<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32391d;
+    public String f32395d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context, String str) {
@@ -36,8 +36,8 @@ public class a extends BaseBean<String> {
                 return;
             }
         }
-        this.f32391d = "";
-        this.f32391d = str;
+        this.f32395d = "";
+        this.f32395d = str;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -82,6 +82,6 @@ public class a extends BaseBean<String> {
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32391d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32395d : (String) invokeV.objValue;
     }
 }

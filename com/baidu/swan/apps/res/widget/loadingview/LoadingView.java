@@ -26,13 +26,13 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f46651e;
+    public View f46563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SmoothProgressBar f46652f;
+    public SmoothProgressBar f46564f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f46653g;
+    public TextView f46565g;
 
     /* loaded from: classes6.dex */
     public class a implements c.a.p0.a.g2.a {
@@ -40,7 +40,7 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LoadingView f46654a;
+        public final /* synthetic */ LoadingView f46566a;
 
         public a(LoadingView loadingView) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
                     return;
                 }
             }
-            this.f46654a = loadingView;
+            this.f46566a = loadingView;
         }
     }
 
@@ -101,9 +101,9 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(getContext()).inflate(g.aiapps_loading_layout, (ViewGroup) this, true);
-            this.f46651e = findViewById(f.root_container);
-            this.f46652f = (SmoothProgressBar) findViewById(f.loading_bar);
-            this.f46653g = (TextView) findViewById(f.message);
+            this.f46563e = findViewById(f.root_container);
+            this.f46564f = (SmoothProgressBar) findViewById(f.loading_bar);
+            this.f46565g = (TextView) findViewById(f.message);
             setPageResources();
         }
     }
@@ -129,22 +129,22 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     public void setMsg(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f46653g.setText(i2);
+            this.f46565g.setText(i2);
         }
     }
 
     public void setPageResources() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View view = this.f46651e;
+            View view = this.f46563e;
             if (view != null) {
                 view.setBackground(view.getResources().getDrawable(e.aiapps_loading_bg));
             }
-            SmoothProgressBar smoothProgressBar = this.f46652f;
+            SmoothProgressBar smoothProgressBar = this.f46564f;
             if (smoothProgressBar != null) {
                 smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(e.aiapps_loading_progress_animation));
             }
-            TextView textView = this.f46653g;
+            TextView textView = this.f46565g;
             if (textView != null) {
                 textView.setTextColor(textView.getResources().getColor(c.aiapps_loading_text_color));
             }
@@ -161,7 +161,7 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     public void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f46653g.setText(str);
+            this.f46565g.setText(str);
         }
     }
 

@@ -19,10 +19,10 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f36039a;
+    public boolean f36043a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36040b;
+    public String f36044b;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public final class c {
                 return;
             }
         }
-        this.f36039a = z;
-        this.f36040b = l.a(24);
+        this.f36043a = z;
+        this.f36044b = l.a(24);
     }
 
     public static byte[] b(String str, byte[] bArr, String str2) {
@@ -66,8 +66,8 @@ public final class c {
                     z = false;
                 }
             }
-            if (this.f36039a) {
-                a2 = a(bytes, a(this.f36040b, com.alipay.sdk.cons.a.f35961e), b(this.f36040b, bytes2, str));
+            if (this.f36043a) {
+                a2 = a(bytes, a(this.f36044b, com.alipay.sdk.cons.a.f35965e), b(this.f36044b, bytes2, str));
             } else {
                 a2 = a(bytes, bytes2);
             }
@@ -108,8 +108,8 @@ public final class c {
                         if (a2 > 0) {
                             byte[] bArr4 = new byte[a2];
                             byteArrayInputStream.read(bArr4);
-                            if (this.f36039a) {
-                                bArr4 = a(this.f36040b, bArr4, str);
+                            if (this.f36043a) {
+                                bArr4 = a(this.f36044b, bArr4, str);
                             }
                             if (dVar.b()) {
                                 bArr4 = com.alipay.sdk.encrypt.b.b(bArr4);

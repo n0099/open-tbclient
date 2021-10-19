@@ -14,13 +14,13 @@ public final class hl {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hl f78124a;
+    public static final hl f78159a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hl[] f498a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hl f78125b;
+    public static final hl f78160b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -39,10 +39,10 @@ public final class hl {
                 return;
             }
         }
-        f78124a = new hl("MISC_CONFIG", 0, 1);
+        f78159a = new hl("MISC_CONFIG", 0, 1);
         hl hlVar = new hl("PLUGIN_CONFIG", 1, 2);
-        f78125b = hlVar;
-        f498a = new hl[]{f78124a, hlVar};
+        f78160b = hlVar;
+        f498a = new hl[]{f78159a, hlVar};
     }
 
     public hl(String str, int i2, int i3) {
@@ -74,9 +74,9 @@ public final class hl {
                 if (i2 != 2) {
                     return null;
                 }
-                return f78125b;
+                return f78160b;
             }
-            return f78124a;
+            return f78159a;
         }
         return (hl) invokeI.objValue;
     }

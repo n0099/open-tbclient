@@ -372,11 +372,11 @@ public class SpeedStats {
                 mainActivityCreateStartTimeStamp = this.mSpeedStatsManager.getMainActivityCreateStartTimeStamp();
             }
             if (mainActivityCreateStartTimeStamp > 0) {
-                long appLaunchEndTimeStamp = this.mSpeedStatsManager.getAppLaunchEndTimeStamp() - mainActivityCreateStartTimeStamp;
-                if (appLaunchEndTimeStamp <= 50 || appLaunchEndTimeStamp >= 60000) {
+                long appUserPerceptionLaunchDuration = this.mSpeedStatsManager.getAppUserPerceptionLaunchDuration() - this.mSpeedStatsManager.getSplashActivityDuration();
+                if (appUserPerceptionLaunchDuration <= 50 || appUserPerceptionLaunchDuration >= 60000) {
                     return null;
                 }
-                return String.valueOf(appLaunchEndTimeStamp);
+                return String.valueOf(appUserPerceptionLaunchDuration);
             }
             return null;
         }

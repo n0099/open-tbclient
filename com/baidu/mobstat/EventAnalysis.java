@@ -22,7 +22,7 @@ public class EventAnalysis {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, a> f43128a;
+    public Map<String, a> f43040a;
 
     /* renamed from: com.baidu.mobstat.EventAnalysis$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -37,13 +37,13 @@ public class EventAnalysis {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f43129a;
+        public String f43041a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f43130b;
+        public String f43042b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f43131c;
+        public long f43043c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class EventAnalysis {
                 return;
             }
         }
-        this.f43128a = new HashMap();
+        this.f43040a = new HashMap();
     }
 
     private void a(Context context, long j2, String str, String str2, int i2, long j3, long j4, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
@@ -186,19 +186,19 @@ public class EventAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Long.valueOf(j2), str, str2, Long.valueOf(j3), extraInfo, map, Boolean.valueOf(z)}) == null) {
             String a2 = a(str, str2);
-            a aVar = this.f43128a.get(a2);
+            a aVar = this.f43040a.get(a2);
             if (aVar == null) {
                 bc c2 = bc.c();
                 c2.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");
-            } else if ((str != null && !str.equals(aVar.f43129a)) || (str2 != null && !str2.equals(aVar.f43130b))) {
+            } else if ((str != null && !str.equals(aVar.f43041a)) || (str2 != null && !str2.equals(aVar.f43042b))) {
                 bc.c().b("[WARNING] eventId/label pair not match");
             } else {
-                this.f43128a.remove(a2);
-                long j4 = j3 - aVar.f43131c;
+                this.f43040a.remove(a2);
+                long j4 = j3 - aVar.f43043c;
                 if (j4 < 0) {
                     bc.c().b("[WARNING] onEventEnd must be invoked after onEventStart");
                 }
-                onEventDuration(context, j2, str, str2, aVar.f43131c, j4, extraInfo, map, z);
+                onEventDuration(context, j2, str, str2, aVar.f43043c, j4, extraInfo, map, z);
             }
         }
     }
@@ -207,15 +207,15 @@ public class EventAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, str, str2, Long.valueOf(j2)}) == null) {
             a aVar = new a(null);
-            aVar.f43131c = j2;
-            aVar.f43129a = str;
-            aVar.f43130b = str2;
+            aVar.f43043c = j2;
+            aVar.f43041a = str;
+            aVar.f43042b = str2;
             String a2 = a(str, str2);
-            if (this.f43128a.containsKey(a2)) {
+            if (this.f43040a.containsKey(a2)) {
                 bc c2 = bc.c();
                 c2.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is duplicated, older is removed");
             }
-            this.f43128a.put(a2, aVar);
+            this.f43040a.put(a2, aVar);
         }
     }
 

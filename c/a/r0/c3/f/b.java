@@ -1,100 +1,119 @@
 package c.a.r0.c3.f;
 
-import android.os.Bundle;
-import c.a.e.e.p.k;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import android.view.View;
+import c.a.e.a.d;
+import c.a.e.a.f;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.setting.usermutelist.UserMuteListActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b {
+public class b extends d<UserMuteListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i2, ShareEntity shareEntity) {
+    /* renamed from: a  reason: collision with root package name */
+    public BaseActivity<UserMuteListActivity> f16316a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public NoNetworkView f16317b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public NavigationBar f16318c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f16319d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public BdListView f16320e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public NoDataView f16321f;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(BaseActivity<UserMuteListActivity> baseActivity, a aVar) {
+        super(baseActivity.getPageContext());
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65536, null, i2, shareEntity) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CANCEL);
-            int i3 = 6;
-            if (i2 == 2) {
-                i3 = 3;
-            } else if (i2 == 3) {
-                i3 = 2;
-            } else if (i2 == 4) {
-                i3 = 4;
-            } else if (i2 != 6) {
-                i3 = i2 != 8 ? 0 : 5;
-            }
-            if (i3 != 0) {
-                statisticItem.param("obj_source", i3);
-            }
-            if (shareEntity == null) {
-                TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((f) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            Bundle stats = shareEntity.getStats();
-            if (stats != null) {
-                statisticItem.param("tid", stats.getString("tid"));
-                statisticItem.param("uid", stats.getString("uid"));
-                statisticItem.param("fid", stats.getString("fid"));
-            }
-            TiebaStatic.log(statisticItem);
+        }
+        this.f16316a = baseActivity;
+        initUI();
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            this.f16316a.getLayoutMode().k(skinType == 1);
+            this.f16316a.getLayoutMode().j(this.f16319d);
+            this.f16318c.onChangeSkinType(this.f16316a.getPageContext(), skinType);
+            this.f16321f.onChangeSkinType(this.f16316a.getPageContext(), skinType);
+            this.f16317b.onChangeSkinType(this.f16316a.getPageContext(), skinType);
         }
     }
 
-    public static void b(int i2, ShareEntity shareEntity) {
+    public BdListView d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i2, shareEntity) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
-            int i3 = 6;
-            if (i2 == 2) {
-                i3 = 3;
-            } else if (i2 == 3) {
-                i3 = 2;
-            } else if (i2 == 4) {
-                i3 = 4;
-            } else if (i2 != 6) {
-                i3 = i2 != 8 ? 0 : 5;
-            }
-            if (i3 != 0) {
-                statisticItem.param("obj_source", i3);
-            }
-            if (shareEntity == null) {
-                TiebaStatic.log(statisticItem);
-                return;
-            }
-            Bundle stats = shareEntity.getStats();
-            if (stats != null) {
-                int i4 = stats.getInt("obj_param1");
-                if (i4 != 0) {
-                    statisticItem.param("obj_param1", i4);
-                    if (i4 == 2) {
-                        statisticItem.param("fid", stats.getString("fid"));
-                    } else if (i4 == 3) {
-                        int i5 = stats.getInt("obj_type");
-                        if (i5 != 0) {
-                            statisticItem.param("obj_type", i5);
-                        }
-                        statisticItem.param("tid", stats.getString("tid")).param("fid", stats.getString("fid"));
-                    }
-                }
-                String string = stats.getString(TiebaStatic.Params.OBJ_URL);
-                if (!k.isEmpty(string)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_URL, string);
-                }
-                int i6 = stats.getInt("obj_locate");
-                int i7 = stats.getInt("source", 0);
-                if (i7 == 10 || i7 == 16 || i7 == 3) {
-                    i6 = i7;
-                }
-                statisticItem.param("obj_locate", i6);
-                if (i7 == 15) {
-                    return;
-                }
-            }
-            TiebaStatic.log(statisticItem);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16320e : (BdListView) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f16320e.setVisibility(8);
+            this.f16321f.setVisibility(0);
+            this.f16321f.setTextOption(NoDataViewFactory.e.a(R.string.user_mute_list_no_data_text));
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f16320e.setVisibility(8);
+            this.f16321f.setVisibility(0);
+            this.f16321f.setTextOption(NoDataViewFactory.e.a(R.string.refresh_view_title_text));
+        }
+    }
+
+    public final void initUI() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f16316a.setContentView(R.layout.user_mute_list_activity);
+            View findViewById = this.f16316a.findViewById(R.id.root_view);
+            this.f16319d = findViewById;
+            this.f16317b = (NoNetworkView) findViewById.findViewById(R.id.view_no_network);
+            NavigationBar navigationBar = (NavigationBar) this.f16319d.findViewById(R.id.view_navigation_bar);
+            this.f16318c = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.f16318c.setTitleText(R.string.user_mute_list_text);
+            this.f16320e = (BdListView) this.f16319d.findViewById(R.id.mute_user_list);
+            this.f16321f = NoDataViewFactory.a(this.f16316a.getPageContext().getContext(), this.f16319d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.f48534a), NoDataViewFactory.e.a(R.string.user_mute_list_no_data_text), null);
+            c();
         }
     }
 }

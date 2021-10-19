@@ -58,7 +58,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public c.a.q0.t.i.b mInputUserNameDialog;
     public Button mLoginBtn;
     public Button mQuickRegistBtn;
-    public final a.InterfaceC0687a mReLoginCallback;
+    public final a.InterfaceC0689a mReLoginCallback;
     public boolean toLogin;
     public View unlogin_see;
 
@@ -68,7 +68,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NotLoginGuideActivity f49230a;
+        public final /* synthetic */ NotLoginGuideActivity f49157a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(NotLoginGuideActivity notLoginGuideActivity, int i2) {
@@ -88,7 +88,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
                     return;
                 }
             }
-            this.f49230a = notLoginGuideActivity;
+            this.f49157a = notLoginGuideActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -98,17 +98,17 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001385 || customResponsedMessage.getData() == null) {
                 return;
             }
-            this.f49230a.finish();
+            this.f49157a.finish();
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements a.InterfaceC0687a {
+    public class b implements a.InterfaceC0689a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NotLoginGuideActivity f49231a;
+        public final /* synthetic */ NotLoginGuideActivity f49158a;
 
         /* loaded from: classes6.dex */
         public class a implements DialogInterface.OnCancelListener {
@@ -116,7 +116,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f49232e;
+            public final /* synthetic */ b f49159e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -133,14 +133,14 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
                         return;
                     }
                 }
-                this.f49232e = bVar;
+                this.f49159e = bVar;
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                    this.f49232e.f49231a.destroyWaitingDialog();
+                    this.f49159e.f49158a.destroyWaitingDialog();
                 }
             }
         }
@@ -160,44 +160,44 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
                     return;
                 }
             }
-            this.f49231a = notLoginGuideActivity;
+            this.f49158a = notLoginGuideActivity;
         }
 
-        @Override // c.a.q0.s.l.a.InterfaceC0687a
+        @Override // c.a.q0.s.l.a.InterfaceC0689a
         public void a(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
                 c.a.q0.s.z.a.a("account", -1L, 0, "login_silent_fail", i2, str2, new Object[0]);
-                this.f49231a.closeLoadingDialog();
-                if (this.f49231a.currAction == 1) {
-                    this.f49231a.goToLogin();
-                } else if (this.f49231a.currAction == 2) {
-                    this.f49231a.goToRegist();
+                this.f49158a.closeLoadingDialog();
+                if (this.f49158a.currAction == 1) {
+                    this.f49158a.goToLogin();
+                } else if (this.f49158a.currAction == 2) {
+                    this.f49158a.goToRegist();
                 }
             }
         }
 
-        @Override // c.a.q0.s.l.a.InterfaceC0687a
+        @Override // c.a.q0.s.l.a.InterfaceC0689a
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.f49231a.getLoadingDialog() == null || !this.f49231a.getLoadingDialog().c()) {
-                    NotLoginGuideActivity notLoginGuideActivity = this.f49231a;
+                if (this.f49158a.getLoadingDialog() == null || !this.f49158a.getLoadingDialog().c()) {
+                    NotLoginGuideActivity notLoginGuideActivity = this.f49158a;
                     notLoginGuideActivity.showLoadingDialog(notLoginGuideActivity.getPageContext().getString(R.string.sapi_logining), new a(this));
                 }
             }
         }
 
-        @Override // c.a.q0.s.l.a.InterfaceC0687a
+        @Override // c.a.q0.s.l.a.InterfaceC0689a
         public void c(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
                 c.a.q0.s.z.a.a("account", -1L, 0, "login_silent_success", 0, "", new Object[0]);
-                this.f49231a.closeLoadingDialog();
+                this.f49158a.closeLoadingDialog();
                 if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
-                    this.f49231a.loginSuccess(accountData);
+                    this.f49158a.loginSuccess(accountData);
                 } else {
-                    this.f49231a.showInputDialog(accountData);
+                    this.f49158a.showInputDialog(accountData);
                 }
             }
         }
@@ -209,7 +209,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NotLoginGuideActivity f49233a;
+        public final /* synthetic */ NotLoginGuideActivity f49160a;
 
         public c(NotLoginGuideActivity notLoginGuideActivity) {
             Interceptable interceptable = $ic;
@@ -226,14 +226,14 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
                     return;
                 }
             }
-            this.f49233a = notLoginGuideActivity;
+            this.f49160a = notLoginGuideActivity;
         }
 
         @Override // c.a.q0.t.i.b.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
-                this.f49233a.loginSuccess(accountData);
+                this.f49160a.loginSuccess(accountData);
             }
         }
     }
@@ -244,10 +244,10 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f49234e;
+        public final /* synthetic */ AccountData f49161e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NotLoginGuideActivity f49235f;
+        public final /* synthetic */ NotLoginGuideActivity f49162f;
 
         public d(NotLoginGuideActivity notLoginGuideActivity, AccountData accountData) {
             Interceptable interceptable = $ic;
@@ -264,15 +264,15 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
                     return;
                 }
             }
-            this.f49235f = notLoginGuideActivity;
-            this.f49234e = accountData;
+            this.f49162f = notLoginGuideActivity;
+            this.f49161e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.q0.s.l.c.g(this.f49234e);
+                c.a.q0.s.l.c.g(this.f49161e);
             }
         }
     }

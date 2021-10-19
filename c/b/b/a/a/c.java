@@ -28,7 +28,7 @@ public final class c extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SSLSocketFactory f31492a;
+    public SSLSocketFactory f31496a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -102,16 +102,16 @@ public final class c extends b {
             }
             try {
                 if (httpURLConnection instanceof HttpsURLConnection) {
-                    if (this.f31492a == null) {
+                    if (this.f31496a == null) {
                         synchronized (c.class) {
-                            if (this.f31492a == null) {
+                            if (this.f31496a == null) {
                                 SSLContext sSLContext = SSLContext.getInstance((String) h.a(16777217, 0, 0L, "5187f3", new byte[]{16, 31, 120}));
                                 sSLContext.init(null, null, null);
-                                this.f31492a = sSLContext.getSocketFactory();
+                                this.f31496a = sSLContext.getSocketFactory();
                             }
                         }
                     }
-                    ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(this.f31492a);
+                    ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(this.f31496a);
                 }
                 httpURLConnection.setConnectTimeout(10000);
                 httpURLConnection.setReadTimeout(5000);

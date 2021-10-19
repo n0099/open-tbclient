@@ -23,25 +23,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f13799a;
+    public TbPageContext<?> f13819a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f13800b;
+    public Activity f13820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AlertDialog f13801c;
+    public AlertDialog f13821c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13802d;
+    public String f13822d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f13803e;
+    public TextView f13823e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DialogInterface.OnCancelListener f13804f;
+    public DialogInterface.OnCancelListener f13824f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13805g;
+    public boolean f13825g;
 
     public a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -58,16 +58,16 @@ public class a {
                 return;
             }
         }
-        this.f13799a = null;
-        this.f13800b = null;
-        this.f13802d = null;
-        this.f13803e = null;
-        this.f13805g = true;
-        this.f13799a = tbPageContext;
+        this.f13819a = null;
+        this.f13820b = null;
+        this.f13822d = null;
+        this.f13823e = null;
+        this.f13825g = true;
+        this.f13819a = tbPageContext;
         if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
             return;
         }
-        this.f13800b = this.f13799a.getPageActivity();
+        this.f13820b = this.f13819a.getPageActivity();
     }
 
     public final a a(DialogInterface.OnCancelListener onCancelListener) {
@@ -75,27 +75,27 @@ public class a {
         TextView textView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onCancelListener)) == null) {
-            if (this.f13800b == null) {
+            if (this.f13820b == null) {
                 return this;
             }
-            AlertDialog create = new AlertDialog.Builder(this.f13800b).create();
-            this.f13801c = create;
-            c.a.e.e.m.g.i(create, this.f13800b);
-            View inflate = LayoutInflater.from(this.f13800b).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
-            this.f13803e = (TextView) inflate.findViewById(R.id.custom_loading_text);
-            if (!StringUtils.isNull(this.f13802d) && (textView = this.f13803e) != null) {
-                textView.setText(this.f13802d);
+            AlertDialog create = new AlertDialog.Builder(this.f13820b).create();
+            this.f13821c = create;
+            c.a.e.e.m.g.i(create, this.f13820b);
+            View inflate = LayoutInflater.from(this.f13820b).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
+            this.f13823e = (TextView) inflate.findViewById(R.id.custom_loading_text);
+            if (!StringUtils.isNull(this.f13822d) && (textView = this.f13823e) != null) {
+                textView.setText(this.f13822d);
             }
-            AlertDialog alertDialog = this.f13801c;
+            AlertDialog alertDialog = this.f13821c;
             if (alertDialog != null && alertDialog.getWindow() != null) {
-                this.f13801c.getWindow().setContentView(inflate);
+                this.f13821c.getWindow().setContentView(inflate);
                 if (onCancelListener != null) {
-                    this.f13801c.setCancelable(true);
-                    this.f13801c.setCanceledOnTouchOutside(true);
-                    this.f13801c.setOnCancelListener(onCancelListener);
+                    this.f13821c.setCancelable(true);
+                    this.f13821c.setCanceledOnTouchOutside(true);
+                    this.f13821c.setOnCancelListener(onCancelListener);
                 } else {
-                    this.f13801c.setCanceledOnTouchOutside(false);
-                    this.f13801c.setCancelable(false);
+                    this.f13821c.setCanceledOnTouchOutside(false);
+                    this.f13821c.setCancelable(false);
                 }
             }
             return this;
@@ -108,22 +108,22 @@ public class a {
         TextView textView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onCancelListener)) == null) {
-            if (this.f13800b == null) {
+            if (this.f13820b == null) {
                 return this;
             }
-            AlertDialog create = new AlertDialog.Builder(this.f13800b).create();
-            this.f13801c = create;
-            c.a.e.e.m.g.i(create, this.f13800b);
-            View inflate = LayoutInflater.from(this.f13800b).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
-            this.f13803e = (TextView) inflate.findViewById(R.id.custom_loading_text);
-            if (!StringUtils.isNull(this.f13802d) && (textView = this.f13803e) != null) {
-                textView.setText(this.f13802d);
+            AlertDialog create = new AlertDialog.Builder(this.f13820b).create();
+            this.f13821c = create;
+            c.a.e.e.m.g.i(create, this.f13820b);
+            View inflate = LayoutInflater.from(this.f13820b).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
+            this.f13823e = (TextView) inflate.findViewById(R.id.custom_loading_text);
+            if (!StringUtils.isNull(this.f13822d) && (textView = this.f13823e) != null) {
+                textView.setText(this.f13822d);
             }
-            AlertDialog alertDialog = this.f13801c;
+            AlertDialog alertDialog = this.f13821c;
             if (alertDialog != null && alertDialog.getWindow() != null) {
-                this.f13801c.getWindow().setContentView(inflate);
+                this.f13821c.getWindow().setContentView(inflate);
                 if (onCancelListener != null) {
-                    this.f13801c.setOnCancelListener(onCancelListener);
+                    this.f13821c.setOnCancelListener(onCancelListener);
                 }
             }
             return this;
@@ -135,7 +135,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AlertDialog alertDialog = this.f13801c;
+            AlertDialog alertDialog = this.f13821c;
             return alertDialog != null && alertDialog.isShowing();
         }
         return invokeV.booleanValue;
@@ -144,21 +144,21 @@ public class a {
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f13805g = z;
+            this.f13825g = z;
         }
     }
 
     public void e(DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onCancelListener) == null) {
-            this.f13804f = onCancelListener;
+            this.f13824f = onCancelListener;
         }
     }
 
     public void f(boolean z) {
         AlertDialog alertDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (alertDialog = this.f13801c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (alertDialog = this.f13821c) == null) {
             return;
         }
         alertDialog.setCancelable(z);
@@ -167,7 +167,7 @@ public class a {
     public void g(boolean z) {
         AlertDialog alertDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (alertDialog = this.f13801c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (alertDialog = this.f13821c) == null) {
             return;
         }
         alertDialog.setCanceledOnTouchOutside(z);
@@ -177,32 +177,32 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (z) {
-                if (this.f13805g) {
-                    a(this.f13804f);
+                if (this.f13825g) {
+                    a(this.f13824f);
                     return;
                 } else {
-                    b(this.f13804f);
+                    b(this.f13824f);
                     return;
                 }
             }
-            c.a.e.e.m.g.a(this.f13801c, this.f13800b);
+            c.a.e.e.m.g.a(this.f13821c, this.f13820b);
         }
     }
 
     public void i(int i2) {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (activity = this.f13800b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (activity = this.f13820b) == null) {
             return;
         }
-        this.f13802d = activity.getString(i2);
+        this.f13822d = activity.getString(i2);
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f13802d = str;
-            TextView textView = this.f13803e;
+            this.f13822d = str;
+            TextView textView = this.f13823e;
             if (textView != null) {
                 textView.setText(str);
             }
@@ -224,11 +224,11 @@ public class a {
                 return;
             }
         }
-        this.f13799a = null;
-        this.f13800b = null;
-        this.f13802d = null;
-        this.f13803e = null;
-        this.f13805g = true;
-        this.f13800b = activity;
+        this.f13819a = null;
+        this.f13820b = null;
+        this.f13822d = null;
+        this.f13823e = null;
+        this.f13825g = true;
+        this.f13820b = activity;
     }
 }

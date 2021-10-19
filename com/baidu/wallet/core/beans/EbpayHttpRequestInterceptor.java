@@ -22,22 +22,22 @@ public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f61054a = "EbpayClientHttpRequestInterceptor";
+    public static final String f61089a = "EbpayClientHttpRequestInterceptor";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f61055b = "wims";
+    public static final String f61090b = "wims";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f61056c = "wloc";
+    public static final String f61091c = "wloc";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f61057d = "wssn";
+    public static final String f61092d = "wssn";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f61058e = "cuid_1";
+    public static final String f61093e = "cuid_1";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f61059f = "wmip";
+    public static final String f61094f = "wmip";
     public transient /* synthetic */ FieldHolder $fh;
 
     public EbpayHttpRequestInterceptor() {

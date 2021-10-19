@@ -39,23 +39,23 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static h f15000f;
+    public static h f15024f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f15001a;
+    public int f15025a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.e.c.e.c.k.a f15002b;
+    public c.a.e.c.e.c.k.a f15026b;
 
     /* renamed from: c  reason: collision with root package name */
-    public UpdateClientInfoMessage f15003c;
+    public UpdateClientInfoMessage f15027c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f15004d;
+    public int f15028d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.e.c.e.c.k.a f15005e;
+    public final c.a.e.c.e.c.k.a f15029e;
 
     /* loaded from: classes3.dex */
     public class a implements c.a.e.c.e.c.k.a {
@@ -63,7 +63,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f15006a;
+        public final /* synthetic */ h f15030a;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -80,16 +80,16 @@ public class h {
                     return;
                 }
             }
-            this.f15006a = hVar;
+            this.f15030a = hVar;
         }
 
         @Override // c.a.e.c.e.c.k.a
         public void a(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f15006a.f15002b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f15030a.f15026b == null) {
                 return;
             }
-            this.f15006a.f15002b.a(str);
+            this.f15030a.f15026b.a(str);
         }
 
         @Override // c.a.e.c.e.c.k.a
@@ -98,8 +98,8 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str)) == null) {
                 c.a.q0.f0.a.b(0, 2, 0, 0, 0);
-                if (this.f15006a.f15002b != null) {
-                    this.f15006a.f15002b.b(i2, str);
+                if (this.f15030a.f15026b != null) {
+                    this.f15030a.f15026b.b(i2, str);
                 }
                 return false;
             }
@@ -109,19 +109,19 @@ public class h {
         @Override // c.a.e.c.e.c.k.a
         public void c(c.a.e.e.r.c cVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || this.f15006a.f15002b == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || this.f15030a.f15026b == null) {
                 return;
             }
-            this.f15006a.f15002b.c(cVar);
+            this.f15030a.f15026b.c(cVar);
         }
 
         @Override // c.a.e.c.e.c.k.a
         public void d(k kVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) || this.f15006a.f15002b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) || this.f15030a.f15026b == null) {
                 return;
             }
-            this.f15006a.f15002b.d(kVar);
+            this.f15030a.f15026b.d(kVar);
         }
 
         @Override // c.a.e.c.e.c.k.a
@@ -129,17 +129,17 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
                 c.a.q0.f0.a.b(0, 1, 0, 0, 0);
-                if (this.f15006a.f15002b != null) {
-                    this.f15006a.f15002b.g(map);
+                if (this.f15030a.f15026b != null) {
+                    this.f15030a.f15026b.g(map);
                 }
                 c.a.e.c.e.c.i.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
-                if (c.a.q0.q0.k.d().g() && h.b(this.f15006a) < 10) {
+                if (c.a.q0.q0.k.d().g() && h.b(this.f15030a) < 10) {
                     c.a.e.c.e.c.i.e();
                 }
                 c.a.q0.f0.a.b(1001, 0, 0, 3, 0);
-                h hVar = this.f15006a;
-                hVar.f15003c = hVar.i();
-                MessageManager.getInstance().sendMessage(this.f15006a.f15003c);
+                h hVar = this.f15030a;
+                hVar.f15027c = hVar.i();
+                MessageManager.getInstance().sendMessage(this.f15030a.f15027c);
             }
         }
     }
@@ -150,7 +150,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f15007a;
+        public final /* synthetic */ h f15031a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(h hVar, int i2) {
@@ -170,7 +170,7 @@ public class h {
                     return;
                 }
             }
-            this.f15007a = hVar;
+            this.f15031a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -183,7 +183,7 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
                 if (!(socketResponsedMessage instanceof ResponseOnlineMessage)) {
-                    this.f15007a.o(socketResponsedMessage.getCmd(), -1, null);
+                    this.f15031a.o(socketResponsedMessage.getCmd(), -1, null);
                     return null;
                 }
                 ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
@@ -195,12 +195,12 @@ public class h {
                     j2 = ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getClientLogID();
                 }
                 if (responseOnlineMessage.getError() != 0) {
-                    this.f15007a.o(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
-                    c.a.e.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j2, i2, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + this.f15007a.f15001a);
+                    this.f15031a.o(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
+                    c.a.e.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j2, i2, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + this.f15031a.f15025a);
                     return null;
                 }
-                this.f15007a.m();
-                c.a.e.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j2, i2, "online_succ", 0, "online succ. retry count-" + this.f15007a.f15001a);
+                this.f15031a.m();
+                c.a.e.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j2, i2, "online_succ", 0, "online succ. retry count-" + this.f15031a.f15025a);
                 return socketResponsedMessage;
             }
             return (SocketResponsedMessage) invokeL.objValue;
@@ -235,16 +235,16 @@ public class h {
                 return;
             }
         }
-        this.f15002b = null;
-        this.f15003c = null;
-        this.f15004d = 0;
-        this.f15005e = new a(this);
+        this.f15026b = null;
+        this.f15027c = null;
+        this.f15028d = 0;
+        this.f15029e = new a(this);
         MessageManager.getInstance().addResponsedMessageRule(new b(this, 1001));
     }
 
     public static /* synthetic */ int b(h hVar) {
-        int i2 = hVar.f15004d + 1;
-        hVar.f15004d = i2;
+        int i2 = hVar.f15028d + 1;
+        hVar.f15028d = i2;
         return i2;
     }
 
@@ -254,14 +254,14 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             synchronized (h.class) {
-                if (f15000f == null) {
+                if (f15024f == null) {
                     synchronized (h.class) {
-                        if (f15000f == null) {
-                            f15000f = new h();
+                        if (f15024f == null) {
+                            f15024f = new h();
                         }
                     }
                 }
-                hVar = f15000f;
+                hVar = f15024f;
             }
             return hVar;
         }
@@ -333,7 +333,7 @@ public class h {
                     a.b d2 = c.a.q0.s.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
                     String a2 = c.a.q0.s.l.e.a(TbadkCoreApplication.getCurrentAccountInfo());
                     if (d2 != null) {
-                        updateClientInfoMessage.setBduss(d2.f13997a, a2);
+                        updateClientInfoMessage.setBduss(d2.f14018a, a2);
                     } else {
                         updateClientInfoMessage.setBduss(TbadkCoreApplication.getCurrentBduss(), a2);
                     }
@@ -374,20 +374,20 @@ public class h {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().getSocketClient().G(this.f15005e);
+            MessageManager.getInstance().getSocketClient().G(this.f15029e);
         }
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15001a >= 5 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15025a >= 5 : invokeV.booleanValue;
     }
 
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f15001a = 0;
+            this.f15025a = 0;
             MessageManager.getInstance().getSocketClient().I();
             NoNetworkView.updateUI();
             BdSocketLinkService.stopReConnStrategy("online succ");
@@ -397,7 +397,7 @@ public class h {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f15001a++;
+            this.f15025a++;
             if (l()) {
                 BdSocketLinkService.setAvailable(false);
                 NoNetworkView.updateUI();
@@ -416,7 +416,7 @@ public class h {
     public void p(c.a.e.c.e.c.k.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f15002b = aVar;
+            this.f15026b = aVar;
         }
     }
 }

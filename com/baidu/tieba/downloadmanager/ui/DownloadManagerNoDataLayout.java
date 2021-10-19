@@ -23,13 +23,13 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f50180e;
+    public ImageView f50107e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f50181f;
+    public TextView f50108f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50182g;
+    public String f50109g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DownloadManagerNoDataLayout(@NonNull Context context) {
@@ -58,17 +58,17 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
             setOrientation(1);
             setLayoutParams(new LinearLayout.LayoutParams(-1, l.g(context, R.dimen.tbds496)));
             ImageView imageView = new ImageView(context);
-            this.f50180e = imageView;
+            this.f50107e = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(l.g(context, R.dimen.tbds177), l.g(context, R.dimen.tbds177));
             layoutParams.setMargins(l.g(context, R.dimen.tbds450), l.g(context, R.dimen.tbds133), l.g(context, R.dimen.tbds450), 0);
-            addView(this.f50180e, layoutParams);
-            this.f50181f = new TextView(context);
+            addView(this.f50107e, layoutParams);
+            this.f50108f = new TextView(context);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
             layoutParams2.setMargins(0, l.g(context, R.dimen.tbds34), 0, 0);
-            this.f50181f.setGravity(17);
-            addView(this.f50181f, layoutParams2);
-            this.f50182g = TbadkCoreApplication.getInst().getString(R.string.content_no_data);
+            this.f50108f.setGravity(17);
+            addView(this.f50108f, layoutParams2);
+            this.f50109g = TbadkCoreApplication.getInst().getString(R.string.content_no_data);
             onChangeSkinType();
         }
     }
@@ -77,17 +77,17 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setBackground(null);
-            SkinManager.setImageResource(this.f50180e, R.drawable.im_no_data_icon);
-            c d2 = c.d(this.f50181f);
-            d2.w(R.color.CAM_X0110);
-            d2.A(R.dimen.T_X08);
+            SkinManager.setImageResource(this.f50107e, R.drawable.im_no_data_icon);
+            c d2 = c.d(this.f50108f);
+            d2.v(R.color.CAM_X0110);
+            d2.z(R.dimen.T_X08);
         }
     }
 
     public void setNoDataText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f50181f.setText(String.format(this.f50182g, TbadkCoreApplication.getInst().getString(i2)));
+            this.f50108f.setText(String.format(this.f50109g, TbadkCoreApplication.getInst().getString(i2)));
         }
     }
 

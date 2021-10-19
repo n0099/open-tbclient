@@ -125,7 +125,7 @@ public class JSONPatch {
             replace = new OperationType(StickerDataChangeType.REPLACE, 2);
             move = new OperationType("move", 3);
             copy = new OperationType("copy", 4);
-            OperationType operationType = new OperationType(a.f39359g, 5);
+            OperationType operationType = new OperationType(a.f39363g, 5);
             test = operationType;
             $VALUES = new OperationType[]{add, remove, replace, move, copy, operationType};
         }

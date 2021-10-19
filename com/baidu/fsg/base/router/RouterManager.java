@@ -18,14 +18,14 @@ public class RouterManager {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39509a = "MaApplication";
+    public static final String f39513a = "MaApplication";
 
     /* renamed from: b  reason: collision with root package name */
-    public static RouterManager f39510b;
+    public static RouterManager f39514b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<ApplicationLogicWrapper> f39511c;
+    public ArrayList<ApplicationLogicWrapper> f39515c;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class RouterManager {
                 return;
             }
         }
-        f39510b = new RouterManager();
+        f39514b = new RouterManager();
     }
 
     public RouterManager() {
@@ -56,17 +56,17 @@ public class RouterManager {
                 return;
             }
         }
-        this.f39511c = new ArrayList<>();
+        this.f39515c = new ArrayList<>();
     }
 
     private void a(Context context, HashMap<String, Object> hashMap) {
         ArrayList<ApplicationLogicWrapper> arrayList;
         BaseApplicationLogic baseApplicationLogic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, context, hashMap) == null) || (arrayList = this.f39511c) == null || arrayList.size() < 1) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, context, hashMap) == null) || (arrayList = this.f39515c) == null || arrayList.size() < 1) {
             return;
         }
-        Iterator<ApplicationLogicWrapper> it = this.f39511c.iterator();
+        Iterator<ApplicationLogicWrapper> it = this.f39515c.iterator();
         while (it.hasNext()) {
             ApplicationLogicWrapper next = it.next();
             if (next != null) {
@@ -86,7 +86,7 @@ public class RouterManager {
     public static RouterManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f39510b : (RouterManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f39514b : (RouterManager) invokeV.objValue;
     }
 
     public void init(Context context, HashMap<String, Object> hashMap) {
@@ -99,10 +99,10 @@ public class RouterManager {
             if (applicationContext == null) {
                 throw new RuntimeException("Router manager init with applciation context null");
             }
-            LogUtil.d(f39509a, "Application onCreate start: " + System.currentTimeMillis());
+            LogUtil.d(f39513a, "Application onCreate start: " + System.currentTimeMillis());
             LocalRouter.init(applicationContext);
             a(applicationContext, hashMap);
-            LogUtil.d(f39509a, "Application onCreate end: " + System.currentTimeMillis());
+            LogUtil.d(f39513a, "Application onCreate end: " + System.currentTimeMillis());
         }
     }
 
@@ -110,7 +110,7 @@ public class RouterManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
-            ArrayList<ApplicationLogicWrapper> arrayList = this.f39511c;
+            ArrayList<ApplicationLogicWrapper> arrayList = this.f39515c;
             if (arrayList != null) {
                 Iterator<ApplicationLogicWrapper> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -118,7 +118,7 @@ public class RouterManager {
                         throw new RuntimeException(cls.getName() + " has registered.");
                     }
                 }
-                this.f39511c.add(new ApplicationLogicWrapper(cls));
+                this.f39515c.add(new ApplicationLogicWrapper(cls));
                 return true;
             }
             return false;

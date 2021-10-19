@@ -26,7 +26,7 @@ public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f14479a;
+    public static final int f14499a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -35,10 +35,10 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TBAlertConfig.a f14480e;
+        public final /* synthetic */ TBAlertConfig.a f14500e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f14481f;
+        public final /* synthetic */ View.OnClickListener f14501f;
 
         public a(TBAlertConfig.a aVar, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -55,19 +55,19 @@ public class m {
                     return;
                 }
             }
-            this.f14480e = aVar;
-            this.f14481f = onClickListener;
+            this.f14500e = aVar;
+            this.f14501f = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                View.OnClickListener onClickListener = this.f14480e.f47588c;
+                View.OnClickListener onClickListener = this.f14500e.f47508c;
                 if (onClickListener != null) {
                     onClickListener.onClick(view);
                 }
-                View.OnClickListener onClickListener2 = this.f14481f;
+                View.OnClickListener onClickListener2 = this.f14501f;
                 if (onClickListener2 != null) {
                     onClickListener2.onClick(view);
                 }
@@ -80,10 +80,10 @@ public class m {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f14482a;
+        public static final /* synthetic */ int[] f14502a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f14483b;
+        public static final /* synthetic */ int[] f14503b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -100,35 +100,35 @@ public class m {
                 }
             }
             int[] iArr = new int[TBAlertConfig.OperateBtnStyle.values().length];
-            f14483b = iArr;
+            f14503b = iArr;
             try {
                 iArr[TBAlertConfig.OperateBtnStyle.MAIN.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f14483b[TBAlertConfig.OperateBtnStyle.ALERT.ordinal()] = 2;
+                f14503b[TBAlertConfig.OperateBtnStyle.ALERT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f14483b[TBAlertConfig.OperateBtnStyle.FORCE.ordinal()] = 3;
+                f14503b[TBAlertConfig.OperateBtnStyle.FORCE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f14483b[TBAlertConfig.OperateBtnStyle.SECONDARY.ordinal()] = 4;
+                f14503b[TBAlertConfig.OperateBtnStyle.SECONDARY.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             int[] iArr2 = new int[TBAlertConfig.OperateType.values().length];
-            f14482a = iArr2;
+            f14502a = iArr2;
             try {
                 iArr2[TBAlertConfig.OperateType.ONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f14482a[TBAlertConfig.OperateType.TWO.ordinal()] = 2;
+                f14502a[TBAlertConfig.OperateType.TWO.ordinal()] = 2;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f14482a[TBAlertConfig.OperateType.THREE.ordinal()] = 3;
+                f14502a[TBAlertConfig.OperateType.THREE.ordinal()] = 3;
             } catch (NoSuchFieldError unused7) {
             }
         }
@@ -147,7 +147,7 @@ public class m {
                 return;
             }
         }
-        f14479a = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds96);
+        f14499a = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds96);
     }
 
     public static TextView a(@NonNull Context context) {
@@ -156,13 +156,13 @@ public class m {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             TextView textView = new TextView(context);
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(textView);
-            d2.A(R.dimen.T_X07);
-            d2.y(R.color.CAM_X0301);
-            d2.B(R.string.F_X01);
-            d2.m(R.dimen.L_X02);
-            d2.l(R.color.CAM_X0301);
-            d2.o(R.string.J_X07);
-            d2.i(17170445);
+            d2.z(R.dimen.T_X07);
+            d2.x(R.color.CAM_X0301);
+            d2.A(R.string.F_X01);
+            d2.l(R.dimen.L_X02);
+            d2.k(R.color.CAM_X0301);
+            d2.n(R.string.J_X07);
+            d2.h(17170445);
             textView.setMaxLines(1);
             textView.setSingleLine();
             textView.setGravity(17);
@@ -183,10 +183,10 @@ public class m {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             EMTextView eMTextView = new EMTextView(context);
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(eMTextView);
-            d2.A(R.dimen.T_X07);
-            d2.x(R.dimen.M_T_X002);
-            d2.w(R.color.CAM_X0107);
-            d2.B(R.string.F_X01);
+            d2.z(R.dimen.T_X07);
+            d2.w(R.dimen.M_T_X002);
+            d2.v(R.color.CAM_X0107);
+            d2.A(R.string.F_X01);
             return eMTextView;
         }
         return (TextView) invokeL.objValue;
@@ -198,10 +198,10 @@ public class m {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             EMTextView eMTextView = new EMTextView(context);
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(eMTextView);
-            d2.A(R.dimen.T_X07);
-            d2.x(R.dimen.M_T_X002);
-            d2.w(R.color.CAM_X0108);
-            d2.B(R.string.F_X01);
+            d2.z(R.dimen.T_X07);
+            d2.w(R.dimen.M_T_X002);
+            d2.v(R.color.CAM_X0108);
+            d2.A(R.string.F_X01);
             return eMTextView;
         }
         return (TextView) invokeL.objValue;
@@ -213,11 +213,11 @@ public class m {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
             TextView textView = new TextView(context);
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(textView);
-            d2.A(R.dimen.T_X07);
-            d2.y(R.color.CAM_X0101);
-            d2.B(R.string.F_X01);
-            d2.o(R.string.J_X07);
-            d2.i(R.color.CAM_X0303);
+            d2.z(R.dimen.T_X07);
+            d2.x(R.color.CAM_X0101);
+            d2.A(R.string.F_X01);
+            d2.n(R.string.J_X07);
+            d2.h(R.color.CAM_X0303);
             textView.setMaxLines(1);
             textView.setSingleLine();
             textView.setGravity(17);
@@ -232,14 +232,14 @@ public class m {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
             TextView textView = new TextView(context);
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(textView);
-            d2.A(R.dimen.T_X07);
-            d2.y(R.color.CAM_X0304);
-            d2.B(R.string.F_X01);
-            d2.m(R.dimen.L_X02);
-            d2.l(R.color.CAM_X0304);
-            d2.k(R.string.A_X07);
-            d2.o(R.string.J_X07);
-            d2.i(17170445);
+            d2.z(R.dimen.T_X07);
+            d2.x(R.color.CAM_X0304);
+            d2.A(R.string.F_X01);
+            d2.l(R.dimen.L_X02);
+            d2.k(R.color.CAM_X0304);
+            d2.j(R.string.A_X07);
+            d2.n(R.string.J_X07);
+            d2.h(17170445);
             textView.setMaxLines(1);
             textView.setSingleLine();
             textView.setGravity(17);
@@ -259,7 +259,7 @@ public class m {
         TextView f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, aVar, onClickListener, Boolean.valueOf(z)})) == null) {
-            int i2 = b.f14483b[aVar.f47587b.ordinal()];
+            int i2 = b.f14503b[aVar.f47507b.ordinal()];
             if (i2 == 1) {
                 f2 = f(context);
             } else if (i2 == 2) {
@@ -269,9 +269,9 @@ public class m {
             } else {
                 f2 = e(context);
             }
-            f2.setText(aVar.f47586a);
+            f2.setText(aVar.f47506a);
             if (z) {
-                c.a.q0.s.u.c.d(f2).A(R.dimen.T_X08);
+                c.a.q0.s.u.c.d(f2).z(R.dimen.T_X08);
             }
             f2.setOnClickListener(new a(aVar, onClickListener));
             return f2;
@@ -286,42 +286,42 @@ public class m {
             LinearLayout linearLayout = new LinearLayout(context);
             linearLayout.setPadding(0, c.a.e.e.p.l.g(context, R.dimen.M_H_X008), 0, c.a.e.e.p.l.g(context, R.dimen.M_H_X008));
             linearLayout.setGravity(17);
-            int i2 = b.f14482a[bVar.f47589a.ordinal()];
+            int i2 = b.f14502a[bVar.f47509a.ordinal()];
             boolean z = true;
             if (i2 == 1) {
                 linearLayout.setOrientation(0);
                 linearLayout.setWeightSum(837.0f);
-                View g2 = g(context, bVar.f47590b, onClickListener);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, f14479a);
+                View g2 = g(context, bVar.f47510b, onClickListener);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, f14499a);
                 layoutParams.weight = 494.0f;
                 linearLayout.addView(g2, layoutParams);
             } else if (i2 == 2) {
                 linearLayout.setOrientation(0);
-                if (bVar.f47590b.f47586a.length() <= 6 && bVar.f47591c.f47586a.length() <= 6) {
+                if (bVar.f47510b.f47506a.length() <= 6 && bVar.f47511c.f47506a.length() <= 6) {
                     z = false;
                 }
-                View h2 = h(context, bVar.f47590b, onClickListener, z);
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, f14479a);
+                View h2 = h(context, bVar.f47510b, onClickListener, z);
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, f14499a);
                 layoutParams2.setMargins(c.a.e.e.p.l.g(context, R.dimen.M_W_X012), 0, c.a.e.e.p.l.g(context, R.dimen.M_W_X006) / 2, 0);
                 layoutParams2.weight = 1.0f;
                 linearLayout.addView(h2, layoutParams2);
-                View h3 = h(context, bVar.f47591c, onClickListener, z);
-                LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(0, f14479a);
+                View h3 = h(context, bVar.f47511c, onClickListener, z);
+                LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(0, f14499a);
                 layoutParams3.setMargins(c.a.e.e.p.l.g(context, R.dimen.M_W_X006) / 2, 0, c.a.e.e.p.l.g(context, R.dimen.M_W_X012), 0);
                 layoutParams3.weight = 1.0f;
                 linearLayout.addView(h3, layoutParams3);
             } else if (i2 == 3) {
                 linearLayout.setOrientation(1);
-                View g3 = g(context, bVar.f47590b, onClickListener);
-                LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, f14479a);
+                View g3 = g(context, bVar.f47510b, onClickListener);
+                LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, f14499a);
                 layoutParams4.setMargins(c.a.e.e.p.l.g(context, R.dimen.M_W_X012), 0, c.a.e.e.p.l.g(context, R.dimen.M_W_X012), c.a.e.e.p.l.g(context, R.dimen.M_H_X005));
                 linearLayout.addView(g3, layoutParams4);
-                View g4 = g(context, bVar.f47591c, onClickListener);
-                LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(-1, f14479a);
+                View g4 = g(context, bVar.f47511c, onClickListener);
+                LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(-1, f14499a);
                 layoutParams5.setMargins(c.a.e.e.p.l.g(context, R.dimen.M_W_X012), 0, c.a.e.e.p.l.g(context, R.dimen.M_W_X012), c.a.e.e.p.l.g(context, R.dimen.M_H_X005));
                 linearLayout.addView(g4, layoutParams5);
-                View g5 = g(context, bVar.f47592d, onClickListener);
-                LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(-1, f14479a);
+                View g5 = g(context, bVar.f47512d, onClickListener);
+                LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(-1, f14499a);
                 layoutParams6.setMargins(c.a.e.e.p.l.g(context, R.dimen.M_W_X012), 0, c.a.e.e.p.l.g(context, R.dimen.M_W_X012), 0);
                 linearLayout.addView(g5, layoutParams6);
             }
@@ -337,13 +337,13 @@ public class m {
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             TextView textView = new TextView(context);
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(textView);
-            d2.A(R.dimen.T_X07);
-            d2.y(R.color.CAM_X0105);
-            d2.B(R.string.F_X01);
-            d2.m(R.dimen.L_X02);
-            d2.l(R.color.CAM_X0902);
-            d2.o(R.string.J_X07);
-            d2.i(17170445);
+            d2.z(R.dimen.T_X07);
+            d2.x(R.color.CAM_X0105);
+            d2.A(R.string.F_X01);
+            d2.l(R.dimen.L_X02);
+            d2.k(R.color.CAM_X0902);
+            d2.n(R.string.J_X07);
+            d2.h(17170445);
             textView.setMaxLines(1);
             textView.setSingleLine();
             textView.setGravity(17);
@@ -358,9 +358,9 @@ public class m {
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             EMTextView eMTextView = new EMTextView(context);
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(eMTextView);
-            d2.A(R.dimen.T_X05);
-            d2.w(R.color.CAM_X0105);
-            d2.B(R.string.F_X02);
+            d2.z(R.dimen.T_X05);
+            d2.v(R.color.CAM_X0105);
+            d2.A(R.string.F_X02);
             eMTextView.setMaxLines(1);
             eMTextView.setSingleLine();
             eMTextView.setGravity(17);

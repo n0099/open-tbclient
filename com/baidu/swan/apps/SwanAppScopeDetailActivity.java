@@ -40,7 +40,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppScopeDetailActivity f45626e;
+        public final /* synthetic */ SwanAppScopeDetailActivity f45538e;
 
         public a(SwanAppScopeDetailActivity swanAppScopeDetailActivity) {
             Interceptable interceptable = $ic;
@@ -57,14 +57,14 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                     return;
                 }
             }
-            this.f45626e = swanAppScopeDetailActivity;
+            this.f45538e = swanAppScopeDetailActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f45626e.finish();
+                this.f45538e.finish();
             }
         }
     }
@@ -75,7 +75,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SwanAppScopeDetailActivity f45627c;
+        public final /* synthetic */ SwanAppScopeDetailActivity f45539c;
 
         public b(SwanAppScopeDetailActivity swanAppScopeDetailActivity) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                     return;
                 }
             }
-            this.f45627c = swanAppScopeDetailActivity;
+            this.f45539c = swanAppScopeDetailActivity;
         }
 
         @Override // c.a.p0.a.h0.j.a, c.a.p0.a.h0.j.d
@@ -103,7 +103,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                ((TextView) this.f45627c.findViewById(f.title)).setText(str);
+                ((TextView) this.f45539c.findViewById(f.title)).setText(str);
             }
         }
     }

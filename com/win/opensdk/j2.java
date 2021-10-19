@@ -11,7 +11,7 @@ public class j2 implements z2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ k2 f77393a;
+    public final /* synthetic */ k2 f77428a;
 
     public j2(k2 k2Var) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class j2 implements z2 {
                 return;
             }
         }
-        this.f77393a = k2Var;
+        this.f77428a = k2Var;
     }
 
     @Override // com.win.opensdk.z2
@@ -42,14 +42,14 @@ public class j2 implements z2 {
     public void onLoaded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f77393a.k.removeMessages(11);
-            this.f77393a.f77404c = true;
-            Z0.a(this.f77393a.f77403b).a(new a1(this.f77393a.f77407f), 200, System.currentTimeMillis() - this.f77393a.f77411j).a();
-            k2 k2Var = this.f77393a;
-            if (k2Var.f77406e) {
+            this.f77428a.k.removeMessages(11);
+            this.f77428a.f77439c = true;
+            Z0.a(this.f77428a.f77438b).a(new a1(this.f77428a.f77442f), 200, System.currentTimeMillis() - this.f77428a.f77446j).a();
+            k2 k2Var = this.f77428a;
+            if (k2Var.f77441e) {
                 return;
             }
-            k2Var.f77409h.onLoaded();
+            k2Var.f77444h.onLoaded();
         }
     }
 }

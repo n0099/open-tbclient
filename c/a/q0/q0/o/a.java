@@ -14,10 +14,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f13723a;
+    public c f13743a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13724b;
+    public String f13744b;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a {
                 return;
             }
         }
-        this.f13724b = str;
+        this.f13744b = str;
     }
 
     public final void a(String str, int i2) {
@@ -61,19 +61,19 @@ public class a {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || Build.VERSION.SDK_INT < 16) {
             return;
         }
-        if (this.f13723a == null) {
-            this.f13723a = new c();
+        if (this.f13743a == null) {
+            this.f13743a = new c();
         }
-        this.f13723a.c();
+        this.f13743a.c();
     }
 
     public void c() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f13723a) == null || Build.VERSION.SDK_INT < 16) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f13743a) == null || Build.VERSION.SDK_INT < 16) {
             return;
         }
         cVar.d();
-        a(this.f13724b, this.f13723a.b());
+        a(this.f13744b, this.f13743a.b());
     }
 }

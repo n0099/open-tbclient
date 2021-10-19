@@ -58,15 +58,15 @@ public class a implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hybridUbcFlow)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (hybridUbcFlow != null && !hybridUbcFlow.f46266f.isEmpty()) {
+            if (hybridUbcFlow != null && !hybridUbcFlow.f46178f.isEmpty()) {
                 jSONObject.put("flowId", hybridUbcFlow.j());
                 JSONArray jSONArray = new JSONArray();
-                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f46266f) {
-                    if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.f46276a)) {
+                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f46178f) {
+                    if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.f46188a)) {
                         if (f8343e) {
                             String str = "buildJoMsg: event=" + ubcFlowEvent;
                         }
-                        jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.f46276a).put("timestamp", ubcFlowEvent.g()));
+                        jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.f46188a).put("timestamp", ubcFlowEvent.g()));
                     }
                 }
                 jSONObject.put("data", jSONArray);

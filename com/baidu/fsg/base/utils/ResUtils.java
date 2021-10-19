@@ -27,34 +27,34 @@ public final class ResUtils {
     public static final String ANIM = "anim";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39660a = "id";
+    public static final String f39664a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39661b = "string";
+    public static final String f39665b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39662c = "layout";
+    public static final String f39666c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39663d = "style";
+    public static final String f39667d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39664e = "drawable";
+    public static final String f39668e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39665f = "color";
+    public static final String f39669f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39666g = "array";
+    public static final String f39670g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39667h = "attr";
+    public static final String f39671h = "attr";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39668i = "dimen";
+    public static final String f39672i = "dimen";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f39669j = "xml";
+    public static final String f39673j = "xml";
     public static final String k = "integer";
     public static final String l = "raw";
     public static Context m;

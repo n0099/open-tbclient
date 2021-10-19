@@ -15,39 +15,39 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Activity f66151a;
+    public final Activity f66186a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m f66152b;
+    public m f66187b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f66153c;
+    public int f66188c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f66154d;
+    public int f66189d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f66155e;
+    public int f66190e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f66156f;
+    public float f66191f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66157g;
+    public String f66192g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.b.e f66158h;
+    public com.bytedance.sdk.openadsdk.core.b.e f66193h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.component.reward.b.c f66159i;
+    public com.bytedance.sdk.openadsdk.component.reward.b.c f66194i;
 
     /* renamed from: j  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.component.reward.b.d f66160j;
+    public com.bytedance.sdk.openadsdk.component.reward.b.d f66195j;
     public com.bytedance.sdk.openadsdk.component.reward.b.e k;
 
     /* renamed from: com.bytedance.sdk.openadsdk.component.reward.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC1901a {
+    public interface InterfaceC1903a {
         void a(boolean z);
     }
 
@@ -66,21 +66,21 @@ public abstract class a {
                 return;
             }
         }
-        this.f66151a = activity;
-        this.f66152b = mVar;
-        this.f66153c = i2;
-        this.f66154d = i3;
-        this.f66155e = i4;
-        this.f66156f = f2;
+        this.f66186a = activity;
+        this.f66187b = mVar;
+        this.f66188c = i2;
+        this.f66189d = i3;
+        this.f66190e = i4;
+        this.f66191f = f2;
     }
 
-    public InterfaceC1901a a() {
+    public InterfaceC1903a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (InterfaceC1901a) invokeV.objValue;
+        return (InterfaceC1903a) invokeV.objValue;
     }
 
     public abstract void a(FrameLayout frameLayout);
@@ -88,8 +88,8 @@ public abstract class a {
     public void a(com.bytedance.sdk.openadsdk.component.reward.b.c cVar, com.bytedance.sdk.openadsdk.component.reward.b.d dVar, com.bytedance.sdk.openadsdk.component.reward.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cVar, dVar, eVar) == null) {
-            this.f66159i = cVar;
-            this.f66160j = dVar;
+            this.f66194i = cVar;
+            this.f66195j = dVar;
             this.k = eVar;
         }
     }
@@ -105,7 +105,7 @@ public abstract class a {
     public final void a(com.bytedance.sdk.openadsdk.core.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            this.f66158h = eVar;
+            this.f66193h = eVar;
         }
     }
 }

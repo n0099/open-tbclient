@@ -12,7 +12,7 @@ public class cv extends cy implements ct {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43564a;
+    public String f43476a;
 
     public cv() {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class cv extends cy implements ct {
                 return;
             }
         }
-        this.f43564a = "*";
+        this.f43476a = "*";
     }
 
     @Override // com.baidu.mobstat.ct
@@ -35,7 +35,7 @@ public class cv extends cy implements ct {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             if (str != null) {
-                this.f43564a = str;
+                this.f43476a = str;
                 return;
             }
             throw new IllegalArgumentException("http resource descriptor must not be null");
@@ -46,6 +46,6 @@ public class cv extends cy implements ct {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43564a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43476a : (String) invokeV.objValue;
     }
 }

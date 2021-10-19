@@ -69,13 +69,13 @@ public class a {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                 PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                if (aVar.f36367b == 0 && this.f2814a.f2813a.size() > 0 && (arrayList = (ArrayList) this.f2814a.f2813a.get(aVar.f36366a)) != null && arrayList.size() > 0) {
+                if (aVar.f36371b == 0 && this.f2814a.f2813a.size() > 0 && (arrayList = (ArrayList) this.f2814a.f2813a.get(aVar.f36370a)) != null && arrayList.size() > 0) {
                     Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
                         MessageManager.getInstance().sendMessage((Message) it.next());
                     }
                 }
-                this.f2814a.f2813a.remove(aVar.f36366a);
+                this.f2814a.f2813a.remove(aVar.f36370a);
             }
         }
     }
@@ -120,7 +120,7 @@ public class a {
                 }
                 if (!PluginCenter.getInstance().hasInstance(g2)) {
                     this.f2815a.c(g2, message);
-                    return PluginCenter.getInstance().launch(g2).f36354a;
+                    return PluginCenter.getInstance().launch(g2).f36358a;
                 } else if (PluginCenter.getInstance().isLoaded(g2)) {
                     return false;
                 } else {

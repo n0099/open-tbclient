@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.r0.x1.c.k.o;
+import c.a.r0.y1.c.k.o;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
@@ -21,22 +21,22 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54314e;
+    public Context f54245e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f54315f;
+    public View f54246f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f54316g;
+    public View f54247g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f54317h;
+    public TbImageView f54248h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f54318i;
+    public TextView f54249i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f54319j;
+    public TextView f54250j;
     public TbImageView k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,20 +57,20 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
                 return;
             }
         }
-        this.f54314e = context;
+        this.f54245e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f54314e).inflate(R.layout.index_seperate_ba_item, this);
-            this.f54315f = inflate;
-            this.f54316g = inflate.findViewById(R.id.ly_desc);
-            this.f54317h = (TbImageView) this.f54315f.findViewById(R.id.task_icon);
-            this.f54318i = (TextView) this.f54315f.findViewById(R.id.txt_title);
-            this.f54319j = (TextView) this.f54315f.findViewById(R.id.txt_desc);
-            this.k = (TbImageView) this.f54315f.findViewById(R.id.privilege_spread_icon);
+            View inflate = LayoutInflater.from(this.f54245e).inflate(R.layout.index_seperate_ba_item, this);
+            this.f54246f = inflate;
+            this.f54247g = inflate.findViewById(R.id.ly_desc);
+            this.f54248h = (TbImageView) this.f54246f.findViewById(R.id.task_icon);
+            this.f54249i = (TextView) this.f54246f.findViewById(R.id.txt_title);
+            this.f54250j = (TextView) this.f54246f.findViewById(R.id.txt_desc);
+            this.k = (TbImageView) this.f54246f.findViewById(R.id.privilege_spread_icon);
         }
     }
 
@@ -79,15 +79,15 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oVar) == null) || oVar == null) {
             return;
         }
-        this.f54316g.setTag(oVar);
-        this.f54317h.startLoad(oVar.b(), 10, false);
-        this.f54318i.setText(oVar.f());
+        this.f54247g.setTag(oVar);
+        this.f54248h.startLoad(oVar.b(), 10, false);
+        this.f54249i.setText(oVar.f());
         if (StringUtils.isNull(oVar.e())) {
             this.k.setVisibility(4);
         } else {
             this.k.setVisibility(0);
         }
-        this.f54319j.setText(oVar.a());
+        this.f54250j.setText(oVar.a());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -109,7 +109,7 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
                 return;
             }
         }
-        this.f54314e = context;
+        this.f54245e = context;
         a();
     }
 
@@ -132,7 +132,7 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
                 return;
             }
         }
-        this.f54314e = context;
+        this.f54245e = context;
         a();
     }
 }

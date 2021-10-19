@@ -43,34 +43,34 @@ public class at {
     public Object A;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f43324a;
+    public Context f43236a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Activity> f43325b;
+    public WeakReference<Activity> f43237b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f43326c;
+    public Handler f43238c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f43327d;
+    public boolean f43239d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<WeakReference<View>> f43328e;
+    public ArrayList<WeakReference<View>> f43240e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile MtjConfig.FeedTrackStrategy f43329f;
+    public volatile MtjConfig.FeedTrackStrategy f43241f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f43330g;
+    public long f43242g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f43331h;
+    public long f43243h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f43332i;
+    public long f43244i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f43333j;
+    public String f43245j;
     public String k;
     public String l;
     public String m;
@@ -125,9 +125,9 @@ public class at {
                 return;
             }
         }
-        this.f43327d = true;
-        this.f43328e = new ArrayList<>();
-        this.f43329f = MtjConfig.FeedTrackStrategy.TRACK_ALL;
+        this.f43239d = true;
+        this.f43240e = new ArrayList<>();
+        this.f43241f = MtjConfig.FeedTrackStrategy.TRACK_ALL;
         this.r = new ArrayList();
         this.s = new HashMap<>();
         this.t = new HashMap<>();
@@ -136,7 +136,7 @@ public class at {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ at f43339a;
+            public final /* synthetic */ at f43251a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -153,15 +153,15 @@ public class at {
                         return;
                     }
                 }
-                this.f43339a = this;
+                this.f43251a = this;
             }
 
             @Override // android.view.ViewTreeObserver.OnScrollChangedListener
             public void onScrollChanged() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    at atVar = this.f43339a;
-                    atVar.a(atVar.f43325b);
+                    at atVar = this.f43251a;
+                    atVar.a(atVar.f43237b);
                 }
             }
         };
@@ -171,7 +171,7 @@ public class at {
         this.A = new Object();
         HandlerThread handlerThread = new HandlerThread("feedViewCrawlerThread");
         handlerThread.start();
-        this.f43326c = new Handler(handlerThread.getLooper());
+        this.f43238c = new Handler(handlerThread.getLooper());
     }
 
     private boolean a(long j2, long j3) {
@@ -219,7 +219,7 @@ public class at {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ at f43345a;
+                public final /* synthetic */ at f43257a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -236,7 +236,7 @@ public class at {
                             return;
                         }
                     }
-                    this.f43345a = this;
+                    this.f43257a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -259,7 +259,7 @@ public class at {
             if (aVar != null) {
                 aVar.b(arrayList);
             }
-            aw.a().b(this.f43324a, arrayList);
+            aw.a().b(this.f43236a, arrayList);
         }
     }
 
@@ -294,7 +294,7 @@ public class at {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ at f43344a;
+                public final /* synthetic */ at f43256a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -311,7 +311,7 @@ public class at {
                             return;
                         }
                     }
-                    this.f43344a = this;
+                    this.f43256a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -334,7 +334,7 @@ public class at {
             if (aVar != null) {
                 aVar.a(arrayList);
             }
-            aw.a().a(this.f43324a, arrayList);
+            aw.a().a(this.f43236a, arrayList);
         }
     }
 
@@ -343,18 +343,18 @@ public class at {
         if (!(interceptable == null || interceptable.invokeL(1048586, this, activity) == null) || activity == null) {
             return;
         }
-        this.f43326c.post(new Runnable(this, new WeakReference(activity), System.currentTimeMillis()) { // from class: com.baidu.mobstat.at.7
+        this.f43238c.post(new Runnable(this, new WeakReference(activity), System.currentTimeMillis()) { // from class: com.baidu.mobstat.at.7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ WeakReference f43352a;
+            public final /* synthetic */ WeakReference f43264a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f43353b;
+            public final /* synthetic */ long f43265b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ at f43354c;
+            public final /* synthetic */ at f43266c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -371,19 +371,19 @@ public class at {
                         return;
                     }
                 }
-                this.f43354c = this;
-                this.f43352a = r7;
-                this.f43353b = r8;
+                this.f43266c = this;
+                this.f43264a = r7;
+                this.f43265b = r8;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Activity activity2;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (activity2 = (Activity) this.f43352a.get()) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (activity2 = (Activity) this.f43264a.get()) == null) {
                     return;
                 }
-                this.f43354c.c(activity2, this.f43353b);
+                this.f43266c.c(activity2, this.f43265b);
             }
         });
     }
@@ -391,7 +391,7 @@ public class at {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f43329f == MtjConfig.FeedTrackStrategy.TRACK_NONE : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f43241f == MtjConfig.FeedTrackStrategy.TRACK_NONE : invokeV.booleanValue;
     }
 
     public void b(Activity activity) {
@@ -399,18 +399,18 @@ public class at {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) || activity == null) {
             return;
         }
-        this.f43326c.post(new Runnable(this, new WeakReference(activity), System.currentTimeMillis()) { // from class: com.baidu.mobstat.at.6
+        this.f43238c.post(new Runnable(this, new WeakReference(activity), System.currentTimeMillis()) { // from class: com.baidu.mobstat.at.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ WeakReference f43349a;
+            public final /* synthetic */ WeakReference f43261a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f43350b;
+            public final /* synthetic */ long f43262b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ at f43351c;
+            public final /* synthetic */ at f43263c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -427,21 +427,21 @@ public class at {
                         return;
                     }
                 }
-                this.f43351c = this;
-                this.f43349a = r7;
-                this.f43350b = r8;
+                this.f43263c = this;
+                this.f43261a = r7;
+                this.f43262b = r8;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f43351c.f43327d = false;
-                    Activity activity2 = (Activity) this.f43349a.get();
+                    this.f43263c.f43239d = false;
+                    Activity activity2 = (Activity) this.f43261a.get();
                     if (activity2 == null) {
                         return;
                     }
-                    this.f43351c.b(activity2, this.f43350b);
+                    this.f43263c.b(activity2, this.f43262b);
                 }
             }
         });
@@ -457,7 +457,7 @@ public class at {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65579, this) == null) {
-            this.f43332i = 0L;
+            this.f43244i = 0L;
             this.k = "";
             this.l = "";
             this.m = "";
@@ -469,7 +469,7 @@ public class at {
     public void a(MtjConfig.FeedTrackStrategy feedTrackStrategy) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, feedTrackStrategy) == null) {
-            this.f43329f = feedTrackStrategy;
+            this.f43241f = feedTrackStrategy;
         }
     }
 
@@ -477,10 +477,10 @@ public class at {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, this, view)) == null) {
-            if (this.f43329f == MtjConfig.FeedTrackStrategy.TRACK_ALL) {
+            if (this.f43241f == MtjConfig.FeedTrackStrategy.TRACK_ALL) {
                 return false;
             }
-            return (this.f43329f == MtjConfig.FeedTrackStrategy.TRACK_SINGLE && bj.v(view)) ? false : true;
+            return (this.f43241f == MtjConfig.FeedTrackStrategy.TRACK_SINGLE && bj.v(view)) ? false : true;
         }
         return invokeL.booleanValue;
     }
@@ -489,14 +489,14 @@ public class at {
     public void b(Activity activity, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65574, this, activity, j2) == null) {
-            this.f43331h = j2;
+            this.f43243h = j2;
             String e2 = bj.e(activity);
-            this.f43333j = e2;
+            this.f43245j = e2;
             if (!TextUtils.isEmpty(this.k) && !this.k.equals(e2)) {
-                this.f43332i = 0L;
+                this.f43244i = 0L;
             }
             if (this.p) {
-                a(activity, this.f43330g, j2, this.r);
+                a(activity, this.f43242g, j2, this.r);
                 this.r.clear();
                 this.q = false;
             }
@@ -505,7 +505,7 @@ public class at {
             c(this.s);
             e(this.t);
             f(this.t);
-            a(this.f43328e, this.w);
+            a(this.f43240e, this.w);
         }
     }
 
@@ -514,18 +514,18 @@ public class at {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || activity == null) {
             return;
         }
-        this.f43326c.post(new Runnable(this, new WeakReference(activity), System.currentTimeMillis()) { // from class: com.baidu.mobstat.at.1
+        this.f43238c.post(new Runnable(this, new WeakReference(activity), System.currentTimeMillis()) { // from class: com.baidu.mobstat.at.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ WeakReference f43334a;
+            public final /* synthetic */ WeakReference f43246a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f43335b;
+            public final /* synthetic */ long f43247b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ at f43336c;
+            public final /* synthetic */ at f43248c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -542,21 +542,21 @@ public class at {
                         return;
                     }
                 }
-                this.f43336c = this;
-                this.f43334a = r7;
-                this.f43335b = r8;
+                this.f43248c = this;
+                this.f43246a = r7;
+                this.f43247b = r8;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f43336c.f43327d = true;
-                    Activity activity2 = (Activity) this.f43334a.get();
+                    this.f43248c.f43239d = true;
+                    Activity activity2 = (Activity) this.f43246a.get();
                     if (activity2 == null) {
                         return;
                     }
-                    this.f43336c.a(activity2, this.f43335b);
+                    this.f43248c.a(activity2, this.f43247b);
                 }
             }
         });
@@ -571,7 +571,7 @@ public class at {
             ArrayList<View> arrayList2 = new ArrayList<>();
             View a2 = bj.a(activity);
             a(activity, a2, hashMap, arrayList, arrayList2);
-            if (this.p && !this.q && a(this.f43330g, j2)) {
+            if (this.p && !this.q && a(this.f43242g, j2)) {
                 ArrayList<WeakReference<View>> a3 = a(hashMap);
                 a3.add(new WeakReference<>(a2));
                 this.r = a3;
@@ -579,12 +579,12 @@ public class at {
             }
             Iterator<View> it = arrayList2.iterator();
             while (it.hasNext()) {
-                a(it.next(), this.w, this.f43328e);
+                a(it.next(), this.w, this.f43240e);
             }
-            a(this.f43328e);
-            if (this.f43327d) {
-                a(this.f43325b, j2);
-                this.f43327d = false;
+            a(this.f43240e);
+            if (this.f43239d) {
+                a(this.f43237b, j2);
+                this.f43239d = false;
             }
             a(this.s, j2);
             Iterator<View> it2 = arrayList.iterator();
@@ -598,13 +598,13 @@ public class at {
     public void a(Activity activity, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65544, this, activity, j2) == null) {
-            this.f43324a = activity.getApplicationContext();
-            this.f43325b = new WeakReference<>(activity);
-            this.f43330g = j2;
+            this.f43236a = activity.getApplicationContext();
+            this.f43237b = new WeakReference<>(activity);
+            this.f43242g = j2;
             String e2 = bj.e(activity);
-            if (bj.a(e2, this.f43333j)) {
+            if (bj.a(e2, this.f43245j)) {
                 this.p = false;
-                if (a(e2, this.k, this.f43333j, this.f43332i, this.f43330g, activity)) {
+                if (a(e2, this.k, this.f43245j, this.f43244i, this.f43242g, activity)) {
                     this.p = true;
                 }
             }
@@ -617,7 +617,7 @@ public class at {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65585, this, activity, j2) == null) {
             b(this.t, j2);
-            Iterator<WeakReference<View>> it = this.f43328e.iterator();
+            Iterator<WeakReference<View>> it = this.f43240e.iterator();
             while (it.hasNext()) {
                 WeakReference<View> next = it.next();
                 if (next != null && (view = next.get()) != null && bj.d(view) && !a(view) && (view instanceof ViewGroup)) {
@@ -638,24 +638,24 @@ public class at {
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, view, activity) == null) || view == null || activity == null) {
             return;
         }
-        this.f43326c.post(new Runnable(this, new WeakReference(activity), new WeakReference(view), view, System.currentTimeMillis()) { // from class: com.baidu.mobstat.at.8
+        this.f43238c.post(new Runnable(this, new WeakReference(activity), new WeakReference(view), view, System.currentTimeMillis()) { // from class: com.baidu.mobstat.at.8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ WeakReference f43355a;
+            public final /* synthetic */ WeakReference f43267a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ WeakReference f43356b;
+            public final /* synthetic */ WeakReference f43268b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ View f43357c;
+            public final /* synthetic */ View f43269c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ long f43358d;
+            public final /* synthetic */ long f43270d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ at f43359e;
+            public final /* synthetic */ at f43271e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -672,21 +672,21 @@ public class at {
                         return;
                     }
                 }
-                this.f43359e = this;
-                this.f43355a = r7;
-                this.f43356b = r8;
-                this.f43357c = view;
-                this.f43358d = r10;
+                this.f43271e = this;
+                this.f43267a = r7;
+                this.f43268b = r8;
+                this.f43269c = view;
+                this.f43270d = r10;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Activity activity2;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (activity2 = (Activity) this.f43355a.get()) == null || ((View) this.f43356b.get()) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (activity2 = (Activity) this.f43267a.get()) == null || ((View) this.f43268b.get()) == null) {
                     return;
                 }
-                this.f43359e.a(this.f43357c, activity2, this.f43358d);
+                this.f43271e.a(this.f43269c, activity2, this.f43270d);
             }
         });
     }
@@ -701,12 +701,12 @@ public class at {
     public void a(KeyEvent keyEvent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, keyEvent) == null) && keyEvent != null && keyEvent.getKeyCode() == 4 && keyEvent.getAction() == 1) {
-            this.f43326c.post(new Runnable(this) { // from class: com.baidu.mobstat.at.9
+            this.f43238c.post(new Runnable(this) { // from class: com.baidu.mobstat.at.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ at f43360a;
+                public final /* synthetic */ at f43272a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -723,21 +723,21 @@ public class at {
                             return;
                         }
                     }
-                    this.f43360a = this;
+                    this.f43272a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Activity activity;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f43360a.f43325b == null || (activity = (Activity) this.f43360a.f43325b.get()) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f43272a.f43237b == null || (activity = (Activity) this.f43272a.f43237b.get()) == null) {
                         return;
                     }
                     String e2 = bj.e(activity);
-                    if (TextUtils.isEmpty(this.f43360a.k) || !this.f43360a.k.equals(e2)) {
+                    if (TextUtils.isEmpty(this.f43272a.k) || !this.f43272a.k.equals(e2)) {
                         return;
                     }
-                    this.f43360a.c();
+                    this.f43272a.c();
                 }
             });
         }
@@ -767,7 +767,7 @@ public class at {
                 }
                 c();
             } else {
-                this.f43332i = j2;
+                this.f43244i = j2;
                 this.k = bj.e(activity);
                 this.l = bj.s(a2);
                 this.m = bj.c(n, this.k);
@@ -846,15 +846,15 @@ public class at {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f43326c.post(new Runnable(this, str) { // from class: com.baidu.mobstat.at.10
+            this.f43238c.post(new Runnable(this, str) { // from class: com.baidu.mobstat.at.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f43337a;
+                public final /* synthetic */ String f43249a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ at f43338b;
+                public final /* synthetic */ at f43250b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -871,15 +871,15 @@ public class at {
                             return;
                         }
                     }
-                    this.f43338b = this;
-                    this.f43337a = str;
+                    this.f43250b = this;
+                    this.f43249a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        as.a().a(this.f43337a);
+                        as.a().a(this.f43249a);
                     }
                 }
             });
@@ -896,13 +896,13 @@ public class at {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ WeakReference f43340a;
+            public final /* synthetic */ WeakReference f43252a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f43341b;
+            public final /* synthetic */ long f43253b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ at f43342c;
+            public final /* synthetic */ at f43254c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -919,27 +919,27 @@ public class at {
                         return;
                     }
                 }
-                this.f43342c = this;
-                this.f43340a = weakReference;
-                this.f43341b = r8;
+                this.f43254c = this;
+                this.f43252a = weakReference;
+                this.f43253b = r8;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Activity activity;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (activity = (Activity) this.f43340a.get()) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (activity = (Activity) this.f43252a.get()) == null) {
                     return;
                 }
-                this.f43342c.d(activity, this.f43341b);
+                this.f43254c.d(activity, this.f43253b);
             }
         };
         Runnable runnable2 = this.x;
         if (runnable2 != null) {
-            this.f43326c.removeCallbacks(runnable2);
+            this.f43238c.removeCallbacks(runnable2);
         }
         this.x = runnable;
-        this.f43326c.postDelayed(runnable, 350L);
+        this.f43238c.postDelayed(runnable, 350L);
     }
 
     private aq b(ArrayList<aq> arrayList) {
@@ -955,7 +955,7 @@ public class at {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ at f43346a;
+                public final /* synthetic */ at f43258a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -972,7 +972,7 @@ public class at {
                             return;
                         }
                     }
-                    this.f43346a = this;
+                    this.f43258a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -1158,7 +1158,7 @@ public class at {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ at f43343a;
+                public final /* synthetic */ at f43255a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1175,7 +1175,7 @@ public class at {
                             return;
                         }
                     }
-                    this.f43343a = this;
+                    this.f43255a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -1227,11 +1227,11 @@ public class at {
         String e2 = bj.e(activity);
         String f2 = bj.f(activity);
         ArrayList<Integer> a2 = a(activity, view2);
-        int a3 = ah.a(this.f43324a, a2.get(0).intValue());
-        int a4 = ah.a(this.f43324a, a2.get(1).intValue());
+        int a3 = ah.a(this.f43236a, a2.get(0).intValue());
+        int a4 = ah.a(this.f43236a, a2.get(1).intValue());
         ArrayList<Integer> b2 = bj.b(activity, view2);
-        int a5 = ah.a(this.f43324a, b2.get(0).intValue());
-        int a6 = ah.a(this.f43324a, b2.get(1).intValue());
+        int a5 = ah.a(this.f43236a, b2.get(0).intValue());
+        int a6 = ah.a(this.f43236a, b2.get(1).intValue());
         if (a5 > a3) {
             a3 = a5;
         }
@@ -1241,7 +1241,7 @@ public class at {
         if (a3 == 0 || a4 == 0) {
             return;
         }
-        a(this.f43324a, new ao(e2, f2, this.l, j3 - j2, j2, a5, a6, a3, a4, str, this.n, this.o));
+        a(this.f43236a, new ao(e2, f2, this.l, j3 - j2, j2, a5, a6, a3, a4, str, this.n, this.o));
     }
 
     private void a(Context context, ao aoVar) {
@@ -1550,10 +1550,10 @@ public class at {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ WebView f43347a;
+                public final /* synthetic */ WebView f43259a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ at f43348b;
+                public final /* synthetic */ at f43260b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1570,18 +1570,18 @@ public class at {
                             return;
                         }
                     }
-                    this.f43348b = this;
-                    this.f43347a = webView;
+                    this.f43260b = this;
+                    this.f43259a = webView;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f43348b.A) {
-                            this.f43348b.y = this.f43347a.getContentHeight();
-                            this.f43348b.z = this.f43347a.getScale();
-                            this.f43348b.A.notifyAll();
+                        synchronized (this.f43260b.A) {
+                            this.f43260b.y = this.f43259a.getContentHeight();
+                            this.f43260b.z = this.f43259a.getScale();
+                            this.f43260b.A.notifyAll();
                         }
                     }
                 }

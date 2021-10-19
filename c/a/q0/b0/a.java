@@ -13,7 +13,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f12792a;
+    public static boolean f12798a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class a {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || f12792a || e.y().A() || !j.z()) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || f12798a || e.y().A() || !j.z()) {
             return;
         }
         ActivityChangeSchemeModel activityChangeSchemeModel = new ActivityChangeSchemeModel();

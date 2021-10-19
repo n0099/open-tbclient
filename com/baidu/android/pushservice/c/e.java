@@ -24,21 +24,21 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f37140a;
+    public static final Object f37144a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37141b = "PushTrackDatabase";
+    public static String f37145b = "PushTrackDatabase";
 
     /* renamed from: c  reason: collision with root package name */
-    public static C1588e f37142c;
+    public static C1590e f37146c;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: d  reason: collision with root package name */
-    public static e f37143d;
+    public static e f37147d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f37144e;
+    public Context f37148e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -46,25 +46,25 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f37145a;
+        public static final a f37149a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f37146b;
+        public static final a f37150b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f37147c;
+        public static final a f37151c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f37148d;
+        public static final a f37152d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f37149e;
+        public static final a f37153e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f37150f;
+        public static final a f37154f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final /* synthetic */ a[] f37151g;
+        public static final /* synthetic */ a[] f37155g;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -80,14 +80,14 @@ public class e {
                     return;
                 }
             }
-            f37145a = new a("ackId", 0);
-            f37146b = new a("type", 1);
-            f37147c = new a("value", 2);
-            f37148d = new a("timestamp", 3);
-            f37149e = new a("ext", 4);
+            f37149a = new a("ackId", 0);
+            f37150b = new a("type", 1);
+            f37151c = new a("value", 2);
+            f37152d = new a("timestamp", 3);
+            f37153e = new a("ext", 4);
             a aVar = new a("aliasId", 5);
-            f37150f = aVar;
-            f37151g = new a[]{f37145a, f37146b, f37147c, f37148d, f37149e, aVar};
+            f37154f = aVar;
+            f37155g = new a[]{f37149a, f37150b, f37151c, f37152d, f37153e, aVar};
         }
 
         public a(String str, int i2) {
@@ -116,31 +116,31 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f37152a;
+        public static final b f37156a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f37153b;
+        public static final b f37157b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f37154c;
+        public static final b f37158c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f37155d;
+        public static final b f37159d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f37156e;
+        public static final b f37160e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final b f37157f;
+        public static final b f37161f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final b f37158g;
+        public static final b f37162g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final b f37159h;
+        public static final b f37163h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ b[] f37160i;
+        public static final /* synthetic */ b[] f37164i;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -156,16 +156,16 @@ public class e {
                     return;
                 }
             }
-            f37152a = new b("connectionId", 0);
-            f37153b = new b("startTime", 1);
-            f37154c = new b("stopTime", 2);
-            f37155d = new b("reason", 3);
-            f37156e = new b("retryTime", 4);
-            f37157f = new b("retryCount", 5);
-            f37158g = new b("ext", 6);
+            f37156a = new b("connectionId", 0);
+            f37157b = new b("startTime", 1);
+            f37158c = new b("stopTime", 2);
+            f37159d = new b("reason", 3);
+            f37160e = new b("retryTime", 4);
+            f37161f = new b("retryCount", 5);
+            f37162g = new b("ext", 6);
             b bVar = new b("aliasId", 7);
-            f37159h = bVar;
-            f37160i = new b[]{f37152a, f37153b, f37154c, f37155d, f37156e, f37157f, f37158g, bVar};
+            f37163h = bVar;
+            f37164i = new b[]{f37156a, f37157b, f37158c, f37159d, f37160e, f37161f, f37162g, bVar};
         }
 
         public b(String str, int i2) {
@@ -194,22 +194,22 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f37161a;
+        public static final c f37165a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final c f37162b;
+        public static final c f37166b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final c f37163c;
+        public static final c f37167c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final c f37164d;
+        public static final c f37168d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final c f37165e;
+        public static final c f37169e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ c[] f37166f;
+        public static final /* synthetic */ c[] f37170f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -225,13 +225,13 @@ public class e {
                     return;
                 }
             }
-            f37161a = new c("crashId", 0);
-            f37162b = new c("exception", 1);
-            f37163c = new c("timestamp", 2);
-            f37164d = new c("ext", 3);
+            f37165a = new c("crashId", 0);
+            f37166b = new c("exception", 1);
+            f37167c = new c("timestamp", 2);
+            f37168d = new c("ext", 3);
             c cVar = new c("aliasId", 4);
-            f37165e = cVar;
-            f37166f = new c[]{f37161a, f37162b, f37163c, f37164d, cVar};
+            f37169e = cVar;
+            f37170f = new c[]{f37165a, f37166b, f37167c, f37168d, cVar};
         }
 
         public c(String str, int i2) {
@@ -260,34 +260,34 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f37167a;
+        public static final d f37171a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d f37168b;
+        public static final d f37172b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final d f37169c;
+        public static final d f37173c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final d f37170d;
+        public static final d f37174d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final d f37171e;
+        public static final d f37175e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final d f37172f;
+        public static final d f37176f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final d f37173g;
+        public static final d f37177g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final d f37174h;
+        public static final d f37178h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final d f37175i;
+        public static final d f37179i;
 
         /* renamed from: j  reason: collision with root package name */
-        public static final d f37176j;
+        public static final d f37180j;
         public static final /* synthetic */ d[] k;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -304,18 +304,18 @@ public class e {
                     return;
                 }
             }
-            f37167a = new d("dbId", 0);
-            f37168b = new d("tableName", 1);
-            f37169c = new d(PushClientConstants.TAG_CLASS_NAME, 2);
-            f37170d = new d("method", 3);
-            f37171e = new d("action", 4);
-            f37172f = new d("startTime", 5);
-            f37173g = new d("endTime", 6);
-            f37174h = new d("duration", 7);
-            f37175i = new d("ext", 8);
+            f37171a = new d("dbId", 0);
+            f37172b = new d("tableName", 1);
+            f37173c = new d(PushClientConstants.TAG_CLASS_NAME, 2);
+            f37174d = new d("method", 3);
+            f37175e = new d("action", 4);
+            f37176f = new d("startTime", 5);
+            f37177g = new d("endTime", 6);
+            f37178h = new d("duration", 7);
+            f37179i = new d("ext", 8);
             d dVar = new d("aliasId", 9);
-            f37176j = dVar;
-            k = new d[]{f37167a, f37168b, f37169c, f37170d, f37171e, f37172f, f37173g, f37174h, f37175i, dVar};
+            f37180j = dVar;
+            k = new d[]{f37171a, f37172b, f37173c, f37174d, f37175e, f37176f, f37177g, f37178h, f37179i, dVar};
         }
 
         public d(String str, int i2) {
@@ -340,27 +340,27 @@ public class e {
 
     /* renamed from: com.baidu.android.pushservice.c.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1588e extends SQLiteOpenHelper {
+    public static class C1590e extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f37177a;
+        public static final String f37181a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f37178b;
+        public static final String f37182b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f37179c;
+        public static final String f37183c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f37180d;
+        public static final String f37184d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f37181e;
+        public static final String f37185e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f37182f;
+        public Context f37186f;
 
         static {
             InterceptResult invokeClinit;
@@ -375,47 +375,47 @@ public class e {
                     return;
                 }
             }
-            f37177a = "CREATE TABLE crash (" + c.f37161a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.f37162b.name() + " TEXT, " + c.f37163c.name() + " LONG, " + c.f37164d.name() + " TEXT, " + c.f37165e.name() + " LONG NOT NULL );";
-            f37178b = "CREATE TABLE db (" + d.f37167a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + d.f37168b.name() + " TEXT, " + d.f37169c.name() + " TEXT, " + d.f37170d.name() + " TEXT, " + d.f37171e.name() + " TEXT, " + d.f37172f.name() + " LONG, " + d.f37173g.name() + " LONG, " + d.f37174h.name() + " LONG, " + d.f37175i.name() + " TEXT, " + d.f37176j.name() + " LONG NOT NULL );";
+            f37181a = "CREATE TABLE crash (" + c.f37165a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.f37166b.name() + " TEXT, " + c.f37167c.name() + " LONG, " + c.f37168d.name() + " TEXT, " + c.f37169e.name() + " LONG NOT NULL );";
+            f37182b = "CREATE TABLE db (" + d.f37171a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + d.f37172b.name() + " TEXT, " + d.f37173c.name() + " TEXT, " + d.f37174d.name() + " TEXT, " + d.f37175e.name() + " TEXT, " + d.f37176f.name() + " LONG, " + d.f37177g.name() + " LONG, " + d.f37178h.name() + " LONG, " + d.f37179i.name() + " TEXT, " + d.f37180j.name() + " LONG NOT NULL );";
             StringBuilder sb = new StringBuilder();
             sb.append("CREATE TABLE connection (");
-            sb.append(b.f37152a.name());
+            sb.append(b.f37156a.name());
             sb.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
-            sb.append(b.f37153b.name());
+            sb.append(b.f37157b.name());
             sb.append(" LONG, ");
-            sb.append(b.f37154c.name());
+            sb.append(b.f37158c.name());
             sb.append(" LONG, ");
-            sb.append(b.f37155d.name());
+            sb.append(b.f37159d.name());
             sb.append(" TEXT, ");
-            sb.append(b.f37156e.name());
+            sb.append(b.f37160e.name());
             sb.append(" LONG, ");
-            sb.append(b.f37157f.name());
+            sb.append(b.f37161f.name());
             sb.append(" LONG, ");
-            sb.append(b.f37158g.name());
+            sb.append(b.f37162g.name());
             sb.append(" TEXT, ");
-            sb.append(b.f37159h.name());
+            sb.append(b.f37163h.name());
             sb.append(" LONG NOT NULL );");
-            f37179c = sb.toString();
-            f37180d = "CREATE TABLE request (" + f.f37183a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + f.f37184b.name() + " TEXT, " + f.f37185c.name() + " TEXT, " + f.f37186d.name() + " LONG, " + f.f37187e.name() + " LONG, " + f.f37188f.name() + " LONG, " + f.f37189g.name() + " TEXT, " + f.f37190h.name() + " LONG NOT NULL);";
+            f37183c = sb.toString();
+            f37184d = "CREATE TABLE request (" + f.f37187a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + f.f37188b.name() + " TEXT, " + f.f37189c.name() + " TEXT, " + f.f37190d.name() + " LONG, " + f.f37191e.name() + " LONG, " + f.f37192f.name() + " LONG, " + f.f37193g.name() + " TEXT, " + f.f37194h.name() + " LONG NOT NULL);";
             StringBuilder sb2 = new StringBuilder();
             sb2.append("CREATE TABLE ack (");
-            sb2.append(a.f37145a.name());
+            sb2.append(a.f37149a.name());
             sb2.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
-            sb2.append(a.f37146b.name());
+            sb2.append(a.f37150b.name());
             sb2.append(" TEXT, ");
-            sb2.append(a.f37147c.name());
+            sb2.append(a.f37151c.name());
             sb2.append(" TEXT, ");
-            sb2.append(a.f37148d.name());
+            sb2.append(a.f37152d.name());
             sb2.append(" LONG, ");
-            sb2.append(a.f37149e.name());
+            sb2.append(a.f37153e.name());
             sb2.append(" TEXT, ");
-            sb2.append(a.f37150f.name());
+            sb2.append(a.f37154f.name());
             sb2.append(" LONG NOT NULL);");
-            f37181e = sb2.toString();
+            f37185e = sb2.toString();
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1588e(Context context, String str, int i2) {
+        public C1590e(Context context, String str, int i2) {
             super(context, str, (SQLiteDatabase.CursorFactory) null, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -433,7 +433,7 @@ public class e {
                     return;
                 }
             }
-            this.f37182f = context;
+            this.f37186f = context;
         }
 
         private void a(SQLiteDatabase sQLiteDatabase) {
@@ -455,11 +455,11 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
                 try {
-                    sQLiteDatabase.execSQL(f37177a);
-                    sQLiteDatabase.execSQL(f37178b);
-                    sQLiteDatabase.execSQL(f37179c);
-                    sQLiteDatabase.execSQL(f37180d);
-                    sQLiteDatabase.execSQL(f37181e);
+                    sQLiteDatabase.execSQL(f37181a);
+                    sQLiteDatabase.execSQL(f37182b);
+                    sQLiteDatabase.execSQL(f37183c);
+                    sQLiteDatabase.execSQL(f37184d);
+                    sQLiteDatabase.execSQL(f37185e);
                 } catch (Exception unused) {
                 }
             }
@@ -481,31 +481,31 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final f f37183a;
+        public static final f f37187a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final f f37184b;
+        public static final f f37188b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final f f37185c;
+        public static final f f37189c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final f f37186d;
+        public static final f f37190d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final f f37187e;
+        public static final f f37191e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final f f37188f;
+        public static final f f37192f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final f f37189g;
+        public static final f f37193g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final f f37190h;
+        public static final f f37194h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ f[] f37191i;
+        public static final /* synthetic */ f[] f37195i;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -521,16 +521,16 @@ public class e {
                     return;
                 }
             }
-            f37183a = new f("id", 0);
-            f37184b = new f("method", 1);
-            f37185c = new f("requestId", 2);
-            f37186d = new f("timestamp", 3);
-            f37187e = new f("responseTime", 4);
-            f37188f = new f("errorCode", 5);
-            f37189g = new f("ext", 6);
+            f37187a = new f("id", 0);
+            f37188b = new f("method", 1);
+            f37189c = new f("requestId", 2);
+            f37190d = new f("timestamp", 3);
+            f37191e = new f("responseTime", 4);
+            f37192f = new f("errorCode", 5);
+            f37193g = new f("ext", 6);
             f fVar = new f("aliasId", 7);
-            f37190h = fVar;
-            f37191i = new f[]{f37183a, f37184b, f37185c, f37186d, f37187e, f37188f, f37189g, fVar};
+            f37194h = fVar;
+            f37195i = new f[]{f37187a, f37188b, f37189c, f37190d, f37191e, f37192f, f37193g, fVar};
         }
 
         public f(String str, int i2) {
@@ -566,7 +566,7 @@ public class e {
                 return;
             }
         }
-        f37140a = new Object();
+        f37144a = new Object();
     }
 
     public e(Context context) {
@@ -584,22 +584,22 @@ public class e {
                 return;
             }
         }
-        this.f37144e = context;
-        f37142c = new C1588e(context, "push_track.db", 1);
+        this.f37148e = context;
+        f37146c = new C1590e(context, "push_track.db", 1);
     }
 
     public static e a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f37143d == null) {
-                synchronized (f37140a) {
-                    if (f37143d == null) {
-                        f37143d = new e(context.getApplicationContext());
+            if (f37147d == null) {
+                synchronized (f37144a) {
+                    if (f37147d == null) {
+                        f37147d = new e(context.getApplicationContext());
                     }
                 }
             }
-            return f37143d;
+            return f37147d;
         }
         return (e) invokeL.objValue;
     }
@@ -608,11 +608,11 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f37142c == null) {
-                f37142c = new C1588e(context, "push_track.db", 1);
+            if (f37146c == null) {
+                f37146c = new C1590e(context, "push_track.db", 1);
             }
             try {
-                return f37142c.getWritableDatabase();
+                return f37146c.getWritableDatabase();
             } catch (Throwable unused) {
                 return null;
             }
@@ -625,8 +625,8 @@ public class e {
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (f37140a) {
-                SQLiteDatabase b2 = b(this.f37144e);
+            synchronized (f37144a) {
+                SQLiteDatabase b2 = b(this.f37148e);
                 Cursor cursor2 = null;
                 if (b2 == null) {
                     return null;
@@ -640,10 +640,10 @@ public class e {
                                 break;
                             }
                             com.baidu.android.pushservice.c.a.c cVar = new com.baidu.android.pushservice.c.a.c();
-                            cVar.f37008a = rawQuery.getString(rawQuery.getColumnIndex(c.f37162b.name()));
-                            cVar.f37009b = rawQuery.getLong(rawQuery.getColumnIndex(c.f37163c.name()));
-                            cVar.f37010c = rawQuery.getString(rawQuery.getColumnIndex(c.f37164d.name()));
-                            cVar.f37011d = rawQuery.getLong(rawQuery.getColumnIndex(c.f37165e.name()));
+                            cVar.f37012a = rawQuery.getString(rawQuery.getColumnIndex(c.f37166b.name()));
+                            cVar.f37013b = rawQuery.getLong(rawQuery.getColumnIndex(c.f37167c.name()));
+                            cVar.f37014c = rawQuery.getString(rawQuery.getColumnIndex(c.f37168d.name()));
+                            cVar.f37015d = rawQuery.getLong(rawQuery.getColumnIndex(c.f37169e.name()));
                             arrayList.add(cVar);
                         } catch (Exception unused) {
                             cursor = null;
@@ -721,18 +721,18 @@ public class e {
     public void a(com.baidu.android.pushservice.c.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            synchronized (f37140a) {
-                SQLiteDatabase b2 = b(this.f37144e);
+            synchronized (f37144a) {
+                SQLiteDatabase b2 = b(this.f37148e);
                 if (b2 == null) {
                     return;
                 }
                 try {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(a.f37146b.name(), aVar.f36978a);
-                    contentValues.put(a.f37147c.name(), aVar.f36979b);
-                    contentValues.put(a.f37148d.name(), Long.valueOf(aVar.f36980c));
-                    contentValues.put(a.f37149e.name(), aVar.f36981d);
-                    contentValues.put(a.f37150f.name(), Long.valueOf(aVar.f36982e));
+                    contentValues.put(a.f37150b.name(), aVar.f36982a);
+                    contentValues.put(a.f37151c.name(), aVar.f36983b);
+                    contentValues.put(a.f37152d.name(), Long.valueOf(aVar.f36984c));
+                    contentValues.put(a.f37153e.name(), aVar.f36985d);
+                    contentValues.put(a.f37154f.name(), Long.valueOf(aVar.f36986e));
                     b2.insert(IMTrackDatabase.AckEnum.TABLE_NAME, null, contentValues);
                 } catch (Exception unused) {
                 } catch (Throwable th) {
@@ -747,20 +747,20 @@ public class e {
     public void a(com.baidu.android.pushservice.c.a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            synchronized (f37140a) {
-                SQLiteDatabase b2 = b(this.f37144e);
+            synchronized (f37144a) {
+                SQLiteDatabase b2 = b(this.f37148e);
                 if (b2 == null) {
                     return;
                 }
                 try {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(b.f37153b.name(), Long.valueOf(bVar.f36991a));
-                    contentValues.put(b.f37154c.name(), Long.valueOf(bVar.f36992b));
-                    contentValues.put(b.f37155d.name(), bVar.f36993c);
-                    contentValues.put(b.f37156e.name(), Long.valueOf(bVar.f36994d));
-                    contentValues.put(b.f37157f.name(), Long.valueOf(bVar.f36995e));
-                    contentValues.put(b.f37158g.name(), bVar.f36996f);
-                    contentValues.put(b.f37159h.name(), Long.valueOf(bVar.f36997g));
+                    contentValues.put(b.f37157b.name(), Long.valueOf(bVar.f36995a));
+                    contentValues.put(b.f37158c.name(), Long.valueOf(bVar.f36996b));
+                    contentValues.put(b.f37159d.name(), bVar.f36997c);
+                    contentValues.put(b.f37160e.name(), Long.valueOf(bVar.f36998d));
+                    contentValues.put(b.f37161f.name(), Long.valueOf(bVar.f36999e));
+                    contentValues.put(b.f37162g.name(), bVar.f37000f);
+                    contentValues.put(b.f37163h.name(), Long.valueOf(bVar.f37001g));
                     b2.insert("connection", null, contentValues);
                 } catch (Exception unused) {
                 } catch (Throwable th) {
@@ -775,17 +775,17 @@ public class e {
     public void a(com.baidu.android.pushservice.c.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            synchronized (f37140a) {
-                SQLiteDatabase b2 = b(this.f37144e);
+            synchronized (f37144a) {
+                SQLiteDatabase b2 = b(this.f37148e);
                 if (b2 == null) {
                     return;
                 }
                 try {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(c.f37162b.name(), cVar.f37008a);
-                    contentValues.put(c.f37163c.name(), Long.valueOf(cVar.f37009b));
-                    contentValues.put(c.f37164d.name(), cVar.f37010c);
-                    contentValues.put(c.f37165e.name(), Long.valueOf(cVar.f37011d));
+                    contentValues.put(c.f37166b.name(), cVar.f37012a);
+                    contentValues.put(c.f37167c.name(), Long.valueOf(cVar.f37013b));
+                    contentValues.put(c.f37168d.name(), cVar.f37014c);
+                    contentValues.put(c.f37169e.name(), Long.valueOf(cVar.f37015d));
                     b2.insert("crash", null, contentValues);
                 } catch (Exception unused) {
                 } catch (Throwable th) {
@@ -800,22 +800,22 @@ public class e {
     public void a(com.baidu.android.pushservice.c.a.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            synchronized (f37140a) {
-                SQLiteDatabase b2 = b(this.f37144e);
+            synchronized (f37144a) {
+                SQLiteDatabase b2 = b(this.f37148e);
                 if (b2 == null) {
                     return;
                 }
                 try {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(d.f37168b.name(), dVar.f37022a);
-                    contentValues.put(d.f37169c.name(), dVar.f37023b);
-                    contentValues.put(d.f37170d.name(), dVar.f37024c);
-                    contentValues.put(d.f37171e.name(), dVar.f37025d);
-                    contentValues.put(d.f37172f.name(), Long.valueOf(dVar.f37026e));
-                    contentValues.put(d.f37173g.name(), Long.valueOf(dVar.f37027f));
-                    contentValues.put(d.f37174h.name(), Long.valueOf(dVar.f37028g));
-                    contentValues.put(d.f37175i.name(), dVar.f37029h);
-                    contentValues.put(d.f37176j.name(), Long.valueOf(dVar.f37030i));
+                    contentValues.put(d.f37172b.name(), dVar.f37026a);
+                    contentValues.put(d.f37173c.name(), dVar.f37027b);
+                    contentValues.put(d.f37174d.name(), dVar.f37028c);
+                    contentValues.put(d.f37175e.name(), dVar.f37029d);
+                    contentValues.put(d.f37176f.name(), Long.valueOf(dVar.f37030e));
+                    contentValues.put(d.f37177g.name(), Long.valueOf(dVar.f37031f));
+                    contentValues.put(d.f37178h.name(), Long.valueOf(dVar.f37032g));
+                    contentValues.put(d.f37179i.name(), dVar.f37033h);
+                    contentValues.put(d.f37180j.name(), Long.valueOf(dVar.f37034i));
                     b2.insert(IMTrackDatabase.DbEnum.TABLE_NAME, null, contentValues);
                 } catch (Exception unused) {
                 } catch (Throwable th) {
@@ -830,20 +830,20 @@ public class e {
     public void a(com.baidu.android.pushservice.c.a.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
-            synchronized (f37140a) {
-                SQLiteDatabase b2 = b(this.f37144e);
+            synchronized (f37144a) {
+                SQLiteDatabase b2 = b(this.f37148e);
                 if (b2 == null) {
                     return;
                 }
                 try {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(f.f37184b.name(), eVar.f37031a);
-                    contentValues.put(f.f37185c.name(), eVar.f37032b);
-                    contentValues.put(f.f37186d.name(), Long.valueOf(eVar.f37033c));
-                    contentValues.put(f.f37187e.name(), Long.valueOf(eVar.f37034d));
-                    contentValues.put(f.f37188f.name(), Long.valueOf(eVar.f37035e));
-                    contentValues.put(f.f37189g.name(), eVar.f37036f);
-                    contentValues.put(f.f37190h.name(), Long.valueOf(eVar.f37037g));
+                    contentValues.put(f.f37188b.name(), eVar.f37035a);
+                    contentValues.put(f.f37189c.name(), eVar.f37036b);
+                    contentValues.put(f.f37190d.name(), Long.valueOf(eVar.f37037c));
+                    contentValues.put(f.f37191e.name(), Long.valueOf(eVar.f37038d));
+                    contentValues.put(f.f37192f.name(), Long.valueOf(eVar.f37039e));
+                    contentValues.put(f.f37193g.name(), eVar.f37040f);
+                    contentValues.put(f.f37194h.name(), Long.valueOf(eVar.f37041g));
                     b2.insert("request", null, contentValues);
                 } catch (Exception unused) {
                 }
@@ -856,8 +856,8 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (f37140a) {
-                SQLiteDatabase b2 = b(this.f37144e);
+            synchronized (f37144a) {
+                SQLiteDatabase b2 = b(this.f37148e);
                 Cursor cursor = null;
                 if (b2 == null) {
                     return null;
@@ -870,15 +870,15 @@ public class e {
                             break;
                         }
                         com.baidu.android.pushservice.c.a.d dVar = new com.baidu.android.pushservice.c.a.d();
-                        dVar.f37022a = cursor.getString(cursor.getColumnIndex(d.f37168b.name()));
-                        dVar.f37023b = cursor.getString(cursor.getColumnIndex(d.f37169c.name()));
-                        dVar.f37024c = cursor.getString(cursor.getColumnIndex(d.f37170d.name()));
-                        dVar.f37025d = cursor.getString(cursor.getColumnIndex(d.f37171e.name()));
-                        dVar.f37026e = cursor.getLong(cursor.getColumnIndex(d.f37172f.name()));
-                        dVar.f37027f = cursor.getLong(cursor.getColumnIndex(d.f37173g.name()));
-                        dVar.f37028g = cursor.getLong(cursor.getColumnIndex(d.f37174h.name()));
-                        dVar.f37029h = cursor.getString(cursor.getColumnIndex(d.f37175i.name()));
-                        dVar.f37030i = cursor.getLong(cursor.getColumnIndex(d.f37176j.name()));
+                        dVar.f37026a = cursor.getString(cursor.getColumnIndex(d.f37172b.name()));
+                        dVar.f37027b = cursor.getString(cursor.getColumnIndex(d.f37173c.name()));
+                        dVar.f37028c = cursor.getString(cursor.getColumnIndex(d.f37174d.name()));
+                        dVar.f37029d = cursor.getString(cursor.getColumnIndex(d.f37175e.name()));
+                        dVar.f37030e = cursor.getLong(cursor.getColumnIndex(d.f37176f.name()));
+                        dVar.f37031f = cursor.getLong(cursor.getColumnIndex(d.f37177g.name()));
+                        dVar.f37032g = cursor.getLong(cursor.getColumnIndex(d.f37178h.name()));
+                        dVar.f37033h = cursor.getString(cursor.getColumnIndex(d.f37179i.name()));
+                        dVar.f37034i = cursor.getLong(cursor.getColumnIndex(d.f37180j.name()));
                         arrayList.add(dVar);
                     }
                     if (cursor != null) {
@@ -906,8 +906,8 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (f37140a) {
-                SQLiteDatabase b2 = b(this.f37144e);
+            synchronized (f37144a) {
+                SQLiteDatabase b2 = b(this.f37148e);
                 Cursor cursor = null;
                 if (b2 == null) {
                     return null;
@@ -920,13 +920,13 @@ public class e {
                             break;
                         }
                         com.baidu.android.pushservice.c.a.b bVar = new com.baidu.android.pushservice.c.a.b();
-                        bVar.f36991a = cursor.getLong(cursor.getColumnIndex(b.f37153b.name()));
-                        bVar.f36992b = cursor.getLong(cursor.getColumnIndex(b.f37154c.name()));
-                        bVar.f36993c = cursor.getString(cursor.getColumnIndex(b.f37155d.name()));
-                        bVar.f36994d = cursor.getLong(cursor.getColumnIndex(b.f37156e.name()));
-                        bVar.f36995e = cursor.getLong(cursor.getColumnIndex(b.f37157f.name()));
-                        bVar.f36996f = cursor.getString(cursor.getColumnIndex(b.f37158g.name()));
-                        bVar.f36997g = cursor.getLong(cursor.getColumnIndex(b.f37159h.name()));
+                        bVar.f36995a = cursor.getLong(cursor.getColumnIndex(b.f37157b.name()));
+                        bVar.f36996b = cursor.getLong(cursor.getColumnIndex(b.f37158c.name()));
+                        bVar.f36997c = cursor.getString(cursor.getColumnIndex(b.f37159d.name()));
+                        bVar.f36998d = cursor.getLong(cursor.getColumnIndex(b.f37160e.name()));
+                        bVar.f36999e = cursor.getLong(cursor.getColumnIndex(b.f37161f.name()));
+                        bVar.f37000f = cursor.getString(cursor.getColumnIndex(b.f37162g.name()));
+                        bVar.f37001g = cursor.getLong(cursor.getColumnIndex(b.f37163h.name()));
                         arrayList.add(bVar);
                     }
                     if (cursor != null) {
@@ -954,8 +954,8 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            synchronized (f37140a) {
-                SQLiteDatabase b2 = b(this.f37144e);
+            synchronized (f37144a) {
+                SQLiteDatabase b2 = b(this.f37148e);
                 Cursor cursor = null;
                 if (b2 == null) {
                     return null;
@@ -968,13 +968,13 @@ public class e {
                             break;
                         }
                         com.baidu.android.pushservice.c.a.e eVar = new com.baidu.android.pushservice.c.a.e();
-                        eVar.f37031a = cursor.getString(cursor.getColumnIndex(f.f37184b.name()));
-                        eVar.f37032b = cursor.getString(cursor.getColumnIndex(f.f37185c.name()));
-                        eVar.f37033c = cursor.getLong(cursor.getColumnIndex(f.f37186d.name()));
-                        eVar.f37034d = cursor.getLong(cursor.getColumnIndex(f.f37187e.name()));
-                        eVar.f37035e = cursor.getLong(cursor.getColumnIndex(f.f37188f.name()));
-                        eVar.f37036f = cursor.getString(cursor.getColumnIndex(f.f37189g.name()));
-                        eVar.f37037g = cursor.getLong(cursor.getColumnIndex(f.f37190h.name()));
+                        eVar.f37035a = cursor.getString(cursor.getColumnIndex(f.f37188b.name()));
+                        eVar.f37036b = cursor.getString(cursor.getColumnIndex(f.f37189c.name()));
+                        eVar.f37037c = cursor.getLong(cursor.getColumnIndex(f.f37190d.name()));
+                        eVar.f37038d = cursor.getLong(cursor.getColumnIndex(f.f37191e.name()));
+                        eVar.f37039e = cursor.getLong(cursor.getColumnIndex(f.f37192f.name()));
+                        eVar.f37040f = cursor.getString(cursor.getColumnIndex(f.f37193g.name()));
+                        eVar.f37041g = cursor.getLong(cursor.getColumnIndex(f.f37194h.name()));
                         arrayList.add(eVar);
                     }
                     if (cursor != null) {
@@ -1002,8 +1002,8 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            synchronized (f37140a) {
-                SQLiteDatabase b2 = b(this.f37144e);
+            synchronized (f37144a) {
+                SQLiteDatabase b2 = b(this.f37148e);
                 Cursor cursor = null;
                 if (b2 == null) {
                     return null;
@@ -1016,11 +1016,11 @@ public class e {
                             break;
                         }
                         com.baidu.android.pushservice.c.a.a aVar = new com.baidu.android.pushservice.c.a.a();
-                        aVar.f36978a = cursor.getString(cursor.getColumnIndex(a.f37146b.name()));
-                        aVar.f36979b = cursor.getString(cursor.getColumnIndex(a.f37147c.name()));
-                        aVar.f36980c = cursor.getLong(cursor.getColumnIndex(a.f37148d.name()));
-                        aVar.f36981d = cursor.getString(cursor.getColumnIndex(a.f37149e.name()));
-                        aVar.f36982e = cursor.getLong(cursor.getColumnIndex(a.f37150f.name()));
+                        aVar.f36982a = cursor.getString(cursor.getColumnIndex(a.f37150b.name()));
+                        aVar.f36983b = cursor.getString(cursor.getColumnIndex(a.f37151c.name()));
+                        aVar.f36984c = cursor.getLong(cursor.getColumnIndex(a.f37152d.name()));
+                        aVar.f36985d = cursor.getString(cursor.getColumnIndex(a.f37153e.name()));
+                        aVar.f36986e = cursor.getLong(cursor.getColumnIndex(a.f37154f.name()));
                         arrayList.add(aVar);
                     }
                     if (cursor != null) {
@@ -1047,8 +1047,8 @@ public class e {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (f37140a) {
-                SQLiteDatabase b2 = b(this.f37144e);
+            synchronized (f37144a) {
+                SQLiteDatabase b2 = b(this.f37148e);
                 if (b2 == null) {
                     return;
                 }

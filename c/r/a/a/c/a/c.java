@@ -31,17 +31,17 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile c f35562d;
+    public static volatile c f35566d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f35563a;
+    public e f35567a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap f35564b;
+    public ConcurrentHashMap f35568b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f35565c;
+    public Context f35569c;
 
     static {
         InterceptResult invokeClinit;
@@ -73,11 +73,11 @@ public class c {
                 return;
             }
         }
-        this.f35563a = null;
-        this.f35564b = new ConcurrentHashMap(10);
+        this.f35567a = null;
+        this.f35568b = new ConcurrentHashMap(10);
         try {
-            this.f35565c = context;
-            this.f35563a = new e(context);
+            this.f35569c = context;
+            this.f35567a = new e(context);
         } catch (Throwable th) {
             c.r.a.a.c.b.c.c(th);
         }
@@ -87,14 +87,14 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f35562d == null) {
+            if (f35566d == null) {
                 synchronized (c.class) {
-                    if (f35562d == null) {
-                        f35562d = new c(context);
+                    if (f35566d == null) {
+                        f35566d = new c(context);
                     }
                 }
             }
-            return f35562d;
+            return f35566d;
         }
         return (c) invokeL.objValue;
     }
@@ -151,14 +151,14 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
                 try {
-                    if (this.f35564b != null) {
+                    if (this.f35568b != null) {
                         StringBuilder sb = new StringBuilder();
-                        if (!TextUtils.isEmpty((String) this.f35564b.get("cache_e"))) {
-                            return Pair.create(Pair.create(Boolean.TRUE, sb.toString()), this.f35564b);
+                        if (!TextUtils.isEmpty((String) this.f35568b.get("cache_e"))) {
+                            return Pair.create(Pair.create(Boolean.TRUE, sb.toString()), this.f35568b);
                         }
                     }
-                    this.f35564b.clear();
-                    String c2 = this.f35563a.c();
+                    this.f35568b.clear();
+                    String c2 = this.f35567a.c();
                     if (!TextUtils.isEmpty(c2)) {
                         try {
                             bArr = Base64.decode(c2, 0);
@@ -173,17 +173,17 @@ public class c {
                         }
                         try {
                             JSONObject jSONObject = new JSONObject(new String(c.r.a.a.c.b.b.f(bArr, "20212102sjcudiab".getBytes())));
-                            this.f35564b.put("cache_e", jSONObject.optString("cache_e", ""));
-                            this.f35564b.put("cache_m", jSONObject.optString("cache_m", ""));
-                            this.f35564b.put("c_time", Long.toString(jSONObject.optLong("c_time", 0L)));
+                            this.f35568b.put("cache_e", jSONObject.optString("cache_e", ""));
+                            this.f35568b.put("cache_m", jSONObject.optString("cache_m", ""));
+                            this.f35568b.put("c_time", Long.toString(jSONObject.optLong("c_time", 0L)));
                         } catch (Throwable th) {
                             c.r.a.a.c.b.c.c(th);
                         }
                     }
-                    if (this.f35564b != null && this.f35564b.size() > 0) {
+                    if (this.f35568b != null && this.f35568b.size() > 0) {
                         StringBuilder sb2 = new StringBuilder();
-                        if (!TextUtils.isEmpty((String) this.f35564b.get("cache_e"))) {
-                            return Pair.create(Pair.create(Boolean.TRUE, sb2.toString()), this.f35564b);
+                        if (!TextUtils.isEmpty((String) this.f35568b.get("cache_e"))) {
+                            return Pair.create(Pair.create(Boolean.TRUE, sb2.toString()), this.f35568b);
                         }
                     }
                     return Pair.create(Pair.create(Boolean.TRUE, "8"), null);
@@ -299,9 +299,9 @@ public class c {
                 LinkedHashMap linkedHashMap = null;
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
-                    this.f35564b.put("c_time", Long.toString(currentTimeMillis));
-                    this.f35564b.put("cache_e", str);
-                    this.f35564b.put("cache_m", str2);
+                    this.f35568b.put("c_time", Long.toString(currentTimeMillis));
+                    this.f35568b.put("cache_e", str);
+                    this.f35568b.put("cache_m", str2);
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("c_time", currentTimeMillis);
                     jSONObject.put("cache_e", str);
@@ -319,37 +319,37 @@ public class c {
                         }
                     }
                     if (bArr != null) {
-                        this.f35563a.a(new String(bArr));
+                        this.f35567a.a(new String(bArr));
                     }
                 } catch (Throwable unused3) {
                 }
                 try {
-                    String c2 = d.c(this.f35565c, "k_w_o_d_out_dtt");
+                    String c2 = d.c(this.f35569c, "k_w_o_d_out_dtt");
                     if (TextUtils.isEmpty(c2)) {
                         c.r.a.a.c.b.b.b();
-                        if (f.g(this.f35565c, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                        if (f.g(this.f35569c, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
                             c2 = g("Lm91a2R0ZnQ=");
                         }
                     }
                     if (!TextUtils.isEmpty(c2) && (linkedHashMap = d(c2)) != null) {
-                        String e2 = b.f35561a.e();
+                        String e2 = b.f35565a.e();
                         if (!TextUtils.isEmpty(e2)) {
                             if (linkedHashMap.containsKey(e2)) {
                                 linkedHashMap.remove(e2);
                             }
-                            linkedHashMap.put(b.f35561a.e(), str);
+                            linkedHashMap.put(b.f35565a.e(), str);
                         }
                     }
                     if (linkedHashMap == null || linkedHashMap.size() == 0) {
                         linkedHashMap = new LinkedHashMap();
-                        linkedHashMap.put(b.f35561a.e(), str);
+                        linkedHashMap.put(b.f35565a.e(), str);
                     }
                     String c3 = c(linkedHashMap);
                     if (!TextUtils.isEmpty(c3)) {
-                        d.d(this.f35565c, "k_w_o_d_out_dtt", c3);
+                        d.d(this.f35569c, "k_w_o_d_out_dtt", c3);
                         c.r.a.a.c.b.b.b();
-                        if (f.g(this.f35565c, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
-                            e(this.f35565c, c3);
+                        if (f.g(this.f35569c, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                            e(this.f35569c, c3);
                         }
                     }
                 } catch (Throwable th) {
@@ -366,7 +366,7 @@ public class c {
             return (String) invokeL.objValue;
         }
         try {
-            File file = new File(c.r.a.a.c.b.b.a(this.f35565c, false), new String(Base64.decode(str, 0)));
+            File file = new File(c.r.a.a.c.b.b.a(this.f35569c, false), new String(Base64.decode(str, 0)));
             if (!file.exists()) {
                 return "";
             }

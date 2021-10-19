@@ -15,10 +15,10 @@ public final class b implements com.sdk.base.framework.b.a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ int f75942a;
+    public /* synthetic */ int f75977a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f75943b;
+    public /* synthetic */ a f75978b;
 
     public b(a aVar, int i2) {
         Interceptable interceptable = $ic;
@@ -35,15 +35,15 @@ public final class b implements com.sdk.base.framework.b.a<T> {
                 return;
             }
         }
-        this.f75943b = aVar;
-        this.f75942a = i2;
+        this.f75978b = aVar;
+        this.f75977a = i2;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-            this.f75943b.a(i2, i3, str);
+            this.f75978b.a(i2, i3, str);
         }
     }
 
@@ -56,34 +56,34 @@ public final class b implements com.sdk.base.framework.b.a<T> {
         Context context3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) {
-            context = this.f75943b.f75938d;
+            context = this.f75978b.f75973d;
             com.sdk.base.framework.f.i.b.b(context);
             Object obj = t;
             if (i2 == 0) {
                 try {
-                    context2 = this.f75943b.f75938d;
-                    com.sdk.base.framework.a.a.a.a(context2, this.f75942a, com.sdk.base.framework.a.a.a.a(t, str2), g.f75906b.a());
-                    context3 = this.f75943b.f75938d;
+                    context2 = this.f75978b.f75973d;
+                    com.sdk.base.framework.a.a.a.a(context2, this.f75977a, com.sdk.base.framework.a.a.a.a(t, str2), g.f75941b.a());
+                    context3 = this.f75978b.f75973d;
                     String a2 = com.sdk.base.framework.f.k.a.a(context3, String.valueOf(t));
                     if (a2 == null) {
-                        this.f75943b.a(1, "SDK解密异常", 302001, a2, str2);
+                        this.f75978b.a(1, "SDK解密异常", 302001, a2, str2);
                         return;
                     }
                     JSONObject jSONObject = new JSONObject(String.valueOf(a2));
                     obj = a2;
-                    if (this.f75942a == 1) {
+                    if (this.f75977a == 1) {
                         jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
                         obj = jSONObject.toString();
                     }
                 } catch (Exception e2) {
-                    str3 = a.f75935a;
+                    str3 = a.f75970a;
                     String exc = e2.toString();
-                    bool = a.f75936b;
+                    bool = a.f75971b;
                     com.sdk.base.framework.a.a.c.b(str3, exc, bool);
                     obj = t;
                 }
             }
-            this.f75943b.a(i2, str, i3, obj, str2);
+            this.f75978b.a(i2, str, i3, obj, str2);
         }
     }
 }

@@ -15,36 +15,36 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f69218a;
+    public static final c f69253a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f69219b;
+    public static final c f69254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f69220c;
+    public static final c f69255c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c f69221d;
+    public static final c f69256d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f69222e;
+    public static final c f69257e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c f69223f;
+    public static final c f69258f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final c f69224g;
+    public static final c f69259g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c f69225h;
+    public static final c f69260h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final c f69226i;
+    public static final c f69261i;
     public static final /* synthetic */ c[] k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f69227j;
+    public String f69262j;
 
     static {
         InterceptResult invokeClinit;
@@ -59,17 +59,17 @@ public final class c {
                 return;
             }
         }
-        f69218a = new c("LAUNCH", 0, "launch");
-        f69219b = new c(Constant.TYPE_JAVA, 1, "java");
-        f69220c = new c(Constant.TYPE_NATIVE, 2, "native");
-        f69221d = new c("ANR", 3, "anr");
-        f69222e = new c("BLOCK", 4, BreakpointSQLiteHelper.BLOCK_TABLE_NAME);
-        f69223f = new c("ENSURE", 5, "ensure");
-        f69224g = new c("DART", 6, "dart");
-        f69225h = new c("CUSTOM_JAVA", 7, "custom_java");
+        f69253a = new c("LAUNCH", 0, "launch");
+        f69254b = new c(Constant.TYPE_JAVA, 1, "java");
+        f69255c = new c(Constant.TYPE_NATIVE, 2, "native");
+        f69256d = new c("ANR", 3, "anr");
+        f69257e = new c("BLOCK", 4, BreakpointSQLiteHelper.BLOCK_TABLE_NAME);
+        f69258f = new c("ENSURE", 5, "ensure");
+        f69259g = new c("DART", 6, "dart");
+        f69260h = new c("CUSTOM_JAVA", 7, "custom_java");
         c cVar = new c("ALL", 8, "all");
-        f69226i = cVar;
-        k = new c[]{f69218a, f69219b, f69220c, f69221d, f69222e, f69223f, f69224g, f69225h, cVar};
+        f69261i = cVar;
+        k = new c[]{f69253a, f69254b, f69255c, f69256d, f69257e, f69258f, f69259g, f69260h, cVar};
     }
 
     public c(String str, int i2, String str2) {
@@ -90,7 +90,7 @@ public final class c {
                 return;
             }
         }
-        this.f69227j = str2;
+        this.f69262j = str2;
     }
 
     public static c valueOf(String str) {
@@ -108,6 +108,6 @@ public final class c {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69227j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69262j : (String) invokeV.objValue;
     }
 }

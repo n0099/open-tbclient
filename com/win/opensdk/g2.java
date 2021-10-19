@@ -15,13 +15,13 @@ public class g2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f77351a;
+    public Context f77386a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f77352b;
+    public WebView f77387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Info f77353c;
+    public Info f77388c;
 
     public g2(Context context) {
         Interceptable interceptable = $ic;
@@ -38,24 +38,24 @@ public class g2 {
                 return;
             }
         }
-        this.f77351a = context;
-        if (this.f77352b == null) {
-            WebView webView = new WebView(this.f77351a);
-            this.f77352b = webView;
+        this.f77386a = context;
+        if (this.f77387b == null) {
+            WebView webView = new WebView(this.f77386a);
+            this.f77387b = webView;
             WebSettings settings = webView.getSettings();
             settings.setAllowContentAccess(true);
             settings.setJavaScriptEnabled(true);
             if (Build.VERSION.SDK_INT >= 11) {
-                this.f77352b.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f77352b.removeJavascriptInterface("accessibility");
-                this.f77352b.removeJavascriptInterface("accessibilityTraversal");
+                this.f77387b.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f77387b.removeJavascriptInterface("accessibility");
+                this.f77387b.removeJavascriptInterface("accessibilityTraversal");
             }
-            this.f77352b.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-            this.f77352b.getSettings().setBlockNetworkImage(true);
-            this.f77352b.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-            this.f77352b.getSettings().setCacheMode(2);
-            this.f77352b.getSettings().setAppCacheEnabled(true);
-            this.f77352b.setScrollBarStyle(0);
+            this.f77387b.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+            this.f77387b.getSettings().setBlockNetworkImage(true);
+            this.f77387b.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+            this.f77387b.getSettings().setCacheMode(2);
+            this.f77387b.getSettings().setAppCacheEnabled(true);
+            this.f77387b.setScrollBarStyle(0);
             settings.setDomStorageEnabled(true);
             settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
             settings.setEnableSmoothTransition(true);
@@ -63,10 +63,10 @@ public class g2 {
                 settings.setMixedContentMode(1);
             }
             settings.setNeedInitialFocus(false);
-            this.f77352b.clearCache(true);
-            this.f77352b.clearHistory();
-            this.f77352b.setWebChromeClient(new d2(this));
-            this.f77352b.setWebViewClient(new e2(this));
+            this.f77387b.clearCache(true);
+            this.f77387b.clearHistory();
+            this.f77387b.setWebChromeClient(new d2(this));
+            this.f77387b.setWebViewClient(new e2(this));
         }
     }
 }

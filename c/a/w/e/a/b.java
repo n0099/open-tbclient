@@ -14,19 +14,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final View f30512a;
+    public final View f30559a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30513b;
+    public int f30560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30514c;
+    public int f30561c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30515d;
+    public int f30562d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30516e;
+    public int f30563e;
 
     public b(View view) {
         Interceptable interceptable = $ic;
@@ -43,20 +43,20 @@ public class b {
                 return;
             }
         }
-        this.f30512a = view;
+        this.f30559a = view;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30515d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30562d : invokeV.intValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f30513b = this.f30512a.getTop();
-            this.f30514c = this.f30512a.getLeft();
+            this.f30560b = this.f30559a.getTop();
+            this.f30561c = this.f30559a.getLeft();
             e();
         }
     }
@@ -65,8 +65,8 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (this.f30516e != i2) {
-                this.f30516e = i2;
+            if (this.f30563e != i2) {
+                this.f30563e = i2;
                 e();
                 return true;
             }
@@ -79,8 +79,8 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (this.f30515d != i2) {
-                this.f30515d = i2;
+            if (this.f30562d != i2) {
+                this.f30562d = i2;
                 e();
                 return true;
             }
@@ -92,10 +92,10 @@ public class b {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View view = this.f30512a;
-            ViewCompat.offsetTopAndBottom(view, this.f30515d - (view.getTop() - this.f30513b));
-            View view2 = this.f30512a;
-            ViewCompat.offsetLeftAndRight(view2, this.f30516e - (view2.getLeft() - this.f30514c));
+            View view = this.f30559a;
+            ViewCompat.offsetTopAndBottom(view, this.f30562d - (view.getTop() - this.f30560b));
+            View view2 = this.f30559a;
+            ViewCompat.offsetLeftAndRight(view2, this.f30563e - (view2.getLeft() - this.f30561c));
         }
     }
 }

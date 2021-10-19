@@ -58,7 +58,7 @@ public class InstallActivity extends Activity {
             }
         }
         this.themeWrapper = new ContextThemeWrapper(this, 16974394);
-        this.lastEvent = p.f70583b;
+        this.lastEvent = p.f70618b;
     }
 
     /* JADX DEBUG: Marked for inline */
@@ -117,7 +117,7 @@ public class InstallActivity extends Activity {
     public void finishWithFailure(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, exc) == null) {
-            c.i.c.a.f.d().f34136a = exc;
+            c.i.c.a.f.d().f34140a = exc;
             c.i.c.a.f.d().g();
             this.finished = true;
             super.finish();
@@ -181,7 +181,7 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             this.installStarted = true;
-            this.lastEvent = p.f70583b;
+            this.lastEvent = p.f70618b;
             c.i.c.a.f.d().e(this).c(this, new m(this));
         }
     }
@@ -274,12 +274,12 @@ public class InstallActivity extends Activity {
             } else if (this.finished) {
             } else {
                 synchronized (this) {
-                    if (this.lastEvent == p.f70583b) {
+                    if (this.lastEvent == p.f70618b) {
                         finish();
-                    } else if (this.lastEvent == p.f70582a) {
+                    } else if (this.lastEvent == p.f70617a) {
                         this.waitingForCompletion = true;
                     } else {
-                        finishWithFailure(c.i.c.a.f.d().f34136a);
+                        finishWithFailure(c.i.c.a.f.d().f34140a);
                     }
                 }
             }

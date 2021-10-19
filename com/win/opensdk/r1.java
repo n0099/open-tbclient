@@ -13,16 +13,16 @@ public class r1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f77475a;
+    public Context f77510a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f77476b;
+    public String f77511b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f77477c;
+    public String f77512c;
 
     /* renamed from: d  reason: collision with root package name */
-    public T0 f77478d;
+    public T0 f77513d;
 
     public r1(Context context) {
         Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class r1 {
                 return;
             }
         }
-        this.f77475a = context;
+        this.f77510a = context;
     }
 
     public r1 a(T0 t0) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t0)) == null) {
-            this.f77478d = t0;
+            this.f77513d = t0;
             return this;
         }
         return (r1) invokeL.objValue;
@@ -55,7 +55,7 @@ public class r1 {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f77477c = s1.f77484d + s1.f77486f;
+            this.f77512c = s1.f77519d + s1.f77521f;
             s1.a(this);
         }
     }
@@ -63,7 +63,7 @@ public class r1 {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f77477c = s1.f77484d + s1.f77490j;
+            this.f77512c = s1.f77519d + s1.f77525j;
             s1.a(this);
         }
     }
@@ -71,7 +71,7 @@ public class r1 {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f77477c = s1.f77484d + s1.f77487g;
+            this.f77512c = s1.f77519d + s1.f77522g;
             s1.a(this);
         }
     }
@@ -79,7 +79,7 @@ public class r1 {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f77477c = s1.f77484d + s1.f77485e;
+            this.f77512c = s1.f77519d + s1.f77520e;
             s1.a(this);
         }
     }
@@ -87,7 +87,7 @@ public class r1 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f77477c = s1.f77484d + s1.f77489i;
+            this.f77512c = s1.f77519d + s1.f77524i;
             s1.a(this);
         }
     }
@@ -95,7 +95,7 @@ public class r1 {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f77477c = s1.f77484d + s1.f77488h;
+            this.f77512c = s1.f77519d + s1.f77523h;
             s1.a(this);
         }
     }

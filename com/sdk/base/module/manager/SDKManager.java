@@ -127,14 +127,14 @@ public abstract class SDKManager {
     public static void setDebug(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            f.f75869b = z;
+            f.f75904b = z;
         }
     }
 
     public static void setDebugHead(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            f.f75871d = z;
+            f.f75906d = z;
         }
     }
 

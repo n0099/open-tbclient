@@ -71,43 +71,43 @@ public class ShareItem {
     public int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f48213a;
+    public boolean f48134a;
     public WeakReference<Bitmap> a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f48214b;
+    public boolean f48135b;
     public Bundle b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f48215c;
+    public boolean f48136c;
     public boolean c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f48216d;
+    public boolean f48137d;
     public boolean d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f48217e;
+    public boolean f48138e;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f48218f;
+    public boolean f48139f;
     public boolean f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48219g;
+    public boolean f48140g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f48220h;
+    public boolean f48141h;
     public int h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f48221i;
+    public boolean f48142i;
     public String i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f48222j;
+    public boolean f48143j;
     public boolean j0;
     public boolean k;
     public boolean k0;
@@ -166,16 +166,16 @@ public class ShareItem {
                 return;
             }
         }
-        this.f48213a = false;
-        this.f48214b = false;
-        this.f48215c = false;
-        this.f48216d = false;
-        this.f48217e = false;
-        this.f48218f = false;
-        this.f48219g = false;
-        this.f48220h = false;
-        this.f48221i = false;
-        this.f48222j = false;
+        this.f48134a = false;
+        this.f48135b = false;
+        this.f48136c = false;
+        this.f48137d = false;
+        this.f48138e = false;
+        this.f48139f = false;
+        this.f48140g = false;
+        this.f48141h = false;
+        this.f48142i = false;
+        this.f48143j = false;
         this.k = false;
         this.l = false;
         this.m = false;
@@ -449,10 +449,10 @@ public class ShareItem {
                     }
                     forwardInfo.showText = d2Var.y1.d();
                     OriginalThreadInfo originalThreadInfo = d2Var.y1;
-                    forwardInfo.showPicUrl = originalThreadInfo.f47521c;
-                    forwardInfo.showType = originalThreadInfo.f47519a;
+                    forwardInfo.showPicUrl = originalThreadInfo.f47434c;
+                    forwardInfo.showType = originalThreadInfo.f47432a;
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                    forwardInfo.originalTid = originalThreadInfo.f47524f;
+                    forwardInfo.originalTid = originalThreadInfo.f47437f;
                     if (i2 == 1) {
                         if (postData != null && postData.K() != null) {
                             str = postData.K().toString();
@@ -481,8 +481,8 @@ public class ShareItem {
                     OriginalThreadInfo k = OriginalThreadInfo.k(d2Var);
                     if (k != null) {
                         forwardInfo.showText = k.d();
-                        forwardInfo.showPicUrl = k.f47521c;
-                        forwardInfo.showType = k.f47519a;
+                        forwardInfo.showPicUrl = k.f47434c;
+                        forwardInfo.showType = k.f47432a;
                     }
                     forwardInfo.originalTid = d2Var.s1();
                 }

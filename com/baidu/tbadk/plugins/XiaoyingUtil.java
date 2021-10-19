@@ -39,19 +39,19 @@ public class XiaoyingUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f48578e;
+        public final /* synthetic */ Context f48502e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48579f;
+        public final /* synthetic */ String f48503f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f48580g;
+        public final /* synthetic */ int f48504g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f48581h;
+        public final /* synthetic */ int f48505h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f48582i;
+        public final /* synthetic */ String f48506i;
 
         public a(Context context, String str, int i2, int i3, String str2) {
             Interceptable interceptable = $ic;
@@ -68,18 +68,18 @@ public class XiaoyingUtil {
                     return;
                 }
             }
-            this.f48578e = context;
-            this.f48579f = str;
-            this.f48580g = i2;
-            this.f48581h = i3;
-            this.f48582i = str2;
+            this.f48502e = context;
+            this.f48503f = str;
+            this.f48504g = i2;
+            this.f48505h = i3;
+            this.f48506i = str2;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f48578e, this.f48579f, this.f48580g, this.f48581h, this.f48582i)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f48502e, this.f48503f, this.f48504g, this.f48505h, this.f48506i)));
                 aVar.dismiss();
             }
         }
@@ -119,10 +119,10 @@ public class XiaoyingUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f48583e;
+        public final /* synthetic */ Activity f48507e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f48584f;
+        public final /* synthetic */ TbPageContext f48508f;
 
         public c(Activity activity, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -139,15 +139,15 @@ public class XiaoyingUtil {
                     return;
                 }
             }
-            this.f48583e = activity;
-            this.f48584f = tbPageContext;
+            this.f48507e = activity;
+            this.f48508f = tbPageContext;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f48584f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f48583e, XiaoyingUtil.PKG_NAME_VIDEO)));
+                this.f48508f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f48507e, XiaoyingUtil.PKG_NAME_VIDEO)));
                 aVar.dismiss();
             }
         }

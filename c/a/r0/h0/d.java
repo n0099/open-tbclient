@@ -1,8 +1,8 @@
 package c.a.r0.h0;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,26 +11,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class d {
+public class d extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile d f18858a;
+    /* renamed from: f  reason: collision with root package name */
+    public static final BdUniqueId f17928f;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public c.a.r0.x0.u1.c.b f17929e;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1785653523, "Lc/a/r0/h0/d;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1785653523, "Lc/a/r0/h0/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1785653523, "Lc/a/r0/h0/d;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1785653523, "Lc/a/r0/h0/d;");
-        }
+        f17928f = BdUniqueId.gen();
     }
 
     public d() {
@@ -47,58 +51,23 @@ public class d {
         }
     }
 
-    public static final d c() {
+    public c.a.r0.x0.u1.c.b g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f18858a == null) {
-                synchronized (d.class) {
-                    if (f18858a == null) {
-                        f18858a = new d();
-                    }
-                }
-            }
-            return f18858a;
-        }
-        return (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17929e : (c.a.r0.x0.u1.c.b) invokeV.objValue;
     }
 
-    public void a(String str, String str2) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-                return;
-            }
-            c.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-            statsItem.b("workflow", "dnsproxy_error");
-            if (!TextUtils.isEmpty(str)) {
-                statsItem.b("reason", str);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                statsItem.b("comment", str2);
-            }
-            BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f17928f : (BdUniqueId) invokeV.objValue;
     }
 
-    public void b(String str, String str2, String str3) {
+    public void i(c.a.r0.x0.u1.c.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2) && TextUtils.isEmpty(str3)) {
-                return;
-            }
-            c.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-            statsItem.b("workflow", "dnsproxy_event");
-            if (!TextUtils.isEmpty(str)) {
-                statsItem.b("key", str);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                statsItem.b("reason", str2);
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                statsItem.b("comment", str3);
-            }
-            BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f17929e = bVar;
         }
     }
 }

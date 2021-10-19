@@ -13,10 +13,10 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ViewGroup.LayoutParams f41757a;
+    public final /* synthetic */ ViewGroup.LayoutParams f41761a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f41758b;
+    public final /* synthetic */ SwipeDismissTouchListener f41762b;
 
     public r(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
                 return;
             }
         }
-        this.f41758b = swipeDismissTouchListener;
-        this.f41757a = layoutParams;
+        this.f41762b = swipeDismissTouchListener;
+        this.f41761a = layoutParams;
     }
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -42,9 +42,9 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
         View view;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-            this.f41757a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-            view = this.f41758b.f41647e;
-            view.setLayoutParams(this.f41757a);
+            this.f41761a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+            view = this.f41762b.f41651e;
+            view.setLayoutParams(this.f41761a);
         }
     }
 }

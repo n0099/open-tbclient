@@ -28,7 +28,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f69550a;
+    public static final List<String> f69585a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +44,7 @@ public class f {
                 return;
             }
         }
-        f69550a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
+        f69585a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,7 +76,7 @@ public class f {
             String trim = str == null ? RomUtils.UNKNOWN : str.trim();
             try {
                 if (!TextUtils.isEmpty(trim)) {
-                    for (String str2 : f69550a) {
+                    for (String str2 : f69585a) {
                         if (str2.equalsIgnoreCase(trim)) {
                             return str2;
                         }
@@ -140,7 +140,7 @@ public class f {
                         if (jSONObject5.has(str10)) {
                             jSONObject4.put("time", ((Long) jSONObject5.remove(str10)).longValue());
                         }
-                        String str11 = (String) jSONObject5.remove(com.baidu.fsg.base.statistics.h.f39556a);
+                        String str11 = (String) jSONObject5.remove(com.baidu.fsg.base.statistics.h.f39560a);
                         JSONObject jSONObject6 = new JSONObject();
                         jSONObject6.put("event_key", str11);
                         Iterator<String> keys2 = jSONObject5.keys();
@@ -155,7 +155,7 @@ public class f {
                                 }
                                 c2 = 65535;
                             } else if (hashCode == 3234) {
-                                if (next2.equals(com.baidu.fsg.base.statistics.h.f39559d)) {
+                                if (next2.equals(com.baidu.fsg.base.statistics.h.f39563d)) {
                                     c2 = 0;
                                 }
                                 c2 = 65535;
@@ -165,20 +165,20 @@ public class f {
                                 }
                                 c2 = 65535;
                             } else if (hashCode != 3455) {
-                                if (hashCode == 3527 && next2.equals(com.baidu.fsg.base.statistics.h.f39561f)) {
+                                if (hashCode == 3527 && next2.equals(com.baidu.fsg.base.statistics.h.f39565f)) {
                                     c2 = 1;
                                 }
                                 c2 = 65535;
                             } else {
-                                if (next2.equals(com.baidu.fsg.base.statistics.h.f39560e)) {
+                                if (next2.equals(com.baidu.fsg.base.statistics.h.f39564e)) {
                                     c2 = 2;
                                 }
                                 c2 = 65535;
                             }
                             if (c2 == 0) {
-                                jSONObject6.put("event_tag", jSONObject5.optString(com.baidu.fsg.base.statistics.h.f39559d));
+                                jSONObject6.put("event_tag", jSONObject5.optString(com.baidu.fsg.base.statistics.h.f39563d));
                             } else if (c2 == 1) {
-                                jSONObject6.put("event_number", jSONObject5.optInt(com.baidu.fsg.base.statistics.h.f39561f));
+                                jSONObject6.put("event_number", jSONObject5.optInt(com.baidu.fsg.base.statistics.h.f39565f));
                             } else if (c2 != 2) {
                                 if (c2 == 3) {
                                     jSONObject6.put("abtype", jSONObject5.optString("at"));
@@ -199,7 +199,7 @@ public class f {
                                 }
                                 str10 = str12;
                                 jSONArray = jSONArray3;
-                            } else if (jSONObject5.optString(com.baidu.fsg.base.statistics.h.f39560e).equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING)) {
+                            } else if (jSONObject5.optString(com.baidu.fsg.base.statistics.h.f39564e).equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING)) {
                                 jSONObject6.put("$wifi", true);
                             } else {
                                 jSONObject6.put("$wifi", false);

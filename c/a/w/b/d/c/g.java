@@ -18,22 +18,22 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30450a;
+    public int f30497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30451b;
+    public String f30498b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<LiveTabEntity> f30452c;
+    public List<LiveTabEntity> f30499c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f30453d;
+    public boolean f30500d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f30454e;
+    public long f30501e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30455f;
+    public int f30502f;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -54,13 +54,13 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) || jSONArray == null || jSONArray.length() <= 0) {
             return;
         }
-        this.f30452c = new ArrayList();
+        this.f30499c = new ArrayList();
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             JSONObject optJSONObject = jSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 LiveTabEntity liveTabEntity = new LiveTabEntity();
                 liveTabEntity.parserJson(optJSONObject);
-                this.f30452c.add(liveTabEntity);
+                this.f30499c.add(liveTabEntity);
             }
         }
     }
@@ -70,30 +70,30 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jSONObject, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if (jSONObject != null) {
-                this.f30450a = jSONObject.optInt("inner_errno");
-                this.f30451b = jSONObject.optString("inner_msg");
+                this.f30497a = jSONObject.optInt("inner_errno");
+                this.f30498b = jSONObject.optString("inner_msg");
                 JSONArray optJSONArray = jSONObject.optJSONArray("items");
                 a(optJSONArray);
-                if (z && optJSONArray != null && (list = this.f30452c) != null && !list.isEmpty()) {
+                if (z && optJSONArray != null && (list = this.f30499c) != null && !list.isEmpty()) {
                     c.a.w.b.f.c.c("live_feed_page_tab_cache_time", System.currentTimeMillis());
                     c.a.w.b.f.c.d("live_feed_page_tab_cache_key", optJSONArray.toString());
                 }
             }
-            if ((z && this.f30452c == null) || this.f30452c.isEmpty()) {
-                this.f30455f = 2;
+            if ((z && this.f30499c == null) || this.f30499c.isEmpty()) {
+                this.f30502f = 2;
                 String a2 = c.a.w.b.f.c.a("live_feed_page_tab_cache_key", "");
                 if (TextUtils.isEmpty(a2)) {
                     return;
                 }
                 try {
                     a(new JSONArray(a2));
-                    this.f30453d = true;
+                    this.f30500d = true;
                     if (i2 == -101) {
-                        this.f30455f = 1;
-                    } else if (this.f30450a != 0) {
-                        this.f30455f = 3;
+                        this.f30502f = 1;
+                    } else if (this.f30497a != 0) {
+                        this.f30502f = 3;
                     }
-                    this.f30454e = c.a.w.b.f.c.b("live_feed_page_tab_cache_time", 0L);
+                    this.f30501e = c.a.w.b.f.c.b("live_feed_page_tab_cache_time", 0L);
                 } catch (JSONException unused) {
                     c.a.w.b.f.c.e("live_feed_page_tab_cache_key");
                     c.a.w.b.f.c.e("live_feed_page_tab_cache_time");

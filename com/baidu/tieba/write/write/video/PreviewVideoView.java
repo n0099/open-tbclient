@@ -42,23 +42,23 @@ public class PreviewVideoView extends FrameLayout {
     public ImageView deleteIcon;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f59257e;
+    public TbImageView f59208e;
     public TBSpecificationBtn editBtn;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomVideoView f59258f;
+    public CustomVideoView f59209f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f59259g;
+    public float f59210g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.q0.d0.b f59260h;
+    public c.a.q0.d0.b f59211h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f59261i;
+    public Paint f59212i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Paint f59262j;
+    public Paint f59213j;
     public int k;
     public String l;
     public Path m;
@@ -70,7 +70,7 @@ public class PreviewVideoView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PreviewVideoView f59263e;
+        public final /* synthetic */ PreviewVideoView f59214e;
 
         public a(PreviewVideoView previewVideoView) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class PreviewVideoView extends FrameLayout {
                     return;
                 }
             }
-            this.f59263e = previewVideoView;
+            this.f59214e = previewVideoView;
         }
 
         @Override // android.media.MediaPlayer.OnCompletionListener
@@ -104,7 +104,7 @@ public class PreviewVideoView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PreviewVideoView f59264e;
+        public final /* synthetic */ PreviewVideoView f59215e;
 
         public b(PreviewVideoView previewVideoView) {
             Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public class PreviewVideoView extends FrameLayout {
                     return;
                 }
             }
-            this.f59264e = previewVideoView;
+            this.f59215e = previewVideoView;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
@@ -129,8 +129,8 @@ public class PreviewVideoView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
                 mediaPlayer.setVolume(0.0f, 0.0f);
-                this.f59264e.adjustSize(mediaPlayer.getVideoWidth(), mediaPlayer.getVideoHeight());
-                this.f59264e.f59257e.setVisibility(8);
+                this.f59215e.adjustSize(mediaPlayer.getVideoWidth(), mediaPlayer.getVideoHeight());
+                this.f59215e.f59208e.setVisibility(8);
             }
         }
     }
@@ -141,7 +141,7 @@ public class PreviewVideoView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PreviewVideoView f59265e;
+        public final /* synthetic */ PreviewVideoView f59216e;
 
         public c(PreviewVideoView previewVideoView) {
             Interceptable interceptable = $ic;
@@ -158,17 +158,17 @@ public class PreviewVideoView extends FrameLayout {
                     return;
                 }
             }
-            this.f59265e = previewVideoView;
+            this.f59216e = previewVideoView;
         }
 
         @Override // c.a.q0.c0.b
         public void imageLoaded(c.a.e.l.d.a aVar, String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || this.f59265e.f59257e == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || this.f59216e.f59208e == null || aVar == null) {
                 return;
             }
-            this.f59265e.adjustSize(aVar.r(), aVar.m());
-            this.f59265e.f59257e.invalidate();
+            this.f59216e.adjustSize(aVar.r(), aVar.m());
+            this.f59216e.f59208e.invalidate();
         }
     }
 
@@ -209,15 +209,15 @@ public class PreviewVideoView extends FrameLayout {
                 i5 = l.g(getContext(), R.dimen.tbds650);
                 i4 = o;
             }
-            if (this.f59258f.getWidth() == i5 && this.f59258f.getHeight() == i4) {
+            if (this.f59209f.getWidth() == i5 && this.f59209f.getHeight() == i4) {
                 return;
             }
-            this.f59258f.setVideoHeight(i4);
-            this.f59258f.setVideoWidth(i5);
-            ViewGroup.LayoutParams layoutParams = this.f59257e.getLayoutParams();
+            this.f59209f.setVideoHeight(i4);
+            this.f59209f.setVideoWidth(i5);
+            ViewGroup.LayoutParams layoutParams = this.f59208e.getLayoutParams();
             layoutParams.width = i5;
             layoutParams.height = i4;
-            this.f59257e.setLayoutParams(layoutParams);
+            this.f59208e.setLayoutParams(layoutParams);
             getLayoutParams().height = i4;
             getLayoutParams().width = i5;
             invalidate();
@@ -230,11 +230,11 @@ public class PreviewVideoView extends FrameLayout {
             o = l.g(getContext(), R.dimen.tbds866);
             p = l.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
             c(context);
-            this.f59260h = new c.a.q0.d0.b();
+            this.f59211h = new c.a.q0.d0.b();
             TbImageView tbImageView = new TbImageView(context);
-            this.f59257e = tbImageView;
+            this.f59208e = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            addView(this.f59257e, new FrameLayout.LayoutParams(-2, -2));
+            addView(this.f59208e, new FrameLayout.LayoutParams(-2, -2));
             this.deleteIcon = new ImageView(context);
             int g2 = l.g(context, R.dimen.M_H_X001);
             int g3 = l.g(context, R.dimen.M_W_X003);
@@ -243,7 +243,7 @@ public class PreviewVideoView extends FrameLayout {
             layoutParams.gravity = 53;
             addView(this.deleteIcon, layoutParams);
             c.a.q0.s.f0.n.b bVar = new c.a.q0.s.f0.n.b();
-            bVar.p();
+            bVar.q();
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.g(context, R.dimen.tbds96), l.g(context, R.dimen.tbds48));
             layoutParams2.gravity = 83;
             layoutParams2.bottomMargin = l.g(context, R.dimen.M_H_X002);
@@ -264,8 +264,8 @@ public class PreviewVideoView extends FrameLayout {
             this.coverBtn.setText(context.getString(R.string.cover));
             this.coverBtn.setTextSize(R.dimen.T_X10);
             addView(this.coverBtn, layoutParams3);
-            this.f59261i = new Paint();
-            this.f59262j = new Paint();
+            this.f59212i = new Paint();
+            this.f59213j = new Paint();
             changeSkin();
         }
     }
@@ -274,10 +274,10 @@ public class PreviewVideoView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             CustomVideoView customVideoView = new CustomVideoView(context);
-            this.f59258f = customVideoView;
+            this.f59209f = customVideoView;
             addView(customVideoView, new FrameLayout.LayoutParams(-2, -2));
-            this.f59258f.setOnCompletionListener(new a(this));
-            this.f59258f.setOnPreparedListener(new b(this));
+            this.f59209f.setOnCompletionListener(new a(this));
+            this.f59209f.setOnPreparedListener(new b(this));
         }
     }
 
@@ -285,19 +285,19 @@ public class PreviewVideoView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.deleteIcon.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
-            this.f59261i.setColor(SkinManager.getColor(R.color.CAM_X0618));
-            this.f59262j.setColor(SkinManager.getColor(R.color.CAM_X0302));
+            this.f59212i.setColor(SkinManager.getColor(R.color.CAM_X0618));
+            this.f59213j.setColor(SkinManager.getColor(R.color.CAM_X0302));
         }
     }
 
     public void deleteCoverCache() {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (tbImageView = this.f59257e) == null || tbImageView.getTag() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (tbImageView = this.f59208e) == null || tbImageView.getTag() == null) {
             return;
         }
-        c.a.q0.c0.c.k().h(this.f59257e.getTag().toString());
-        c.a.q0.c0.c.k().g(this.f59257e.getTag().toString());
+        c.a.q0.c0.c.k().h(this.f59208e.getTag().toString());
+        c.a.q0.c0.c.k().g(this.f59208e.getTag().toString());
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -307,8 +307,8 @@ public class PreviewVideoView extends FrameLayout {
             canvas.save();
             canvas.clipPath(this.m);
             super.dispatchDraw(canvas);
-            canvas.drawRect(0.0f, 0.0f, getWidth(), l.g(getContext(), R.dimen.tbds5), this.f59261i);
-            canvas.drawRect(0.0f, 0.0f, getWidth() * this.f59259g, l.g(getContext(), R.dimen.tbds5), this.f59262j);
+            canvas.drawRect(0.0f, 0.0f, getWidth(), l.g(getContext(), R.dimen.tbds5), this.f59212i);
+            canvas.drawRect(0.0f, 0.0f, getWidth() * this.f59210g, l.g(getContext(), R.dimen.tbds5), this.f59213j);
             canvas.restore();
         }
     }
@@ -321,14 +321,14 @@ public class PreviewVideoView extends FrameLayout {
             ImageOperation g2 = d.g(p, o);
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(g2);
-            this.f59257e.setTag(imageFileInfo.toCachedKey(false));
-            c.a.e.l.d.a c2 = this.f59260h.c(imageFileInfo, false);
+            this.f59208e.setTag(imageFileInfo.toCachedKey(false));
+            c.a.e.l.d.a c2 = this.f59211h.c(imageFileInfo, false);
             if (c2 != null) {
                 adjustSize(c2.r(), c2.m());
-                this.f59257e.invalidate();
+                this.f59208e.invalidate();
                 return;
             }
-            this.f59260h.d(imageFileInfo, new c(this), false);
+            this.f59211h.d(imageFileInfo, new c(this), false);
         }
     }
 
@@ -347,7 +347,7 @@ public class PreviewVideoView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.k = 0;
-            this.f59259g = 0.0f;
+            this.f59210g = 0.0f;
             this.l = null;
             stopVideo();
         }
@@ -383,28 +383,28 @@ public class PreviewVideoView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        this.f59258f.setVideoPath(str);
-        this.f59258f.start();
-        this.f59258f.seekTo(this.k);
+        this.f59209f.setVideoPath(str);
+        this.f59209f.start();
+        this.f59209f.seekTo(this.k);
     }
 
     public void stopVideo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.k = this.f59258f.getCurrentPosition();
-            CustomVideoView customVideoView = this.f59258f;
+            this.k = this.f59209f.getCurrentPosition();
+            CustomVideoView customVideoView = this.f59209f;
             if (customVideoView != null) {
                 customVideoView.stopPlayback();
-                this.f59258f.setVideoURI(null);
+                this.f59209f.setVideoURI(null);
             }
-            this.f59257e.setVisibility(0);
+            this.f59208e.setVisibility(0);
         }
     }
 
     public void updatePercent(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
-            this.f59259g = f2;
+            this.f59210g = f2;
             invalidate();
         }
     }

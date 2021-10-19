@@ -13,17 +13,17 @@ public class PreserveAspectRatio {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final PreserveAspectRatio f69259c;
+    public static final PreserveAspectRatio f69294c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final PreserveAspectRatio f69260d;
+    public static final PreserveAspectRatio f69295d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Alignment f69261a;
+    public Alignment f69296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Scale f69262b;
+    public Scale f69297b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -174,8 +174,8 @@ public class PreserveAspectRatio {
                 return;
             }
         }
-        f69259c = new PreserveAspectRatio(Alignment.None, null);
-        f69260d = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Meet);
+        f69294c = new PreserveAspectRatio(Alignment.None, null);
+        f69295d = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Meet);
         Alignment alignment = Alignment.XMinYMin;
         Scale scale = Scale.Meet;
         Alignment alignment2 = Alignment.XMaxYMax;
@@ -205,20 +205,20 @@ public class PreserveAspectRatio {
                 return;
             }
         }
-        this.f69261a = alignment;
-        this.f69262b = scale;
+        this.f69296a = alignment;
+        this.f69297b = scale;
     }
 
     public Alignment a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69261a : (Alignment) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69296a : (Alignment) invokeV.objValue;
     }
 
     public Scale b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69262b : (Scale) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69297b : (Scale) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -230,7 +230,7 @@ public class PreserveAspectRatio {
             }
             if (obj != null && PreserveAspectRatio.class == obj.getClass()) {
                 PreserveAspectRatio preserveAspectRatio = (PreserveAspectRatio) obj;
-                return this.f69261a == preserveAspectRatio.f69261a && this.f69262b == preserveAspectRatio.f69262b;
+                return this.f69296a == preserveAspectRatio.f69296a && this.f69297b == preserveAspectRatio.f69297b;
             }
             return false;
         }

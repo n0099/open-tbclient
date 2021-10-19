@@ -4,8 +4,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import c.a.q0.s.q.d2;
-import c.a.r0.a0.b;
-import c.a.r0.j3.o0.d;
+import c.a.r0.b0.b;
+import c.a.r0.k3.o0.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class FrsGameStrategyItemView extends b<c.a.r0.w0.s1.a.a.b> {
+public class FrsGameStrategyItemView extends b<c.a.r0.x0.s1.a.a.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
@@ -83,14 +83,14 @@ public class FrsGameStrategyItemView extends b<c.a.r0.w0.s1.a.a.b> {
         p();
     }
 
-    @Override // c.a.r0.a0.b
+    @Override // c.a.r0.b0.b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.frs_game_strategy_item_layout : invokeV.intValue;
     }
 
-    @Override // c.a.r0.a0.b
+    @Override // c.a.r0.b0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
@@ -123,9 +123,9 @@ public class FrsGameStrategyItemView extends b<c.a.r0.w0.s1.a.a.b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.a0.b
+    @Override // c.a.r0.b0.b
     /* renamed from: q */
-    public void k(c.a.r0.w0.s1.a.a.b bVar) {
+    public void k(c.a.r0.x0.s1.a.a.b bVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || bVar == null || bVar.getThreadData() == null) {
             return;
@@ -141,7 +141,7 @@ public class FrsGameStrategyItemView extends b<c.a.r0.w0.s1.a.a.b> {
         String numberUniformFormat = StringHelper.numberUniformFormat(threadData.C1());
         String formatTimeShort = StringHelper.getFormatTimeShort(threadData.I());
         if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-            this.r.setText(String.format(this.f15559g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
+            this.r.setText(String.format(this.f15709g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
         }
         String str = null;
         if (threadData.o1() == 40) {

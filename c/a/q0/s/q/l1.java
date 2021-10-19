@@ -6,6 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,19 +22,19 @@ public class l1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f14252a;
+    public final long f14275a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14253b;
+    public String f14276b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14254c;
+    public int f14277c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f14255d;
+    public boolean f14278d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14256e;
+    public boolean f14279e;
 
     static {
         InterceptResult invokeClinit;
@@ -66,8 +67,8 @@ public class l1 {
                 return;
             }
         }
-        this.f14253b = "0";
-        this.f14252a = j2;
+        this.f14276b = "0";
+        this.f14275a = j2;
     }
 
     public static l1 h(@NonNull WriteData writeData, int i2) {
@@ -76,10 +77,10 @@ public class l1 {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, writeData, i2)) == null) {
             l1 l1Var = new l1(writeData.startPublishTime());
             if (!TextUtils.isEmpty(writeData.getForumId())) {
-                l1Var.f14253b = writeData.getForumId();
+                l1Var.f14276b = writeData.getForumId();
             }
-            l1Var.f14256e = writeData.isWork();
-            l1Var.f14254c = i2;
+            l1Var.f14279e = writeData.isWork();
+            l1Var.f14277c = i2;
             return l1Var;
         }
         return (l1) invokeLI.objValue;
@@ -88,32 +89,32 @@ public class l1 {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14254c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14277c : invokeV.intValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f14255d = false;
+            this.f14278d = false;
         }
     }
 
     public boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f14253b.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f14276b.equals(str) : invokeL.booleanValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14255d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14278d : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14256e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14279e : invokeV.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -123,7 +124,7 @@ public class l1 {
             if (this == obj) {
                 return true;
             }
-            return (obj instanceof l1) && this.f14252a == ((l1) obj).f14252a;
+            return (obj instanceof l1) && this.f14275a == ((l1) obj).f14275a;
         }
         return invokeL.booleanValue;
     }
@@ -131,11 +132,13 @@ public class l1 {
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f14255d = z;
-            if (this.f14252a > 0) {
+            this.f14278d = z;
+            if (this.f14275a > 0) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921526, this));
-                if (this.f14256e && this.f14254c == 93) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, o2.c()));
+                if (this.f14279e && this.f14277c == 93) {
+                    WorkPostNotifyFlutterData g2 = WorkPostNotifyFlutterData.g();
+                    g2.i(c.a.r0.k3.r0.g.j().i());
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, g2));
                 }
             }
         }
@@ -144,16 +147,16 @@ public class l1 {
     public void g(@NonNull l1 l1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, l1Var) == null) {
-            if (!l1Var.f14255d) {
-                this.f14255d = false;
+            if (!l1Var.f14278d) {
+                this.f14278d = false;
             }
-            this.f14254c = l1Var.a();
+            this.f14277c = l1Var.a();
         }
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? Objects.hash(Long.valueOf(this.f14252a)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? Objects.hash(Long.valueOf(this.f14275a)) : invokeV.intValue;
     }
 }

@@ -21,11 +21,11 @@ public class b {
 
     /* renamed from: c.a.q0.t.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0710b {
+    public static class C0712b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f14957a;
+        public static b f14981a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,7 +41,7 @@ public class b {
                     return;
                 }
             }
-            f14957a = new b(null);
+            f14981a = new b(null);
         }
     }
 
@@ -52,7 +52,7 @@ public class b {
     public static b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0710b.f14957a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0712b.f14981a : (b) invokeV.objValue;
     }
 
     public void a(int i2) {
@@ -72,7 +72,7 @@ public class b {
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            c.a.e.c.e.c.i.a("IpReconnLogHelper", 0, 0, null, c.a.q0.s.h.f13988b, str);
+            c.a.e.c.e.c.i.a("IpReconnLogHelper", 0, 0, null, c.a.q0.s.h.f14009b, str);
         }
     }
 

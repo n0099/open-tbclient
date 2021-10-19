@@ -14,10 +14,10 @@ public class a implements ThreadFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadGroup f65414a;
+    public final ThreadGroup f65449a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f65415b;
+    public final AtomicInteger f65450b;
 
     public a(@NonNull String str) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class a implements ThreadFactory {
                 return;
             }
         }
-        this.f65415b = new AtomicInteger(1);
-        this.f65414a = new ThreadGroup("tt_img_" + str);
+        this.f65450b = new AtomicInteger(1);
+        this.f65449a = new ThreadGroup("tt_img_" + str);
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -43,8 +43,8 @@ public class a implements ThreadFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            ThreadGroup threadGroup = this.f65414a;
-            Thread thread = new Thread(threadGroup, runnable, "tt_img_" + this.f65415b.getAndIncrement());
+            ThreadGroup threadGroup = this.f65449a;
+            Thread thread = new Thread(threadGroup, runnable, "tt_img_" + this.f65450b.getAndIncrement());
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }

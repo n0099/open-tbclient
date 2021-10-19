@@ -14,7 +14,6 @@ import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.game.ad.downloader.model.DownloadParams;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.baidu.swan.game.ad.jsbridge.CommandType;
-import com.baidu.tieba.videoplay.VideoPlayFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -457,7 +456,7 @@ public class b implements c.a.p0.f.i.l.b, d.e {
         this.n = fVar2;
         this.f10511f = new c.a.p0.f.i.o.b(appContext);
         this.k = false;
-        E(10, 10, VideoPlayFragment.COVER_ANIMINATION_TIME, 50);
+        E(10, 10, 350, 50);
         D();
     }
 

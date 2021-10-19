@@ -1,6 +1,6 @@
 package com.baidu.tieba.newinterest.data;
 
-import c.a.r0.f2.c.c;
+import c.a.r0.g2.c.c;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

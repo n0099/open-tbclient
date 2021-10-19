@@ -1,6 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import c.a.r0.l1.b.m;
+import c.a.r0.m1.b.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;

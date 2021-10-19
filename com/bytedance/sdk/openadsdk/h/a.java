@@ -29,17 +29,17 @@ public class a extends z {
     @Override // com.bytedance.sdk.component.a.z
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f64510i == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f64545i == null) {
             return;
         }
-        f.a().a(this.f64510i, this, ((z) this).f64509h);
+        f.a().a(this.f64545i, this, ((z) this).f64544h);
     }
 
     @Override // com.bytedance.sdk.component.a.z
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f.a().a(this.f64510i, ((z) this).f64509h);
+            f.a().a(this.f64545i, ((z) this).f64544h);
         }
     }
 }

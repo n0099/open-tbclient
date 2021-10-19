@@ -3,8 +3,8 @@ package com.baidu.tieba.imMessageCenter.im.model;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
-import c.a.r0.k1.t.b;
-import c.a.r0.k1.t.e;
+import c.a.r0.l1.t.b;
+import c.a.r0.l1.t.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -166,20 +166,10 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -189,7 +179,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     public int getCustomGroupType(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, imMessageCenterShowItemData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imMessageCenterShowItemData)) == null) {
             if (imMessageCenterShowItemData.getOwnerName().equals(String.valueOf(1))) {
                 return 1;
             }
@@ -217,14 +207,24 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     public boolean isAccept(ImMessageCenterPojo imMessageCenterPojo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, imMessageCenterPojo)) == null) ? y(imMessageCenterPojo) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, imMessageCenterPojo)) == null) ? y(imMessageCenterPojo) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     public boolean isToShow(ImMessageCenterPojo imMessageCenterPojo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, imMessageCenterPojo)) == null) ? z(imMessageCenterPojo) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, imMessageCenterPojo)) == null) ? z(imMessageCenterPojo) : invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel

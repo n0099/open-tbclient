@@ -88,8 +88,8 @@ public class d extends c.a.l.a<c.a.q0.s.q.a> {
             }
         }
         this.k = 34053;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14233d instanceof CardUserInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14233d.getParent() == null) {
-            this.f3796j = (CardUserInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14233d;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14256d instanceof CardUserInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14256d.getParent() == null) {
+            this.f3796j = (CardUserInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14256d;
         } else {
             this.f3796j = new CardUserInfoLayout(context);
         }

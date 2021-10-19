@@ -40,23 +40,23 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f13751f;
+    public static String f13771f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13752a;
+    public boolean f13772a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, b> f13753b;
+    public Map<String, b> f13773b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Resources f13754c;
+    public Resources f13774c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Resources f13755d;
+    public Resources f13775d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13756e;
+    public boolean f13776e;
 
     static {
         InterceptResult invokeClinit;
@@ -86,9 +86,9 @@ public class c {
                 return;
             }
         }
-        this.f13752a = false;
-        this.f13753b = new HashMap();
-        this.f13756e = false;
+        this.f13772a = false;
+        this.f13773b = new HashMap();
+        this.f13776e = false;
     }
 
     public static int g(Resources resources, Resources resources2, int i2) {
@@ -101,11 +101,11 @@ public class c {
                 i3 = i2;
             } else {
                 String packageName = SkinManager.getPackageName();
-                f13751f = packageName;
+                f13771f = packageName;
                 if (StringUtils.isNull(packageName)) {
-                    f13751f = BdBaseApplication.getInst().getPackageName();
+                    f13771f = BdBaseApplication.getInst().getPackageName();
                 }
-                resourceName = f13751f + resourceName.substring(resourceName.indexOf(":"));
+                resourceName = f13771f + resourceName.substring(resourceName.indexOf(":"));
                 i3 = resources2.getIdentifier(resourceName + SkinManager.nightSufix, null, null);
             }
             if (i3 == 0) {
@@ -126,22 +126,22 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             String str = TNCManager.TNC_PROBE_HEADER_SECEPTOR + view.getId();
-            Map<String, b> map = this.f13753b;
+            Map<String, b> map = this.f13773b;
             if (map == null || !map.containsKey(str)) {
                 return;
             }
-            b bVar = this.f13753b.get(str);
+            b bVar = this.f13773b.get(str);
             if (view instanceof TextView) {
-                if (bVar.v() != 0 && (e2 = e(this.f13752a, bVar.u(), bVar.v())) != null) {
+                if (bVar.v() != 0 && (e2 = e(this.f13772a, bVar.u(), bVar.v())) != null) {
                     ((TextView) view).setTextColor(e2);
                 }
                 if (bVar.t() != 0) {
-                    ((TextView) view).setHintTextColor(e(this.f13752a, bVar.s(), bVar.t()));
+                    ((TextView) view).setHintTextColor(e(this.f13772a, bVar.s(), bVar.t()));
                 }
                 if (bVar.r() != 0) {
                     TextView textView = (TextView) view;
                     Context context = view.getContext();
-                    if (this.f13752a) {
+                    if (this.f13772a) {
                         q = bVar.r();
                     } else {
                         q = bVar.q();
@@ -149,23 +149,23 @@ public class c {
                     textView.setTextAppearance(context, q);
                 }
                 if (bVar.k() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, f(this.f13752a, bVar.j(), bVar.k()), (Drawable) null, (Drawable) null);
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, f(this.f13772a, bVar.j(), bVar.k()), (Drawable) null, (Drawable) null);
                 }
                 if (bVar.g() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(f(this.f13752a, bVar.f(), bVar.g()), (Drawable) null, (Drawable) null, (Drawable) null);
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(f(this.f13772a, bVar.f(), bVar.g()), (Drawable) null, (Drawable) null, (Drawable) null);
                 }
                 if (bVar.i() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, f(this.f13752a, bVar.h(), bVar.i()), (Drawable) null);
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, f(this.f13772a, bVar.h(), bVar.i()), (Drawable) null);
                 }
             } else if (view instanceof ImageButton) {
-                if (bVar.n() != 0 && (f4 = f(this.f13752a, bVar.m(), bVar.n())) != null) {
+                if (bVar.n() != 0 && (f4 = f(this.f13772a, bVar.m(), bVar.n())) != null) {
                     ((ImageView) view).setImageDrawable(f4);
                 }
             } else if (view instanceof ImageView) {
-                if (bVar.n() != 0 && (f3 = f(this.f13752a, bVar.m(), bVar.n())) != null) {
+                if (bVar.n() != 0 && (f3 = f(this.f13772a, bVar.m(), bVar.n())) != null) {
                     ((ImageView) view).setImageDrawable(f3);
                 }
-            } else if ((view instanceof ProgressBar) && bVar.p() != 0 && (f2 = f(this.f13752a, bVar.o(), bVar.p())) != null) {
+            } else if ((view instanceof ProgressBar) && bVar.p() != 0 && (f2 = f(this.f13772a, bVar.o(), bVar.p())) != null) {
                 ((ProgressBar) view).setProgressDrawable(f2);
             }
             if (bVar.c() != 0) {
@@ -173,11 +173,11 @@ public class c {
                 int paddingTop = view.getPaddingTop();
                 int paddingRight = view.getPaddingRight();
                 int paddingBottom = view.getPaddingBottom();
-                String resourceTypeName = this.f13754c.getResourceTypeName(bVar.b());
+                String resourceTypeName = this.f13774c.getResourceTypeName(bVar.b());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    view.setBackgroundColor(d(this.f13752a, bVar.b(), bVar.c()));
+                    view.setBackgroundColor(d(this.f13772a, bVar.b(), bVar.c()));
                 } else {
-                    view.setBackgroundDrawable(f(this.f13752a, bVar.b(), bVar.c()));
+                    view.setBackgroundDrawable(f(this.f13772a, bVar.b(), bVar.c()));
                 }
                 view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -188,16 +188,16 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
             String str = TNCManager.TNC_PROBE_HEADER_SECEPTOR + viewGroup.getId();
-            Map<String, b> map = this.f13753b;
+            Map<String, b> map = this.f13773b;
             if (map == null || !map.containsKey(str)) {
                 return;
             }
-            b bVar = this.f13753b.get(str);
+            b bVar = this.f13773b.get(str);
             if (viewGroup instanceof AdapterView) {
                 if ((viewGroup instanceof ListView) && bVar.e() != 0) {
                     ListView listView = (ListView) viewGroup;
                     int dividerHeight = listView.getDividerHeight();
-                    listView.setDivider(f(this.f13752a, bVar.d(), bVar.e()));
+                    listView.setDivider(f(this.f13772a, bVar.d(), bVar.e()));
                     listView.setDividerHeight(dividerHeight);
                 }
                 Adapter adapter = ((AdapterView) viewGroup).getAdapter();
@@ -210,11 +210,11 @@ public class c {
                 int paddingTop = viewGroup.getPaddingTop();
                 int paddingRight = viewGroup.getPaddingRight();
                 int paddingBottom = viewGroup.getPaddingBottom();
-                String resourceTypeName = this.f13754c.getResourceTypeName(bVar.b());
+                String resourceTypeName = this.f13774c.getResourceTypeName(bVar.b());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    viewGroup.setBackgroundColor(d(this.f13752a, bVar.b(), bVar.c()));
+                    viewGroup.setBackgroundColor(d(this.f13772a, bVar.b(), bVar.c()));
                 } else {
-                    viewGroup.setBackgroundDrawable(f(this.f13752a, bVar.b(), bVar.c()));
+                    viewGroup.setBackgroundDrawable(f(this.f13772a, bVar.b(), bVar.c()));
                 }
                 viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -224,11 +224,11 @@ public class c {
     public void c() {
         Map<String, b> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (map = this.f13753b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (map = this.f13773b) == null) {
             return;
         }
         map.clear();
-        this.f13753b = null;
+        this.f13773b = null;
     }
 
     public final int d(boolean z, int i2, int i3) {
@@ -236,25 +236,25 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 2 || (!this.f13756e && skinType == 4)) {
+            if (skinType == 2 || (!this.f13776e && skinType == 4)) {
                 return SkinManager.getColor(i2);
             }
             if (!z) {
-                return this.f13754c.getColor(i2);
+                return this.f13774c.getColor(i2);
             }
             if (i2 == i3) {
-                Resources resources = this.f13754c;
-                this.f13755d = resources;
+                Resources resources = this.f13774c;
+                this.f13775d = resources;
                 i3 = g(resources, resources, i2);
             }
-            Resources resources2 = this.f13755d;
+            Resources resources2 = this.f13775d;
             if (resources2 == null) {
-                return this.f13754c.getColor(i2);
+                return this.f13774c.getColor(i2);
             }
             try {
                 return resources2.getColor(i3);
             } catch (Resources.NotFoundException unused) {
-                return this.f13754c.getColor(i2);
+                return this.f13774c.getColor(i2);
             }
         }
         return invokeCommon.intValue;
@@ -265,25 +265,25 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 2 || (!this.f13756e && skinType == 4)) {
+            if (skinType == 2 || (!this.f13776e && skinType == 4)) {
                 return SkinManager.getColorList(i2);
             }
             if (!z) {
-                return this.f13754c.getColorStateList(i2);
+                return this.f13774c.getColorStateList(i2);
             }
             if (i2 == i3) {
-                Resources resources = this.f13754c;
-                this.f13755d = resources;
+                Resources resources = this.f13774c;
+                this.f13775d = resources;
                 i3 = g(resources, resources, i2);
             }
-            Resources resources2 = this.f13755d;
+            Resources resources2 = this.f13775d;
             if (resources2 == null) {
-                return this.f13754c.getColorStateList(i2);
+                return this.f13774c.getColorStateList(i2);
             }
             try {
                 return resources2.getColorStateList(i3);
             } catch (Resources.NotFoundException unused) {
-                return this.f13754c.getColorStateList(i2);
+                return this.f13774c.getColorStateList(i2);
             }
         }
         return (ColorStateList) invokeCommon.objValue;
@@ -294,25 +294,25 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 2 || (!this.f13756e && skinType == 4)) {
+            if (skinType == 2 || (!this.f13776e && skinType == 4)) {
                 return SkinManager.getDrawable(i2);
             }
             if (!z) {
                 try {
-                    return this.f13754c.getDrawable(i2);
+                    return this.f13774c.getDrawable(i2);
                 } catch (Throwable unused) {
                     return null;
                 }
             }
             if (i2 == i3) {
-                Resources resources = this.f13754c;
-                this.f13755d = resources;
+                Resources resources = this.f13774c;
+                this.f13775d = resources;
                 i3 = g(resources, resources, i2);
             }
-            Resources resources2 = this.f13755d;
+            Resources resources2 = this.f13775d;
             if (resources2 == null) {
                 try {
-                    return this.f13754c.getDrawable(i2);
+                    return this.f13774c.getDrawable(i2);
                 } catch (Throwable unused2) {
                     return null;
                 }
@@ -324,7 +324,7 @@ public class c {
                     return null;
                 }
             } catch (Resources.NotFoundException unused4) {
-                return this.f13754c.getDrawable(i2);
+                return this.f13774c.getDrawable(i2);
             } catch (ArrayIndexOutOfBoundsException unused5) {
                 return null;
             }
@@ -338,7 +338,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             if (TextUtils.isDigitsOnly(str.substring(1)) && (parseInt = Integer.parseInt(str.substring(1))) != 0) {
-                return new int[]{parseInt, g(this.f13754c, this.f13755d, parseInt)};
+                return new int[]{parseInt, g(this.f13774c, this.f13775d, parseInt)};
             }
             return null;
         }
@@ -352,8 +352,8 @@ public class c {
         if (interceptable == null || interceptable.invokeLLL(1048583, this, str, context, attributeSet) == null) {
             try {
                 Resources resources = context.getResources();
-                this.f13754c = resources;
-                this.f13755d = resources;
+                this.f13774c = resources;
+                this.f13775d = resources;
                 int attributeCount = attributeSet.getAttributeCount();
                 b bVar = new b();
                 bVar.R(str);
@@ -432,14 +432,14 @@ public class c {
                         z = true;
                     }
                     if (z && TbConfig.getDebugSwitch() && (e2 = c.a.e.e.m.b.e(attributeValue.substring(1), 0)) != 0) {
-                        String resourceName = this.f13754c.getResourceName(e2);
+                        String resourceName = this.f13774c.getResourceName(e2);
                         bVar.a(attributeName + "=" + resourceName);
                     }
                 }
-                if (!z || TextUtils.isEmpty(bVar.l()) || this.f13753b == null || this.f13753b.containsKey(bVar.l())) {
+                if (!z || TextUtils.isEmpty(bVar.l()) || this.f13773b == null || this.f13773b.containsKey(bVar.l())) {
                     return;
                 }
-                this.f13753b.put(bVar.l(), bVar);
+                this.f13773b.put(bVar.l(), bVar);
             } catch (Resources.NotFoundException unused) {
             } catch (Exception e3) {
                 e3.printStackTrace();
@@ -474,14 +474,14 @@ public class c {
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f13752a = z;
+            this.f13772a = z;
         }
     }
 
     public void l(Resources resources) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, resources) == null) {
-            this.f13755d = resources;
+            this.f13775d = resources;
         }
     }
 }

@@ -17,7 +17,7 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
     public static final String VERSION_NAME = "1.2.2";
 
     /* renamed from: a  reason: collision with root package name */
-    public static PassBiometricDefaultFactory f44029a;
+    public static PassBiometricDefaultFactory f43941a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public PassBiometricDefaultFactory() {
@@ -42,7 +42,7 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PassBiometricDefaultFactory f44030a;
+            public final /* synthetic */ PassBiometricDefaultFactory f43942a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -59,7 +59,7 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
                         return;
                     }
                 }
-                this.f44030a = this;
+                this.f43942a = this;
             }
 
             @Override // com.baidu.pass.biometrics.base.PassBiometric
@@ -92,14 +92,14 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f44029a == null) {
+            if (f43941a == null) {
                 synchronized (PassBiometricDefaultFactory.class) {
-                    if (f44029a == null) {
-                        f44029a = new PassBiometricDefaultFactory();
+                    if (f43941a == null) {
+                        f43941a = new PassBiometricDefaultFactory();
                     }
                 }
             }
-            return f44029a;
+            return f43941a;
         }
         return (PassBiometricDefaultFactory) invokeV.objValue;
     }

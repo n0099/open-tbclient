@@ -19,13 +19,13 @@ public class f implements com.kwad.sdk.core.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SceneImpl f72101a;
+    public SceneImpl f72136a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f72102b;
+    public long f72137b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f72103c;
+    public long f72138c;
 
     public f(KsScene ksScene) {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class f implements com.kwad.sdk.core.b {
                 return;
             }
         }
-        this.f72101a = (SceneImpl) ksScene;
-        this.f72102b = 0L;
-        this.f72103c = 0L;
+        this.f72136a = (SceneImpl) ksScene;
+        this.f72137b = 0L;
+        this.f72138c = 0L;
     }
 
     @Nullable
@@ -54,7 +54,7 @@ public class f implements com.kwad.sdk.core.b {
         Map<String, String> rewardCallbackExtraData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null || (sceneImpl = this.f72101a) == null || (rewardCallbackExtraData = sceneImpl.getRewardCallbackExtraData()) == null || !rewardCallbackExtraData.containsKey(str)) {
+            if (str == null || (sceneImpl = this.f72136a) == null || (rewardCallbackExtraData = sceneImpl.getRewardCallbackExtraData()) == null || !rewardCallbackExtraData.containsKey(str)) {
                 return null;
             }
             return rewardCallbackExtraData.get(str);
@@ -74,9 +74,9 @@ public class f implements com.kwad.sdk.core.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject json = this.f72101a.toJson();
-            q.a(json, "pageScene", this.f72102b);
-            q.a(json, "subPageScene", this.f72103c);
+            JSONObject json = this.f72136a.toJson();
+            q.a(json, "pageScene", this.f72137b);
+            q.a(json, "subPageScene", this.f72138c);
             String a2 = a(PrefetchEvent.EVENT_DATA_EXTRA_DATA);
             if (a2 != null) {
                 q.a(json, PrefetchEvent.EVENT_DATA_EXTRA_DATA, a2);

@@ -42,7 +42,7 @@ public class TbAdvertStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage.getData() != null) {
-                    c.a.r0.k3.a j2 = c.a.r0.k3.a.j();
+                    c.a.r0.l3.a j2 = c.a.r0.l3.a.j();
                     j2.n(customMessage.getData());
                     return new CustomResponsedMessage<>(2921390, j2);
                 }
@@ -76,7 +76,7 @@ public class TbAdvertStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                c.a.r0.k3.a.j().m();
+                c.a.r0.l3.a.j().m();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;

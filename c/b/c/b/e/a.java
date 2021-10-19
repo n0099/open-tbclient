@@ -28,7 +28,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f31541a;
+    public JSONObject f31545a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class a {
                 return;
             }
         }
-        this.f31541a = new JSONObject();
+        this.f31545a = new JSONObject();
     }
 
     public static a c(long j2, Context context, @Nullable Thread thread, @NonNull Throwable th) {
@@ -80,8 +80,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, str)) == null) {
             try {
-                this.f31541a.put("miniapp_id", i2);
-                this.f31541a.put("miniapp_version", str);
+                this.f31545a.put("miniapp_id", i2);
+                this.f31545a.put("miniapp_version", str);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -162,7 +162,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, map)) == null) {
             JSONArray jSONArray = new JSONArray();
             if (map == null) {
-                this.f31541a.put("plugin_info", jSONArray);
+                this.f31545a.put("plugin_info", jSONArray);
                 return this;
             }
             for (String str : map.keySet()) {
@@ -171,7 +171,7 @@ public class a {
                 jSONObject.put("version_code", map.get(str));
                 jSONArray.put(jSONObject);
             }
-            this.f31541a.put("plugin_info", jSONArray);
+            this.f31545a.put("plugin_info", jSONArray);
             return this;
         }
         return (a) invokeL.objValue;
@@ -190,14 +190,14 @@ public class a {
     public JSONObject j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31541a : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31545a : (JSONObject) invokeV.objValue;
     }
 
     public void k(@NonNull String str, @Nullable Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, obj) == null) {
             try {
-                this.f31541a.put(str, obj);
+                this.f31545a.put(str, obj);
             } catch (Exception e2) {
                 l.k.c(e2);
             }
@@ -232,7 +232,7 @@ public class a {
                     }
                 }
                 try {
-                    this.f31541a.put("sdk_info", jSONObject);
+                    this.f31545a.put("sdk_info", jSONObject);
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }
@@ -277,6 +277,6 @@ public class a {
                 return;
             }
         }
-        this.f31541a = jSONObject;
+        this.f31545a = jSONObject;
     }
 }

@@ -23,14 +23,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f68439a;
+    public static Context f68474a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            if (f68439a == null || o.a() == null) {
+            if (f68474a == null || o.a() == null) {
                 k.c("The context of SPHelper is null, please initialize sdk in main process");
                 return false;
             }
@@ -59,7 +59,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            Context context = f68439a;
+            Context context = f68474a;
             return context == null ? o.a() : context;
         }
         return (Context) invokeV.objValue;
@@ -69,7 +69,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
-            return e.f68443b + "/t_sp/";
+            return e.f68478b + "/t_sp/";
         }
         return (String) invokeV.objValue;
     }
@@ -90,7 +90,7 @@ public class a {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            f68439a = context == null ? o.a() : context.getApplicationContext();
+            f68474a = context == null ? o.a() : context.getApplicationContext();
         }
     }
 

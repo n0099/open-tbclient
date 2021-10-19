@@ -26,7 +26,7 @@ public class a {
 
     /* renamed from: com.baidu.searchbox.dns.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1709a {
+    public static class C1711a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long A;
@@ -36,7 +36,7 @@ public class a {
         public final com.baidu.searchbox.dns.d.a x;
         public final com.baidu.searchbox.dns.d.a.a z;
 
-        public C1709a(long j2, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
+        public C1711a(long j2, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

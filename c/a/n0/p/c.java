@@ -39,7 +39,7 @@ public class c implements ServiceConnection {
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.f4339e.f4332a = a.AbstractBinderC1726a.a(iBinder);
+            this.f4339e.f4332a = a.AbstractBinderC1728a.a(iBinder);
             c.a.n0.n.b bVar = this.f4339e.f4336e;
             if (bVar != null) {
                 bVar.a();

@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.personcenter;
 
-import c.a.r0.w0.i0;
+import c.a.r0.x0.i0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -61,7 +61,7 @@ public class AlaPersonCenterActivityStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof i0) {
                 i0 i0Var = (i0) data;
-                c.a.r0.v.l.a aVar = new c.a.r0.v.l.a();
+                c.a.r0.w.l.a aVar = new c.a.r0.w.l.a();
                 aVar.c(i0Var.d());
                 aVar.d(i0Var.e());
                 aVar.b(i0Var.c());

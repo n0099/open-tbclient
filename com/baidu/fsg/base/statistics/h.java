@@ -15,34 +15,34 @@ public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39556a = "en";
+    public static final String f39560a = "en";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39557b = "et";
+    public static final String f39561b = "et";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39558c = "ev";
+    public static final String f39562c = "ev";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39559d = "eg";
+    public static final String f39563d = "eg";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39560e = "lk";
+    public static final String f39564e = "lk";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39561f = "nu";
+    public static final String f39565f = "nu";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39562g = "extra1";
+    public static final String f39566g = "extra1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39563h = "extra2";
+    public static final String f39567h = "extra2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39564i = "extra3";
+    public static final String f39568i = "extra3";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f39565j = "extra4";
+    public static final String f39569j = "extra4";
     public static final String k = "extra5";
     public static final String l = "extra6";
     public static final String m = "extra7";
@@ -98,13 +98,13 @@ public class h {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f39556a, this.p);
+                jSONObject.put(f39560a, this.p);
                 jSONObject.put("et", this.q);
-                jSONObject.put(f39561f, this.u);
+                jSONObject.put(f39565f, this.u);
                 if (!TextUtils.isEmpty(this.s)) {
-                    jSONObject.putOpt(f39559d, this.s);
+                    jSONObject.putOpt(f39563d, this.s);
                 }
-                jSONObject.putOpt(f39560e, this.t);
+                jSONObject.putOpt(f39564e, this.t);
                 if (this.r != null) {
                     jSONObject.put("ev", this.r);
                 }

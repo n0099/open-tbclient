@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.d0;
+import c.a.q0.d1.c0;
 import c.a.q0.s.q.d2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
@@ -23,39 +23,39 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13293a;
+    public int f13301a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TiebaPlusInfo f13294b;
+    public TiebaPlusInfo f13302b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TiePlusStat.ThreadType f13295c;
+    public TiePlusStat.ThreadType f13303c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13296d;
+    public String f13304d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13297e;
+    public String f13305e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TiePlusStat.StatType f13298f;
+    public TiePlusStat.StatType f13306f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TiePlusStat.LandingType f13299g;
+    public TiePlusStat.LandingType f13307g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d2 f13300h;
+    public d2 f13308h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13301i;
+    public int f13309i;
 
     /* renamed from: c.a.q0.f1.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C0660a {
+    public static /* synthetic */ class C0661a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13302a;
+        public static final /* synthetic */ int[] f13310a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -72,21 +72,21 @@ public class a {
                 }
             }
             int[] iArr = new int[TiePlusStat.Locate.values().length];
-            f13302a = iArr;
+            f13310a = iArr;
             try {
                 iArr[TiePlusStat.Locate.HOME.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f13302a[TiePlusStat.Locate.FRS.ordinal()] = 2;
+                f13310a[TiePlusStat.Locate.FRS.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f13302a[TiePlusStat.Locate.PB.ordinal()] = 3;
+                f13310a[TiePlusStat.Locate.PB.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f13302a[TiePlusStat.Locate.PB_COMMENT.ordinal()] = 4;
+                f13310a[TiePlusStat.Locate.PB_COMMENT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -105,25 +105,26 @@ public class a {
                 return;
             }
         }
-        this.f13301i = -1;
+        this.f13309i = -1;
     }
 
     @NonNull
-    public static a c(int i2, @NonNull TiebaPlusInfo tiebaPlusInfo, @NonNull d2 d2Var) {
-        InterceptResult invokeILL;
+    public static a c(@NonNull TiebaPlusInfo tiebaPlusInfo, @NonNull d2 d2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i2, tiebaPlusInfo, d2Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tiebaPlusInfo, d2Var)) == null) {
+            int intValue = tiebaPlusInfo.jump_type.intValue();
             a aVar = new a();
-            aVar.f13293a = TiePlusStat.a(tiebaPlusInfo, null);
-            aVar.f13299g = TiePlusStat.LandingType.create(i2);
-            aVar.f13294b = tiebaPlusInfo;
-            aVar.f13295c = TiePlusStat.ThreadType.create(d2Var);
-            aVar.f13296d = d2Var.s1();
-            aVar.f13297e = String.valueOf(d2Var.T());
-            aVar.f13300h = d2Var;
+            aVar.f13301a = TiePlusStat.a(tiebaPlusInfo, null);
+            aVar.f13307g = TiePlusStat.LandingType.create(intValue);
+            aVar.f13302b = tiebaPlusInfo;
+            aVar.f13303c = TiePlusStat.ThreadType.create(d2Var);
+            aVar.f13304d = d2Var.s1();
+            aVar.f13305e = String.valueOf(d2Var.T());
+            aVar.f13308h = d2Var;
             return aVar;
         }
-        return (a) invokeILL.objValue;
+        return (a) invokeLL.objValue;
     }
 
     @NonNull
@@ -137,7 +138,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            this.f13301i = i2;
+            this.f13309i = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -147,7 +148,7 @@ public class a {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? String.valueOf(this.f13300h.R()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? String.valueOf(this.f13308h.R()) : (String) invokeV.objValue;
     }
 
     @NonNull
@@ -155,8 +156,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            d0.b(!TextUtils.isEmpty(this.f13297e));
-            return this.f13297e;
+            c0.c(!TextUtils.isEmpty(this.f13305e));
+            return this.f13305e;
         }
         return (String) invokeV.objValue;
     }
@@ -165,19 +166,19 @@ public class a {
     public TiePlusStat.LandingType f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13299g : (TiePlusStat.LandingType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13307g : (TiePlusStat.LandingType) invokeV.objValue;
     }
 
     public int g(@NonNull TiePlusStat.Locate locate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, locate)) == null) {
-            int i2 = C0660a.f13302a[locate.ordinal()];
+            int i2 = C0661a.f13310a[locate.ordinal()];
             if (i2 == 1 || i2 == 2) {
                 return i().T1;
             }
             if (i2 == 3 || i2 == 4) {
-                return this.f13301i;
+                return this.f13309i;
             }
             return -1;
         }
@@ -189,8 +190,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            d0.a(this.f13298f);
-            return this.f13298f;
+            c0.b(this.f13306f);
+            return this.f13306f;
         }
         return (TiePlusStat.StatType) invokeV.objValue;
     }
@@ -199,40 +200,40 @@ public class a {
     public d2 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13300h : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13308h : (d2) invokeV.objValue;
     }
 
     @NonNull
     public TiePlusStat.ThreadType j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13295c : (TiePlusStat.ThreadType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13303c : (TiePlusStat.ThreadType) invokeV.objValue;
     }
 
     @NonNull
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f13296d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f13304d : (String) invokeV.objValue;
     }
 
     @NonNull
     public TiebaPlusInfo l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f13294b : (TiebaPlusInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f13302b : (TiebaPlusInfo) invokeV.objValue;
     }
 
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f13293a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f13301a : invokeV.intValue;
     }
 
     public void n(@NonNull TiePlusStat.StatType statType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, statType) == null) {
-            this.f13298f = statType;
+            this.f13306f = statType;
         }
     }
 }

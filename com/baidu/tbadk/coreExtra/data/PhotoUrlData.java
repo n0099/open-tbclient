@@ -41,13 +41,9 @@ public class PhotoUrlData implements Serializable {
     }
 
     private void parsePicInfo(String str) {
+        String[] split;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        str.replaceAll("#\\(|\\)", "");
-        String[] split = str.split(",");
-        if (split == null || split.length != 4) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || StringUtils.isNull(str) || (split = str.replaceAll("#\\(|\\)", "").split(",")) == null || split.length != 4) {
             return;
         }
         this.pic = split[0];

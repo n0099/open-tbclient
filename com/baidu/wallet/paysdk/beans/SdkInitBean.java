@@ -25,11 +25,11 @@ public class SdkInitBean extends BaseBean<SdkInitResponse> {
     public static final int OLD_INIT_TYPE = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f62652b = "";
+    public static String f62687b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f62653a;
+    public int f62688a;
 
     static {
         InterceptResult invokeClinit;
@@ -64,13 +64,13 @@ public class SdkInitBean extends BaseBean<SdkInitResponse> {
                 return;
             }
         }
-        this.f62653a = -1;
+        this.f62688a = -1;
     }
 
     public static void setContentSignForReq(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            f62652b = str;
+            f62687b = str;
         }
     }
 
@@ -78,7 +78,7 @@ public class SdkInitBean extends BaseBean<SdkInitResponse> {
     public boolean checkSignSame(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(f62652b) && f62652b.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(f62687b) && f62687b.equals(str) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -95,8 +95,8 @@ public class SdkInitBean extends BaseBean<SdkInitResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("contentSign", f62652b));
-            LogUtil.i("SdkInitBean", "contentSign" + f62652b);
+            arrayList.add(new RestNameValuePair("contentSign", f62687b));
+            LogUtil.i("SdkInitBean", "contentSign" + f62687b);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -107,7 +107,7 @@ public class SdkInitBean extends BaseBean<SdkInitResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = this.f62653a;
+            int i2 = this.f62688a;
             if (i2 != 2) {
                 return i2 != 3 ? 530 : 1042;
             }
@@ -123,7 +123,7 @@ public class SdkInitBean extends BaseBean<SdkInitResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             LogUtil.i("SdkInitBean", "tag is: " + this.tag[0]);
-            int i2 = this.f62653a;
+            int i2 = this.f62688a;
             if (i2 == 1) {
                 initHost = DomainConfig.getInstance().getInitHost(1, this.tag);
             } else if (i2 == 2) {
@@ -152,7 +152,7 @@ public class SdkInitBean extends BaseBean<SdkInitResponse> {
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f62653a = i2;
+            this.f62688a = i2;
         }
     }
 }

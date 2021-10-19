@@ -19,17 +19,17 @@ public class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f32362d;
+    public static final Pattern f32366d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f32363a;
+    public String f32367a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32364b;
+    public String f32368b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f32365c;
+    public Context f32369c;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class b implements a {
                 return;
             }
         }
-        f32362d = Pattern.compile("^https://.*\\.com");
+        f32366d = Pattern.compile("^https://.*\\.com");
     }
 
     public b() {
@@ -65,14 +65,14 @@ public class b implements a {
     public String getAIHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f32364b) ? this.f32364b : "wss://ai.dxmpay.com" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f32368b) ? this.f32368b : "wss://ai.dxmpay.com" : (String) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
     public String getAppHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.f32363a) ? this.f32363a : "https://www.baifubao.com" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.f32367a) ? this.f32367a : "https://www.baifubao.com" : (String) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
@@ -80,10 +80,10 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f32365c == null) {
+            if (this.f32369c == null) {
                 return "https://www.dxmpay.com";
             }
-            String appPayHost = SdkInitResponse.getInstance().getAppPayHost(this.f32365c);
+            String appPayHost = SdkInitResponse.getInstance().getAppPayHost(this.f32369c);
             return TextUtils.isEmpty(appPayHost) ? "https://www.dxmpay.com" : appPayHost;
         }
         return (String) invokeV.objValue;
@@ -108,10 +108,10 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f32365c == null) {
+            if (this.f32369c == null) {
                 return com.baidu.wallet.core.domain.b.p;
             }
-            String polymerHost = SdkInitResponse.getInstance().getPolymerHost(this.f32365c);
+            String polymerHost = SdkInitResponse.getInstance().getPolymerHost(this.f32369c);
             return TextUtils.isEmpty(polymerHost) ? com.baidu.wallet.core.domain.b.p : polymerHost;
         }
         return (String) invokeV.objValue;
@@ -126,18 +126,18 @@ public class b implements a {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("app_host");
-            if (!TextUtils.isEmpty(optString) && f32362d.matcher(optString).matches()) {
-                this.f32363a = optString;
-                c.f.a.d.a.i().g(this.f32363a);
+            if (!TextUtils.isEmpty(optString) && f32366d.matcher(optString).matches()) {
+                this.f32367a = optString;
+                c.f.a.d.a.i().g(this.f32367a);
             } else {
-                this.f32363a = "";
+                this.f32367a = "";
                 c.f.a.d.a.i().g("https://www.baifubao.com");
             }
             String optString2 = jSONObject.optString("ai_host");
-            if (!TextUtils.isEmpty(optString2) && f32362d.matcher(optString2).matches()) {
-                this.f32364b = optString2;
+            if (!TextUtils.isEmpty(optString2) && f32366d.matcher(optString2).matches()) {
+                this.f32368b = optString2;
             } else {
-                this.f32364b = "";
+                this.f32368b = "";
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -148,7 +148,7 @@ public class b implements a {
     public void setDxmPayContext(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            this.f32365c = context;
+            this.f32369c = context;
         }
     }
 }

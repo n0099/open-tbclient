@@ -12,7 +12,7 @@ public abstract class l extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f33201i;
+    public final int f33205i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(c.i.b.a.h0.e eVar, c.i.b.a.h0.g gVar, Format format, int i2, Object obj, long j2, long j3, int i3) {
@@ -34,13 +34,13 @@ public abstract class l extends c {
             }
         }
         c.i.b.a.i0.a.e(format);
-        this.f33201i = i3;
+        this.f33205i = i3;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33201i + 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33205i + 1 : invokeV.intValue;
     }
 
     public abstract boolean f();

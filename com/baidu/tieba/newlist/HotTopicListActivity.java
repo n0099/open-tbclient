@@ -3,7 +3,7 @@ package com.baidu.tieba.newlist;
 import android.content.Intent;
 import android.os.Bundle;
 import c.a.e.l.e.n;
-import c.a.r0.g2.b;
+import c.a.r0.h2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -61,18 +61,18 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a078" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.g2.b
+    @Override // c.a.r0.h2.b
     public void loadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            boolean LoadData = this.mModel.LoadData();
+            boolean loadData = this.mModel.loadData();
             if (!ListUtils.isEmpty(this.curDataList)) {
-                if (LoadData) {
+                if (loadData) {
                     return;
                 }
                 this.mView.hideLoadingView();
                 this.mView.stopPullRefresh();
-            } else if (LoadData) {
+            } else if (loadData) {
                 this.mView.showLoadingView();
                 this.mView.hideNetRefreshView();
             } else {
@@ -82,7 +82,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // c.a.r0.g2.b
+    @Override // c.a.r0.h2.b
     public void netCallback(int i2, List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, list) == null) {

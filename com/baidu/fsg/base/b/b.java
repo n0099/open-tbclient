@@ -11,7 +11,7 @@ public class b extends TimerTask {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f39404a;
+    public final /* synthetic */ d f39408a;
 
     public b(d dVar) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class b extends TimerTask {
                 return;
             }
         }
-        this.f39404a = dVar;
+        this.f39408a = dVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39404a.a();
+            this.f39408a.a();
         }
     }
 }

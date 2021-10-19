@@ -1,516 +1,102 @@
 package c.a.r0.e2;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import c.a.q0.w.e;
-import c.a.q0.w.f;
-import c.a.r0.r0.g;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
+import androidx.core.view.InputDeviceCompat;
+import c.a.q0.s.q.d2;
+import c.a.q0.s.q.q1;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.MediaScannerClient;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile c f17257b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f17258c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public Handler f17259a;
-
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.e2.e.b f17260e;
-
-        public a(c cVar, c.a.r0.e2.e.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f17260e = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f17260e.onFail("url null");
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f17261a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.e2.e.b f17262b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f17263c;
-
-        /* loaded from: classes3.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f17264e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f17265f;
-
-            public a(b bVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f17265f = bVar;
-                this.f17264e = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f17265f.f17262b.onSuccess(this.f17264e);
-                }
-            }
-        }
-
-        /* renamed from: c.a.r0.e2.c$b$b  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0835b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f17266e;
-
-            public RunnableC0835b(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f17266e = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f17266e.f17262b.onFail("rename failed");
-                }
-            }
-        }
-
-        /* renamed from: c.a.r0.e2.c$b$c  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0836c implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f17267e;
-
-            public RunnableC0836c(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f17267e = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f17267e.f17262b.onFail("download failed");
-                }
-            }
-        }
-
-        public b(c cVar, String str, c.a.r0.e2.e.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, str, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f17263c = cVar;
-            this.f17261a = str;
-            this.f17262b = bVar;
-        }
-
-        @Override // c.a.q0.w.e
-        public void onFileDownloadFailed(DownloadData downloadData, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i2, str) == null) || this.f17262b == null) {
-                return;
-            }
-            this.f17263c.f17259a.post(new RunnableC0836c(this));
-        }
-
-        @Override // c.a.q0.w.e
-        public void onFileDownloadSucceed(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-                String str = downloadData.getPath() + (FileHelper.isGif(null, this.f17261a) ? ".gif" : ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX);
-                if (FileHelper.renameTo(downloadData.getPath(), str)) {
-                    new MediaScannerClient(TbadkApplication.getInst().getContext()).saveImage(str);
-                    if (this.f17262b != null) {
-                        this.f17263c.f17259a.post(new a(this, str));
-                    }
-                } else if (this.f17262b != null) {
-                    this.f17263c.f17259a.post(new RunnableC0835b(this));
-                }
-            }
-        }
-
-        @Override // c.a.q0.w.e
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // c.a.q0.w.e
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
-            }
-        }
-
-        @Override // c.a.q0.w.e
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* renamed from: c.a.r0.e2.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0837c extends BdAsyncTask<Void, Void, List<String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f17268a;
-
-        public C0837c(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f17268a = cVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public List<String> doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) ? this.f17268a.h() : (List) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(List<String> list) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null || list.isEmpty()) {
-                return;
-            }
-            NewFaceGroupDownloadModel newFaceGroupDownloadModel = new NewFaceGroupDownloadModel();
-            for (String str : list) {
-                newFaceGroupDownloadModel.w(str, Boolean.FALSE, null);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1782942511, "Lc/a/r0/e2/c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1782942511, "Lc/a/r0/e2/c;");
-                return;
-            }
-        }
-        f17258c = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/";
-    }
-
-    public c() {
+    public static void a(String str, Object obj, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f17259a = new Handler(Looper.getMainLooper());
-    }
-
-    public static c i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f17257b == null) {
-                synchronized (c.class) {
-                    if (f17257b == null) {
-                        f17257b = new c();
-                    }
+        if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i2, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            if (obj instanceof q1) {
+                statisticItem.param("fid", ((q1) obj).o());
+            } else if (obj instanceof c.a.r0.e2.e.b) {
+                c.a.r0.e2.e.b bVar = (c.a.r0.e2.e.b) obj;
+                d2 d2Var = bVar.l;
+                if (d2Var != null) {
+                    statisticItem.param("tid", d2Var.s1());
                 }
+                statisticItem.param("obj_locate", bVar.b());
             }
-            return f17257b;
-        }
-        return (c) invokeV.objValue;
-    }
-
-    public boolean b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            List<String> h2 = h();
-            if (h2.size() > 0) {
-                if (z) {
-                    c(h2, false);
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public boolean c(List<String> list, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z)) == null) {
-            if (list != null && !list.isEmpty()) {
-                int i2 = 0;
-                for (String str : list) {
-                    MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
-                    myEmotionGroupData.setGroupId(str);
-                    myEmotionGroupData.setUid(TbadkCoreApplication.getCurrentAccount());
-                    if (c.a.r0.r0.a.c().b(myEmotionGroupData)) {
-                        FileHelper.deleteFileOrDir(new File(f17258c + str));
-                        g.k().h(str);
-                        i2++;
-                    }
-                }
-                if (i2 > 0) {
-                    MessageManager.getInstance().runTask(2004603, (Class) null);
-                    if (z) {
-                        d.m().w();
-                        return true;
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public void d(String str, c.a.r0.e2.e.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bVar) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (bVar != null) {
-                    this.f17259a.post(new a(this, bVar));
-                    return;
-                }
-                return;
-            }
-            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
-            DownloadData downloadData = new DownloadData(nameMd5FromUrl, nameMd5FromUrl, str, new b(this, nameMd5FromUrl, bVar));
-            downloadData.setPath((FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/") + nameMd5FromUrl);
-            f.k().l(downloadData);
+            statisticItem.param("topic_id", str2);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.eventStat();
         }
     }
 
-    public void e() {
+    public static void b(c.a.r0.e2.d.c.a aVar, c.a.q0.s.q.a aVar2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            new C0837c(this).execute(new Void[0]);
+        if (interceptable == null || interceptable.invokeLL(65537, null, aVar, aVar2) == null) {
+            d(aVar, aVar2, true);
         }
     }
 
-    public List<MyEmotionGroupData> f() {
-        InterceptResult invokeV;
+    public static void c(c.a.r0.e2.d.c.a aVar, c.a.q0.s.q.a aVar2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                List<MyEmotionGroupData> h2 = c.a.r0.r0.a.c().h(TbadkCoreApplication.getCurrentAccount());
-                Iterator<MyEmotionGroupData> it = h2.iterator();
-                while (it.hasNext()) {
-                    MyEmotionGroupData next = it.next();
-                    if (next.getGroupId() != null && next.getGroupId().contains("collect_")) {
-                        it.remove();
-                    }
-                }
-                return h2;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeLL(65538, null, aVar, aVar2) == null) {
+            d(aVar, aVar2, false);
         }
-        return (List) invokeV.objValue;
     }
 
-    public MyEmotionGroupData g(String str) {
-        InterceptResult invokeL;
+    public static void d(c.a.r0.e2.d.c.a aVar, c.a.q0.s.q.a aVar2, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? c.a.r0.r0.a.c().d(TbadkCoreApplication.getCurrentAccount(), str) : (MyEmotionGroupData) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, aVar, aVar2, z) == null) || aVar2 == null || aVar2.getThreadData() == null) {
+            return;
+        }
+        d2 threadData = aVar2.getThreadData();
+        boolean h0 = aVar.h0();
+        StatisticItem statisticItem = new StatisticItem(z ? h0 ? "c13823" : "c13822" : h0 ? "c13824" : "c13821");
+        statisticItem.param("tid", threadData.s1());
+        statisticItem.param("fid", threadData.T());
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        if (aVar.i0().getOrignalPage() instanceof HotTopicDetailActivity) {
+            statisticItem.param("topic_id", ((HotTopicDetailActivity) aVar.i0().getOrignalPage()).getTopicId());
+        }
+        statisticItem.eventStat();
     }
 
-    public List<String> h() {
-        InterceptResult invokeV;
+    public static void e(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (MyEmotionGroupData myEmotionGroupData : f()) {
-                File file = new File(f17258c + myEmotionGroupData.getGroupId());
-                BdLog.e("getFileUnExistList Called:" + file.getName() + "   Exsists:" + file.exists());
-                if (!file.exists()) {
-                    arrayList.add(myEmotionGroupData.getGroupId());
-                }
-            }
-            return arrayList;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str) == null) || tbPageContext == null || StringUtils.isNull(str)) {
+            return;
         }
-        return (List) invokeV.objValue;
+        StatisticItem statisticItem = new StatisticItem(str);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        statisticItem.param("topic_id", tbPageContext.getOrignalPage().getTopicId());
+        statisticItem.eventStat();
     }
 
-    public boolean j(List<String> list, boolean z) {
-        InterceptResult invokeLZ;
+    public static void f(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, list, z)) == null) {
-            if (list != null && !list.isEmpty()) {
-                try {
-                    g.k().o(list, TbadkCoreApplication.getCurrentAccount());
-                    MessageManager.getInstance().runTask(2004603, (Class) null);
-                    if (z) {
-                        d.m().w();
-                        return true;
-                    }
-                    return true;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) || StringUtils.isNull(str) || StringUtils.isNull(str2)) {
+            return;
         }
-        return invokeLZ.booleanValue;
+        StatisticItem statisticItem = new StatisticItem(str);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        statisticItem.param("topic_id", str2);
+        statisticItem.eventStat();
+    }
+
+    public static void g(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, tbPageContext, str) == null) || tbPageContext == null || StringUtils.isNull(str)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(str);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        statisticItem.param("topic_id", tbPageContext.getOrignalPage().getTopicId());
+        statisticItem.eventStat();
     }
 }

@@ -1,6 +1,5 @@
 package kotlin.collections;
 
-import com.baidu.media.duplayer.LibsInfoDef;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -95,7 +94,7 @@ public class CollectionsKt__CollectionsJVMKt {
         return singletonList;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T> List<T> shuffled(Iterable<? extends T> shuffled) {
         Intrinsics.checkNotNullParameter(shuffled, "$this$shuffled");
         List<T> mutableList = CollectionsKt___CollectionsKt.toMutableList(shuffled);
@@ -139,7 +138,7 @@ public class CollectionsKt__CollectionsJVMKt {
         return new ListBuilder(i2);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T> List<T> shuffled(Iterable<? extends T> shuffled, Random random) {
         Intrinsics.checkNotNullParameter(shuffled, "$this$shuffled");
         Intrinsics.checkNotNullParameter(random, "random");

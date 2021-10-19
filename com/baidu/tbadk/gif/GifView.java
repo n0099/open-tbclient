@@ -20,7 +20,7 @@ import c.a.e.a.j;
 import c.a.e.d.a;
 import c.a.e.e.p.l;
 import c.a.e.f.a.h;
-import c.a.q0.d1.s;
+import c.a.q0.d1.r;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.gif.NSGif;
 import com.baidu.adp.lib.util.BdLog;
@@ -85,7 +85,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GifView f48487a;
+        public final /* synthetic */ GifView f48411a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(GifView gifView, Looper looper) {
@@ -105,7 +105,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
                     return;
                 }
             }
-            this.f48487a = gifView;
+            this.f48411a = gifView;
         }
 
         @Override // android.os.Handler
@@ -113,34 +113,34 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
             c.a.e.d.b gif;
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (gif = this.f48487a.getGif()) != null && message.what == 1) {
-                this.f48487a.S++;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (gif = this.f48411a.getGif()) != null && message.what == 1) {
+                this.f48411a.S++;
                 boolean z2 = false;
-                if (this.f48487a.S >= gif.getFrameCount()) {
-                    if (this.f48487a.z0) {
-                        if (!this.f48487a.r0) {
-                            this.f48487a.setVisibility(4);
+                if (this.f48411a.S >= gif.getFrameCount()) {
+                    if (this.f48411a.z0) {
+                        if (!this.f48411a.r0) {
+                            this.f48411a.setVisibility(4);
                         }
-                        this.f48487a.z0 = false;
+                        this.f48411a.z0 = false;
                         z = true;
                     } else {
                         z = false;
                     }
-                    if (this.f48487a.r0) {
-                        this.f48487a.S = gif.getFrameCount() - 1;
+                    if (this.f48411a.r0) {
+                        this.f48411a.S = gif.getFrameCount() - 1;
                     } else {
-                        this.f48487a.S = 0;
+                        this.f48411a.S = 0;
                     }
                     z2 = z;
                 }
-                gif.c(this.f48487a.S);
-                gif.a(this.f48487a.R, null);
-                this.f48487a.invalidate();
+                gif.c(this.f48411a.S);
+                gif.a(this.f48411a.R, null);
+                this.f48411a.invalidate();
                 removeMessages(1);
                 if (!z2) {
-                    sendEmptyMessageDelayed(1, gif.b(this.f48487a.S));
+                    sendEmptyMessageDelayed(1, gif.b(this.f48411a.S));
                 } else {
-                    this.f48487a.A();
+                    this.f48411a.A();
                 }
             }
         }
@@ -180,7 +180,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GifView f48488a;
+        public final /* synthetic */ GifView f48412a;
 
         public c(GifView gifView) {
             Interceptable interceptable = $ic;
@@ -197,7 +197,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
                     return;
                 }
             }
-            this.f48488a = gifView;
+            this.f48412a = gifView;
         }
 
         @Override // c.a.e.e.l.c
@@ -214,8 +214,8 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((c) aVar, str, i2);
-                this.f48488a.stopLoading();
-                this.f48488a.setGif(aVar);
+                this.f48412a.stopLoading();
+                this.f48412a.setGif(aVar);
             }
         }
     }
@@ -416,7 +416,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
             c.a.q0.n.d dVar = this.p0;
             if (dVar == null || !dVar.onClickEvent(view)) {
                 if (this.A0 != null) {
-                    boolean f2 = s.f();
+                    boolean f2 = r.f();
                     GifInfo gifInfo = this.A0;
                     String str = f2 ? gifInfo.mDynamicUrl : gifInfo.mStaticUrl;
                     c.a.e.e.l.d h2 = c.a.e.e.l.d.h();
@@ -1000,7 +1000,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
                 B();
                 return;
             }
-            boolean f2 = s.f();
+            boolean f2 = r.f();
             i c2 = j.c(getContext());
             if (c2 != null) {
                 bdUniqueId = c2.getUniqueId();

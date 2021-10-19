@@ -3,9 +3,9 @@ package com.baidu.tieba.lego.card.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.r0.p1.o.b;
-import c.a.r0.p1.o.g.a;
-import c.a.r0.p1.o.l.e;
+import c.a.r0.q1.o.b;
+import c.a.r0.q1.o.g.a;
+import c.a.r0.q1.o.l.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
@@ -120,7 +120,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
         return (View) invokeCommon.objValue;
     }
 
-    @Override // c.a.r0.p1.f
+    @Override // c.a.r0.q1.f
     public final void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {

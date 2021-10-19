@@ -1,10 +1,13 @@
 package c.a.r0.f3;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,34 +15,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes3.dex */
-public class e {
-    public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f17701c;
-    public transient /* synthetic */ FieldHolder $fh;
+public class e implements c.a.n.c.c, ILokiIdentityContext {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f17702a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public NetWork f17703b;
+    public static String f17619a = "";
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1783895885, "Lc/a/r0/f3/e;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1783895885, "Lc/a/r0/f3/e;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1783895885, "Lc/a/r0/f3/e;")) == null) {
+            return;
         }
-        f17701c = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1783895885, "Lc/a/r0/f3/e;");
+        }
     }
 
     public e() {
@@ -52,85 +50,89 @@ public class e {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.f17703b = null;
     }
 
-    public void a() {
-        NetWork netWork;
+    @Override // c.a.n.c.c
+    public String a(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (netWork = this.f17703b) == null) {
-            return;
-        }
-        netWork.cancelNetConnect();
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) ? str : (String) invokeLZ.objValue;
     }
 
-    public String b() {
+    @Override // c.a.n.c.c, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+    public String getBDVCInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NetWork netWork = this.f17703b;
-            if (netWork != null) {
-                return netWork.getErrorString();
-            }
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean c() {
+    @Override // c.a.n.c.c, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+    public String getC3Aid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NetWork netWork = this.f17703b;
-            if (netWork != null) {
-                return netWork.getNetContext().getResponse().isRequestSuccess();
-            }
-            return false;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void d(String str) {
+    @Override // c.a.n.c.c, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+    public String getCfrom() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f17702a = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbConfig.getCurrentFrom() : (String) invokeV.objValue;
     }
 
-    public String e(String str) {
-        InterceptResult invokeL;
+    @Override // c.a.n.c.c
+    public String getDeviceId() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            String id = currentAccountObj != null ? currentAccountObj.getID() : null;
-            NetWork netWork = new NetWork(f17701c);
-            this.f17703b = netWork;
-            netWork.addPostData("user_id", id);
-            this.f17703b.addPostData("forum_ids", str);
-            this.f17703b.addPostData("authsid", this.f17702a);
-            this.f17703b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-            this.f17703b.getNetContext().getRequest().mIsNeedTbs = true;
-            this.f17703b.setNeedSig(true);
-            return this.f17703b.postNetData();
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? AppCuidRuntime.getAppCuidManager().getCuid() : (String) invokeV.objValue;
     }
 
-    public String f() {
+    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+    public String getDeviceScore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            NetWork netWork = new NetWork(f17701c);
-            this.f17703b = netWork;
-            netWork.addPostData("authsid", this.f17702a);
-            this.f17703b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-            this.f17703b.getNetContext().getRequest().mIsNeedTbs = true;
-            this.f17703b.setNeedSig(true);
-            return this.f17703b.postNetData();
+            return null;
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // c.a.n.c.c, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+    public String getFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? TbConfig.getFrom() : (String) invokeV.objValue;
+    }
+
+    @Override // c.a.n.c.c, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+    public String getSchemeHeader() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // c.a.n.c.c, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+    public String getSid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? TbSingleton.getInstance().getSampleId() : (String) invokeV.objValue;
+    }
+
+    @Override // c.a.n.c.c, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+    public String getZid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? f17619a : (String) invokeV.objValue;
     }
 }

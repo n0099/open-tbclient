@@ -2,7 +2,6 @@ package kotlin.sequences;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.media.duplayer.LibsInfoDef;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
@@ -274,7 +273,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return d2 / i2;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T> Sequence<List<T>> chunked(Sequence<? extends T> chunked, int i2) {
         Intrinsics.checkNotNullParameter(chunked, "$this$chunked");
         return windowed(chunked, i2, i2, true);
@@ -1851,7 +1850,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return SetsKt__SetsKt.optimizeReadOnlySet((Set) toCollection(toSet, new LinkedHashSet()));
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T> Sequence<List<T>> windowed(Sequence<? extends T> windowed, int i2, int i3, boolean z) {
         Intrinsics.checkNotNullParameter(windowed, "$this$windowed");
         return SlidingWindowKt.windowedSequence(windowed, i2, i3, z, false);
@@ -1878,7 +1877,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return new MergingSequence(zip, other, SequencesKt___SequencesKt$zip$1.INSTANCE);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T> Sequence<Pair<T, T>> zipWithNext(Sequence<? extends T> zipWithNext) {
         Intrinsics.checkNotNullParameter(zipWithNext, "$this$zipWithNext");
         return zipWithNext(zipWithNext, SequencesKt___SequencesKt$zipWithNext$1.INSTANCE);
@@ -1897,7 +1896,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return false;
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T, R> Sequence<R> chunked(Sequence<? extends T> chunked, int i2, Function1<? super List<? extends T>, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(chunked, "$this$chunked");
         Intrinsics.checkNotNullParameter(transform, "transform");
@@ -1971,7 +1970,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return plus((Sequence) plus, (Iterable) ArraysKt___ArraysJvmKt.asList(elements));
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T, R> Sequence<R> windowed(Sequence<? extends T> windowed, int i2, int i3, boolean z, Function1<? super List<? extends T>, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(windowed, "$this$windowed");
         Intrinsics.checkNotNullParameter(transform, "transform");
@@ -1995,7 +1994,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         return new MergingSequence(zip, other, transform);
     }
 
-    @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
+    @SinceKotlin(version = "1.2")
     public static final <T, R> Sequence<R> zipWithNext(Sequence<? extends T> zipWithNext, Function2<? super T, ? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(zipWithNext, "$this$zipWithNext");
         Intrinsics.checkNotNullParameter(transform, "transform");

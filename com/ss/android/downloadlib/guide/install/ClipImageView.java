@@ -19,19 +19,19 @@ public class ClipImageView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f76036e;
+    public boolean f76071e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f76037f;
+    public Path f76072f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f76038g;
+    public RectF f76073g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f76039h;
+    public Paint f76074h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float[] f76040i;
+    public float[] f76075i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ClipImageView(Context context) {
@@ -51,15 +51,15 @@ public class ClipImageView extends ImageView {
                 return;
             }
         }
-        this.f76036e = true;
+        this.f76071e = true;
         a(context);
     }
 
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f76037f = new Path();
-            this.f76038g = new RectF();
+            this.f76072f = new Path();
+            this.f76073g = new RectF();
         }
     }
 
@@ -67,18 +67,18 @@ public class ClipImageView extends ImageView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            if (this.f76036e) {
-                this.f76037f.reset();
-                this.f76038g.set(0.0f, 0.0f, getWidth(), getHeight());
-                float[] fArr = this.f76040i;
+            if (this.f76071e) {
+                this.f76072f.reset();
+                this.f76073g.set(0.0f, 0.0f, getWidth(), getHeight());
+                float[] fArr = this.f76075i;
                 if (fArr != null) {
-                    this.f76037f.addRoundRect(this.f76038g, fArr, Path.Direction.CW);
+                    this.f76072f.addRoundRect(this.f76073g, fArr, Path.Direction.CW);
                 }
                 canvas.setDrawFilter(new PaintFlagsDrawFilter(0, 3));
-                canvas.clipPath(this.f76037f);
-                Paint paint = this.f76039h;
+                canvas.clipPath(this.f76072f);
+                Paint paint = this.f76074h;
                 if (paint != null) {
-                    canvas.drawPath(this.f76037f, paint);
+                    canvas.drawPath(this.f76072f, paint);
                 }
             }
             super.onDraw(canvas);
@@ -90,23 +90,23 @@ public class ClipImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             Paint paint = new Paint(1);
-            this.f76039h = paint;
+            this.f76074h = paint;
             paint.setStyle(Paint.Style.FILL);
-            this.f76039h.setColor(i2);
+            this.f76074h.setColor(i2);
         }
     }
 
     public void setClip(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f76036e = z;
+            this.f76071e = z;
         }
     }
 
     public void setRadius(float[] fArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, fArr) == null) && fArr != null && fArr.length == 8) {
-            this.f76040i = fArr;
+            this.f76075i = fArr;
         }
     }
 
@@ -138,7 +138,7 @@ public class ClipImageView extends ImageView {
                 return;
             }
         }
-        this.f76036e = true;
+        this.f76071e = true;
         a(context);
     }
 
@@ -161,7 +161,7 @@ public class ClipImageView extends ImageView {
                 return;
             }
         }
-        this.f76036e = true;
+        this.f76071e = true;
         a(context);
     }
 }

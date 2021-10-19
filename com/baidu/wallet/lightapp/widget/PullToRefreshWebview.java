@@ -16,7 +16,7 @@ public class PullToRefreshWebview extends PullToRefreshBase<LightappWebView> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LightappWebView f62370a;
+    public LightappWebView f62405a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PullToRefreshWebview(Context context, AttributeSet attributeSet) {
@@ -43,7 +43,7 @@ public class PullToRefreshWebview extends PullToRefreshBase<LightappWebView> {
     public boolean isReadyForPullDown() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62370a.getScrollY() == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62405a.getScrollY() == 0 : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -83,9 +83,9 @@ public class PullToRefreshWebview extends PullToRefreshBase<LightappWebView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) {
             LightappWebView lightappWebView = new LightappWebView(context);
-            this.f62370a = lightappWebView;
+            this.f62405a = lightappWebView;
             lightappWebView.setVerticalScrollBarEnabled(false);
-            return this.f62370a;
+            return this.f62405a;
         }
         return (LightappWebView) invokeLL.objValue;
     }

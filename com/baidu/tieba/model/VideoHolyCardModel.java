@@ -26,13 +26,13 @@ public class VideoHolyCardModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f54523e;
+    public c f54454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f54524f;
+    public long f54455f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f54525g;
+    public HttpMessageListener f54456g;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -40,7 +40,7 @@ public class VideoHolyCardModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HttpMessage f54526e;
+        public final /* synthetic */ HttpMessage f54457e;
 
         public a(VideoHolyCardModel videoHolyCardModel, HttpMessage httpMessage) {
             Interceptable interceptable = $ic;
@@ -57,14 +57,14 @@ public class VideoHolyCardModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54526e = httpMessage;
+            this.f54457e = httpMessage;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(this.f54526e);
+                MessageManager.getInstance().sendMessage(this.f54457e);
             }
         }
     }
@@ -75,7 +75,7 @@ public class VideoHolyCardModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoHolyCardModel f54527a;
+        public final /* synthetic */ VideoHolyCardModel f54458a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(VideoHolyCardModel videoHolyCardModel, int i2) {
@@ -95,15 +95,15 @@ public class VideoHolyCardModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54527a = videoHolyCardModel;
+            this.f54458a = videoHolyCardModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof VideoHolyCardResponseMessage) && this.f54527a.f54523e != null) {
-                this.f54527a.f54523e.onResult(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof VideoHolyCardResponseMessage) && this.f54458a.f54454e != null) {
+                this.f54458a.f54454e.onResult(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
             }
         }
     }
@@ -126,12 +126,12 @@ public class VideoHolyCardModel extends BdBaseModel {
                 return;
             }
         }
-        this.f54525g = new b(this, CmdConfigHttp.CMD_VIDEO_HOLY_CARD);
+        this.f54456g = new b(this, CmdConfigHttp.CMD_VIDEO_HOLY_CARD);
         y();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -141,7 +141,7 @@ public class VideoHolyCardModel extends BdBaseModel {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -152,14 +152,14 @@ public class VideoHolyCardModel extends BdBaseModel {
 
     public void x() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || System.currentTimeMillis() - this.f54524f <= 200) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || System.currentTimeMillis() - this.f54455f <= 200) {
             return;
         }
         String clientIP = UtilHelper.getClientIP();
         int networkOperator = UtilHelper.getNetworkOperator();
         String str = networkOperator == 1 ? "CMNET" : networkOperator == 2 ? "UNICOM" : networkOperator == 3 ? "TELECOM" : RomUtils.UNKNOWN;
         if (TbadkCoreApplication.getInst().checkInterrupt()) {
-            this.f54523e.onResult(false);
+            this.f54454e.onResult(false);
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_HOLY_CARD);
@@ -170,7 +170,7 @@ public class VideoHolyCardModel extends BdBaseModel {
         } else {
             MessageManager.getInstance().sendMessage(httpMessage);
         }
-        this.f54524f = System.currentTimeMillis();
+        this.f54455f = System.currentTimeMillis();
     }
 
     public final void y() {
@@ -179,14 +179,14 @@ public class VideoHolyCardModel extends BdBaseModel {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_HOLY_CARD, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_HOLY_CARD);
             tbHttpMessageTask.setResponsedClass(VideoHolyCardResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            MessageManager.getInstance().registerListener(this.f54525g);
+            MessageManager.getInstance().registerListener(this.f54456g);
         }
     }
 
     public void z(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f54523e = cVar;
+            this.f54454e = cVar;
         }
     }
 }

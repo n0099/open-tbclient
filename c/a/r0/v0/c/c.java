@@ -1,39 +1,27 @@
 package c.a.r0.v0.c;
 
-import c.a.e.l.e.n;
+import c.a.e.e.d.l;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SearchPostForum.DataRes;
-import tbclient.SearchPostForum.SearchForum;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SearchForum f26327a;
+    public c.a.e.e.d.l<byte[]> f25430a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public List<SearchForum> f26328b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ArrayList<n> f26329c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f26330d;
-
-    public c(String str) {
+    public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -43,39 +31,46 @@ public class c {
                 return;
             }
         }
-        this.f26330d = str;
+        b();
     }
 
-    public ArrayList<n> a() {
-        InterceptResult invokeV;
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26329c : (ArrayList) invokeV.objValue;
-    }
-
-    public void b(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
-            return;
-        }
-        this.f26327a = dataRes.exact_match;
-        this.f26328b = dataRes.fuzzy_match;
-        this.f26329c = new ArrayList<>();
-        b bVar = new b(this.f26330d);
-        SearchForum searchForum = this.f26327a;
-        if (searchForum != null) {
-            bVar.w(searchForum);
-            this.f26329c.add(bVar);
-        }
-        List<SearchForum> list = this.f26328b;
-        if (list == null) {
-            return;
-        }
-        for (SearchForum searchForum2 : list) {
-            if (searchForum2 != null) {
-                b bVar2 = new b(this.f26330d);
-                bVar2.w(searchForum2);
-                this.f26329c.add(bVar2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
+            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
+            c.a.e.e.d.l<byte[]> lVar = this.f25430a;
+            l.b<byte[]> h2 = lVar != null ? lVar.h(str2) : null;
+            if (h2 == null || (bArr = h2.f2224b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f25430a == null) {
+            c.a.q0.s.r.a.f();
+            this.f25430a = c.a.q0.s.r.a.d("tb.forum_member_info");
+        }
+    }
+
+    public void c(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(str)) {
+                return;
+            }
+            b();
+            c.a.e.e.d.l<byte[]> lVar = this.f25430a;
+            lVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

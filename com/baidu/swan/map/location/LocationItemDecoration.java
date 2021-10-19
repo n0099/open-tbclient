@@ -22,14 +22,14 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f47264c;
+    public static final int f47176c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ColorDrawable f47265a;
+    public ColorDrawable f47177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f47266b;
+    public boolean f47178b;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        f47264c = n0.g(15.0f);
+        f47176c = n0.g(15.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -71,18 +71,18 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
     public final void drawVertical(Canvas canvas, RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, recyclerView) == null) {
-            int paddingLeft = recyclerView.getPaddingLeft() + f47264c;
-            int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - f47264c;
+            int paddingLeft = recyclerView.getPaddingLeft() + f47176c;
+            int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - f47176c;
             int childCount = recyclerView.getChildCount();
-            if (!this.f47266b) {
+            if (!this.f47178b) {
                 childCount--;
             }
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = recyclerView.getChildAt(i2);
                 if (childAt != null) {
                     int bottom = childAt.getBottom() + ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) childAt.getLayoutParams())).bottomMargin;
-                    this.f47265a.setBounds(paddingLeft, bottom, width, bottom + 1);
-                    this.f47265a.draw(canvas);
+                    this.f47177a.setBounds(paddingLeft, bottom, width, bottom + 1);
+                    this.f47177a.draw(canvas);
                 }
             }
         }
@@ -119,8 +119,8 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.f47266b = true;
-        this.f47265a = new ColorDrawable(context.getResources().getColor(c.aiapps_location_item_bg_pressed));
-        this.f47266b = z;
+        this.f47178b = true;
+        this.f47177a = new ColorDrawable(context.getResources().getColor(c.aiapps_location_item_bg_pressed));
+        this.f47178b = z;
     }
 }

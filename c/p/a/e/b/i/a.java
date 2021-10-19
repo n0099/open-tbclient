@@ -10,16 +10,16 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f35183a;
+    public final byte[] f35187a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f35184b;
+    public e f35188b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35185c;
+    public int f35189c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f35186d;
+    public a f35190d;
 
     public a(int i2) {
         Interceptable interceptable = $ic;
@@ -36,6 +36,6 @@ public final class a {
                 return;
             }
         }
-        this.f35183a = new byte[i2];
+        this.f35187a = new byte[i2];
     }
 }

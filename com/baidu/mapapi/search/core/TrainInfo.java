@@ -17,10 +17,10 @@ public class TrainInfo extends TransitBaseInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f41835a;
+    public double f41839a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41836b;
+    public String f41840b;
 
     static {
         InterceptResult invokeClinit;
@@ -70,21 +70,21 @@ public class TrainInfo extends TransitBaseInfo {
                 return;
             }
         }
-        this.f41835a = parcel.readDouble();
-        this.f41836b = parcel.readString();
+        this.f41839a = parcel.readDouble();
+        this.f41840b = parcel.readString();
     }
 
     public void a(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f41835a = d2;
+            this.f41839a = d2;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f41836b = str;
+            this.f41840b = str;
         }
     }
 
@@ -103,8 +103,8 @@ public class TrainInfo extends TransitBaseInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
             super.writeToParcel(parcel, i2);
-            parcel.writeDouble(this.f41835a);
-            parcel.writeString(this.f41836b);
+            parcel.writeDouble(this.f41839a);
+            parcel.writeString(this.f41840b);
         }
     }
 }

@@ -7,8 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.r0.a0.b;
-import c.a.r0.v.f.g.c.f;
+import c.a.r0.b0.b;
+import c.a.r0.w.f.g.c.f;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.ala.data.AlaAttentionData;
@@ -47,10 +47,10 @@ public class ConcernTabLiveItemView extends b<f> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View.OnClickListener f49693a;
+        public View.OnClickListener f49620a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ConcernTabLiveItemView f49694b;
+        public final /* synthetic */ ConcernTabLiveItemView f49621b;
         public TextView bottomText;
         public ConcernTabLiveItemView concernTabLiveItemView;
         public View divider;
@@ -67,7 +67,7 @@ public class ConcernTabLiveItemView extends b<f> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ViewHolder f49695e;
+            public final /* synthetic */ ViewHolder f49622e;
 
             public a(ViewHolder viewHolder) {
                 Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class ConcernTabLiveItemView extends b<f> {
                         return;
                     }
                 }
-                this.f49695e = viewHolder;
+                this.f49622e = viewHolder;
             }
 
             @Override // android.view.View.OnClickListener
@@ -92,13 +92,13 @@ public class ConcernTabLiveItemView extends b<f> {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == R.id.follow_btn && (view.getTag() instanceof UserData)) {
                     if (!l.D()) {
-                        this.f49695e.f49694b.n.showToast(R.string.neterror);
+                        this.f49622e.f49621b.n.showToast(R.string.neterror);
                         return;
                     }
                     UserData userData = (UserData) view.getTag();
                     AlaAttentionManager.getInstance().updateAttention(String.valueOf(userData.getUserId()), new AlaAttentionData(userData.getPortrait(), String.valueOf(userData.getUserId()), "1", true, null));
-                    this.f49695e.f49694b.m.followBtn.setVisibility(8);
-                    this.f49695e.f49694b.m.followedBtn.setVisibility(0);
+                    this.f49622e.f49621b.m.followBtn.setVisibility(8);
+                    this.f49622e.f49621b.m.followedBtn.setVisibility(0);
                     TiebaStatic.log(new StatisticItem("c12897"));
                 }
             }
@@ -122,8 +122,8 @@ public class ConcernTabLiveItemView extends b<f> {
                     return;
                 }
             }
-            this.f49694b = concernTabLiveItemView;
-            this.f49693a = new a(this);
+            this.f49621b = concernTabLiveItemView;
+            this.f49620a = new a(this);
             this.concernTabLiveItemView = concernTabLiveItemView2;
             View j2 = concernTabLiveItemView2.j();
             this.root = j2;
@@ -136,13 +136,13 @@ public class ConcernTabLiveItemView extends b<f> {
             this.topText = (TextView) this.root.findViewById(R.id.live_title);
             this.livingTag = (TextView) this.root.findViewById(R.id.living_tag);
             this.divider = this.root.findViewById(R.id.devider_line);
-            Drawable drawable = SkinManager.getDrawable(concernTabLiveItemView.f15559g.getResources(), R.drawable.icon_living_seeding);
-            drawable.setBounds(0, 0, concernTabLiveItemView.f15559g.getResources().getDimensionPixelOffset(R.dimen.tbds8), concernTabLiveItemView.f15559g.getResources().getDimensionPixelOffset(R.dimen.tbds8));
+            Drawable drawable = SkinManager.getDrawable(concernTabLiveItemView.f15709g.getResources(), R.drawable.icon_living_seeding);
+            drawable.setBounds(0, 0, concernTabLiveItemView.f15709g.getResources().getDimensionPixelOffset(R.dimen.tbds8), concernTabLiveItemView.f15709g.getResources().getDimensionPixelOffset(R.dimen.tbds8));
             this.livingTag.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
             this.bottomText = (TextView) this.root.findViewById(R.id.user_name);
             this.followBtn = (TextView) this.root.findViewById(R.id.follow_btn);
             this.followedBtn = (TextView) this.root.findViewById(R.id.followed_btn);
-            this.followBtn.setOnClickListener(this.f49693a);
+            this.followBtn.setOnClickListener(this.f49620a);
         }
     }
 
@@ -179,14 +179,14 @@ public class ConcernTabLiveItemView extends b<f> {
         }
     }
 
-    @Override // c.a.r0.a0.b
+    @Override // c.a.r0.b0.b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.special_bar_concern_live_item : invokeV.intValue;
     }
 
-    @Override // c.a.r0.a0.b
+    @Override // c.a.r0.b0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
@@ -195,8 +195,8 @@ public class ConcernTabLiveItemView extends b<f> {
             SkinManager.setViewTextColor(this.m.followedBtn, R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.m.followBtn, R.color.common_color_10140);
             SkinManager.setViewTextColor(this.m.livingTag, R.color.CAM_X0109);
-            SkinManager.getDrawable(this.f15559g.getResources(), R.drawable.icon_video_direct_seeding).setBounds(0, 0, this.f15559g.getResources().getDimensionPixelOffset(R.dimen.tbds8), this.f15559g.getResources().getDimensionPixelOffset(R.dimen.tbds8));
-            this.m.livingTag.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(this.f15559g.getResources(), R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.getDrawable(this.f15709g.getResources(), R.drawable.icon_video_direct_seeding).setBounds(0, 0, this.f15709g.getResources().getDimensionPixelOffset(R.dimen.tbds8), this.f15709g.getResources().getDimensionPixelOffset(R.dimen.tbds8));
+            this.m.livingTag.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(this.f15709g.getResources(), R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
             SkinManager.setBackgroundColor(this.m.divider, R.color.CAM_X0204);
         }
     }
@@ -209,21 +209,21 @@ public class ConcernTabLiveItemView extends b<f> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.a0.b
+    @Override // c.a.r0.b0.b
     /* renamed from: s */
     public void k(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            UserData userData = fVar.f25819e;
+            UserData userData = fVar.f25994e;
             if (userData != null) {
                 if (!StringUtils.isNull(userData.getPortrait())) {
-                    this.m.portraitImg.startLoad(fVar.f25819e.getPortrait(), 12, false);
+                    this.m.portraitImg.startLoad(fVar.f25994e.getPortrait(), 12, false);
                 }
-                if (!StringUtils.isNull(fVar.f25819e.getName_show())) {
-                    this.m.topText.setText(fVar.f25819e.getName_show());
+                if (!StringUtils.isNull(fVar.f25994e.getName_show())) {
+                    this.m.topText.setText(fVar.f25994e.getName_show());
                 }
-                if (fVar.f25821g) {
-                    if (fVar.f25819e.hadConcerned()) {
+                if (fVar.f25996g) {
+                    if (fVar.f25994e.hadConcerned()) {
                         this.m.followBtn.setVisibility(8);
                         this.m.followedBtn.setVisibility(0);
                     } else {
@@ -234,15 +234,15 @@ public class ConcernTabLiveItemView extends b<f> {
                     this.m.followBtn.setVisibility(8);
                     this.m.followedBtn.setVisibility(8);
                 }
-                this.m.followBtn.setTag(fVar.f25819e);
+                this.m.followBtn.setTag(fVar.f25994e);
             }
-            AlaInfoData alaInfoData = fVar.f25820f;
+            AlaInfoData alaInfoData = fVar.f25995f;
             if (alaInfoData != null) {
                 this.m.root.setTag(alaInfoData);
-                if (!StringUtils.isNull(fVar.f25820f.description)) {
-                    String str = fVar.f25820f.description;
+                if (!StringUtils.isNull(fVar.f25995f.description)) {
+                    String str = fVar.f25995f.description;
                     int i2 = this.o;
-                    if (fVar.f25821g) {
+                    if (fVar.f25996g) {
                         i2 -= 9;
                     }
                     if (k.byteLength(str) > i2) {
@@ -251,15 +251,15 @@ public class ConcernTabLiveItemView extends b<f> {
                     this.m.bottomText.setText(str);
                 }
             }
-            if (fVar.f25821g) {
+            if (fVar.f25996g) {
                 TiebaStatic.log(new StatisticItem("c12895"));
             } else {
                 StatisticItem statisticItem = new StatisticItem("c12893");
                 statisticItem.addParam("fid", this.p);
                 statisticItem.addParam("fname", this.q);
-                AlaInfoData alaInfoData2 = fVar.f25820f;
+                AlaInfoData alaInfoData2 = fVar.f25995f;
                 if (alaInfoData2 != null && alaInfoData2.isLegalYYLiveData()) {
-                    AlaInfoData alaInfoData3 = fVar.f25820f;
+                    AlaInfoData alaInfoData3 = fVar.f25995f;
                     int calculateLiveType = YYLiveUtil.calculateLiveType(alaInfoData3);
                     String str2 = StringUtils.isNull(alaInfoData3.appId) ? null : alaInfoData3.appId;
                     if (alaInfoData3.mYyExtData != null) {
@@ -267,12 +267,12 @@ public class ConcernTabLiveItemView extends b<f> {
                     }
                     statisticItem.addParam("obj_param1", calculateLiveType);
                     statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
-                    YYLiveUtil.calculateLiveType(fVar.f25820f);
-                    TiebaStaticHelper.addYYParam(statisticItem, fVar.f25820f.mYyExtData);
+                    YYLiveUtil.calculateLiveType(fVar.f25995f);
+                    TiebaStaticHelper.addYYParam(statisticItem, fVar.f25995f.mYyExtData);
                 }
                 TiebaStatic.log(statisticItem);
             }
-            this.m.followBtn.setTag(fVar.f25819e);
+            this.m.followBtn.setTag(fVar.f25994e);
             l(i(), TbadkCoreApplication.getInst().getSkinType());
         }
     }

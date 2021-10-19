@@ -1,633 +1,717 @@
 package c.a.q0.d1;
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
+import android.app.ActivityManager;
+import android.os.Build;
+import android.os.Debug;
+import android.os.Looper;
+import android.os.Process;
 import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.plugin.Plugin;
+import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tbadk.widget.ProgressButton;
-import com.baidu.tbadk.widget.tiejia.TiePlusDownloadDialog;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.data.ExceptionData;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.util.ArrayList;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.lang.Thread;
+import java.lang.reflect.Field;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes3.dex */
-public class q0 extends CustomMessageListener implements View.OnClickListener {
+public class q0 implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f13019g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f13007e;
+    public final Thread.UncaughtExceptionHandler f13020e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final TbPageContext<?> f13008f;
+    public ExceptionData f13021f;
 
-    /* renamed from: g  reason: collision with root package name */
-    public String f13009g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f13010h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f13011i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f13012j;
-    public String k;
-    public ItemData l;
-    public AlertDialog m;
-    public TiePlusDownloadDialog n;
-    public final List<ProgressButton> o;
-    public final PermissionJudgePolicy p;
-    public final SharedPreferences q;
-    public int r;
-
-    /* loaded from: classes3.dex */
-    public class a implements PermissionJudgePolicy.OnPermissionsGrantedListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ q0 f13013a;
-
-        public a(q0 q0Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1214557956, "Lc/a/q0/d1/q0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.f13013a = q0Var;
-        }
-
-        @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
-        public void onPermissionsGranted() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || StringUtils.isNull(this.f13013a.k) || StringUtils.isNull(this.f13013a.f13009g) || StringUtils.isNull(this.f13013a.f13010h)) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1214557956, "Lc/a/q0/d1/q0;");
                 return;
             }
-            c.a.q0.w.c.q().z(this.f13013a.f13009g, this.f13013a.k, this.f13013a.f13010h, -1, -1);
         }
+        f13019g = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + File.separator + "tieba" + File.separator + "oom" + File.separator;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q0(@NonNull Context context) {
-        super(2001118);
+    public q0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f13007e = context;
-        this.o = new ArrayList();
-        this.q = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
-        this.p = new PermissionJudgePolicy();
-        this.r = TbadkCoreApplication.getInst().getSkinType();
-        this.p.setOnPermissionsGrantedListener(new a(this));
-        if (context instanceof TbPageContextSupport) {
-            this.f13008f = ((TbPageContextSupport) this.f13007e).getPageContext();
-        } else {
-            this.f13008f = null;
-        }
+        this.f13020e = Thread.getDefaultUncaughtExceptionHandler();
+        this.f13021f = null;
     }
 
-    public void d(ProgressButton progressButton) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0042 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x000a */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v11 */
+    public static String d(String str) {
+        InterceptResult invokeL;
+        String readLine;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, progressButton) == null) || progressButton == null || this.o.contains(progressButton)) {
-            return;
-        }
-        this.o.add(progressButton);
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SharedPreferences sharedPreferences = this.q;
-            if (sharedPreferences.getInt(this.f13009g + this.f13010h, -1) != -1) {
-                SharedPreferences.Editor edit = this.q.edit();
-                edit.remove(this.f13009g + this.f13010h);
-                edit.apply();
-            }
-        }
-    }
-
-    public void f(String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) || StringUtils.isNull(str) || this.f13008f == null) {
-            return;
-        }
-        if (i2 == 0 || i2 == 1) {
-            UrlManager.getInstance().dealOneLink(this.f13008f, new String[]{str});
-        } else if (i2 == 2) {
-            c.a.q0.m.a.j(this.f13007e, str);
-        } else if (i2 != 3) {
-        } else {
-            UtilHelper.copyToClipBoard(str);
-            if (this.m != null && this.r == TbadkCoreApplication.getInst().getSkinType()) {
-                this.m.show();
-                return;
-            }
-            this.r = TbadkCoreApplication.getInst().getSkinType();
-            c.a.q0.s.s.l lVar = new c.a.q0.s.s.l(this.f13008f.getPageActivity());
-            lVar.q(this.f13007e.getString(R.string.tie_plus_copy_wechat_success));
-            lVar.m(this.f13007e.getString(R.string.tie_plus_open_wechat));
-            lVar.l(true);
-            lVar.g(false);
-            lVar.o(new TBAlertConfig.a(this.f13007e.getString(R.string.protocol_cancel), TBAlertConfig.OperateBtnStyle.SECONDARY, new View.OnClickListener() { // from class: c.a.q0.d1.b
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        q0.this.l(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            BufferedReader bufferedReader = 0;
+            try {
+                try {
+                    Process exec = Runtime.getRuntime().exec(str);
+                    BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(exec.getInputStream()));
+                    while (true) {
+                        try {
+                            readLine = bufferedReader2.readLine();
+                            if (c.a.e.e.p.k.isEmpty(readLine)) {
+                                break;
+                            }
+                            sb.append(readLine);
+                            sb.append(StringUtils.LF);
+                        } catch (IOException e2) {
+                            e = e2;
+                            bufferedReader = bufferedReader2;
+                            e.printStackTrace();
+                            c.a.e.e.p.m.g(bufferedReader);
+                            bufferedReader = bufferedReader;
+                            return sb.toString();
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedReader = bufferedReader2;
+                            c.a.e.e.p.m.g(bufferedReader);
+                            throw th;
+                        }
                     }
+                    exec.destroy();
+                    c.a.e.e.p.m.g(bufferedReader2);
+                    bufferedReader = readLine;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            }), new TBAlertConfig.a(this.f13007e.getString(R.string.pb_video_promotion_mount_open), TBAlertConfig.OperateBtnStyle.MAIN, new View.OnClickListener() { // from class: c.a.q0.d1.a
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        q0.this.m(view);
-                    }
-                }
-            }));
-            this.m = lVar.s();
+            } catch (IOException e3) {
+                e = e3;
+            }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    public static byte[] f(File file) {
+        InterceptResult invokeL;
+        byte[] bArr;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13010h : (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13009g : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0125  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0135  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void i(ProgressButton progressButton, @NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, progressButton, activity) == null) || progressButton == null || progressButton.getVisibility() != 0 || !(progressButton.getTag() instanceof Byte) || StringUtils.isNull(this.f13009g) || StringUtils.isNull(this.f13010h) || StringUtils.isNull(this.k)) {
-            return;
-        }
-        byte byteValue = ((Byte) progressButton.getTag()).byteValue();
-        if (byteValue == 0) {
-            if (this.l != null) {
-                c.a.r0.i0.b.b bVar = new c.a.r0.i0.b.b();
-                bVar.f19138e = this.l;
-                bVar.f19139f = 2;
-                Context context = this.f13007e;
-                if ((context instanceof Activity) && !"DownloadManagerActivity".equals(((Activity) context).getClass().getSimpleName())) {
-                    bVar.f19140g = 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            FileInputStream fileInputStream2 = null;
+            byte[] bArr2 = null;
+            fileInputStream2 = null;
+            try {
+                try {
+                    fileInputStream = new FileInputStream(file);
+                } catch (Exception e2) {
+                    e = e2;
+                    bArr = null;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921627, bVar));
+            } catch (Throwable th) {
+                th = th;
             }
-        } else {
-            if (byteValue == 1) {
-                if (j(activity)) {
-                    if (!c.a.q0.w.c.q().r(this.f13009g) && !c.a.q0.w.c.q().t(this.f13009g)) {
-                        DownloadData downloadData = new DownloadData(this.f13009g);
-                        downloadData.setStatus(4);
-                        c.a.q0.w.c.q().w(downloadData);
-                        return;
+            try {
+                int length = (int) file.length();
+                bArr2 = new byte[length];
+                int i2 = 0;
+                while (i2 < length) {
+                    int read = fileInputStream.read(bArr2, i2, length - i2);
+                    if (read < 0) {
+                        break;
                     }
-                    c.a.q0.w.c.q().g(this.k, this.f13009g);
-                    return;
+                    i2 += read;
                 }
-                x(activity);
-                return;
-            }
-            if (byteValue != 2) {
-                if (byteValue != 3) {
-                    if (byteValue != 4) {
-                        return;
-                    }
-                    n(this.f13007e, this.f13009g);
-                    return;
-                }
-            }
-            if (!j(activity)) {
-                c.a.q0.w.c.q().z(this.f13009g, this.k, this.f13010h, -1, -1);
-                return;
-            } else {
-                x(activity);
-                return;
+                c.a.e.e.p.m.e(fileInputStream);
+                return bArr2;
+            } catch (Exception e3) {
+                e = e3;
+                bArr = bArr2;
+                fileInputStream2 = fileInputStream;
+                BdLog.e(e.toString());
+                c.a.e.e.p.m.e(fileInputStream2);
+                return bArr;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                c.a.e.e.p.m.e(fileInputStream2);
+                throw th;
             }
         }
-        SharedPreferences sharedPreferences = this.q;
-        int i2 = sharedPreferences.getInt(this.f13009g + this.f13010h, 0);
-        for (ProgressButton progressButton2 : this.o) {
-            progressButton2.setTag((byte) 1);
-            progressButton2.updateProgress(i2);
-        }
-        DownloadData downloadData2 = new DownloadData(this.f13009g);
-        downloadData2.setExtra(Integer.valueOf(i2));
-        downloadData2.setStatus(5);
-        c.a.q0.w.c.q().w(downloadData2);
-        if (!j(activity)) {
-        }
+        return (byte[]) invokeL.objValue;
     }
 
-    public final boolean j(Activity activity) {
+    public static boolean h(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
-            if (activity == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
+            if ("java.lang.OutOfMemoryError".equals(th.getClass().getName())) {
                 return true;
             }
-            return this.p.checkPermissionGranted(activity, "android.permission.WRITE_EXTERNAL_STORAGE") && this.p.checkPermissionGranted(activity, "android.permission.READ_EXTERNAL_STORAGE");
+            Throwable cause = th.getCause();
+            if (cause != null) {
+                return h(cause);
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public final boolean k(Context context, String str) {
-        InterceptResult invokeLL;
+    public final void a(FileWriter fileWriter, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, str)) == null) {
-            if (context != null) {
-                try {
-                    if (context.getPackageManager() != null) {
-                        context.getPackageManager().getPackageInfo(str, 64);
-                        return true;
-                    }
-                    return false;
-                } catch (Exception unused) {
-                    return false;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, fileWriter, str, str2) == null) {
+            try {
+                fileWriter.append((CharSequence) str);
+                if (str2 != null) {
+                    fileWriter.append("=");
+                    fileWriter.append((CharSequence) str2);
                 }
+                fileWriter.append(StringUtils.LF);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
             }
+        }
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        String[] split;
+        int e2;
+        int e3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i2 = 100;
+            try {
+                i2 = c.a.q0.s.d0.b.j().k("crash_limit_count", 100);
+                if (i2 < 10) {
+                    i2 = 10;
+                }
+            } catch (Throwable unused) {
+            }
+            int i3 = StringHelper.getyyyyMMddTimeForNow();
+            String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_upload_info.log";
+            byte[] GetFileData = FileHelper.GetFileData(str);
+            String str2 = GetFileData != null ? new String(GetFileData) : null;
+            if (TextUtils.isEmpty(str2) || (split = str2.split(":")) == null || split.length != 2) {
+                e3 = i3;
+                e2 = 0;
+            } else {
+                e2 = c.a.e.e.m.b.e(split[0], 0);
+                e3 = c.a.e.e.m.b.e(split[1], i3);
+            }
+            if (e3 != i3) {
+                e2 = 0;
+            }
+            if (e2 > i2) {
+                return true;
+            }
+            FileHelper.saveFileByAbsolutePath(str, ((e2 + 1) + ":" + i3).getBytes());
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public /* synthetic */ void l(View view) {
-        AlertDialog alertDialog = this.m;
-        if (alertDialog != null) {
-            alertDialog.dismiss();
-        }
-    }
-
-    public /* synthetic */ void m(View view) {
-        AlertDialog alertDialog = this.m;
-        if (alertDialog != null) {
-            alertDialog.dismiss();
-        }
-        if (!k(this.f13007e, "com.tencent.mm")) {
-            BdToast.c(this.f13007e.getApplicationContext(), this.f13007e.getText(R.string.tie_plus_wechat_not_install)).q();
-            return;
-        }
-        try {
-            Intent intent = new Intent("android.intent.action.MAIN");
-            ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
-            intent.addCategory("android.intent.category.LAUNCHER");
-            intent.addFlags(268435456);
-            intent.setComponent(componentName);
-            this.f13007e.startActivity(intent);
-        } catch (Exception e2) {
-            BdLog.e(e2);
-        }
-    }
-
-    public final boolean n(Context context, String str) {
-        InterceptResult invokeLL;
-        ResolveInfo next;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, str)) == null) {
-            if (TextUtils.isEmpty(str) || context == null) {
-                return false;
-            }
-            Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
-            intent.addCategory("android.intent.category.LAUNCHER");
-            intent.setPackage(str);
-            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-            if (queryIntentActivities == null || queryIntentActivities.size() <= 0 || (next = queryIntentActivities.iterator().next()) == null) {
-                return false;
-            }
-            String str2 = next.activityInfo.name;
-            Intent intent2 = new Intent("android.intent.action.MAIN");
-            intent2.addCategory("android.intent.category.LAUNCHER");
-            intent2.setComponent(new ComponentName(str, str2));
-            intent2.setFlags(268435456);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                context.startActivity(intent2);
-                return true;
-            } catch (Exception unused) {
-                return false;
+                File file = new File(f13019g);
+                if (!file.exists()) {
+                    file.mkdir();
+                }
+                Debug.dumpHprofData(f13019g + System.currentTimeMillis());
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public void o(ProgressButton progressButton) {
+    public final int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, progressButton) == null) || progressButton == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c.a.e.e.n.m.a.o().q("alert_crash", 5) : invokeV.intValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f13021f == null) {
             return;
         }
-        this.o.remove(progressButton);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016301, this.f13021f));
+        Map<String, String> map = this.f13021f.appendInfoMap;
+        if (map != null) {
+            for (String str : map.keySet()) {
+                StringBuilder sb = new StringBuilder();
+                ExceptionData exceptionData = this.f13021f;
+                sb.append(exceptionData.info);
+                sb.append(StringUtils.LF);
+                sb.append(this.f13021f.appendInfoMap.get(str));
+                exceptionData.info = sb.toString();
+            }
+        }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        File m;
-        TbPageContext<?> tbPageContext;
+    public final int i() {
+        InterceptResult invokeV;
+        String[] split;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, view) == null) && view != null && (view.getTag() instanceof Byte)) {
-            if ((view instanceof ProgressButton) && (tbPageContext = this.f13008f) != null) {
-                i((ProgressButton) view, tbPageContext.getPageActivity());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log";
+            byte[] GetFileData = FileHelper.GetFileData(str);
+            String str2 = GetFileData != null ? new String(GetFileData) : null;
+            long j2 = com.baidu.adp.lib.util.StringUtils.getyyyyMMddHHTimeForNow();
+            long j3 = 0;
+            int i2 = 0;
+            if (!TextUtils.isEmpty(str2) && (split = str2.split(":")) != null && split.length == 2) {
+                i2 = c.a.e.e.m.b.e(split[0], 0);
+                j3 = c.a.e.e.m.b.g(split[1], j2);
+            }
+            int i3 = j3 == j2 ? 1 + i2 : 1;
+            FileHelper.saveFileByAbsolutePath(str, (i3 + ":" + j2).getBytes());
+            return i3;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:100:?, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0157, code lost:
+        if (r10 != null) goto L39;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x017a, code lost:
+        if (r10 != null) goto L39;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x017c, code lost:
+        r10.uncaughtException(r8, r9);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void j(Thread thread, Throwable th, boolean z) {
+        ByteArrayOutputStream byteArrayOutputStream;
+        PrintStream printStream;
+        ByteArrayOutputStream byteArrayOutputStream2;
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler;
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler2;
+        PrintStream printStream2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048582, this, thread, th, z) == null) {
+            if (TbConfig.getDebugSwitch() && h(th)) {
+                c();
+            }
+            PrintStream printStream3 = null;
+            if (h(th)) {
+                try {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append((th.getMessage() + d("cat proc/" + Process.myPid() + "/status")) + "\n===========================\n");
+                    sb.append(d("cat proc/" + Process.myPid() + "/maps"));
+                    Exception exc = new Exception(sb.toString());
+                    this.f13021f = new ExceptionData();
+                    byteArrayOutputStream = new ByteArrayOutputStream();
+                    try {
+                        printStream = new PrintStream(byteArrayOutputStream);
+                    } catch (Exception unused) {
+                        printStream = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                    try {
+                        exc.printStackTrace(printStream);
+                        this.f13021f.info = new String(byteArrayOutputStream.toByteArray());
+                        this.f13021f.mExcep = exc;
+                        k(thread, exc);
+                        this.f13021f = null;
+                    } catch (Exception unused2) {
+                    } catch (Throwable th3) {
+                        th = th3;
+                        printStream3 = printStream;
+                        c.a.e.e.p.m.f(printStream3);
+                        c.a.e.e.p.m.f(byteArrayOutputStream);
+                        throw th;
+                    }
+                } catch (Exception unused3) {
+                    byteArrayOutputStream = null;
+                    printStream = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    byteArrayOutputStream = null;
+                }
+                c.a.e.e.p.m.f(printStream);
+                c.a.e.e.p.m.f(byteArrayOutputStream);
+            }
+            int i2 = i();
+            if (b()) {
                 return;
             }
-            switch (((Byte) view.getTag()).byteValue()) {
-                case 16:
-                    f(this.f13012j, 0);
-                    return;
-                case 17:
-                    f(this.f13011i, 0);
-                    return;
-                case 18:
-                    if (!StringUtils.isNull(this.f13009g) && !StringUtils.isNull(this.k)) {
-                        c.a.q0.w.c.q().h(this.k, this.f13009g, true);
-                        File j2 = c.a.q0.w.c.q().j(this.f13009g);
-                        if (j2 != null && j2.exists()) {
-                            j2.delete();
-                        }
-                        if (!StringUtils.isNull(this.f13010h) && (m = c.a.q0.w.c.q().m(this.f13009g, this.f13010h)) != null && m.exists()) {
-                            m.delete();
-                        }
-                        e();
-                        DownloadData downloadData = new DownloadData(this.f13009g);
-                        downloadData.setStatus(4);
-                        c.a.q0.w.c.q().w(downloadData);
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2921626, this.f13009g));
+            try {
+                byteArrayOutputStream2 = new ByteArrayOutputStream();
+                try {
+                    try {
+                        printStream2 = new PrintStream(byteArrayOutputStream2);
+                    } catch (Exception e2) {
+                        e = e2;
                     }
-                    TiePlusDownloadDialog tiePlusDownloadDialog = this.n;
-                    if (tiePlusDownloadDialog != null) {
-                        tiePlusDownloadDialog.dismiss();
-                        return;
+                } catch (Throwable th5) {
+                    th = th5;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                byteArrayOutputStream2 = null;
+            } catch (Throwable th6) {
+                th = th6;
+                byteArrayOutputStream2 = null;
+            }
+            try {
+                th.printStackTrace(printStream2);
+                byte[] byteArray = byteArrayOutputStream2.toByteArray();
+                ExceptionData exceptionData = new ExceptionData();
+                this.f13021f = exceptionData;
+                if (z) {
+                    exceptionData.info = th.getMessage();
+                } else {
+                    exceptionData.info = new String(byteArray);
+                    this.f13021f.mExcep = th;
+                }
+                g();
+                if (!z) {
+                    k(thread, th);
+                }
+                SwitchManager.getInstance().crash(this.f13021f.info);
+                if (!TextUtils.isEmpty(this.f13021f.info)) {
+                    BdLog.e(this.f13021f.info);
+                }
+                BdLog.e("hourCrash = " + i2);
+                if (i2 >= e()) {
+                    m(thread, th);
+                }
+                c.a.e.e.p.m.f(printStream2);
+                c.a.e.e.p.m.f(byteArrayOutputStream2);
+            } catch (Exception e4) {
+                e = e4;
+                printStream3 = printStream2;
+                e.printStackTrace();
+                c.a.e.e.p.m.f(printStream3);
+                c.a.e.e.p.m.f(byteArrayOutputStream2);
+                if (z) {
+                    return;
+                }
+                if (TbConfig.getDebugSwitch()) {
+                    uncaughtExceptionHandler2 = this.f13020e;
+                }
+                Process.killProcess(Process.myPid());
+            } catch (Throwable th7) {
+                th = th7;
+                printStream3 = printStream2;
+                c.a.e.e.p.m.f(printStream3);
+                c.a.e.e.p.m.f(byteArrayOutputStream2);
+                if (!z) {
+                    if (TbConfig.getDebugSwitch() && (uncaughtExceptionHandler = this.f13020e) != null) {
+                        uncaughtExceptionHandler.uncaughtException(thread, th);
+                    } else {
+                        Process.killProcess(Process.myPid());
                     }
-                    return;
-                default:
-                    return;
+                }
+                throw th;
             }
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.n = null;
-            AlertDialog alertDialog = this.m;
-            if (alertDialog != null) {
-                alertDialog.dismiss();
-                this.m = null;
+            if (z) {
+                return;
             }
-            this.o.clear();
+            if (TbConfig.getDebugSwitch()) {
+                uncaughtExceptionHandler2 = this.f13020e;
+            }
+            Process.killProcess(Process.myPid());
         }
     }
 
-    public q0 q(String str) {
-        InterceptResult invokeL;
+    public final void k(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            this.f13010h = str;
-            return this;
-        }
-        return (q0) invokeL.objValue;
-    }
-
-    public void r(TiePlusDownloadDialog tiePlusDownloadDialog) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, tiePlusDownloadDialog) == null) {
-            this.n = tiePlusDownloadDialog;
-        }
-    }
-
-    public q0 s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            this.k = str;
-            return this;
-        }
-        return (q0) invokeL.objValue;
-    }
-
-    public void t(ItemData itemData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, itemData) == null) {
-            this.l = itemData;
-        }
-    }
-
-    public q0 u(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-            this.f13009g = str;
-            return this;
-        }
-        return (q0) invokeL.objValue;
-    }
-
-    public q0 v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-            this.f13011i = str;
-            return this;
-        }
-        return (q0) invokeL.objValue;
-    }
-
-    public q0 w(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-            this.f13012j = str;
-            return this;
-        }
-        return (q0) invokeL.objValue;
-    }
-
-    public final void x(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, activity) == null) || activity == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, thread, th) == null) || this.f13021f == null) {
             return;
         }
-        this.p.clearRequestPermissionList();
-        this.p.appendRequestPermission(this.f13008f.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-        this.p.appendRequestPermission(this.f13008f.getPageActivity(), "android.permission.READ_EXTERNAL_STORAGE");
-        this.p.startRequestPermission(activity);
+        l(thread, th, TbConfig.getDebugSwitch() ? TbConfig.FATAL_ERROR_DEBUG_FILE : TbConfig.FATAL_ERROR_FILE);
     }
 
-    public void y(@NonNull String str, @NonNull String str2, @NonNull Context context, @NonNull ProgressButton progressButton) {
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x019b, code lost:
+        if (r11.f13021f.info.contains("java.lang.NoClassDefFoundError") != false) goto L55;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0244 A[Catch: all -> 0x034a, Exception -> 0x034d, LOOP:2: B:59:0x0244->B:64:0x0262, LOOP_START, PHI: r7 
+      PHI: (r7v4 int) = (r7v0 int), (r7v5 int) binds: [B:58:0x0242, B:64:0x0262] A[DONT_GENERATE, DONT_INLINE], TryCatch #1 {Exception -> 0x034d, blocks: (B:13:0x0047, B:15:0x00a3, B:16:0x00ac, B:36:0x0177, B:57:0x022c, B:59:0x0244, B:61:0x024a, B:63:0x0254, B:64:0x0262, B:65:0x0265, B:67:0x0293, B:68:0x02b3, B:70:0x02be, B:72:0x02ca, B:86:0x0334, B:87:0x033b), top: B:109:0x0047 }] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0293 A[Catch: all -> 0x034a, Exception -> 0x034d, TryCatch #1 {Exception -> 0x034d, blocks: (B:13:0x0047, B:15:0x00a3, B:16:0x00ac, B:36:0x0177, B:57:0x022c, B:59:0x0244, B:61:0x024a, B:63:0x0254, B:64:0x0262, B:65:0x0265, B:67:0x0293, B:68:0x02b3, B:70:0x02be, B:72:0x02ca, B:86:0x0334, B:87:0x033b), top: B:109:0x0047 }] */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x02fc A[Catch: Exception -> 0x0331, all -> 0x034a, TryCatch #5 {all -> 0x034a, blocks: (B:13:0x0047, B:15:0x00a3, B:16:0x00ac, B:17:0x00ec, B:19:0x00f2, B:21:0x00fc, B:22:0x0108, B:24:0x010e, B:27:0x0117, B:29:0x0139, B:31:0x0160, B:34:0x0171, B:32:0x0166, B:33:0x016c, B:36:0x0177, B:38:0x017f, B:40:0x0185, B:42:0x0191, B:44:0x019d, B:46:0x01a7, B:47:0x01c9, B:49:0x01cf, B:52:0x01d8, B:54:0x0221, B:53:0x021c, B:57:0x022c, B:59:0x0244, B:61:0x024a, B:63:0x0254, B:64:0x0262, B:65:0x0265, B:67:0x0293, B:68:0x02b3, B:70:0x02be, B:72:0x02ca, B:74:0x02d6, B:76:0x02fc, B:78:0x0300, B:80:0x0306, B:81:0x030e, B:82:0x032d, B:86:0x0334, B:87:0x033b), top: B:109:0x0047 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void l(Thread thread, Throwable th, String str) {
+        boolean z;
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
+        Object obj;
+        byte[] f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048600, this, str, str2, context, progressButton) == null) {
-            boolean isUseLongText = progressButton.isUseLongText();
-            if (k(context, str)) {
-                progressButton.setTag((byte) 4);
-                progressButton.setText(context.getString(isUseLongText ? R.string.immediately_open : R.string.pb_video_promotion_mount_open));
-            } else if (c.a.q0.w.c.q().s(str)) {
-                progressButton.setTag((byte) 2);
-                progressButton.setText(context.getString(isUseLongText ? R.string.immediately_install : R.string.install));
-            } else if (!c.a.q0.w.c.q().t(str) && !c.a.q0.w.c.q().r(str)) {
-                File m = c.a.q0.w.c.q().m(str, str2);
-                if (m != null && m.exists()) {
-                    SharedPreferences sharedPreferences = this.q;
-                    int i2 = sharedPreferences.getInt(str + str2, -1);
-                    progressButton.setTag((byte) 3);
-                    progressButton.setCurProgress(i2);
-                    progressButton.setText(context.getString(isUseLongText ? R.string.go_on_download : R.string.go_on));
-                    return;
-                }
-                progressButton.setCurProgress(-1);
-                progressButton.setTag((byte) 0);
-                progressButton.setText(context.getString(isUseLongText ? R.string.install_app : R.string.download));
-            } else {
-                SharedPreferences sharedPreferences2 = this.q;
-                int i3 = sharedPreferences2.getInt(str + str2, -1);
-                progressButton.setTag((byte) 1);
-                progressButton.updateProgress(i3);
-            }
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, thread, th, str) == null) || this.f13021f == null) {
+            return;
         }
-    }
-
-    public final void z(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            SharedPreferences sharedPreferences = this.q;
-            if (i2 != sharedPreferences.getInt(this.f13009g + this.f13010h, -1)) {
-                SharedPreferences.Editor edit = this.q.edit();
-                edit.putInt(this.f13009g + this.f13010h, i2);
-                edit.apply();
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, customResponsedMessage) == null) && (customResponsedMessage instanceof DownloadMessage)) {
-            DownloadMessage downloadMessage = (DownloadMessage) customResponsedMessage;
-            if (downloadMessage.getData() == null || downloadMessage.getData().size() <= 0 || StringUtils.isNull(this.f13009g) || this.o.size() <= 0) {
-                return;
-            }
-            for (DownloadData downloadData : downloadMessage.getData()) {
-                if (downloadData != null) {
-                    if (downloadData.getStatus() == 10 && !StringUtils.isNull(this.f13010h)) {
-                        for (ProgressButton progressButton : this.o) {
-                            y(this.f13009g, this.f13010h, this.f13007e, progressButton);
-                        }
-                    } else if (this.f13009g.equals(downloadData.getId())) {
-                        int status = downloadData.getStatus();
-                        if (status != 0) {
-                            if (status != 1) {
-                                if (status == 2) {
-                                    TbPageContext<?> tbPageContext = this.f13008f;
-                                    if (tbPageContext != null) {
-                                        tbPageContext.showToast(R.string.download_error_info);
-                                    }
-                                } else if (status != 3) {
-                                    if (status != 4) {
-                                        if (status != 5) {
-                                            return;
+        FileWriter fileWriter = null;
+        try {
+            try {
+                File CreateFileIfNotFoundAbsolutePath = FileHelper.CreateFileIfNotFoundAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + str);
+                if (CreateFileIfNotFoundAbsolutePath != null && CreateFileIfNotFoundAbsolutePath.length() < TbConfig.FATAL_ERROR_FILE_MAX_SIZE) {
+                    FileWriter fileWriter2 = new FileWriter(CreateFileIfNotFoundAbsolutePath, true);
+                    try {
+                        try {
+                            a(fileWriter2, StringHelper.getCurrentString(), null);
+                            a(fileWriter2, "tieba_crash_new_info", null);
+                            a(fileWriter2, "version", TbConfig.getVersion());
+                            a(fileWriter2, "model", Build.MODEL);
+                            a(fileWriter2, "android_version", Build.VERSION.RELEASE);
+                            a(fileWriter2, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
+                            a(fileWriter2, "from", TbConfig.getFrom());
+                            a(fileWriter2, "current_from", TbConfig.getCurrentFrom());
+                            a(fileWriter2, "uid", TbadkCoreApplication.getCurrentAccount());
+                            a(fileWriter2, "client_id", TbadkCoreApplication.getClientId());
+                            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                                a(fileWriter2, HttpRequest.SUBAPP_TYPE, TbConfig.getSubappType());
+                            }
+                            a(fileWriter2, "imei", TbadkCoreApplication.getInst().getImei());
+                            a(fileWriter2, "uname", TbadkCoreApplication.getCurrentAccountName());
+                            a(fileWriter2, "activity", TiebaStaticHelper.getCurrentActivityAllName());
+                            a(fileWriter2, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
+                            a(fileWriter2, "crash_type", th.getClass().getName());
+                            StringBuilder sb = new StringBuilder();
+                            try {
+                                if (PluginCenter.getInstance() != null && PluginCenter.getInstance().getAllPlugins() != null) {
+                                    Iterator<Plugin> it = PluginCenter.getInstance().getAllPlugins().iterator();
+                                    while (it.hasNext()) {
+                                        Plugin next = it.next();
+                                        if (next != null) {
+                                            PluginSetting P = PluginPackageManager.O().P(next.getPackageName());
+                                            sb.append(next.getPackageName());
+                                            sb.append("-");
+                                            sb.append(next.getCurrentPluginMode());
+                                            sb.append("-");
+                                            if (P != null) {
+                                                sb.append(new File(P.apkPath).exists());
+                                                sb.append("-");
+                                                sb.append(next.getVersionCode());
+                                                sb.append("-");
+                                                sb.append(P.tempVersionCode);
+                                                sb.append("-");
+                                                if (P.enable) {
+                                                    sb.append("true");
+                                                } else {
+                                                    sb.append("false");
+                                                }
+                                            } else {
+                                                sb.append(StringUtil.NULL_STRING);
+                                            }
+                                            sb.append(",");
                                         }
-                                        int i2 = 0;
-                                        if (downloadData.getExtra() != null && (downloadData.getExtra() instanceof Integer)) {
-                                            i2 = ((Integer) downloadData.getExtra()).intValue();
-                                            z(i2);
-                                        }
-                                        for (ProgressButton progressButton2 : this.o) {
-                                            progressButton2.setTag((byte) 1);
-                                            progressButton2.updateProgress(i2);
-                                        }
-                                        return;
                                     }
                                 }
-                                if (StringUtils.isNull(this.f13010h)) {
-                                    return;
+                            } catch (Exception unused) {
+                            }
+                            StringBuilder sb2 = new StringBuilder();
+                            String str2 = "";
+                            int i2 = 0;
+                            if (this.f13021f.info != null) {
+                                if (!this.f13021f.info.contains("java.lang.ClassNotFoundException")) {
                                 }
-                                for (ProgressButton progressButton3 : this.o) {
-                                    progressButton3.setCurProgress(-1);
-                                    y(this.f13009g, this.f13010h, this.f13007e, progressButton3);
+                                try {
+                                    PluginSettings l = c.a.e.h.j.g.d.k().l();
+                                    if (l != null) {
+                                        sb2.append(l.getContainerVersion());
+                                        sb2.append("-");
+                                        sb2.append(l.getForbiddenFeatures());
+                                        sb2.append("#");
+                                        for (PluginSetting pluginSetting : l.getPlugins().values()) {
+                                            if (pluginSetting != null) {
+                                                sb2.append(pluginSetting.packageName);
+                                                sb2.append("-");
+                                                sb2.append(pluginSetting.versionCode);
+                                                sb2.append("-");
+                                                sb2.append(pluginSetting.tempVersionCode);
+                                                sb2.append("-");
+                                                sb2.append(pluginSetting.enable);
+                                                sb2.append("-");
+                                                sb2.append(pluginSetting.forbidden);
+                                                sb2.append("-");
+                                                sb2.append(pluginSetting.installStatus);
+                                                sb2.append("-");
+                                                sb2.append(new File(pluginSetting.apkPath).exists());
+                                                sb2.append(";");
+                                            }
+                                        }
+                                    } else {
+                                        sb2.append("pluginSettings_is_null");
+                                    }
+                                    str2 = c.a.e.h.h.b.c().toString();
+                                } catch (Exception unused2) {
                                 }
-                                return;
+                                z = true;
+                                runningAppProcesses = ((ActivityManager) TbadkCoreApplication.getInst().getApp().getSystemService("activity")).getRunningAppProcesses();
+                                int myPid = Process.myPid();
+                                if (runningAppProcesses != null) {
+                                    while (true) {
+                                        if (i2 >= runningAppProcesses.size()) {
+                                            break;
+                                        } else if (runningAppProcesses.get(i2).pid == myPid) {
+                                            a(fileWriter2, "process_name", runningAppProcesses.get(i2).processName);
+                                            break;
+                                        } else {
+                                            i2++;
+                                        }
+                                    }
+                                }
+                                String str3 = this.f13021f.info + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + c.a.e.a.b.g().d();
+                                if (z) {
+                                    str3 = str3 + "\n--PluginSettings--" + sb2.toString() + "\n--PluginTrace--" + str2;
+                                }
+                                a(fileWriter2, "error", str3);
+                                if (this.f13021f.info != null && this.f13021f.info.contains("java.lang.ArrayIndexOutOfBoundsException: src.length=8192 srcPos=1 dst.length=8192 dstPos=0 length=-1")) {
+                                    int nextInt = new Random().nextInt(100);
+                                    try {
+                                        Field declaredField = thread.getClass().getDeclaredField("this$0");
+                                        declaredField.setAccessible(true);
+                                        Object obj2 = declaredField.get(thread);
+                                        Field declaredField2 = obj2.getClass().getDeclaredField("mFile");
+                                        declaredField2.setAccessible(true);
+                                        obj = declaredField2.get(obj2);
+                                        if (obj instanceof File) {
+                                            File file = (File) obj;
+                                            if (nextInt < 5) {
+                                                if (f(file) == null) {
+                                                    a(fileWriter2, "--errorFile-", file.getAbsolutePath());
+                                                } else {
+                                                    a(fileWriter2, "--errorFile-", file.getAbsolutePath() + " - " + c.a.e.e.p.c.j(f2));
+                                                }
+                                            }
+                                            file.delete();
+                                        }
+                                    } catch (Exception e2) {
+                                        if (nextInt < 5) {
+                                            a(fileWriter2, "--errorFile-", e2.toString());
+                                        }
+                                    }
+                                }
+                                a(fileWriter2, "tieba_crash_new_info_end", null);
+                                fileWriter2.append(StringUtils.LF);
+                                fileWriter2.flush();
+                                fileWriter = fileWriter2;
                             }
-                            int k = (int) (c.a.q0.w.c.q().k(this.f13009g) * 100.0f);
-                            z(k);
-                            for (ProgressButton progressButton4 : this.o) {
-                                progressButton4.setTag((byte) 1);
-                                progressButton4.updateProgress(k);
+                            z = false;
+                            runningAppProcesses = ((ActivityManager) TbadkCoreApplication.getInst().getApp().getSystemService("activity")).getRunningAppProcesses();
+                            int myPid2 = Process.myPid();
+                            if (runningAppProcesses != null) {
                             }
-                            return;
-                        } else if (!StringUtils.isNull(this.f13010h)) {
-                            for (ProgressButton progressButton5 : this.o) {
-                                progressButton5.setCurProgress(100);
+                            String str32 = this.f13021f.info + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + c.a.e.a.b.g().d();
+                            if (z) {
                             }
+                            a(fileWriter2, "error", str32);
+                            if (this.f13021f.info != null) {
+                                int nextInt2 = new Random().nextInt(100);
+                                Field declaredField3 = thread.getClass().getDeclaredField("this$0");
+                                declaredField3.setAccessible(true);
+                                Object obj22 = declaredField3.get(thread);
+                                Field declaredField22 = obj22.getClass().getDeclaredField("mFile");
+                                declaredField22.setAccessible(true);
+                                obj = declaredField22.get(obj22);
+                                if (obj instanceof File) {
+                                }
+                            }
+                            a(fileWriter2, "tieba_crash_new_info_end", null);
+                            fileWriter2.append(StringUtils.LF);
+                            fileWriter2.flush();
+                            fileWriter = fileWriter2;
+                        } catch (Exception e3) {
+                            e = e3;
+                            fileWriter = fileWriter2;
+                            e.printStackTrace();
+                            c.a.e.e.p.m.h(fileWriter);
                         }
-                        e();
-                        return;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileWriter = fileWriter2;
+                        c.a.e.e.p.m.h(fileWriter);
+                        throw th;
                     }
                 }
+            } catch (Throwable th3) {
+                th = th3;
+            }
+        } catch (Exception e4) {
+            e = e4;
+        }
+        c.a.e.e.p.m.h(fileWriter);
+    }
+
+    public final void m(Thread thread, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, thread, th) == null) {
+            BdLog.i("writeToFileForAlertLog = fatal_error_alert.log");
+            l(thread, th, TbConfig.FATAL_ERROR_ALERT_FILE);
+        }
+    }
+
+    @Override // java.lang.Thread.UncaughtExceptionHandler
+    public void uncaughtException(Thread thread, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, thread, th) == null) {
+            String stackTraceElement = (th == null || th.getStackTrace() == null || th.getStackTrace().length <= 0) ? "" : th.getStackTrace()[0].toString();
+            if (thread.getId() == Looper.getMainLooper().getThread().getId() || com.baidu.adp.lib.util.StringUtils.isNull(stackTraceElement) || th == null || com.baidu.adp.lib.util.StringUtils.isNull(th.getMessage()) || !th.getMessage().contains("Results have already been set") || !stackTraceElement.contains("com.google.android.gms")) {
+                j(thread, th, false);
             }
         }
     }

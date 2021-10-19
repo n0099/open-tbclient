@@ -14,11 +14,11 @@ public class SysUpdateObservable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile SysUpdateObservable f42574a;
+    public static volatile SysUpdateObservable f42578a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SysUpdateObserver> f42575b;
+    public List<SysUpdateObserver> f42579b;
 
     public SysUpdateObservable() {
         Interceptable interceptable = $ic;
@@ -33,22 +33,22 @@ public class SysUpdateObservable {
                 return;
             }
         }
-        this.f42575b = null;
-        this.f42575b = new ArrayList();
+        this.f42579b = null;
+        this.f42579b = new ArrayList();
     }
 
     public static SysUpdateObservable getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f42574a == null) {
+            if (f42578a == null) {
                 synchronized (SysUpdateObservable.class) {
-                    if (f42574a == null) {
-                        f42574a = new SysUpdateObservable();
+                    if (f42578a == null) {
+                        f42578a = new SysUpdateObservable();
                     }
                 }
             }
-            return f42574a;
+            return f42578a;
         }
         return (SysUpdateObservable) invokeV.objValue;
     }
@@ -56,14 +56,14 @@ public class SysUpdateObservable {
     public void addObserver(SysUpdateObserver sysUpdateObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sysUpdateObserver) == null) {
-            this.f42575b.add(sysUpdateObserver);
+            this.f42579b.add(sysUpdateObserver);
         }
     }
 
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f42575b) {
+            for (SysUpdateObserver sysUpdateObserver : this.f42579b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.init();
                 }
@@ -74,7 +74,7 @@ public class SysUpdateObservable {
     public void updateNetworkInfo(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f42575b) {
+            for (SysUpdateObserver sysUpdateObserver : this.f42579b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.updateNetworkInfo(context);
                 }
@@ -85,7 +85,7 @@ public class SysUpdateObservable {
     public void updateNetworkProxy(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f42575b) {
+            for (SysUpdateObserver sysUpdateObserver : this.f42579b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.updateNetworkProxy(context);
                 }
@@ -96,7 +96,7 @@ public class SysUpdateObservable {
     public void updatePhoneInfo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f42575b) {
+            for (SysUpdateObserver sysUpdateObserver : this.f42579b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.updatePhoneInfo();
                 }

@@ -97,9 +97,9 @@ public class g0 extends h {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
                 if (this.f3805a.m != null && this.f3805a.m.getThreadData() != null && !this.f3805a.e().booleanValue()) {
                     d2 threadData = this.f3805a.m.getThreadData();
-                    c.a.r0.a0.m.a(threadData.f0());
-                    c.a.r0.a0.m.l(this.f3805a.l.mTitle, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.r0.a0.m.l(this.f3805a.l.mAbstract, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.b0.m.a(threadData.f0());
+                    c.a.r0.b0.m.l(this.f3805a.l.mTitle, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.b0.m.l(this.f3805a.l.mAbstract, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }

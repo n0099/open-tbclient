@@ -34,19 +34,19 @@ public class v {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, List<b>> f64485a;
+    public final Map<String, List<b>> f64520a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LruCache<String, c> f64486b;
+    public final LruCache<String, c> f64521b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k.a f64487c;
+    public final k.a f64522c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f64488d;
+    public final String f64523d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f64489e;
+    public volatile boolean f64524e;
 
     /* loaded from: classes9.dex */
     public static class a extends IllegalStateException {
@@ -80,16 +80,16 @@ public class v {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Pattern f64492a;
+        public Pattern f64527a;
 
         /* renamed from: b  reason: collision with root package name */
-        public x f64493b;
+        public x f64528b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<String> f64494c;
+        public List<String> f64529c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<String> f64495d;
+        public List<String> f64530d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -112,13 +112,13 @@ public class v {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public x f64496a;
+        public x f64531a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Set<String> f64497b;
+        public Set<String> f64532b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Set<String> f64498c;
+        public Set<String> f64533c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -133,9 +133,9 @@ public class v {
                     return;
                 }
             }
-            this.f64496a = x.f64503a;
-            this.f64497b = new HashSet();
-            this.f64498c = new HashSet();
+            this.f64531a = x.f64538a;
+            this.f64532b = new HashSet();
+            this.f64533c = new HashSet();
         }
     }
 
@@ -155,25 +155,25 @@ public class v {
                 return;
             }
         }
-        this.f64485a = new ConcurrentHashMap();
-        this.f64489e = false;
-        this.f64488d = str;
+        this.f64520a = new ConcurrentHashMap();
+        this.f64524e = false;
+        this.f64523d = str;
         if (i2 <= 0) {
-            this.f64486b = new LruCache<>(16);
+            this.f64521b = new LruCache<>(16);
         } else {
-            this.f64486b = new LruCache<>(i2);
+            this.f64521b = new LruCache<>(i2);
         }
-        this.f64487c = aVar;
+        this.f64522c = aVar;
         if (jSONObject == null) {
-            aVar.a(d(str), new k.a.InterfaceC1882a(this, executor) { // from class: com.bytedance.sdk.component.a.v.1
+            aVar.a(d(str), new k.a.InterfaceC1884a(this, executor) { // from class: com.bytedance.sdk.component.a.v.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Executor f64490a;
+                public final /* synthetic */ Executor f64525a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ v f64491b;
+                public final /* synthetic */ v f64526b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -190,8 +190,8 @@ public class v {
                             return;
                         }
                     }
-                    this.f64491b = this;
-                    this.f64490a = executor;
+                    this.f64526b = this;
+                    this.f64525a = executor;
                 }
             });
         } else {
@@ -203,7 +203,7 @@ public class v {
     private void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) {
-            this.f64485a.clear();
+            this.f64520a.clear();
             try {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("content");
                 Iterator<String> keys = jSONObject2.keys();
@@ -211,7 +211,7 @@ public class v {
                     String next = keys.next();
                     JSONArray jSONArray = jSONObject2.getJSONArray(next);
                     LinkedList linkedList = new LinkedList();
-                    this.f64485a.put(next, linkedList);
+                    this.f64520a.put(next, linkedList);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         linkedList.add(c(jSONArray.getJSONObject(i2)));
                     }
@@ -219,7 +219,7 @@ public class v {
             } catch (JSONException e2) {
                 i.b("Parse configurations failed, response: " + jSONObject.toString(), e2);
             }
-            this.f64489e = true;
+            this.f64524e = true;
         }
     }
 
@@ -227,8 +227,8 @@ public class v {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
-            if (this.f64489e) {
-                return this.f64485a.get(str);
+            if (this.f64524e) {
+                return this.f64520a.get(str);
             }
             throw new a("Permission config is outdated!");
         }
@@ -248,7 +248,7 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             b(jSONObject);
-            this.f64487c.a(d(this.f64488d), jSONObject.toString());
+            this.f64522c.a(d(this.f64523d), jSONObject.toString());
         }
     }
 
@@ -268,13 +268,13 @@ public class v {
                         if (authority.endsWith("." + str2)) {
                         }
                     }
-                    cVar.f64496a = x.f64505c;
+                    cVar.f64531a = x.f64540c;
                     return cVar;
                 }
-                c cVar2 = this.f64486b.get(builder);
+                c cVar2 = this.f64521b.get(builder);
                 return cVar2 != null ? cVar2 : a(builder);
             }
-            cVar.f64496a = x.f64503a;
+            cVar.f64531a = x.f64538a;
             return cVar;
         }
         return (c) invokeLL.objValue;
@@ -286,20 +286,20 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
             b bVar = new b();
-            bVar.f64492a = Pattern.compile(jSONObject.getString("pattern"));
-            bVar.f64493b = x.a(jSONObject.getString("group"));
-            bVar.f64494c = new ArrayList();
+            bVar.f64527a = Pattern.compile(jSONObject.getString("pattern"));
+            bVar.f64528b = x.a(jSONObject.getString("group"));
+            bVar.f64529c = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("included_methods");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    bVar.f64494c.add(optJSONArray.getString(i2));
+                    bVar.f64529c.add(optJSONArray.getString(i2));
                 }
             }
-            bVar.f64495d = new ArrayList();
+            bVar.f64530d = new ArrayList();
             JSONArray optJSONArray2 = jSONObject.optJSONArray("excluded_methods");
             if (optJSONArray2 != null) {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    bVar.f64495d.add(optJSONArray2.getString(i3));
+                    bVar.f64530d.add(optJSONArray2.getString(i3));
                 }
             }
             return bVar;
@@ -340,18 +340,18 @@ public class v {
                     return cVar;
                 }
                 for (b bVar : c2) {
-                    if (bVar.f64492a.matcher(str).find()) {
-                        if (bVar.f64493b.compareTo(cVar.f64496a) >= 0) {
-                            cVar.f64496a = bVar.f64493b;
+                    if (bVar.f64527a.matcher(str).find()) {
+                        if (bVar.f64528b.compareTo(cVar.f64531a) >= 0) {
+                            cVar.f64531a = bVar.f64528b;
                         }
-                        cVar.f64497b.addAll(bVar.f64494c);
-                        cVar.f64498c.addAll(bVar.f64495d);
+                        cVar.f64532b.addAll(bVar.f64529c);
+                        cVar.f64533c.addAll(bVar.f64530d);
                     }
                 }
-                this.f64486b.put(str, cVar);
+                this.f64521b.put(str, cVar);
                 return cVar;
             }
-            cVar.f64496a = x.f64503a;
+            cVar.f64531a = x.f64538a;
             return cVar;
         }
         return (c) invokeL.objValue;

@@ -109,34 +109,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35947a;
+    public String f35951a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35948b;
+    public String f35952b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35949c;
+    public String f35953c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35950d;
+    public String f35954d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35951e;
+    public String f35955e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f35952f;
+    public String f35956f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f35953g;
+    public String f35957g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f35954h;
+    public String f35958h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f35955i;
+    public String f35959i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f35956j;
+    public String f35960j;
 
     public b(Context context, boolean z2) {
         Interceptable interceptable = $ic;
@@ -153,16 +153,16 @@ public class b {
                 return;
             }
         }
-        this.f35954h = "";
-        this.f35955i = "";
+        this.f35958h = "";
+        this.f35959i = "";
         context = context != null ? context.getApplicationContext() : context;
-        this.f35947a = b();
-        this.f35949c = a(context);
-        this.f35950d = a(z2 ? 0L : a.c.a(context));
-        this.f35951e = a();
-        this.f35952f = b(context);
-        this.f35953g = "-";
-        this.f35956j = "-";
+        this.f35951a = b();
+        this.f35953c = a(context);
+        this.f35954d = a(z2 ? 0L : a.c.a(context));
+        this.f35955e = a();
+        this.f35956f = b(context);
+        this.f35957g = "-";
+        this.f35960j = "-";
     }
 
     private synchronized void c(String str, String str2, String str3) {
@@ -171,7 +171,7 @@ public class b {
             synchronized (this) {
                 c.d(com.alipay.sdk.cons.a.x, String.format("event %s %s %s", str, str2, str3));
                 String str4 = "";
-                if (!TextUtils.isEmpty(this.f35954h)) {
+                if (!TextUtils.isEmpty(this.f35958h)) {
                     str4 = "" + PayTypeItemView.PayTypeItemViewData.MASK_FLAG;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -182,7 +182,7 @@ public class b {
                 objArr[2] = c(str3);
                 objArr[3] = c(c());
                 sb.append(String.format("%s,%s,%s,-,-,-,-,-,-,-,-,-,-,%s", objArr));
-                this.f35954h += sb.toString();
+                this.f35958h += sb.toString();
             }
         }
     }
@@ -190,7 +190,7 @@ public class b {
     private boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? TextUtils.isEmpty(this.f35955i) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? TextUtils.isEmpty(this.f35959i) : invokeV.booleanValue;
     }
 
     public static String e() {
@@ -233,7 +233,7 @@ public class b {
             synchronized (this) {
                 c.c(com.alipay.sdk.cons.a.x, String.format("err %s %s %s", str, str2, str3));
                 String str4 = "";
-                if (!TextUtils.isEmpty(this.f35955i)) {
+                if (!TextUtils.isEmpty(this.f35959i)) {
                     str4 = "" + PayTypeItemView.PayTypeItemViewData.MASK_FLAG;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -244,7 +244,7 @@ public class b {
                 objArr[2] = TextUtils.isEmpty(str3) ? "-" : c(str3);
                 objArr[3] = c(c());
                 sb.append(String.format("%s,%s,%s,%s", objArr));
-                this.f35955i += sb.toString();
+                this.f35959i += sb.toString();
             }
         }
     }
@@ -371,8 +371,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String b2 = b(str);
-            this.f35948b = b2;
-            return String.format("[(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s)]", this.f35947a, b2, this.f35949c, this.f35950d, this.f35951e, this.f35952f, this.f35953g, d(this.f35954h), d(this.f35955i), this.f35956j);
+            this.f35952b = b2;
+            return String.format("[(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s)]", this.f35951a, b2, this.f35953c, this.f35954d, this.f35955e, this.f35956f, this.f35957g, d(this.f35958h), d(this.f35959i), this.f35960j);
         }
         return (String) invokeL.objValue;
     }

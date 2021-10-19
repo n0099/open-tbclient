@@ -7,7 +7,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
 import c.a.e.e.p.l;
-import c.a.r0.j3.c;
+import c.a.r0.k3.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -25,22 +25,22 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f49164e;
+    public Context f49091e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49165f;
+    public int f49092f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GradientDrawable f49166g;
+    public GradientDrawable f49093g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GradientDrawable f49167h;
+    public GradientDrawable f49094h;
 
     /* renamed from: i  reason: collision with root package name */
-    public GradientDrawable f49168i;
+    public GradientDrawable f49095i;
 
     /* renamed from: j  reason: collision with root package name */
-    public StateListDrawable f49169j;
+    public StateListDrawable f49096j;
     public CustomMessageListener k;
 
     /* loaded from: classes6.dex */
@@ -49,7 +49,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NEGFeedBackReasonCheckBox f49170a;
+        public final /* synthetic */ NEGFeedBackReasonCheckBox f49097a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox, int i2) {
@@ -69,7 +69,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
                     return;
                 }
             }
-            this.f49170a = nEGFeedBackReasonCheckBox;
+            this.f49097a = nEGFeedBackReasonCheckBox;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,7 +77,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                this.f49170a.changeSkinType();
+                this.f49097a.changeSkinType();
             }
         }
     }
@@ -100,17 +100,17 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f49164e = null;
-        this.f49165f = 3;
+        this.f49091e = null;
+        this.f49092f = 3;
         this.k = new a(this, 2001304);
-        this.f49164e = context;
+        this.f49091e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int g2 = l.g(this.f49164e, R.dimen.ds24);
+            int g2 = l.g(this.f49091e, R.dimen.ds24);
             setPadding(g2, 0, g2, 0);
             setButtonDrawable((Drawable) null);
         }
@@ -121,39 +121,39 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
             int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i2).split(",")[0]);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            this.f49166g = gradientDrawable;
+            this.f49093g = gradientDrawable;
             gradientDrawable.setShape(0);
             float f2 = parseInt;
-            this.f49166g.setCornerRadius(f2);
-            this.f49166g.setStroke(i3, SkinManager.getColor(i4));
+            this.f49093g.setCornerRadius(f2);
+            this.f49093g.setStroke(i3, SkinManager.getColor(i4));
             GradientDrawable gradientDrawable2 = new GradientDrawable();
-            this.f49167h = gradientDrawable2;
+            this.f49094h = gradientDrawable2;
             gradientDrawable2.setShape(0);
-            this.f49167h.setCornerRadius(f2);
-            this.f49167h.setStroke(i3, c.a(SkinManager.getColor(i5), SkinManager.RESOURCE_ALPHA_PRESS));
+            this.f49094h.setCornerRadius(f2);
+            this.f49094h.setStroke(i3, c.a(SkinManager.getColor(i5), SkinManager.RESOURCE_ALPHA_PRESS));
             GradientDrawable gradientDrawable3 = new GradientDrawable();
-            this.f49168i = gradientDrawable3;
+            this.f49095i = gradientDrawable3;
             gradientDrawable3.setShape(0);
-            this.f49168i.setCornerRadius(f2);
-            this.f49168i.setStroke(i3, c.a(SkinManager.getColor(i6), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.f49095i.setCornerRadius(f2);
+            this.f49095i.setStroke(i3, c.a(SkinManager.getColor(i6), SkinManager.RESOURCE_ALPHA_DISABLE));
             StateListDrawable stateListDrawable = new StateListDrawable();
-            this.f49169j = stateListDrawable;
-            stateListDrawable.addState(new int[]{16842912}, this.f49167h);
-            this.f49169j.addState(new int[]{-16842910}, this.f49168i);
-            this.f49169j.addState(new int[0], this.f49166g);
-            setBackgroundDrawable(this.f49169j);
+            this.f49096j = stateListDrawable;
+            stateListDrawable.addState(new int[]{16842912}, this.f49094h);
+            this.f49096j.addState(new int[]{-16842910}, this.f49095i);
+            this.f49096j.addState(new int[0], this.f49093g);
+            setBackgroundDrawable(this.f49096j);
         }
     }
 
     public void changeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f49165f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f49092f) {
             return;
         }
-        b(R.string.J_X07, l.g(this.f49164e, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);
+        b(R.string.J_X07, l.g(this.f49091e, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);
         SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0302, R.color.CAM_X0105);
-        this.f49165f = skinType;
+        this.f49092f = skinType;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -193,10 +193,10 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f49164e = null;
-        this.f49165f = 3;
+        this.f49091e = null;
+        this.f49092f = 3;
         this.k = new a(this, 2001304);
-        this.f49164e = context;
+        this.f49091e = context;
         a();
     }
 
@@ -219,10 +219,10 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f49164e = null;
-        this.f49165f = 3;
+        this.f49091e = null;
+        this.f49092f = 3;
         this.k = new a(this, 2001304);
-        this.f49164e = context;
+        this.f49091e = context;
         a();
     }
 }

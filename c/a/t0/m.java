@@ -12,19 +12,19 @@ public class m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f30085a;
+    public boolean f30132a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30086b;
+    public boolean f30133b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30087c;
+    public int f30134c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f30088d;
+    public boolean f30135d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30089e;
+    public String f30136e;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -39,11 +39,11 @@ public class m {
                 return;
             }
         }
-        this.f30085a = true;
-        this.f30086b = false;
-        this.f30087c = 60;
-        this.f30088d = true;
-        this.f30089e = "99999";
+        this.f30132a = true;
+        this.f30133b = false;
+        this.f30134c = 60;
+        this.f30135d = true;
+        this.f30136e = "99999";
     }
 
     public static boolean a(String str) {

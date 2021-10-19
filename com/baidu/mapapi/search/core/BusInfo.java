@@ -17,10 +17,10 @@ public class BusInfo extends TransitBaseInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41801a;
+    public int f41805a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41802b;
+    public int f41806b;
 
     static {
         InterceptResult invokeClinit;
@@ -70,8 +70,8 @@ public class BusInfo extends TransitBaseInfo {
                 return;
             }
         }
-        this.f41801a = parcel.readInt();
-        this.f41802b = parcel.readInt();
+        this.f41805a = parcel.readInt();
+        this.f41806b = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -87,26 +87,26 @@ public class BusInfo extends TransitBaseInfo {
     public int getStopNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41802b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41806b : invokeV.intValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41801a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41805a : invokeV.intValue;
     }
 
     public void setStopNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f41802b = i2;
+            this.f41806b = i2;
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f41801a = i2;
+            this.f41805a = i2;
         }
     }
 
@@ -115,8 +115,8 @@ public class BusInfo extends TransitBaseInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
             super.writeToParcel(parcel, i2);
-            parcel.writeInt(this.f41801a);
-            parcel.writeInt(this.f41802b);
+            parcel.writeInt(this.f41805a);
+            parcel.writeInt(this.f41806b);
         }
     }
 }

@@ -25,34 +25,34 @@ public class p implements c.a.t0.k0.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30103a;
+    public String f30150a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30104b;
+    public int f30151b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30105c;
+    public String f30152c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f30106d;
+    public JSONObject f30153d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f30107e;
+    public long f30154e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f30108f;
+    public long f30155f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30109g;
+    public int f30156g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30110h;
+    public String f30157h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f30111i;
+    public String f30158i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f30112j;
+    public String f30159j;
     public JSONArray k;
     public JSONArray l;
     public boolean m;
@@ -132,27 +132,27 @@ public class p implements c.a.t0.k0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("id", this.f30103a);
-            jSONObject.put(LaunchedTaskSpeedStats.KEY_START_TIME, Long.toString(this.f30107e));
-            jSONObject.put("endtime", Long.toString(this.f30108f));
+            jSONObject.put("id", this.f30150a);
+            jSONObject.put(LaunchedTaskSpeedStats.KEY_START_TIME, Long.toString(this.f30154e));
+            jSONObject.put("endtime", Long.toString(this.f30155f));
             jSONObject.put("type", "1");
             g n = g.n();
-            jSONObject.put(Constant.IS_REAL, n.F(this.f30103a) ? "1" : "0");
-            int m = n.m(this.f30103a);
+            jSONObject.put(Constant.IS_REAL, n.F(this.f30150a) ? "1" : "0");
+            int m = n.m(this.f30150a);
             if (m != 0) {
                 jSONObject.put("gflow", String.valueOf(m));
             }
-            JSONObject jSONObject2 = this.f30106d;
+            JSONObject jSONObject2 = this.f30153d;
             if (jSONObject2 != null) {
                 jSONObject.put("content", jSONObject2.toString());
-            } else if (!TextUtils.isEmpty(this.f30105c)) {
-                jSONObject.put("content", this.f30105c);
+            } else if (!TextUtils.isEmpty(this.f30152c)) {
+                jSONObject.put("content", this.f30152c);
             }
-            if (!TextUtils.isEmpty(this.f30111i)) {
-                jSONObject.put("abtest", this.f30111i);
+            if (!TextUtils.isEmpty(this.f30158i)) {
+                jSONObject.put("abtest", this.f30158i);
             }
-            if (!TextUtils.isEmpty(this.f30112j)) {
-                jSONObject.put("c", this.f30112j);
+            if (!TextUtils.isEmpty(this.f30159j)) {
+                jSONObject.put("c", this.f30159j);
             }
             JSONArray jSONArray = this.k;
             if (jSONArray != null && jSONArray.length() > 0) {
@@ -161,7 +161,7 @@ public class p implements c.a.t0.k0.a {
             if (this.m) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put(Constant.ID_TYPE, n.v(this.f30103a));
+            jSONObject.put(Constant.ID_TYPE, n.v(this.f30150a));
             JSONArray jSONArray2 = this.l;
             if (jSONArray2 != null && jSONArray2.length() > 0) {
                 jSONObject.put("eventlist", this.l);
@@ -176,25 +176,25 @@ public class p implements c.a.t0.k0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsonWriter) == null) {
             jsonWriter.beginObject();
-            jsonWriter.name("id").value(this.f30103a);
-            jsonWriter.name(LaunchedTaskSpeedStats.KEY_START_TIME).value(Long.toString(this.f30107e));
-            jsonWriter.name("endtime").value(Long.toString(this.f30108f));
+            jsonWriter.name("id").value(this.f30150a);
+            jsonWriter.name(LaunchedTaskSpeedStats.KEY_START_TIME).value(Long.toString(this.f30154e));
+            jsonWriter.name("endtime").value(Long.toString(this.f30155f));
             jsonWriter.name("type").value("1");
-            jsonWriter.name(Constant.IS_REAL).value(g.n().F(this.f30103a) ? "1" : "0");
-            int m = g.n().m(this.f30103a);
+            jsonWriter.name(Constant.IS_REAL).value(g.n().F(this.f30150a) ? "1" : "0");
+            int m = g.n().m(this.f30150a);
             if (m != 0) {
                 jsonWriter.name("gflow").value(m);
             }
-            if (this.f30106d != null) {
-                jsonWriter.name("content").value(this.f30106d.toString());
-            } else if (!TextUtils.isEmpty(this.f30105c)) {
-                jsonWriter.name("content").value(this.f30105c);
+            if (this.f30153d != null) {
+                jsonWriter.name("content").value(this.f30153d.toString());
+            } else if (!TextUtils.isEmpty(this.f30152c)) {
+                jsonWriter.name("content").value(this.f30152c);
             }
-            if (!TextUtils.isEmpty(this.f30111i)) {
-                jsonWriter.name("abtest").value(this.f30111i);
+            if (!TextUtils.isEmpty(this.f30158i)) {
+                jsonWriter.name("abtest").value(this.f30158i);
             }
-            if (!TextUtils.isEmpty(this.f30112j)) {
-                jsonWriter.name("c").value(this.f30112j);
+            if (!TextUtils.isEmpty(this.f30159j)) {
+                jsonWriter.name("c").value(this.f30159j);
             }
             JSONArray jSONArray = this.k;
             if (jSONArray != null && jSONArray.length() > 0) {
@@ -204,7 +204,7 @@ public class p implements c.a.t0.k0.a {
             if (this.m) {
                 jsonWriter.name("of").value("1");
             }
-            jsonWriter.name(Constant.ID_TYPE).value(g.n().v(this.f30103a));
+            jsonWriter.name(Constant.ID_TYPE).value(g.n().v(this.f30150a));
             JSONArray jSONArray2 = this.l;
             if (jSONArray2 != null && jSONArray2.length() > 0) {
                 jsonWriter.name("eventlist");
@@ -245,19 +245,19 @@ public class p implements c.a.t0.k0.a {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30107e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30154e : invokeV.longValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30112j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30159j : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30105c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30152c : (String) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:22:0x0047  */
@@ -274,8 +274,8 @@ public class p implements c.a.t0.k0.a {
             if (i2 > 0) {
                 return i2;
             }
-            int length2 = TextUtils.isEmpty(this.f30103a) ? 0 : 0 + this.f30103a.getBytes().length;
-            JSONObject jSONObject = this.f30106d;
+            int length2 = TextUtils.isEmpty(this.f30150a) ? 0 : 0 + this.f30150a.getBytes().length;
+            JSONObject jSONObject = this.f30153d;
             if (jSONObject != null) {
                 try {
                     length = jSONObject.toString().getBytes("UTF-8").length;
@@ -283,11 +283,11 @@ public class p implements c.a.t0.k0.a {
                     e2.printStackTrace();
                 }
             } else {
-                if (!TextUtils.isEmpty(this.f30105c)) {
-                    length = this.f30105c.getBytes().length;
+                if (!TextUtils.isEmpty(this.f30152c)) {
+                    length = this.f30152c.getBytes().length;
                 }
-                if (!TextUtils.isEmpty(this.f30111i)) {
-                    length2 += this.f30111i.getBytes().length;
+                if (!TextUtils.isEmpty(this.f30158i)) {
+                    length2 += this.f30158i.getBytes().length;
                 }
                 jSONArray = this.k;
                 if (jSONArray != null && jSONArray.length() > 0) {
@@ -297,7 +297,7 @@ public class p implements c.a.t0.k0.a {
                 return length2;
             }
             length2 += length;
-            if (!TextUtils.isEmpty(this.f30111i)) {
+            if (!TextUtils.isEmpty(this.f30158i)) {
             }
             jSONArray = this.k;
             if (jSONArray != null) {
@@ -312,43 +312,43 @@ public class p implements c.a.t0.k0.a {
     public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30108f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30155f : invokeV.longValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30111i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30158i : (String) invokeV.objValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30104b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30151b : invokeV.intValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f30103a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f30150a : (String) invokeV.objValue;
     }
 
     public JSONObject k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f30106d : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f30153d : (JSONObject) invokeV.objValue;
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f30109g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f30156g : invokeV.intValue;
     }
 
     public String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f30110h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f30157h : (String) invokeV.objValue;
     }
 
     public boolean n() {
@@ -360,21 +360,21 @@ public class p implements c.a.t0.k0.a {
     public void o(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.f30107e = j2;
+            this.f30154e = j2;
         }
     }
 
     public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f30112j = str;
+            this.f30159j = str;
         }
     }
 
     public void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f30105c = str;
+            this.f30152c = str;
         }
     }
 
@@ -388,7 +388,7 @@ public class p implements c.a.t0.k0.a {
     public void s(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
-            this.f30108f = j2;
+            this.f30155f = j2;
         }
     }
 
@@ -401,29 +401,29 @@ public class p implements c.a.t0.k0.a {
 
     public void u() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && g.n().a(this.f30103a)) {
-            this.f30111i = UBC.getUBCContext().h();
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && g.n().a(this.f30150a)) {
+            this.f30158i = UBC.getUBCContext().h();
         }
     }
 
     public void v(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.f30111i = str;
+            this.f30158i = str;
         }
     }
 
     public void w(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.f30104b = i2;
+            this.f30151b = i2;
         }
     }
 
     public void x(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            this.f30103a = str;
+            this.f30150a = str;
         }
     }
 
@@ -445,7 +445,7 @@ public class p implements c.a.t0.k0.a {
     public void z(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.f30110h = str;
+            this.f30157h = str;
         }
     }
 
@@ -468,10 +468,10 @@ public class p implements c.a.t0.k0.a {
         this.m = false;
         this.n = 0;
         this.o = 0;
-        this.f30103a = str;
-        this.f30104b = i2;
-        this.f30105c = str2;
-        this.f30109g = i3;
+        this.f30150a = str;
+        this.f30151b = i2;
+        this.f30152c = str2;
+        this.f30156g = i3;
     }
 
     public p(String str, int i2, JSONObject jSONObject, int i3) {
@@ -493,9 +493,9 @@ public class p implements c.a.t0.k0.a {
         this.m = false;
         this.n = 0;
         this.o = 0;
-        this.f30103a = str;
-        this.f30104b = i2;
-        this.f30106d = jSONObject;
-        this.f30109g = i3;
+        this.f30150a = str;
+        this.f30151b = i2;
+        this.f30153d = jSONObject;
+        this.f30156g = i3;
     }
 }

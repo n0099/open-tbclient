@@ -16,7 +16,7 @@ public abstract class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DataSetObservable f13164a;
+    public DataSetObservable f13169a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public abstract class b {
                 return;
             }
         }
-        this.f13164a = new DataSetObservable();
+        this.f13169a = new DataSetObservable();
     }
 
     public abstract int a();
@@ -41,7 +41,7 @@ public abstract class b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f13164a.notifyChanged();
+            this.f13169a.notifyChanged();
         }
     }
 
@@ -49,7 +49,7 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dataSetObserver) == null) {
             try {
-                this.f13164a.registerObserver(dataSetObserver);
+                this.f13169a.registerObserver(dataSetObserver);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -60,7 +60,7 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dataSetObserver) == null) {
             try {
-                this.f13164a.unregisterObserver(dataSetObserver);
+                this.f13169a.unregisterObserver(dataSetObserver);
             } catch (Throwable th) {
                 BdLog.e(th);
             }

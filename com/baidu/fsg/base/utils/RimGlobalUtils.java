@@ -26,7 +26,7 @@ public final class RimGlobalUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39674a;
+    public static String f39678a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public RimGlobalUtils() {
@@ -46,7 +46,7 @@ public final class RimGlobalUtils {
     public static String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f39674a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f39678a : (String) invokeV.objValue;
     }
 
     public static String getZid(Context context) {
@@ -138,7 +138,7 @@ public final class RimGlobalUtils {
     public static void safeShowDialog(BaseActivity baseActivity, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65544, null, baseActivity, i2, str) == null) {
-            f39674a = str;
+            f39678a = str;
             try {
                 baseActivity.getActivity().showDialog(i2);
             } catch (Exception e2) {
@@ -152,7 +152,7 @@ public final class RimGlobalUtils {
     public static void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            f39674a = str;
+            f39678a = str;
         }
     }
 
@@ -169,10 +169,10 @@ public final class RimGlobalUtils {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f39675a;
+                public final /* synthetic */ Context f39679a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f39676b;
+                public final /* synthetic */ View f39680b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -189,15 +189,15 @@ public final class RimGlobalUtils {
                             return;
                         }
                     }
-                    this.f39675a = context;
-                    this.f39676b = view;
+                    this.f39679a = context;
+                    this.f39680b = view;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ((InputMethodManager) this.f39675a.getSystemService("input_method")).showSoftInput(this.f39676b, 0);
+                        ((InputMethodManager) this.f39679a.getSystemService("input_method")).showSoftInput(this.f39680b, 0);
                     }
                 }
             }, 100L);

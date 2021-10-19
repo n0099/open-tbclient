@@ -13,10 +13,10 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f35541a;
+    public static Object f35545a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class f35542b;
+    public static Class f35546b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public final class a {
         }
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f35542b = cls;
-            f35541a = cls.newInstance();
+            f35546b = cls;
+            f35545a = cls.newInstance();
         } catch (Throwable th) {
             c.c(th);
         }
@@ -51,11 +51,11 @@ public final class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (f35541a == null || TextUtils.isEmpty(str)) {
+            if (f35545a == null || TextUtils.isEmpty(str)) {
                 return null;
             }
             try {
-                Object invoke = f35542b.getMethod(str, Context.class).invoke(f35541a, context);
+                Object invoke = f35546b.getMethod(str, Context.class).invoke(f35545a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }
@@ -71,6 +71,6 @@ public final class a {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f35542b == null || f35541a == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f35546b == null || f35545a == null) ? false : true : invokeV.booleanValue;
     }
 }

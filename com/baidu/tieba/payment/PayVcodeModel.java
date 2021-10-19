@@ -20,7 +20,7 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f<?> f54978e;
+    public f<?> f54909e;
 
     public PayVcodeModel(f<?> fVar) {
         Interceptable interceptable = $ic;
@@ -37,11 +37,11 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
                 return;
             }
         }
-        this.f54978e = fVar;
+        this.f54909e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
+    public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -51,7 +51,7 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
+    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -73,7 +73,7 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f54978e.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
+            this.f54909e.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
         }
     }
 }

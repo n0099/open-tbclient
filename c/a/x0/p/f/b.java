@@ -18,22 +18,22 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f31126a;
+    public d f31173a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MediaCodec f31127b;
+    public MediaCodec f31174b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MediaCodec.BufferInfo f31128c;
+    public MediaCodec.BufferInfo f31175c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f31129d;
+    public int f31176d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f31130e;
+    public boolean f31177e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f31131f;
+    public long f31178f;
 
     public b(d dVar) {
         Interceptable interceptable = $ic;
@@ -50,23 +50,23 @@ public class b {
                 return;
             }
         }
-        this.f31131f = 0L;
-        this.f31128c = new MediaCodec.BufferInfo();
+        this.f31178f = 0L;
+        this.f31175c = new MediaCodec.BufferInfo();
         MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE, 1);
         createAudioFormat.setInteger("aac-profile", 2);
         createAudioFormat.setInteger("channel-mask", 16);
         createAudioFormat.setInteger("bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
         createAudioFormat.setInteger("max-input-size", 163840);
         try {
-            this.f31127b = MediaCodec.createEncoderByType("audio/mp4a-latm");
+            this.f31174b = MediaCodec.createEncoderByType("audio/mp4a-latm");
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        this.f31127b.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.f31127b.start();
-        this.f31129d = -1;
-        this.f31130e = false;
-        this.f31126a = dVar;
+        this.f31174b.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
+        this.f31174b.start();
+        this.f31176d = -1;
+        this.f31177e = false;
+        this.f31173a = dVar;
     }
 
     public void a() {
@@ -79,9 +79,9 @@ public class b {
         int dequeueInputBuffer;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
-            ByteBuffer[] inputBuffers = this.f31127b.getInputBuffers();
+            ByteBuffer[] inputBuffers = this.f31174b.getInputBuffers();
             while (true) {
-                dequeueInputBuffer = this.f31127b.dequeueInputBuffer(10000L);
+                dequeueInputBuffer = this.f31174b.dequeueInputBuffer(10000L);
                 if (dequeueInputBuffer >= 0) {
                     break;
                 } else if (dequeueInputBuffer == -1) {
@@ -93,7 +93,7 @@ public class b {
             if (byteBuffer != null) {
                 byteBuffer2.put(byteBuffer);
             }
-            this.f31127b.queueInputBuffer(dequeueInputBuffer, i2, i3, j2, i3 <= 0 ? 4 : 0);
+            this.f31174b.queueInputBuffer(dequeueInputBuffer, i2, i3, j2, i3 <= 0 ? 4 : 0);
         }
     }
 
@@ -103,33 +103,33 @@ public class b {
             return;
         }
         while (true) {
-            ByteBuffer[] outputBuffers = this.f31127b.getOutputBuffers();
+            ByteBuffer[] outputBuffers = this.f31174b.getOutputBuffers();
             while (true) {
-                int dequeueOutputBuffer = this.f31127b.dequeueOutputBuffer(this.f31128c, 10000L);
+                int dequeueOutputBuffer = this.f31174b.dequeueOutputBuffer(this.f31175c, 10000L);
                 if (dequeueOutputBuffer == -1) {
                     return;
                 }
                 if (dequeueOutputBuffer == -3) {
                     break;
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.f31130e) {
+                    if (this.f31177e) {
                         throw new RuntimeException("format changed twice");
                     }
-                    MediaFormat outputFormat = this.f31127b.getOutputFormat();
+                    MediaFormat outputFormat = this.f31174b.getOutputFormat();
                     c.a.x0.t.c.c(AudioEncoderCore.TAG, "encoder output format changed: " + outputFormat);
-                    this.f31129d = this.f31126a.a(outputFormat);
-                    if (!this.f31126a.c()) {
-                        synchronized (this.f31126a) {
-                            while (!this.f31126a.e()) {
+                    this.f31176d = this.f31173a.a(outputFormat);
+                    if (!this.f31173a.c()) {
+                        synchronized (this.f31173a) {
+                            while (!this.f31173a.e()) {
                                 try {
-                                    this.f31126a.wait(100L);
+                                    this.f31173a.wait(100L);
                                 } catch (InterruptedException e2) {
                                     e2.printStackTrace();
                                 }
                             }
                         }
                     }
-                    this.f31130e = true;
+                    this.f31177e = true;
                 } else if (dequeueOutputBuffer < 0) {
                     c.a.x0.t.c.l(AudioEncoderCore.TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
@@ -137,27 +137,27 @@ public class b {
                     if (byteBuffer == null) {
                         throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
                     }
-                    MediaCodec.BufferInfo bufferInfo = this.f31128c;
+                    MediaCodec.BufferInfo bufferInfo = this.f31175c;
                     if ((bufferInfo.flags & 2) != 0) {
                         bufferInfo.size = 0;
                     }
-                    MediaCodec.BufferInfo bufferInfo2 = this.f31128c;
+                    MediaCodec.BufferInfo bufferInfo2 = this.f31175c;
                     if (bufferInfo2.size != 0) {
-                        if (!this.f31130e) {
+                        if (!this.f31177e) {
                             throw new RuntimeException("muxer hasn't started");
                         }
-                        long j2 = this.f31131f;
+                        long j2 = this.f31178f;
                         if (j2 != 0 && j2 > bufferInfo2.presentationTimeUs) {
                             bufferInfo2.presentationTimeUs = j2 + 20000;
                         }
-                        byteBuffer.position(this.f31128c.offset);
-                        MediaCodec.BufferInfo bufferInfo3 = this.f31128c;
+                        byteBuffer.position(this.f31175c.offset);
+                        MediaCodec.BufferInfo bufferInfo3 = this.f31175c;
                         byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
-                        this.f31126a.b(this.f31129d, byteBuffer, this.f31128c);
-                        this.f31131f = this.f31128c.presentationTimeUs;
+                        this.f31173a.b(this.f31176d, byteBuffer, this.f31175c);
+                        this.f31178f = this.f31175c.presentationTimeUs;
                     }
-                    this.f31127b.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    if ((this.f31128c.flags & 4) != 0) {
+                    this.f31174b.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    if ((this.f31175c.flags & 4) != 0) {
                         return;
                     }
                 }
@@ -169,14 +169,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                if (this.f31127b != null) {
-                    this.f31127b.stop();
-                    this.f31127b.release();
-                    this.f31127b = null;
+                if (this.f31174b != null) {
+                    this.f31174b.stop();
+                    this.f31174b.release();
+                    this.f31174b = null;
                 }
-                if (this.f31126a != null) {
-                    this.f31126a.d();
-                    this.f31126a = null;
+                if (this.f31173a != null) {
+                    this.f31173a.d();
+                    this.f31173a = null;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

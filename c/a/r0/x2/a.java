@@ -1,179 +1,178 @@
 package c.a.r0.x2;
 
-import android.content.Intent;
-import android.net.Uri;
-import c.a.e.e.p.l;
-import c.a.r0.b4.g;
+import android.text.TextUtils;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.webkit.WebView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.person.PersonInfoMoreDialog;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TbPatternsCompat;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
+import com.baidu.tieba.quickWebView.message.QuickWebViewHttpReqMsg;
+import com.baidu.tieba.quickWebView.message.QuickWebViewHttpResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static a f28878c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28879a;
+    public final WebView f28324a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PersonInfoMoreDialog f28880b;
+    public BdUniqueId f28325b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public c.a.r0.k3.m0.a f28326c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public HashSet<String> f28327d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public HashMap<String, String> f28328e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public HashMap<String, String> f28329f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f28330g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public HttpMessageListener f28331h;
 
     /* renamed from: c.a.r0.x2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1347a implements g.InterfaceC0772g {
+    public class C1333a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f28881a;
+        public final /* synthetic */ a f28332a;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f28882b;
-
-        public C1347a(a aVar, TbPageContext tbPageContext) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public C1333a(a aVar, int i2) {
+            super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, tbPageContext};
+                Object[] objArr = {aVar, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f28882b = aVar;
-            this.f28881a = tbPageContext;
+            this.f28332a = aVar;
         }
 
-        @Override // c.a.r0.b4.g.InterfaceC0772g
-        public void onClick(int i2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            String str;
+            String str2;
+            boolean z;
+            String str3;
+            String str4;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f28882b.f28880b == null) {
-                return;
-            }
-            this.f28882b.f28880b.dismiss();
-            this.f28882b.f28880b = null;
-            this.f28882b.f28879a = i2;
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_CLICK_STAR).param("obj_type", this.f28882b.f28879a));
-            this.f28882b.o(this.f28881a);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements g.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f28883a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f28884b;
-
-        public b(a aVar, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof QuickWebViewHttpResMsg)) {
+                QuickWebViewHttpResMsg quickWebViewHttpResMsg = (QuickWebViewHttpResMsg) httpResponsedMessage;
+                int i2 = 0;
+                String str5 = null;
+                if (quickWebViewHttpResMsg.getOrginalMessage() instanceof QuickWebViewHttpReqMsg) {
+                    QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = (QuickWebViewHttpReqMsg) quickWebViewHttpResMsg.getOrginalMessage();
+                    z = quickWebViewHttpReqMsg.isFromRequestByNative;
+                    if (StringUtils.isNull(quickWebViewHttpReqMsg.url)) {
+                        str = "";
+                        str2 = null;
+                    } else {
+                        String str6 = quickWebViewHttpReqMsg.url;
+                        long j2 = quickWebViewHttpReqMsg.begin;
+                        str = quickWebViewHttpReqMsg.module;
+                        String str7 = quickWebViewHttpReqMsg.jsCallbackMethod;
+                        if (TextUtils.isEmpty(str7) && !z) {
+                            str7 = (String) this.f28332a.f28328e.remove(str6);
+                            i2 = 1;
+                        }
+                        this.f28332a.f28327d.remove(str6);
+                        str5 = str7;
+                        str2 = str6;
+                    }
+                } else {
+                    str = "";
+                    str2 = null;
+                    z = false;
+                }
+                if (quickWebViewHttpResMsg.isSuccess() && !TextUtils.isEmpty(quickWebViewHttpResMsg.getResult())) {
+                    str4 = quickWebViewHttpResMsg.getResult();
+                    str3 = "200";
+                } else {
+                    str3 = quickWebViewHttpResMsg.getError() + "";
+                    str4 = "\"\"";
+                }
+                String s = b.q().s(str);
+                if (s == null) {
+                    s = "0.0.0.0";
+                }
+                StringBuilder sb = new StringBuilder();
+                sb.append(StringUtil.ARRAY_START);
+                sb.append("\"status\":");
+                sb.append("\"");
+                sb.append(str3);
+                sb.append("\"");
+                sb.append(",");
+                sb.append("\"data\":");
+                sb.append(str4);
+                sb.append(",");
+                sb.append("\"cache_version\":");
+                sb.append("\"");
+                sb.append(s);
+                sb.append("\"");
+                sb.append(",");
+                sb.append("\"cache\":");
+                sb.append("\"");
+                sb.append(i2);
+                sb.append("\"");
+                sb.append("}");
+                if (z) {
+                    LinkedHashMap linkedHashMap = new LinkedHashMap();
+                    linkedHashMap.put("result", sb.toString());
+                    linkedHashMap.put("NotificationKey", str2);
+                    this.f28332a.f28326c.h(this.f28332a.f28324a, "RequestByNativeToH5", linkedHashMap);
+                } else if (StringUtils.isNull(str5)) {
+                    this.f28332a.f28329f.put(str2, sb.toString());
+                } else {
+                    this.f28332a.k(str5, sb.toString());
                 }
             }
-            this.f28884b = aVar;
-            this.f28883a = tbPageContext;
-        }
-
-        @Override // c.a.r0.b4.g.e
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f28884b.f28880b == null) {
-                return;
-            }
-            this.f28884b.f28880b.dismiss();
-            this.f28884b.f28880b = null;
-            if (this.f28884b.f28879a == 1 || this.f28884b.f28879a == 2) {
-                this.f28884b.h(this.f28883a);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_CLICK_FEEDBACK));
-                return;
-            }
-            this.f28884b.i(this.f28883a);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_SCORE));
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements g.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28885a;
-
-        public c(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f28885a = aVar;
-        }
-
-        @Override // c.a.r0.b4.g.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f28885a.f28880b == null) {
-                return;
-            }
-            this.f28885a.f28880b.dismiss();
-            this.f28885a.f28880b = null;
-            if (this.f28885a.f28879a != 1 && this.f28885a.f28879a != 2) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_CANCEL));
-            } else {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_CLICK_CANCEL));
-            }
-        }
-    }
-
-    public a() {
+    public a(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -183,179 +182,123 @@ public class a {
                 return;
             }
         }
-        this.f28879a = 0;
+        this.f28327d = new HashSet<>();
+        this.f28328e = new HashMap<>();
+        this.f28329f = new HashMap<>();
+        this.f28331h = new C1333a(this, CmdConfigHttp.CMD_WEB_HTTP_PROXY);
+        this.f28324a = webView;
+        this.f28330g = webView.getSettings().getUserAgentString();
+        BdUniqueId gen = BdUniqueId.gen();
+        this.f28325b = gen;
+        this.f28331h.setTag(gen);
+        this.f28331h.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f28331h);
     }
 
-    public static a g() {
-        InterceptResult invokeV;
+    public final void g(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f28878c == null) {
-                synchronized (a.class) {
-                    if (f28878c == null) {
-                        f28878c = new a();
+        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, quickWebViewBridgeData, str, z) == null) || quickWebViewBridgeData == null || StringUtils.isNull(quickWebViewBridgeData.url) || StringUtils.isNull(quickWebViewBridgeData.type)) {
+            return;
+        }
+        String remove = this.f28329f.remove(quickWebViewBridgeData.url);
+        if (!StringUtils.isNull(remove) && str != null) {
+            k(str, remove);
+        } else if (!StringUtils.isNull(remove) && z) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("result", remove);
+            linkedHashMap.put("NotificationKey", quickWebViewBridgeData.url);
+            this.f28326c.h(this.f28324a, "RequestByNativeToH5", linkedHashMap);
+        } else if (this.f28327d.contains(quickWebViewBridgeData.url) && !z) {
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            this.f28328e.put(quickWebViewBridgeData.url, str);
+        } else {
+            QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = new QuickWebViewHttpReqMsg();
+            quickWebViewHttpReqMsg.url = quickWebViewBridgeData.url;
+            quickWebViewHttpReqMsg.module = quickWebViewBridgeData.module;
+            quickWebViewHttpReqMsg.begin = quickWebViewBridgeData.begin;
+            quickWebViewHttpReqMsg.jsCallbackMethod = str;
+            quickWebViewHttpReqMsg.setTag(this.f28325b);
+            quickWebViewHttpReqMsg.isFromRequestByNative = z;
+            CookieSyncManager.createInstance(this.f28324a.getContext());
+            String cookie = CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME);
+            if (!TextUtils.isEmpty(cookie)) {
+                HashMap<String, String> headers = quickWebViewHttpReqMsg.getHeaders();
+                if (headers != null) {
+                    String str2 = headers.get("Cookie");
+                    if (!TextUtils.isEmpty(str2)) {
+                        cookie = str2.endsWith(";") ? str2 + cookie : str2 + ";" + cookie;
                     }
+                    quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
+                } else {
+                    quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
                 }
             }
-            return f28878c;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public final void h(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) || tbPageContext == null) {
-            return;
-        }
-        UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, new String[]{TbConfig.URL_FEED_BACK}, true);
-    }
-
-    public final void i(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            try {
-                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + TbadkCoreApplication.getInst().getPackageName()));
-                intent.addFlags(268435456);
-                tbPageContext.getContext().startActivity(intent);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            quickWebViewHttpReqMsg.setUserAgent(this.f28330g);
+            quickWebViewHttpReqMsg.addCookie("cache_version", b.q().s(quickWebViewBridgeData.module));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, quickWebViewBridgeData.url);
+            tbHttpMessageTask.setResponsedClass(QuickWebViewHttpResMsg.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setPriority(4);
+            if (quickWebViewBridgeData.type.toLowerCase().equals("post")) {
+                Map<String, String> map = quickWebViewBridgeData.data;
+                if (map != null && !map.isEmpty()) {
+                    for (Map.Entry<String, String> entry : quickWebViewBridgeData.data.entrySet()) {
+                        quickWebViewHttpReqMsg.addParam(entry.getKey(), entry.getValue());
+                    }
+                }
+                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+            } else {
+                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             }
+            MessageManager.getInstance().sendMessage(quickWebViewHttpReqMsg, tbHttpMessageTask);
+            this.f28327d.add(quickWebViewBridgeData.url);
         }
     }
 
-    public void j() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String version = TbConfig.getVersion();
-            if (version.equals(c.a.q0.s.d0.b.j().p("key_rate_version", ""))) {
-                return;
-            }
-            c.a.q0.s.d0.b.j().x("key_rate_version", version);
-            c.a.q0.s.d0.b.j().w("key_rate_version_time", new Date().getTime());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.f28325b);
+            MessageManager.getInstance().removeMessage(this.f28325b);
+            this.f28327d.clear();
+            this.f28327d = null;
+            this.f28328e.clear();
+            this.f28328e = null;
+            this.f28329f.clear();
+            this.f28329f = null;
         }
     }
 
-    public final void k(TbPageContext tbPageContext) {
+    public void i(QuickWebViewBridgeData quickWebViewBridgeData, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) || tbPageContext == null || TbConfig.getVersionType() == 2) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, quickWebViewBridgeData, str) == null) {
+            g(quickWebViewBridgeData, str, false);
         }
-        if (Long.valueOf(new Date().getTime()).longValue() - c.a.q0.s.d0.b.j().l("key_rate_version_time", 0L) < 86400000) {
-            return;
-        }
-        String version = TbConfig.getVersion();
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        c.a.q0.s.d0.b j2 = c.a.q0.s.d0.b.j();
-        if (j2.g("key_rate_same_version_is_score" + version + currentAccount, false)) {
-            return;
-        }
-        c.a.q0.s.d0.b j3 = c.a.q0.s.d0.b.j();
-        j3.t("key_rate_same_version_is_score" + version + currentAccount, true);
-        n(tbPageContext);
     }
 
-    public void l(TbPageContext tbPageContext) {
+    public void j(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) || tbPageContext == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLZ(1048579, this, quickWebViewBridgeData, str, z) == null) {
+            g(quickWebViewBridgeData, str, z);
         }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        c.a.q0.s.d0.b j2 = c.a.q0.s.d0.b.j();
-        int k = j2.k("key_rate_like_count" + currentAccount, 0) + 1;
-        if (k < 3) {
-            if (k == 1) {
-                Long valueOf = Long.valueOf(new Date().getTime());
-                c.a.q0.s.d0.b j3 = c.a.q0.s.d0.b.j();
-                j3.w("key_rate_first_like_time" + currentAccount, valueOf.longValue());
-                c.a.q0.s.d0.b j4 = c.a.q0.s.d0.b.j();
-                j4.v("key_rate_like_count" + currentAccount, k);
-                return;
-            }
-            c.a.q0.s.d0.b j5 = c.a.q0.s.d0.b.j();
-            j5.v("key_rate_like_count" + currentAccount, k);
-            return;
-        }
-        c.a.q0.s.d0.b j6 = c.a.q0.s.d0.b.j();
-        if (Long.valueOf(new Date().getTime()).longValue() - j6.l("key_rate_first_like_time" + currentAccount, 0L) < 86400000) {
-            c.a.q0.s.d0.b j7 = c.a.q0.s.d0.b.j();
-            j7.v("key_rate_like_count" + currentAccount, 0);
-            k(tbPageContext);
-            return;
-        }
-        c.a.q0.s.d0.b j8 = c.a.q0.s.d0.b.j();
-        j8.v("key_rate_like_count" + currentAccount, 0);
     }
 
-    public void m(TbPageContext tbPageContext) {
+    public final void k(String str, String str2) {
+        WebView webView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) || tbPageContext == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) || (webView = this.f28324a) == null) {
             return;
         }
-        k(tbPageContext);
+        webView.loadUrl("javascript:window." + str + "('" + str2 + "')");
     }
 
-    public void n(TbPageContext tbPageContext) {
+    public void l(c.a.r0.k3.m0.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) || tbPageContext == null) {
-            return;
-        }
-        g gVar = new g(tbPageContext.getContext());
-        gVar.y(tbPageContext.getContext().getString(R.string.is_tieba_pleased));
-        gVar.o(8);
-        gVar.s(0);
-        int g2 = l.g(tbPageContext.getContext(), R.dimen.ds86);
-        int g3 = l.g(tbPageContext.getContext(), R.dimen.ds138);
-        int g4 = l.g(tbPageContext.getContext(), R.dimen.ds27);
-        gVar.x(R.dimen.ds28);
-        gVar.w(0, g2, 0, g4);
-        gVar.q(0, 0, 0, g3);
-        gVar.p(true);
-        gVar.v(new C1347a(this, tbPageContext));
-        PersonInfoMoreDialog personInfoMoreDialog = new PersonInfoMoreDialog(tbPageContext.getContext(), gVar.j());
-        this.f28880b = personInfoMoreDialog;
-        personInfoMoreDialog.setWindowDimAmount(0.7f);
-        c.a.e.e.m.g.j(this.f28880b, tbPageContext);
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_DIALOG_SHOW));
-    }
-
-    public void o(TbPageContext tbPageContext) {
-        g.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) || tbPageContext == null) {
-            return;
-        }
-        g gVar = new g(tbPageContext.getContext());
-        int i2 = this.f28879a;
-        if (i2 != 1 && i2 != 2) {
-            gVar.y(tbPageContext.getContext().getString(R.string.go_shop_give_me_comment));
-            cVar = new g.c(tbPageContext.getContext().getString(R.string.go_score), gVar);
-        } else {
-            gVar.y(tbPageContext.getContext().getString(R.string.help_my_improving_experience));
-            cVar = new g.c(tbPageContext.getContext().getString(R.string.go_feedback), gVar);
-        }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(cVar);
-        gVar.r(this.f28879a);
-        gVar.s(0);
-        gVar.o(0);
-        gVar.p(false);
-        l.g(tbPageContext.getContext(), R.dimen.ds42);
-        int g2 = l.g(tbPageContext.getContext(), R.dimen.ds32);
-        l.g(tbPageContext.getContext(), R.dimen.ds51);
-        gVar.w(0, l.g(tbPageContext.getContext(), R.dimen.ds21), 0, 0);
-        gVar.q(0, g2, 0, g2);
-        cVar.h(new b(this, tbPageContext));
-        gVar.u(new c(this));
-        gVar.t(arrayList);
-        PersonInfoMoreDialog personInfoMoreDialog = new PersonInfoMoreDialog(tbPageContext.getContext(), gVar.j());
-        this.f28880b = personInfoMoreDialog;
-        personInfoMoreDialog.setWindowDimAmount(0.7f);
-        c.a.e.e.m.g.j(this.f28880b, tbPageContext);
-        int i3 = this.f28879a;
-        if (i3 != 1 && i3 != 2) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_DIALOG_SHOW));
-        } else {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_DIALOG_SHOW));
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.f28326c = aVar;
         }
     }
 }

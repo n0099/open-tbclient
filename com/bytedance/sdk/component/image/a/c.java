@@ -14,7 +14,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final TimeUnit f65417a;
+    public static final TimeUnit f65452a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,14 +30,14 @@ public class c {
                 return;
             }
         }
-        f65417a = TimeUnit.SECONDS;
+        f65452a = TimeUnit.SECONDS;
     }
 
     public static ExecutorService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 2, 30L, f65417a, new LinkedBlockingQueue(), new a("default"));
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 2, 30L, f65452a, new LinkedBlockingQueue(), new a("default"));
             threadPoolExecutor.allowCoreThreadTimeOut(true);
             return threadPoolExecutor;
         }

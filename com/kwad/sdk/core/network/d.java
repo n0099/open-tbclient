@@ -58,7 +58,7 @@ public abstract class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String a2 = a();
-            if (!com.kwad.sdk.b.f71486b.booleanValue() || a2 == null || a2.contains(com.kwad.sdk.d.c())) {
+            if (!com.kwad.sdk.b.f71521b.booleanValue() || a2 == null || a2.contains(com.kwad.sdk.d.c())) {
                 return;
             }
             DevelopMangerPlugin.DevelopValue a3 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_AD_UNIVERSE");
@@ -85,7 +85,7 @@ public abstract class d extends b {
             a("SDKVersionCode", 3031100);
             b("sdkApiVersion", KsAdSDKImpl.get().getApiVersion());
             a("sdkApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-            a("sdkType", com.kwad.sdk.d.f73042a);
+            a("sdkType", com.kwad.sdk.d.f73077a);
             a(DI.APP_INFO_NAME, com.kwad.sdk.core.g.a.b.a());
             a("networkInfo", com.kwad.sdk.core.g.a.i.a());
             a("geoInfo", com.kwad.sdk.core.g.a.e.a());

@@ -117,16 +117,16 @@ public class u extends c implements q, p<d2> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3873e.n == null || this.f3873e.p == null || this.f3873e.o == null || this.f3873e.p.C2() || !this.f3873e.r) {
                 return;
             }
-            if (this.f3873e.p.j2() || !c.a.r0.w0.b.f().i()) {
-                if (this.f3873e.p.k2() || !c.a.r0.w0.a.h().j()) {
-                    c.a.r0.w0.b.f().l(this.f3873e.p);
+            if (this.f3873e.p.j2() || !c.a.r0.x0.b.f().i()) {
+                if (this.f3873e.p.k2() || !c.a.r0.x0.a.h().j()) {
+                    c.a.r0.x0.b.f().l(this.f3873e.p);
                     this.f3873e.p.f4(false);
-                    c.a.r0.w0.a.h().l(this.f3873e.p);
+                    c.a.r0.x0.a.h().l(this.f3873e.p);
                     this.f3873e.p.g4(false);
-                } else if (c.a.r0.w0.a.h().a(this.f3873e.p)) {
+                } else if (c.a.r0.x0.a.h().a(this.f3873e.p)) {
                     this.f3873e.p.g4(true);
                 }
-            } else if (c.a.r0.w0.b.f().a(this.f3873e.p)) {
+            } else if (c.a.r0.x0.b.f().a(this.f3873e.p)) {
                 this.f3873e.p.f4(true);
             }
             this.f3873e.q();
@@ -196,7 +196,7 @@ public class u extends c implements q, p<d2> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) {
             this.p = d2Var;
             this.r = d2Var.getType() != d2.Q3 && (d2Var == null || d2Var.J() == null || !d2Var.J().isForumBusinessAccount() || d2Var.isSelf()) && d2Var != null && (!d2Var.z2() || d2Var.isSelf());
-            if (!c.a.r0.w0.b.f().i() && !c.a.r0.w0.a.h().j()) {
+            if (!c.a.r0.x0.b.f().i() && !c.a.r0.x0.a.h().j()) {
                 this.f3795h.o(new a.C0095a(4, Boolean.TRUE));
                 this.k.setVisibility(8);
                 return;
@@ -217,14 +217,14 @@ public class u extends c implements q, p<d2> {
                 WebPManager.setPureDrawable(this.n, R.drawable.icon_pure_frs_chosen_22, R.color.CAM_X0304, null);
             }
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.l);
-            d2.o(R.string.J_X06);
-            d2.n(this.q ? 2 : 1);
+            d2.n(R.string.J_X06);
+            d2.m(this.q ? 2 : 1);
             d2.f(R.color.CAM_X0201);
             c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(this.m);
-            d3.o(R.string.J_X06);
-            d3.n(2);
+            d3.n(R.string.J_X06);
+            d3.m(2);
             d3.f(R.color.CAM_X0201);
-            c.a.q0.s.u.c.d(this.o).B(R.string.F_X01);
+            c.a.q0.s.u.c.d(this.o).A(R.string.F_X01);
             SkinManager.setViewTextColor(this.o, (this.p.j2() || this.p.k2()) ? R.color.CAM_X0302 : R.drawable.selector_comment_and_prise_item_text_color);
         }
     }

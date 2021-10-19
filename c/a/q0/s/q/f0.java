@@ -13,7 +13,7 @@ public class f0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<a> f14176a;
+    public ArrayList<a> f14199a;
 
     /* loaded from: classes3.dex */
     public class a {
@@ -64,9 +64,9 @@ public class f0 {
             return;
         }
         String str = forumPresentInfo.content;
-        this.f14176a = new ArrayList<>();
+        this.f14199a = new ArrayList<>();
         for (int i2 = 0; i2 < forumPresentInfo.user_list.size(); i2++) {
-            this.f14176a.add(new a(this, forumPresentInfo.user_list.get(i2)));
+            this.f14199a.add(new a(this, forumPresentInfo.user_list.get(i2)));
         }
     }
 }

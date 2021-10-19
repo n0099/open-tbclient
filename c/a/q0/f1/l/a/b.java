@@ -15,7 +15,7 @@ public class b implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HashSet<LoadingLayout> f13240e;
+    public final HashSet<LoadingLayout> f13245e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class b implements a {
                 return;
             }
         }
-        this.f13240e = new HashSet<>();
+        this.f13245e = new HashSet<>();
     }
 
     public void a(LoadingLayout loadingLayout) {
@@ -38,14 +38,14 @@ public class b implements a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, loadingLayout) == null) || loadingLayout == null) {
             return;
         }
-        this.f13240e.add(loadingLayout);
+        this.f13245e.add(loadingLayout);
     }
 
     @Override // c.a.q0.f1.l.a.a
     public void setLastUpdatedLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.f13240e.iterator();
+            Iterator<LoadingLayout> it = this.f13245e.iterator();
             while (it.hasNext()) {
                 it.next().setLastUpdatedLabel(charSequence);
             }
@@ -56,7 +56,7 @@ public class b implements a {
     public void setLoadingDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
-            Iterator<LoadingLayout> it = this.f13240e.iterator();
+            Iterator<LoadingLayout> it = this.f13245e.iterator();
             while (it.hasNext()) {
                 it.next().setLoadingDrawable(drawable);
             }
@@ -67,7 +67,7 @@ public class b implements a {
     public void setPullLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.f13240e.iterator();
+            Iterator<LoadingLayout> it = this.f13245e.iterator();
             while (it.hasNext()) {
                 it.next().setPullLabel(charSequence);
             }
@@ -78,7 +78,7 @@ public class b implements a {
     public void setRefreshingLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.f13240e.iterator();
+            Iterator<LoadingLayout> it = this.f13245e.iterator();
             while (it.hasNext()) {
                 it.next().setRefreshingLabel(charSequence);
             }
@@ -89,7 +89,7 @@ public class b implements a {
     public void setReleaseLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
-            Iterator<LoadingLayout> it = this.f13240e.iterator();
+            Iterator<LoadingLayout> it = this.f13245e.iterator();
             while (it.hasNext()) {
                 it.next().setReleaseLabel(charSequence);
             }

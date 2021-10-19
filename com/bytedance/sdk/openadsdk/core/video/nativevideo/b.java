@@ -16,25 +16,25 @@ public interface b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f67459a;
+        public static final a f67494a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f67460b;
+        public static final a f67495b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f67461c;
+        public static final a f67496c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f67462d;
+        public static final a f67497d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f67463e;
+        public static final a f67498e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f67464f;
+        public static final a f67499f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final /* synthetic */ a[] f67465g;
+        public static final /* synthetic */ a[] f67500g;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,14 +50,14 @@ public interface b {
                     return;
                 }
             }
-            f67459a = new a("hideCloseBtn", 0);
-            f67460b = new a("alwayShowBackBtn", 1);
-            f67461c = new a("alwayShowMediaView", 2);
-            f67462d = new a("fixedSize", 3);
-            f67463e = new a("hideBackBtn", 4);
+            f67494a = new a("hideCloseBtn", 0);
+            f67495b = new a("alwayShowBackBtn", 1);
+            f67496c = new a("alwayShowMediaView", 2);
+            f67497d = new a("fixedSize", 3);
+            f67498e = new a("hideBackBtn", 4);
             a aVar = new a("hideTopMoreBtn", 5);
-            f67464f = aVar;
-            f67465g = new a[]{f67459a, f67460b, f67461c, f67462d, f67463e, aVar};
+            f67499f = aVar;
+            f67500g = new a[]{f67494a, f67495b, f67496c, f67497d, f67498e, aVar};
         }
 
         public a(String str, int i2) {
@@ -88,7 +88,7 @@ public interface b {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f67465g.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f67500g.clone() : (a[]) invokeV.objValue;
         }
     }
 }

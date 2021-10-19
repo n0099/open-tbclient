@@ -16,34 +16,34 @@ public class InfoWindow {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BitmapDescriptor f41512a;
+    public BitmapDescriptor f41516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f41513b;
+    public View f41517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f41514c;
+    public LatLng f41518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public OnInfoWindowClickListener f41515d;
+    public OnInfoWindowClickListener f41519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f41516e;
+    public a f41520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41517f;
+    public int f41521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f41518g;
+    public boolean f41522g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41519h;
+    public int f41523h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f41520i;
+    public boolean f41524i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f41521j;
+    public boolean f41525j;
     public boolean k;
     public String l;
 
@@ -75,18 +75,18 @@ public class InfoWindow {
             }
         }
         this.l = "";
-        this.f41518g = false;
-        this.f41519h = SysOSUtil.getDensityDpi();
-        this.f41520i = false;
-        this.f41521j = false;
+        this.f41522g = false;
+        this.f41523h = SysOSUtil.getDensityDpi();
+        this.f41524i = false;
+        this.f41525j = false;
         this.k = false;
         if (view == null || latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: view and position can not be null");
         }
-        this.f41513b = view;
-        this.f41514c = latLng;
-        this.f41517f = i2;
-        this.f41521j = true;
+        this.f41517b = view;
+        this.f41518c = latLng;
+        this.f41521f = i2;
+        this.f41525j = true;
     }
 
     public InfoWindow(View view, LatLng latLng, int i2, boolean z, int i3) {
@@ -105,20 +105,20 @@ public class InfoWindow {
             }
         }
         this.l = "";
-        this.f41518g = false;
-        this.f41519h = SysOSUtil.getDensityDpi();
-        this.f41520i = false;
-        this.f41521j = false;
+        this.f41522g = false;
+        this.f41523h = SysOSUtil.getDensityDpi();
+        this.f41524i = false;
+        this.f41525j = false;
         this.k = false;
         if (view == null || latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: view and position can not be null");
         }
-        this.f41513b = view;
-        this.f41514c = latLng;
-        this.f41517f = i2;
-        this.f41518g = z;
-        this.f41519h = i3;
-        this.f41521j = true;
+        this.f41517b = view;
+        this.f41518c = latLng;
+        this.f41521f = i2;
+        this.f41522g = z;
+        this.f41523h = i3;
+        this.f41525j = true;
     }
 
     public InfoWindow(BitmapDescriptor bitmapDescriptor, LatLng latLng, int i2, OnInfoWindowClickListener onInfoWindowClickListener) {
@@ -137,31 +137,31 @@ public class InfoWindow {
             }
         }
         this.l = "";
-        this.f41518g = false;
-        this.f41519h = SysOSUtil.getDensityDpi();
-        this.f41520i = false;
-        this.f41521j = false;
+        this.f41522g = false;
+        this.f41523h = SysOSUtil.getDensityDpi();
+        this.f41524i = false;
+        this.f41525j = false;
         this.k = false;
         if (bitmapDescriptor == null || latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: bitmapDescriptor and position can not be null");
         }
-        this.f41512a = bitmapDescriptor;
-        this.f41514c = latLng;
-        this.f41515d = onInfoWindowClickListener;
-        this.f41517f = i2;
+        this.f41516a = bitmapDescriptor;
+        this.f41518c = latLng;
+        this.f41519d = onInfoWindowClickListener;
+        this.f41521f = i2;
         this.k = true;
     }
 
     public BitmapDescriptor getBitmapDescriptor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41512a : (BitmapDescriptor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41516a : (BitmapDescriptor) invokeV.objValue;
     }
 
     public LatLng getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41514c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41518c : (LatLng) invokeV.objValue;
     }
 
     public String getTag() {
@@ -173,13 +173,13 @@ public class InfoWindow {
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41513b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41517b : (View) invokeV.objValue;
     }
 
     public int getYOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41517f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41521f : invokeV.intValue;
     }
 
     public void setBitmapDescriptor(BitmapDescriptor bitmapDescriptor) {
@@ -187,8 +187,8 @@ public class InfoWindow {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, bitmapDescriptor) == null) || bitmapDescriptor == null) {
             return;
         }
-        this.f41512a = bitmapDescriptor;
-        this.f41516e.b(this);
+        this.f41516a = bitmapDescriptor;
+        this.f41520e.b(this);
     }
 
     public void setPosition(LatLng latLng) {
@@ -196,8 +196,8 @@ public class InfoWindow {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, latLng) == null) || latLng == null) {
             return;
         }
-        this.f41514c = latLng;
-        this.f41516e.b(this);
+        this.f41518c = latLng;
+        this.f41520e.b(this);
     }
 
     public void setTag(String str) {
@@ -212,15 +212,15 @@ public class InfoWindow {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || view == null) {
             return;
         }
-        this.f41513b = view;
-        this.f41516e.b(this);
+        this.f41517b = view;
+        this.f41520e.b(this);
     }
 
     public void setYOffset(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f41517f = i2;
-            this.f41516e.b(this);
+            this.f41521f = i2;
+            this.f41520e.b(this);
         }
     }
 }

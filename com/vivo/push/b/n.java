@@ -13,7 +13,7 @@ public final class n extends u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f76839a;
+    public int f76874a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n() {
@@ -38,7 +38,7 @@ public final class n extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("key_dispatch_environment", this.f76839a);
+            aVar.a("key_dispatch_environment", this.f76874a);
         }
     }
 
@@ -47,13 +47,13 @@ public final class n extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
-            this.f76839a = aVar.b("key_dispatch_environment", 0);
+            this.f76874a = aVar.b("key_dispatch_environment", 0);
         }
     }
 
     public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76839a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76874a : invokeV.intValue;
     }
 }

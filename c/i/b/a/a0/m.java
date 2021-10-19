@@ -18,16 +18,16 @@ public interface m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f32493a;
+        public final int f32497a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f32494b;
+        public final byte[] f32498b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f32495c;
+        public final int f32499c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f32496d;
+        public final int f32500d;
 
         public a(int i2, byte[] bArr, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public interface m {
                     return;
                 }
             }
-            this.f32493a = i2;
-            this.f32494b = bArr;
-            this.f32495c = i3;
-            this.f32496d = i4;
+            this.f32497a = i2;
+            this.f32498b = bArr;
+            this.f32499c = i3;
+            this.f32500d = i4;
         }
 
         public boolean equals(Object obj) {
@@ -61,7 +61,7 @@ public interface m {
                     return false;
                 }
                 a aVar = (a) obj;
-                return this.f32493a == aVar.f32493a && this.f32495c == aVar.f32495c && this.f32496d == aVar.f32496d && Arrays.equals(this.f32494b, aVar.f32494b);
+                return this.f32497a == aVar.f32497a && this.f32499c == aVar.f32499c && this.f32500d == aVar.f32500d && Arrays.equals(this.f32498b, aVar.f32498b);
             }
             return invokeL.booleanValue;
         }
@@ -69,7 +69,7 @@ public interface m {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((((this.f32493a * 31) + Arrays.hashCode(this.f32494b)) * 31) + this.f32495c) * 31) + this.f32496d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((((this.f32497a * 31) + Arrays.hashCode(this.f32498b)) * 31) + this.f32499c) * 31) + this.f32500d : invokeV.intValue;
         }
     }
 

@@ -39,6 +39,7 @@ import com.baidu.rtc.logreport.SLIReportInterface;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
+import com.baidu.searchbox.live.interfaces.player.VideoInfoConstants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -3779,7 +3780,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
                     i5 = 180;
                     i4 = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
                 } else if (lowerCase.contains("352x288")) {
-                    i4 = 352;
+                    i4 = VideoInfoConstants.VIDEO_MPD_VID;
                     i5 = 288;
                 } else if (lowerCase.contains("480x320")) {
                     i4 = 480;

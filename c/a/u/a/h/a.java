@@ -11,11 +11,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f30278b;
+    public static volatile a f30325b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f30279a;
+    public boolean f30326a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class a {
                 return;
             }
         }
-        this.f30279a = true;
+        this.f30326a = true;
     }
 
     public static synchronized a a() {
@@ -39,12 +39,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (a.class) {
-                if (f30278b == null) {
+                if (f30325b == null) {
                     synchronized (a.class) {
-                        f30278b = new a();
+                        f30325b = new a();
                     }
                 }
-                aVar = f30278b;
+                aVar = f30325b;
             }
             return aVar;
         }
@@ -54,13 +54,13 @@ public class a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30279a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30326a : invokeV.booleanValue;
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f30279a = z;
+            this.f30326a = z;
         }
     }
 }

@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.r0.j2.h.s;
+import c.a.r0.k2.h.s;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -33,22 +33,22 @@ public class CommentFloatSusPendedView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f55405e;
+    public LinearLayout f55339e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TranView f55406f;
+    public TranView f55340f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f55407g;
+    public ViewGroup f55341g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.q0.x0.a f55408h;
+    public c.a.q0.x0.a f55342h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f55409i;
+    public float f55343i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f55410j;
+    public float f55344j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -66,7 +66,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommentFloatSusPendedView f55411e;
+        public final /* synthetic */ CommentFloatSusPendedView f55345e;
 
         public a(CommentFloatSusPendedView commentFloatSusPendedView) {
             Interceptable interceptable = $ic;
@@ -83,27 +83,27 @@ public class CommentFloatSusPendedView extends LinearLayout {
                     return;
                 }
             }
-            this.f55411e = commentFloatSusPendedView;
+            this.f55345e = commentFloatSusPendedView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f55411e.o = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                CommentFloatSusPendedView commentFloatSusPendedView = this.f55411e;
-                commentFloatSusPendedView.m((commentFloatSusPendedView.o * 1.0f) / l.i(this.f55411e.getContext()));
-                CommentFloatSusPendedView commentFloatSusPendedView2 = this.f55411e;
-                commentFloatSusPendedView2.q = 1.0f - (commentFloatSusPendedView2.o / l.i(this.f55411e.getContext()));
-                if (this.f55411e.o == 0) {
-                    this.f55411e.q = 1.0f;
-                } else if (this.f55411e.o == l.i(this.f55411e.getContext())) {
-                    this.f55411e.q = 0.0f;
-                    if (this.f55411e.l && (this.f55411e.getContext() instanceof Activity)) {
-                        ((Activity) this.f55411e.getContext()).finish();
+                this.f55345e.o = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                CommentFloatSusPendedView commentFloatSusPendedView = this.f55345e;
+                commentFloatSusPendedView.m((commentFloatSusPendedView.o * 1.0f) / l.i(this.f55345e.getContext()));
+                CommentFloatSusPendedView commentFloatSusPendedView2 = this.f55345e;
+                commentFloatSusPendedView2.q = 1.0f - (commentFloatSusPendedView2.o / l.i(this.f55345e.getContext()));
+                if (this.f55345e.o == 0) {
+                    this.f55345e.q = 1.0f;
+                } else if (this.f55345e.o == l.i(this.f55345e.getContext())) {
+                    this.f55345e.q = 0.0f;
+                    if (this.f55345e.l && (this.f55345e.getContext() instanceof Activity)) {
+                        ((Activity) this.f55345e.getContext()).finish();
                     }
                 }
-                this.f55411e.requestLayout();
+                this.f55345e.requestLayout();
             }
         }
     }
@@ -114,7 +114,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommentFloatSusPendedView f55412a;
+        public final /* synthetic */ CommentFloatSusPendedView f55346a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(CommentFloatSusPendedView commentFloatSusPendedView, int i2) {
@@ -134,7 +134,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
                     return;
                 }
             }
-            this.f55412a = commentFloatSusPendedView;
+            this.f55346a = commentFloatSusPendedView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -145,25 +145,25 @@ public class CommentFloatSusPendedView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof s) || (sVar = (s) customResponsedMessage.getData()) == null) {
                 return;
             }
-            this.f55412a.q = sVar.f19691d;
-            this.f55412a.f55409i = sVar.f19689b;
-            this.f55412a.f55410j = sVar.f19688a;
-            this.f55412a.o = sVar.f19690c;
-            this.f55412a.l = sVar.f19692e;
-            CommentFloatSusPendedView commentFloatSusPendedView = this.f55412a;
-            commentFloatSusPendedView.m((commentFloatSusPendedView.f55410j - this.f55412a.f55409i) / l.i(this.f55412a.getContext()));
-            boolean z = this.f55412a.f55410j > this.f55412a.f55409i;
-            if (this.f55412a.l) {
-                this.f55412a.n.setIntValues((int) (this.f55412a.f55410j - this.f55412a.f55409i), l.i(this.f55412a.getContext()));
-                this.f55412a.n.setDuration(0L);
-                this.f55412a.n.start();
+            this.f55346a.q = sVar.f19868d;
+            this.f55346a.f55343i = sVar.f19866b;
+            this.f55346a.f55344j = sVar.f19865a;
+            this.f55346a.o = sVar.f19867c;
+            this.f55346a.l = sVar.f19869e;
+            CommentFloatSusPendedView commentFloatSusPendedView = this.f55346a;
+            commentFloatSusPendedView.m((commentFloatSusPendedView.f55344j - this.f55346a.f55343i) / l.i(this.f55346a.getContext()));
+            boolean z = this.f55346a.f55344j > this.f55346a.f55343i;
+            if (this.f55346a.l) {
+                this.f55346a.n.setIntValues((int) (this.f55346a.f55344j - this.f55346a.f55343i), l.i(this.f55346a.getContext()));
+                this.f55346a.n.setDuration(0L);
+                this.f55346a.n.start();
             }
-            if (this.f55412a.f55410j > this.f55412a.f55409i) {
-                this.f55412a.k = true;
+            if (this.f55346a.f55344j > this.f55346a.f55343i) {
+                this.f55346a.k = true;
             } else {
-                this.f55412a.k = z;
+                this.f55346a.k = z;
             }
-            this.f55412a.requestLayout();
+            this.f55346a.requestLayout();
         }
     }
 
@@ -200,7 +200,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (this.f55406f != null && this.r) {
+            if (this.f55340f != null && this.r) {
                 if (this.n.isRunning()) {
                     this.n.end();
                     return true;
@@ -211,32 +211,32 @@ public class CommentFloatSusPendedView extends LinearLayout {
                     if (action != 0) {
                         if (action != 1) {
                             if (action == 2) {
-                                this.f55410j = motionEvent.getRawY();
-                                if (this.f55409i == 0.0f && isOnViewTop()) {
-                                    this.f55409i = motionEvent.getRawY();
+                                this.f55344j = motionEvent.getRawY();
+                                if (this.f55343i == 0.0f && isOnViewTop()) {
+                                    this.f55343i = motionEvent.getRawY();
                                 }
                                 if (isOnViewTop() && !this.l) {
-                                    m((this.f55410j - this.f55409i) / l.i(getContext()));
+                                    m((this.f55344j - this.f55343i) / l.i(getContext()));
                                 }
-                                this.q = 1.0f - ((this.f55410j - this.f55409i) / l.i(getContext()));
+                                this.q = 1.0f - ((this.f55344j - this.f55343i) / l.i(getContext()));
                             }
                         }
                         this.k = false;
-                        z = this.f55410j > this.f55409i && isOnViewTop();
-                        boolean z2 = this.f55410j - this.f55409i > ((float) this.p) && isOnViewTop();
+                        z = this.f55344j > this.f55343i && isOnViewTop();
+                        boolean z2 = this.f55344j - this.f55343i > ((float) this.p) && isOnViewTop();
                         this.l = z2;
                         if (z2) {
-                            this.n.setIntValues((int) (this.f55410j - this.f55409i), l.i(getContext()));
+                            this.n.setIntValues((int) (this.f55344j - this.f55343i), l.i(getContext()));
                             this.n.setDuration(300L);
                             this.n.start();
                         } else {
                             m(0.0f);
                             this.q = 1.0f;
-                            this.f55409i = 0.0f;
-                            this.f55410j = 0.0f;
+                            this.f55343i = 0.0f;
+                            this.f55344j = 0.0f;
                             requestLayout();
                         }
-                        if (!this.k || (this.f55410j > this.f55409i && isOnViewTop())) {
+                        if (!this.k || (this.f55344j > this.f55343i && isOnViewTop())) {
                             this.k = true;
                             requestLayout();
                             return true;
@@ -248,11 +248,11 @@ public class CommentFloatSusPendedView extends LinearLayout {
                             return super.dispatchTouchEvent(motionEvent);
                         }
                     }
-                    this.f55410j = motionEvent.getRawY();
+                    this.f55344j = motionEvent.getRawY();
                     if (isOnViewTop()) {
-                        this.f55409i = motionEvent.getRawY();
+                        this.f55343i = motionEvent.getRawY();
                     } else {
-                        this.f55409i = 0.0f;
+                        this.f55343i = 0.0f;
                     }
                     z = false;
                     if (this.k) {
@@ -277,7 +277,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c.a.q0.x0.a aVar = this.f55408h;
+            c.a.q0.x0.a aVar = this.f55342h;
             if (aVar == null) {
                 return false;
             }
@@ -319,7 +319,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             if (!this.m) {
                 float f2 = this.q;
-                if (f2 >= 0.0f && this.f55406f != null) {
+                if (f2 >= 0.0f && this.f55340f != null) {
                     canvas.drawColor(Color.argb((int) (f2 * 168.0f), 0, 0, 0), PorterDuff.Mode.SRC);
                 }
             } else {
@@ -350,19 +350,19 @@ public class CommentFloatSusPendedView extends LinearLayout {
             int i6 = this.o;
             if (i6 == 0) {
                 super.onLayout(z, i2, i3, i4, i5);
-                float f2 = this.f55410j;
-                float f3 = this.f55409i;
+                float f2 = this.f55344j;
+                float f3 = this.f55343i;
                 if (f2 <= f3 || !this.k) {
                     return;
                 }
-                LinearLayout linearLayout = this.f55405e;
+                LinearLayout linearLayout = this.f55339e;
                 linearLayout.layout(i2, (int) (f2 - f3), i4, ((int) (f2 - f3)) + linearLayout.getHeight());
-                this.f55407g.layout(i2, ((int) (this.f55410j - this.f55409i)) + this.f55405e.getHeight(), i4, i5);
+                this.f55341g.layout(i2, ((int) (this.f55344j - this.f55343i)) + this.f55339e.getHeight(), i4, i5);
                 return;
             }
-            LinearLayout linearLayout2 = this.f55405e;
+            LinearLayout linearLayout2 = this.f55339e;
             linearLayout2.layout(i2, i6, i4, linearLayout2.getMeasuredHeight() + i6);
-            this.f55407g.layout(i2, this.o + this.f55405e.getMeasuredHeight(), i4, i5);
+            this.f55341g.layout(i2, this.o + this.f55339e.getMeasuredHeight(), i4, i5);
         }
     }
 
@@ -376,14 +376,14 @@ public class CommentFloatSusPendedView extends LinearLayout {
     public void setContentView(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, viewGroup) == null) {
-            this.f55407g = viewGroup;
+            this.f55341g = viewGroup;
         }
     }
 
     public void setContentViewTop(c.a.q0.x0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            this.f55408h = aVar;
+            this.f55342h = aVar;
         }
     }
 
@@ -397,14 +397,14 @@ public class CommentFloatSusPendedView extends LinearLayout {
     public void setNavigationBar(LinearLayout linearLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, linearLayout) == null) {
-            this.f55405e = linearLayout;
+            this.f55339e = linearLayout;
         }
     }
 
     public void setTranView(TranView tranView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, tranView) == null) {
-            this.f55406f = tranView;
+            this.f55340f = tranView;
         }
     }
 

@@ -31,21 +31,21 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LoadingActivity f36406a;
+        public final /* synthetic */ LoadingActivity f36410a;
 
         /* renamed from: com.baidu.adp.plugin.proxy.activity.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1575a implements c {
+        public class C1577a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Plugin f36407a;
+            public final /* synthetic */ Plugin f36411a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f36408b;
+            public final /* synthetic */ a f36412b;
 
-            public C1575a(a aVar, Plugin plugin2) {
+            public C1577a(a aVar, Plugin plugin2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,18 +60,18 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
                         return;
                     }
                 }
-                this.f36408b = aVar;
-                this.f36407a = plugin2;
+                this.f36412b = aVar;
+                this.f36411a = plugin2;
             }
 
             @Override // c.a.e.h.k.c
             public void a(Plugin.c cVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, str) == null) {
-                    Intent intent = new Intent(this.f36408b.f36406a.getIntent());
-                    intent.setComponent(new ComponentName(str, this.f36408b.f36406a.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
-                    this.f36407a.launchIntent(this.f36408b.f36406a.getPageContext().getContext(), intent);
-                    this.f36408b.f36406a.finish();
+                    Intent intent = new Intent(this.f36412b.f36410a.getIntent());
+                    intent.setComponent(new ComponentName(str, this.f36412b.f36410a.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
+                    this.f36411a.launchIntent(this.f36412b.f36410a.getPageContext().getContext(), intent);
+                    this.f36412b.f36410a.finish();
                 }
             }
         }
@@ -91,7 +91,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
                     return;
                 }
             }
-            this.f36406a = loadingActivity;
+            this.f36410a = loadingActivity;
         }
 
         @Override // c.a.e.h.g.b
@@ -101,14 +101,14 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (plugin2 = PluginCenter.getInstance().getPlugin(str)) == null) {
                 return;
             }
-            plugin2.asyncInit(str, new C1575a(this, plugin2));
+            plugin2.asyncInit(str, new C1577a(this, plugin2));
         }
 
         @Override // c.a.e.h.g.b
         public void b(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-                this.f36406a.showToast(PluginCenter.getInstance().getCommonErrorShowText());
+                this.f36410a.showToast(PluginCenter.getInstance().getCommonErrorShowText());
             }
         }
     }

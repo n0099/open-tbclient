@@ -14,25 +14,25 @@ public class FavoritePoiInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41390a;
+    public String f41394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41391b;
+    public String f41395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f41392c;
+    public LatLng f41396c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41393d;
+    public String f41397d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41394e;
+    public String f41398e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41395f;
+    public String f41399f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f41396g;
+    public long f41400g;
 
     public FavoritePoiInfo() {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class FavoritePoiInfo {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f41393d = str;
+            this.f41397d = str;
             return this;
         }
         return (FavoritePoiInfo) invokeL.objValue;
@@ -62,7 +62,7 @@ public class FavoritePoiInfo {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f41394e = str;
+            this.f41398e = str;
             return this;
         }
         return (FavoritePoiInfo) invokeL.objValue;
@@ -71,50 +71,50 @@ public class FavoritePoiInfo {
     public String getAddr() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41393d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41397d : (String) invokeV.objValue;
     }
 
     public String getCityName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41394e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41398e : (String) invokeV.objValue;
     }
 
     public String getID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41390a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41394a : (String) invokeV.objValue;
     }
 
     public String getPoiName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41391b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41395b : (String) invokeV.objValue;
     }
 
     public LatLng getPt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41392c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41396c : (LatLng) invokeV.objValue;
     }
 
     public long getTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f41396g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f41400g : invokeV.longValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41395f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41399f : (String) invokeV.objValue;
     }
 
     public FavoritePoiInfo poiName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            this.f41391b = str;
+            this.f41395b = str;
             return this;
         }
         return (FavoritePoiInfo) invokeL.objValue;
@@ -124,7 +124,7 @@ public class FavoritePoiInfo {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, latLng)) == null) {
-            this.f41392c = latLng;
+            this.f41396c = latLng;
             return this;
         }
         return (FavoritePoiInfo) invokeL.objValue;
@@ -134,7 +134,7 @@ public class FavoritePoiInfo {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.f41395f = str;
+            this.f41399f = str;
             return this;
         }
         return (FavoritePoiInfo) invokeL.objValue;

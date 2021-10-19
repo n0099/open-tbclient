@@ -16,10 +16,10 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<Uri, UpdateP
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.b f69031d;
+    public com.bytedance.sdk.openadsdk.preload.geckox.b f69066d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f69032e;
+    public File f69067e;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<Uri, UpdateP
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) {
             super.a(objArr);
-            this.f69031d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
-            this.f69032e = (File) objArr[1];
+            this.f69066d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
+            this.f69067e = (File) objArr[1];
         }
     }
 
@@ -56,12 +56,12 @@ public class c extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<Uri, UpdateP
             UpdatePackage updatePackage = (UpdatePackage) pair.second;
             String uri = ((Uri) pair.first).toString();
             long length = updatePackage.getPatch().getLength();
-            File file = this.f69032e;
+            File file = this.f69067e;
             File file2 = new File(file, updatePackage.getAccessKey() + File.separator + updatePackage.getChannel() + File.separator + updatePackage.getVersion() + "--updating");
             file2.mkdirs();
-            com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.f69031d.a(), new File(file2, "patch.tmp"), length);
+            com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.f69066d.a(), new File(file2, "patch.tmp"), length);
             try {
-                this.f69031d.h().a(uri, length, new com.bytedance.sdk.openadsdk.preload.geckox.buffer.a.b(a2));
+                this.f69066d.h().a(uri, length, new com.bytedance.sdk.openadsdk.preload.geckox.buffer.a.b(a2));
                 try {
                     return bVar.a((com.bytedance.sdk.openadsdk.preload.b.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>>) new Pair<>(a2, updatePackage));
                 } finally {

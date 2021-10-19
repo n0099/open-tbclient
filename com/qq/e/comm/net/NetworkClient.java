@@ -23,11 +23,11 @@ public interface NetworkClient {
         public static final Priority Mid;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ Priority[] f75708b;
+        public static final /* synthetic */ Priority[] f75743b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f75709a;
+        public int f75744a;
 
         static {
             InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public interface NetworkClient {
             Mid = new Priority("Mid", 1, 2);
             Priority priority = new Priority("Low", 2, 3);
             Low = priority;
-            f75708b = new Priority[]{High, Mid, priority};
+            f75743b = new Priority[]{High, Mid, priority};
         }
 
         public Priority(String str, int i2, int i3) {
@@ -67,7 +67,7 @@ public interface NetworkClient {
                     return;
                 }
             }
-            this.f75709a = i3;
+            this.f75744a = i3;
         }
 
         public static Priority valueOf(String str) {
@@ -79,13 +79,13 @@ public interface NetworkClient {
         public static Priority[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Priority[]) f75708b.clone() : (Priority[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Priority[]) f75743b.clone() : (Priority[]) invokeV.objValue;
         }
 
         public final int value() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75709a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75744a : invokeV.intValue;
         }
     }
 

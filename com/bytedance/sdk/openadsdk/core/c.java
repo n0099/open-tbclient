@@ -15,11 +15,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f66575a;
+    public static volatile c f66610a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SharedPreferences f66576b;
+    public final SharedPreferences f66611b;
 
     static {
         InterceptResult invokeClinit;
@@ -51,21 +51,21 @@ public class c {
                 return;
             }
         }
-        this.f66576b = context.getSharedPreferences("ttopenadsdk", 0);
+        this.f66611b = context.getSharedPreferences("ttopenadsdk", 0);
     }
 
     public static c a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f66575a == null) {
+            if (f66610a == null) {
                 synchronized (c.class) {
-                    if (f66575a == null) {
-                        f66575a = new c(context);
+                    if (f66610a == null) {
+                        f66610a = new c(context);
                     }
                 }
             }
-            return f66575a;
+            return f66610a;
         }
         return (c) invokeL.objValue;
     }
@@ -77,7 +77,7 @@ public class c {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.b("ttopenadsdk", str, str2);
             }
-            return this.f66576b.getString(str, str2);
+            return this.f66611b.getString(str, str2);
         }
         return (String) invokeLL.objValue;
     }
@@ -89,7 +89,7 @@ public class c {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, i2);
             }
-            return this.f66576b.getInt(str, i2);
+            return this.f66611b.getInt(str, i2);
         }
         return invokeLI.intValue;
     }
@@ -100,7 +100,7 @@ public class c {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, str2);
             } else {
-                this.f66576b.edit().putString(str, str2).apply();
+                this.f66611b.edit().putString(str, str2).apply();
             }
         }
     }
@@ -112,7 +112,7 @@ public class c {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, z);
             }
-            return this.f66576b.getBoolean(str, z);
+            return this.f66611b.getBoolean(str, z);
         }
         return invokeLZ.booleanValue;
     }
@@ -123,7 +123,7 @@ public class c {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, Integer.valueOf(i2));
             } else {
-                this.f66576b.edit().putInt(str, i2).apply();
+                this.f66611b.edit().putInt(str, i2).apply();
             }
         }
     }
@@ -136,7 +136,7 @@ public class c {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 j3 = com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, j2);
             } else {
-                j3 = this.f66576b.getLong(str, j2);
+                j3 = this.f66611b.getLong(str, j2);
             }
             return Long.valueOf(j3);
         }
@@ -149,7 +149,7 @@ public class c {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, Boolean.valueOf(z));
             } else {
-                this.f66576b.edit().putBoolean(str, z).apply();
+                this.f66611b.edit().putBoolean(str, z).apply();
             }
         }
     }
@@ -160,7 +160,7 @@ public class c {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, Long.valueOf(j2));
             } else {
-                this.f66576b.edit().putLong(str, j2).apply();
+                this.f66611b.edit().putLong(str, j2).apply();
             }
         }
     }

@@ -14,7 +14,7 @@ public class a implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ float f44328a;
+    public final /* synthetic */ float f44240a;
 
     public a(float f2) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a implements View.OnTouchListener {
                 return;
             }
         }
-        this.f44328a = f2;
+        this.f44240a = f2;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -47,7 +47,7 @@ public class a implements View.OnTouchListener {
                 }
                 return false;
             } else if (Build.VERSION.SDK_INT >= 11) {
-                view.setAlpha(this.f44328a);
+                view.setAlpha(this.f44240a);
                 return false;
             } else {
                 return false;

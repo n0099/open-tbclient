@@ -96,7 +96,7 @@ public class p0 extends h {
                     return;
                 }
                 this.l.setVisibility(0);
-                this.m.setData(aVar.getThreadData().y1.C, 13, aVar.getThreadData().y1.f47524f);
+                this.m.setData(aVar.getThreadData().y1.C, 13, aVar.getThreadData().y1.f47437f);
                 return;
             }
             this.l.setVisibility(8);

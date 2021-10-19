@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.p2.e {
+public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.q2.e {
     public static /* synthetic */ Interceptable $ic;
     public static int A;
     public static int B;
@@ -42,7 +42,7 @@ public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.p2.e {
     public TextView k;
     public c.a.q0.s.q.a l;
     public RoundCornerFrameLayout m;
-    public c.a.r0.p2.q.a n;
+    public c.a.r0.q2.q.a n;
     public String o;
     public String p;
     public BdUniqueId q;
@@ -132,7 +132,7 @@ public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.p2.e {
             }
             Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f3866e.m);
             t0 t0Var = this.f3866e;
-            c.a.q0.d1.x.c(false, t0Var.f3783f, t0Var.l.getThreadData(), 0, computeViewArea, "from_nani_video", "personalize_page", "", this.f3866e.o, this.f3866e.o, this.f3866e.l.getThreadData().n);
+            c.a.q0.d1.w.c(false, t0Var.f3783f, t0Var.l.getThreadData(), 0, computeViewArea, "from_nani_video", "personalize_page", "", this.f3866e.o, this.f3866e.o, this.f3866e.l.getThreadData().n);
         }
     }
 
@@ -243,24 +243,24 @@ public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.p2.e {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
                 if (c0095a.b() == 1) {
                     t0 t0Var = this.f3869a;
-                    c.a.r0.a0.m.l(t0Var.k, t0Var.l.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.b0.m.l(t0Var.k, t0Var.l.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return false;
                 } else if (c0095a.b() == 2) {
-                    c.a.r0.p2.q.a aVar = this.f3869a.n;
+                    c.a.r0.q2.q.a aVar = this.f3869a.n;
                     if (aVar != null) {
                         aVar.H();
                         return false;
                     }
                     return false;
                 } else if (c0095a.b() == 3) {
-                    c.a.r0.p2.q.a aVar2 = this.f3869a.n;
+                    c.a.r0.q2.q.a aVar2 = this.f3869a.n;
                     if (aVar2 != null) {
                         aVar2.F();
                         return false;
                     }
                     return false;
                 } else if (c0095a.b() == 6) {
-                    c.a.r0.p2.q.a aVar3 = this.f3869a.n;
+                    c.a.r0.q2.q.a aVar3 = this.f3869a.n;
                     if (aVar3 != null) {
                         return aVar3.C();
                     }
@@ -343,7 +343,7 @@ public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.p2.e {
                 }
                 this.k = (TextView) this.f3863j.findViewById(R.id.video_seg_title);
                 this.m = (RoundCornerFrameLayout) this.f3863j.findViewById(R.id.frame_video);
-                c.a.r0.p2.q.a p = p();
+                c.a.r0.q2.q.a p = p();
                 this.n = p;
                 p.setUniqueId(this.q);
                 this.n.setFrom(this.o);
@@ -367,14 +367,14 @@ public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.p2.e {
         }
     }
 
-    @Override // c.a.r0.p2.e
+    @Override // c.a.r0.q2.e
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.n.getCurrentPosition() : invokeV.intValue;
     }
 
-    @Override // c.a.r0.p2.e
+    @Override // c.a.r0.q2.e
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -388,19 +388,19 @@ public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.p2.e {
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.p2.e
+    @Override // c.a.r0.q2.e
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m : (View) invokeV.objValue;
     }
 
-    @Override // c.a.r0.p2.e
+    @Override // c.a.r0.q2.e
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c.a.r0.p2.q.a aVar = this.n;
+            c.a.r0.q2.q.a aVar = this.n;
             if (aVar == null) {
                 return false;
             }
@@ -409,24 +409,24 @@ public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.p2.e {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.p2.e
+    @Override // c.a.r0.q2.e
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.n.isPlaying() : invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.p2.e
+    @Override // c.a.r0.q2.e
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.n.isPlaying() : invokeV.booleanValue;
     }
 
-    public c.a.r0.p2.q.a o() {
+    public c.a.r0.q2.q.a o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.n : (c.a.r0.p2.q.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.n : (c.a.r0.q2.q.a) invokeV.objValue;
     }
 
     @Override // c.a.l.q
@@ -436,12 +436,12 @@ public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.p2.e {
         if (!(interceptable == null || interceptable.invokeLI(1048586, this, tbPageContext, i2) == null) || (aVar = this.l) == null || aVar.getThreadData() == null) {
             return;
         }
-        c.a.r0.a0.m.l(this.k, this.l.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        c.a.r0.b0.m.l(this.k, this.l.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.m.onChangeSkinType(i2);
         this.m.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }
 
-    public abstract c.a.r0.p2.q.a p();
+    public abstract c.a.r0.q2.q.a p();
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Code restructure failed: missing block: B:30:0x00b5, code lost:
@@ -554,7 +554,7 @@ public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.p2.e {
         }
     }
 
-    @Override // c.a.r0.p2.e
+    @Override // c.a.r0.q2.e
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -565,7 +565,7 @@ public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.p2.e {
         }
     }
 
-    @Override // c.a.r0.p2.e
+    @Override // c.a.r0.q2.e
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
@@ -577,7 +577,7 @@ public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.p2.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             this.o = str;
-            c.a.r0.p2.q.a aVar = this.n;
+            c.a.r0.q2.q.a aVar = this.n;
             if (aVar != null) {
                 aVar.setFrom(str);
             }
@@ -609,15 +609,15 @@ public abstract class t0 extends c.a.l.a<c.a.q0.s.q.a> implements c.a.r0.p2.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
             this.p = str;
-            c.a.r0.p2.q.a aVar = this.n;
+            c.a.r0.q2.q.a aVar = this.n;
             if (aVar != null) {
                 aVar.setStageType(str);
             }
         }
     }
 
-    public void y(c.a.r0.p2.o oVar) {
-        c.a.r0.p2.q.a aVar;
+    public void y(c.a.r0.q2.o oVar) {
+        c.a.r0.q2.q.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048598, this, oVar) == null) || (aVar = this.n) == null) {
             return;

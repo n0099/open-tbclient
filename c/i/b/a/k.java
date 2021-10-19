@@ -12,10 +12,10 @@ public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashSet<String> f33943a;
+    public static final HashSet<String> f33947a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f33944b;
+    public static String f33948b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,16 +31,16 @@ public final class k {
                 return;
             }
         }
-        f33943a = new HashSet<>();
-        f33944b = "goog.exo.core";
+        f33947a = new HashSet<>();
+        f33948b = "goog.exo.core";
     }
 
     public static synchronized void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
             synchronized (k.class) {
-                if (f33943a.add(str)) {
-                    f33944b += StringUtil.ARRAY_ELEMENT_SEPARATOR + str;
+                if (f33947a.add(str)) {
+                    f33948b += StringUtil.ARRAY_ELEMENT_SEPARATOR + str;
                 }
             }
         }
@@ -52,7 +52,7 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (k.class) {
-                str = f33944b;
+                str = f33948b;
             }
             return str;
         }

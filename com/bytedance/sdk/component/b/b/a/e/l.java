@@ -12,13 +12,13 @@ public final class l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final CountDownLatch f65072a;
+    public final CountDownLatch f65107a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f65073b;
+    public long f65108b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f65074c;
+    public long f65109c;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -33,16 +33,16 @@ public final class l {
                 return;
             }
         }
-        this.f65072a = new CountDownLatch(1);
-        this.f65073b = -1L;
-        this.f65074c = -1L;
+        this.f65107a = new CountDownLatch(1);
+        this.f65108b = -1L;
+        this.f65109c = -1L;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f65073b == -1) {
-                this.f65073b = System.nanoTime();
+            if (this.f65108b == -1) {
+                this.f65108b = System.nanoTime();
                 return;
             }
             throw new IllegalStateException();
@@ -52,9 +52,9 @@ public final class l {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f65074c == -1 && this.f65073b != -1) {
-                this.f65074c = System.nanoTime();
-                this.f65072a.countDown();
+            if (this.f65109c == -1 && this.f65108b != -1) {
+                this.f65109c = System.nanoTime();
+                this.f65107a.countDown();
                 return;
             }
             throw new IllegalStateException();
@@ -64,11 +64,11 @@ public final class l {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f65074c == -1) {
-                long j2 = this.f65073b;
+            if (this.f65109c == -1) {
+                long j2 = this.f65108b;
                 if (j2 != -1) {
-                    this.f65074c = j2 - 1;
-                    this.f65072a.countDown();
+                    this.f65109c = j2 - 1;
+                    this.f65107a.countDown();
                     return;
                 }
             }

@@ -18,7 +18,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final TimeZone f68668a;
+    public static final TimeZone f68703a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class a {
                 return;
             }
         }
-        f68668a = TimeZone.getTimeZone("UTC");
+        f68703a = TimeZone.getTimeZone("UTC");
     }
 
     /* JADX WARN: Removed duplicated region for block: B:51:0x00d3 A[Catch: IllegalArgumentException -> 0x01c0, NumberFormatException -> 0x01c2, IndexOutOfBoundsException | NumberFormatException | IllegalArgumentException -> 0x01c4, TryCatch #2 {IndexOutOfBoundsException | NumberFormatException | IllegalArgumentException -> 0x01c4, blocks: (B:5:0x0008, B:7:0x001a, B:8:0x001c, B:10:0x0028, B:11:0x002a, B:13:0x0039, B:15:0x003f, B:19:0x0054, B:21:0x0064, B:22:0x0066, B:24:0x0072, B:25:0x0074, B:27:0x007a, B:31:0x0084, B:36:0x0094, B:38:0x009c, B:49:0x00cd, B:51:0x00d3, B:53:0x00da, B:77:0x0187, B:57:0x00e4, B:58:0x00ff, B:59:0x0100, B:63:0x011c, B:65:0x0129, B:68:0x0132, B:70:0x0151, B:73:0x0160, B:74:0x0182, B:76:0x0185, B:62:0x010b, B:79:0x01b8, B:80:0x01bf, B:42:0x00b4, B:43:0x00b7), top: B:100:0x0008 }] */
@@ -118,7 +118,7 @@ public class a {
                     if (str.length() <= i8) {
                         char charAt2 = str.charAt(i8);
                         if (charAt2 == 'Z') {
-                            timeZone = f68668a;
+                            timeZone = f68703a;
                             length = i8 + 1;
                         } else {
                             if (charAt2 != '+' && charAt2 != '-') {
@@ -138,7 +138,7 @@ public class a {
                                 }
                                 timeZone = timeZone2;
                             }
-                            timeZone = f68668a;
+                            timeZone = f68703a;
                         }
                         GregorianCalendar gregorianCalendar2 = new GregorianCalendar(timeZone);
                         gregorianCalendar2.setLenient(false);
